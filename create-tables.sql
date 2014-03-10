@@ -19,3 +19,15 @@ CREATE TABLE `contributions` (
     KEY `date_of_receipt` (`date_of_receipt`),
     KEY `election_year` (`election_year`)
 );
+
+CREATE TABLE `committees` (
+    `year` year(4) NOT NULL,
+    `committee` varchar(255) NOT NULL,
+    `candidate` varchar(255) NOT NULL,
+    `office` varchar(255) NOT NULL,
+    `party` varchar(255) NOT NULL,
+    `filing_date` date NOT NULL,
+    `url` varchar(255) NOT NULL,
+    `incumbent` tinyint(1) unsigned NOT NULL,
+    KEY `committee` (`committee`)
+);

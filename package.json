@@ -1,0 +1,29 @@
+{
+  "name": "dc-ocf",
+  "version": "0.0.0",
+  "description": "analyzing data from the District of Columbia Office of Campaign Finance",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/kcivey/dc-ocf"
+  },
+  "author": "Keith C. Ivey <keith@iveys.org>",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/kcivey/dc-ocf/issues"
+  },
+  "dependencies": {
+    "request": "~2.34.0",
+    "underscore": "~1.6.0",
+    "cheerio": "~0.13.1",
+    "mysql": "~2.1.0",
+    "csv": "~0.3.7",
+    "async": "~0.2.10",
+    "moment": "~2.5.1",
+    "nconf": "~0.6.9"
+  }
+}

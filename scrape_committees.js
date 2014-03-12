@@ -4,6 +4,9 @@ var URL = require('url'),
     async = require('async'),
     cheerio = require('cheerio'),
     moment = require('moment'),
+    mysql = require('mysql'),
+    config = require('./config'),
+    db = mysql.createConnection(config.database),
     columnMap = {
         // 'Name of the Candidate': 'candidate',
         'Filing Date': 'filing_date',
@@ -13,22 +16,43 @@ var URL = require('url'),
     },
     columns = 'year committee candidate office party organization_date url'.split(' '),
     baseUrl = 'http://ocf.dc.gov/registration_statements/pcc/pcc_searchresult.asp?ftype=PCC',
-    grandTotal = 0,
-    queue = async.queue(processPage);
+    queue = async.queue(process),
+    maxYear = +moment().format('YYYY') + 2,
+    recordsFound = 0;
+
+db.connect(function (err) {
+    if (err) {
+        throw err;
+    }
+});
+
+queue.push({year: 2014, page: 1});
+
+function process(task, callback) {
+    if (task.page) {
+        processPage(task, callback);
+    }
+    else {
+        insertRecord(task, callback);
+    }
+}
 
 function processPage(task, callback) {
     var year = task.year,
         page = task.page,
         url = baseUrl + '&ele_year=' + year + '&whichpage=' + page,
-        recordsFound = 0,
         numPages, totalRecords;
-    console.log(url);
+    console.log('getting', url);
     request(url, function (err, response, body) {
         var m, $;
         if (err) {
             throw err;
         }
-        if (m = body.match(/Page (\d+) of (\d+)(?:&nbsp;)+Total Records : (\d+)/)) {
+        if (body.match(/Your\s+search returned no results\./)) {
+            console.log("  no records\n");
+            numPages = totalRecords = 0;
+        }
+        else if (m = body.match(/Page (\d+) of (\d+)(?:&nbsp;)+Total Records : (\d+)/)) {
             if (numPages) {
                 if (+m[1] !== page || +m[2] !== numPages || +m[3] !== totalRecords) {
                     throw 'Unexpected numbers (' + m[1] + ', ' + m[2] + ', ' + m[3] + ') for ' + url;
@@ -39,74 +63,82 @@ function processPage(task, callback) {
                 totalRecords = m[3];
                 console.log('%d pages, %d records', numPages, totalRecords);
             }
-        }
-        else if (body.match(/Your\s+search returned no results\./)) {
-            console.log("  no records\n");
-            numPages = totalRecords = 0;
-            callback();
-            return;
+            $ = cheerio.load(body);
+            $('form[name=pcc_searchresult] table').children('[bgcolor]').each(function () {
+                var $row = $(this),
+                    r = {year: year},
+                    $cells = $row.children();
+                r.candidate = trim($cells.eq(0).text());
+                r.committee = trim($cells.eq(1).text());
+                r.url = URL.resolve(baseUrl, $cells.eq(0).find('a').attr('href'));
+                recordsFound++;
+                if (r.committee == 'N/A') {
+                    r.committee = '[' + r.candidate.replace(/^([^,]+), ([^,]+)/, '$2 $1') + ' ' + year + ']';
+                }
+                console.log('getting', r.url);
+                request(r.url, function (err, response, body) {
+                    var $ = cheerio.load(body);
+                    if (err) {
+                        throw err;
+                    }
+                    $('tr').each(function () {
+                        var subcells = $(this).find('td'),
+                            label, value, column;
+                        if (subcells.length != 2 ||
+                            subcells.eq(0).attr('width') != '25%' ||
+                            subcells.eq(1).attr('width') != '75%') {
+                            return;
+                        }
+                        label = trim(subcells.eq(0).text());
+                        value = trim(subcells.eq(1).text());
+                        column = columnMap[label];
+                        if (!column) {
+                            return;
+                        }
+                        if (/_date$/.test(column)) {
+                            value = moment(value).format('YYYY-MM-DD');
+                        }
+                        r[column] = value;
+                    });
+                    console.log('queuing', r);
+                    queue.push(r, function (err) {
+                        if (err) {
+                            throw err;
+                        }
+                    });
+                });
+            });
         }
         else {
             throw 'Unexpected first page for ' + url + '\n' + body;
         }
-        $ = cheerio.load(body);
-        $('form[name=pcc_searchresult] table').children().each(function () {
-            var $row = $(this),
-                r = {year: year},
-                cells;
-            if (!$row.attr('bgcolor')) {
-                return;
-            }
-            cells = $row.children();
-            r.candidate = trim(cells.eq(0).text());
-            r.committee = trim(cells.eq(1).text());
-            r.url = URL.resolve(baseUrl, cells.eq(0).find('a').attr('href'));
-            recordsFound++;
-            if (r.committee == 'N/A') {
-                return;
-            }
-            request(r.url, function (err, response, body) {
-                var $ = cheerio.load(body);
-                if (err) {
-                    throw err;
-                }
-                $('tr').each(function () {
-                    var subcells = $(this).find('td'),
-                        label, value, column;
-                    if (subcells.length != 2 ||
-                        subcells.eq(0).attr('width') != '25%' ||
-                        subcells.eq(1).attr('width') != '75%') {
-                        return;
-                    }
-                    label = trim(subcells.eq(0).text());
-                    value = trim(subcells.eq(1).text());
-                    column = columnMap[label];
-                    if (!column) {
-                        return;
-                    }
-                    if (/_date$/.test(column)) {
-                        value = moment(value).format('YYYY-MM-DD');
-                    }
-                    r[column] = value;
-                });
-                console.log('r', r);
-            });
-        });
         if (page < numPages) {
             page++;
         }
         else {
+            if (recordsFound != totalRecords) {
+                throw recordsFound + ' of total ' + totalRecords + ' records found';
+            }
+            recordsFound = 0;
             page = 1;
             year++;
         }
-        if (year < 2015) {
+        if (year <= maxYear) {
             queue.push({year: year, page: page});
         }
         callback();
     });
 }
 
-queue.push({year: 2014, page: 1});
+function finish() {
+    console.log('all records inserted');
+    db.end(function (err) {
+        if (err) {
+            throw err;
+        }
+        console.log('db connection closed');
+    });
+}
 
 /*
 for my $year (2000 .. 2012) {
@@ -187,4 +219,9 @@ function trim(s) {
     }
     return s.replace(/\s+/g, ' ')
         .replace(/^ | $/g, '');
+}
+
+function insertRecord(row, callback) {
+    console.log('inserting', row);
+    db.query('INSERT INTO committees SET ?', [row], callback);
 }

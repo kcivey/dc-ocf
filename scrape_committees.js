@@ -18,6 +18,8 @@ var URL = require('url'),
     baseUrl = 'http://ocf.dc.gov/registration_statements/pcc/pcc_searchresult.asp?ftype=PCC',
     queue = async.queue(process),
     maxYear = +moment().format('YYYY') + 2,
+    grandTotal = 0,
+    recordsInserted = 0,
     recordsFound = 0;
 
 db.connect(function (err) {
@@ -59,9 +61,12 @@ function processPage(task, callback) {
                 }
             }
             else {
-                numPages = m[2];
-                totalRecords = m[3];
+                numPages = +m[2];
+                totalRecords = +m[3];
                 console.log('%d pages, %d records', numPages, totalRecords);
+            }
+            if (page == 1) {
+                grandTotal += totalRecords;
             }
             $ = cheerio.load(body);
             $('form[name=pcc_searchresult] table').children('[bgcolor]').each(function () {
@@ -223,5 +228,13 @@ function trim(s) {
 
 function insertRecord(row, callback) {
     console.log('inserting', row);
-    db.query('INSERT INTO committees SET ?', [row], callback);
+    db.query('INSERT INTO committees SET ?', [row], function (err) {
+        if (!err) {
+            recordsInserted++;
+            if (recordsInserted == grandTotal) {
+                queue.drain = finish;
+            }
+        }
+        callback(err);
+    });
 }

@@ -3,7 +3,7 @@
     "host": "",
     "socketPath": "",
     "database": "ocf",
-    "user": "",
+    "user": "ocf",
     "password": ""
   }
 }

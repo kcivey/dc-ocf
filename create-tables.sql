@@ -21,6 +21,7 @@ CREATE TABLE `contributions` (
 );
 
 CREATE TABLE `committees` (
+    `id` int(10) unsigned NOT NULL,
     `year` year(4) NOT NULL,
     `committee` varchar(255) NOT NULL,
     `candidate` varchar(255) NOT NULL,

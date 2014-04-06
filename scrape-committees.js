@@ -72,10 +72,14 @@ function processPage(task, callback) {
             $('form[name=pcc_searchresult] table').children('[bgcolor]').each(function () {
                 var $row = $(this),
                     r = {year: year},
-                    $cells = $row.children();
+                    $cells = $row.children(),
+                    m;
                 r.candidate = trim($cells.eq(0).text());
                 r.committee = trim($cells.eq(1).text());
                 r.url = URL.resolve(baseUrl, $cells.eq(0).find('a').attr('href'));
+                if (m = r.url.match(/sys_cancom_id=(\d+)/)) {
+                    r.id = +m[1];
+                }
                 recordsFound++;
                 if (r.committee == 'N/A') {
                     r.committee = '[' + r.candidate.replace(/^([^,]+), ([^,]+)/, '$2 $1') + ' ' + year + ']';

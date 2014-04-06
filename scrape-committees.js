@@ -232,7 +232,7 @@ function trim(s) {
 
 function insertRecord(row, callback) {
     console.log('inserting', row);
-    db.query('INSERT INTO committees SET ?', [row], function (err) {
+    db.query('REPLACE INTO committees SET ?', [row], function (err) {
         if (!err) {
             recordsInserted++;
             if (recordsInserted == grandTotal) {

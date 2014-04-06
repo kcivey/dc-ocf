@@ -30,5 +30,6 @@ CREATE TABLE `committees` (
     `filing_date` date NOT NULL,
     `url` varchar(255) NOT NULL,
     `incumbent` tinyint(1) unsigned NOT NULL,
+    UNIQUE KEY (`id`),
     KEY `committee` (`committee`)
 );

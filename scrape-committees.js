@@ -101,7 +101,7 @@ function processPage(task, callback) {
                         label = trim(subcells.eq(0).text());
                         value = trim(subcells.eq(1).text());
                         column = columnMap[label];
-                        if (!column) {
+                        if (!column || !value) {
                             return;
                         }
                         if (/_date$/.test(column)) {

@@ -11,7 +11,6 @@ var fs = require('fs'),
         }
     }),
     csvOptions = {columns: true},
-    config = require('./config'),
     currentCommittees = {},
     batchSize = 10;
 

@@ -17,8 +17,6 @@
     "url": "https://github.com/kcivey/dc-ocf/issues"
   },
   "dependencies": {
-    "async": "^2.1.4",
-    "cheerio": "^0.22.0",
     "csv": "^2.0.0",
     "knex": "^0.14.2",
     "moment": "^2.17.1",

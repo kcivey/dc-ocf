@@ -1,9 +1,0 @@
-{
-  "database": {
-    "host": "",
-    "socketPath": "",
-    "database": "ocf",
-    "user": "ocf",
-    "password": ""
-  }
-}

@@ -4,48 +4,49 @@ var fs = require('fs'),
     parse = require('csv-parse'),
     _ = require('underscore'),
     moment = require('moment'),
+    dbFile = __dirname +  '/dc-ocf.sqlite',
     knex = require('knex')({
         client: 'sqlite3',
         connection: {
-            filename: __dirname +  '/dc-ocf.sqlite'
+            filename: dbFile
         }
     }),
     csvOptions = {columns: true},
     currentCommittees = {},
-    batchSize = 10;
+    batchSize = 10,
+    tableName = 'contributions';
 
-knex.schema.createTable(
-    'contributions',
-    function (table) {
-        var columnNames = [
-                'committee_name',
-                'contributor_name',
-                'contributor_address',
-                'contributor_type',
-                'contribution_type',
-                'employer_name',
-                'employer_address',
-                'occupation',
-                'receipt_date',
-                'amount'
-            ];
-        table.increments();
-        columnNames.forEach(function (columnName) {
-            if (/date/.test(columnName)) {
-                table.date(columnName);
-            }
-            else if (/amount|total/.test(columnName)) {
-                table.float(columnName);
-            }
-            else {
-                table.string(columnName);
-            }
-        });
-    }
-)
-.then(function () {
-    readCommittees();
-});
+knex.schema.dropTableIfExists(tableName)
+    .createTable(
+        tableName,
+        function (table) {
+            var columnNames = [
+                    'committee_name',
+                    'contributor_name',
+                    'contributor_address',
+                    'contributor_type',
+                    'contribution_type',
+                    'employer_name',
+                    'employer_address',
+                    'occupation',
+                    'receipt_date',
+                    'amount'
+                ];
+            table.increments();
+            columnNames.forEach(function (columnName) {
+                if (/date/.test(columnName)) {
+                    table.date(columnName);
+                }
+                else if (/amount|total/.test(columnName)) {
+                    table.float(columnName);
+                }
+                else {
+                    table.string(columnName);
+                }
+            });
+        }
+    )
+    .then(readCommittees);
 
 function readCommittees() {
     var parser = parse(csvOptions),
@@ -70,8 +71,7 @@ function readCommittees() {
 }
 
 function readContributions() {
-    var tableName = 'contributions',
-        parser = parse(csvOptions),
+    var parser = parse(csvOptions),
         input = fs.createReadStream(__dirname + '/' + tableName + '.csv'),
         seen = {},
         unrecognized = [],
@@ -149,7 +149,7 @@ function trim(s) {
 }
 
 function batchInsert(batch) {
-    knex.batchInsert('contributions', batch, batchSize)
+    knex.batchInsert(tableName, batch, batchSize)
         .returning('id')
         .then(function () {});
 }

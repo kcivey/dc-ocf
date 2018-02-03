@@ -98,23 +98,27 @@ function readContributions() {
         unrecognized = [],
         totalCount = 0,
         currentCount = 0,
-        batch = [];
+        batch = [],
+        abbrev = {
+            STREET: 'ST',
+            ROAD: 'RD',
+            DRIVE: 'DR',
+            AVENUE: 'AVE',
+            COURT: 'CT',
+            LANE: 'LN',
+            TERRACE: 'TER',
+            CIRCLE: 'CIR',
+            BOULEVARD: 'BLVD',
+            HIGHWAY: 'HWY',
+            PLACE: 'PL'
+        },
+        abbrevRegexp = new RegExp('\\b(' + Object.keys(abbrev).join('|') + ')\\b');
     parser.on('readable', function () {
         var record;
         while (record = parser.read()) {
             var name;
             totalCount++;
             record = transformRecord(record);
-            record.contributor_name = record.contributor_name
-                .replace(/\s*,\s*/g, ' ')
-                .replace(/\./g, '')
-                .toUpperCase();
-            record.contributor_address = record.contributor_address
-                .replace(/\s*,\s*/g, ', ')
-                .replace(/\./g, '')
-                .replace(/,?\s*([NS][EW],)/, ' $1')
-                .replace(/( \d{5})-?\d{4}$/, '$1') // remove last 4 from 9-digit zip
-                .toUpperCase();
             name = record.committee_name;
             if (!seen[name]) {
                 seen[name] = true;
@@ -126,6 +130,24 @@ function readContributions() {
             if (!currentCommittees[name]) {
                 continue;
             }
+            record.contributor_name = record.contributor_name
+                .replace(/[ ,]*,[ ,]*/g, ' ')
+                .replace(/\./g, '')
+                .replace(/[\- ]*\-[\- ]*/g, ' ')
+                .toUpperCase();
+            record.contributor_address = record.contributor_address
+                .toUpperCase()
+                .replace(/[ ,]*,[ ,]*/g, ' ')
+                .replace(/\./g, '')
+                .replace(/'/g, '')
+                .replace(/,?\s*([NS][EW],)/, ' $1')
+                .replace(/ \d{5}(?:-?\d{4})?$/, '') // remove zip
+                .replace(/[\- ]*\-[\- ]*/g, ' ')
+                .replace(/\b(SUITE|STE|APT) /, '#')
+                .replace(/# /, '#')
+                .replace(abbrevRegexp, function (m, p1) {
+                    return abbrev[p1];
+                });
             batch.push(record);
             if (batch.length >= batchSize) {
                 batchInsert(batch);

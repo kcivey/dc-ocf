@@ -105,6 +105,15 @@ function readContributions() {
             var name;
             totalCount++;
             record = transformRecord(record);
+            record.contributor_name = record.contributor_name
+                .replace(/( [A-Z]) /g, '$1. ')
+                .replace(/\s*,\s*/g, ' ')
+                .replace(/ (Inc|Jr|Sr)$/, ' $1.')
+                .toUpperCase();
+            record.contributor_address = record.contributor_address
+                .replace(/\s*,\s*/g, ', ')
+                .replace(/( \d{5})-?\d{4}$/, '$1') // remove last 4 from 9-digit zip
+                .toUpperCase();
             name = record.committee_name;
             if (!seen[name]) {
                 seen[name] = true;

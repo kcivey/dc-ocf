@@ -106,12 +106,13 @@ function readContributions() {
             totalCount++;
             record = transformRecord(record);
             record.contributor_name = record.contributor_name
-                .replace(/( [A-Z]) /g, '$1. ')
                 .replace(/\s*,\s*/g, ' ')
-                .replace(/ (Inc|Jr|Sr)$/, ' $1.')
+                .replace(/\./, '')
                 .toUpperCase();
             record.contributor_address = record.contributor_address
                 .replace(/\s*,\s*/g, ', ')
+                .replace(/\./, '')
+                .replace(/,?\s*([NS][EW],)/, ' $1')
                 .replace(/( \d{5})-?\d{4}$/, '$1') // remove last 4 from 9-digit zip
                 .toUpperCase();
             name = record.committee_name;

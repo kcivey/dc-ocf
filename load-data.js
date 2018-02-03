@@ -4,20 +4,14 @@ var fs = require('fs'),
     parse = require('csv-parse'),
     _ = require('underscore'),
     moment = require('moment'),
-    dbFile = __dirname +  '/dc-ocf.sqlite',
-    knex = require('knex')({
-        client: 'sqlite3',
-        connection: {
-            filename: dbFile
-        }
-    }),
+    db = require('./db'),
     csvOptions = {columns: true},
     currentCommittees = {},
     batchSize = 10,
     committeeTableName = 'committees',
     contributionTableName = 'contributions';
 
-knex.schema.dropTableIfExists(contributionTableName)
+db.schema.dropTableIfExists(contributionTableName)
     .dropTableIfExists(committeeTableName)
     .createTable(
         committeeTableName,
@@ -90,7 +84,7 @@ function readCommittees() {
     parser.on('finish', function () {
         console.log('Finished reading committees');
         console.log(Object.keys(currentCommittees).sort());
-        knex.batchInsert(committeeTableName, records, batchSize)
+        db.batchInsert(committeeTableName, records, batchSize)
             .returning('id')
             .then(readContributions);
     });
@@ -176,7 +170,7 @@ function trim(s) {
 }
 
 function batchInsert(batch) {
-    knex.batchInsert(contributionTableName, batch, batchSize)
+    db.batchInsert(contributionTableName, batch, batchSize)
         .returning('id')
         .then(function () {});
 }

@@ -107,11 +107,11 @@ function readContributions() {
             record = transformRecord(record);
             record.contributor_name = record.contributor_name
                 .replace(/\s*,\s*/g, ' ')
-                .replace(/\./, '')
+                .replace(/\./g, '')
                 .toUpperCase();
             record.contributor_address = record.contributor_address
                 .replace(/\s*,\s*/g, ', ')
-                .replace(/\./, '')
+                .replace(/\./g, '')
                 .replace(/,?\s*([NS][EW],)/, ' $1')
                 .replace(/( \d{5})-?\d{4}$/, '$1') // remove last 4 from 9-digit zip
                 .toUpperCase();

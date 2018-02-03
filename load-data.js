@@ -14,11 +14,34 @@ var fs = require('fs'),
     csvOptions = {columns: true},
     currentCommittees = {},
     batchSize = 10,
-    tableName = 'contributions';
+    committeeTableName = 'committees',
+    contributionTableName = 'contributions';
 
-knex.schema.dropTableIfExists(tableName)
+knex.schema.dropTableIfExists(contributionTableName)
+    .dropTableIfExists(committeeTableName)
     .createTable(
-        tableName,
+        committeeTableName,
+        function (table) {
+            var columnNames = [
+                'committee_name',
+                'candidate_name',
+                'election_year',
+                'status',
+                'office'
+            ];
+            table.increments();
+            columnNames.forEach(function (columnName) {
+                if (/year/.test(columnName)) {
+                    table.integer(columnName);
+                }
+                else {
+                    table.string(columnName);
+                }
+            });
+        }
+    )
+    .createTable(
+        contributionTableName,
         function (table) {
             var columnNames = [
                     'committee_name',
@@ -50,12 +73,14 @@ knex.schema.dropTableIfExists(tableName)
 
 function readCommittees() {
     var parser = parse(csvOptions),
-        input = fs.createReadStream(__dirname + '/committees.csv');
+        input = fs.createReadStream(__dirname + '/' + committeeTableName + '.csv'),
+        records = [];
     parser.on('readable', function () {
         var record;
         while(record = parser.read()) {
             record = transformRecord(record);
             currentCommittees[record.committee_name] = true;
+            records.push(record);
         }
     });
     parser.on('error', function (err) {
@@ -65,14 +90,16 @@ function readCommittees() {
     parser.on('finish', function () {
         console.log('Finished reading committees');
         console.log(Object.keys(currentCommittees).sort());
-        readContributions();
+        knex.batchInsert(committeeTableName, records, batchSize)
+            .returning('id')
+            .then(readContributions);
     });
     input.pipe(parser);
 }
 
 function readContributions() {
     var parser = parse(csvOptions),
-        input = fs.createReadStream(__dirname + '/' + tableName + '.csv'),
+        input = fs.createReadStream(__dirname + '/' + contributionTableName + '.csv'),
         seen = {},
         unrecognized = [],
         totalCount = 0,
@@ -149,7 +176,7 @@ function trim(s) {
 }
 
 function batchInsert(batch) {
-    knex.batchInsert(tableName, batch, batchSize)
+    knex.batchInsert(contributionTableName, batch, batchSize)
         .returning('id')
         .then(function () {});
 }

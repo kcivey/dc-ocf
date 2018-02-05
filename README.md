@@ -28,3 +28,12 @@ encoding and delete the first line (a title that comes before the
 header line), run
 
     iconv -f UTF-16 -t UTF-8 RegistrantDisclosureSearchResult.csv | tail -n +2 > committees.csv
+
+Download expenditures
+=====================
+
+Do the same as in "Download contributions", but select "Expenditures" instead of
+"Contributions".  Move the downloaded file to expenditures-raw.csv in this
+directory, and run
+
+    iconv -f UTF-16 -t UTF-8 expenditures-raw.csv | tail -n +2 > expenditures.csv

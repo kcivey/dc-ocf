@@ -9,9 +9,25 @@ var fs = require('fs'),
     currentCommittees = {},
     batchSize = 10,
     committeeTableName = 'committees',
-    contributionTableName = 'contributions';
+    contributionTableName = 'contributions',
+    expenditureTableName = 'expenditures',
+    abbrev = {
+        STREET: 'ST',
+        ROAD: 'RD',
+        DRIVE: 'DR',
+        AVENUE: 'AVE',
+        COURT: 'CT',
+        LANE: 'LN',
+        TERRACE: 'TER',
+        CIRCLE: 'CIR',
+        BOULEVARD: 'BLVD',
+        HIGHWAY: 'HWY',
+        PLACE: 'PL'
+    },
+    abbrevRegexp = new RegExp('\\b(' + Object.keys(abbrev).join('|') + ')\\b');
 
 db.schema.dropTableIfExists(contributionTableName)
+    .dropTableIfExists(expenditureTableName)
     .dropTableIfExists(committeeTableName)
     .createTable(
         committeeTableName,
@@ -63,6 +79,31 @@ db.schema.dropTableIfExists(contributionTableName)
             });
         }
     )
+    .createTable(
+        expenditureTableName,
+        function (table) {
+            var columnNames = [
+                'committee_name',
+                'payee_name',
+                'payee_address',
+                'purpose_of_expenditure',
+                'payment_date',
+                'amount'
+            ];
+            table.increments();
+            columnNames.forEach(function (columnName) {
+                if (/date/.test(columnName)) {
+                    table.date(columnName);
+                }
+                else if (/amount|total/.test(columnName)) {
+                    table.float(columnName);
+                }
+                else {
+                    table.string(columnName);
+                }
+            });
+        }
+    )
     .then(readCommittees);
 
 function readCommittees() {
@@ -98,21 +139,7 @@ function readContributions() {
         unrecognized = [],
         totalCount = 0,
         currentCount = 0,
-        batch = [],
-        abbrev = {
-            STREET: 'ST',
-            ROAD: 'RD',
-            DRIVE: 'DR',
-            AVENUE: 'AVE',
-            COURT: 'CT',
-            LANE: 'LN',
-            TERRACE: 'TER',
-            CIRCLE: 'CIR',
-            BOULEVARD: 'BLVD',
-            HIGHWAY: 'HWY',
-            PLACE: 'PL'
-        },
-        abbrevRegexp = new RegExp('\\b(' + Object.keys(abbrev).join('|') + ')\\b');
+        batch = [];
     parser.on('readable', function () {
         var record;
         while (record = parser.read()) {
@@ -130,27 +157,11 @@ function readContributions() {
             if (!currentCommittees[name]) {
                 continue;
             }
-            record.contributor_name = record.contributor_name
-                .replace(/[ ,]*,[ ,]*/g, ' ')
-                .replace(/\./g, '')
-                .replace(/[\- ]*\-[\- ]*/g, ' ')
-                .toUpperCase();
-            record.contributor_address = record.contributor_address
-                .toUpperCase()
-                .replace(/[ ,]*,[ ,]*/g, ' ')
-                .replace(/\./g, '')
-                .replace(/'/g, '')
-                .replace(/,?\s*([NS][EW],)/, ' $1')
-                .replace(/ \d{5}(?:-?\d{4})?$/, '') // remove zip
-                .replace(/[\- ]*\-[\- ]*/g, ' ')
-                .replace(/\b(SUITE|STE|APT) /, '#')
-                .replace(/# /, '#')
-                .replace(abbrevRegexp, function (m, p1) {
-                    return abbrev[p1];
-                });
+            record.contributor_name = normalizeName(record.contributor_name);
+            record.contributor_address = normalizeAddress(record.contributor_address);
             batch.push(record);
             if (batch.length >= batchSize) {
-                batchInsert(batch);
+                batchInsert(contributionTableName, batch);
                 batch = [];
             }
             currentCount++;
@@ -162,10 +173,61 @@ function readContributions() {
     });
     parser.on('finish', function () {
         if (batch.length) {
-            batchInsert(batch);
+            batchInsert(contributionTableName, batch);
         }
         console.log('Finished reading %d contributions', totalCount);
         console.log('Inserted %d contributions', currentCount);
+        console.log('Unrecognized committees:\n', unrecognized.sort());
+        readExpenditures();
+    });
+    input.pipe(parser);
+}
+
+function readExpenditures() {
+    var parser = parse(csvOptions),
+        input = fs.createReadStream(__dirname + '/' + expenditureTableName + '.csv'),
+        seen = {},
+        unrecognized = [],
+        totalCount = 0,
+        currentCount = 0,
+        batch = [];
+    parser.on('readable', function () {
+        var record;
+        while (record = parser.read()) {
+            var name;
+            totalCount++;
+            record = transformRecord(record);
+            name = record.committee_name;
+            if (!seen[name]) {
+                seen[name] = true;
+                console.log(name);
+                if (!currentCommittees[name]) {
+                    unrecognized.push(name);
+                }
+            }
+            if (!currentCommittees[name]) {
+                continue;
+            }
+            record.payee_name = normalizeName(record.payee_name);
+            record.payee_address = normalizeAddress(record.payee_address);
+            batch.push(record);
+            if (batch.length >= batchSize) {
+                batchInsert(expenditureTableName, batch);
+                batch = [];
+            }
+            currentCount++;
+        }
+    });
+    parser.on('error', function (err) {
+        console.error(err.message);
+        throw err;
+    });
+    parser.on('finish', function () {
+        if (batch.length) {
+            batchInsert(expenditureTableName, batch);
+        }
+        console.log('Finished reading %d expenditures', totalCount);
+        console.log('Inserted %d v', currentCount);
         console.log('Unrecognized committees:\n', unrecognized.sort());
     });
     input.pipe(parser);
@@ -201,8 +263,30 @@ function trim(s) {
         .replace(/^ | $/g, '');
 }
 
-function batchInsert(batch) {
-    db.batchInsert(contributionTableName, batch, batchSize)
+function batchInsert(tableName, batch) {
+    db.batchInsert(tableName, batch, batchSize)
         .returning('id')
         .then(function () {});
+}
+
+function normalizeName(name) {
+    return name.toUpperCase()
+        .replace(/[ ,]*,[ ,]*/g, ' ')
+        .replace(/\./g, '')
+        .replace(/[\- ]*\-[\- ]*/g, ' ');
+}
+
+function normalizeAddress(address) {
+    return address.toUpperCase()
+        .replace(/[ ,]*,[ ,]*/g, ' ')
+        .replace(/\./g, '')
+        .replace(/'/g, '')
+        .replace(/,?\s*([NS][EW],)/, ' $1')
+        .replace(/ \d{5}(?:-?\d{4})?$/, '') // remove zip
+        .replace(/[\- ]*\-[\- ]*/g, ' ')
+        .replace(/\b(SUITE|STE|APT) /, '#')
+        .replace(/# /, '#')
+        .replace(abbrevRegexp, function (m, p1) {
+            return abbrev[p1];
+        });
 }

@@ -1,10 +1,11 @@
 #!/usr/bin/env node
 
-var sprintf = require("sprintf-js").sprintf,
+var vsprintf = require("sprintf-js").vsprintf,
     stats = require('stats-lite'),
     _ = require('underscore'),
     db = require('./db'),
-    data = {};
+    data = {},
+    contributorTypes;
 
 db.select('office', 'contributions.committee_name', 'candidate_name',
         db.raw("count(distinct contributor_name || ', ' || contributor_address) as contributors"))
@@ -19,43 +20,89 @@ db.select('office', 'contributions.committee_name', 'candidate_name',
     .then(function (rows) {
         rows.forEach(function (row) {
             row.amountList = [];
+            row.amountByType = {};
             data[row.committee_name] = row;
         });
         getStats();
     });
 
 function getStats() {
-    db.select('committee_name', 'contributor_name', 'contributor_address')
-        .sum('amount as amount')
+    getContributorTypes()
+        .then(function () {
+            db.select('committee_name', 'contributor_name', 'contributor_address')
+                .sum('amount as amount')
+                .from('contributions')
+        //        .where('contributor_type', '<>', 'Candidate')
+                .groupBy('committee_name', 'contributor_name', 'contributor_address')
+                .then(function (rows) {
+                    var prevOffice = '',
+                        headers = '            Office  Candidate            ' +
+                            'Contributions  Contributors       Amount     Mean   Median  %Ind',
+                        format = '%18s  %-20s %13d %13d  %11.2f  %7.2f  %7.2f  %4.0f';
+                    console.log(headers);
+                    rows.forEach(function (row) {
+                        data[row.committee_name].amountList.push(row.amount);
+                    });
+                    _.each(data, function (c) {
+                        var values = [
+                                c.office === prevOffice ? '' : c.office,
+                                c.candidate_name,
+                                c.contributions,
+                                c.contributors,
+                                c.amount
+                            ];
+                        c.amountList = c.amountList.sort(function (a, b) { return a - b; });
+                        values.push(
+                            stats.mean(c.amountList),
+                            stats.median(c.amountList),
+                            //c.amountList[0],
+                            //c.amountList[c.amountList.length - 1],
+                            100 * ((c.amountByType['Individual'] || 0) + (c.amountByType['Candidate'] || 0)) / c.amount
+                        );
+                        console.log(vsprintf(format, values));
+                        prevOffice = c.office;
+                    });
+                    /*
+                    console.log('');
+                    headers = '            Office  Candidate                 ';
+                    format = '%18s  %-24s';
+                    contributorTypes.forEach(function (type) {
+                        headers += '  ' + ((type || '(Blank)') + '        ').substr(0, 10);
+                        format += '  %10.0f';
+                    });
+                    console.log(headers);
+                    _.each(data, function (c) {
+                        var values = [
+                            c.office === prevOffice ? '' : c.office,
+                            c.candidate_name
+                        ];
+                        contributorTypes.forEach(function (type) {
+                            values.push(100 * (c.amountByType[type] || 0) / c.amount);
+                        });
+                        console.log(vsprintf(format, values));
+                        prevOffice = c.office;
+                    });
+                    */
+                });
+        });
+}
+
+function getContributorTypes() {
+    return db.distinct('contributor_type')
         .from('contributions')
-//        .where('contributor_type', '<>', 'Candidate')
-        .groupBy('committee_name', 'contributor_name', 'contributor_address')
+        .orderBy('contributor_type')
         .then(function (rows) {
-            var prevOffice = '';
-            rows.forEach(function (row) {
-                data[row.committee_name].amountList.push(row.amount);
-            });
-            console.log('            Office  Candidate                 ' +
-                'Contributions  Contributors    Amount       Mean    Median    Min       Max');
-            _.each(data, function (c) {
-                c.amountList = c.amountList.sort(function (a, b) { return a - b; });
-                c.mean = stats.mean(c.amountList);
-                c.median = stats.median(c.amountList);
-                c.min = c.amountList[0];
-                c.max = c.amountList[c.amountList.length - 1];
-                console.log(sprintf(
-                    '%18s  %-24s %13d  %13d  %11.2f  %7.2f  %7.2f  %7.2f  %8.2f',
-                    c.office === prevOffice ? '' : c.office,
-                    c.candidate_name,
-                    c.contributions,
-                    c.contributors,
-                    c.amount,
-                    c.mean,
-                    c.median,
-                    c.min,
-                    c.max
-                ));
-                prevOffice = c.office;
-            });
+            contributorTypes = _.pluck(rows, 'contributor_type');
+            console.log(contributorTypes);
+            return db.select('committee_name', 'contributor_type')
+                .sum('amount as amount')
+                .from('contributions')
+                .groupBy('committee_name')
+                .groupBy('contributor_type')
+                .then(function (rows) {
+                    rows.forEach(function (c) {
+                        data[c.committee_name].amountByType[c.contributor_type] = c.amount;
+                    });
+                });
         });
 }

@@ -36,9 +36,9 @@ function getStats() {
                 .having('subtotal', '>', 0)
                 .then(function (rows) {
                     var prevOffice = '',
-                        headers = '            Office  Candidate            ' +
+                        headers = 'Candidate            ' +
                             'Contributions  Contributors       Amount     Mean   Median  %Ind  %DC',
-                        format = '%18s  %-20s %13d %13d  %11.2f  %7.2f  %7.2f  %4.0f  %3.0f';
+                        format = '%-20s %13d %13d  %11.2f  %7.2f  %7.2f  %4.0f  %3.0f';
                     console.log(headers);
                     rows.forEach(function (row) {
                         data[row.committee_name].amountList.push(row.subtotal);
@@ -48,7 +48,6 @@ function getStats() {
                     });
                     _.each(data, function (c) {
                         var values = [
-                                c.office === prevOffice ? '' : c.office,
                                 c.candidate_name,
                                 c.contributions,
                                 c.amountList.length,
@@ -63,6 +62,9 @@ function getStats() {
                             //c.amountList[0],
                             //c.amountList[c.amountList.length - 1]
                         );
+                        if (c.office !== prevOffice) {
+                            console.log(c.office.toUpperCase());
+                        }
                         console.log(vsprintf(format, values));
                         prevOffice = c.office;
                     });

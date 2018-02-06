@@ -308,10 +308,16 @@ function normalizeNameAndAddress(name, address) {
             .replace(/\./g, '')
             .replace(/'/g, '')
             .replace(/,?\s*([NS][EW],)/, ' $1')
-            .replace(/ \d{5}(?:-?\d{4})?$/, '') // remove zip
+            .replace(/ [\d \-]+$/, '') // remove zip
             .replace(/[\- ]*\-[\- ]*/g, ' ')
             .replace(/\b(SUITE|STE|APT) /, '#')
             .replace(/# /, '#')
+            .replace(/ VIRGINIA$/, ' VA')
+            .replace(/ MARYLAND$/, ' MD')
+            .replace(/ DISTRICT OF COLUMBIA$/, ' DC')
+            .replace(/( \w+)(\1 [A-Z]{2})$/, '$2')
+            .replace(/( \w+ [A-Z]{2})\1$/, '$1')
+            .replace(/ #\S+/, '') // remove apartment number
             .replace(abbrevRegexp, function (m, p1) {
                 return abbrev[p1];
             });

@@ -28,10 +28,10 @@ db.select('office', 'contributions.committee_name', 'candidate_name')
 function getStats() {
     getContributorTypes()
         .then(function () {
-            db.select('committee_name', 'contributor_name', 'contributor_address')
+            db.select('committee_name', 'normalized')
                 .sum('amount as subtotal')
                 .from('contributions')
-                .groupBy('committee_name', 'contributor_name', 'contributor_address')
+                .groupBy('committee_name', 'normalized')
                 .having('subtotal', '>', 0)
                 .then(function (rows) {
                     var prevOffice = '',
@@ -61,27 +61,6 @@ function getStats() {
                         console.log(vsprintf(format, values));
                         prevOffice = c.office;
                     });
-                    /*
-                    console.log('');
-                    headers = '            Office  Candidate                 ';
-                    format = '%18s  %-24s';
-                    contributorTypes.forEach(function (type) {
-                        headers += '  ' + ((type || '(Blank)') + '        ').substr(0, 10);
-                        format += '  %10.0f';
-                    });
-                    console.log(headers);
-                    _.each(data, function (c) {
-                        var values = [
-                            c.office === prevOffice ? '' : c.office,
-                            c.candidate_name
-                        ];
-                        contributorTypes.forEach(function (type) {
-                            values.push(100 * (c.amountByType[type] || 0) / c.amount);
-                        });
-                        console.log(vsprintf(format, values));
-                        prevOffice = c.office;
-                    });
-                    */
                 });
         });
 }

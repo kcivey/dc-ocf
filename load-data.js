@@ -57,6 +57,7 @@ db.schema.dropTableIfExists(contributionTableName)
                     'committee_name',
                     'contributor_name',
                     'contributor_address',
+                    'normalized',
                     'contributor_type',
                     'contribution_type',
                     'employer_name',
@@ -86,6 +87,7 @@ db.schema.dropTableIfExists(contributionTableName)
                 'committee_name',
                 'payee_name',
                 'payee_address',
+                'normalized',
                 'purpose_of_expenditure',
                 'payment_date',
                 'amount'
@@ -157,8 +159,7 @@ function readContributions() {
             if (!currentCommittees[name]) {
                 continue;
             }
-            record.contributor_name = normalizeName(record.contributor_name);
-            record.contributor_address = normalizeAddress(record.contributor_address);
+            record.normalized = normalizeNameAndAddress(record.contributor_name, record.contributor_address);
             batch.push(record);
             if (batch.length >= batchSize) {
                 batchInsert(contributionTableName, batch);
@@ -208,8 +209,7 @@ function readExpenditures() {
             if (!currentCommittees[name]) {
                 continue;
             }
-            record.payee_name = normalizeName(record.payee_name);
-            record.payee_address = normalizeAddress(record.payee_address);
+            record.normalized = normalizeNameAndAddress(record.payee_name, record.payee_address);
             batch.push(record);
             if (batch.length >= batchSize) {
                 batchInsert(expenditureTableName, batch);
@@ -240,6 +240,7 @@ function addDummyContributions() {
             'e.committee_name',
             'e.payee_name as contributor_name',
             'e.payee_address as contributor_address',
+            'e.normalized',
             'c.contributor_type',
             'e.purpose_of_expenditure as contribution_type',
             'c.employer_name',
@@ -251,8 +252,7 @@ function addDummyContributions() {
         .from('expenditures as e')
         .innerJoin('contributions as c', function () {
             this.on('e.committee_name', 'c.committee_name')
-                .andOn('e.payee_name', 'c.contributor_name')
-                .andOn('e.payee_address', 'c.contributor_address')
+                .andOn('e.normalized', 'c.normalized')
         })
         .whereIn('purpose_of_expenditure', ['Refund', 'Return Check and Fees'])
         .groupBy('e.id')
@@ -286,11 +286,7 @@ function nameToCode(s) {
 }
 
 function trim(s) {
-    if (s == null) {
-        return null;
-    }
-    return s.replace(/\s+/g, ' ')
-        .replace(/^ | $/g, '');
+    return s ? s.replace(/\s+/g, ' ').replace(/^ | $/g, '') : '';
 }
 
 function batchInsert(tableName, batch) {
@@ -299,24 +295,26 @@ function batchInsert(tableName, batch) {
         .then(function () {});
 }
 
-function normalizeName(name) {
-    return name.toUpperCase()
+function normalizeNameAndAddress(name, address) {
+    var normalized = name.toUpperCase()
         .replace(/[ ,]*,[ ,]*/g, ' ')
         .replace(/\./g, '')
+//        .replace(/ [A-Z] /g, ' ') // remove middle initials
+//        .replace(/ (JR|SR|I{1,3})$/, '')
         .replace(/[\- ]*\-[\- ]*/g, ' ');
-}
-
-function normalizeAddress(address) {
-    return address.toUpperCase()
-        .replace(/[ ,]*,[ ,]*/g, ' ')
-        .replace(/\./g, '')
-        .replace(/'/g, '')
-        .replace(/,?\s*([NS][EW],)/, ' $1')
-        .replace(/ \d{5}(?:-?\d{4})?$/, '') // remove zip
-        .replace(/[\- ]*\-[\- ]*/g, ' ')
-        .replace(/\b(SUITE|STE|APT) /, '#')
-        .replace(/# /, '#')
-        .replace(abbrevRegexp, function (m, p1) {
-            return abbrev[p1];
-        });
+    if (address) {
+        normalized += ', ' + address.toUpperCase()
+            .replace(/[ ,]*,[ ,]*/g, ' ')
+            .replace(/\./g, '')
+            .replace(/'/g, '')
+            .replace(/,?\s*([NS][EW],)/, ' $1')
+            .replace(/ \d{5}(?:-?\d{4})?$/, '') // remove zip
+            .replace(/[\- ]*\-[\- ]*/g, ' ')
+            .replace(/\b(SUITE|STE|APT) /, '#')
+            .replace(/# /, '#')
+            .replace(abbrevRegexp, function (m, p1) {
+                return abbrev[p1];
+            });
+    }
+    return normalized;
 }

@@ -19,6 +19,7 @@ db.select('office', 'contributions.committee_name', 'candidate_name')
         rows.forEach(function (row) {
             console.log(row.committee_name);
             row.amountList = [];
+            row.dcAmount = 0;
             row.amountByType = {};
             data[row.committee_name] = row;
         });
@@ -28,7 +29,7 @@ db.select('office', 'contributions.committee_name', 'candidate_name')
 function getStats() {
     getContributorTypes()
         .then(function () {
-            db.select('committee_name', 'normalized')
+            db.select('committee_name', 'normalized', 'contributor_state')
                 .sum('amount as subtotal')
                 .from('contributions')
                 .groupBy('committee_name', 'normalized')
@@ -36,11 +37,14 @@ function getStats() {
                 .then(function (rows) {
                     var prevOffice = '',
                         headers = '            Office  Candidate            ' +
-                            'Contributions  Contributors       Amount     Mean   Median  %Ind',
-                        format = '%18s  %-20s %13d %13d  %11.2f  %7.2f  %7.2f  %4.0f';
+                            'Contributions  Contributors       Amount     Mean   Median  %Ind  %DC',
+                        format = '%18s  %-20s %13d %13d  %11.2f  %7.2f  %7.2f  %4.0f  %3.0f';
                     console.log(headers);
                     rows.forEach(function (row) {
                         data[row.committee_name].amountList.push(row.subtotal);
+                        if (row.contributor_state === 'DC') {
+                            data[row.committee_name].dcAmount += row.subtotal;
+                        }
                     });
                     _.each(data, function (c) {
                         var values = [
@@ -54,7 +58,8 @@ function getStats() {
                         values.push(
                             stats.mean(c.amountList),
                             stats.median(c.amountList),
-                            100 * ((c.amountByType['Individual'] || 0) + (c.amountByType['Candidate'] || 0)) / c.amount
+                            100 * ((c.amountByType['Individual'] || 0) + (c.amountByType['Candidate'] || 0)) / c.amount,
+                            100 * ((c.dcAmount || 0)) / c.amount
                             //c.amountList[0],
                             //c.amountList[c.amountList.length - 1]
                         );

@@ -58,6 +58,7 @@ db.schema.dropTableIfExists(contributionTableName)
                     'contributor_name',
                     'contributor_address',
                     'normalized',
+                    'contributor_state',
                     'contributor_type',
                     'contribution_type',
                     'employer_name',
@@ -145,7 +146,7 @@ function readContributions() {
     parser.on('readable', function () {
         var record;
         while (record = parser.read()) {
-            var name;
+            var name, m;
             totalCount++;
             record = transformRecord(record);
             name = record.committee_name;
@@ -160,6 +161,12 @@ function readContributions() {
                 continue;
             }
             record.normalized = normalizeNameAndAddress(record.contributor_name, record.contributor_address);
+            if (m = record.normalized.match(/ ([A-Z]{2})$/)) {
+                record.contributor_state = m[1];
+            }
+            else {
+                record.contributor_state = '';
+            }
             batch.push(record);
             if (batch.length >= batchSize) {
                 batchInsert(contributionTableName, batch);
@@ -241,6 +248,7 @@ function addDummyContributions() {
             'e.payee_name as contributor_name',
             'e.payee_address as contributor_address',
             'e.normalized',
+            'c.contributor_state',
             'c.contributor_type',
             'e.purpose_of_expenditure as contribution_type',
             'c.employer_name',

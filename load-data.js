@@ -229,8 +229,38 @@ function readExpenditures() {
         console.log('Finished reading %d expenditures', totalCount);
         console.log('Inserted %d v', currentCount);
         console.log('Unrecognized committees:\n', unrecognized.sort());
+        addDummyContributions();
     });
     input.pipe(parser);
+}
+
+// Add negative contributions corresponding to refunds and bounced checks
+function addDummyContributions() {
+    db.select(
+            'e.committee_name',
+            'e.payee_name as contributor_name',
+            'e.payee_address as contributor_address',
+            'c.contributor_type',
+            'e.purpose_of_expenditure as contribution_type',
+            'c.employer_name',
+            'c.employer_address',
+            'c.occupation',
+            'e.payment_date as receipt_date',
+            db.raw('-e.amount as amount')
+        )
+        .from('expenditures as e')
+        .innerJoin('contributions as c', function () {
+            this.on('e.committee_name', 'c.committee_name')
+                .andOn('e.payee_name', 'c.contributor_name')
+                .andOn('e.payee_address', 'c.contributor_address')
+        })
+        .whereIn('purpose_of_expenditure', ['Refund', 'Return Check and Fees'])
+        .groupBy('e.id')
+        .orderBy('e.committee_name')
+        .orderBy('e.payee_name')
+        .then(function (rows) {
+            batchInsert(contributionTableName, rows);
+        })
 }
 
 function transformRecord(record) {

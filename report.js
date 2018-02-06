@@ -7,18 +7,17 @@ var vsprintf = require("sprintf-js").vsprintf,
     data = {},
     contributorTypes;
 
-db.select('office', 'contributions.committee_name', 'candidate_name',
-        db.raw("count(distinct contributor_name || ', ' || contributor_address) as contributors"))
+db.select('office', 'contributions.committee_name', 'candidate_name')
     .count('* as contributions')
     .sum('amount as amount')
     .from('contributions')
     .innerJoin('committees', 'contributions.committee_name', 'committees.committee_name')
-//    .where('contributor_type', '<>', 'Candidate')
     .groupBy('office', 'contributions.committee_name', 'candidate_name')
     .orderBy('office')
     .orderBy('candidate_name')
     .then(function (rows) {
         rows.forEach(function (row) {
+            console.log(row.committee_name);
             row.amountList = [];
             row.amountByType = {};
             data[row.committee_name] = row;
@@ -30,10 +29,10 @@ function getStats() {
     getContributorTypes()
         .then(function () {
             db.select('committee_name', 'contributor_name', 'contributor_address')
-                .sum('amount as amount')
+                .sum('amount as subtotal')
                 .from('contributions')
-        //        .where('contributor_type', '<>', 'Candidate')
                 .groupBy('committee_name', 'contributor_name', 'contributor_address')
+                .having('subtotal', '>', 0)
                 .then(function (rows) {
                     var prevOffice = '',
                         headers = '            Office  Candidate            ' +
@@ -41,23 +40,23 @@ function getStats() {
                         format = '%18s  %-20s %13d %13d  %11.2f  %7.2f  %7.2f  %4.0f';
                     console.log(headers);
                     rows.forEach(function (row) {
-                        data[row.committee_name].amountList.push(row.amount);
+                        data[row.committee_name].amountList.push(row.subtotal);
                     });
                     _.each(data, function (c) {
                         var values = [
                                 c.office === prevOffice ? '' : c.office,
                                 c.candidate_name,
                                 c.contributions,
-                                c.contributors,
+                                c.amountList.length,
                                 c.amount
                             ];
                         c.amountList = c.amountList.sort(function (a, b) { return a - b; });
                         values.push(
                             stats.mean(c.amountList),
                             stats.median(c.amountList),
-                            //c.amountList[0],
-                            //c.amountList[c.amountList.length - 1],
                             100 * ((c.amountByType['Individual'] || 0) + (c.amountByType['Candidate'] || 0)) / c.amount
+                            //c.amountList[0],
+                            //c.amountList[c.amountList.length - 1]
                         );
                         console.log(vsprintf(format, values));
                         prevOffice = c.office;
@@ -97,8 +96,7 @@ function getContributorTypes() {
             return db.select('committee_name', 'contributor_type')
                 .sum('amount as amount')
                 .from('contributions')
-                .groupBy('committee_name')
-                .groupBy('contributor_type')
+                .groupBy('committee_name', 'contributor_type')
                 .then(function (rows) {
                     rows.forEach(function (c) {
                         data[c.committee_name].amountByType[c.contributor_type] = c.amount;

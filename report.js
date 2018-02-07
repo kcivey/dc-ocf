@@ -7,7 +7,14 @@ var vsprintf = require("sprintf-js").vsprintf,
     data = {},
     contributorTypes;
 
-db.select('office', 'contributions.committee_name', 'candidate_name')
+db.select(
+        'office',
+        'contributions.committee_name',
+        'candidate_name',
+        db.raw("sum(case when contributor_state = 'DC' then amount else 0 end) as dc_amount"),
+        db.raw("sum(case when contributor_type in ('Individual', 'Candidate') then amount else 0 end) as ind_amount"),
+        db.raw("sum(case when contributor_state = 'DC' and contributor_type in ('Individual', 'Candidate') then amount else 0 end) as dc_ind_amount")
+    )
     .count('* as contributions')
     .sum('amount as amount')
     .from('contributions')
@@ -19,7 +26,6 @@ db.select('office', 'contributions.committee_name', 'candidate_name')
         rows.forEach(function (row) {
             console.log(row.committee_name);
             row.amountList = [];
-            row.dcAmount = 0;
             row.amountByType = {};
             data[row.committee_name] = row;
         });
@@ -29,22 +35,19 @@ db.select('office', 'contributions.committee_name', 'candidate_name')
 function getStats() {
     getContributorTypes()
         .then(function () {
-            db.select('committee_name', 'normalized', 'contributor_state')
+            db.select('committee_name', 'normalized')
                 .sum('amount as subtotal')
                 .from('contributions')
                 .groupBy('committee_name', 'normalized')
                 .having('subtotal', '>', 0)
                 .then(function (rows) {
                     var prevOffice = '',
-                        headers = 'Candidate            ' +
-                            'Contributions  Contributors       Amount     Mean   Median  %Ind  %DC',
-                        format = '%-20s %13d %13d  %11.2f  %7.2f  %7.2f  %4.0f  %3.0f';
+                        headers = 'Candidate         ' +
+                            'Contributions  Contributors       Amount     Mean   Median  %Ind %DC %DCInd',
+                        format = '%-20s %10d %13d  %11.2f  %7.2f  %7.2f  %4.0f %3.0f %6.0f';
                     console.log(headers);
                     rows.forEach(function (row) {
                         data[row.committee_name].amountList.push(row.subtotal);
-                        if (row.contributor_state === 'DC') {
-                            data[row.committee_name].dcAmount += row.subtotal;
-                        }
                     });
                     _.each(data, function (c) {
                         var values = [
@@ -57,8 +60,9 @@ function getStats() {
                         values.push(
                             stats.mean(c.amountList),
                             stats.median(c.amountList),
-                            100 * ((c.amountByType['Individual'] || 0) + (c.amountByType['Candidate'] || 0)) / c.amount,
-                            100 * ((c.dcAmount || 0)) / c.amount
+                            100 * c.ind_amount / c.amount,
+                            100 * c.dc_amount / c.amount,
+                            100 * c.dc_ind_amount / c.amount,
                             //c.amountList[0],
                             //c.amountList[c.amountList.length - 1]
                         );

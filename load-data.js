@@ -168,7 +168,7 @@ function readContributions() {
                 record.contributor_state = '';
             }
             batch.push(record);
-            if (batch.length >= batchSize) {
+            if (batch.length >= 10000) {
                 batchInsert(contributionTableName, batch);
                 batch = [];
             }
@@ -218,7 +218,7 @@ function readExpenditures() {
             }
             record.normalized = normalizeNameAndAddress(record.payee_name, record.payee_address);
             batch.push(record);
-            if (batch.length >= batchSize) {
+            if (batch.length >= 10000) {
                 batchInsert(expenditureTableName, batch);
                 batch = [];
             }

@@ -169,7 +169,8 @@ function readContributions() {
             }
             batch.push(record);
             if (batch.length >= 10000) {
-                batchInsert(contributionTableName, batch);
+                db.batchInsert(contributionTableName, batch, batchSize)
+                    .then(function () {});
                 batch = [];
             }
             currentCount++;
@@ -181,7 +182,8 @@ function readContributions() {
     });
     parser.on('finish', function () {
         if (batch.length) {
-            batchInsert(contributionTableName, batch);
+            db.batchInsert(contributionTableName, batch, batchSize)
+                .then(function () {});
         }
         console.log('Finished reading %d contributions', totalCount);
         console.log('Inserted %d contributions', currentCount);
@@ -219,7 +221,8 @@ function readExpenditures() {
             record.normalized = normalizeNameAndAddress(record.payee_name, record.payee_address);
             batch.push(record);
             if (batch.length >= 10000) {
-                batchInsert(expenditureTableName, batch);
+                db.batchInsert(expenditureTableName, batch, batchSize)
+                    .then(function () {});
                 batch = [];
             }
             currentCount++;
@@ -231,12 +234,19 @@ function readExpenditures() {
     });
     parser.on('finish', function () {
         if (batch.length) {
-            batchInsert(expenditureTableName, batch);
+            db.batchInsert(expenditureTableName, batch, batchSize)
+                .then(finish);
         }
-        console.log('Finished reading %d expenditures', totalCount);
-        console.log('Inserted %d v', currentCount);
-        console.log('Unrecognized committees:\n', unrecognized.sort());
-        addDummyContributions();
+        else {
+            finish();
+        }
+
+        function finish() {
+            console.log('Finished reading %d expenditures', totalCount);
+            console.log('Inserted %d v', currentCount);
+            console.log('Unrecognized committees:\n', unrecognized.sort());
+            addDummyContributions();
+        }
     });
     input.pipe(parser);
 }
@@ -267,7 +277,8 @@ function addDummyContributions() {
         .orderBy('e.committee_name')
         .orderBy('e.payee_name')
         .then(function (rows) {
-            batchInsert(contributionTableName, rows);
+            db.batchInsert(contributionTableName, rows, batchSize)
+                .then(function () {});
         })
 }
 
@@ -295,12 +306,6 @@ function nameToCode(s) {
 
 function trim(s) {
     return s ? s.replace(/\s+/g, ' ').replace(/^ | $/g, '') : '';
-}
-
-function batchInsert(tableName, batch) {
-    db.batchInsert(tableName, batch, batchSize)
-        .returning('id')
-        .then(function () {});
 }
 
 function normalizeNameAndAddress(name, address) {

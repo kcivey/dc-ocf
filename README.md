@@ -1,5 +1,17 @@
-Download contributions
-======================
+# DC Campaign Finance Report Analysis
+
+## Setup for processing data
+
+You need to install [Node.js](https://nodejs.org). On Linux or OS X, you can use 
+[Node Version Manager](https://github.com/creationix/nvm). Once you have it installed
+go to this directory and run
+
+    npm install
+
+For simplicity this currently uses SQLite for the database, so no database server is
+needed, but it should be relatively easy to modify it to use MySQL or PostgreSQL.
+
+## Download contributions
 
 I want to automate this, but the .dc.gov websites are not friendly
 to scraping or much of anything else.
@@ -16,8 +28,11 @@ header line), run
 
     iconv -f UTF-16 -t UTF-8 ContributionsExpendituresSearchResult.csv | tail -n +2 > contributions.csv
 
-Download committees
-===================
+(If you don't have iconv on your system, you can convert the encoding
+by some other means, and you can delete the first line in a text editor
+instead of using tail.)
+
+## Download committees
 
 Go to https://efiling.ocf.dc.gov/Disclosure and select "Principle
 Campaign Committee" and the election year, then click "Search".
@@ -30,7 +45,7 @@ header line), run
     iconv -f UTF-16 -t UTF-8 RegistrantDisclosureSearchResult.csv | tail -n +2 > committees.csv
 
 Download expenditures
-=====================
+---------------------
 
 Do the same as in "Download contributions", but select "Expenditures" instead of
 "Contributions".  Move the downloaded file to expenditures-raw.csv in this

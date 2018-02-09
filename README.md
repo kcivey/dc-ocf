@@ -14,7 +14,8 @@ needed, but it should be relatively easy to modify it to use MySQL or PostgreSQL
 ## Download contributions
 
 I want to automate this, but the .dc.gov websites are not friendly
-to scraping or much of anything else.
+to scraping or much of anything else, and I haven't had time to 
+work it out.
 
 Go to https://efiling.ocf.dc.gov/ContributionExpenditure and select
 "Principle Campaign Committee" and "Contributions", click "Date" and
@@ -44,11 +45,20 @@ header line), run
 
     iconv -f UTF-16 -t UTF-8 RegistrantDisclosureSearchResult.csv | tail -n +2 > committees.csv
 
-Download expenditures
----------------------
+## Download expenditures
 
 Do the same as in "Download contributions", but select "Expenditures" instead of
 "Contributions".  Move the downloaded file to expenditures-raw.csv in this
 directory, and run
 
     iconv -f UTF-16 -t UTF-8 expenditures-raw.csv | tail -n +2 > expenditures.csv
+
+## Load data into database
+
+Once you have the files committees.csv, contributions.csv, and expenditures.csv,
+create and load the database by running
+
+    ./load-data.js
+
+You may want to install the SQLite command-line client (`sudo apt install sqlite3`
+on Ubuntu) for looking at the database and trying out queries.

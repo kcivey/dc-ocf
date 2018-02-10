@@ -312,6 +312,7 @@ function normalizeNameAndAddress(name, address) {
     var normalized = name.toUpperCase()
         .replace(/[ ,]*,[ ,]*/g, ' ')
         .replace(/\./g, '')
+        .replace(/^(MR|MS|MRS|DR) /, '')
 //        .replace(/ [A-Z] /g, ' ') // remove middle initials
 //        .replace(/ (JR|SR|I{1,3})$/, '')
         .replace(/[\- ]*\-[\- ]*/g, ' ');
@@ -323,11 +324,12 @@ function normalizeNameAndAddress(name, address) {
             .replace(/,?\s*([NS][EW],)/, ' $1')
             .replace(/ [\d \-]+$/, '') // remove zip
             .replace(/[\- ]*\-[\- ]*/g, ' ')
-            .replace(/\b(SUITE|STE|APT) /, '#')
+            .replace(/\b(SUITE|STE|APT|UNIT) /, '#')
             .replace(/# /, '#')
             .replace(/ VIRGINIA$/, ' VA')
             .replace(/ MARYLAND$/, ' MD')
             .replace(/ DISTRICT OF COLUMBIA$/, ' DC')
+            .replace(/ MC LEAN /g, ' MCLEAN ')
             .replace(/( \w+)(\1 [A-Z]{2})$/, '$2')
             .replace(/( \w+ [A-Z]{2})\1$/, '$1')
             .replace(/ #\S+/, '') // remove apartment number

@@ -313,6 +313,8 @@ function normalizeNameAndAddress(name, address) {
         .replace(/[ ,]*,[ ,]*/g, ' ')
         .replace(/\./g, '')
         .replace(/^(MR|MS|MRS|DR) /, '')
+        .replace(/ AND /g, ' & ')
+        .replace(/^THE /, '')
 //        .replace(/ [A-Z] /g, ' ') // remove middle initials
 //        .replace(/ (JR|SR|I{1,3})$/, '')
         .replace(/[\- ]*\-[\- ]*/g, ' ');

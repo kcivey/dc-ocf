@@ -324,8 +324,10 @@ function normalizeNameAndAddress(name, address) {
             .replace(/,?\s*([NS][EW],)/, ' $1')
             .replace(/ [\d \-]+$/, '') // remove zip
             .replace(/[\- ]*\-[\- ]*/g, ' ')
-            .replace(/\b(SUITE|STE|APT|UNIT) /, '#')
+            .replace(/\b(SUITE|STE|APT|UNIT)[ #]+/, '#')
             .replace(/# /, '#')
+            .replace(/ FL(?:OOR)? \d\d?(?:[NR]?D|ST|TH)? /, ' ')
+            .replace(/ \d\d?(?:[NR]?D|ST|TH)? FL(?:OOR)? /, ' ')
             .replace(/ VIRGINIA$/, ' VA')
             .replace(/ MARYLAND$/, ' MD')
             .replace(/ DISTRICT OF COLUMBIA$/, ' DC')

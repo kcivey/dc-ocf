@@ -17,7 +17,7 @@ I want to automate this, but the .dc.gov websites are not friendly
 to scraping or much of anything else, and I haven't had time to 
 work it out.
 
-Go to https://efiling.ocf.dc.gov/ContributionExpenditure and select
+Go to [Contribution and Expenditure Search](https://efiling.ocf.dc.gov/ContributionExpenditure) and select
 "Principle Campaign Committee" and "Contributions", click "Date" and
 enter "01/01/2016" in "From Date", then click "Search".
 
@@ -35,7 +35,7 @@ instead of using tail.)
 
 ## Download committees
 
-Go to https://efiling.ocf.dc.gov/Disclosure and select "Principle
+Go to [Registrant Disclosure Search](https://efiling.ocf.dc.gov/Disclosure) and select "Principle
 Campaign Committee" and the election year, then click "Search".
 Click the dropdown next to "Export" and select "CSV". A file named
 "RegistrantDisclosureSearchResult.csv" will

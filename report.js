@@ -98,6 +98,7 @@ function getStats() {
                         console.log(vsprintf(format, values));
                         prevOffice = c.office;
                     });
+                    //printCrossCandidateContributions();
                 });
         });
 }
@@ -118,5 +119,49 @@ function getContributorTypes() {
                         data[c.committee_name].amountByType[c.contributor_type] = c.amount;
                     });
                 });
+        });
+}
+
+function printCrossCandidateContributions() {
+    var makeContributorQueryFn = function (alias) {
+        return function () {
+            this.select('contributions.committee_name', 'candidate_name', 'normalized')
+                .sum('amount as subtotal')
+                .from('contributions')
+                .innerJoin('committees', 'committees.committee_name', 'contributions.committee_name')
+                .having('subtotal', '>=', 100)
+                .groupBy('contributions.committee_name', 'candidate_name', 'normalized')
+                .as(alias);
+        };
+    };
+    return db.select('c1.candidate_name as candidate1', 'c2.candidate_name as candidate2')
+        .sum('c1.subtotal as subtotal1')
+        .sum('c2.subtotal as subtotal2')
+        .count('* as contributors')
+        .from(makeContributorQueryFn('c1'))
+        .innerJoin(makeContributorQueryFn('c2'), 'c1.normalized', 'c2.normalized')
+        .groupBy('candidate1', 'candidate2')
+        .orderBy('candidate1')
+        .orderBy('subtotal1', 'desc')
+        .then(function (rows) {
+            var prev = '',
+                total;
+            rows.forEach(function (row) {
+                if (prev !== row.candidate1) {
+                    console.log(row.candidate1);
+                    total = row.subtotal1;
+                    prev = row.candidate1;
+                }
+                //else {
+                    console.log(vsprintf('  %20s %5d %8s %5.2f%%', [
+                        row.candidate2,
+                        row.contributors,
+                        '$' + Math.round(row.subtotal1).toLocaleString(),
+                        100 * (row.subtotal1 / total),
+                        row.subtotal2
+                    ]));
+                //}
+            });
+            process.exit();
         });
 }

@@ -243,8 +243,8 @@ function readExpenditures() {
 
         function finish() {
             console.log('Finished reading %d expenditures', totalCount);
-            console.log('Inserted %d v', currentCount);
-            console.log('Unrecognized committees:\n', unrecognized.sort());
+            console.log('Inserted %d expenditures', currentCount);
+            //console.log('Unrecognized committees:\n', unrecognized.sort());
             addDummyContributions();
         }
     });
@@ -278,7 +278,10 @@ function addDummyContributions() {
         .orderBy('e.payee_name')
         .then(function (rows) {
             db.batchInsert(contributionTableName, rows, batchSize)
-                .then(function () {});
+                .then(function () {
+                    console.log('Dummy contributions inserted');
+                    process.exit();
+                });
         })
 }
 

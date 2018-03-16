@@ -77,6 +77,9 @@ function getStats() {
                                 c.amountList.length,
                                 c.amount
                             ];
+                        if (c.amount < 10000) {
+                            return;
+                        }
                         c.amountList = c.amountList.sort(function (a, b) { return a - b; });
                         values.push(
                             stats.mean(c.amountList),
@@ -99,6 +102,7 @@ function getStats() {
                         prevOffice = c.office;
                     });
                     //printCrossCandidateContributions();
+                    process.exit();
                 });
         });
 }

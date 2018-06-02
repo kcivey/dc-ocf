@@ -20,11 +20,11 @@
     "commander": "^2.15.1",
     "csv": "^2.0.0",
     "knex": "^0.14.6",
-    "moment": "^2.22.1",
+    "moment": "^2.22.2",
     "mysql": "^2.13.0",
     "sprintf-js": "^1.1.1",
     "sqlite3": "^4.0.0",
-    "stats-lite": "^2.1.0",
-    "underscore": "^1.8.3"
+    "stats-lite": "^2.1.1",
+    "underscore": "^1.9.1"
   }
 }

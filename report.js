@@ -53,16 +53,16 @@ function getStats() {
                             '<td style="text-align: right; white-space: nowrap">%d</td><td style="text-align: right">$%s</td>' +
                             '<td style="text-align: right">$%s</td><td style="text-align: right">$%s</td>' +
                             '<td style="text-align: right">%.0f</td><td style="text-align: right">%.0f</td>' +
-                            '<td style="text-align: right">%.0f</td></tr>' :
+                            '<td style="text-align: right">%.0f</td></tr>\n' :
                             '%-20s %10d %13d  %11.2f  %7.2f  %7.2f  %4.0f %3.0f %6.0f',
-                        officeFormat = program.html ? '<tr><td colspan="9">%s</td></tr>' : '%s';
+                        officeFormat = program.html ? '<tr><td colspan="9">%s</td></tr>\n' : '%s';
 
                     if (program.html) {
-                        console.log('<table><tr><th>Candidate</th><th style="text-align: right">Contributions</th>' +
-                            '<th style="text-align: right">Contributors</th><th style="text-align: right">Amount</th>' +
+                        console.log('<table>\n<tr><th>Candidate</th><th style="text-align: right">Contri-<br>butions</th>' +
+                            '<th style="text-align: right">Contrib-<br>utors</th><th style="text-align: right">Amount</th>' +
                             '<th style="text-align: right">Mean</th><th style="text-align: right">Median</th>' +
                             '<th style="text-align: right">%Ind</th><th style="text-align: right">%DC</th>' +
-                            '<th style="text-align: right">%DCInd</th></tr>');
+                            '<th style="text-align: right">%DCInd</th></tr>\n');
                     }
                     else {
                         console.log(headers);
@@ -101,6 +101,9 @@ function getStats() {
                         console.log(vsprintf(format, values));
                         prevOffice = c.office;
                     });
+                    if (program.html) {
+                        console.log('</table>\n');
+                    }
                     //printCrossCandidateContributions();
                     process.exit();
                 });

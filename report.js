@@ -6,6 +6,7 @@ var vsprintf = require("sprintf-js").vsprintf,
     program = require('commander'),
     db = require('./db'),
     data = {},
+    bins = [25, 50, 100, 200, 400, 800],
     contributorTypes;
 
 program.option('--html', 'HTML output')
@@ -31,6 +32,7 @@ db.select(
             //console.log(row.committee_name);
             row.amountList = [];
             row.amountByType = {};
+            row.binCounts = bins.map(function () { return 0; }).concat([0]);
             data[row.committee_name] = row;
         });
         getStats();
@@ -68,7 +70,17 @@ function getStats() {
                         console.log(headers);
                     }
                     rows.forEach(function (row) {
+                        var i;
                         data[row.committee_name].amountList.push(row.subtotal);
+                        for (i = 0; i < bins.length; i++) {
+                            if (row.subtotal <= bins[i]) {
+                                data[row.committee_name].binCounts[i] += row.subtotal;
+                                break;
+                            }
+                        }
+                        if (i >= bins.length) {
+                            data[row.committee_name].binCounts[i] += row.subtotal;
+                        }
                     });
                     _.each(data, function (c) {
                         var values = [
@@ -80,6 +92,7 @@ function getStats() {
                         if (c.amount < 10000) {
                             return;
                         }
+                        console.log(c.binCounts);
                         c.amountList = c.amountList.sort(function (a, b) { return a - b; });
                         values.push(
                             stats.mean(c.amountList),

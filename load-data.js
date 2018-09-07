@@ -57,6 +57,10 @@ db.schema.dropTableIfExists(contributionTableName)
                     'committee_name',
                     'contributor_name',
                     'contributor_address',
+                    'number_and_street',
+                    'city',
+                    'state',
+                    'zip',
                     'normalized',
                     'contributor_state',
                     'contributor_type',
@@ -91,6 +95,10 @@ db.schema.dropTableIfExists(contributionTableName)
                 'normalized',
                 'purpose_of_expenditure',
                 'payment_date',
+                'number_and_street',
+                'city',
+                'state',       
+                'zip',         
                 'amount'
             ];
             table.increments();

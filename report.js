@@ -92,7 +92,7 @@ function getStats() {
                         if (c.amount < 10000) {
                             return;
                         }
-                        console.log(c.binCounts);
+                        // @todo Figure out how to display c.binCounts
                         c.amountList = c.amountList.sort(function (a, b) { return a - b; });
                         values.push(
                             stats.mean(c.amountList),

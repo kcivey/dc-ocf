@@ -61,7 +61,6 @@ db.schema.dropTableIfExists(contributionTableName)
                     'state',
                     'zip',
                     'normalized',
-                    'contributor_state',
                     'contributor_type',
                     'contribution_type',
                     'employer_name',
@@ -167,12 +166,6 @@ function readContributions() {
                 continue;
             }
             record.normalized = normalizeNameAndAddress(record.contributor_name, makeAddress(record));
-            if (m = record.normalized.match(/ ([A-Z]{2})$/)) {
-                record.contributor_state = m[1];
-            }
-            else {
-                record.contributor_state = '';
-            }
             batch.push(record);
             if (batch.length >= 10000) {
                 db.batchInsert(contributionTableName, batch, batchSize)
@@ -267,7 +260,6 @@ function addDummyContributions() {
             'e.state',
             'e.zip',
             'e.normalized',
-            'c.contributor_state',
             'c.contributor_type',
             'e.purpose_of_expenditure as contribution_type',
             'c.employer_name',

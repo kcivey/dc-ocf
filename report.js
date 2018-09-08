@@ -16,9 +16,9 @@ db.select(
         'office',
         'contributions.committee_name',
         'candidate_name',
-        db.raw("sum(case when contributor_state = 'DC' then amount else 0 end) as dc_amount"),
+        db.raw("sum(case when state = 'DC' then amount else 0 end) as dc_amount"),
         db.raw("sum(case when contributor_type in ('Individual', 'Candidate') then amount else 0 end) as ind_amount"),
-        db.raw("sum(case when contributor_state = 'DC' and contributor_type in ('Individual', 'Candidate') then amount else 0 end) as dc_ind_amount")
+        db.raw("sum(case when state = 'DC' and contributor_type in ('Individual', 'Candidate') then amount else 0 end) as dc_ind_amount")
     )
     .count('* as contributions')
     .sum('amount as amount')

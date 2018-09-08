@@ -56,7 +56,6 @@ db.schema.dropTableIfExists(contributionTableName)
             var columnNames = [
                     'committee_name',
                     'contributor_name',
-                    'contributor_address',
                     'number_and_street',
                     'city',
                     'state',
@@ -91,14 +90,13 @@ db.schema.dropTableIfExists(contributionTableName)
             var columnNames = [
                 'committee_name',
                 'payee_name',
-                'payee_address',
+                'number_and_street',
+                'city',
+                'state',
+                'zip',
                 'normalized',
                 'purpose_of_expenditure',
                 'payment_date',
-                'number_and_street',
-                'city',
-                'state',       
-                'zip',         
                 'amount'
             ];
             table.increments();
@@ -168,7 +166,7 @@ function readContributions() {
             if (!currentCommittees[name]) {
                 continue;
             }
-            record.normalized = normalizeNameAndAddress(record.contributor_name, record.contributor_address);
+            record.normalized = normalizeNameAndAddress(record.contributor_name, makeAddress(record));
             if (m = record.normalized.match(/ ([A-Z]{2})$/)) {
                 record.contributor_state = m[1];
             }
@@ -226,7 +224,7 @@ function readExpenditures() {
             if (!currentCommittees[name]) {
                 continue;
             }
-            record.normalized = normalizeNameAndAddress(record.payee_name, record.payee_address);
+            record.normalized = normalizeNameAndAddress(record.payee_name, makeAddress(record));
             batch.push(record);
             if (batch.length >= 10000) {
                 db.batchInsert(expenditureTableName, batch, batchSize)
@@ -264,7 +262,10 @@ function addDummyContributions() {
     db.select(
             'e.committee_name',
             'e.payee_name as contributor_name',
-            'e.payee_address as contributor_address',
+            'e.number_and_street',
+            'e.city',
+            'e.state',
+            'e.zip',
             'e.normalized',
             'c.contributor_state',
             'c.contributor_type',
@@ -317,6 +318,29 @@ function nameToCode(s) {
 
 function trim(s) {
     return s ? s.replace(/\s+/g, ' ').replace(/^ | $/g, '') : '';
+}
+
+function makeAddress(r) {
+    var address = r.number_and_street || '';
+    if (r.city) {
+        if (address) {
+            address += ', ';
+        }
+        address += r.city;
+    }
+    if (r.state) {
+        if (address) {
+            address += ', ';
+        }
+        address += r.state;
+    }
+    if (r.zip) {
+        if (address) {
+            address += ' ';
+        }
+        address += r.zip;
+    }
+    return address;
 }
 
 function normalizeNameAndAddress(name, address) {

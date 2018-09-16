@@ -18,13 +18,13 @@
   },
   "dependencies": {
     "commander": "^2.18.0",
-    "csv": "^2.0.0",
+    "csv": "^3.1.0",
     "knex": "^0.15.2",
     "moment": "^2.22.2",
     "mysql": "^2.16.0",
     "sprintf-js": "^1.1.1",
     "sqlite3": "^4.0.2",
-    "stats-lite": "^2.1.1",
+    "stats-lite": "^2.2.0",
     "underscore": "^1.9.1"
   }
 }

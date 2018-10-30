@@ -7,12 +7,15 @@ var vsprintf = require("sprintf-js").vsprintf,
     db = require('./db'),
     data = {},
     bins = [25, 50, 100, 200, 400, 800],
-    contributorTypes;
+    contributorTypes, query;
 
 program.option('--html', 'HTML output')
+    .option('--since <date>', 'Donations since date')
+    .option('--office <office>', 'Include only offices that match string')
+    .option('--threshold <threshold>', 'Report only committees receiving at least threshold [10000]', 10000)
     .parse(process.argv);
 
-db.select(
+query = db.select(
         'office',
         'contributions.committee_name',
         'candidate_name',
@@ -24,7 +27,9 @@ db.select(
     .sum('amount as amount')
     .from('contributions')
     .innerJoin('committees', 'contributions.committee_name', 'committees.committee_name')
-    .groupBy('office', 'contributions.committee_name', 'candidate_name')
+    .where(1, 1);
+addFilters(query);
+query.groupBy('office', 'contributions.committee_name', 'candidate_name')
     .orderBy('office')
     .orderBy('candidate_name')
     .then(function (rows) {
@@ -41,10 +46,11 @@ db.select(
 function getStats() {
     getContributorTypes()
         .then(function () {
-            db.select('committee_name', 'normalized')
+            var query = db.select('committee_name', 'normalized')
                 .sum('amount as subtotal')
-                .from('contributions')
-                .groupBy('committee_name', 'normalized')
+                .from('contributions');
+            addFilters(query);
+            query.groupBy('committee_name', 'normalized')
                 .having('subtotal', '>', 0)
                 .then(function (rows) {
                     var prevOffice = '',
@@ -57,7 +63,8 @@ function getStats() {
                             '<td style="text-align: right">%.0f</td><td style="text-align: right">%.0f</td>' +
                             '<td style="text-align: right">%.0f</td></tr>\n' :
                             '%-20s %10d %13d  %11.2f  %7.2f  %7.2f  %4.0f %3.0f %6.0f',
-                        officeFormat = program.html ? '<tr><td colspan="9">%s</td></tr>\n' : '%s';
+                        officeFormat = program.html ? '<tr><td colspan="9">%s</td></tr>\n' : '%s',
+                        officeRegex = program.office ? new RegExp(program.office, 'i') : null;
 
                     if (program.html) {
                         console.log('<table>\n<tr><th>Candidate</th><th style="text-align: right">Contri-<br>butions</th>' +
@@ -89,7 +96,7 @@ function getStats() {
                                 c.amountList.length,
                                 c.amount
                             ];
-                        if (c.amount < 10000) {
+                        if (c.amount < program.threshold || (officeRegex && !officeRegex.test(c.office))) {
                             return;
                         }
                         // @todo Figure out how to display c.binCounts
@@ -124,22 +131,31 @@ function getStats() {
 }
 
 function getContributorTypes() {
-    return db.distinct('contributor_type')
-        .from('contributions')
-        .orderBy('contributor_type')
+    var query = db.distinct('contributor_type')
+        .from('contributions');
+    addFilters(query);
+    return query.orderBy('contributor_type')
         .then(function (rows) {
+            var subquery;
             contributorTypes = _.pluck(rows, 'contributor_type');
             //console.log(contributorTypes);
-            return db.select('committee_name', 'contributor_type')
+            subquery = db.select('committee_name', 'contributor_type')
                 .sum('amount as amount')
-                .from('contributions')
-                .groupBy('committee_name', 'contributor_type')
+                .from('contributions');
+            addFilters(subquery);
+            return subquery.groupBy('committee_name', 'contributor_type')
                 .then(function (rows) {
                     rows.forEach(function (c) {
                         data[c.committee_name].amountByType[c.contributor_type] = c.amount;
                     });
                 });
         });
+}
+
+function addFilters(query) {
+    if (program.since) {
+        query = query.andWhere('receipt_date', '>=', program.since);
+    }
 }
 
 function printCrossCandidateContributions() {

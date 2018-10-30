@@ -17,13 +17,13 @@
     "url": "https://github.com/kcivey/dc-ocf/issues"
   },
   "dependencies": {
-    "commander": "^2.18.0",
+    "commander": "^2.19.0",
     "csv": "^3.1.0",
     "knex": "^0.15.2",
     "moment": "^2.22.2",
     "mysql": "^2.16.0",
     "sprintf-js": "^1.1.1",
-    "sqlite3": "^4.0.2",
+    "sqlite3": "^4.0.3",
     "stats-lite": "^2.2.0",
     "underscore": "^1.9.1"
   }

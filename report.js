@@ -38,6 +38,7 @@ query.groupBy('office', 'contributions.committee_name', 'candidate_name')
             row.amountList = [];
             row.amountByType = {};
             row.binCounts = bins.map(function () { return 0; }).concat([0]);
+            row.dc_ind_contributors = 0;
             data[row.committee_name] = row;
         });
         getStats();
@@ -46,29 +47,33 @@ query.groupBy('office', 'contributions.committee_name', 'candidate_name')
 function getStats() {
     getContributorTypes()
         .then(function () {
-            var query = db.select('committee_name', 'normalized')
+            var query = db.select('committee_name', 'normalized', 'state')
                 .sum('amount as subtotal')
                 .from('contributions');
             addFilters(query);
-            query.groupBy('committee_name', 'normalized')
+            query.groupBy('committee_name', 'normalized', 'state')
                 .having('subtotal', '>', 0)
                 .then(function (rows) {
                     var prevOffice = '',
-                        headers = 'Candidate         ' +
-                            'Contributions  Contributors       Amount     Mean   Median  %Ind %DC %DCInd',
+                        headers = 'Candidate             ' +
+                            'Contributions  Contributors  DCIndContbr      Amount     Mean   Median  %Ind %DC %DCInd',
                         format = program.html ?
                             '<tr><td style="text-indent: 1em">%s</td><td style="text-align: right">%d</td>' +
-                            '<td style="text-align: right; white-space: nowrap">%d</td><td style="text-align: right">$%s</td>' +
+                            '<td style="text-align: right; white-space: nowrap">%d</td>' +
+                            '<td style="text-align: right; white-space: nowrap">%d</td>' +
+                            '<td style="text-align: right">$%s</td>' +
                             '<td style="text-align: right">$%s</td><td style="text-align: right">$%s</td>' +
                             '<td style="text-align: right">%.0f</td><td style="text-align: right">%.0f</td>' +
                             '<td style="text-align: right">%.0f</td></tr>\n' :
-                            '%-20s %10d %13d  %11.2f  %7.2f  %7.2f  %4.0f %3.0f %6.0f',
+                            '%-20s %14d %13d %12d %11.2f  %7.2f  %7.2f  %4.0f %3.0f %6.0f',
                         officeFormat = program.html ? '<tr><td colspan="9">%s</td></tr>\n' : '%s',
                         officeRegex = program.office ? new RegExp(program.office, 'i') : null;
 
                     if (program.html) {
                         console.log('<table>\n<tr><th>Candidate</th><th style="text-align: right">Contri-<br>butions</th>' +
-                            '<th style="text-align: right">Contrib-<br>utors</th><th style="text-align: right">Amount</th>' +
+                            '<th style="text-align: right">Contrib-<br>utors</th>' +
+                            '<th style="text-align: right">DC Ind<br>Contbr</th>' +
+                            '<th style="text-align: right">Amount</th>' +
                             '<th style="text-align: right">Mean</th><th style="text-align: right">Median</th>' +
                             '<th style="text-align: right">%Ind</th><th style="text-align: right">%DC</th>' +
                             '<th style="text-align: right">%DCInd</th></tr>\n');
@@ -88,12 +93,16 @@ function getStats() {
                         if (i >= bins.length) {
                             data[row.committee_name].binCounts[i] += row.subtotal;
                         }
+                        if (row.state == 'DC') {
+                            data[row.committee_name].dc_ind_contributors++;
+                        }
                     });
                     _.each(data, function (c) {
                         var values = [
                                 c.candidate_name,
                                 c.contributions,
                                 c.amountList.length,
+                                c.dc_ind_contributors,
                                 c.amount
                             ];
                         if (c.amount < program.threshold || (officeRegex && !officeRegex.test(c.office))) {
@@ -111,7 +120,7 @@ function getStats() {
                             //c.amountList[c.amountList.length - 1]
                         );
                         if (program.html) {
-                            [3, 4, 5].forEach(function (i) {
+                            [4, 5, 6].forEach(function (i) {
                                 values[i] = Math.round(values[i]).toLocaleString();
                             });
                         }
@@ -119,6 +128,7 @@ function getStats() {
                             console.log(vsprintf(officeFormat, [c.office.toUpperCase()]));
                         }
                         console.log(vsprintf(format, values));
+                        //console.log(c.binCounts);
                         prevOffice = c.office;
                     });
                     if (program.html) {

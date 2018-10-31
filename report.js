@@ -6,7 +6,7 @@ var vsprintf = require("sprintf-js").vsprintf,
     program = require('commander'),
     db = require('./db'),
     data = {},
-    bins = [25, 50, 100, 200, 400, 800],
+    bins = [25, 50, 100, 250, 500, 999.99],
     contributorTypes, query;
 
 program.option('--html', 'HTML output')
@@ -85,7 +85,7 @@ function getStats() {
                         bins.forEach(function (end) {
                             headers += '<th  style="text-align: right">' + start + '-<br>' + end + '</th>';
                             format += '<td style="text-align: right">%s</td>';
-                            start = end + '.01';
+                            start = (end + 0.01).toFixed(2);
                         });
                         headers += '<th  style="text-align: right">' + start + '+</th>';
                         format += '<td style="text-align: right">%s</td>';
@@ -101,7 +101,7 @@ function getStats() {
                             var header = start + '-' + end;
                             headers += '  ' + header;
                             format += '  %' + header.length + 's';
-                            start = end + '.01';
+                            start = (end + 0.01).toFixed(2);
                         });
                         headers += '  ' + start + '+';
                         format += '  %' + (start.length + 1) + 's';

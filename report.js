@@ -10,6 +10,7 @@ var vsprintf = require("sprintf-js").vsprintf,
     contributorTypes, query;
 
 program.option('--html', 'HTML output')
+    .option('--csv', 'CSV output')
     .option('--since <date>', 'Donations since date')
     .option('--office <office>', 'Include only offices that match string')
     .option('--threshold <threshold>', 'Report only committees receiving at least threshold [10000]', 10000)
@@ -50,7 +51,8 @@ function getStats() {
             var query = db.select('committee_name', 'normalized', 'state')
                     .sum('amount as subtotal')
                     .from('contributions'),
-                start = 0;
+                start = 0,
+                columnCount;
             addFilters(query);
             query.groupBy('committee_name', 'normalized', 'state')
                 .having('subtotal', '>', 0)
@@ -91,6 +93,28 @@ function getStats() {
                         format += '<td style="text-align: right">%s</td>';
                         headers += '</tr>';
                         format += '</tr>';
+                    }
+                    else if (program.csv) {
+                        headers = [
+                            'Candidate',
+                            'Contributions',
+                            'Contributors',
+                            'DCIndContbr',
+                            'Amount',
+                            'Mean',
+                            'Median',
+                            '%Ind',
+                            '%DC',
+                            '%DCInd'
+                        ].join('\t');
+                        columnCount = 11 + bins.length;
+                        format = Array(columnCount).fill('%s').join('\t');
+                        officeFormat = '%s';
+                        bins.forEach(function (end) {
+                            headers += '\t' + start + '-' + end;
+                            start = (end + 0.01).toFixed(2);
+                        });
+                        headers += '\t' + start + '+';
                     }
                     else {
                         headers = 'Candidate             Contributions  Contributors  DCIndContbr    ' +
@@ -149,7 +173,7 @@ function getStats() {
                             values.push((100 * c.binAmounts[i] / c.amount).toFixed(2));
                         });
                         values.push((100 * c.binAmounts[bins.length] / c.amount).toFixed(2));
-                        if (c.office !== prevOffice) {
+                        if (c.office !== prevOffice && !program.csv) {
                             console.log(vsprintf(officeFormat, [c.office.toUpperCase()]));
                         }
                         console.log(vsprintf(format, values));

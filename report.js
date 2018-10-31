@@ -146,10 +146,9 @@ function getStats() {
                             //c.amountList[c.amountList.length - 1]
                         );
                         bins.forEach(function (end, i) {
-                            values.push(numberFormat(100 * c.binAmounts[i] / c.amount));
-                            end = start + '.01';
+                            values.push((100 * c.binAmounts[i] / c.amount).toFixed(2));
                         });
-                        values.push(numberFormat(100 * c.binAmounts[bins.length] / c.amount));
+                        values.push((100 * c.binAmounts[bins.length] / c.amount).toFixed(2));
                         if (c.office !== prevOffice) {
                             console.log(vsprintf(officeFormat, [c.office.toUpperCase()]));
                         }

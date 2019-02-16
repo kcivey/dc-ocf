@@ -36,23 +36,22 @@ function getLastSeen(types) {
 }
 
 async function findNewRecords(lastSeen) {
-    const types = Object.keys(lastSeen);
-    for (const type of types) {
-        const newRecords = await findNewRecordsForType(type, lastSeen[type]);
+    let changed = false;
+    for (const [type, lastSeenId] of Object.entries(lastSeen)) {
+        const newRecords = await findNewRecordsForType(type, lastSeenId);
         console.log(type, newRecords);
         if (newRecords[0]) {
-            lastSeen[type] = getRecordKey(newRecords[0]);
+            lastSeen[type] = newRecords[0].Id;
+            changed = true;
         }
     }
-    fs.writeFileSync(cacheFile, JSON.stringify(lastSeen, null, 2));
+    if (changed) {
+        fs.writeFileSync(cacheFile, JSON.stringify(lastSeen, null, 2));
+    }
     return lastSeen;
 }
 
-function getRecordKey(record) {
-    return record.CommitteeKey || record.CandidateKey;
-}
-
-function findNewRecordsForType(type, lastSeenKey) {
+function findNewRecordsForType(type, lastSeenId) {
     return browser.select('#FilerTypeId', type)
         .then(pause)
         .then(() => browser.click('#btnSubmitSearch'))
@@ -60,8 +59,7 @@ function findNewRecordsForType(type, lastSeenKey) {
         .then(function (records) {
             const newRecords = [];
             for (const record of records) {
-                const key = getRecordKey(record);
-                if (lastSeenKey && key === lastSeenKey) {
+                if (lastSeenId && record.Id === lastSeenId) {
                     break;
                 }
                 newRecords.push(record);

@@ -1,9 +1,5 @@
 #!/usr/bin/env node
 
-/*
-    
- */
-
 const fs = require('fs');
 const cacheFile = 'cache/last-seen-committees.json';
 const Browser = require('zombie');
@@ -15,9 +11,9 @@ browser.visit('https://efiling.ocf.dc.gov/Disclosure')
     .then(findNewRecords);
 
 function getTypes() {
-    let types = [];
-    let options = browser.field('#FilerTypeId').options;
-    for (let option of options) {
+    const types = [];
+    const options = browser.field('#FilerTypeId').options;
+    for (const option of options) {
         if (option.value) {
             types.push(option.text);
         }
@@ -28,8 +24,8 @@ function getTypes() {
 function getLastSeen(types) {
     return new Promise(function (resolve, reject) {
         fs.readFile(cacheFile, function (err, json) {
-            let lastSeen = err ? {} : JSON.parse(json);
-            for (let type of types) {
+            const lastSeen = err ? {} : JSON.parse(json);
+            for (const type of types) {
                 if (!lastSeen[type]) {
                     lastSeen[type] = null;
                 }
@@ -40,9 +36,9 @@ function getLastSeen(types) {
 }
 
 async function findNewRecords(lastSeen) {
-    let types = Object.keys(lastSeen);
-    for (let type of types) {
-        let newRecords = await findNewRecordsForType(type, lastSeen[type]);
+    const types = Object.keys(lastSeen);
+    for (const type of types) {
+        const newRecords = await findNewRecordsForType(type, lastSeen[type]);
         console.log(type, newRecords);
         if (newRecords[0]) {
             lastSeen[type] = getRecordKey(newRecords[0]);
@@ -53,7 +49,7 @@ async function findNewRecords(lastSeen) {
 }
 
 function getRecordKey(record) {
-    return record.CommitteeKey || record.CandidateKey
+    return record.CommitteeKey || record.CandidateKey;
 }
 
 function findNewRecordsForType(type, lastSeenKey) {
@@ -62,16 +58,16 @@ function findNewRecordsForType(type, lastSeenKey) {
         .then(() => browser.click('#btnSubmitSearch'))
         .then(getSearchData)
         .then(function (records) {
-            let newRecords = [];
-            for (let record of records) {
-                let key = getRecordKey(record);
+            const newRecords = [];
+            for (const record of records) {
+                const key = getRecordKey(record);
                 if (lastSeenKey && key === lastSeenKey) {
                     break;
                 }
                 newRecords.push(record);
             }
             return newRecords;
-        })
+        });
 }
 
 function pause() {
@@ -82,9 +78,9 @@ function getSearchData() {
     let i = browser.resources.length;
     while (i > 0) {
         i--;
-        let resource = browser.resources[i];
+        const resource = browser.resources[i];
         if (resource.request.url.match(/\/Search$/)) {
-            return(JSON.parse(resource.response.body).data);
+            return JSON.parse(resource.response.body).data;
         }
     }
 }

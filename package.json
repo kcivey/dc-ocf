@@ -27,5 +27,9 @@
     "stats-lite": "^2.2.0",
     "underscore": "^1.9.1",
     "zombie": "^6.1.4"
+  },
+  "devDependencies": {
+    "eslint": "^5.14.0",
+    "eslint-config-google": "^0.12.0"
   }
 }

@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 
+require('dotenv').config();
 const fs = require('fs');
+const sendEmail = require('./send-email');
 const cacheFile = 'cache/last-seen-committees.json';
 const Browser = require('zombie');
 const browser = new Browser({waitDuration: '30s'});
@@ -8,7 +10,8 @@ const browser = new Browser({waitDuration: '30s'});
 browser.visit('https://efiling.ocf.dc.gov/Disclosure')
     .then(getTypes)
     .then(getLastSeen)
-    .then(findNewRecords);
+    .then(findNewRecords)
+    .then(sendNotification);
 
 function getTypes() {
     const types = [];
@@ -36,19 +39,20 @@ function getLastSeen(types) {
 }
 
 async function findNewRecords(lastSeen) {
+    const allNewRecords = {};
     let changed = false;
     for (const [type, lastSeenId] of Object.entries(lastSeen)) {
         const newRecords = await findNewRecordsForType(type, lastSeenId);
-        console.log(type, newRecords);
-        if (newRecords[0]) {
+        if (newRecords.length) {
             lastSeen[type] = newRecords[0].Id;
             changed = true;
+            allNewRecords[type] = newRecords;
         }
     }
     if (changed) {
         fs.writeFileSync(cacheFile, JSON.stringify(lastSeen, null, 2));
     }
-    return lastSeen;
+    return allNewRecords;
 }
 
 function findNewRecordsForType(type, lastSeenId) {
@@ -80,5 +84,29 @@ function getSearchData() {
         if (resource.request.url.match(/\/Search$/)) {
             return JSON.parse(resource.response.body).data;
         }
+    }
+}
+
+function sendNotification(allNewRecords) {
+    let text = '';
+    let count = 0;
+    for (const [type, records] of Object.entries(allNewRecords)) {
+        text += type + '\n';
+        for (const record of records) {
+            text += '\n';
+            for (const [key, value] of Object.entries(record)) {
+                text += `  ${key}: ${value}\n`;
+            }
+            count++;
+        }
+        text += '\n';
+    }
+    if (count) {
+        sendEmail({
+            text: text,
+            from: process.env.EMAIL_SENDER,
+            to: process.env.EMAIL_RECIPIENT,
+            subject: `${count} new OCF filing${count === 1 ? '' : 's'}`
+        });
     }
 }

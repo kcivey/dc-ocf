@@ -19,6 +19,8 @@
   "dependencies": {
     "commander": "^2.19.0",
     "csv": "^3.1.0",
+    "dotenv": "^6.2.0",
+    "emailjs": "^2.2.0",
     "knex": "^0.16.0",
     "moment": "^2.24.0",
     "mysql": "^2.16.0",

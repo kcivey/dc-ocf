@@ -3,7 +3,7 @@
 require('dotenv').config();
 const fs = require('fs');
 const sendEmail = require('./send-email');
-const cacheFile = 'cache/last-seen-committees.json';
+const cacheFile = __dirname + '/cache/last-seen-committees.json';
 const Browser = require('zombie');
 const browser = new Browser({waitDuration: '30s'});
 
@@ -106,7 +106,7 @@ function sendNotification(allNewRecords) {
             text: text,
             from: process.env.EMAIL_SENDER,
             to: process.env.EMAIL_RECIPIENT,
-            subject: `${count} new OCF filing${count === 1 ? '' : 's'}`
+            subject: `${count} new OCF filing${count === 1 ? '' : 's'}`,
         });
     }
 }

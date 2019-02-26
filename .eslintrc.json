@@ -35,6 +35,7 @@
             }
         ],
         "arrow-parens": ["error", "as-needed"],
-        "brace-style": ["error", "stroustrup"]
+        "brace-style": ["error", "stroustrup"],
+        "quotes": ["error", "single", {"avoidEscape":  true}]
     }
 }

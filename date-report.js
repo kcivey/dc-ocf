@@ -1,10 +1,11 @@
 #!/usr/bin/env node
 
-var moment = require('moment'),
-    db = require('./db'),
-    candidates = ['Elissa Silverman', 'Dionne Bussey-Reeder'];
+const moment = require('moment');
+const db = require('./db');
+const candidates = ['Elissa Silverman', 'Dionne Bussey-Reeder'];
 
-db.select('receipt_date', 'candidate_name')
+db
+    .select('receipt_date', 'candidate_name')
     .count('* as contributions')
     .sum('amount as amount')
     .from('contributions')
@@ -14,12 +15,11 @@ db.select('receipt_date', 'candidate_name')
     .orderBy('receipt_date')
     .orderBy('candidate_name')
     .then(function (rows) {
-        var data = [],
-            cursorDate = moment(rows[0].receipt_date),
-            endDate = moment(rows[rows.length - 1].receipt_date),
-            prevLineData = [''].concat(candidates.map(function () { return 0; }));
+        const data = [];
+        const cursorDate = moment(rows[0].receipt_date);
+        const endDate = moment(rows[rows.length - 1].receipt_date);
+        let prevLineData = [''].concat(candidates.map(() => 0));
         rows.forEach(function (row) {
-            var values = [];
             if (!data[row.receipt_date]) {
                 data[row.receipt_date] = {};
             }
@@ -27,12 +27,13 @@ db.select('receipt_date', 'candidate_name')
         });
         console.log(['Date'].concat(candidates).join('\t'));
         while (cursorDate <= endDate) {
-            var isoDate = cursorDate.format('YYYY-MM-DD'),
-                lineData = [cursorDate.format('M/D/YYYY')].concat(
-                    candidates.map(function (candidate, i) {
-                        return ((+(data[isoDate] && data[isoDate][candidate]) || 0) + +prevLineData[i + 1]).toFixed(2);
-                    })
-                );
+            const isoDate = cursorDate.format('YYYY-MM-DD');
+            const lineData = [cursorDate.format('M/D/YYYY')].concat(
+                candidates.map(function (candidate, i) {
+                    return ((+(data[isoDate] && data[isoDate][candidate]) || 0) +
+                        +prevLineData[i + 1]).toFixed(2);
+                })
+            );
             console.log(lineData.join('\t'));
             prevLineData = lineData;
             cursorDate.add(1, 'day');

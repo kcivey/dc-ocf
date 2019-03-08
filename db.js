@@ -1,7 +1,9 @@
-module.exports = require('knex')({
+module.exports = require('knex')(
+    {
         client: 'sqlite3',
         connection: {
-            filename: __dirname + '/dc-ocf.sqlite'
+            filename: __dirname + '/dc-ocf.sqlite',
         },
-        useNullAsDefault: true
-    });
+        useNullAsDefault: true,
+    }
+);

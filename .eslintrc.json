@@ -36,6 +36,8 @@
         ],
         "arrow-parens": ["error", "as-needed"],
         "brace-style": ["error", "stroustrup"],
-        "quotes": ["error", "single", {"avoidEscape":  true}]
+        "quotes": ["error", "single", {"avoidEscape":  true}],
+        "padded-blocks": ["error", {"classes":  "always"}],
+        "max-len": ["error", {"code":  120}]
     }
 }

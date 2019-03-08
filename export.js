@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 
-var fs = require('fs'),
-    stringify = require('csv-stringify'),
-    moment = require('moment'),
-    db = require('./db');
+const stringify = require('csv-stringify');
+const moment = require('moment');
+const db = require('./db');
 
-db.select()
+db
+    .select()
     .from('contributions')
     .orderBy('committee_name')
     .orderBy('contributor_name')
@@ -23,20 +23,20 @@ db.select()
         rows.forEach(function (row) {
             row.receipt_date = moment(row.receipt_date).format('M/D/YYYY');
         });
-        var stringifier = stringify(rows, {header: true});
-        stringifier.on('readable', function(){
-            var data = '',
-                row;
-            while(row = stringifier.read()){
+        const stringifier = stringify(rows, {header: true});
+        stringifier.on('readable', function () {
+            let data = '';
+            let row;
+            while ((row = stringifier.read())) {
                 data += row;
             }
             process.stdout.write(data);
         });
-        stringifier.on('error', function (err){
+        stringifier.on('error', function (err) {
             console.error(err.message);
             throw err;
         });
-        stringifier.on('finish', function(){
-//            console.log('Finished writing ' + outfile);
+        stringifier.on('finish', function () {
+            // console.log('Finished writing ' + outfile);
         });
     });

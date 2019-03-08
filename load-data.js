@@ -1,30 +1,30 @@
 #!/usr/bin/env node
 
-var fs = require('fs'),
-    parse = require('csv-parse'),
-    _ = require('underscore'),
-    moment = require('moment'),
-    db = require('./db'),
-    csvOptions = {columns: true},
-    currentCommittees = {},
-    batchSize = 10,
-    committeeTableName = 'committees',
-    contributionTableName = 'contributions',
-    expenditureTableName = 'expenditures',
-    abbrev = {
-        STREET: 'ST',
-        ROAD: 'RD',
-        DRIVE: 'DR',
-        AVENUE: 'AVE',
-        COURT: 'CT',
-        LANE: 'LN',
-        TERRACE: 'TER',
-        CIRCLE: 'CIR',
-        BOULEVARD: 'BLVD',
-        HIGHWAY: 'HWY',
-        PLACE: 'PL'
-    },
-    abbrevRegexp = new RegExp('\\b(' + Object.keys(abbrev).join('|') + ')\\b');
+const fs = require('fs');
+const parse = require('csv-parse');
+const _ = require('underscore');
+const moment = require('moment');
+const db = require('./db');
+const csvOptions = {columns: true};
+const currentCommittees = {};
+const batchSize = 10;
+const committeeTableName = 'committees';
+const contributionTableName = 'contributions';
+const expenditureTableName = 'expenditures';
+const abbrev = {
+    STREET: 'ST',
+    ROAD: 'RD',
+    DRIVE: 'DR',
+    AVENUE: 'AVE',
+    COURT: 'CT',
+    LANE: 'LN',
+    TERRACE: 'TER',
+    CIRCLE: 'CIR',
+    BOULEVARD: 'BLVD',
+    HIGHWAY: 'HWY',
+    PLACE: 'PL',
+};
+const abbrevRegexp = new RegExp('\\b(' + Object.keys(abbrev).join('|') + ')\\b');
 
 db.schema.dropTableIfExists(contributionTableName)
     .dropTableIfExists(expenditureTableName)
@@ -32,12 +32,12 @@ db.schema.dropTableIfExists(contributionTableName)
     .createTable(
         committeeTableName,
         function (table) {
-            var columnNames = [
+            const columnNames = [
                 'committee_name',
                 'candidate_name',
                 'election_year',
                 'status',
-                'office'
+                'office',
             ];
             table.increments();
             columnNames.forEach(function (columnName) {
@@ -53,22 +53,22 @@ db.schema.dropTableIfExists(contributionTableName)
     .createTable(
         contributionTableName,
         function (table) {
-            var columnNames = [
-                    'committee_name',
-                    'contributor_name',
-                    'number_and_street',
-                    'city',
-                    'state',
-                    'zip',
-                    'normalized',
-                    'contributor_type',
-                    'contribution_type',
-                    'employer_name',
-                    'employer_address',
-                    'occupation',
-                    'receipt_date',
-                    'amount'
-                ];
+            const columnNames = [
+                'committee_name',
+                'contributor_name',
+                'number_and_street',
+                'city',
+                'state',
+                'zip',
+                'normalized',
+                'contributor_type',
+                'contribution_type',
+                'employer_name',
+                'employer_address',
+                'occupation',
+                'receipt_date',
+                'amount',
+            ];
             table.increments();
             columnNames.forEach(function (columnName) {
                 if (/date/.test(columnName)) {
@@ -86,7 +86,7 @@ db.schema.dropTableIfExists(contributionTableName)
     .createTable(
         expenditureTableName,
         function (table) {
-            var columnNames = [
+            const columnNames = [
                 'committee_name',
                 'payee_name',
                 'number_and_street',
@@ -96,7 +96,7 @@ db.schema.dropTableIfExists(contributionTableName)
                 'normalized',
                 'purpose_of_expenditure',
                 'payment_date',
-                'amount'
+                'amount',
             ];
             table.increments();
             columnNames.forEach(function (columnName) {
@@ -115,12 +115,12 @@ db.schema.dropTableIfExists(contributionTableName)
     .then(readCommittees);
 
 function readCommittees() {
-    var parser = parse(csvOptions),
-        input = fs.createReadStream(__dirname + '/' + committeeTableName + '.csv'),
-        records = [];
+    const parser = parse(csvOptions);
+    const input = fs.createReadStream(__dirname + '/' + committeeTableName + '.csv');
+    const records = [];
     parser.on('readable', function () {
-        var record;
-        while(record = parser.read()) {
+        let record;
+        while ((record = parser.read())) {
             record = transformRecord(record);
             currentCommittees[record.committee_name] = true;
             records.push(record);
@@ -141,20 +141,19 @@ function readCommittees() {
 }
 
 function readContributions() {
-    var parser = parse(csvOptions),
-        input = fs.createReadStream(__dirname + '/' + contributionTableName + '.csv'),
-        seen = {},
-        unrecognized = [],
-        totalCount = 0,
-        currentCount = 0,
-        batch = [];
+    const parser = parse(csvOptions);
+    const input = fs.createReadStream(__dirname + '/' + contributionTableName + '.csv');
+    const seen = {};
+    const unrecognized = [];
+    let totalCount = 0;
+    let currentCount = 0;
+    let batch = [];
     parser.on('readable', function () {
-        var record;
-        while (record = parser.read()) {
-            var name, m;
+        let record;
+        while ((record = parser.read())) {
             totalCount++;
             record = transformRecord(record);
-            name = record.committee_name;
+            const name = record.committee_name;
             if (!seen[name]) {
                 seen[name] = true;
                 console.log(name);
@@ -193,20 +192,19 @@ function readContributions() {
 }
 
 function readExpenditures() {
-    var parser = parse(csvOptions),
-        input = fs.createReadStream(__dirname + '/' + expenditureTableName + '.csv'),
-        seen = {},
-        unrecognized = [],
-        totalCount = 0,
-        currentCount = 0,
-        batch = [];
+    const parser = parse(csvOptions);
+    const input = fs.createReadStream(__dirname + '/' + expenditureTableName + '.csv');
+    const seen = {};
+    const unrecognized = [];
+    let totalCount = 0;
+    let currentCount = 0;
+    let batch = [];
     parser.on('readable', function () {
-        var record;
-        while (record = parser.read()) {
-            var name;
+        let record;
+        while ((record = parser.read())) {
             totalCount++;
             record = transformRecord(record);
-            name = record.committee_name;
+            const name = record.committee_name;
             if (!seen[name]) {
                 seen[name] = true;
                 console.log(name);
@@ -243,7 +241,9 @@ function readExpenditures() {
         function finish() {
             console.log('Finished reading %d expenditures', totalCount);
             console.log('Inserted %d expenditures', currentCount);
-            //console.log('Unrecognized committees:\n', unrecognized.sort());
+            if (unrecognized.length) {
+                console.log('Unrecognized committees:\n', unrecognized.sort());
+            }
             addDummyContributions();
         }
     });
@@ -252,7 +252,8 @@ function readExpenditures() {
 
 // Add negative contributions corresponding to refunds and bounced checks
 function addDummyContributions() {
-    db.select(
+    db
+        .select(
             'e.committee_name',
             'e.payee_name as contributor_name',
             'e.number_and_street',
@@ -271,7 +272,7 @@ function addDummyContributions() {
         .from('expenditures as e')
         .innerJoin('contributions as c', function () {
             this.on('e.committee_name', 'c.committee_name')
-                .andOn('e.normalized', 'c.normalized')
+                .andOn('e.normalized', 'c.normalized');
         })
         .whereIn('purpose_of_expenditure', ['Refund', 'Return Check and Fees'])
         .groupBy('e.id')
@@ -283,19 +284,19 @@ function addDummyContributions() {
                     console.log('Dummy contributions inserted');
                     process.exit();
                 });
-        })
+        });
 }
 
 function transformRecord(record) {
-    var newRecord = {};
+    const newRecord = {};
     _.each(record, function (value, key) {
         value = trim(value);
         key = nameToCode(key);
         if (/date/.test(key) && /^\d\d?\/\d\d?\/\d{4}$/.test(value)) {
             value = moment(value, 'MM/DD/YYYY').format('YYYY-MM-DD');
         }
-        else if (/amount|total/.test(key) && /^[\$\.,\d]+$/.test(value)) {
-            value = value.replace(/[\$,]/g, '');
+        else if (/amount|total/.test(key) && /^[$.,\d]+$/.test(value)) {
+            value = value.replace(/[$,]/g, '');
         }
         newRecord[key] = value;
     });
@@ -313,7 +314,7 @@ function trim(s) {
 }
 
 function makeAddress(r) {
-    var address = r.number_and_street || '';
+    let address = r.number_and_street || '';
     if (r.city) {
         if (address) {
             address += ', ';
@@ -336,14 +337,14 @@ function makeAddress(r) {
 }
 
 function normalizeNameAndAddress(name, address) {
-    var normalized = name.toUpperCase()
+    let normalized = name.toUpperCase()
         .replace(/[ ,]*,[ ,]*/g, ' ')
         .replace(/\./g, '')
         .replace(/^(MR|MS|MRS|DR) /, '')
         .replace(/ AND /g, ' & ')
         .replace(/^THE /, '')
-//        .replace(/ [A-Z] /g, ' ') // remove middle initials
-//        .replace(/ (JR|SR|I{1,3})$/, '')
+        // .replace(/ [A-Z] /g, ' ') // remove middle initials
+        // .replace(/ (JR|SR|I{1,3})$/, '')
         .replace(/[\- ]*\-[\- ]*/g, ' ');
     if (address) {
         normalized += ', ' + address.toUpperCase()

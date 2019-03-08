@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 
-var vsprintf = require("sprintf-js").vsprintf,
-    stats = require('stats-lite'),
-    _ = require('underscore'),
-    program = require('commander'),
-    db = require('./db'),
-    data = {},
-    bins = [25, 50, 100, 250, 500, 999.99],
-    contributorTypes, query;
+const vsprintf = require('sprintf-js').vsprintf;
+const stats = require('stats-lite');
+const _ = require('underscore');
+const program = require('commander');
+const db = require('./db');
+const data = {};
+const bins = [25, 50, 100, 250, 500, 999.99];
+let contributorTypes;
 
 program.option('--html', 'HTML output')
     .option('--csv', 'CSV output')
@@ -16,13 +16,15 @@ program.option('--html', 'HTML output')
     .option('--threshold <threshold>', 'Report only committees receiving at least threshold [10000]', 10000)
     .parse(process.argv);
 
-query = db.select(
+let query = db
+    .select(
         'office',
         'contributions.committee_name',
         'candidate_name',
         db.raw("sum(case when state = 'DC' then amount else 0 end) as dc_amount"),
         db.raw("sum(case when contributor_type in ('Individual', 'Candidate') then amount else 0 end) as ind_amount"),
-        db.raw("sum(case when state = 'DC' and contributor_type in ('Individual', 'Candidate') then amount else 0 end) as dc_ind_amount")
+        db.raw("sum(case when state = 'DC' and contributor_type in ('Individual', 'Candidate') " +
+            'then amount else 0 end) as dc_ind_amount')
     )
     .count('* as contributions')
     .sum('amount as amount')
@@ -35,10 +37,10 @@ query.groupBy('office', 'contributions.committee_name', 'candidate_name')
     .orderBy('candidate_name')
     .then(function (rows) {
         rows.forEach(function (row) {
-            //console.log(row.committee_name);
+            // console.log(row.committee_name);
             row.amountList = [];
             row.amountByType = {};
-            row.binAmounts = bins.map(function () { return 0; }).concat([0]);
+            row.binAmounts = bins.map(() => 0).concat([0]);
             row.dc_ind_contributors = 0;
             data[row.committee_name] = row;
         });
@@ -48,19 +50,19 @@ query.groupBy('office', 'contributions.committee_name', 'candidate_name')
 function getStats() {
     getContributorTypes()
         .then(function () {
-            var query = db.select('committee_name', 'normalized', 'state')
-                    .sum('amount as subtotal')
-                    .from('contributions'),
-                start = 0,
-                columnCount;
+            let query = db.select('committee_name', 'normalized', 'state')
+                .sum('amount as subtotal')
+                .from('contributions');
+            let start = '0';
             addFilters(query);
             query.groupBy('committee_name', 'normalized', 'state')
                 .having('subtotal', '>', 0)
                 .then(function (rows) {
-                    var prevOffice = '',
-                        officeRegex = program.office ? new RegExp(program.office, 'i') : null,
-                        headers, format, officeFormat;
-
+                    const officeRegex = program.office ? new RegExp(program.office, 'i') : null;
+                    let prevOffice = '';
+                    let headers;
+                    let format;
+                    let officeFormat;
                     if (program.html) {
                         headers = '<table>\n<tr>' +
                             '<th>Candidate</th>' +
@@ -105,9 +107,9 @@ function getStats() {
                             'Median',
                             '%Ind',
                             '%DC',
-                            '%DCInd'
+                            '%DCInd',
                         ].join('\t');
-                        columnCount = 11 + bins.length;
+                        const columnCount = 11 + bins.length;
                         format = Array(columnCount).fill('%s').join('\t');
                         officeFormat = '%s';
                         bins.forEach(function (end) {
@@ -122,7 +124,7 @@ function getStats() {
                         format = '%-20s %14s %13s %12s %9s  %5s  %6s  %4s %3s %6s';
                         officeFormat = '%s';
                         bins.forEach(function (end) {
-                            var header = start + '-' + end;
+                            const header = start + '-' + end;
                             headers += '  ' + header;
                             format += '  %' + header.length + 's';
                             start = (end + 0.01).toFixed(2);
@@ -132,9 +134,8 @@ function getStats() {
                     }
                     console.log(headers);
                     rows.forEach(function (row) {
-                        var i;
                         data[row.committee_name].amountList.push(row.subtotal);
-                        for (i = 0; i < bins.length; i++) {
+                        for (let i = 0; i < bins.length; i++) {
                             if (row.subtotal <= bins[i]) {
                                 data[row.committee_name].binAmounts[i] += row.subtotal;
                                 break;
@@ -143,31 +144,30 @@ function getStats() {
                         if (i >= bins.length) {
                             data[row.committee_name].binAmounts[i] += row.subtotal;
                         }
-                        if (row.state == 'DC') {
+                        if (row.state === 'DC') {
                             data[row.committee_name].dc_ind_contributors++;
                         }
                     });
                     _.each(data, function (c) {
-                        var values = [
-                                c.candidate_name,
-                                numberFormat(c.contributions),
-                                numberFormat(c.amountList.length),
-                                numberFormat(c.dc_ind_contributors),
-                                numberFormat(c.amount)
-                            ],
-                            start = 0;
+                        const values = [
+                            c.candidate_name,
+                            numberFormat(c.contributions),
+                            numberFormat(c.amountList.length),
+                            numberFormat(c.dc_ind_contributors),
+                            numberFormat(c.amount),
+                        ];
                         if (c.amount < program.threshold || (officeRegex && !officeRegex.test(c.office))) {
                             return;
                         }
-                        c.amountList = c.amountList.sort(function (a, b) { return a - b; });
+                        c.amountList = c.amountList.sort((a, b) => a - b);
                         values.push(
                             numberFormat(stats.mean(c.amountList)),
                             numberFormat(stats.median(c.amountList)),
                             numberFormat(100 * c.ind_amount / c.amount),
                             numberFormat(100 * c.dc_amount / c.amount),
                             numberFormat(100 * c.dc_ind_amount / c.amount)
-                            //c.amountList[0],
-                            //c.amountList[c.amountList.length - 1]
+                            // c.amountList[0],
+                            // c.amountList[c.amountList.length - 1]
                         );
                         bins.forEach(function (end, i) {
                             values.push((100 * c.binAmounts[i] / c.amount).toFixed(2));
@@ -177,28 +177,27 @@ function getStats() {
                             console.log(vsprintf(officeFormat, [c.office.toUpperCase()]));
                         }
                         console.log(vsprintf(format, values));
-                        //console.log(c.binCounts);
+                        // console.log(c.binCounts);
                         prevOffice = c.office;
                     });
                     if (program.html) {
                         console.log('</table>\n');
                     }
-                    //printCrossCandidateContributions();
+                    // printCrossCandidateContributions();
                     process.exit();
                 });
         });
 }
 
 function getContributorTypes() {
-    var query = db.distinct('contributor_type')
+    let query = db.distinct('contributor_type')
         .from('contributions');
     addFilters(query);
     return query.orderBy('contributor_type')
         .then(function (rows) {
-            var subquery;
             contributorTypes = _.pluck(rows, 'contributor_type');
-            //console.log(contributorTypes);
-            subquery = db.select('committee_name', 'contributor_type')
+            console.log(contributorTypes);
+            let subquery = db.select('committee_name', 'contributor_type')
                 .sum('amount as amount')
                 .from('contributions');
             addFilters(subquery);
@@ -221,8 +220,9 @@ function numberFormat(x) {
     return Math.round(x).toLocaleString();
 }
 
+/*
 function printCrossCandidateContributions() {
-    var makeContributorQueryFn = function (alias) {
+    const makeContributorQueryFn = function (alias) {
         return function () {
             this.select('contributions.committee_name', 'candidate_name', 'normalized')
                 .sum('amount as subtotal')
@@ -243,24 +243,25 @@ function printCrossCandidateContributions() {
         .orderBy('candidate1')
         .orderBy('subtotal1', 'desc')
         .then(function (rows) {
-            var prev = '',
-                total;
+            let prev = '';
+            let total;
             rows.forEach(function (row) {
                 if (prev !== row.candidate1) {
                     console.log(row.candidate1);
                     total = row.subtotal1;
                     prev = row.candidate1;
                 }
-                //else {
-                    console.log(vsprintf('  %20s %5d %8s %5.2f%%', [
-                        row.candidate2,
-                        row.contributors,
-                        '$' + Math.round(row.subtotal1).toLocaleString(),
-                        100 * (row.subtotal1 / total),
-                        row.subtotal2
-                    ]));
-                //}
+                // else {
+                console.log(vsprintf('  %20s %5d %8s %5.2f%%', [
+                    row.candidate2,
+                    row.contributors,
+                    '$' + Math.round(row.subtotal1).toLocaleString(),
+                    100 * (row.subtotal1 / total),
+                    row.subtotal2,
+                ]));
+                // }
             });
             process.exit();
         });
 }
+*/

@@ -31,7 +31,7 @@
     "zombie": "^6.1.4"
   },
   "devDependencies": {
-    "eslint": "^5.14.0",
+    "eslint": "^5.15.1",
     "eslint-config-google": "^0.12.0"
   }
 }

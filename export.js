@@ -38,5 +38,6 @@ db
         });
         stringifier.on('finish', function () {
             // console.log('Finished writing ' + outfile);
+            process.exit();
         });
     });

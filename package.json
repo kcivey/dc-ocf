@@ -19,7 +19,7 @@
   "dependencies": {
     "commander": "^2.19.0",
     "csv": "^3.1.0",
-    "dotenv": "^6.2.0",
+    "dotenv": "^7.0.0",
     "emailjs": "^2.2.0",
     "knex": "^0.16.0",
     "moment": "^2.24.0",
@@ -31,7 +31,7 @@
     "zombie": "^6.1.4"
   },
   "devDependencies": {
-    "eslint": "^5.15.1",
+    "eslint": "^5.15.2",
     "eslint-config-google": "^0.12.0"
   }
 }

@@ -63,7 +63,7 @@ function findNewRecordsForType(type, lastSeenId) {
         .then(function (records) {
             const newRecords = [];
             for (const record of records) {
-                if (lastSeenId && record.Id === lastSeenId) {
+                if (lastSeenId && record.Id <= lastSeenId) {
                     break;
                 }
                 newRecords.push(record);

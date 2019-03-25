@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 require('dotenv').config();
 const email = require('emailjs');
 const config = {
@@ -9,7 +11,18 @@ const config = {
 };
 let server = null;
 
-module.exports = function (message, callback) {
+if (require.main === module) {
+    // Called directly
+    sendEmail({
+        text: 'Test message from ' + __filename,
+        from: process.env.EMAIL_SENDER,
+        to: process.env.EMAIL_RECIPIENT,
+        subject: 'Test message ' + new Date().toLocaleTimeString(),
+    })
+        .then(() => console.log('Test email sent'));
+}
+
+function sendEmail(message, callback) {
     if (!server) {
         server = email.server.connect(config);
     }
@@ -28,4 +41,6 @@ module.exports = function (message, callback) {
             });
         });
     }
-};
+}
+
+module.exports = sendEmail;

@@ -3,18 +3,36 @@
 const vsprintf = require('sprintf-js').vsprintf;
 const stats = require('stats-lite');
 const _ = require('underscore');
-const program = require('commander');
+const argv = require('yargs')
+    .options({
+        html: {
+            type: 'boolean',
+            describe: 'HTML output',
+        },
+        csv: {
+            type: 'boolean',
+            describe: 'CSV output',
+        },
+        since: {
+            type: 'string',
+            describe: 'donations since date',
+        },
+        office: {
+            type: 'string',
+            describe: 'include only offices that match string',
+        },
+        threshold: {
+            type: 'number',
+            describe: 'report only committees receiving at least threshold',
+            default: 10000,
+        },
+    })
+    .strict(true)
+    .argv;
 const db = require('./db');
 const data = {};
 const bins = [25, 50, 100, 250, 500, 999.99];
 let contributorTypes;
-
-program.option('--html', 'HTML output')
-    .option('--csv', 'CSV output')
-    .option('--since <date>', 'Donations since date')
-    .option('--office <office>', 'Include only offices that match string')
-    .option('--threshold <threshold>', 'Report only committees receiving at least threshold [10000]', 10000)
-    .parse(process.argv);
 
 let query = db
     .select(
@@ -58,12 +76,12 @@ function getStats() {
             query.groupBy('committee_name', 'normalized', 'state')
                 .having('subtotal', '>', 0)
                 .then(function (rows) {
-                    const officeRegex = program.office ? new RegExp(program.office, 'i') : null;
+                    const officeRegex = argv.office ? new RegExp(argv.office, 'i') : null;
                     let prevOffice = '';
                     let headers;
                     let format;
                     let officeFormat;
-                    if (program.html) {
+                    if (argv.html) {
                         headers = '<table>\n<tr>' +
                             '<th>Candidate</th>' +
                             '<th style="text-align: right">Contri-<br>butions</th>' +
@@ -96,7 +114,7 @@ function getStats() {
                         headers += '</tr>';
                         format += '</tr>';
                     }
-                    else if (program.csv) {
+                    else if (argv.csv) {
                         headers = [
                             'Candidate',
                             'Contributions',
@@ -156,7 +174,7 @@ function getStats() {
                             numberFormat(c.dc_ind_contributors),
                             numberFormat(c.amount),
                         ];
-                        if (c.amount < program.threshold || (officeRegex && !officeRegex.test(c.office))) {
+                        if (c.amount < argv.threshold || (officeRegex && !officeRegex.test(c.office))) {
                             return;
                         }
                         c.amountList = c.amountList.sort((a, b) => a - b);
@@ -173,14 +191,14 @@ function getStats() {
                             values.push((100 * c.binAmounts[i] / c.amount).toFixed(2));
                         });
                         values.push((100 * c.binAmounts[bins.length] / c.amount).toFixed(2));
-                        if (c.office !== prevOffice && !program.csv) {
+                        if (c.office !== prevOffice && !argv.csv) {
                             console.log(vsprintf(officeFormat, [c.office.toUpperCase()]));
                         }
                         console.log(vsprintf(format, values));
                         // console.log(c.binCounts);
                         prevOffice = c.office;
                     });
-                    if (program.html) {
+                    if (argv.html) {
                         console.log('</table>\n');
                     }
                     // printCrossCandidateContributions();
@@ -211,8 +229,8 @@ function getContributorTypes() {
 }
 
 function addFilters(query) {
-    if (program.since) {
-        query = query.andWhere('receipt_date', '>=', program.since);
+    if (argv.since) {
+        query = query.andWhere('receipt_date', '>=', argv.since);
     }
 }
 

@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 
 const fs = require('fs');
-const util = require('util');
+const url = require('url');
+const request = require('request-promise-native');
 const Browser = require('zombie');
 const browser = new Browser({waitDuration: '30s'});
 const electionYear = '2018';
@@ -9,10 +10,11 @@ const electionYear = '2018';
 // Force 5s pause between requests
 browser.pipeline.addHandler(function (browser, request) {
     // Log the response body
+    console.log(request.method, request.url);
     return new Promise(resolve => setTimeout(resolve, 5000));
 });
 
-writeContributionCsv();
+writeContributionCsv().catch(err => console.error(err));
 
 function writeCommitteeCsv() {
     const file =__dirname + '/committees.csv';
@@ -21,7 +23,8 @@ function writeCommitteeCsv() {
         .then(() => browser.select('#ElectionYear', electionYear))
         .then(() => browser.click('#btnSubmitSearch'))
         .then(getCsv)
-        .then(csv => fs.writeFileSync(file, csv, {encoding: 'utf-8'}));
+        .then(csv => fs.writeFileSync(file, csv, {encoding: 'utf-8'}))
+        .then(() => process.exit());
 }
 
 function writeContributionCsv() {
@@ -30,7 +33,7 @@ function writeContributionCsv() {
         .then(() => browser.select('#FilerTypeId', 'Principal Campaign Committee'))
         .then(() => browser.click('#contributions'))
         .then(() => browser.click('#accordionpanel4 a'))
-        .then(() => browser.fill('#FromDate', '01/01/2016'))
+        .then(() => browser.fill('#FromDate', '01/01/2018'))
         .catch(function (err) {
             if (err.message === "Cannot read property 'settings' of undefined") {
                 return null;
@@ -44,21 +47,25 @@ function writeContributionCsv() {
 
 function getCsv() {
     return browser.click('#divExportDropdown')
-        .then(() => browser.click('#exportDropDown > li:last-child > a'))
         .then(function () {
-            console.log(browser.tabs.length + ' tabs');
-            const lastTab = browser.tabs[browser.tabs.length - 1];
-            const buf = Buffer.from(lastTab.resources[0].response.body);
-            console.log('Got buffer', buf.length);
-            lastTab.close();
-            return buf;
+            const link = browser.query('#exportDropDown > li:last-child > a');
+            const csvUrl = url.resolve(browser.location.href, link.getAttribute('href'));
+            browser.tabs.closeAll();
+            // Annoyingly I had to go through all this using request because if I try just using zombie to
+            // click on the link it never comes back if the response is big
+            const jar = request.jar();
+            for (const cookie of browser.cookies) {
+                jar.setCookie(request.cookie(cookie.toString()), csvUrl);
+            }
+            return request({url: csvUrl, jar});
         })
-        .then(function (buf) {
-            console.log('processing buffer');
+        .then(function (body) {
             // Convert UTF-16 to UTF-8
-            const csv = new util.TextDecoder('utf-16').decode(buf);
+            // Why doesn't this work?
+            // const csv = Buffer.from(body, 'utf-16le').toString('utf-8');
+            csv = body.replace(/\x00/g, ''); // kluge to convert from UTF-16
             // Fix line endings and delete first line (which is not CSV)
-            return csv.replace(/\r\n/, '\n')
+            return csv.replace(/\r\n/g, '\n')
                 .replace(/^.+\n/, '');
         });
 }

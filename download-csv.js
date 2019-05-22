@@ -11,31 +11,64 @@ const argv = require('yargs')
             describe: 'election year',
             default: Math.ceil(new Date().getFullYear() / 2)* 2,
         },
+        committees: {
+            type: 'boolean',
+            describe: 'download committees',
+        },
+        contributions: {
+            type: 'boolean',
+            describe: 'download contributions',
+        },
+        expenditures: {
+            type: 'boolean',
+            describe: 'download expenditures',
+        },
+        all: {
+            type: 'boolean',
+            describe: 'download committees, contributions, and expenditures',
+        },
     })
     .strict(true)
+    .check(function (argv, options) {
+        if (!(argv.committees || argv.contributions || argv.expenditures || argv.all)) {
+            throw new Error('Must specify at least one data set to download');
+        }
+        return true;
+    })
     .argv;
 const Browser = require('zombie');
 const browser = new Browser({waitDuration: '30s'});
 const electionYear = argv.year;
+if (argv.all) {
+    argv.committees = argv.contributions = argv.expenditures = true;
+}
 
-// Force 5s pause between requests
+// Force 5s pause between main requests
 browser.pipeline.addHandler(function (browser, request) {
-    // Log the response body
-    console.log(request.method, request.url);
     return new Promise(resolve => setTimeout(resolve, 5000));
 });
 
-writeTransactionCsv('expenditures').catch(err => console.error(err));
+let promise = Promise.resolve();
+if (argv.committees) {
+    promise = promise.then(writeCommitteeCsv);
+}
+if (argv.contributions) {
+    promise = promise.then(() => writeTransactionCsv('contributions'));
+}
+if (argv.expenditures) {
+    promise = promise.then(() => writeTransactionCsv('expenditures'));
+}
+promise.catch(err => console.error(err))
+    .then(() => process.exit());
 
 function writeCommitteeCsv() {
     const file =__dirname + '/committees.csv';
     return browser.visit('https://efiling.ocf.dc.gov/Disclosure')
         .then(() => browser.select('#FilerTypeId', 'Principal Campaign Committee'))
-        .then(() => browser.select('#ElectionYear', electionYear))
+        .then(() => browser.select('#ElectionYear', electionYear.toString()))
         .then(() => browser.click('#btnSubmitSearch'))
         .then(getCsv)
-        .then(csv => fs.writeFileSync(file, csv, {encoding: 'utf-8'}))
-        .then(() => process.exit());
+        .then(csv => fs.writeFileSync(file, csv, {encoding: 'utf-8'}));
 }
 
 function writeTransactionCsv(type) {

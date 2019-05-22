@@ -4,9 +4,19 @@ const fs = require('fs');
 const url = require('url');
 const util = require('util');
 const request = require('request-promise-native');
+const argv = require('yargs')
+    .options({
+        year: {
+            type: 'number',
+            describe: 'election year',
+            default: Math.ceil(new Date().getFullYear() / 2)* 2,
+        },
+    })
+    .strict(true)
+    .argv;
 const Browser = require('zombie');
 const browser = new Browser({waitDuration: '30s'});
-const electionYear = '2018';
+const electionYear = argv.year;
 
 // Force 5s pause between requests
 browser.pipeline.addHandler(function (browser, request) {
@@ -15,7 +25,7 @@ browser.pipeline.addHandler(function (browser, request) {
     return new Promise(resolve => setTimeout(resolve, 5000));
 });
 
-writeContributionCsv().catch(err => console.error(err));
+writeTransactionCsv('expenditures').catch(err => console.error(err));
 
 function writeCommitteeCsv() {
     const file =__dirname + '/committees.csv';
@@ -28,13 +38,13 @@ function writeCommitteeCsv() {
         .then(() => process.exit());
 }
 
-function writeContributionCsv() {
-    const file =__dirname + '/contributions.csv';
+function writeTransactionCsv(type) {
+    const file =__dirname + '/' + type + '.csv';
     return browser.visit('https://efiling.ocf.dc.gov/ContributionExpenditure')
         .then(() => browser.select('#FilerTypeId', 'Principal Campaign Committee'))
-        .then(() => browser.click('#contributions'))
+        .then(() => browser.click('#' + type))
         .then(() => browser.click('#accordionpanel4 a'))
-        .then(() => browser.fill('#FromDate', '01/01/2018'))
+        .then(() => browser.fill('#FromDate', '01/01/' + (electionYear - 2)))
         .catch(function (err) {
             if (err.message === "Cannot read property 'settings' of undefined") {
                 return null;

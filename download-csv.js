@@ -2,6 +2,7 @@
 
 const fs = require('fs');
 const url = require('url');
+const util = require('util');
 const request = require('request-promise-native');
 const Browser = require('zombie');
 const browser = new Browser({waitDuration: '30s'});
@@ -61,9 +62,7 @@ function getCsv() {
         })
         .then(function (body) {
             // Convert UTF-16 to UTF-8
-            // Why doesn't this work?
-            // const csv = Buffer.from(body, 'utf-16le').toString('utf-8');
-            csv = body.replace(/\x00/g, ''); // kluge to convert from UTF-16
+            const csv = new util.TextDecoder('utf-16').decode(Buffer.from(body));
             // Fix line endings and delete first line (which is not CSV)
             return csv.replace(/\r\n/g, '\n')
                 .replace(/^.+\n/, '');

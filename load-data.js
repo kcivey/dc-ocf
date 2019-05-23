@@ -345,7 +345,7 @@ function normalizeNameAndAddress(name, address) {
         .replace(/^THE /, '')
         // .replace(/ [A-Z] /g, ' ') // remove middle initials
         // .replace(/ (JR|SR|I{1,3})$/, '')
-        .replace(/[\- ]*\-[\- ]*/g, ' ');
+        .replace(/[\- ]*-[\- ]*/g, ' ');
     if (address) {
         normalized += ', ' + address.toUpperCase()
             .replace(/[ ,]*,[ ,]*/g, ' ')
@@ -353,7 +353,7 @@ function normalizeNameAndAddress(name, address) {
             .replace(/'/g, '')
             .replace(/,?\s*([NS][EW],)/, ' $1')
             .replace(/ [\d \-]+$/, '') // remove zip
-            .replace(/[\- ]*\-[\- ]*/g, ' ')
+            .replace(/[\- ]*-[\- ]*/g, ' ')
             .replace(/\b(SUITE|STE|APT|UNIT)[ #]+/, '#')
             .replace(/# /, '#')
             .replace(/ FL(?:OOR)? \d\d?(?:[NR]?D|ST|TH)? /, ' ')
@@ -365,9 +365,7 @@ function normalizeNameAndAddress(name, address) {
             .replace(/( \w+)(\1 [A-Z]{2})$/, '$2')
             .replace(/( \w+ [A-Z]{2})\1$/, '$1')
             .replace(/ #\S+/, '') // remove apartment number
-            .replace(abbrevRegexp, function (m, p1) {
-                return abbrev[p1];
-            });
+            .replace(abbrevRegexp, (m, p1) => abbrev[p1]);
     }
     return normalized;
 }

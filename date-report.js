@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 const moment = require('moment');
-const db = require('./db');
+const db = require('./lib/db');
 const candidates = ['Elissa Silverman', 'Dionne Bussey-Reeder'];
 
 db

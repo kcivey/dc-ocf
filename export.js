@@ -2,7 +2,7 @@
 
 const stringify = require('csv-stringify');
 const moment = require('moment');
-const db = require('./db');
+const db = require('./lib/db');
 
 db
     .select()

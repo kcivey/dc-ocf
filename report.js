@@ -29,7 +29,7 @@ const argv = require('yargs')
     })
     .strict(true)
     .argv;
-const db = require('./db');
+const db = require('./lib/db');
 const data = {};
 const bins = [25, 50, 100, 250, 500, 999.99];
 let contributorTypes;

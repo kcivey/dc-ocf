@@ -49,7 +49,7 @@ let query = db
     .from('contributions')
     .innerJoin('committees', 'contributions.committee_name', 'committees.committee_name')
     .where(1, 1);
-addFilters(query);
+query = addFilters(query);
 query.groupBy('office', 'contributions.committee_name', 'candidate_name')
     .orderBy('office')
     .orderBy('candidate_name')
@@ -72,7 +72,7 @@ function getStats() {
                 .sum('amount as subtotal')
                 .from('contributions');
             let start = '0';
-            addFilters(query);
+            query = addFilters(query);
             query.groupBy('committee_name', 'normalized', 'state')
                 .having('subtotal', '>', 0)
                 .then(function (rows) {
@@ -210,7 +210,7 @@ function getStats() {
 function getContributorTypes() {
     let query = db.distinct('contributor_type')
         .from('contributions');
-    addFilters(query);
+    query = addFilters(query);
     return query.orderBy('contributor_type')
         .then(function (rows) {
             contributorTypes = _.pluck(rows, 'contributor_type');
@@ -218,7 +218,7 @@ function getContributorTypes() {
             let subquery = db.select('committee_name', 'contributor_type')
                 .sum('amount as amount')
                 .from('contributions');
-            addFilters(subquery);
+            subquery = addFilters(subquery);
             return subquery.groupBy('committee_name', 'contributor_type')
                 .then(function (rows) {
                     rows.forEach(function (c) {
@@ -232,6 +232,7 @@ function addFilters(query) {
     if (argv.since) {
         query = query.andWhere('receipt_date', '>=', argv.since);
     }
+    return query;
 }
 
 function numberFormat(x) {

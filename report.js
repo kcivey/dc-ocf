@@ -153,7 +153,8 @@ function getStats() {
                     console.log(headers);
                     rows.forEach(function (row) {
                         data[row.committee_name].amountList.push(row.subtotal);
-                        for (let i = 0; i < bins.length; i++) {
+                        let i = 0;
+                        for (i = 0; i < bins.length; i++) {
                             if (row.subtotal <= bins[i]) {
                                 data[row.committee_name].binAmounts[i] += row.subtotal;
                                 break;

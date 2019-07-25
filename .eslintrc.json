@@ -1,19 +1,17 @@
 {
     "env": {
         "browser": true,
-        "commonjs": true,
-        "es6": true
+        "es6": true,
+        "node": true
     },
     "extends": "google",
     "globals": {
-        "Atomics": "readonly",
-        "SharedArrayBuffer": "readonly"
     },
     "parserOptions": {
         "ecmaVersion": 2018
     },
     "rules": {
-        "indent": ["error", 4],
+        "indent": ["error", 4, {"SwitchCase": 1}],
         "space-before-function-paren": [
             "error",
             {
@@ -38,6 +36,9 @@
         "brace-style": ["error", "stroustrup"],
         "quotes": ["error", "single", {"avoidEscape":  true}],
         "padded-blocks": ["error", {"classes":  "always"}],
-        "max-len": ["error", {"code":  120}]
+        "max-len": ["error", {"code":  120}],
+        "no-undef": "error",
+        "eqeqeq": ["error", "smart"],
+        "prefer-rest-params": "off"
     }
 }

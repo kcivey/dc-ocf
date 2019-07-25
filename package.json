@@ -20,7 +20,7 @@
     "csv": "^5.1.1",
     "dotenv": "^8.0.0",
     "emailjs": "^2.2.0",
-    "knex": "^0.18.0",
+    "knex": "^0.18.4",
     "moment": "^2.24.0",
     "mysql": "^2.17.1",
     "request-promise-native": "^1.0.7",
@@ -28,11 +28,11 @@
     "sqlite3": "^4.0.9",
     "stats-lite": "^2.2.0",
     "underscore": "^1.9.1",
-    "yargs": "^13.2.4",
+    "yargs": "^13.3.0",
     "zombie": "^6.1.4"
   },
   "devDependencies": {
-    "eslint": "^6.0.1",
+    "eslint": "^6.1.0",
     "eslint-config-google": "^0.13.0"
   }
 }

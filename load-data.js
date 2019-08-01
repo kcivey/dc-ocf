@@ -242,7 +242,6 @@ function readExpenditures() {
             if (!currentCommittees[name]) {
                 continue;
             }
-            console.warn('expenditure', record)
             record.normalized = normalizeNameAndAddress(makeName(record), makeAddress(record));
             batch.push(record);
             if (batch.length >= 10000) {
@@ -346,8 +345,8 @@ function trim(s) {
 }
 
 function makeName(r) {
-    const prefix = 'contributor_';
-    return ['first_name', 'middle_name', 'last_name']
+    const prefix = r.hasOwnProperty('contributor_name') ? 'contributor_' : 'payee_';
+    return ['first_name', 'middle_name', 'last_name', 'organization_name']
         .map(c => r[prefix+ c])
         .filter(v => !!v)
         .join(' ');

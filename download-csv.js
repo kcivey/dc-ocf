@@ -27,6 +27,11 @@ const argv = require('yargs')
             type: 'boolean',
             describe: 'download committees, contributions, and expenditures',
         },
+        verbose: {
+            type: 'boolean',
+            describe: 'print something about what\'s going on',
+            alias: 'v',
+        },
     })
     .strict(true)
     .check(function (argv, options) {
@@ -62,16 +67,19 @@ promise.catch(err => console.error(err))
     .then(() => process.exit());
 
 function writeCommitteeCsv() {
+    log('Getting committees');
     const file =__dirname + '/committees.csv';
     return browser.visit('https://efiling.ocf.dc.gov/Disclosure')
         .then(() => browser.select('#FilerTypeId', 'Principal Campaign Committee'))
         .then(() => browser.select('#ElectionYear', electionYear.toString()))
         .then(() => browser.click('#btnSubmitSearch'))
         .then(getCsv)
-        .then(csv => fs.writeFileSync(file, csv, {encoding: 'utf-8'}));
+        .then(csv => fs.writeFileSync(file, csv, {encoding: 'utf-8'}))
+        .then(() => log('Finished writing committees'));
 }
 
 function writeTransactionCsv(type) {
+    log(`Getting ${type}`);
     const file =__dirname + '/' + type + '.csv';
     return browser.visit('https://efiling.ocf.dc.gov/ContributionExpenditure')
         .then(() => browser.select('#FilerTypeId', 'Principal Campaign Committee'))
@@ -86,7 +94,8 @@ function writeTransactionCsv(type) {
         })
         .then(() => browser.click('#btnSubmitSearch'))
         .then(getCsv)
-        .then(csv => fs.writeFileSync(file, csv, {encoding: 'utf-8'}));
+        .then(csv => fs.writeFileSync(file, csv, {encoding: 'utf-8'}))
+        .then(() => log(`Finished writing ${type}`));
 }
 
 function getCsv() {
@@ -110,4 +119,10 @@ function getCsv() {
             return csv.replace(/\r\n/g, '\n')
                 .replace(/^.+\n/, '');
         });
+}
+
+function log(...args) {
+    if (argv.verbose) {
+        console.warn(...args);
+    }
 }

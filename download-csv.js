@@ -84,7 +84,10 @@ function writeTransactionCsv(type) {
     return browser.visit('https://efiling.ocf.dc.gov/ContributionExpenditure')
         .then(() => browser.select('#FilerTypeId', 'Principal Campaign Committee'))
         .then(() => browser.click('#' + type))
+        .then(() => browser.assert.text('#recipientCriteria', type === 'contributions' ? 'Recipient' : 'Payor'))
+        .then(() => browser.assert.text('#accordionpanel4 a', 'Date'))
         .then(() => browser.click('#accordionpanel4 a'))
+        .then(() => browser.assert.hasClass('#panel4b', 'active'))
         .then(() => browser.fill('#FromDate', '01/01/' + (electionYear - 2)))
         .catch(function (err) {
             if (err.message === "Cannot read property 'settings' of undefined") {
@@ -93,6 +96,7 @@ function writeTransactionCsv(type) {
             throw err;
         })
         .then(() => browser.click('#btnSubmitSearch'))
+        .then(() => browser.assert.text('h3', `Principal Campaign Committee ${initialCap(type)} Search Result`))
         .then(getCsv)
         .then(csv => fs.writeFileSync(file, csv, {encoding: 'utf-8'}))
         .then(() => log(`Finished writing ${type}`));
@@ -125,4 +129,8 @@ function log(...args) {
     if (argv.verbose) {
         console.warn(...args);
     }
+}
+
+function initialCap(s) {
+    return s.substr(0, 1).toUpperCase() + s.substr(1).toLowerCase();
 }

@@ -347,7 +347,7 @@ function trim(s) {
 function makeName(r) {
     const prefix = r.hasOwnProperty('contributor_name') ? 'contributor_' : 'payee_';
     return ['first_name', 'middle_name', 'last_name', 'organization_name']
-        .map(c => r[prefix+ c])
+        .map(c => r[prefix + c])
         .filter(v => !!v)
         .join(' ');
 }

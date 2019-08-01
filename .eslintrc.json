@@ -39,6 +39,7 @@
         "max-len": ["error", {"code":  120}],
         "no-undef": "error",
         "eqeqeq": ["error", "smart"],
+        "space-infix-ops": "error",
         "prefer-rest-params": "off"
     }
 }

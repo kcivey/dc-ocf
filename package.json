@@ -18,6 +18,7 @@
   },
   "dependencies": {
     "csv": "^5.1.1",
+    "csv-parse": "^4.4.3",
     "dotenv": "^8.0.0",
     "emailjs": "^2.2.0",
     "knex": "^0.19.1",
@@ -27,6 +28,7 @@
     "sprintf-js": "^1.1.2",
     "sqlite3": "^4.0.9",
     "stats-lite": "^2.2.0",
+    "tabula-js": "github:kcivey/tabula-js",
     "underscore": "^1.9.1",
     "yargs": "^13.3.0",
     "zombie": "^6.1.4"

@@ -40,6 +40,7 @@
         "no-undef": "error",
         "eqeqeq": ["error", "smart"],
         "space-infix-ops": "error",
-        "prefer-rest-params": "off"
+        "prefer-rest-params": "off",
+        "no-unreachable": "error"
     }
 }

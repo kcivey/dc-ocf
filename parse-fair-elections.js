@@ -1,8 +1,7 @@
 #!/usr/bin/env node
 
 const {pdfToText} = require('pdf-to-text');
-const csvParse = require('csv-parse/lib/sync');
-const camelCase = require('camelcase');
+const underscored = require('underscore.string/underscored');
 const _ = require('underscore');
 const inputFile = process.argv[2];
 
@@ -10,17 +9,6 @@ if (!inputFile) {
     console.error('Input filename must be provided');
     process.exit();
 }
-
-const fields = {
-    lineNumber: [0, 7],
-    contributor_name: [7, 42],
-    occupation: [49, 22],
-    employer_name: [71, 41],
-    mode_of_payment: [112, 24],
-    receipt_date: [136, 38],
-    amount: [174, 10],
-    cumulative_amount: [184, 20],
-};
 
 main()
     .then(console.log)
@@ -46,43 +34,80 @@ function getPdfText() {
 }
 
 function parseTable(text) {
-    let m = text.match(/^.*Page (\d+) of \d+\s+SCHEDULE (\S+)\s+[^\n]+\s+(?=#)/s);
-    if (!m) {
-        console.error(text);
-        throw new Error('Unexpected page format');
+    let unparsed = text;
+    if (!text.match(/\S/)) { // skip blank pages
+        return null;
     }
-    text = text.substr(m[0].length);
+    let m = unparsed.match(/^.*Page (\d+) of \d+\s+SCHEDULE (\S+)\s+[^\n]+\n+/s);
+    if (!m) {
+        console.error(unparsed);
+        throw new Error('Unexpected header in page');
+    }
+    unparsed = unparsed.substr(m[0].length);
     const pageData = {
-        page: m[1],
+        page: +m[1],
         schedule: m[2].replace('-', ''),
         rows: [],
     };
-    while ((m = text.match(/^(?:.*\n){3}\n?(?=\d|\s+Subtotal)/))) {
-        text = text.substr(m[0].length);
-        pageData.rows.push(parseRowText(m[0]));
+    if (pageData.schedule === 'D' || pageData.schedule === 'E') {
+        return pageData;
     }
-    if (!text.match(/^\s*Subtotal/)) {
-        console.error(text);
+    m = unparsed.match(/^(#.+)\n(?:.*\n)?\n(?=\d)/);
+    if (!m) {
+        console.error(unparsed);
+        throw new Error(`Can't find table head in page ${pageData.page}`);
+    }
+    const fields = getFields(m[1]);
+    unparsed = unparsed.substr(m[0].length);
+    while ((m = unparsed.match(/^\d(?:.*\n){3,4}\n?(?=\d|\s+Subtotal)/))) {
+        unparsed = unparsed.substr(m[0].length);
+        pageData.rows.push(parseRowText(m[0], fields));
+    }
+    if (!unparsed.match(/^\s*Subtotal/)) {
+        console.error(unparsed);
         throw new Error('Unexpected format at end of page');
     }
     return pageData;
 }
 
-function parseRowText(text) {
+function getFields(line) {
+    const fields = {};
+    const re = /\S+(?: \S+)*(?: {2,}|$)/y;
+    let m;
+    while ((m = line.match(re))) {
+        const key = m[0].match(/^#\s*$/) ? 'line_number' :
+            underscored(m[0].replace(/\/.*/, ''));
+        fields[key] = [m.index, m[0].length];
+    }
+    return fields;
+}
+
+
+function parseRowText(text, fields) {
     const lines = text.replace(/\s+$/, '').split('\n');
-    const row = parseLine(lines[0]);
-    console.warn(row)
+    const row = parseLine(lines[0], fields);
+    if (!row['line_number']) {
+        console.error(text);
+        throw new Error('Missing line number');
+    }
     for (const line of lines.slice(1)) {
-        const extra = parseLine(line);
-        console.warn(extra)
+        const extra = parseLine(line, fields);
         for (const [key, value] of Object.entries(extra)) {
-            if (key.match(/_name$/)) {
-                const newKey = key.replace(/_name$/, '_address');
+            if (key.match(/^business$|_name$/)) {
+                const newKey = key.replace(/(?:_name)?$/, '_address');
                 if (!row[newKey]) {
                     row[newKey] = value;
                 }
                 else {
                     row[newKey] += '\n' + value;
+                }
+            }
+            else if (key === 'occupation') {
+                if (!row[key]) {
+                    row[key] = value;
+                }
+                else {
+                    row[key] += ' ' + value;
                 }
             }
             else if (value !== '') {
@@ -94,7 +119,7 @@ function parseRowText(text) {
     return row;
 }
 
-function parseLine(text) {
+function parseLine(text, fields) {
     const record = {};
     for (const [name, [start, length]] of Object.entries(fields)) {
         record[name] = text.substr(start, length).trim();

@@ -56,7 +56,6 @@ function getStats() {
         })
         .then(() => db.getContributionSubtotals(filters))
         .then(function (rows) {
-            console.log(rows)
             const officeRegex = argv.office ? new RegExp(argv.office, 'i') : null;
             let prevOffice = '';
             let headers;

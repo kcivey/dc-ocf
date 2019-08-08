@@ -21,6 +21,7 @@ async function main() {
     const docText = await getPdfText();
     const rowsByType = {A: [], B: []};
     let prevSchedule;
+    let committeeName;
     let lineNumber = 0;
     let pageNumber = 2;
     for (const pageText of docText.split('\f').slice(2)) { // skip pages 1 and 2
@@ -32,6 +33,7 @@ async function main() {
         if (pageNumber !== pageData.page) {
             throw new Error(`Expected page ${pageNumber}, got page ${pageData.page}`);
         }
+        committeeName = pageData.committee_name;
         if (prevSchedule !== pageData.schedule) {
             lineNumber = 0;
             prevSchedule = pageData.schedule;
@@ -49,6 +51,9 @@ async function main() {
             rowsByType[scheduleType].push(row);
         }
     }
+    console.warn(`Deleting records for ${committeeName}`);
+    await db.deleteContributions(committeeName);
+    await db.deleteExpenditures(committeeName);
     for (const [scheduleType, rows] of Object.entries(rowsByType)) {
         if (scheduleType === 'A') {
             console.warn(`Inserting ${rows.length} contributions`);

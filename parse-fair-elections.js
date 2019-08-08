@@ -1,8 +1,6 @@
 #!/usr/bin/env node
 
-const util = require('util');
-const tabula = require('tabula-js');
-const pdfToText = util.promisify(require('pdf-to-text').pdfToText);
+const {pdfToText} = require('pdf-to-text');
 const csvParse = require('csv-parse/lib/sync');
 const camelCase = require('camelcase');
 const _ = require('underscore');
@@ -13,90 +11,93 @@ if (!inputFile) {
     process.exit();
 }
 
+const fields = {
+    lineNumber: [0, 7],
+    contributor_name: [7, 42],
+    occupation: [49, 22],
+    employer_name: [71, 41],
+    mode_of_payment: [112, 24],
+    receipt_date: [136, 38],
+    amount: [174, 10],
+    cumulative_amount: [184, 20],
+};
+
 main()
     .then(console.log)
     .catch(console.error);
 
 async function main() {
-    const pagesForSection = await getPagesForSections();
-    for (const [title, pages] of Object.entries(pagesForSection)) {
-        console.log(pages);
-        const data = await getSectionData(pages);
-        //console.log(data);
-        return
+    const docText = await getPdfText();
+    for (const pageText of docText.split('\f').slice(2)) { // skip pages 1 and 2
+        const pageData = parseTable(pageText);
+        console.log(pageData)
     }
 }
 
-async function getSectionData(pageRange) {
+function getPdfText() {
     return new Promise(function (resolve, reject) {
-        const data = [];
-        const stream = tabula(
-            inputFile,
-            {
-                guess: true,
-                debug: true,
-                noSpreadsheet: true,
-                pages: pageRange.join('-'),
+        pdfToText(inputFile, {}, function (err, text) {
+            if (err) {
+                return reject(err);
             }
-        ).streamCsv();
-        let columnNames;
-        let prevValues;
-        stream
-            .split()
-            .doto(function (line) {
-                let values = csvParse(line)[0] || [];
-                console.log(values)
-                if (values[0] === '' && prevValues) {
-                    values = combineValueLists(prevValues, values);
-                    data.pop();
-                }
-                prevValues = values;
-                if (!columnNames) {
-                    columnNames = values.map(camelCase);
-                    return;
-                }
-                const record = _.object(columnNames, values);
-                data.push(record);
-            })
-            .done(() => resolve(data));
+            resolve(text);
+        });
     });
 }
 
-function combineValueLists(...lists) {
-    const newRecord = [];
-    const length = lists[0].length;
-    for (let i = 0; i < length; i++) {
-        newRecord.push(
-            lists.map(list => list[i])
-                .filter(v => v !== '' && v != null)
-                .join(' ')
-        );
+function parseTable(text) {
+    let m = text.match(/^.*Page (\d+) of \d+\s+SCHEDULE (\S+)\s+[^\n]+\s+(?=#)/s);
+    if (!m) {
+        console.error(text);
+        throw new Error('Unexpected page format');
     }
-    return newRecord;
+    text = text.substr(m[0].length);
+    const pageData = {
+        page: m[1],
+        schedule: m[2].replace('-', ''),
+        rows: [],
+    };
+    while ((m = text.match(/^(?:.*\n){3}\n?(?=\d|\s+Subtotal)/))) {
+        text = text.substr(m[0].length);
+        pageData.rows.push(parseRowText(m[0]));
+    }
+    if (!text.match(/^\s*Subtotal/)) {
+        console.error(text);
+        throw new Error('Unexpected format at end of page');
+    }
+    return pageData;
 }
 
-async function getPagesForSections() {
-    const pdfText = await pdfToText(inputFile);
-    const pagesForSections = {};
-    let pageNumber = 2;
-    for (const pageContent of pdfText.split('\f').splice(2)) { // skip pages 1 and 2
-        pageNumber++;
-        if (!/\S/.test(pageContent)) {
-            // Skip blank pages
-            continue;
-        }
-        const m = pageContent.match(/(SCHEDULE \S+)\s+(.+)/);
-        if (!m) {
-            console.error(pageContent);
-            throw new Error(`Unexpected content on page ${pageNumber}`);
-        }
-        const section = m[1] + ': ' + m[2];
-        if (!pagesForSections[section]) {
-            pagesForSections[section] = [pageNumber, pageNumber];
-        }
-        else {
-            pagesForSections[section][1] = pageNumber;
+function parseRowText(text) {
+    const lines = text.replace(/\s+$/, '').split('\n');
+    const row = parseLine(lines[0]);
+    console.warn(row)
+    for (const line of lines.slice(1)) {
+        const extra = parseLine(line);
+        console.warn(extra)
+        for (const [key, value] of Object.entries(extra)) {
+            if (key.match(/_name$/)) {
+                const newKey = key.replace(/_name$/, '_address');
+                if (!row[newKey]) {
+                    row[newKey] = value;
+                }
+                else {
+                    row[newKey] += '\n' + value;
+                }
+            }
+            else if (value !== '') {
+                console.error(text);
+                throw new Error(`Unexpected row format: "${value}" found in ${key} in later line`);
+            }
         }
     }
-    return pagesForSections;
+    return row;
+}
+
+function parseLine(text) {
+    const record = {};
+    for (const [name, [start, length]] of Object.entries(fields)) {
+        record[name] = text.substr(start, length).trim();
+    }
+    return record;
 }

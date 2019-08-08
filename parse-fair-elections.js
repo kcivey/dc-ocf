@@ -3,6 +3,7 @@
 const {pdfToText} = require('pdf-to-text');
 const underscored = require('underscore.string/underscored');
 const db = require('./lib/db');
+const {fixAmount, fixDate, normalizeNameAndAddress} = require('./lib/util');
 const inputFile = process.argv[2];
 
 if (!inputFile) {
@@ -16,7 +17,7 @@ main()
     .finally(() => db.close());
 
 async function main() {
-    await db.createTables();
+    // await db.createTables();
     const docText = await getPdfText();
     const rowsByType = {A: [], B: []};
     let prevSchedule;
@@ -195,6 +196,7 @@ function fixRow(oldRow, scheduleType) {
             row.payment_date = row.date;
             delete row.date;
         }
+        row.payment_date = fixDate(row.payment_date);
     }
     for (const prefix of ['contributor', 'payee']) {
         const name = row[prefix + '_name'];
@@ -220,16 +222,18 @@ function fixRow(oldRow, scheduleType) {
             .replace(/, ([A-Z]{2})-(\d{5}(?:-\d{4})?)$/, ', $1 $2');
         delete row.cumulative_amount;
         if (row.relationship) {
-            row.contributor_type = row.relationship;
+            // row.contributor_type = row.relationship;
+            row.contributor_type = 'Candidate';
             delete row.relationship;
-            row.receipt_date = row.date;
-            delete row.date;
         }
         else {
             row.contributor_type = 'Individual';
         }
+        row.receipt_date = fixDate(row.receipt_date);
     }
+    row.amount = fixAmount(row.amount);
     row.line_number = +row.line_number;
+    row.normalized = normalizeNameAndAddress(row);
     return row;
 }
 

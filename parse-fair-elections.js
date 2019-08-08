@@ -11,7 +11,7 @@ if (!inputFile) {
 }
 
 main()
-    .then(console.log)
+    .then(() => console.warn('Finished'))
     .catch(console.error)
     .finally(() => db.close());
 
@@ -25,7 +25,6 @@ async function main() {
     for (const pageText of docText.split('\f').slice(2)) { // skip pages 1 and 2
         pageNumber++;
         const pageData = parseTable(pageText);
-        console.log(pageData)
         if (!pageData) {
             continue;
         }
@@ -174,7 +173,6 @@ function parseRowText(text, fields) {
 }
 
 function fixRow(oldRow, scheduleType) {
-    console.log(oldRow)
     const row = {...oldRow};
     if (scheduleType !== 'A') {
         if (row.contributor_name) {
@@ -213,7 +211,6 @@ function fixRow(oldRow, scheduleType) {
         }
         delete row[prefix + '_address'];
     }
-    console.log('row', row);
     if (scheduleType === 'A') {
         row.contributor_organization_name = '';
         row.contribution_type = row.mode_of_payment;

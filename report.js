@@ -32,32 +32,13 @@ const argv = require('yargs')
 const db = require('./lib/db');
 const data = {};
 const bins = [25, 50, 100, 250, 500, 999.99];
-let contributorTypes;
+const filters = argv.since ? {since: argv.since} : {};
 
-let query = db
-    .select(
-        'office',
-        'contributions.committee_name',
-        'candidate_name',
-        db.raw("sum(case when state = 'DC' then amount else 0 end) as dc_amount"),
-        db.raw("sum(case when contributor_type in ('Individual', 'Candidate') then amount else 0 end) as ind_amount"),
-        db.raw("sum(case when state = 'DC' and contributor_type in ('Individual', 'Candidate') " +
-            'then amount else 0 end) as dc_ind_amount')
-    )
-    .count('* as contributions')
-    .sum('amount as amount')
-    .from('contributions')
-    .innerJoin('committees', 'contributions.committee_name', 'committees.committee_name')
-    .where(1, 1);
-query = addFilters(query);
-query.groupBy('office', 'contributions.committee_name', 'candidate_name')
-    .orderBy('office')
-    .orderBy('candidate_name')
+db.getContributionInfo(filters)
     .then(function (rows) {
         rows.forEach(function (row) {
             // console.log(row.committee_name);
             row.amountList = [];
-            row.amountByType = {};
             row.binAmounts = bins.map(() => 0).concat([0]);
             row.dc_ind_contributors = 0;
             data[row.committee_name] = row;
@@ -66,174 +47,146 @@ query.groupBy('office', 'contributions.committee_name', 'candidate_name')
     });
 
 function getStats() {
-    getContributorTypes()
-        .then(function () {
-            let query = db.select('committee_name', 'normalized', 'state')
-                .sum('amount as subtotal')
-                .from('contributions');
-            let start = '0';
-            query = addFilters(query);
-            query.groupBy('committee_name', 'normalized', 'state')
-                .having('subtotal', '>', 0)
-                .then(function (rows) {
-                    const officeRegex = argv.office ? new RegExp(argv.office, 'i') : null;
-                    let prevOffice = '';
-                    let headers;
-                    let format;
-                    let officeFormat;
-                    if (argv.html) {
-                        headers = '<table>\n<tr>' +
-                            '<th>Candidate</th>' +
-                            '<th style="text-align: right">Contri-<br>butions</th>' +
-                            '<th style="text-align: right">Contrib-<br>utors</th>' +
-                            '<th style="text-align: right">DC Ind<br>Contbr</th>' +
-                            '<th style="text-align: right">Amount</th>' +
-                            '<th style="text-align: right">Mean</th>' +
-                            '<th style="text-align: right">Median</th>' +
-                            '<th style="text-align: right">%Ind</th>' +
-                            '<th style="text-align: right">%DC</th>' +
-                            '<th style="text-align: right">%DCInd</th>';
-                        format = '<tr><td style="text-indent: 1em">%s</td>' +
-                            '<td style="text-align: right">%s</td>' +
-                            '<td style="text-align: right; white-space: nowrap">%s</td>' +
-                            '<td style="text-align: right; white-space: nowrap">%s</td>' +
-                            '<td style="text-align: right">$%s</td>' +
-                            '<td style="text-align: right">$%s</td>' +
-                            '<td style="text-align: right">$%s</td>' +
-                            '<td style="text-align: right">%s</td>' +
-                            '<td style="text-align: right">%s</td>' +
-                            '<td style="text-align: right">%s</td>';
-                        officeFormat = '<tr><td colspan="9">%s</td></tr>';
-                        bins.forEach(function (end) {
-                            headers += '<th  style="text-align: right">' + start + '-<br>' + end + '</th>';
-                            format += '<td style="text-align: right">%s</td>';
-                            start = (end + 0.01).toFixed(2);
-                        });
-                        headers += '<th  style="text-align: right">' + start + '+</th>';
-                        format += '<td style="text-align: right">%s</td>';
-                        headers += '</tr>';
-                        format += '</tr>';
-                    }
-                    else if (argv.csv) {
-                        headers = [
-                            'Candidate',
-                            'Contributions',
-                            'Contributors',
-                            'DCIndContbr',
-                            'Amount',
-                            'Mean',
-                            'Median',
-                            '%Ind',
-                            '%DC',
-                            '%DCInd',
-                        ].join('\t');
-                        const columnCount = 11 + bins.length;
-                        format = Array(columnCount).fill('%s').join('\t');
-                        officeFormat = '%s';
-                        bins.forEach(function (end) {
-                            headers += '\t' + start + '-' + end;
-                            start = (end + 0.01).toFixed(2);
-                        });
-                        headers += '\t' + start + '+';
-                    }
-                    else {
-                        headers = 'Candidate             Contributions  Contributors  DCIndContbr    ' +
-                            'Amount   Mean  Median  %Ind %DC %DCInd';
-                        format = '%-20s %14s %13s %12s %9s  %5s  %6s  %4s %3s %6s';
-                        officeFormat = '%s';
-                        bins.forEach(function (end) {
-                            const header = start + '-' + end;
-                            headers += '  ' + header;
-                            format += '  %' + header.length + 's';
-                            start = (end + 0.01).toFixed(2);
-                        });
-                        headers += '  ' + start + '+';
-                        format += '  %' + (start.length + 1) + 's';
-                    }
-                    console.log(headers);
-                    rows.forEach(function (row) {
-                        data[row.committee_name].amountList.push(row.subtotal);
-                        let i = 0;
-                        for (i = 0; i < bins.length; i++) {
-                            if (row.subtotal <= bins[i]) {
-                                data[row.committee_name].binAmounts[i] += row.subtotal;
-                                break;
-                            }
-                        }
-                        if (i >= bins.length) {
-                            data[row.committee_name].binAmounts[i] += row.subtotal;
-                        }
-                        if (row.state === 'DC') {
-                            data[row.committee_name].dc_ind_contributors++;
-                        }
-                    });
-                    _.each(data, function (c) {
-                        const values = [
-                            c.candidate_name,
-                            numberFormat(c.contributions),
-                            numberFormat(c.amountList.length),
-                            numberFormat(c.dc_ind_contributors),
-                            numberFormat(c.amount),
-                        ];
-                        if (c.amount < argv.threshold || (officeRegex && !officeRegex.test(c.office))) {
-                            return;
-                        }
-                        c.amountList = c.amountList.sort((a, b) => a - b);
-                        values.push(
-                            numberFormat(stats.mean(c.amountList)),
-                            numberFormat(stats.median(c.amountList)),
-                            numberFormat(100 * c.ind_amount / c.amount),
-                            numberFormat(100 * c.dc_amount / c.amount),
-                            numberFormat(100 * c.dc_ind_amount / c.amount)
-                            // c.amountList[0],
-                            // c.amountList[c.amountList.length - 1]
-                        );
-                        bins.forEach(function (end, i) {
-                            values.push((100 * c.binAmounts[i] / c.amount).toFixed(2));
-                        });
-                        values.push((100 * c.binAmounts[bins.length] / c.amount).toFixed(2));
-                        if (c.office !== prevOffice && !argv.csv) {
-                            console.log(vsprintf(officeFormat, [c.office.toUpperCase()]));
-                        }
-                        console.log(vsprintf(format, values));
-                        // console.log(c.binCounts);
-                        prevOffice = c.office;
-                    });
-                    if (argv.html) {
-                        console.log('</table>\n');
-                    }
-                    // printCrossCandidateContributions();
-                    process.exit();
-                });
-        });
-}
-
-function getContributorTypes() {
-    let query = db.distinct('contributor_type')
-        .from('contributions');
-    query = addFilters(query);
-    return query.orderBy('contributor_type')
+    db.getContributorTypes(filters)
+        .then(() => db.getContributionAmountsByType(filters))
+        .then(function (amounts) {
+            for (const [committee, obj] of Object.entries(amounts)) {
+                data[committee].amountByType = obj;
+            }
+        })
+        .then(() => db.getContributionSubtotals(filters))
         .then(function (rows) {
-            contributorTypes = _.pluck(rows, 'contributor_type');
-            console.log(contributorTypes);
-            let subquery = db.select('committee_name', 'contributor_type')
-                .sum('amount as amount')
-                .from('contributions');
-            subquery = addFilters(subquery);
-            return subquery.groupBy('committee_name', 'contributor_type')
-                .then(function (rows) {
-                    rows.forEach(function (c) {
-                        data[c.committee_name].amountByType[c.contributor_type] = c.amount;
-                    });
+            console.log(rows)
+            const officeRegex = argv.office ? new RegExp(argv.office, 'i') : null;
+            let prevOffice = '';
+            let headers;
+            let format;
+            let officeFormat;
+            let start = '0';
+            if (argv.html) {
+                headers = '<table>\n<tr>' +
+                    '<th>Candidate</th>' +
+                    '<th style="text-align: right">Contri-<br>butions</th>' +
+                    '<th style="text-align: right">Contrib-<br>utors</th>' +
+                    '<th style="text-align: right">DC Ind<br>Contbr</th>' +
+                    '<th style="text-align: right">Amount</th>' +
+                    '<th style="text-align: right">Mean</th>' +
+                    '<th style="text-align: right">Median</th>' +
+                    '<th style="text-align: right">%Ind</th>' +
+                    '<th style="text-align: right">%DC</th>' +
+                    '<th style="text-align: right">%DCInd</th>';
+                format = '<tr><td style="text-indent: 1em">%s</td>' +
+                    '<td style="text-align: right">%s</td>' +
+                    '<td style="text-align: right; white-space: nowrap">%s</td>' +
+                    '<td style="text-align: right; white-space: nowrap">%s</td>' +
+                    '<td style="text-align: right">$%s</td>' +
+                    '<td style="text-align: right">$%s</td>' +
+                    '<td style="text-align: right">$%s</td>' +
+                    '<td style="text-align: right">%s</td>' +
+                    '<td style="text-align: right">%s</td>' +
+                    '<td style="text-align: right">%s</td>';
+                officeFormat = '<tr><td colspan="9">%s</td></tr>';
+                bins.forEach(function (end) {
+                    headers += '<th  style="text-align: right">' + start + '-<br>' + end + '</th>';
+                    format += '<td style="text-align: right">%s</td>';
+                    start = (end + 0.01).toFixed(2);
                 });
+                headers += '<th  style="text-align: right">' + start + '+</th>';
+                format += '<td style="text-align: right">%s</td>';
+                headers += '</tr>';
+                format += '</tr>';
+            }
+            else if (argv.csv) {
+                headers = [
+                    'Candidate',
+                    'Contributions',
+                    'Contributors',
+                    'DCIndContbr',
+                    'Amount',
+                    'Mean',
+                    'Median',
+                    '%Ind',
+                    '%DC',
+                    '%DCInd',
+                ].join('\t');
+                const columnCount = 11 + bins.length;
+                format = Array(columnCount).fill('%s').join('\t');
+                officeFormat = '%s';
+                bins.forEach(function (end) {
+                    headers += '\t' + start + '-' + end;
+                    start = (end + 0.01).toFixed(2);
+                });
+                headers += '\t' + start + '+';
+            }
+            else {
+                headers = 'Candidate             Contributions  Contributors  DCIndContbr    ' +
+                    'Amount   Mean  Median  %Ind %DC %DCInd';
+                format = '%-20s %14s %13s %12s %9s  %5s  %6s  %4s %3s %6s';
+                officeFormat = '%s';
+                bins.forEach(function (end) {
+                    const header = start + '-' + end;
+                    headers += '  ' + header;
+                    format += '  %' + header.length + 's';
+                    start = (end + 0.01).toFixed(2);
+                });
+                headers += '  ' + start + '+';
+                format += '  %' + (start.length + 1) + 's';
+            }
+            console.log(headers);
+            rows.forEach(function (row) {
+                data[row.committee_name].amountList.push(row.subtotal);
+                let i = 0;
+                for (i = 0; i < bins.length; i++) {
+                    if (row.subtotal <= bins[i]) {
+                        data[row.committee_name].binAmounts[i] += row.subtotal;
+                        break;
+                    }
+                }
+                if (i >= bins.length) {
+                    data[row.committee_name].binAmounts[i] += row.subtotal;
+                }
+                if (row.state === 'DC') {
+                    data[row.committee_name].dc_ind_contributors++;
+                }
+            });
+            _.each(data, function (c) {
+                const values = [
+                    c.candidate_name,
+                    numberFormat(c.contributions),
+                    numberFormat(c.amountList.length),
+                    numberFormat(c.dc_ind_contributors),
+                    numberFormat(c.amount),
+                ];
+                if (c.amount < argv.threshold || (officeRegex && !officeRegex.test(c.office))) {
+                    return;
+                }
+                c.amountList = c.amountList.sort((a, b) => a - b);
+                values.push(
+                    numberFormat(stats.mean(c.amountList)),
+                    numberFormat(stats.median(c.amountList)),
+                    numberFormat(100 * c.ind_amount / c.amount),
+                    numberFormat(100 * c.dc_amount / c.amount),
+                    numberFormat(100 * c.dc_ind_amount / c.amount)
+                    // c.amountList[0],
+                    // c.amountList[c.amountList.length - 1]
+                );
+                bins.forEach(function (end, i) {
+                    values.push((100 * c.binAmounts[i] / c.amount).toFixed(2));
+                });
+                values.push((100 * c.binAmounts[bins.length] / c.amount).toFixed(2));
+                if (c.office !== prevOffice && !argv.csv) {
+                    console.log(vsprintf(officeFormat, [c.office.toUpperCase()]));
+                }
+                console.log(vsprintf(format, values));
+                // console.log(c.binCounts);
+                prevOffice = c.office;
+            });
+            if (argv.html) {
+                console.log('</table>\n');
+            }
+            // printCrossCandidateContributions();
+            process.exit();
         });
-}
-
-function addFilters(query) {
-    if (argv.since) {
-        query = query.andWhere('receipt_date', '>=', argv.since);
-    }
-    return query;
 }
 
 function numberFormat(x) {

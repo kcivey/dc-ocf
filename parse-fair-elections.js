@@ -2,7 +2,7 @@
 
 const {pdfToText} = require('pdf-to-text');
 const underscored = require('underscore.string/underscored');
-const _ = require('underscore');
+const db = require('./lib/db');
 const inputFile = process.argv[2];
 
 if (!inputFile) {
@@ -12,13 +12,55 @@ if (!inputFile) {
 
 main()
     .then(console.log)
-    .catch(console.error);
+    .catch(console.error)
+    .finally(() => db.close());
 
 async function main() {
+    await db.createTables();
     const docText = await getPdfText();
+    const rowsByType = {A: [], B: []};
+    let prevSchedule;
+    let lineNumber = 0;
+    let pageNumber = 2;
     for (const pageText of docText.split('\f').slice(2)) { // skip pages 1 and 2
+        pageNumber++;
         const pageData = parseTable(pageText);
         console.log(pageData)
+        if (!pageData) {
+            continue;
+        }
+        if (pageNumber !== pageData.page) {
+            throw new Error(`Expected page ${pageNumber}, got page ${pageData.page}`);
+        }
+        if (prevSchedule !== pageData.schedule) {
+            lineNumber = 0;
+            prevSchedule = pageData.schedule;
+        }
+        const scheduleType = pageData.schedule.substr(0, 1);
+        if (!rowsByType[scheduleType]) {
+            continue;
+        }
+        for (const row of pageData.rows) {
+            lineNumber++;
+            if (lineNumber !== row.line_number) {
+                throw new Error(`Expected line ${lineNumber}, got line ${row.line_number}, page ${pageData.page}`);
+            }
+            delete row.line_number;
+            rowsByType[scheduleType].push(row);
+        }
+    }
+    for (const [scheduleType, rows] of Object.entries(rowsByType)) {
+        if (scheduleType === 'A') {
+            console.warn(`Inserting ${rows.length} contributions`);
+            await db.batchInsertContributions(rows);
+        }
+        else if (scheduleType === 'B') {
+            console.warn(`Inserting ${rows.length} expenditures`);
+            await db.batchInsertExpenditures(rows);
+        }
+        else {
+            throw new Error(`Got schedule type "${scheduleType}`)
+        }
     }
 }
 
@@ -63,7 +105,9 @@ function parseTable(text) {
     unparsed = unparsed.substr(m[0].length);
     while ((m = unparsed.match(/^\d(?:.*\n){3,4}\n?(?=\d|\s+Subtotal)/))) {
         unparsed = unparsed.substr(m[0].length);
-        pageData.rows.push(parseRowText(m[0], fields));
+        const row = parseRowText(m[0], fields);
+        Object.assign(row, {committee_name: pageData.committee_name});
+        pageData.rows.push(row);
     }
     if (!unparsed.match(/^\s*Subtotal/)) {
         console.error(unparsed);
@@ -76,11 +120,15 @@ function getFields(line) {
     const fields = {};
     const re = /\S+(?: \S+)*(?: {2,}|$)/y;
     let m;
+    let lastKey;
     while ((m = line.match(re))) {
         const key = m[0].match(/^#\s*$/) ? 'line_number' :
             underscored(m[0].replace(/\/.*/, ''));
-        fields[key] = [m.index, m[0].length];
+        // Allow for starting 1 character earluy except for first column
+        fields[key] = m.index > 0 ? [m.index - 1, m[0].length] : [0, m[0].length - 1];
+        lastKey = key;
     }
+    fields[lastKey][1] += 20; // don't cut off value when last column head is short
     return fields;
 }
 
@@ -121,13 +169,104 @@ function parseRowText(text, fields) {
             }
         }
     }
+    const scheduleType = fields.receipt_date ? 'A' : 'B';
+    return fixRow(row, scheduleType);
+}
+
+function fixRow(oldRow, scheduleType) {
+    console.log(oldRow)
+    const row = {...oldRow};
+    if (scheduleType !== 'A') {
+        if (row.contributor_name) {
+            row.payee_name = row.contributor_name;
+            delete row.contributor_name;
+            row.payee_address = row.contributor_address;
+            delete row.contributor_address;
+            row.purpose_of_expenditure = 'Refund';
+            row.payment_date = row.refund_date;
+            delete row.refund_date;
+            delete row.contribution_date;
+            delete row.reason;
+            delete row.mode_of_payment;
+        }
+        else {
+            row.payee_name = row.business;
+            delete row.business;
+            row.payee_address = row.business_address;
+            delete row.business_address;
+            row.payment_date = row.date;
+            delete row.date;
+        }
+    }
+    for (const prefix of ['contributor', 'payee']) {
+        const name = row[prefix + '_name'];
+        if (name) {
+            const nameParts = parseName(name);
+            for (const [key, value] of Object.entries(nameParts)) {
+                row[prefix + '_' + key + '_name'] = value;
+            }
+        }
+        delete row[prefix + '_name'];
+        const address = row[prefix + '_address'];
+        if (address) {
+            Object.assign(row, parseAddress(address));
+        }
+        delete row[prefix + '_address'];
+    }
+    console.log('row', row);
+    if (scheduleType === 'A') {
+        row.contributor_organization_name = '';
+        row.contribution_type = row.mode_of_payment;
+        delete row.mode_of_payment;
+        row.employer_address = row.employer_address.replace('\n', ', ')
+            .replace(/,\s*/, ', ')
+            .replace(/, ([A-Z]{2})-(\d{5}(?:-\d{4})?)$/, ', $1 $2');
+        delete row.cumulative_amount;
+        if (row.relationship) {
+            row.contributor_type = row.relationship;
+            delete row.relationship;
+            row.receipt_date = row.date;
+            delete row.date;
+        }
+        else {
+            row.contributor_type = 'Individual';
+        }
+    }
+    row.line_number = +row.line_number;
     return row;
 }
 
-function parseLine(text, fields) {
+function parseLine(line, fields) {
     const record = {};
     for (const [name, [start, length]] of Object.entries(fields)) {
-        record[name] = text.substr(start, length).trim();
+        record[name] = line.substr(start, length).trim();
     }
     return record;
+}
+
+function parseName(name) {
+    const m = name.match(/^(?:(\S+)(?: (.+?))? )?(\S+(?: (?:[JS]r|I+|IV|VI*)\.?)?)$/);
+    if (!m) {
+        throw new Error(`Unexpected name format "${name}"`);
+    }
+    return {
+        first: m[1] || '',
+        middle: m[2] || '',
+        last: m[3],
+    };
+}
+
+function parseAddress(address) {
+    const lines = address.trim().split('\n');
+    const lastLine = lines.pop();
+    const m = lastLine.match(/^(\S.+\S),\s*([A-Z]{2})[- ](\d{5}(?:-\d{4})?)$/);
+    if (!m) {
+        throw new Error(`Unexpected address format "${address}"`);
+    }
+    return {
+        number_and_street: lines.join(', '),
+        city: m[1],
+        state: m[2],
+        zip: m[3],
+    };
 }

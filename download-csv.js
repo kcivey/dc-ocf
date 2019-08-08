@@ -4,8 +4,8 @@ const fs = require('fs');
 const url = require('url');
 const util = require('util');
 const request = require('request-promise-native');
-const Browser = require('zombie');
 const yargs = require('yargs');
+const {createBrowser} = require('./lib/browser');
 const argv = getArgv();
 const electionYear = argv.year;
 
@@ -26,7 +26,7 @@ async function main() {
 
 async function writeCommitteeCsv() {
     log('Getting committees');
-    const browser = await getBrowser();
+    const browser = await createBrowser();
     const file = __dirname + '/committees.csv';
     await browser.visit('https://efiling.ocf.dc.gov/Disclosure');
     await browser.select('#FilerTypeId', 'Principal Campaign Committee');
@@ -39,7 +39,7 @@ async function writeCommitteeCsv() {
 
 async function writeTransactionCsv(type) {
     log(`Getting ${type}`);
-    const browser = await getBrowser();
+    const browser = await createBrowser();
     const file = __dirname + '/' + type + '.csv';
     await browser.visit('https://efiling.ocf.dc.gov/ContributionExpenditure');
     await browser.select('#FilerTypeId', 'Principal Campaign Committee');
@@ -135,13 +135,4 @@ function getArgv() {
         argv.committees = argv.contributions = argv.expenditures = true;
     }
     return argv;
-}
-
-function getBrowser() {
-    const browser = new Browser({waitDuration: '30s'});
-    // Force 5s pause between main requests
-    browser.pipeline.addHandler(function (browser, request) {
-        return new Promise(resolve => setTimeout(resolve, 5000));
-    });
-    return browser;
 }

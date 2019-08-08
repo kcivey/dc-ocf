@@ -38,15 +38,17 @@ function parseTable(text) {
     if (!text.match(/\S/)) { // skip blank pages
         return null;
     }
-    let m = unparsed.match(/^.*Page (\d+) of \d+\s+SCHEDULE (\S+)\s+[^\n]+\n+/s);
+    let m = unparsed.match(/^(\S+) - (\S[^\n]+\S)\s+Page (\d+) of \d+\s+SCHEDULE (\S+)\s+[^\n]+\n+/s);
     if (!m) {
         console.error(unparsed);
         throw new Error('Unexpected header in page');
     }
     unparsed = unparsed.substr(m[0].length);
     const pageData = {
-        page: +m[1],
-        schedule: m[2].replace('-', ''),
+        committee_id: m[1],
+        committee_name: m[2],
+        page: +m[3],
+        schedule: m[4].replace('-', ''),
         rows: [],
     };
     if (pageData.schedule === 'D' || pageData.schedule === 'E') {
@@ -93,6 +95,9 @@ function parseRowText(text, fields) {
     for (const line of lines.slice(1)) {
         const extra = parseLine(line, fields);
         for (const [key, value] of Object.entries(extra)) {
+            if (value === '') {
+                continue;
+            }
             if (key.match(/^business$|_name$/)) {
                 const newKey = key.replace(/(?:_name)?$/, '_address');
                 if (!row[newKey]) {
@@ -110,7 +115,7 @@ function parseRowText(text, fields) {
                     row[key] += ' ' + value;
                 }
             }
-            else if (value !== '') {
+            else if (value) {
                 console.error(text);
                 throw new Error(`Unexpected row format: "${value}" found in ${key} in later line`);
             }

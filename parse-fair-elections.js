@@ -62,6 +62,7 @@ async function main() {
             throw new Error(`Got schedule type "${scheduleType}`)
         }
     }
+    await db.addDummyContributions();
 }
 
 function getPdfText() {

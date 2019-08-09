@@ -4,7 +4,6 @@ const fs = require('fs');
 const parse = require('csv-parse');
 const _ = require('underscore');
 const underscored = require('underscore.string/underscored');
-const moment = require('moment');
 const db = require('./lib/db');
 const {fixAmount, fixDate, normalizeNameAndAddress} = require('./lib/util');
 const csvOptions = {columns: true};
@@ -38,8 +37,7 @@ function readCommittees() {
         throw err;
     });
     parser.on('finish', function () {
-        console.log('Finished reading committees');
-        console.log(Object.keys(currentCommittees).sort());
+        console.warn('Finished reading %d committees', records.length);
         db.batchInsertCommittees(records, batchSize)
             .then(readContributions);
     });
@@ -69,7 +67,6 @@ function readContributions() {
             const name = record.committee_name;
             if (!seen[name]) {
                 seen[name] = true;
-                console.log(name);
                 if (!currentCommittees[name]) {
                     unrecognized.push(name);
                 }
@@ -96,9 +93,9 @@ function readContributions() {
             db.batchInsertContributions(batch, batchSize)
                 .then(function () {});
         }
-        console.log('Finished reading %d contributions', totalCount);
-        console.log('Inserted %d contributions', currentCount);
-        console.log('Unrecognized committees:\n', unrecognized.sort());
+        console.warn('Finished reading %d contributions', totalCount);
+        console.warn('Inserted %d contributions', currentCount);
+        console.warn('Unrecognized committees:\n', unrecognized.sort());
         readExpenditures();
     });
     input.pipe(parser);
@@ -127,7 +124,6 @@ function readExpenditures() {
             const name = record.committee_name;
             if (!seen[name]) {
                 seen[name] = true;
-                console.log(name);
                 if (!currentCommittees[name]) {
                     unrecognized.push(name);
                 }

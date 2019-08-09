@@ -62,6 +62,7 @@ function getStats() {
             let format;
             let officeFormat;
             let start = '0';
+            const percentDecimals = 1;
             if (argv.html) {
                 headers = '<table>\n<tr>' +
                     '<th>Candidate</th>' +
@@ -118,14 +119,15 @@ function getStats() {
                 headers += '\t' + start + '+';
             }
             else {
-                headers = 'Candidate             Contributions  Contributors  DCIndContbr    ' +
+                headers = 'Candidate               Contributions  Contributors  DCIndContbr    ' +
                     'Amount   Mean  Median  %Ind %DC %DCInd';
-                format = '%-20s %14s %13s %12s %9s  %5s  %6s  %4s %3s %6s';
+                format = '%-22s %14s %13s %12s %9s  %5s  %6s  %4s %3s %6s';
                 officeFormat = '%s';
+                const percentLength = 4 + percentDecimals;
                 bins.forEach(function (end) {
                     const header = start + '-' + end;
-                    headers += '  ' + header;
-                    format += '  %' + header.length + 's';
+                    headers += '  ' + header.padStart(percentLength);
+                    format += '  %' + Math.max(header.length, percentLength) + 's';
                     start = (end + 0.01).toFixed(2);
                 });
                 headers += '  ' + start + '+';
@@ -170,9 +172,9 @@ function getStats() {
                     // c.amountList[c.amountList.length - 1]
                 );
                 bins.forEach(function (end, i) {
-                    values.push((100 * c.binAmounts[i] / c.amount).toFixed(2));
+                    values.push((100 * c.binAmounts[i] / c.amount).toFixed(percentDecimals));
                 });
-                values.push((100 * c.binAmounts[bins.length] / c.amount).toFixed(2));
+                values.push((100 * c.binAmounts[bins.length] / c.amount).toFixed(percentDecimals));
                 if (c.office !== prevOffice && !argv.csv) {
                     console.log(vsprintf(officeFormat, [c.office.toUpperCase()]));
                 }

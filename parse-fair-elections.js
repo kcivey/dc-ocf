@@ -21,6 +21,7 @@ async function main() {
     for (const inputFile of process.argv.slice(2)) {
         await processFile(inputFile);
     }
+    await db.addDummyContributions();
 }
 
 async function processFile(inputFile) {
@@ -75,7 +76,6 @@ async function processFile(inputFile) {
             throw new Error(`Got schedule ${schedule}`);
         }
     }
-    await db.addDummyContributions();
 }
 
 function getPdfText(inputFile) {

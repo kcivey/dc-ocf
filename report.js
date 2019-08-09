@@ -66,9 +66,9 @@ function getStats() {
             let prevOffice = '';
             const percentDecimals = 1;
             const percentLength = 4 + percentDecimals;
-            const {headers, format, officeFormat} = argv.html ? getHtmlFormat() :
+            const {header, format, officeFormat, footer} = argv.html ? getHtmlFormat() :
                 argv.csv ? getCsvFormat() : getTextFormat(percentLength);
-            console.log(headers);
+            console.log(header);
             rows.forEach(function (row) {
                 data[row.committee_name].amountList.push(row.subtotal);
                 if (argv.bins) {
@@ -120,58 +120,63 @@ function getStats() {
                 console.log(vsprintf(format, values));
                 prevOffice = c.office;
             });
-            if (argv.html) {
-                console.log('</table>\n');
-            }
+            console.log(footer);
             // printCrossCandidateContributions();
             process.exit();
         });
 }
 
 function getHtmlFormat() {
-    let headers = '<table>\n<tr>' +
+    let header = '<style>td,th { white-space: nowrap; padding: 2px 4px; } .number { text-align: right; }</style>' +
+        '<table>\n<tr>' +
         '<th>Candidate</th>' +
-        '<th style="text-align: right">Contri-<br>butions</th>' +
-        '<th style="text-align: right">Contrib-<br>utors</th>' +
-        '<th style="text-align: right">DC Ind<br>Contbr</th>' +
-        '<th style="text-align: right">Amount</th>' +
-        '<th style="text-align: right">Mean</th>' +
-        '<th style="text-align: right">Median</th>' +
-        '<th style="text-align: right">%Ind</th>' +
-        '<th style="text-align: right">%DC</th>' +
-        '<th style="text-align: right">%DCInd</th>';
+        '<th class="number">Contri-<br>butions</th>' +
+        '<th class="number">Contrib-<br>utors</th>' +
+        '<th class="number">DC Ind<br>Contbr</th>' +
+        '<th class="number">Amount</th>' +
+        '<th class="number">Mean</th>' +
+        '<th class="number">Median</th>' +
+        '<th class="number">%Ind</th>' +
+        '<th class="number">%DC</th>' +
+        '<th class="number">%DCInd</th>';
     let format = '<tr><td style="text-indent: 1em">%s</td>' +
-        '<td style="text-align: right">%s</td>' +
-        '<td style="text-align: right; white-space: nowrap">%s</td>' +
-        '<td style="text-align: right; white-space: nowrap">%s</td>' +
-        '<td style="text-align: right">$%s</td>' +
-        '<td style="text-align: right">$%s</td>' +
-        '<td style="text-align: right">$%s</td>' +
-        '<td style="text-align: right">%s</td>' +
-        '<td style="text-align: right">%s</td>' +
-        '<td style="text-align: right">%s</td>';
+        '<td class="number">%s</td>' +
+        '<td class="number">%s</td>' +
+        '<td class="number">%s</td>' +
+        '<td class="number">$%s</td>' +
+        '<td class="number">$%s</td>' +
+        '<td class="number">$%s</td>' +
+        '<td class="number">%s</td>' +
+        '<td class="number">%s</td>' +
+        '<td class="number">%s</td>';
     if (argv.bins) {
         let start = '0';
         bins.forEach(function (end) {
-            headers += '<th  style="text-align: right">' + start + '-<br>' + end + '</th>';
-            format += '<td style="text-align: right">%s</td>';
+            header += '<th class="number">' + start + '-<br>' + end + '</th>';
+            format += '<td class="number">%s</td>';
             start = (end + 0.01).toFixed(2);
         });
-        headers += '<th  style="text-align: right">' + start + '+</th>';
-        format += '<td style="text-align: right">%s</td>';
+        header += '<th  class="number">' + start + '+</th>';
+        format += '<td class="number">%s</td>';
     }
-    headers += '</tr>';
+    header += '</tr>';
     format += '</tr>';
     let colspan = 10;
     if (argv.bins) {
         colspan += bins.length + 1;
     }
     const officeFormat = `<tr><td colspan="${colspan}">%s</td></tr>`;
-    return {headers, format, officeFormat};
+    const footer = '</table>\n<p>' +
+        'DC Ind Contbr is the number of individual contributors (as opposed to PACs, corporations, LLCs, etc.) ' +
+        'who live in DC (theoretically the number of DC voters who contributed). %Ind is the % of the money that ' +
+        'comes from individuals. %DC is the % of the money that comes from DC addresses. %DCInd is % of the money ' +
+        'that comes from individuals with DC addresses (theoretically the  % of the money that comes from DC voters.' +
+        '</p>';
+    return {header, format, officeFormat, footer};
 }
 
 function getCsvFormat() {
-    let headers = [
+    let header = [
         'Candidate',
         'Contributions',
         'Contributors',
@@ -190,33 +195,39 @@ function getCsvFormat() {
     if (argv.bins) {
         let start = '0';
         bins.forEach(function (end) {
-            headers += '\t' + start + '-' + end;
+            header += '\t' + start + '-' + end;
             start = (end + 0.01).toFixed(2);
         });
-        headers += '\t' + start + '+';
+        header += '\t' + start + '+';
     }
     const format = Array(columnCount).fill('%s').join('\t');
     const officeFormat = '%s';
-    return {headers, format, officeFormat};
+    const footer = '';
+    return {header, format, officeFormat, footer};
 }
 
 function getTextFormat(percentLength) {
-    let headers = 'Candidate               Contributions  Contributors  DCIndContbr    ' +
+    let header = 'Candidate               Contributions  Contributors  DCIndContbr    ' +
         'Amount   Mean  Median  %Ind %DC %DCInd';
     let format = '%-22s %14s %13s %12s %9s  %5s  %6s  %4s %3s %6s';
     if (argv.bins) {
         let start = '0';
         bins.forEach(function (end) {
-            const header = start + '-' + end;
-            headers += '  ' + header.padStart(percentLength);
-            format += '  %' + Math.max(header.length, percentLength) + 's';
+            const columnHead = start + '-' + end;
+            header += '  ' + columnHead.padStart(percentLength);
+            format += '  %' + Math.max(columnHead.length, percentLength) + 's';
             start = (end + 0.01).toFixed(2);
         });
-        headers += '  ' + start + '+';
+        header += '  ' + start + '+';
         format += '  %' + (start.length + 1) + 's';
     }
     const officeFormat = '%s';
-    return {headers, format, officeFormat};
+    const footer = '\n' +
+        'DC Ind Contbr is the number of individual contributors (as opposed to PACs, corporations, LLCs, etc.)\n' +
+        'who live in DC (theoretically the number of DC voters who contributed). %Ind is the % of the money that\n' +
+        'comes from individuals. %DC is the % of the money that comes from DC addresses. %DCInd is % of the money\n' +
+        'that comes from individuals with DC addresses (theoretically the  % of the money that comes from DC voters.\n';
+    return {header, format, officeFormat, footer};
 }
 
 function numberFormat(x) {

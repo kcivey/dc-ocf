@@ -36,7 +36,7 @@ function readCommittees() {
         console.error(err.message);
         throw err;
     });
-    parser.on('finish', function () {
+    parser.on('end', function () {
         console.warn('Finished reading %d committees', records.length);
         db.batchInsertCommittees(records, batchSize)
             .then(readContributions);
@@ -88,7 +88,7 @@ function readContributions() {
         console.error(err.message);
         throw err;
     });
-    parser.on('finish', function () {
+    parser.on('end', function () {
         if (batch.length) {
             db.batchInsertContributions(batch, batchSize)
                 .then(function () {});
@@ -145,7 +145,7 @@ function readExpenditures() {
         console.error(err.message);
         throw err;
     });
-    parser.on('finish', function () {
+    parser.on('end', function () {
         if (batch.length) {
             db.batchInsertExpenditures(batch, batchSize)
                 .then(finish);

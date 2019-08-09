@@ -14,11 +14,18 @@ if (!inputFile) {
 main()
     .then(() => console.warn('Finished'))
     .catch(console.error)
-    .finally(() => db.close());
+    .finally(() => db.close())
+    .finally(() => process.exit());
 
 async function main() {
+    for (const inputFile of process.argv.slice(2)) {
+        await processFile(inputFile);
+    }
+}
+
+async function processFile(inputFile) {
     // await db.createTables();
-    const docText = await getPdfText();
+    const docText = await getPdfText(inputFile);
     const rowsBySchedule = {};
     let prevSchedule;
     let committeeName;
@@ -71,7 +78,7 @@ async function main() {
     await db.addDummyContributions();
 }
 
-function getPdfText() {
+function getPdfText(inputFile) {
     return new Promise(function (resolve, reject) {
         pdfToText(inputFile, {}, function (err, text) {
             if (err) {

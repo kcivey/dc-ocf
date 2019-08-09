@@ -64,90 +64,10 @@ function getStats() {
         .then(function (rows) {
             const officeRegex = argv.office ? new RegExp(argv.office, 'i') : null;
             let prevOffice = '';
-            let headers;
-            let format;
-            let officeFormat;
-            let start = '0';
             const percentDecimals = 1;
-            if (argv.html) {
-                headers = '<table>\n<tr>' +
-                    '<th>Candidate</th>' +
-                    '<th style="text-align: right">Contri-<br>butions</th>' +
-                    '<th style="text-align: right">Contrib-<br>utors</th>' +
-                    '<th style="text-align: right">DC Ind<br>Contbr</th>' +
-                    '<th style="text-align: right">Amount</th>' +
-                    '<th style="text-align: right">Mean</th>' +
-                    '<th style="text-align: right">Median</th>' +
-                    '<th style="text-align: right">%Ind</th>' +
-                    '<th style="text-align: right">%DC</th>' +
-                    '<th style="text-align: right">%DCInd</th>';
-                format = '<tr><td style="text-indent: 1em">%s</td>' +
-                    '<td style="text-align: right">%s</td>' +
-                    '<td style="text-align: right; white-space: nowrap">%s</td>' +
-                    '<td style="text-align: right; white-space: nowrap">%s</td>' +
-                    '<td style="text-align: right">$%s</td>' +
-                    '<td style="text-align: right">$%s</td>' +
-                    '<td style="text-align: right">$%s</td>' +
-                    '<td style="text-align: right">%s</td>' +
-                    '<td style="text-align: right">%s</td>' +
-                    '<td style="text-align: right">%s</td>';
-                officeFormat = '<tr><td colspan="9">%s</td></tr>';
-                if (argv.bins) {
-                    bins.forEach(function (end) {
-                        headers += '<th  style="text-align: right">' + start + '-<br>' + end + '</th>';
-                        format += '<td style="text-align: right">%s</td>';
-                        start = (end + 0.01).toFixed(2);
-                    });
-                    headers += '<th  style="text-align: right">' + start + '+</th>';
-                    format += '<td style="text-align: right">%s</td>';
-                }
-                headers += '</tr>';
-                format += '</tr>';
-            }
-            else if (argv.csv) {
-                headers = [
-                    'Candidate',
-                    'Contributions',
-                    'Contributors',
-                    'DCIndContbr',
-                    'Amount',
-                    'Mean',
-                    'Median',
-                    '%Ind',
-                    '%DC',
-                    '%DCInd',
-                ].join('\t');
-                let columnCount = 10;
-                if (argv.bins) {
-                    columnCount += bins.length + 1;
-                }
-                format = Array(columnCount).fill('%s').join('\t');
-                officeFormat = '%s';
-                if (argv.bins) {
-                    bins.forEach(function (end) {
-                        headers += '\t' + start + '-' + end;
-                        start = (end + 0.01).toFixed(2);
-                    });
-                    headers += '\t' + start + '+';
-                }
-            }
-            else {
-                headers = 'Candidate               Contributions  Contributors  DCIndContbr    ' +
-                    'Amount   Mean  Median  %Ind %DC %DCInd';
-                format = '%-22s %14s %13s %12s %9s  %5s  %6s  %4s %3s %6s';
-                officeFormat = '%s';
-                if (argv.bins) {
-                    const percentLength = 4 + percentDecimals;
-                    bins.forEach(function (end) {
-                        const header = start + '-' + end;
-                        headers += '  ' + header.padStart(percentLength);
-                        format += '  %' + Math.max(header.length, percentLength) + 's';
-                        start = (end + 0.01).toFixed(2);
-                    });
-                    headers += '  ' + start + '+';
-                    format += '  %' + (start.length + 1) + 's';
-                }
-            }
+            const percentLength = 4 + percentDecimals;
+            const {headers, format, officeFormat} = argv.html ? getHtmlFormat() :
+                argv.csv ? getCsvFormat() : getTextFormat(percentLength);
             console.log(headers);
             rows.forEach(function (row) {
                 data[row.committee_name].amountList.push(row.subtotal);
@@ -198,7 +118,6 @@ function getStats() {
                     console.log(vsprintf(officeFormat, [c.office.toUpperCase()]));
                 }
                 console.log(vsprintf(format, values));
-                // console.log(c.binCounts);
                 prevOffice = c.office;
             });
             if (argv.html) {
@@ -207,6 +126,97 @@ function getStats() {
             // printCrossCandidateContributions();
             process.exit();
         });
+}
+
+function getHtmlFormat() {
+    let headers = '<table>\n<tr>' +
+        '<th>Candidate</th>' +
+        '<th style="text-align: right">Contri-<br>butions</th>' +
+        '<th style="text-align: right">Contrib-<br>utors</th>' +
+        '<th style="text-align: right">DC Ind<br>Contbr</th>' +
+        '<th style="text-align: right">Amount</th>' +
+        '<th style="text-align: right">Mean</th>' +
+        '<th style="text-align: right">Median</th>' +
+        '<th style="text-align: right">%Ind</th>' +
+        '<th style="text-align: right">%DC</th>' +
+        '<th style="text-align: right">%DCInd</th>';
+    let format = '<tr><td style="text-indent: 1em">%s</td>' +
+        '<td style="text-align: right">%s</td>' +
+        '<td style="text-align: right; white-space: nowrap">%s</td>' +
+        '<td style="text-align: right; white-space: nowrap">%s</td>' +
+        '<td style="text-align: right">$%s</td>' +
+        '<td style="text-align: right">$%s</td>' +
+        '<td style="text-align: right">$%s</td>' +
+        '<td style="text-align: right">%s</td>' +
+        '<td style="text-align: right">%s</td>' +
+        '<td style="text-align: right">%s</td>';
+    if (argv.bins) {
+        let start = '0';
+        bins.forEach(function (end) {
+            headers += '<th  style="text-align: right">' + start + '-<br>' + end + '</th>';
+            format += '<td style="text-align: right">%s</td>';
+            start = (end + 0.01).toFixed(2);
+        });
+        headers += '<th  style="text-align: right">' + start + '+</th>';
+        format += '<td style="text-align: right">%s</td>';
+    }
+    headers += '</tr>';
+    format += '</tr>';
+    let colspan = 10;
+    if (argv.bins) {
+        colspan += bins.length + 1;
+    }
+    const officeFormat = `<tr><td colspan="${colspan}">%s</td></tr>`;
+    return {headers, format, officeFormat};
+}
+
+function getCsvFormat() {
+    let headers = [
+        'Candidate',
+        'Contributions',
+        'Contributors',
+        'DCIndContbr',
+        'Amount',
+        'Mean',
+        'Median',
+        '%Ind',
+        '%DC',
+        '%DCInd',
+    ].join('\t');
+    let columnCount = 10;
+    if (argv.bins) {
+        columnCount += bins.length + 1;
+    }
+    if (argv.bins) {
+        let start = '0';
+        bins.forEach(function (end) {
+            headers += '\t' + start + '-' + end;
+            start = (end + 0.01).toFixed(2);
+        });
+        headers += '\t' + start + '+';
+    }
+    const format = Array(columnCount).fill('%s').join('\t');
+    const officeFormat = '%s';
+    return {headers, format, officeFormat};
+}
+
+function getTextFormat(percentLength) {
+    let headers = 'Candidate               Contributions  Contributors  DCIndContbr    ' +
+        'Amount   Mean  Median  %Ind %DC %DCInd';
+    let format = '%-22s %14s %13s %12s %9s  %5s  %6s  %4s %3s %6s';
+    if (argv.bins) {
+        let start = '0';
+        bins.forEach(function (end) {
+            const header = start + '-' + end;
+            headers += '  ' + header.padStart(percentLength);
+            format += '  %' + Math.max(header.length, percentLength) + 's';
+            start = (end + 0.01).toFixed(2);
+        });
+        headers += '  ' + start + '+';
+        format += '  %' + (start.length + 1) + 's';
+    }
+    const officeFormat = '%s';
+    return {headers, format, officeFormat};
 }
 
 function numberFormat(x) {

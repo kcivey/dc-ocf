@@ -19,7 +19,7 @@ main()
 async function main() {
     // await db.createTables();
     const docText = await getPdfText();
-    const rowsByType = {A: [], B: []};
+    const rowsBySchedule = {};
     let prevSchedule;
     let committeeName;
     let lineNumber = 0;
@@ -34,13 +34,14 @@ async function main() {
             throw new Error(`Expected page ${pageNumber}, got page ${pageData.page}`);
         }
         committeeName = pageData.committee_name;
-        if (prevSchedule !== pageData.schedule) {
-            lineNumber = 0;
-            prevSchedule = pageData.schedule;
+        const schedule = pageData.schedule;
+        if (schedule >= 'C') {
+            continue; // skip later schedules for now
         }
-        const scheduleType = pageData.schedule.substr(0, 1);
-        if (!rowsByType[scheduleType]) {
-            continue;
+        if (prevSchedule !== schedule) {
+            lineNumber = 0;
+            rowsBySchedule[schedule] = [];
+            prevSchedule = schedule;
         }
         for (const row of pageData.rows) {
             lineNumber++;
@@ -48,23 +49,23 @@ async function main() {
                 throw new Error(`Expected line ${lineNumber}, got line ${row.line_number}, page ${pageData.page}`);
             }
             delete row.line_number;
-            rowsByType[scheduleType].push(row);
+            rowsBySchedule[schedule].push(row);
         }
     }
     console.warn(`Deleting records for ${committeeName}`);
     await db.deleteContributions(committeeName);
     await db.deleteExpenditures(committeeName);
-    for (const [scheduleType, rows] of Object.entries(rowsByType)) {
-        if (scheduleType === 'A') {
+    for (const [schedule, rows] of Object.entries(rowsBySchedule)) {
+        if (/^A/.test(schedule)) {
             console.warn(`Inserting ${rows.length} contributions`);
             await db.batchInsertContributions(rows);
         }
-        else if (scheduleType === 'B') {
+        else if (/^B/.test(schedule)) {
             console.warn(`Inserting ${rows.length} expenditures`);
             await db.batchInsertExpenditures(rows);
         }
         else {
-            throw new Error(`Got schedule type "${scheduleType}`)
+            throw new Error(`Got schedule ${schedule}`);
         }
     }
     await db.addDummyContributions();
@@ -138,7 +139,6 @@ function getFields(line) {
     return fields;
 }
 
-
 function parseRowText(text, fields) {
     const lines = text.replace(/\s+$/, '').split('\n');
     const row = parseLine(lines[0], fields);
@@ -152,8 +152,9 @@ function parseRowText(text, fields) {
             if (value === '') {
                 continue;
             }
-            if (key.match(/^business$|_name$/)) {
-                const newKey = key.replace(/(?:_name)?$/, '_address');
+            if (key.match(/^(?:address|business|individual)$|_name$/)) {
+                const newKey = key === 'address' ? key : key === 'individual' ? 'payee_address' :
+                    key.replace(/(?:_name)?$/, '_address');
                 if (!row[newKey]) {
                     row[newKey] = value;
                 }
@@ -180,30 +181,7 @@ function parseRowText(text, fields) {
 }
 
 function fixRow(oldRow, scheduleType) {
-    const row = {...oldRow};
-    if (scheduleType !== 'A') {
-        if (row.contributor_name) {
-            row.payee_name = row.contributor_name;
-            delete row.contributor_name;
-            row.payee_address = row.contributor_address;
-            delete row.contributor_address;
-            row.purpose_of_expenditure = 'Refund';
-            row.payment_date = row.refund_date;
-            delete row.refund_date;
-            delete row.contribution_date;
-            delete row.reason;
-            delete row.mode_of_payment;
-        }
-        else {
-            row.payee_name = row.business;
-            delete row.business;
-            row.payee_address = row.business_address;
-            delete row.business_address;
-            row.payment_date = row.date;
-            delete row.date;
-        }
-        row.payment_date = fixDate(row.payment_date);
-    }
+    const row = scheduleType === 'A' ? fixContributionRow(oldRow) : fixExpenditureRow(oldRow);
     for (const prefix of ['contributor', 'payee']) {
         const name = row[prefix + '_name'];
         if (name) {
@@ -219,27 +197,70 @@ function fixRow(oldRow, scheduleType) {
         }
         delete row[prefix + '_address'];
     }
-    if (scheduleType === 'A') {
-        row.contributor_organization_name = '';
-        row.contribution_type = row.mode_of_payment;
-        delete row.mode_of_payment;
+    row.amount = fixAmount(row.amount);
+    row.normalized = normalizeNameAndAddress(row);
+    row.line_number = +row.line_number;
+    return row;
+}
+
+function fixContributionRow(oldRow) {
+    const row = {...oldRow};
+    if (row.address) { // unauthorized contribution
+        row.contributor_name = row.business;
+        delete row.business;
+        row.contributor_address = row.address;
+        delete row.address;
+    }
+    else {
         row.employer_address = row.employer_address.replace('\n', ', ')
             .replace(/,\s*/, ', ')
             .replace(/, ([A-Z]{2})-(\d{5}(?:-\d{4})?)$/, ', $1 $2');
         delete row.cumulative_amount;
-        if (row.relationship) {
-            // row.contributor_type = row.relationship;
-            row.contributor_type = 'Candidate';
-            delete row.relationship;
-        }
-        else {
-            row.contributor_type = 'Individual';
-        }
-        row.receipt_date = fixDate(row.receipt_date);
     }
-    row.amount = fixAmount(row.amount);
-    row.line_number = +row.line_number;
-    row.normalized = normalizeNameAndAddress(row);
+    row.contributor_organization_name = '';
+    row.contribution_type = row.mode_of_payment;
+    delete row.mode_of_payment;
+    if (row.relationship) {
+        // row.contributor_type = row.relationship;
+        row.contributor_type = 'Candidate';
+        delete row.relationship;
+    }
+    else {
+        row.contributor_type = 'Individual';
+    }
+    row.receipt_date = fixDate(row.receipt_date);
+    return row;
+}
+
+function fixExpenditureRow(oldRow) {
+    const row = {...oldRow};
+    if (row.refund_date) {
+        if (row.individual) { // refund of unauthorized contribution
+            row.payee_name = row.individual;
+            delete row.individual;
+        }
+        else if (row.contributor_name) {
+            row.payee_name = row.contributor_name;
+            delete row.contributor_name;
+            row.payee_address = row.contributor_address;
+            delete row.contributor_address;
+        }
+        row.purpose_of_expenditure = 'Refund';
+        row.payment_date = row.refund_date;
+        delete row.refund_date;
+        delete row.contribution_date;
+        delete row.reason;
+        delete row.mode_of_payment;
+    }
+    else {
+        row.payee_name = row.business;
+        delete row.business;
+        row.payee_address = row.business_address;
+        delete row.business_address;
+        row.payment_date = row.date;
+        delete row.date;
+    }
+    row.payment_date = fixDate(row.payment_date);
     return row;
 }
 

@@ -70,7 +70,7 @@ function readContributions() {
                     const expected = db.contributionColumns.filter(v => v !== 'normalized');
                     if (!arraysAreEqual(expected, Object.keys(record))) {
                         console.warn(expected, Object.keys(record));
-                        reject(new Error('Contribution columns have changed'));
+                        return reject(new Error('Contribution columns have changed'));
                     }
                 }
                 const name = record.committee_name;
@@ -124,7 +124,7 @@ function readExpenditures() {
                     const expected = db.expenditureColumns.filter(v => v !== 'normalized');
                     if (!arraysAreEqual(expected, Object.keys(record))) {
                         console.warn(expected, Object.keys(record));
-                        reject(new Error('Expenditure columns have changed'));
+                        return reject(new Error('Expenditure columns have changed'));
                     }
                 }
                 const name = record.committee_name;

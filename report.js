@@ -5,21 +5,25 @@ const stats = require('stats-lite');
 const _ = require('underscore');
 const argv = require('yargs')
     .options({
-        html: {
+        bins: {
             type: 'boolean',
-            describe: 'HTML output',
+            describe: 'show columns for ranges of contribution amounts',
         },
         csv: {
             type: 'boolean',
             describe: 'CSV output',
         },
-        since: {
-            type: 'string',
-            describe: 'donations since date',
+        html: {
+            type: 'boolean',
+            describe: 'HTML output',
         },
         office: {
             type: 'string',
             describe: 'include only offices that match string',
+        },
+        since: {
+            type: 'string',
+            describe: 'donations since date',
         },
         threshold: {
             type: 'number',
@@ -39,7 +43,9 @@ db.getContributionInfo(filters)
         rows.forEach(function (row) {
             // console.log(row.committee_name);
             row.amountList = [];
-            row.binAmounts = bins.map(() => 0).concat([0]);
+            if (argv.bins) {
+                row.binAmounts = bins.map(() => 0).concat([0]);
+            }
             row.dc_ind_contributors = 0;
             data[row.committee_name] = row;
         });
@@ -86,13 +92,15 @@ function getStats() {
                     '<td style="text-align: right">%s</td>' +
                     '<td style="text-align: right">%s</td>';
                 officeFormat = '<tr><td colspan="9">%s</td></tr>';
-                bins.forEach(function (end) {
-                    headers += '<th  style="text-align: right">' + start + '-<br>' + end + '</th>';
+                if (argv.bins) {
+                    bins.forEach(function (end) {
+                        headers += '<th  style="text-align: right">' + start + '-<br>' + end + '</th>';
+                        format += '<td style="text-align: right">%s</td>';
+                        start = (end + 0.01).toFixed(2);
+                    });
+                    headers += '<th  style="text-align: right">' + start + '+</th>';
                     format += '<td style="text-align: right">%s</td>';
-                    start = (end + 0.01).toFixed(2);
-                });
-                headers += '<th  style="text-align: right">' + start + '+</th>';
-                format += '<td style="text-align: right">%s</td>';
+                }
                 headers += '</tr>';
                 format += '</tr>';
             }
@@ -109,42 +117,51 @@ function getStats() {
                     '%DC',
                     '%DCInd',
                 ].join('\t');
-                const columnCount = 11 + bins.length;
+                let columnCount = 10;
+                if (argv.bins) {
+                    columnCount += bins.length + 1;
+                }
                 format = Array(columnCount).fill('%s').join('\t');
                 officeFormat = '%s';
-                bins.forEach(function (end) {
-                    headers += '\t' + start + '-' + end;
-                    start = (end + 0.01).toFixed(2);
-                });
-                headers += '\t' + start + '+';
+                if (argv.bins) {
+                    bins.forEach(function (end) {
+                        headers += '\t' + start + '-' + end;
+                        start = (end + 0.01).toFixed(2);
+                    });
+                    headers += '\t' + start + '+';
+                }
             }
             else {
                 headers = 'Candidate               Contributions  Contributors  DCIndContbr    ' +
                     'Amount   Mean  Median  %Ind %DC %DCInd';
                 format = '%-22s %14s %13s %12s %9s  %5s  %6s  %4s %3s %6s';
                 officeFormat = '%s';
-                const percentLength = 4 + percentDecimals;
-                bins.forEach(function (end) {
-                    const header = start + '-' + end;
-                    headers += '  ' + header.padStart(percentLength);
-                    format += '  %' + Math.max(header.length, percentLength) + 's';
-                    start = (end + 0.01).toFixed(2);
-                });
-                headers += '  ' + start + '+';
-                format += '  %' + (start.length + 1) + 's';
+                if (argv.bins) {
+                    const percentLength = 4 + percentDecimals;
+                    bins.forEach(function (end) {
+                        const header = start + '-' + end;
+                        headers += '  ' + header.padStart(percentLength);
+                        format += '  %' + Math.max(header.length, percentLength) + 's';
+                        start = (end + 0.01).toFixed(2);
+                    });
+                    headers += '  ' + start + '+';
+                    format += '  %' + (start.length + 1) + 's';
+                }
             }
             console.log(headers);
             rows.forEach(function (row) {
                 data[row.committee_name].amountList.push(row.subtotal);
-                let i = 0;
-                for (i = 0; i < bins.length; i++) {
-                    if (row.subtotal <= bins[i]) {
-                        data[row.committee_name].binAmounts[i] += row.subtotal;
-                        break;
+                if (argv.bins) {
+                    let i = 0;
+                    for (i = 0; i < bins.length; i++) {
+                        if (row.subtotal <= bins[i]) {
+                            data[row.committee_name].binAmounts[i] += row.subtotal;
+                            break;
+                        }
                     }
-                }
-                if (i >= bins.length) {
-                    data[row.committee_name].binAmounts[i] += row.subtotal;
+                    if (i >= bins.length) {
+                        data[row.committee_name].binAmounts[i] += row.subtotal;
+                    }
                 }
                 if (row.state === 'DC') {
                     data[row.committee_name].dc_ind_contributors++;
@@ -171,10 +188,12 @@ function getStats() {
                     // c.amountList[0],
                     // c.amountList[c.amountList.length - 1]
                 );
-                bins.forEach(function (end, i) {
-                    values.push((100 * c.binAmounts[i] / c.amount).toFixed(percentDecimals));
-                });
-                values.push((100 * c.binAmounts[bins.length] / c.amount).toFixed(percentDecimals));
+                if (argv.bins) {
+                    bins.forEach(function (end, i) {
+                        values.push((100 * c.binAmounts[i] / c.amount).toFixed(percentDecimals));
+                    });
+                    values.push((100 * c.binAmounts[bins.length] / c.amount).toFixed(percentDecimals));
+                }
                 if (c.office !== prevOffice && !argv.csv) {
                     console.log(vsprintf(officeFormat, [c.office.toUpperCase()]));
                 }

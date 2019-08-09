@@ -49,11 +49,13 @@ db.getContributionInfo(filters)
             row.dc_ind_contributors = 0;
             data[row.committee_name] = row;
         });
-        getStats();
-    });
+    })
+    .then(getStats)
+    .catch(console.error)
+    .finally(() => db.close());
 
 function getStats() {
-    db.getContributorTypes(filters)
+    return db.getContributorTypes(filters)
         .then(() => db.getContributionAmountsByType(filters))
         .then(function (amounts) {
             for (const [committee, obj] of Object.entries(amounts)) {
@@ -122,7 +124,6 @@ function getStats() {
             });
             console.log(footer);
             // printCrossCandidateContributions();
-            process.exit();
         });
 }
 

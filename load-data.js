@@ -8,162 +8,158 @@ const db = require('./lib/db');
 const {fixAmount, fixDate, normalizeNameAndAddress} = require('./lib/util');
 const csvOptions = {columns: true};
 const currentCommittees = {};
-const batchSize = 10;
 
-db.createTables().then(readCommittees);
+main()
+    .catch(console.error)
+    .finally(() => db.close());
+
+function main() {
+    return db.createTables()
+        .then(readCommittees)
+        .then(readContributions)
+        .then(readExpenditures)
+        .then(() => db.addDummyContributions());
+}
 
 function readCommittees() {
-    const parser = parse(csvOptions);
-    const input = fs.createReadStream(__dirname + '/' + db.committeeTableName + '.csv');
-    const records = [];
-    parser.on('readable', function () {
-        let checked = false;
-        let record;
-        while ((record = parser.read())) {
-            record = transformRecord(record);
-            if (!checked) {
-                if (!arraysAreEqual(db.committeeColumns, Object.keys(record))) {
-                    console.warn(db.committeeColumns, Object.keys(record));
-                    throw new Error('Committee columns have changed');
+    return new Promise(function (resolve, reject) {
+        const parser = parse(csvOptions);
+        const input = fs.createReadStream(__dirname + '/' + db.committeeTableName + '.csv');
+        const records = [];
+        parser.on('readable', function () {
+            let checked = false;
+            let record;
+            while ((record = parser.read())) {
+                record = transformRecord(record);
+                if (!checked) {
+                    if (!arraysAreEqual(db.committeeColumns, Object.keys(record))) {
+                        console.warn(db.committeeColumns, Object.keys(record));
+                        reject(new Error('Committee columns have changed'));
+                    }
+                    checked = true;
                 }
-                checked = true;
+                currentCommittees[record.committee_name] = true;
+                records.push(record);
             }
-            currentCommittees[record.committee_name] = true;
-            records.push(record);
-        }
+        });
+        parser.on('error', reject);
+        parser.on('end', async function () {
+            console.warn('Finished reading %d committees', records.length);
+            await db.batchInsertCommittees(records);
+            resolve();
+        });
+        input.pipe(parser);
     });
-    parser.on('error', function (err) {
-        console.error(err.message);
-        throw err;
-    });
-    parser.on('end', function () {
-        console.warn('Finished reading %d committees', records.length);
-        db.batchInsertCommittees(records, batchSize)
-            .then(readContributions);
-    });
-    input.pipe(parser);
 }
 
 function readContributions() {
-    const parser = parse(csvOptions);
-    const input = fs.createReadStream(__dirname + '/' + db.contributionTableName + '.csv');
-    const seen = {};
-    const unrecognized = [];
-    let totalCount = 0;
-    let currentCount = 0;
-    let batch = [];
-    parser.on('readable', function () {
-        let record;
-        while ((record = parser.read())) {
-            totalCount++;
-            record = transformRecord(record);
-            if (totalCount === 1) {
-                const expected = db.contributionColumns.filter(v => v !== 'normalized');
-                if (!arraysAreEqual(expected, Object.keys(record))) {
-                    console.warn(expected, Object.keys(record));
-                    throw new Error('Contribution columns have changed');
+    return new Promise(function (resolve, reject) {
+        const parser = parse(csvOptions);
+        const input = fs.createReadStream(__dirname + '/' + db.contributionTableName + '.csv');
+        const seen = {};
+        const unrecognized = [];
+        let totalCount = 0;
+        let currentCount = 0;
+        let batch = [];
+        parser.on('readable', async function () {
+            let record;
+            while ((record = parser.read())) {
+                totalCount++;
+                record = transformRecord(record);
+                if (totalCount === 1) {
+                    const expected = db.contributionColumns.filter(v => v !== 'normalized');
+                    if (!arraysAreEqual(expected, Object.keys(record))) {
+                        console.warn(expected, Object.keys(record));
+                        reject(new Error('Contribution columns have changed'));
+                    }
                 }
-            }
-            const name = record.committee_name;
-            if (!seen[name]) {
-                seen[name] = true;
+                const name = record.committee_name;
+                if (!seen[name]) {
+                    seen[name] = true;
+                    if (!currentCommittees[name]) {
+                        unrecognized.push(name);
+                    }
+                }
                 if (!currentCommittees[name]) {
-                    unrecognized.push(name);
+                    continue;
                 }
+                record.normalized = normalizeNameAndAddress(record);
+                batch.push(record);
+                if (batch.length >= 10000) {
+                    await db.batchInsertContributions(batch);
+                    batch = [];
+                }
+                currentCount++;
             }
-            if (!currentCommittees[name]) {
-                continue;
+        });
+        parser.on('error', reject);
+        parser.on('end', async function () {
+            if (batch.length) {
+                await db.batchInsertContributions(batch);
             }
-            record.normalized = normalizeNameAndAddress(record);
-            batch.push(record);
-            if (batch.length >= 10000) {
-                db.batchInsertContributions(batch, batchSize)
-                    .then(function () {});
-                batch = [];
-            }
-            currentCount++;
-        }
+            console.warn('Finished reading %d contributions', totalCount);
+            console.warn('Inserted %d contributions', currentCount);
+            console.warn('Unrecognized committees:\n', unrecognized.sort());
+            resolve();
+        });
+        input.pipe(parser);
     });
-    parser.on('error', function (err) {
-        console.error(err.message);
-        throw err;
-    });
-    parser.on('end', function () {
-        if (batch.length) {
-            db.batchInsertContributions(batch, batchSize)
-                .then(function () {});
-        }
-        console.warn('Finished reading %d contributions', totalCount);
-        console.warn('Inserted %d contributions', currentCount);
-        console.warn('Unrecognized committees:\n', unrecognized.sort());
-        readExpenditures();
-    });
-    input.pipe(parser);
 }
 
 function readExpenditures() {
-    const parser = parse(csvOptions);
-    const input = fs.createReadStream(__dirname + '/' + db.expenditureTableName + '.csv');
-    const seen = {};
-    const unrecognized = [];
-    let totalCount = 0;
-    let currentCount = 0;
-    let batch = [];
-    parser.on('readable', function () {
-        let record;
-        while ((record = parser.read())) {
-            totalCount++;
-            record = transformRecord(record);
-            if (totalCount === 1) {
-                const expected = db.expenditureColumns.filter(v => v !== 'normalized');
-                if (!arraysAreEqual(expected, Object.keys(record))) {
-                    console.warn(expected, Object.keys(record));
-                    throw new Error('Expenditure columns have changed');
+    return new Promise(function (resolve, reject) {
+        const parser = parse(csvOptions);
+        const input = fs.createReadStream(__dirname + '/' + db.expenditureTableName + '.csv');
+        const seen = {};
+        const unrecognized = [];
+        let totalCount = 0;
+        let currentCount = 0;
+        let batch = [];
+        parser.on('readable', async function () {
+            let record;
+            while ((record = parser.read())) {
+                totalCount++;
+                record = transformRecord(record);
+                if (totalCount === 1) {
+                    const expected = db.expenditureColumns.filter(v => v !== 'normalized');
+                    if (!arraysAreEqual(expected, Object.keys(record))) {
+                        console.warn(expected, Object.keys(record));
+                        reject(new Error('Expenditure columns have changed'));
+                    }
                 }
-            }
-            const name = record.committee_name;
-            if (!seen[name]) {
-                seen[name] = true;
+                const name = record.committee_name;
+                if (!seen[name]) {
+                    seen[name] = true;
+                    if (!currentCommittees[name]) {
+                        unrecognized.push(name);
+                    }
+                }
                 if (!currentCommittees[name]) {
-                    unrecognized.push(name);
+                    continue;
                 }
+                record.normalized = normalizeNameAndAddress(record);
+                batch.push(record);
+                if (batch.length >= 10000) {
+                    await db.batchInsertExpenditures(batch);
+                    batch = [];
+                }
+                currentCount++;
             }
-            if (!currentCommittees[name]) {
-                continue;
+        });
+        parser.on('error', reject);
+        parser.on('end', async function () {
+            if (batch.length) {
+                await db.batchInsertExpenditures(batch);
             }
-            record.normalized = normalizeNameAndAddress(record);
-            batch.push(record);
-            if (batch.length >= 10000) {
-                db.batchInsertExpenditures(batch, batchSize)
-                    .then(function () {});
-                batch = [];
-            }
-            currentCount++;
-        }
-    });
-    parser.on('error', function (err) {
-        console.error(err.message);
-        throw err;
-    });
-    parser.on('end', function () {
-        if (batch.length) {
-            db.batchInsertExpenditures(batch, batchSize)
-                .then(finish);
-        }
-        else {
-            finish();
-        }
-
-        function finish() {
             console.log('Finished reading %d expenditures', totalCount);
             console.log('Inserted %d expenditures', currentCount);
             if (unrecognized.length) {
                 console.log('Unrecognized committees:\n', unrecognized.sort());
             }
-            db.addDummyContributions();
-        }
+            resolve();
+        });
+        input.pipe(parser);
     });
-    input.pipe(parser);
 }
 
 function transformRecord(record) {

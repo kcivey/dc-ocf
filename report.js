@@ -2,7 +2,6 @@
 
 const vsprintf = require('sprintf-js').vsprintf;
 const stats = require('stats-lite');
-const _ = require('underscore');
 const argv = require('yargs')
     .options({
         bins: {
@@ -40,7 +39,7 @@ const filters = argv.since ? {since: argv.since} : {};
 
 db.getContributionInfo(filters)
     .then(function (rows) {
-        rows.forEach(function (row) {
+        for (const row of rows) {
             // console.log(row.committee_name);
             row.amountList = [];
             if (argv.bins) {
@@ -48,7 +47,7 @@ db.getContributionInfo(filters)
             }
             row.dc_ind_contributors = 0;
             data[row.committee_name] = row;
-        });
+        }
     })
     .then(getStats)
     .catch(console.error)
@@ -71,7 +70,7 @@ function getStats() {
             const {header, format, officeFormat, footer} = argv.html ? getHtmlFormat() :
                 argv.csv ? getCsvFormat() : getTextFormat(percentLength);
             console.log(header);
-            rows.forEach(function (row) {
+            for (const row of rows) {
                 data[row.committee_name].amountList.push(row.subtotal);
                 if (argv.bins) {
                     let i = 0;
@@ -88,8 +87,8 @@ function getStats() {
                 if (row.state === 'DC') {
                     data[row.committee_name].dc_ind_contributors++;
                 }
-            });
-            _.each(data, function (c) {
+            }
+            for (const c of Object.values(data)) {
                 const values = [
                     c.candidate_name,
                     numberFormat(c.contributions),
@@ -111,9 +110,9 @@ function getStats() {
                     // c.amountList[c.amountList.length - 1]
                 );
                 if (argv.bins) {
-                    bins.forEach(function (end, i) {
+                    for (let i = 0; i < bins.length; i++) {
                         values.push((100 * c.binAmounts[i] / c.amount).toFixed(percentDecimals));
-                    });
+                    }
                     values.push((100 * c.binAmounts[bins.length] / c.amount).toFixed(percentDecimals));
                 }
                 if (c.office !== prevOffice && !argv.csv) {
@@ -121,7 +120,7 @@ function getStats() {
                 }
                 console.log(vsprintf(format, values));
                 prevOffice = c.office;
-            });
+            }
             console.log(footer);
             // printCrossCandidateContributions();
         });
@@ -152,11 +151,11 @@ function getHtmlFormat() {
         '<td class="number">%s</td>';
     if (argv.bins) {
         let start = '0';
-        bins.forEach(function (end) {
+        for (const end of bins) {
             header += '<th class="number">' + start + '-<br>' + end + '</th>';
             format += '<td class="number">%s</td>';
             start = (end + 0.01).toFixed(2);
-        });
+        }
         header += '<th  class="number">' + start + '+</th>';
         format += '<td class="number">%s</td>';
     }
@@ -195,10 +194,10 @@ function getCsvFormat() {
     }
     if (argv.bins) {
         let start = '0';
-        bins.forEach(function (end) {
+        for (const end of bins) {
             header += '\t' + start + '-' + end;
             start = (end + 0.01).toFixed(2);
-        });
+        }
         header += '\t' + start + '+';
     }
     const format = Array(columnCount).fill('%s').join('\t');
@@ -213,12 +212,12 @@ function getTextFormat(percentLength) {
     let format = '%-22s %14s %13s %12s %9s  %5s  %6s  %4s %3s %6s';
     if (argv.bins) {
         let start = '0';
-        bins.forEach(function (end) {
+        for (const end of bins) {
             const columnHead = start + '-' + end;
             header += '  ' + columnHead.padStart(percentLength);
             format += '  %' + Math.max(columnHead.length, percentLength) + 's';
             start = (end + 0.01).toFixed(2);
-        });
+        }
         header += '  ' + start + '+';
         format += '  %' + (start.length + 1) + 's';
     }
@@ -260,7 +259,7 @@ function printCrossCandidateContributions() {
         .then(function (rows) {
             let prev = '';
             let total;
-            rows.forEach(function (row) {
+            for (const row of rows) {
                 if (prev !== row.candidate1) {
                     console.log(row.candidate1);
                     total = row.subtotal1;
@@ -275,7 +274,7 @@ function printCrossCandidateContributions() {
                     row.subtotal2,
                 ]));
                 // }
-            });
+            }
             process.exit();
         });
 }

@@ -19,12 +19,12 @@ db
         const cursorDate = moment(rows[0].receipt_date);
         const endDate = moment(rows[rows.length - 1].receipt_date);
         let prevLineData = [''].concat(candidates.map(() => 0));
-        rows.forEach(function (row) {
+        for (const row of rows) {
             if (!data[row.receipt_date]) {
                 data[row.receipt_date] = {};
             }
             data[row.receipt_date][row.candidate_name] = row.amount;
-        });
+        }
         console.log(['Date'].concat(candidates).join('\t'));
         while (cursorDate <= endDate) {
             const isoDate = cursorDate.format('YYYY-MM-DD');

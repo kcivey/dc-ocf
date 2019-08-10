@@ -20,9 +20,9 @@ db
     ])
     */
     .then(function (rows) {
-        rows.forEach(function (row) {
+        for (const row of rows) {
             row.receipt_date = moment(row.receipt_date).format('M/D/YYYY');
-        });
+        }
         const stringifier = stringify(rows, {header: true});
         stringifier.on('readable', function () {
             let data = '';

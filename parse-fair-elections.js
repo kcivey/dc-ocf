@@ -66,11 +66,11 @@ async function processFile(inputFile) {
     for (const [schedule, rows] of Object.entries(rowsBySchedule)) {
         if (/^A/.test(schedule)) {
             console.warn(`Inserting ${rows.length} contributions`);
-            await db.batchInsertContributions(rows);
+            await db.batchInsert(db.contributionTableName, rows);
         }
         else if (/^B/.test(schedule)) {
             console.warn(`Inserting ${rows.length} expenditures`);
-            await db.batchInsertExpenditures(rows);
+            await db.batchInsert(db.expenditureTableName, rows);
         }
         else {
             throw new Error(`Got schedule ${schedule}`);

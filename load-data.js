@@ -99,7 +99,11 @@ function readContributions() {
             }
             console.warn('Finished reading %d contributions', totalCount);
             console.warn('Inserted %d contributions', currentCount);
-            console.warn('Unrecognized committees:\n', unrecognized.sort());
+            /*
+            if (unrecognized.length) {
+                console.log('Unrecognized committees:\n', unrecognized.sort());
+            }
+            */
             resolve();
         });
         input.pipe(parser);
@@ -153,9 +157,11 @@ function readExpenditures() {
             }
             console.log('Finished reading %d expenditures', totalCount);
             console.log('Inserted %d expenditures', currentCount);
+            /*
             if (unrecognized.length) {
                 console.log('Unrecognized committees:\n', unrecognized.sort());
             }
+            */
             resolve();
         });
         input.pipe(parser);

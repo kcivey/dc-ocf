@@ -2,12 +2,10 @@
 
 const fs = require('fs');
 const parse = require('csv-parse');
-const _ = require('underscore');
 const underscored = require('underscore.string/underscored');
 const db = require('./lib/db');
 const {fixAmount, fixDate, normalizeNameAndAddress} = require('./lib/util');
-const csvOptions = {columns: true};
-const currentCommittees = {};
+const currentCommittees = new Set();
 
 main()
     .catch(console.error)
@@ -15,49 +13,16 @@ main()
 
 function main() {
     return db.createTables()
-        .then(readCommittees)
-        .then(readContributions)
-        .then(readExpenditures)
+        .then(() => loadTransactions(db.committeeTableName, db.committeeColumns))
+        .then(() => loadTransactions(db.contributionTableName, db.contributionColumns))
+        .then(() => loadTransactions(db.expenditureTableName, db.expenditureColumns))
         .then(() => db.addDummyContributions());
 }
 
-function readCommittees() {
+function loadTransactions(tableName, columns) {
     return new Promise(function (resolve, reject) {
-        const parser = parse(csvOptions);
-        const input = fs.createReadStream(__dirname + '/' + db.committeeTableName + '.csv');
-        const records = [];
-        parser.on('readable', function () {
-            let checked = false;
-            let record;
-            while ((record = parser.read())) {
-                record = transformRecord(record);
-                if (!checked) {
-                    if (!arraysAreEqual(db.committeeColumns, Object.keys(record))) {
-                        console.warn(db.committeeColumns, Object.keys(record));
-                        reject(new Error('Committee columns have changed'));
-                    }
-                    checked = true;
-                }
-                currentCommittees[record.committee_name] = true;
-                records.push(record);
-            }
-        });
-        parser.on('error', reject);
-        parser.on('end', async function () {
-            console.warn('Finished reading %d committees', records.length);
-            await db.batchInsertCommittees(records);
-            resolve();
-        });
-        input.pipe(parser);
-    });
-}
-
-function readContributions() {
-    return new Promise(function (resolve, reject) {
-        const parser = parse(csvOptions);
-        const input = fs.createReadStream(__dirname + '/' + db.contributionTableName + '.csv');
-        const seen = {};
-        const unrecognized = [];
+        const parser = parse({columns: true});
+        const input = fs.createReadStream(__dirname + '/' + tableName + '.csv');
         let totalCount = 0;
         let currentCount = 0;
         let batch = [];
@@ -66,28 +31,17 @@ function readContributions() {
             while ((record = parser.read())) {
                 totalCount++;
                 record = transformRecord(record);
-                if (totalCount === 1) {
-                    const expected = db.contributionColumns.filter(v => v !== 'normalized');
-                    if (!arraysAreEqual(expected, Object.keys(record))) {
-                        console.warn(expected, Object.keys(record));
-                        return reject(new Error('Contribution columns have changed'));
+                try {
+                    if (checkForProblem(record)) {
+                        continue;
+                    }
+                    batch.push(record);
+                    if (batch.length >= 10000) {
+                        await insert();
                     }
                 }
-                const name = record.committee_name;
-                if (!seen[name]) {
-                    seen[name] = true;
-                    if (!currentCommittees[name]) {
-                        unrecognized.push(name);
-                    }
-                }
-                if (!currentCommittees[name]) {
-                    continue;
-                }
-                record.normalized = normalizeNameAndAddress(record);
-                batch.push(record);
-                if (batch.length >= 10000) {
-                    await db.batchInsertContributions(batch);
-                    batch = [];
+                catch (err) {
+                    return reject(err);
                 }
                 currentCount++;
             }
@@ -95,92 +49,59 @@ function readContributions() {
         parser.on('error', reject);
         parser.on('end', async function () {
             if (batch.length) {
-                await db.batchInsertContributions(batch);
+                try {
+                    await insert();
+                }
+                catch (err) {
+                    return reject(err);
+                }
             }
-            console.warn('Finished reading %d contributions', totalCount);
-            console.warn('Inserted %d contributions', currentCount);
-            /*
-            if (unrecognized.length) {
-                console.log('Unrecognized committees:\n', unrecognized.sort());
-            }
-            */
+            console.warn(`Finished reading ${totalCount} records for ${tableName}`);
+            console.warn(`Inserted ${currentCount} records into ${tableName}`);
             resolve();
         });
         input.pipe(parser);
-    });
-}
 
-function readExpenditures() {
-    return new Promise(function (resolve, reject) {
-        const parser = parse(csvOptions);
-        const input = fs.createReadStream(__dirname + '/' + db.expenditureTableName + '.csv');
-        const seen = {};
-        const unrecognized = [];
-        let totalCount = 0;
-        let currentCount = 0;
-        let batch = [];
-        parser.on('readable', async function () {
-            let record;
-            while ((record = parser.read())) {
-                totalCount++;
-                record = transformRecord(record);
-                if (totalCount === 1) {
-                    const expected = db.expenditureColumns.filter(v => v !== 'normalized');
-                    if (!arraysAreEqual(expected, Object.keys(record))) {
-                        console.warn(expected, Object.keys(record));
-                        return reject(new Error('Expenditure columns have changed'));
-                    }
+        // Throw error if file structure is bad, return true if just this record should be skipped
+        function checkForProblem(record) {
+            if (totalCount === 1) {
+                if (!arraysHaveSameElements(columns, Object.keys(record))) {
+                    console.error(columns, Object.keys(record));
+                    throw new Error(`Columns have changed in ${tableName}`);
                 }
-                const name = record.committee_name;
-                if (!seen[name]) {
-                    seen[name] = true;
-                    if (!currentCommittees[name]) {
-                        unrecognized.push(name);
-                    }
-                }
-                if (!currentCommittees[name]) {
-                    continue;
-                }
-                record.normalized = normalizeNameAndAddress(record);
-                batch.push(record);
-                if (batch.length >= 10000) {
-                    await db.batchInsertExpenditures(batch);
-                    batch = [];
-                }
-                currentCount++;
             }
-        });
-        parser.on('error', reject);
-        parser.on('end', async function () {
-            if (batch.length) {
-                await db.batchInsertExpenditures(batch);
+            if (tableName === db.committeeTableName) {
+                currentCommittees.add(record.committee_name);
+                return false;
             }
-            console.log('Finished reading %d expenditures', totalCount);
-            console.log('Inserted %d expenditures', currentCount);
-            /*
-            if (unrecognized.length) {
-                console.log('Unrecognized committees:\n', unrecognized.sort());
+            else {
+                return !currentCommittees.has(record.committee_name);
             }
-            */
-            resolve();
-        });
-        input.pipe(parser);
+        }
+
+        async function insert() {
+            await db.batchInsert(tableName, batch);
+            batch = [];
+        }
     });
 }
 
 function transformRecord(record) {
     const newRecord = {};
-    _.each(record, function (value, key) {
-        value = trim(value);
-        key = underscored(key);
-        if (/date/.test(key) && /^\d\d?\/\d\d?\/\d{4}$/.test(value)) {
-            value = fixDate(value);
+    for (const [key, value] of Object.entries(record)) {
+        const newKey = underscored(key);
+        let newValue = trim(value);
+        if (/date/.test(key)) {
+            newValue = fixDate(newValue);
         }
-        else if (/amount|total/.test(key) && /^[$.,\d]+$/.test(value)) {
-            value = fixAmount(value);
+        else if (/amount|total/.test(newKey)) {
+            newValue = fixAmount(newValue);
         }
-        newRecord[key] = value;
-    });
+        newRecord[newKey] = newValue;
+    }
+    if (newRecord.hasOwnProperty('city')) {
+        newRecord.normalized = normalizeNameAndAddress(record);
+    }
     return newRecord;
 }
 
@@ -188,6 +109,6 @@ function trim(s) {
     return s ? s.replace(/\s+/g, ' ').trim() : '';
 }
 
-function arraysAreEqual(array1, array2) {
-    return array1.length === array2.length && array1.every((value, index) => value === array2[index]);
+function arraysHaveSameElements(array1, array2) {
+    return array1.length === array2.length && array1.every(value => array2.includes(value));
 }

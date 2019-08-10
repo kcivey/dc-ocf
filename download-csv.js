@@ -44,6 +44,9 @@ async function writeTransactionCsv(type) {
     await browser.visit('https://efiling.ocf.dc.gov/ContributionExpenditure');
     await browser.select('#FilerTypeId', 'Principal Campaign Committee');
     await browser.click('#' + type);
+    // For some reason clicking is not checking the radio button, so we need this:
+    await browser.evaluate(`document.getElementById('${type}').checked = true`);
+    browser.assert.element('#' + type + ':checked', `The ${type} radio is not checked after clicking`);
     browser.assert.text('#recipientCriteria', type === 'contributions' ? 'Recipient' : 'Payor');
     browser.assert.text('#accordionpanel4 a', 'Date');
     await browser.click('#accordionpanel4 a');
@@ -52,10 +55,9 @@ async function writeTransactionCsv(type) {
         await browser.fill('#FromDate', '01/01/' + (electionYear - 2));
     }
     catch (err) {
-        if (err.message === "Cannot read property 'settings' of undefined") {
-            return null;
+        if (err.message !== "Cannot read property 'settings' of undefined") {
+            throw err;
         }
-        throw err;
     }
     await browser.click('#btnSubmitSearch');
     browser.assert.text('h3', `Principal Campaign Committee ${initialCap(type)} Search Result`);

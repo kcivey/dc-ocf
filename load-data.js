@@ -100,7 +100,7 @@ function transformRecord(record) {
         newRecord[newKey] = newValue;
     }
     if (newRecord.hasOwnProperty('city')) {
-        newRecord.normalized = normalizeNameAndAddress(record);
+        newRecord.normalized = normalizeNameAndAddress(newRecord);
     }
     return newRecord;
 }

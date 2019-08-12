@@ -17,13 +17,17 @@
     "url": "https://github.com/kcivey/dc-ocf/issues"
   },
   "dependencies": {
+    "cache-manager": "^2.10.0",
+    "cache-manager-fs": "^1.0.8",
     "csv": "^5.1.1",
+    "dc-mar": "^0.5.0",
     "dotenv": "^8.0.0",
     "emailjs": "^2.2.0",
     "knex": "^0.19.1",
     "moment": "^2.24.0",
     "mysql": "^2.17.1",
     "pdf-to-text": "0.0.7",
+    "request-plus": "^2.0.0",
     "request-promise-native": "^1.0.7",
     "sprintf-js": "^1.1.2",
     "sqlite3": "^4.0.9",

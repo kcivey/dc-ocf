@@ -11,7 +11,7 @@ main()
 
 async function main() {
     while (true) {
-        const rows = await db.getWardlessContributionAddresses(batchSize);
+        const rows = await db.getUnverifiedContributionAddresses(batchSize);
         if (!rows.length) {
             break;
         }
@@ -19,16 +19,25 @@ async function main() {
         let i = 0;
         for (const {id, address} of rows) {
             console.warn(id, address);
+            let updateValues = {
+                mar_confidence_level: 0,
+                mar_address: null,
+                mar_ward: null,
+                mar_latitude: null,
+                mar_longitude: null,
+            };
             const location = locations[i][0];
             if (location) {
-                console.warn(location.fullAddress(), location.ward(), location.confidenceLevel());
+                updateValues = {
+                    mar_confidence_level: location.confidenceLevel(),
+                    mar_address: location.fullAddress(),
+                    mar_ward: location.ward(),
+                    mar_latitude: location.latitude(),
+                    mar_longitude: location.longitude(),
+                };
+                console.warn(updateValues);
             }
-            const [marAddress, ward] = location && location.confidenceLevel() >= 90 ?
-                [location.fullAddress(), location.ward()] : ['', ''];
-            if (location && location.confidenceLevel() < 100) {
-                console.warn(locations[i].map(l => [l.confidenceLevel(), l.fullAddress()]))
-            }
-            await db.updateContribution(id, {mar_address: marAddress, ward});
+            await db.updateContribution(id, updateValues);
             i++;
         }
     }

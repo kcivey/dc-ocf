@@ -65,7 +65,7 @@ function loadTransactions(tableName, columns) {
         // Throw error if file structure is bad, return true if just this record should be skipped
         function checkForProblem(record) {
             if (totalCount === 1) {
-                const expected = columns.filter(c => !['ward', 'mar_address'].includes(c));
+                const expected = columns.filter(c => !/^mar_/.test(c));
                 if (!arraysHaveSameElements(expected, Object.keys(record))) {
                     console.error(expected, Object.keys(record));
                     throw new Error(`Columns have changed in ${tableName}`);

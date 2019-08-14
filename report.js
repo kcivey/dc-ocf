@@ -35,7 +35,7 @@ const argv = require('yargs')
 const db = require('./lib/db');
 const data = {};
 const bins = [25, 50, 100, 250, 500, 999.99];
-const filters = argv.since ? {since: argv.since} : {};
+const filters = {since: argv.since, office: argv.office};
 
 db.getContributionInfo(filters)
     .then(function (rows) {
@@ -63,7 +63,6 @@ function getStats() {
         })
         .then(() => db.getContributionSubtotals(filters))
         .then(function (rows) {
-            const officeRegex = argv.office ? new RegExp(argv.office, 'i') : null;
             let prevOffice = '';
             const percentDecimals = 1;
             const percentLength = 4 + percentDecimals;
@@ -96,7 +95,7 @@ function getStats() {
                     numberFormat(c.dc_ind_contributors),
                     numberFormat(c.amount),
                 ];
-                if (c.amount < argv.threshold || (officeRegex && !officeRegex.test(c.office))) {
+                if (c.amount < argv.threshold) {
                     continue;
                 }
                 c.amountList = c.amountList.sort((a, b) => a - b);

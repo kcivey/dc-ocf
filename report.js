@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
 const vsprintf = require('sprintf-js').vsprintf;
-const stats = require('stats-lite');
 const argv = require('yargs')
     .options({
         bins: {
@@ -33,58 +32,13 @@ const argv = require('yargs')
     .strict(true)
     .argv;
 const db = require('./lib/db');
-const bins = [25, 50, 100, 250, 500, 999.99];
+const bins = argv.bins && [25, 50, 100, 250, 500, 999.99];
 const filters = {since: argv.since, office: argv.office};
 
-db.getContributionInfo(filters)
-    .then(function (rows) {
-        const data = {};
-        for (const row of rows) {
-            // console.log(row.committee_name);
-            row.amountList = [];
-            if (argv.bins) {
-                row.binAmounts = bins.map(() => 0).concat([0]);
-            }
-            row.dc_ind_contributors = 0;
-            data[row.committee_name] = row;
-        }
-        return data;
-    })
-    .then(getStats)
+db.getContributionStats({filters, bins})
     .then(printReport)
     .catch(console.error)
     .finally(() => db.close());
-
-function getStats(data) {
-    return db.getContributionAmountsByType(filters)
-        .then(function (amounts) {
-            for (const [committee, obj] of Object.entries(amounts)) {
-                data[committee].amountByType = obj;
-            }
-        })
-        .then(() => db.getContributionSubtotals(filters))
-        .then(function (rows) {
-            for (const row of rows) {
-                data[row.committee_name].amountList.push(row.subtotal);
-                if (argv.bins) {
-                    let i = 0;
-                    for (i = 0; i < bins.length; i++) {
-                        if (row.subtotal <= bins[i]) {
-                            data[row.committee_name].binAmounts[i] += row.subtotal;
-                            break;
-                        }
-                    }
-                    if (i >= bins.length) {
-                        data[row.committee_name].binAmounts[i] += row.subtotal;
-                    }
-                }
-                if (row.state === 'DC') {
-                    data[row.committee_name].dc_ind_contributors++;
-                }
-            }
-            return data;
-        });
-}
 
 function printReport(data) {
     const percentDecimals = 1;
@@ -106,8 +60,8 @@ function printReport(data) {
         }
         c.amountList = c.amountList.sort((a, b) => a - b);
         values.push(
-            numberFormat(stats.mean(c.amountList)),
-            numberFormat(stats.median(c.amountList)),
+            numberFormat(c.mean),
+            numberFormat(c.median),
             numberFormat(100 * c.ind_amount / c.amount),
             numberFormat(100 * c.dc_amount / c.amount),
             numberFormat(100 * c.dc_ind_amount / c.amount)

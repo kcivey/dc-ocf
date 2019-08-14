@@ -54,8 +54,7 @@ db.getContributionInfo(filters)
     .finally(() => db.close());
 
 function getStats() {
-    return db.getContributorTypes(filters)
-        .then(() => db.getContributionAmountsByType(filters))
+    return db.getContributionAmountsByType(filters)
         .then(function (amounts) {
             for (const [committee, obj] of Object.entries(amounts)) {
                 data[committee].amountByType = obj;

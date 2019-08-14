@@ -23,16 +23,28 @@ jQuery(function ($) {
                 opacity: 0.5,
             }).addTo(map);
             map.addLayer(wardLayer);
+            const heatMapOptions = {
+                gradient: {
+                    0.4: 'blue',
+                    0.6: 'cyan',
+                    0.8: 'yellow',
+                    0.98: 'red',
+                    1.0: 'white',
+                },
+            };
+            const clusterOptions = {
+                maxClusterRadius: 60,
+            };
             const allLabel = 'All candidates';
             const candidateLayers = {
                 'points': {
                     [allLabel]: L.layerGroup(),
                 },
                 'clusters': {
-                    [allLabel]: L.markerClusterGroup({maxClusterRadius: 50}),
+                    [allLabel]: L.markerClusterGroup(clusterOptions),
                 },
                 'heat map': {
-                    [allLabel]: L.heatLayer([]),
+                    [allLabel]: L.heatLayer([], heatMapOptions),
                 },
             };
             const colors = ['#e41a1c', '#377eb8', '#4daf4a', '#984ea3'];
@@ -42,7 +54,7 @@ jQuery(function ($) {
                 const color = colors[candidateIndex];
                 const pointsForHeatMap = [];
                 const layer = L.layerGroup();
-                const clusterLayer = L.markerClusterGroup({maxClusterRadius: 50});
+                const clusterLayer = L.markerClusterGroup(clusterOptions);
                 for (const point of points) {
                     L.circleMarker(
                         point.position,
@@ -69,7 +81,7 @@ jQuery(function ($) {
                 candidateLayers['points'][allLabel].addLayer(layer);
                 candidateLayers['clusters'][candidate] = clusterLayer;
                 candidateLayers['clusters'][allLabel].addLayer(clusterLayer);
-                candidateLayers['heat map'][candidate] = L.heatLayer(pointsForHeatMap);
+                candidateLayers['heat map'][candidate] = L.heatLayer(pointsForHeatMap, heatMapOptions);
                 candidateIndex++;
             }
             const layersControl = L.control.layers(null, {'Wards': wardLayer}, {collapsed: false})

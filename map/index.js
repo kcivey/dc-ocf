@@ -14,7 +14,7 @@ jQuery(function ($) {
         .then(() => fetch('contributors.json'))
         .then(response => response.json())
         .then(function (contributors) {
-            const map = L.map('map');
+            const map = L.map('map', {zoomSnap: 0.5});
             L.tileLayer('https://{s}.tiles.mapbox.com/v3/kcivey.i8d7ca3k/{z}/{x}/{y}.png', {
                 attribution: '© <a href="https://www.mapbox.com/about/maps/">Mapbox</a> ' +
                     '© <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> ' +
@@ -23,17 +23,17 @@ jQuery(function ($) {
                 opacity: 0.5,
             }).addTo(map);
             map.addLayer(wardLayer);
-            const allLabel = 'All Candidates';
+            const allLabel = 'All candidates';
             const candidateLayers = {};
             candidateLayers[allLabel] = L.layerGroup();
             const candidateClusterLayers = {};
-            candidateClusterLayers[allLabel] = L.markerClusterGroup();
+            candidateClusterLayers[allLabel] = L.markerClusterGroup({maxClusterRadius: 50});
             const colors = ['#e41a1c', '#377eb8', '#4daf4a', '#984ea3'];
             const baseRadius = 2.5;
             let i = 0;
             for (const [candidate, points] of Object.entries(contributors)) {
                 const layer = L.layerGroup();
-                const clusterLayer = L.markerClusterGroup();
+                const clusterLayer = L.markerClusterGroup({maxClusterRadius: 50});
                 for (const point of points) {
                     L.circleMarker(
                         point.position,
@@ -62,7 +62,7 @@ jQuery(function ($) {
             }
             const layersControl = L.control.layers(null, {'Wards': wardLayer}, {collapsed: false})
                 .addTo(map);
-            map.fitBounds([[38.792, -77.120], [38.995, -76.909]]);
+            map.fitBounds(wardLayer.getBounds());
             $('.leaflet-control-layers').on('click', '#use-clusters', function () {
                 adjustLayersControl($(this).prop('checked'));
             });

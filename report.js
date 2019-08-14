@@ -33,12 +33,12 @@ const argv = require('yargs')
     .strict(true)
     .argv;
 const db = require('./lib/db');
-const data = {};
 const bins = [25, 50, 100, 250, 500, 999.99];
 const filters = {since: argv.since, office: argv.office};
 
 db.getContributionInfo(filters)
     .then(function (rows) {
+        const data = {};
         for (const row of rows) {
             // console.log(row.committee_name);
             row.amountList = [];
@@ -48,12 +48,14 @@ db.getContributionInfo(filters)
             row.dc_ind_contributors = 0;
             data[row.committee_name] = row;
         }
+        return data;
     })
     .then(getStats)
+    .then(printReport)
     .catch(console.error)
     .finally(() => db.close());
 
-function getStats() {
+function getStats(data) {
     return db.getContributionAmountsByType(filters)
         .then(function (amounts) {
             for (const [committee, obj] of Object.entries(amounts)) {
@@ -62,12 +64,6 @@ function getStats() {
         })
         .then(() => db.getContributionSubtotals(filters))
         .then(function (rows) {
-            let prevOffice = '';
-            const percentDecimals = 1;
-            const percentLength = 4 + percentDecimals;
-            const {header, format, officeFormat, footer} = argv.html ? getHtmlFormat() :
-                argv.csv ? getCsvFormat() : getTextFormat(percentLength);
-            console.log(header);
             for (const row of rows) {
                 data[row.committee_name].amountList.push(row.subtotal);
                 if (argv.bins) {
@@ -86,42 +82,52 @@ function getStats() {
                     data[row.committee_name].dc_ind_contributors++;
                 }
             }
-            for (const c of Object.values(data)) {
-                const values = [
-                    c.candidate_name,
-                    numberFormat(c.contributions),
-                    numberFormat(c.amountList.length),
-                    numberFormat(c.dc_ind_contributors),
-                    numberFormat(c.amount),
-                ];
-                if (c.amount < argv.threshold) {
-                    continue;
-                }
-                c.amountList = c.amountList.sort((a, b) => a - b);
-                values.push(
-                    numberFormat(stats.mean(c.amountList)),
-                    numberFormat(stats.median(c.amountList)),
-                    numberFormat(100 * c.ind_amount / c.amount),
-                    numberFormat(100 * c.dc_amount / c.amount),
-                    numberFormat(100 * c.dc_ind_amount / c.amount)
-                    // c.amountList[0],
-                    // c.amountList[c.amountList.length - 1]
-                );
-                if (argv.bins) {
-                    for (let i = 0; i < bins.length; i++) {
-                        values.push((100 * c.binAmounts[i] / c.amount).toFixed(percentDecimals));
-                    }
-                    values.push((100 * c.binAmounts[bins.length] / c.amount).toFixed(percentDecimals));
-                }
-                if (c.office !== prevOffice && !argv.csv) {
-                    console.log(vsprintf(officeFormat, [c.office.toUpperCase()]));
-                }
-                console.log(vsprintf(format, values));
-                prevOffice = c.office;
-            }
-            console.log(footer);
-            // printCrossCandidateContributions();
+            return data;
         });
+}
+
+function printReport(data) {
+    const percentDecimals = 1;
+    const percentLength = 4 + percentDecimals;
+    let prevOffice = '';
+    const {header, format, officeFormat, footer} = argv.html ? getHtmlFormat() :
+        argv.csv ? getCsvFormat() : getTextFormat(percentLength);
+    console.log(header);
+    for (const c of Object.values(data)) {
+        const values = [
+            c.candidate_name,
+            numberFormat(c.contributions),
+            numberFormat(c.amountList.length),
+            numberFormat(c.dc_ind_contributors),
+            numberFormat(c.amount),
+        ];
+        if (c.amount < argv.threshold) {
+            continue;
+        }
+        c.amountList = c.amountList.sort((a, b) => a - b);
+        values.push(
+            numberFormat(stats.mean(c.amountList)),
+            numberFormat(stats.median(c.amountList)),
+            numberFormat(100 * c.ind_amount / c.amount),
+            numberFormat(100 * c.dc_amount / c.amount),
+            numberFormat(100 * c.dc_ind_amount / c.amount)
+            // c.amountList[0],
+            // c.amountList[c.amountList.length - 1]
+        );
+        if (argv.bins) {
+            for (let i = 0; i < bins.length; i++) {
+                values.push((100 * c.binAmounts[i] / c.amount).toFixed(percentDecimals));
+            }
+            values.push((100 * c.binAmounts[bins.length] / c.amount).toFixed(percentDecimals));
+        }
+        if (c.office !== prevOffice && !argv.csv) {
+            console.log(vsprintf(officeFormat, [c.office.toUpperCase()]));
+        }
+        console.log(vsprintf(format, values));
+        prevOffice = c.office;
+    }
+    console.log(footer);
+    // printCrossCandidateContributions();
 }
 
 function getHtmlFormat() {

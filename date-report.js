@@ -8,6 +8,10 @@ const argv = require('yargs')
             describe: 'include only offices that match string',
             required: true,
         },
+        amount: {
+            type: 'boolean',
+            describe: 'report amount of money instead of number of contributors',
+        },
     })
     .strict(true)
     .argv;
@@ -29,15 +33,15 @@ async function main() {
         if (!data[row.receipt_date]) {
             data[row.receipt_date] = {};
         }
-        data[row.receipt_date][row.candidate_name] = row.amount;
+        data[row.receipt_date][row.candidate_name] = argv.amount ? row.amount : row.contributors;
     }
     console.log(['Date'].concat(candidates).join('\t'));
     while (cursorDate <= endDate) {
         const isoDate = cursorDate.format('YYYY-MM-DD');
         const lineData = [cursorDate.format('M/D/YYYY')].concat(
             candidates.map(function (candidate, i) {
-                return ((+(data[isoDate] && data[isoDate][candidate]) || 0) +
-                    +prevLineData[i + 1]).toFixed(2);
+                const n = (+(data[isoDate] && data[isoDate][candidate]) || 0) + +prevLineData[i + 1];
+                return argv.amount ? n.toFixed(2) : n;
             })
         );
         console.log(lineData.join('\t'));

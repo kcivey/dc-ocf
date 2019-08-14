@@ -23,6 +23,8 @@ jQuery(function ($) {
                 opacity: 0.5,
             }).addTo(map);
             map.addLayer(wardLayer);
+            const colors = ['#e41a1c', '#377eb8', '#4daf4a', '#984ea3', '#ff7f00', '#ffff33', '#a65628'];
+            const baseRadius = 2.5;
             const heatMapOptions = {
                 gradient: {
                     0.4: 'blue',
@@ -47,32 +49,25 @@ jQuery(function ($) {
                     [allLabel]: L.heatLayer([], heatMapOptions),
                 },
             };
-            const colors = ['#e41a1c', '#377eb8', '#4daf4a', '#984ea3'];
-            const baseRadius = 2.5;
             let candidateIndex = 0;
             for (const [candidate, points] of Object.entries(contributors)) {
-                const color = colors[candidateIndex];
+                const pointOptions = {
+                    weight: 2,
+                    color: colors[candidateIndex],
+                    radius: baseRadius,
+                    fillOpacity: 0.3,
+                };
                 const pointsForHeatMap = [];
                 const layer = L.layerGroup();
                 const clusterLayer = L.markerClusterGroup(clusterOptions);
                 for (const point of points) {
                     L.circleMarker(
                         point.position,
-                        {
-                            weight: 2,
-                            color,
-                            radius: baseRadius * (point.contributors ** 0.5),
-                        }
+                        {...pointOptions, radius: baseRadius * (point.contributors ** 0.5)},
                     ).addTo(layer);
                     for (let contributorIndex = 0; contributorIndex < point.contributors; contributorIndex++) {
-                        L.circleMarker(
-                            point.position,
-                            {
-                                weight: 2,
-                                color,
-                                radius: baseRadius,
-                            }
-                        ).addTo(clusterLayer);
+                        L.circleMarker(point.position, pointOptions)
+                            .addTo(clusterLayer);
                         candidateLayers['heat map'][allLabel].addLatLng(point.position);
                         pointsForHeatMap.push(point.position);
                     }

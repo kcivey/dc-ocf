@@ -95,10 +95,13 @@ jQuery(function ($) {
 
             function adjustLayersControl(wantedType) {
                 const overlaysContainer = $('.leaflet-control-layers-overlays');
-                const checkedCandidateIndex = $('input:radio', overlaysContainer)
+                let checkedCandidateIndex = $('input:radio', overlaysContainer)
                     .get()
                     .map(input => $(input).prop('checked'))
                     .indexOf(true);
+                if (checkedCandidateIndex === -1) {
+                    checkedCandidateIndex = 0;
+                }
                 for (const [type, layerMap] of Object.entries(candidateLayers)) {
                     for (const layer of Object.values(layerMap)) {
                         layersControl.removeLayer(layer);
@@ -137,10 +140,8 @@ jQuery(function ($) {
                     );
                     $(`#type-radios input:radio[value=${wantedType}]`).prop('checked', true);
                 }
-                if (checkedCandidateIndex > -1) {
-                    $('input:radio', overlaysContainer).eq(checkedCandidateIndex)
-                        .trigger('click');
-                }
+                $('input:radio', overlaysContainer).eq(checkedCandidateIndex)
+                    .trigger('click');
             }
         });
 });

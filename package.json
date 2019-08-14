@@ -32,6 +32,7 @@
     "sprintf-js": "^1.1.2",
     "sqlite3": "^4.0.9",
     "stats-lite": "^2.2.0",
+    "topojson": "^3.0.2",
     "underscore.string": "^3.3.5",
     "yargs": "^13.3.0",
     "zombie": "^6.1.4"

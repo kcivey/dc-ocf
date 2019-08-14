@@ -169,7 +169,7 @@ function parseRowText(text, fields) {
                     row[newKey] += '\n' + value;
                 }
             }
-            else if (key === 'occupation') {
+            else if (key === 'occupation' || key === 'mode_of_payment') {
                 if (!row[key]) {
                     row[key] = value;
                 }

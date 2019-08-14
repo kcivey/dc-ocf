@@ -24,14 +24,23 @@ jQuery(function ($) {
             }).addTo(map);
             map.addLayer(wardLayer);
             const allLabel = 'All candidates';
-            const candidateLayers = {};
-            candidateLayers[allLabel] = L.layerGroup();
-            const candidateClusterLayers = {};
-            candidateClusterLayers[allLabel] = L.markerClusterGroup({maxClusterRadius: 50});
+            const candidateLayers = {
+                'points': {
+                    [allLabel]: L.layerGroup(),
+                },
+                'clusters': {
+                    [allLabel]: L.markerClusterGroup({maxClusterRadius: 50}),
+                },
+                'heat map': {
+                    [allLabel]: L.heatLayer([]),
+                },
+            };
             const colors = ['#e41a1c', '#377eb8', '#4daf4a', '#984ea3'];
             const baseRadius = 2.5;
-            let i = 0;
+            let candidateIndex = 0;
             for (const [candidate, points] of Object.entries(contributors)) {
+                const color = colors[candidateIndex];
+                const pointsForHeatMap = [];
                 const layer = L.layerGroup();
                 const clusterLayer = L.markerClusterGroup({maxClusterRadius: 50});
                 for (const point of points) {
@@ -39,75 +48,85 @@ jQuery(function ($) {
                         point.position,
                         {
                             weight: 2,
-                            color: colors[i],
+                            color,
                             radius: baseRadius * (point.contributors ** 0.5),
                         }
                     ).addTo(layer);
-                    for (let i = 0; i < point.contributors; i++) {
+                    for (let contributorIndex = 0; contributorIndex < point.contributors; contributorIndex++) {
                         L.circleMarker(
                             point.position,
                             {
                                 weight: 2,
-                                color: colors[i],
+                                color,
                                 radius: baseRadius,
                             }
                         ).addTo(clusterLayer);
+                        candidateLayers['heat map'][allLabel].addLatLng(point.position);
+                        pointsForHeatMap.push(point.position);
                     }
                 }
-                candidateLayers[candidate] = layer;
-                candidateLayers[allLabel].addLayer(layer);
-                candidateClusterLayers[candidate] = clusterLayer;
-                candidateClusterLayers[allLabel].addLayer(clusterLayer);
-                i++;
+                candidateLayers['points'][candidate] = layer;
+                candidateLayers['points'][allLabel].addLayer(layer);
+                candidateLayers['clusters'][candidate] = clusterLayer;
+                candidateLayers['clusters'][allLabel].addLayer(clusterLayer);
+                candidateLayers['heat map'][candidate] = L.heatLayer(pointsForHeatMap);
+                candidateIndex++;
             }
             const layersControl = L.control.layers(null, {'Wards': wardLayer}, {collapsed: false})
                 .addTo(map);
             map.fitBounds(wardLayer.getBounds());
-            $('.leaflet-control-layers').on('click', '#use-clusters', function () {
-                adjustLayersControl($(this).prop('checked'));
+            $('.leaflet-control-layers').on('click', '#type-radios', function () {
+                const type = $('input:radio:checked', this).val();
+                adjustLayersControl(type);
             });
-            adjustLayersControl();
+            adjustLayersControl('points');
 
-            function adjustLayersControl(useClusters = false) {
+            function adjustLayersControl(wantedType) {
                 const overlaysContainer = $('.leaflet-control-layers-overlays');
-                const checkedRadioIndex = $('input:radio', overlaysContainer)
+                const checkedCandidateIndex = $('input:radio', overlaysContainer)
                     .get()
                     .map(input => $(input).prop('checked'))
                     .indexOf(true);
-                let baseCheckboxLabel;
-                const [removeLayers, addLayers] = useClusters ?
-                    [candidateLayers, candidateClusterLayers] :
-                    [candidateClusterLayers, candidateLayers];
-                for (const layer of Object.values(removeLayers)) {
-                    layersControl.removeLayer(layer);
-                    map.removeLayer(layer);
+                for (const [type, layerMap] of Object.entries(candidateLayers)) {
+                    for (const layer of Object.values(layerMap)) {
+                        layersControl.removeLayer(layer);
+                        map.removeLayer(layer);
+                    }
+                    if (type === wantedType) {
+                        for (const [name, layer] of Object.entries(layerMap)) {
+                            layersControl.addOverlay(layer, name);
+                        }
+                    }
                 }
-                for (const [name, layer] of Object.entries(addLayers)) {
-                    layersControl.addOverlay(layer, name);
-                }
+                let baseRadioLabel;
                 $('label', overlaysContainer).each(function (i, label) {
                     if (i < 1) {
-                        baseCheckboxLabel = $(label);
                         return;
+                    }
+                    if (!baseRadioLabel) {
+                        baseRadioLabel = $(label);
                     }
                     const color = colors[i - 2] || '';
                     $(label).css('color', color)
                         .find('input')
                         .attr({type: 'radio', name: 'candidate'});
                 });
-                if ($('#use-clusters').length === 0) {
+                if ($('#type-radios').length === 0) {
+                    const radioDiv = $('<div/>').attr({id: 'type-radios'}).append(
+                        Object.keys(candidateLayers).map(function (key) {
+                            return baseRadioLabel.clone()
+                                .find('span').text(`Display as ${key}`).end()
+                                .find('input').attr({name: 'type', value: key}).end()
+                        })
+                    );
                     overlaysContainer.after(
                         $('<div/>').addClass('leaflet-control-layers-separator'),
-                        $('<div/>').append(
-                            baseCheckboxLabel.clone()
-                                .find('span').text('Display as clusters').end()
-                                .find('input').attr({id: 'use-clusters'}).end()
-                        )
+                        radioDiv,
                     );
+                    $(`#type-radios input:radio[value=${wantedType}]`).prop('checked', true);
                 }
-                $('#use-clusters').prop('checked', useClusters);
-                if (checkedRadioIndex > -1) {
-                    $('input:radio', overlaysContainer).eq(checkedRadioIndex)
+                if (checkedCandidateIndex > -1) {
+                    $('input:radio', overlaysContainer).eq(checkedCandidateIndex)
                         .trigger('click');
                 }
             }

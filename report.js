@@ -97,7 +97,7 @@ function getStats() {
                     numberFormat(c.amount),
                 ];
                 if (c.amount < argv.threshold || (officeRegex && !officeRegex.test(c.office))) {
-                    return;
+                    continue;
                 }
                 c.amountList = c.amountList.sort((a, b) => a - b);
                 values.push(

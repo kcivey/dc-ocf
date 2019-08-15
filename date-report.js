@@ -25,7 +25,7 @@ main()
 async function main() {
     const candidates = await db.getCandidatesForOffice(office);
     const rows = await db.getContributionsByDate({office});
-    const data = [];
+    const data = {};
     const cursorDate = moment(rows[0].receipt_date);
     const endDate = moment(rows[rows.length - 1].receipt_date);
     let prevLineData = [''].concat(candidates.map(() => 0));
@@ -33,7 +33,7 @@ async function main() {
         if (!data[row.receipt_date]) {
             data[row.receipt_date] = {};
         }
-        data[row.receipt_date][row.candidate_name] = argv.amount ? row.amount : row.contributors;
+        data[row.receipt_date][row.candidate_short_name] = argv.amount ? row.amount : row.contributors;
     }
     console.log(['Date'].concat(candidates).join('\t'));
     while (cursorDate <= endDate) {

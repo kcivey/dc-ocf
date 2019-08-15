@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>DC Contributors Map</title>
+  <title>DC Ward 2 Council Contributions (July 31, 2019)</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css" integrity="sha256-SHMGCYmST46SoyGgo4YR/9AlK1vf3ff84Aq9yK4hdqM=" crossorigin="anonymous" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/MarkerCluster.css" integrity="sha256-+bdWuWOXMFkX0v9Cvr3OWClPiYefDQz9GGZP/7xZxdc=" crossorigin="anonymous" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/MarkerCluster.Default.css" integrity="sha256-LWhzWaQGZRsWFrrJxg+6Zn8TT84k0/trtiHBc6qcGpY=" crossorigin="anonymous" />
@@ -10,6 +10,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.js" integrity="sha256-EErZamuLefUnbMBQbsEqu1USa+btR2oIlCpBJbyD4/g=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/leaflet.markercluster.js" integrity="sha256-WL6HHfYfbFEkZOFdsJQeY7lJG/E5airjvqbznghUzRw=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.heat/0.2.0/leaflet-heat.js" integrity="sha256-65UqrlgGoRAnKfKRuriH3eeDrOhZgZo1SCenduc+SGo=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.1/mustache.min.js" integrity="sha256-srhz/t0GOrmVGZryG24MVDyFDYZpvUH2+dnJ8FbpGi0=" crossorigin="anonymous"></script>
   <script src="index.js"></script>
   <style type="text/css">
     #map { height: 90vh }
@@ -20,6 +21,33 @@
   </style>
 </head>
 <body>
+<h1>DC Ward 2 Council Contributions (July 31, 2019)</h1>
+<h2>Map of Contributors</h2>
 <div id="map"></div>
+<h2>Contribution Statistics</h2>
+<table id="stats-table"></table>
+<script type="text/template" id="table-content-template">
+  <thead>
+    <tr>
+    {{#columnHeads}}
+      <th>{{ . }}</th>
+    {{/columnHeads}}
+    </tr>
+  </thead>
+  <tbody>
+    {{#tableData}}
+      <tr>
+      {{#.}}
+        {{#class}}
+          <td class="{{ class }}">{{ value }}</td>
+        {{/class}}
+        {{^class}}
+          <td>{{ . }}</td>
+        {{/class}}
+      {{/.}}
+      </tr>
+    {{/tableData}}
+  </tbody>
+</script>
 </body>
 </html>

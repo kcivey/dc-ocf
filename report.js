@@ -51,28 +51,25 @@ function printReport(data) {
         const values = [
             c.candidate_name,
             numberFormat(c.contributions),
-            numberFormat(c.amountList.length),
+            numberFormat(c.contributors),
             numberFormat(c.dc_ind_contributors),
             numberFormat(c.amount),
         ];
         if (c.amount < argv.threshold) {
             continue;
         }
-        c.amountList = c.amountList.sort((a, b) => a - b);
         values.push(
             numberFormat(c.mean),
             numberFormat(c.median),
             numberFormat(100 * c.ind_amount / c.amount),
             numberFormat(100 * c.dc_amount / c.amount),
             numberFormat(100 * c.dc_ind_amount / c.amount)
-            // c.amountList[0],
-            // c.amountList[c.amountList.length - 1]
         );
         if (argv.bins) {
             for (let i = 0; i < bins.length; i++) {
-                values.push((100 * c.binAmounts[i] / c.amount).toFixed(percentDecimals));
+                values.push((100 * c.bin_amounts[i] / c.amount).toFixed(percentDecimals));
             }
-            values.push((100 * c.binAmounts[bins.length] / c.amount).toFixed(percentDecimals));
+            values.push((100 * c.bin_amounts[bins.length] / c.amount).toFixed(percentDecimals));
         }
         if (c.office !== prevOffice && !argv.csv) {
             console.log(vsprintf(officeFormat, [c.office.toUpperCase()]));

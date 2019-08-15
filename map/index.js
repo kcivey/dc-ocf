@@ -13,9 +13,10 @@ jQuery(function ($) {
         })
         .then(() => fetch('contributors.json'))
         .then(response => response.json())
-        .then(function ({points, stats}) {
+        .then(function ({points, stats, dateData}) {
             handlePoints(points);
             handleStats(stats);
+            handleDateData(dateData);
         });
 
     function handlePoints(points) {
@@ -165,4 +166,9 @@ jQuery(function ($) {
         const tableContent = Mustache.render($('#table-content-template').html(), stats);
         $('#stats-table').html(tableContent);
     }
+
+    function handleDateData(data) {
+
+    }
+
 });

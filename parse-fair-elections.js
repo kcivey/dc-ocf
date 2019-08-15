@@ -3,7 +3,7 @@
 const {pdfToText} = require('pdf-to-text');
 const underscored = require('underscore.string/underscored');
 const db = require('./lib/db');
-const {fixAmount, fixDate, normalizeNameAndAddress} = require('./lib/util');
+const {fixAmount, fixDate, normalizeNameAndAddress, parseAddress, parseName} = require('./lib/util');
 const inputFile = process.argv[2];
 
 if (!inputFile) {
@@ -277,31 +277,4 @@ function parseLine(line, fields) {
         record[name] = line.substr(start, length).trim();
     }
     return record;
-}
-
-function parseName(name) {
-    const m = name.match(/^(?:(\S+)(?: (.+?))? )?(\S+(?: (?:[JS]r|I+|IV|VI*)\.?)?)$/);
-    if (!m) {
-        throw new Error(`Unexpected name format "${name}"`);
-    }
-    return {
-        first: m[1] || '',
-        middle: m[2] || '',
-        last: m[3],
-    };
-}
-
-function parseAddress(address) {
-    const lines = address.trim().split('\n');
-    const lastLine = lines.pop();
-    const m = lastLine.match(/^(\S.+\S),\s*([A-Z]{2})[- ](\d{5}(?:-\d{4})?)$/);
-    if (!m) {
-        throw new Error(`Unexpected address format "${address}"`);
-    }
-    return {
-        number_and_street: lines.join(', '),
-        city: m[1],
-        state: m[2],
-        zip: m[3],
-    };
 }

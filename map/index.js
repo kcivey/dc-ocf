@@ -92,6 +92,7 @@ jQuery(function ($) {
             adjustLayersControl(type);
         });
         adjustLayersControl('points');
+        setUpResizeHandler();
 
         function adjustLayersControl(wantedType) {
             const overlaysContainer = $('.leaflet-control-layers-overlays');
@@ -142,6 +143,21 @@ jQuery(function ($) {
             }
             $('input:radio', overlaysContainer).eq(checkedCandidateIndex)
                 .trigger('click');
+        }
+
+        function setUpResizeHandler() {
+            const mapDiv = $('#map');
+            let prevWidth = mapDiv.width();
+            let prevHeight = mapDiv.height();
+            setInterval(function () {
+                const width = mapDiv.width();
+                const height = mapDiv.height();
+                if (width !== prevWidth || height !== prevHeight) {
+                    map.invalidateSize({debounceMoveend: true, pan: false});
+                    prevWidth = width;
+                    prevHeight = height;
+                }
+            }, 250);
         }
     }
 

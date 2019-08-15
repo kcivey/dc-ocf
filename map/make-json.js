@@ -22,8 +22,7 @@ main()
 
 async function main() {
     const codeToHead = {
-        committee_name: 'Committee name',
-        candidate_name: 'Candidate name',
+        candidate_short_name: 'Candidate',
         dc_amount: 'DC amount',
         ind_amount: 'Ind amount',
         dc_ind_amount: 'DC ind amount',

@@ -4,7 +4,7 @@ const fs = require('fs');
 const parse = require('csv-parse');
 const underscored = require('underscore.string/underscored');
 const db = require('./lib/db');
-const {fixAmount, fixDate, normalizeNameAndAddress} = require('./lib/util');
+const {fixAmount, fixDate, normalizeNameAndAddress, parseName} = require('./lib/util');
 const currentCommittees = new Set();
 
 main()
@@ -13,13 +13,13 @@ main()
 
 function main() {
     return db.createTables()
-        .then(() => loadTransactions(db.committeeTableName, db.committeeColumns))
-        .then(() => loadTransactions(db.contributionTableName, db.contributionColumns))
-        .then(() => loadTransactions(db.expenditureTableName, db.expenditureColumns))
+        .then(() => loadRecords(db.committeeTableName, db.committeeColumns))
+        .then(() => loadRecords(db.contributionTableName, db.contributionColumns))
+        .then(() => loadRecords(db.expenditureTableName, db.expenditureColumns))
         .then(() => db.addDummyContributions());
 }
 
-function loadTransactions(tableName, columns) {
+function loadRecords(tableName, columns) {
     return new Promise(function (resolve, reject) {
         const parser = parse({columns: true});
         const input = fs.createReadStream(__dirname + '/' + tableName + '.csv');
@@ -102,6 +102,10 @@ function transformRecord(record) {
     }
     if (newRecord.hasOwnProperty('city')) {
         newRecord.normalized = normalizeNameAndAddress(newRecord);
+    }
+    if (newRecord.hasOwnProperty('candidate_name')) {
+        const nameParts = parseName(newRecord.candidate_name);
+        newRecord.candidate_short_name = nameParts.last; // have to manually edit if more than one with same last name
     }
     return newRecord;
 }

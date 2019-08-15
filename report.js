@@ -49,7 +49,7 @@ function printReport(data) {
     console.log(header);
     for (const c of Object.values(data)) {
         const values = [
-            c.candidate_name,
+            c.candidate_short_name,
             numberFormat(c.contributions),
             numberFormat(c.contributors),
             numberFormat(c.dc_ind_contributors),

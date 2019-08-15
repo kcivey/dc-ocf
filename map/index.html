@@ -13,10 +13,17 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.1/mustache.min.js" integrity="sha256-srhz/t0GOrmVGZryG24MVDyFDYZpvUH2+dnJ8FbpGi0=" crossorigin="anonymous"></script>
   <script src="index.js"></script>
   <style type="text/css">
-    #map { height: 90vh }
+    #map {
+      height: 90vh;
+      width: 90vh;
+      resize: both;
+    }
     .leaflet-control-layers {
       font-weight: bold;
       font-size: 1rem;
+    }
+    .leaflet-container .leaflet-control-attribution {
+      padding-right: 16px; /* make room for resize control */
     }
   </style>
 </head>

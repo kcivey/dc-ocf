@@ -1,5 +1,6 @@
 /* globals jQuery, L */
 jQuery(function ($) {
+    const candidateColors = {};
     let wardLayer;
     fetch('dc-wards.json')
         .then(response => response.json())
@@ -57,9 +58,10 @@ jQuery(function ($) {
         };
         let candidateIndex = 0;
         for (const [candidate, candidatePoints] of Object.entries(points)) {
+            candidateColors[candidate] = colors[candidateIndex];
             const pointOptions = {
                 weight: 2,
-                color: colors[candidateIndex],
+                color: candidateColors[candidate],
                 radius: baseRadius,
                 fillOpacity: 0.3,
             };
@@ -167,8 +169,56 @@ jQuery(function ($) {
         $('#stats-table').html(tableContent);
     }
 
-    function handleDateData(data) {
+    function handleDateData({start, end, columns}) {
+        const dateColumn = ['date'];
+        for (let date = start; date <= end; date = incrementDate(date)) {
+            dateColumn.push(date);
+        }
+        columns.unshift(dateColumn);
+        c3.generate({
+            bindto: '#date-chart',
+            data: {
+                x: 'date',
+                type: 'line',
+                colors: candidateColors,
+                columns,
+            },
+            padding: {
+                right: 10,
+            },
+            point: {
+                show: false,
+                sensitivity: 100,
+            },
+            axis: {
+                x: {
+                    label: {
+                        text: 'Date',
+                        position: 'outer-center',
+                    },
+                    type: 'timeseries',
+                    padding: 0,
+                    tick: {
+                        outer: false,
+                    },
+                },
+                y: {
+                    label: {
+                        text: 'Number of Contributors',
+                        position: 'outer-middle',
+                    },
+                    padding: 0,
+                    tick: {
+                        outer: false,
+                    },
+                },
+            },
+        });
 
+        function incrementDate(date) {
+            const timestamp = new Date(date).getTime();
+            return new Date(timestamp + 86400000).toISOString().substr(0, 10);
+        }
     }
 
 });

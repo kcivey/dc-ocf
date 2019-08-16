@@ -67,22 +67,23 @@ async function getDateData() {
         }
         data[row.receipt_date][row.candidate_short_name] = row.contributors;
     }
-    const dateData = {Date: ['Date']};
+    const contributors = {};
     const runningTotals = {};
     for (const candidate of candidates) {
-        dateData[candidate] = [candidate];
+        contributors[candidate] = [candidate];
         runningTotals[candidate] = 0;
     }
-    const cursorDate = moment(rows[0].receipt_date);
-    const endDate = moment(rows[rows.length - 1].receipt_date);
+    const start = rows[0].receipt_date;
+    const end = rows[rows.length - 1].receipt_date;
+    const cursorDate = moment(start);
+    const endDate = moment(end);
     while (cursorDate <= endDate) {
         const isoDate = cursorDate.format('YYYY-MM-DD');
-        dateData['Date'].push(isoDate);
         for (const candidate of candidates) {
             runningTotals[candidate] += +(data[isoDate] && data[isoDate][candidate]) || 0;
-            dateData[candidate].push(runningTotals[candidate]);
+            contributors[candidate].push(runningTotals[candidate]);
         }
         cursorDate.add(1, 'day');
     }
-    return dateData;
+    return {start, end, columns: Object.values(contributors)};
 }

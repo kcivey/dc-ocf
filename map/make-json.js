@@ -6,6 +6,7 @@ const argv = require('yargs')
         office: {
             type: 'string',
             describe: 'include only offices that match string',
+            required: true,
         },
         pretty: {
             type: 'boolean',
@@ -27,14 +28,23 @@ async function main() {
         dc_amount: 'DC amount',
         ind_amount: 'Ind amount',
         dc_ind_amount: 'DC ind amount',
+        ward_amount: 'Ward ind amount',
         contributions: 'Contributions',
         amount: 'Amount',
         contributors: 'Contributors',
         dc_ind_contributors: 'DC ind contributors',
+        ward_ind_contributors: 'Ward ind contributors',
         mean: 'Mean',
         median: 'Median',
     };
-    const stats = await db.getContributionStats({filters});
+    const office = await db.getMatchingOffice(argv.office);
+    const m = office.match(/Ward (\d)/);
+    const ward = m ? +m[1] : null;
+    if (!ward) {
+        delete codeToHead.ward_amount;
+        delete codeToHead.ward_ind_contributors;
+    }
+    const stats = await db.getContributionStats({filters, ward});
     const columnHeads = Object.values(codeToHead);
     const tableData = Object.values(stats)
         .map(function (obj) {

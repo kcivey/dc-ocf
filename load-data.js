@@ -16,7 +16,8 @@ function main() {
         .then(() => loadRecords(db.committeeTableName, db.committeeColumns))
         .then(() => loadRecords(db.contributionTableName, db.contributionColumns))
         .then(() => loadRecords(db.expenditureTableName, db.expenditureColumns))
-        .then(() => db.addDummyContributions());
+        .then(() => db.addDummyContributions())
+        .then(() => db.runFixes());
 }
 
 function loadRecords(tableName, columns) {

@@ -21,11 +21,13 @@ async function main() {
     for (const inputFile of process.argv.slice(2)) {
         await processFile(inputFile);
     }
+    console.warn('Adding dummy contributions');
     await db.addDummyContributions();
+    console.warn('Running fixes');
+    await db.runFixes();
 }
 
 async function processFile(inputFile) {
-    // await db.createTables();
     const docText = await getPdfText(inputFile);
     const rowsBySchedule = {};
     let prevSchedule;

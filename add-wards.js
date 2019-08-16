@@ -11,34 +11,32 @@ main()
 
 async function main() {
     while (true) {
-        const rows = await db.getUnverifiedContributionAddresses(batchSize);
-        if (!rows.length) {
+        const addresses = await db.getUnverifiedContributionAddresses(batchSize);
+        if (!addresses.length) {
             break;
         }
-        const locations = await marClient.findLocationBatch(rows.map(r => r.address));
+        const locations = await marClient.findLocationBatch(addresses);
+        const newRecords = [];
         let i = 0;
-        for (const {id, address} of rows) {
-            console.warn(id, address);
-            let updateValues = {
-                mar_confidence_level: 0,
-                mar_address: null,
-                mar_ward: null,
-                mar_latitude: null,
-                mar_longitude: null,
+        for (const address of addresses) {
+            const record = {
+                ocf_address: address,
+                confidence_level: 0,
             };
             const location = locations[i][0];
             if (location) {
-                updateValues = {
-                    mar_confidence_level: location.confidenceLevel(),
-                    mar_address: location.fullAddress(),
-                    mar_ward: location.ward(),
-                    mar_latitude: location.latitude(),
-                    mar_longitude: location.longitude(),
-                };
-                console.warn(updateValues);
+                Object.assign(record, {
+                    confidence_level: location.confidenceLevel(),
+                    address: location.fullAddress(),
+                    ward: location.ward(),
+                    latitude: location.latitude(),
+                    longitude: location.longitude(),
+                });
             }
-            await db.updateContribution(id, updateValues);
+            console.warn(record);
+            newRecords.push(record);
             i++;
         }
+        await db.batchInsert(db.marTableName, newRecords);
     }
 }

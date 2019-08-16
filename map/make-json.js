@@ -25,15 +25,16 @@ main()
 async function main() {
     const codeToHead = {
         candidate_short_name: 'Candidate',
-        dc_amount: 'DC amount',
-        ind_amount: 'Ind amount',
-        dc_ind_amount: 'DC ind amount',
-        ward_amount: 'Ward ind amount',
         contributions: 'Contributions',
-        amount: 'Amount',
         contributors: 'Contributors',
         dc_ind_contributors: 'DC ind contributors',
         ward_ind_contributors: 'Ward ind contributors',
+        amount: 'Total amount',
+        dc_amount: 'DC amount',
+        ward_amount: 'Ward amount',
+        ind_amount: 'Ind amount',
+        dc_ind_amount: 'DC ind amount',
+        ward_ind_amount: 'Ward ind amount',
         mean: 'Mean',
         median: 'Median',
     };
@@ -42,14 +43,15 @@ async function main() {
     const ward = m ? +m[1] : null;
     if (!ward) {
         delete codeToHead.ward_amount;
+        delete codeToHead.ward_ind_amount;
         delete codeToHead.ward_ind_contributors;
     }
     const stats = await db.getContributionStats({filters, ward});
     const columnHeads = Object.values(codeToHead);
     const tableData = Object.values(stats)
         .map(function (obj) {
-            return Object.keys(obj)
-                .filter(k => codeToHead.hasOwnProperty(k))
+            return Object.keys(codeToHead)
+                .filter(k => obj.hasOwnProperty(k))
                 .map(k => obj[k])
                 .map(formatNumber);
         });

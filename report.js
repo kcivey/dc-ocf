@@ -48,23 +48,21 @@ function printReport(data) {
         argv.csv ? getCsvFormat() : getTextFormat(percentLength);
     console.log(header);
     for (const c of Object.values(data)) {
-        const values = [
-            c.candidate_short_name,
-            numberFormat(c.contributions),
-            numberFormat(c.contributors),
-            numberFormat(c.dc_ind_contributors),
-            numberFormat(c.amount),
-        ];
         if (c.amount < argv.threshold) {
             continue;
         }
-        values.push(
-            numberFormat(c.mean),
-            numberFormat(c.median),
-            numberFormat(100 * c.ind_amount / c.amount),
-            numberFormat(100 * c.dc_amount / c.amount),
-            numberFormat(100 * c.dc_ind_amount / c.amount)
-        );
+        const values = [
+            c.contributions,
+            c.contributors,
+            c.dc_ind_contributors,
+            c.amount,
+            c.mean,
+            c.median,
+            c.ind_percent,
+            c.dc_percent,
+            c.dc_ind_percent,
+        ].map(numberFormat);
+        values.unshift(c.candidate_short_name);
         if (argv.bins) {
             for (let i = 0; i < bins.length; i++) {
                 values.push((100 * c.bin_amounts[i] / c.amount).toFixed(percentDecimals));

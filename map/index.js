@@ -1,4 +1,4 @@
-/* globals jQuery, L */
+/* globals jQuery, L, Mustache, c3 */
 jQuery(function ($) {
     const candidateColors = {};
     let wardLayer;

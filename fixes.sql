@@ -26,3 +26,8 @@ UPDATE contributions SET number_and_street = number_and_street || ' NE' WHERE nu
 UPDATE contributions SET number_and_street = '1301 SOUTH CAROLINA AVENUE SE' WHERE number_and_street = '1301 SOUTH CAROLINA AVENUE ...';
 UPDATE contributions SET number_and_street = '1120 Rhode Island Avenue NW' WHERE number_and_street = '1120 Rhode Island Avenue, N...';
 UPDATE contributions SET number_and_street = '3612 Austin St SE' WHERE number_and_street LIKE '3612 Austin%' AND contributor_last_name = 'Capozzi';
+UPDATE contributions SET number_and_street = '3309 4th St SE' WHERE number_and_street = '3309 4th St SW' AND contributor_last_name = 'Batchelor';
+UPDATE contributions SET contributor_middle_name = 'Mitchell' WHERE number_and_street LIKE '910 M St%' AND contributor_last_name = 'Grossman' AND contributor_first_name = 'Jordan';
+UPDATE contributions SET contributor_middle_name = 'Brinn' WHERE number_and_street LIKE '7026 Longwood%' AND contributor_last_name = 'Siegel' AND contributor_first_name = 'Susan';
+UPDATE contributions SET contributor_middle_name = 'Levin' WHERE number_and_street LIKE '715 6th%' AND contributor_last_name = 'Welan' AND contributor_first_name = 'Joy';
+UPDATE contributions SET contributor_middle_name = 'L' WHERE number_and_street LIKE '916 Spruce%' AND contributor_last_name = 'Benjamin' AND contributor_first_name = 'Michael';

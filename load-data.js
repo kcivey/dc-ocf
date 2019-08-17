@@ -8,7 +8,7 @@ const {fixAmount, fixDate, normalizeNameAndAddress, parseName} = require('./lib/
 const currentCommittees = new Set();
 
 main()
-    .catch(console.error)
+    .catch(console.trace)
     .finally(() => db.close());
 
 function main() {

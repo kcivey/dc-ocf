@@ -37,7 +37,7 @@ const filters = {since: argv.since, office: argv.office};
 
 db.getContributionStats({filters, bins})
     .then(printReport)
-    .catch(console.error)
+    .catch(console.trace)
     .finally(() => db.close());
 
 function printReport(data) {

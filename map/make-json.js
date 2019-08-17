@@ -19,7 +19,7 @@ const db = require('../lib/db');
 const filters = {office: argv.office};
 
 main()
-    .catch(console.error)
+    .catch(console.trace)
     .finally(() => db.close());
 
 async function main() {
@@ -42,9 +42,11 @@ async function main() {
     const m = office.match(/Ward (\d)/);
     const ward = m ? +m[1] : null;
     if (!ward) {
-        delete codeToHead.ward_amount;
-        delete codeToHead.ward_ind_amount;
-        delete codeToHead.ward_ind_contributors;
+        for (const key in Object.keys(codeToHead)) {
+            if (/^ward_/.test(key)) {
+                delete codeToHead[key];
+            }
+        }
     }
     const stats = await db.getContributionStats({filters, ward});
     const columnHeads = Object.values(codeToHead);

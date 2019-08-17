@@ -40,14 +40,14 @@ db.getContributionStats({filters, bins})
     .catch(console.trace)
     .finally(() => db.close());
 
-function printReport(data) {
+function printReport(rows) {
     const percentDecimals = 1;
     const percentLength = 4 + percentDecimals;
     let prevOffice = '';
     const {header, format, officeFormat, footer} = argv.html ? getHtmlFormat() :
         argv.csv ? getCsvFormat() : getTextFormat(percentLength);
     console.log(header);
-    for (const c of Object.values(data)) {
+    for (const c of rows) {
         if (c.amount < argv.threshold) {
             continue;
         }

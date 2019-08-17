@@ -48,9 +48,9 @@ async function main() {
             }
         }
     }
-    const stats = await db.getContributionStats({filters, ward});
     const columnHeads = Object.values(codeToHead);
-    const tableData = Object.values(stats)
+    const stats = await db.getContributionStats({filters, ward});
+    const tableData = stats
         .map(function (obj) {
             return Object.keys(codeToHead)
                 .filter(k => obj.hasOwnProperty(k))

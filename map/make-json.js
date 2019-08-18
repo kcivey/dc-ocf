@@ -7,6 +7,7 @@ const argv = require('yargs')
             type: 'string',
             describe: 'include only offices that match string',
             required: true,
+            requiredArg: true,
         },
         pretty: {
             type: 'boolean',
@@ -16,7 +17,6 @@ const argv = require('yargs')
     .strict(true)
     .argv;
 const db = require('../lib/db');
-const filters = {office: argv.office};
 
 main()
     .catch(console.trace)
@@ -48,7 +48,9 @@ async function main() {
             }
         }
     }
-    const columnHeads = Object.values(codeToHead);
+    const columnHeads = Object.values(codeToHead)
+        .map(h => h === 'Candidate' ? h : {value: h, class: 'text-right'});
+    const filters = {office: argv.office};
     const stats = await db.getContributionStats({filters, ward});
     const tableData = stats
         .map(function (obj) {
@@ -60,7 +62,7 @@ async function main() {
     const data = {
         points: await db.getDcContributionsWithPositions(filters),
         stats: {columnHeads, tableData},
-        dateData: await getDateData(),
+        dateData: await getDateData(filters, ward),
     };
     process.stdout.write(JSON.stringify(data, null, argv.pretty ? 2 : 0));
 }
@@ -71,33 +73,52 @@ function formatNumber(value) {
         value;
 }
 
-async function getDateData() {
+async function getDateData(baseFilters, ward) {
     const candidates = await db.getCandidatesForOffice(argv.office);
-    const rows = await db.getContributionsByDate(filters);
-    const data = {};
-    for (const row of rows) {
-        if (!data[row.receipt_date]) {
-            data[row.receipt_date] = {};
-        }
-        data[row.receipt_date][row.candidate_short_name] = row.contributors;
+    const sets = {
+        all: {},
+        dc: {state: 'DC'},
+    };
+    if (ward) {
+        sets.ward = {ward};
     }
     const contributors = {};
-    const runningTotals = {};
-    for (const candidate of candidates) {
-        contributors[candidate] = [candidate];
-        runningTotals[candidate] = 0;
-    }
-    const start = rows[0].receipt_date;
-    const end = rows[rows.length - 1].receipt_date;
-    const cursorDate = moment(start);
-    const endDate = moment(end);
-    while (cursorDate <= endDate) {
-        const isoDate = cursorDate.format('YYYY-MM-DD');
-        for (const candidate of candidates) {
-            runningTotals[candidate] += +(data[isoDate] && data[isoDate][candidate]) || 0;
-            contributors[candidate].push(runningTotals[candidate]);
+    let start;
+    let end;
+    for (const [key, addedFilters] of Object.entries(sets)) {
+        contributors[key] = [];
+        const filters = {...baseFilters, ...addedFilters};
+        const rows = await db.getContributionsByDate(filters);
+        const data = {};
+        for (const row of rows) {
+            if (!data[row.receipt_date]) {
+                data[row.receipt_date] = {};
+            }
+            data[row.receipt_date][row.candidate_short_name] = row.contributors;
         }
-        cursorDate.add(1, 'day');
+        const runningTotals = {};
+        let i = 0;
+        for (const candidate of candidates) {
+            contributors[key][i] = [candidate];
+            runningTotals[candidate] = 0;
+            i++;
+        }
+        if (key === 'all') {
+            start = rows[0].receipt_date;
+            end = rows[rows.length - 1].receipt_date;
+        }
+        const cursorDate = moment(start);
+        const endDate = moment(end);
+        while (cursorDate <= endDate) {
+            const isoDate = cursorDate.format('YYYY-MM-DD');
+            let i = 0;
+            for (const candidate of candidates) {
+                runningTotals[candidate] += +(data[isoDate] && data[isoDate][candidate]) || 0;
+                contributors[key][i].push(runningTotals[candidate]);
+                i++;
+            }
+            cursorDate.add(1, 'day');
+        }
     }
-    return {start, end, columns: Object.values(contributors)};
+    return {start, end, contributors};
 }

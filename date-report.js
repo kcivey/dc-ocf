@@ -7,6 +7,17 @@ const argv = require('yargs')
             type: 'string',
             describe: 'include only offices that match string',
             required: true,
+            requiredArg: true,
+        },
+        state: {
+            type: 'string',
+            describe: 'include only contributions from specified state (usually DC)',
+            requiredArg: true,
+        },
+        ward: {
+            type: 'number',
+            describe: 'include only contributions from specified DC ward',
+            requiredArg: true,
         },
         amount: {
             type: 'boolean',
@@ -16,15 +27,17 @@ const argv = require('yargs')
     .strict(true)
     .argv;
 const db = require('./lib/db');
-const office = argv.office;
+const useAmount = argv.amount;
+const filters = {...argv};
+delete filters.amount;
 
 main()
     .catch(console.error)
     .finally(() => db.close());
 
 async function main() {
-    const candidates = await db.getCandidatesForOffice(office);
-    const rows = await db.getContributionsByDate({office});
+    const candidates = await db.getCandidatesForOffice(argv.office);
+    const rows = await db.getContributionsByDate(filters, useAmount);
     const data = {};
     const cursorDate = moment(rows[0].receipt_date);
     const endDate = moment(rows[rows.length - 1].receipt_date);
@@ -33,7 +46,7 @@ async function main() {
         if (!data[row.receipt_date]) {
             data[row.receipt_date] = {};
         }
-        data[row.receipt_date][row.candidate_short_name] = argv.amount ? row.amount : row.contributors;
+        data[row.receipt_date][row.candidate_short_name] = useAmount ? row.amount : row.contributors;
     }
     console.log(['Date'].concat(candidates).join('\t'));
     while (cursorDate <= endDate) {

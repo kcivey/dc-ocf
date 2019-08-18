@@ -1,4 +1,4 @@
-/* globals jQuery, L, Mustache, c3, d3 */
+/* globals jQuery, L, Mustache, c3 */
 jQuery(function ($) {
     const candidateColors = {};
     let wardLayer;
@@ -69,16 +69,17 @@ jQuery(function ($) {
             const pointsForHeatMap = [];
             const layer = L.layerGroup();
             const clusterLayer = L.markerClusterGroup(clusterOptions);
-            for (const point of candidatePoints) {
+            for (const [latitude, longitude, contributors] of candidatePoints) {
+                const position = [latitude, longitude];
                 L.circleMarker(
-                    point.position,
-                    {...pointOptions, radius: baseRadius * (point.contributors ** 0.5)},
+                    position,
+                    {...pointOptions, radius: baseRadius * (contributors ** 0.5)},
                 ).addTo(layer);
-                for (let contributorIndex = 0; contributorIndex < point.contributors; contributorIndex++) {
-                    L.circleMarker(point.position, pointOptions)
+                for (let contributorIndex = 0; contributorIndex < contributors; contributorIndex++) {
+                    L.circleMarker(position, pointOptions)
                         .addTo(clusterLayer);
-                    candidateLayers['heat map'][allLabel].addLatLng(point.position);
-                    pointsForHeatMap.push(point.position);
+                    candidateLayers['heat map'][allLabel].addLatLng(position);
+                    pointsForHeatMap.push(position);
                 }
             }
             candidateLayers['points'][candidate] = layer;

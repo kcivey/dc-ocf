@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 const moment = require('moment');
+const {dasherize} = require('underscore.string');
 const argv = require('yargs')
     .options({
         office: {
@@ -63,6 +64,7 @@ async function main() {
         points: await db.getDcContributionsWithPositions(filters),
         stats: {columnHeads, tableData},
         dateData: await getDateData(filters, ward),
+        placeData: await getPlaceData(argv.office),
     };
     process.stdout.write(JSON.stringify(data, null, argv.pretty ? 2 : 0));
 }
@@ -74,7 +76,7 @@ function formatNumber(value) {
 }
 
 async function getDateData(baseFilters, ward) {
-    const candidates = await db.getCandidatesForOffice(argv.office);
+    const candidates = await db.getCandidatesForOffice(baseFilters.office);
     const sets = {
         all: {},
         dc: {state: 'DC'},
@@ -121,4 +123,38 @@ async function getDateData(baseFilters, ward) {
         }
     }
     return {start, end, contributors};
+}
+
+async function getPlaceData(office) {
+    const candidates = await db.getCandidatesForOffice(office);
+    const placeData = [];
+    const thresholdFraction = 0.01;
+    for (const candidate of candidates) {
+        const contributorsByPlace = await db.getContributorsByPlace(candidate);
+        const total = Object.values(contributorsByPlace)
+            .reduce((a, b) => a + b);
+        const threshold = total * thresholdFraction;
+        const columns = [];
+        let other = 0;
+        const otherPlaces = [];
+        for (const [place, contributors] of Object.entries(contributorsByPlace)) {
+            if (contributors >= threshold) {
+                columns.push([place, contributors]);
+            }
+            else {
+                other += contributors;
+                otherPlaces.push(place);
+            }
+        }
+        if (other) {
+            const place = otherPlaces.length === 1 ? otherPlaces[0] : 'Other';
+            columns.unshift([place, other]);
+        }
+        placeData.push({
+            candidate,
+            code: dasherize(candidate.toLowerCase()),
+            columns,
+        });
+    }
+    return placeData;
 }

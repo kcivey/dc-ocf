@@ -1,4 +1,4 @@
-/* globals jQuery, L, Mustache, c3 */
+/* globals jQuery, L, Mustache, c3, d3 */
 jQuery(function ($) {
     const candidateColors = {};
     let wardLayer;
@@ -14,10 +14,11 @@ jQuery(function ($) {
         })
         .then(() => fetch('contributors.json'))
         .then(response => response.json())
-        .then(function ({points, stats, dateData}) {
+        .then(function ({points, stats, dateData, placeData}) {
             handlePoints(points);
             handleStats(stats);
             handleDateData(dateData);
+            handlePlaceData(placeData);
         });
 
     function handlePoints(points) {
@@ -229,6 +230,37 @@ jQuery(function ($) {
         function incrementDate(date) {
             const timestamp = new Date(date).getTime();
             return new Date(timestamp + 86400000).toISOString().substr(0, 10);
+        }
+    }
+
+    function handlePlaceData(placeData) {
+        const container = $('#place-chart-container');
+        const html = $('#place-chart-div').html();
+        const colors = {
+            'Other': 'lightgray',
+            'Unknown Ward': '#900000',
+            'Ward 1': '#a60000',
+            'Ward 2': '#ff0000',
+            'Ward 3': '#c00000',
+            'Ward 4': '#dd0000',
+            'Ward 5': '#ff2727',
+            'Ward 6': '#ff5454',
+            'Ward 7': '#ff8888',
+            'Ward 8': '#ffc4c4',
+            'MD': 'green',
+            'VA': 'blue',
+        };
+        Mustache.parse(html);
+        for (const c of placeData) {
+            $(Mustache.render(html, c)).appendTo(container);
+            c3.generate({
+                bindto: '#place-chart-' + c.code,
+                data: {
+                    colors,
+                    columns: c.columns,
+                    type: 'pie',
+                },
+            });
         }
     }
 

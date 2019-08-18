@@ -38,8 +38,7 @@ jQuery(function ($) {
                 0.4: 'blue',
                 0.6: 'cyan',
                 0.8: 'yellow',
-                0.98: 'red',
-                1.0: 'white',
+                1.0: 'red',
             },
         };
         const clusterOptions = {

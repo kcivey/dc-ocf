@@ -8,6 +8,7 @@ const {createBrowser} = require('./lib/browser');
 const argv = getArgv();
 const browser = createBrowser();
 const startUrl = 'https://fairelections.ocf.dc.gov/public/FinancialReport';
+const outputDir = __dirname + '/fair-elections';
 
 main()
     .then(() => console.warn('Finished'))
@@ -34,7 +35,7 @@ async function main() {
         const [committeeName, reportName, /* filingYear */, submittedDate] = cells.map(n => n.textContent);
         console.warn(`Getting ${submittedDate} ${reportName} for ${committeeName}`);
         const pdfFile =
-            __dirname + '/' +
+            outputDir + '/' +
             dasherize(
                 committeeName.toLowerCase() + ' ' +
                 reportName.replace(' Report', '') + ' ' +

@@ -43,6 +43,9 @@
     #type-radios span {
       padding: 4px;
     }
+    .chart {
+      background-color: white;
+    }
   </style>
 </head>
 <body>
@@ -65,15 +68,15 @@
     </div>
     <div class="col-xl-4 col-md-6 col-12">
       <h3>All</h3>
-      <div id="date-chart-all"></div>
+      <div id="date-chart-all" class="chart"></div>
     </div>
     <div class="col-xl-4 col-md-6 col-12">
       <h3>DC</h3>
-      <div id="date-chart-dc"></div>
+      <div id="date-chart-dc" class="chart"></div>
     </div>
     <div class="col-xl-4 col-md-6 col-12 ward-specific">
       <h3>Ward</h3>
-      <div id="date-chart-ward"></div>
+      <div id="date-chart-ward" class="chart"></div>
     </div>
   </div>
   <div class="row" id="place-chart-container">
@@ -113,7 +116,7 @@
 <script type="text/template" id="place-chart-div">
   <div class="col-xl-4 col-md-6 col-12">
     <h3>{{ candidate }}</h3>
-    <div id="place-chart-{{ code }}"></div>
+    <div id="place-chart-{{ code }}" class="chart"></div>
   </div>
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js" integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>

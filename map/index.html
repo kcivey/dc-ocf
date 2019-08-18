@@ -14,6 +14,7 @@
     #map {
       height: 80vh;
       resize: both;
+      min-width: 600px;
     }
     .leaflet-control-layers {
       font-weight: bold;
@@ -51,9 +52,8 @@
       <h1>DC Ward 2 Council Contributions (July 31, 2019)</h1>
       <h2>Map of Contributors</h2>
     </div>
-    <div class="col-12">
-      <div id="map"></div>
-    </div>
+    <div id="map-explanation" class="col-lg-4 col-12"></div>
+    <div id="map" class="col-lg-8 col-12"></div>
     <div class="col-12">
       <h2>Contribution Statistics</h2>
       <div class="table-scroller">
@@ -63,15 +63,15 @@
     <div class="col-12">
       <h2>Contributors by Date</h2>
     </div>
-    <div class="col-4">
+    <div class="col-xl-4 col-md-6 col-12">
       <h3>All</h3>
       <div id="date-chart-all"></div>
     </div>
-    <div class="col-4">
+    <div class="col-xl-4 col-md-6 col-12">
       <h3>DC</h3>
       <div id="date-chart-dc"></div>
     </div>
-    <div class="col-4 ward-specific">
+    <div class="col-xl-4 col-md-6 col-12 ward-specific">
       <h3>Ward</h3>
       <div id="date-chart-ward"></div>
     </div>
@@ -111,7 +111,7 @@
   </tbody>
 </script>
 <script type="text/template" id="place-chart-div">
-  <div class="col-4">
+  <div class="col-xl-4 col-md-6 col-12">
     <h3>{{ candidate }}</h3>
     <div id="place-chart-{{ code }}"></div>
   </div>

@@ -47,7 +47,7 @@
       background-color: white;
     }
     th.rotate {
-      height: 140px;
+      height: 158px;
       white-space: nowrap;
     }
     th.rotate > div {
@@ -56,6 +56,9 @@
     }
     th.rotate > div > span {
       padding: 6px 0;
+    }
+    th.spacer {
+      width: 120px;
     }
   </style>
 </head>
@@ -106,19 +109,21 @@
             </div>
           </th>
       {{/columnHeads}}
+      <th class="spacer"></th>
     </tr>
   </thead>
   <tbody>
     {{#tableData}}
       <tr>
-      {{#.}}
-        {{#class}}
-          <td class="{{ class }}">{{ value }}</td>
-        {{/class}}
-        {{^class}}
-          <td>{{ . }}</td>
-        {{/class}}
-      {{/.}}
+        {{#.}}
+          {{#class}}
+            <td class="{{ class }}">{{ value }}</td>
+          {{/class}}
+          {{^class}}
+            <td>{{ . }}</td>
+          {{/class}}
+        {{/.}}
+        <td></td>
       </tr>
     {{/tableData}}
   </tbody>

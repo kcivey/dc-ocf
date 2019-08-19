@@ -35,11 +35,13 @@ async function main() {
         amount: 'Total $',
         dc_amount: 'DC $',
         ward_amount: 'Ward $',
+        candidate_amount: 'Candidate/Family $',
         // ind_amount: 'Individual $',
         // dc_ind_amount: 'DC individual $',
         // ward_ind_amount: 'Ward individual $',
         dc_percent: 'DC % of $',
         ward_percent: 'Ward % of $',
+        candidate_percent: 'Candidate/Family % of $',
         mean: 'Mean contribution $',
         median: 'Median contribution $',
     };

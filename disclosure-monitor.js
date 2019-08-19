@@ -2,7 +2,7 @@
 
 require('dotenv').config();
 const fs = require('fs');
-const sendEmail = require('./send-email');
+const sendEmail = require('./lib/send-email');
 const cacheFile = __dirname + '/cache/last-seen-committees.json';
 const Browser = require('zombie');
 const browser = new Browser({waitDuration: '30s'});

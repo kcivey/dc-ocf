@@ -26,11 +26,14 @@
     .c3-line {
       stroke-width: 3;
     }
+    h1+h2 {
+      padding-top: 1rem;
+    }
     h2 {
       padding-top: 3rem;
     }
     h3 {
-      padding-top: 2rem;
+      padding-top: 1rem;
       text-align: center;
     }
     #stats-table {
@@ -45,6 +48,9 @@
     }
     .chart {
       background-color: white;
+    }
+    .place-chart-div {
+      margin-top: 2rem;
     }
     th.rotate {
       height: 158px;
@@ -128,8 +134,8 @@
     {{/tableData}}
   </tbody>
 </script>
-<script type="text/template" id="place-chart-div">
-  <div class="col-xl-4 col-md-6 col-12">
+<script type="text/template" id="place-chart-div-template">
+  <div class="col-xl-4 col-md-6 col-12 place-chart-div">
     <h3>{{ candidate }}</h3>
     <div id="place-chart-{{ code }}" class="chart"></div>
   </div>

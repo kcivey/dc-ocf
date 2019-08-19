@@ -235,7 +235,7 @@ jQuery(function ($) {
 
     function handlePlaceData(placeData) {
         const container = $('#place-chart-container');
-        const html = $('#place-chart-div').html();
+        const html = $('#place-chart-div-template').html();
         const colors = {
             'Other': 'lightgray',
             'Unknown Ward': '#900000',

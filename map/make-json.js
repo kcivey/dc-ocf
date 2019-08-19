@@ -28,16 +28,20 @@ async function main() {
         candidate_short_name: 'Candidate',
         contributions: 'Contributions',
         contributors: 'Contributors',
-        dc_ind_contributors: 'DC ind contributors',
-        ward_ind_contributors: 'Ward ind contributors',
-        amount: 'Total amount',
-        dc_amount: 'DC amount',
-        ward_amount: 'Ward amount',
-        ind_amount: 'Ind amount',
-        dc_ind_amount: 'DC ind amount',
-        ward_ind_amount: 'Ward ind amount',
-        mean: 'Mean',
-        median: 'Median',
+        dc_contributors: 'DC contributors',
+        ward_contributors: 'Ward contributors',
+        // dc_ind_contributors: 'DC ind. contributors',
+        // ward_ind_contributors: 'Ward ind. contributors',
+        amount: 'Total $',
+        dc_amount: 'DC $',
+        ward_amount: 'Ward $',
+        // ind_amount: 'Individual $',
+        // dc_ind_amount: 'DC individual $',
+        // ward_ind_amount: 'Ward individual $',
+        dc_percent: 'DC % of $',
+        ward_percent: 'Ward % of $',
+        mean: 'Mean contribution $',
+        median: 'Median contribution $',
     };
     const office = await db.getMatchingOffice(argv.office);
     const m = office.match(/Ward (\d)/);
@@ -49,8 +53,7 @@ async function main() {
             }
         }
     }
-    const columnHeads = Object.values(codeToHead)
-        .map(h => h === 'Candidate' ? h : {value: h, class: 'text-right'});
+    const columnHeads = Object.values(codeToHead);
     const filters = {office: argv.office};
     const stats = await db.getContributionStats({filters, ward});
     const tableData = stats

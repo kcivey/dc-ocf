@@ -46,6 +46,17 @@
     .chart {
       background-color: white;
     }
+    th.rotate {
+      height: 140px;
+      white-space: nowrap;
+    }
+    th.rotate > div {
+      transform: translate(15px, 0) rotate(-45deg);
+      width: 40px;
+    }
+    th.rotate > div > span {
+      padding: 6px 0;
+    }
   </style>
 </head>
 <body>
@@ -89,12 +100,11 @@
   <thead>
     <tr>
       {{#columnHeads}}
-        {{#class}}
-          <th class="{{ class }}">{{ value }}</th>
-        {{/class}}
-        {{^class}}
-          <th>{{ . }}</th>
-        {{/class}}
+          <th class="rotate">
+            <div>
+              <span>{{ . }}</span>
+            </div>
+          </th>
       {{/columnHeads}}
     </tr>
   </thead>

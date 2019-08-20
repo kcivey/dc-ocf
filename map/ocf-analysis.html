@@ -66,6 +66,9 @@
     th.spacer {
       width: 120px;
     }
+    td.spacer {
+      border-top: none;
+    }
     td.min {
       background-color: #fff3cd;
     }
@@ -132,10 +135,10 @@
             <td class="{{ class }}">{{ value }}</td>
           {{/class}}
           {{^class}}
-            <td>{{ . }}</td>
+            <th>{{ . }}</th>
           {{/class}}
         {{/.}}
-        <td></td>
+        <td class="spacer"></td>
       </tr>
     {{/tableData}}
   </tbody>

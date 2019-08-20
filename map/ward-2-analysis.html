@@ -16,6 +16,9 @@
       resize: both;
       min-width: 600px;
     }
+    @media (orientation: portrait) {
+      #map { height: 50vh; }
+    }
     .leaflet-control-layers {
       font-weight: bold;
       font-size: 1rem;
@@ -25,6 +28,9 @@
     }
     .c3-line {
       stroke-width: 3;
+    }
+    .c3 text {
+      font-size: 12px;
     }
     h1+h2 {
       padding-top: 1rem;
@@ -177,19 +183,19 @@
         </p>
       </div>
     </div>
-    <div class="col-xl-4 col-md-6 col-12">
+    <div class="col-xl-4 col-lg-6 col-12">
       <div class="chart">
         <h3>All</h3>
         <div id="date-chart-all"></div>
       </div>
     </div>
-    <div class="col-xl-4 col-md-6 col-12">
+    <div class="col-xl-4 col-lg-6 col-12">
       <div class="chart">
         <h3>DC</h3>
         <div id="date-chart-dc"></div>
       </div>
     </div>
-    <div class="col-xl-4 col-md-6 col-12 ward-specific">
+    <div class="col-xl-4 col-lg-6 col-12 ward-specific">
       <div class="chart">
         <h3>Ward</h3>
         <div id="date-chart-ward"></div>
@@ -204,6 +210,7 @@
           These pie charts show how the contributors were distributed over states and DC wards.
           The bright red slice at the upper right represents Ward 2, and other parts of DC are show in other
           shades of red, while other colors are used for the states.
+          You can hover your cursor over a slice or tap it to see what place it represents.
         </p>
       </div>
     </div>
@@ -239,7 +246,7 @@
   </tbody>
 </script>
 <script type="text/template" id="place-chart-div-template">
-  <div class="col-xl-4 col-md-6 col-12">
+  <div class="col-xl-4 col-lg-6 col-12">
     <div class="chart">
       <h3>{{ candidate }}</h3>
       <div id="place-chart-{{ code }}"></div>

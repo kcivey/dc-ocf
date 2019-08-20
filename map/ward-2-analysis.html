@@ -48,6 +48,7 @@
       border: 1px solid #dee2e6;
       background-color: white;
       width: auto;
+      margin-bottom: 0;
     }
     .table-scroller {
       overflow: auto;
@@ -61,7 +62,7 @@
       margin-top: 1.5rem;
     }
     th.rotate {
-      height: 178px;
+      height: 200px;
       white-space: nowrap;
     }
     th.rotate > div {
@@ -72,11 +73,7 @@
       padding: 6px 0;
     }
     th.spacer {
-      width: 120px;
-    }
-    td.spacer {
-      border-top: none;
-      border-left: 1px solid #dee2e6;
+      width: 42px;
     }
     td.min {
       background-color: #fff3cd;
@@ -113,8 +110,14 @@
           contributions all come from individuals and are limited to $50 (except for the candidate and their family,
           who can give up to $2,500). Therefore most of this analysis focuses on the number of contributors rather the
           amount raised, and there's nothing about corporate contributions because the candidates are prohibited from
-          taking them. The contributor numbers are interesting because they give a clue about how much support a
-          candidate has.
+          taking them.
+        </p>
+        <p>
+          The contributor numbers are interesting because they give a clue about how much support a candidate has.
+          But don't assume that everyone who gives to a candidate will vote for them, even if they live in Ward 2
+          (though it's a good bet they will).
+          There were 20 people who gave to more than 1 candidate, including 1 who gave to 3, 1 who gave to 4,
+          and 1 who gave to all 5.
         </p>
       </div>
       <h2 id="sec1"><a href="#sec1">Map of DC Contributors</a></h2>
@@ -149,20 +152,31 @@
         and the number who live in Ward 2.
         There may be a small number of contributors who are double-counted because they gave twice under different
         variations of their name or address, though I did try to standardize addresses to avoid that.
-      </p>
-      <p>
         The next four columns are the amount of money given by those three groups of contributors, plus another
         column for the amount given by the candidate and family members.
+      </p>
+      <p>
+        Next comes a calculation of the total amount the candidate would eventually have once the base grant and
+        matching funds (for what's been raised so far) from the Fair Elections Act are included.
+        John Fanning has not been certified for the program yet, but I included Fair Elections funds for him
+        because he seems to have enough DC contributors (I assume there's a minor problem like bad addresses
+        that can be corrected).
+        Daniel Hernandez is nowhere near qualifying yet.
+      </p>
+      <p>
         The next three columns show the percentage of the money given by DC residents, by Ward 2 residents, and
         by the candidate and family members.
         The last two columns are the mean and median of the contributions (combining all contributions for each
         contributor).
       </p>
       <p>
-        Candidate and family contributions counted here are those that are not matched and have a higher limit.
+        Candidate and family contributions are defined for this analysis as those that are not matched and have a
+        higher limit.
         Some candidates and family members gave $50 or less and are matched like any other contribution.
         Note that Jordan Grossman's total amount raised will likely drop by $7,666 that he will need to refund
         because OCF changed its interpretation of the law limiting candidate and family contributions.
+        It looks like Kishan Putta has 3 contributors who gave $50 twice each, so he may have to refund $150
+        (or maybe that's a reporting error, but his total would still be $150 lower).
       </p>
       <p>
         In each column, the lowest number is highlighted in yellow and the highest in blue; which one of those is
@@ -212,6 +226,7 @@
           shades of red, while other colors are used for the states.
           Using red for all of DC allows you to see at a glance, for example, that all of John Fanning's
           money comes from people in DC.
+          The light gray "Other" slices combine all places that were below 1%.
           You can hover your cursor over a slice or tap it to see what place it represents.
         </p>
       </div>

@@ -36,14 +36,15 @@ async function main() {
         dc_amount: 'DC $',
         ward_amount: 'Ward $',
         candidate_amount: 'Candidate/Family $',
+        fair_elections_total: 'Projected $ w/ Fair Elections',
         // ind_amount: 'Individual $',
         // dc_ind_amount: 'DC individual $',
         // ward_ind_amount: 'Ward individual $',
         dc_percent: 'DC % of $',
         ward_percent: 'Ward % of $',
         candidate_percent: 'Candidate/Family % of $',
-        mean: 'Mean contribution $',
-        median: 'Median contribution $',
+        mean: 'Mean $',
+        median: 'Median $',
     };
     const office = await db.getMatchingOffice(argv.office);
     const m = office.match(/Ward (\d)/);

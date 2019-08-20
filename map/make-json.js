@@ -56,15 +56,20 @@ async function main() {
         }
     }
     const columnHeads = Object.values(codeToHead);
+    const columnCodes = Object.keys(codeToHead);
     const filters = {office: argv.office};
     const stats = await db.getContributionStats({filters, ward});
-    const tableData = stats
-        .map(function (obj) {
-            return Object.keys(codeToHead)
-                .filter(k => obj.hasOwnProperty(k))
-                .map(k => obj[k])
-                .map(formatNumber);
-        });
+    const minMax = {};
+    for (const code of columnCodes) {
+        if (code !== 'candidate_short_name') {
+            const values = stats.map(row => row[code]);
+            minMax[code] = {
+                min: Math.min(...values),
+                max: Math.max(...values),
+            };
+        }
+    }
+    const tableData = stats.map(formatRow);
     const data = {
         points: await db.getDcContributionsWithPositions(filters),
         stats: {columnHeads, tableData},
@@ -72,12 +77,25 @@ async function main() {
         placeData: await getPlaceData(argv.office),
     };
     process.stdout.write(JSON.stringify(data, null, argv.pretty ? 2 : 0));
-}
 
-function formatNumber(value) {
-    return typeof value === 'number' ?
-        {value: Math.round(value).toLocaleString(), class: 'text-right'} :
-        value;
+    function formatRow(row) {
+        return columnCodes.map(function (code) {
+            const value = row[code];
+            if (typeof value !== 'number') {
+                return value;
+            }
+            let className = 'text-right';
+            for (const extreme of ['min', 'max']) {
+                if (value === minMax[code][extreme]) {
+                    className += ' ' + extreme;
+                }
+            }
+            return {
+                value: Math.round(value).toLocaleString(),
+                class: className,
+            };
+        });
+    }
 }
 
 async function getDateData(baseFilters, ward) {

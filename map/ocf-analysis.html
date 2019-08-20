@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>DC Ward 2 Council Contributions (July 31, 2019)</title>
+  <title>DC Ward 2 Council Contributions (July 31, 2019, Report)</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css" integrity="sha256-SHMGCYmST46SoyGgo4YR/9AlK1vf3ff84Aq9yK4hdqM=" crossorigin="anonymous" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/MarkerCluster.css" integrity="sha256-+bdWuWOXMFkX0v9Cvr3OWClPiYefDQz9GGZP/7xZxdc=" crossorigin="anonymous" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/MarkerCluster.Default.css" integrity="sha256-LWhzWaQGZRsWFrrJxg+6Zn8TT84k0/trtiHBc6qcGpY=" crossorigin="anonymous" />
@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="/index.css" />
   <style type="text/css">
     #map {
-      height: 80vh;
+      height: 70vh;
       resize: both;
       min-width: 600px;
     }
@@ -30,13 +30,16 @@
       padding-top: 1rem;
     }
     h2 {
-      padding-top: 3rem;
+      margin-top: 3rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ffa5a5;
     }
     h3 {
       padding-top: 1rem;
       text-align: center;
     }
     #stats-table {
+      border: 1px solid #dee2e6;
       background-color: white;
       width: auto;
     }
@@ -47,10 +50,9 @@
       padding: 4px;
     }
     .chart {
+      border: 1px solid #dee2e6;
       background-color: white;
-    }
-    .place-chart-div {
-      margin-top: 2rem;
+      margin-top: 1.5rem;
     }
     th.rotate {
       height: 178px;
@@ -68,6 +70,7 @@
     }
     td.spacer {
       border-top: none;
+      border-left: 1px solid #dee2e6;
     }
     td.min {
       background-color: #fff3cd;
@@ -75,42 +78,134 @@
     td.max {
       background-color: #cce5ff;
     }
+    .explanation {
+      max-width: 50rem;
+    }
+    .explanation.columns {
+      max-width: 70rem;
+      columns: 2 20rem;
+      column-fill: balance;
+      column-gap: 2rem;
+    }
   </style>
 </head>
 <body>
 <div class="container-fluid">
   <div class="row">
     <div class="col-12">
-      <h1>DC Ward 2 Council Contributions (July 31, 2019)</h1>
-      <h2>Map of Contributors</h2>
+      <h1>DC Ward 2 Council Contributions (July 31, 2019, Report)</h1>
+      <div class="byline">
+        Keith C. Ivey, August 20, 2019
+      </div>
+      <div class="explanation columns">
+        <p>
+          I analyzed the DC Office of Campaign Finance (OCF) reports for Ward 2 council candidates for the period
+          ending July 31 (including Patrick Kennedy's amended filing).
+        </p>
+        <p>
+          Since all five candidates are seeking to qualify for public campaign financing under the Fair Elections Act,
+          contributions all come from individuals and are limited to $50 (except for the candidate and their family,
+          who can give up to $2,500). Therefore most of this analysis focuses on the number of contributors rather the
+          amount raised, and there's nothing about corporate contributions because the candidates are prohibited from
+          taking them. The contributor numbers are interesting because they give a clue about how much support a
+          candidate has.
+        </p>
+      </div>
+      <h2 id="sec1"><a href="#sec1">Map of DC Contributors</a></h2>
     </div>
-    <div id="map-explanation" class="col-lg-4 col-12"></div>
-    <div id="map" class="col-lg-8 col-12"></div>
+    <div class="explanation columns col-xl-4 col-12">
+      <p>
+        This map shows the locations of all DC contributors. You can display them as individual points color-coded by
+        candidate, as clusters, or as a heat map. The colors in the clusters have nothing to do with candidates; they
+        just represent the size of the cluster. Similarly, the colors in the heat map just represent the
+        concentration of contributors in an area.
+      </p>
+      <p>
+        A few dozen contributors are excluded because they had bad addresses (PO boxes, typos, missing or wrong
+        quadrant, and other problems). I fixed a fair number of them manually, since I got a little obsessive,
+        but that number isn't too bad out of 1,455 DC addresses total.
+      </p>
+    </div>
+    <div class="col-xl-8 col-12">
+      <div id="map"></div>
+    </div>
     <div class="col-12">
-      <h2>Contribution Statistics</h2>
+      <h2 id="sec2"><a href="#sec2">Contribution Statistics</a></h2>
+    </div>
+    <div class="explanation columns col-xl-4 col-12">
+      <p>
+        This table is the only part of the analysis that includes amounts of money raised.
+        The first column after the candidate name is the total number of contributions made (which is higher than
+        the number of contributors because some people gave more than once).
+      </p>
+      <p>
+        The next three columns are the number of individual contributors in total, the number who live in DC,
+        and the number who live in Ward 2.
+        There may be a small number of contributors who are double-counted because they gave twice under different
+        variations of their name or address, though I did try to standardize addresses to avoid that.
+      </p>
+      <p>
+        The next four columns are the amount of money given by those three groups of contributors, plus another
+        column for the amount given by the candidate and family members.
+        The next three columns show the percentage of the money given by DC residents, by Ward 2 residents, and
+        by the candidate and family members.
+        The last two columns are the mean and median of the contributions (combining all contributions for each
+        contributor).
+      </p>
+      <p>
+        Candidate and family contributions counted here are those that are not matched and have a higher limit.
+        Some candidates and family members gave $50 or less and are matched like any other contribution.
+        Note that Jordan Grossman's total amount raised will likely drop by $7,666 that he will need to refund
+        because OCF changed its interpretation of the law limiting candidate and family contributions.
+      </p>
+      <p>
+        In each column, the lowest number is highlighted in yellow and the highest in blue; which one of those is
+        good or bad depends on the column.
+      </p>
+    </div>
+    <div class="col-xl-8 col-12">
       <div class="table-scroller">
         <table id="stats-table" class="table"></table>
       </div>
     </div>
     <div class="col-12">
-      <h2>Contributors by Date</h2>
+      <h2 id="sec3"><a href="#sec3">Contributors by Date</a></h2>
+      <div class="explanation">
+        <p>
+          These charts show how the number of contributors increased over time for each candidate, with all
+          contributors, then DC residents, and finally Ward 2 residents.
+        </p>
+      </div>
     </div>
     <div class="col-xl-4 col-md-6 col-12">
-      <h3>All</h3>
-      <div id="date-chart-all" class="chart"></div>
+      <div class="chart">
+        <h3>All</h3>
+        <div id="date-chart-all"></div>
+      </div>
     </div>
     <div class="col-xl-4 col-md-6 col-12">
-      <h3>DC</h3>
-      <div id="date-chart-dc" class="chart"></div>
+      <div class="chart">
+        <h3>DC</h3>
+        <div id="date-chart-dc"></div>
+      </div>
     </div>
     <div class="col-xl-4 col-md-6 col-12 ward-specific">
-      <h3>Ward</h3>
-      <div id="date-chart-ward" class="chart"></div>
+      <div class="chart">
+        <h3>Ward</h3>
+        <div id="date-chart-ward"></div>
+      </div>
     </div>
   </div>
   <div class="row" id="place-chart-container">
     <div class="col-12">
-      <h2>Contributors by Place</h2>
+      <h2 id="sec4"><a href="#sec4">Contributors by Place</a></h2>
+      <div class="explanation">
+        <p>
+          These pie charts show how the contributors were distributed over states and DC wards.
+          The bright red slice at the upper right represents Ward 2, and other parts of DC are show in other
+          shades of red, while other colors are used for the states.
+        </p>
+      </div>
     </div>
   </div>
 </div>
@@ -144,9 +239,11 @@
   </tbody>
 </script>
 <script type="text/template" id="place-chart-div-template">
-  <div class="col-xl-4 col-md-6 col-12 place-chart-div">
-    <h3>{{ candidate }}</h3>
-    <div id="place-chart-{{ code }}" class="chart"></div>
+  <div class="col-xl-4 col-md-6 col-12">
+    <div class="chart">
+      <h3>{{ candidate }}</h3>
+      <div id="place-chart-{{ code }}"></div>
+    </div>
   </div>
 </script>
 <%= nav %>

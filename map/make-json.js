@@ -27,12 +27,12 @@ async function main() {
     const codeToHead = {
         candidate_short_name: 'Candidate',
         contributions: 'Contributions',
-        contributors: 'Contributors',
+        contributors: 'All contributors',
         dc_contributors: 'DC contributors',
         ward_contributors: 'Ward contributors',
         // dc_ind_contributors: 'DC ind. contributors',
         // ward_ind_contributors: 'Ward ind. contributors',
-        amount: 'Total $',
+        amount: 'All $',
         dc_amount: 'DC $',
         ward_amount: 'Ward $',
         candidate_amount: 'Candidate/Family $',
@@ -90,6 +90,7 @@ async function main() {
                     className += ' ' + extreme;
                 }
             }
+            className = className.replace(' min max', ''); // don't use class if all values are the same
             return {
                 value: Math.round(value).toLocaleString(),
                 class: className,

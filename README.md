@@ -26,3 +26,12 @@ create and load the database by running
 
 You may want to install the SQLite command-line client (`sudo apt install sqlite3`
 on Ubuntu) for looking at the database and trying out queries.
+
+## Old way
+
+If you have to download the CSV files manually for some reason (like OCF changing
+the website), then after you've downloaded you have to convert them from UTF-16
+(why are they in that?) to UTF-8 and delete the first line, which isn't CSV.
+You can do it like this:
+
+iconv -f UTF-16 -t UTF-8 downloaded-file.csv | tail -n +2 > good-file.csv

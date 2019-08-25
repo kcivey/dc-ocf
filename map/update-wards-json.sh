@@ -10,5 +10,6 @@ npx geo2topo wards=$ORIGINAL_FILE \
     | npx toposimplify -P 0.02 \
     | npx topo2geo wards=- \
     | json -o json-0 -e 'this.features.forEach(f=>f.properties={name:f.properties.NAME})' \
+    | ./round-geojson.sh \
     > $TARGET_FILE
 echo "$TARGET_FILE written"

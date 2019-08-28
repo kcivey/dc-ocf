@@ -19,26 +19,26 @@
   "dependencies": {
     "cache-manager": "^2.10.0",
     "cache-manager-fs": "^1.0.8",
-    "csv": "^5.1.1",
-    "dc-mar": "^0.5.0",
-    "dotenv": "^8.0.0",
+    "csv": "^5.1.2",
+    "dc-mar": "^0.5.1",
+    "dotenv": "^8.1.0",
     "emailjs": "^2.2.0",
-    "knex": "^0.19.1",
+    "knex": "^0.19.2",
     "moment": "^2.24.0",
     "mysql": "^2.17.1",
     "pdf-to-text": "0.0.7",
     "request-plus": "^2.0.0",
     "request-promise-native": "^1.0.7",
     "sprintf-js": "^1.1.2",
-    "sqlite3": "^4.0.9",
+    "sqlite3": "^4.1.0",
     "stats-lite": "^2.2.0",
     "topojson": "^3.0.2",
     "underscore.string": "^3.3.5",
-    "yargs": "^13.3.0",
+    "yargs": "^14.0.0",
     "zombie": "^6.1.4"
   },
   "devDependencies": {
-    "eslint": "^6.1.0",
+    "eslint": "^6.2.2",
     "eslint-config-google": "^0.13.0"
   }
 }

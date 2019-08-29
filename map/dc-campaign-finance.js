@@ -2,7 +2,13 @@
 jQuery(function ($) {
     const candidateColors = {};
     let wardLayer;
-    fetch('dc-wards.json')
+    const stateDefaults = {
+        electionYear: '2020',
+        contest: 'council-at-large',
+        candidate: 'all-candidates',
+        mapType: 'points',
+    };
+    fetch('/dc-wards.json')
         .then(response => response.json())
         .then(function (wardGeoJson) {
             wardLayer = L.geoJson(wardGeoJson, {
@@ -12,7 +18,7 @@ jQuery(function ($) {
                 fillColor: 'transparent', // need a fill so the tooltip works
             });
         })
-        .then(() => fetch('contributors.json'))
+        .then(() => fetch('/contributors.json'))
         .then(response => response.json())
         .then(function ({points, stats, dateData, placeData}) {
             handlePoints(points);
@@ -88,31 +94,30 @@ jQuery(function ($) {
             candidateLayers['heat map'][candidate] = L.heatLayer(pointsForHeatMap, heatMapOptions);
             candidateIndex++;
         }
-        const layersControl = L.control.layers(null, {}, {collapsed: false})
+        const layersControl = L.control.layers(null, candidateLayers['points'], {collapsed: false})
             .addTo(map);
         map.fitBounds(wardLayer.getBounds());
         $('.leaflet-control-layers').on('click', '#type-radios', function () {
             const type = $('input:radio:checked', this).val();
             adjustLayersControl(type);
-        });
-        adjustLayersControl('points');
+        }).on('click', 'input:radio', () => setTimeout(setUrlFromForm, 0)); // timeout to allow radios to be adjusted
+        $(window).on('popstate', setFormFromUrl);
+        const state = setFormFromUrl();
+        adjustLayersControl(state.mapType, state.candidate);
         setUpResizeHandler();
 
-        function adjustLayersControl(wantedType) {
+        function adjustLayersControl(wantedType, wantedCandidate) {
             const overlaysContainer = $('.leaflet-control-layers-overlays');
-            let checkedCandidateIndex = $('input:radio', overlaysContainer)
-                .get()
-                .map(input => $(input).prop('checked'))
-                .indexOf(true);
-            if (checkedCandidateIndex === -1) {
-                checkedCandidateIndex = 0;
+            if (!wantedCandidate) {
+                wantedCandidate = $('input:radio:checked', overlaysContainer).val() ||
+                    $('input:radio', overlaysContainer).eq(0).val();
             }
             for (const [type, layerMap] of Object.entries(candidateLayers)) {
                 for (const layer of Object.values(layerMap)) {
                     layersControl.removeLayer(layer);
                     map.removeLayer(layer);
                 }
-                if (type === wantedType) {
+                if (hyphenize(type) === wantedType) {
                     for (const [name, layer] of Object.entries(layerMap)) {
                         layersControl.addOverlay(layer, name);
                     }
@@ -120,23 +125,24 @@ jQuery(function ($) {
             }
             let baseRadioLabel;
             $('label', overlaysContainer).each(function (i, label) {
+                const value = hyphenize($(label).text());
+                $(label).find('input')
+                    .attr({type: 'radio', name: 'candidate', value});
                 if (i < 1) {
                     return;
                 }
                 if (!baseRadioLabel) {
                     baseRadioLabel = $(label);
                 }
-                const color = colors[i - 2] || '';
-                $(label).css('color', color)
-                    .find('input')
-                    .attr({type: 'radio', name: 'candidate'});
+                const color = colors[i - 1] || '';
+                $(label).css('color', color);
             });
             if ($('#type-radios').length === 0) {
                 const radioDiv = $('<div/>').attr({id: 'type-radios'}).append(
                     Object.keys(candidateLayers).map(function (key) {
                         return baseRadioLabel.clone()
                             .find('span').text(`Display as ${key}`).end()
-                            .find('input').attr({name: 'type', value: key}).end();
+                            .find('input').attr({name: 'mapType', value: hyphenize(key)}).end();
                     })
                 );
                 overlaysContainer.after(
@@ -145,7 +151,7 @@ jQuery(function ($) {
                 );
                 $(`#type-radios input:radio[value=${wantedType}]`).prop('checked', true);
             }
-            $('input:radio', overlaysContainer).eq(checkedCandidateIndex)
+            $(`input:radio[value="${wantedCandidate}"]`, overlaysContainer)
                 .trigger('click');
         }
 
@@ -262,6 +268,56 @@ jQuery(function ($) {
                 },
             });
         }
+    }
+
+    function setUrlFromForm() {
+        const checkedRadios = $('.leaflet-control-layers input:radio:checked').get();
+        const state = {...stateDefaults};
+        for (const radio of checkedRadios) {
+            const name = $(radio).attr('name');
+            state[name] = $(radio).val();
+        }
+        const suffix = Object.values(state).join('/');
+        const currentUrl = window.location.href;
+        const baseUrl = currentUrl.replace(/^(https?:\/\/[^/]+\/[^\/#]+).*/, '$1');
+        const newUrl = baseUrl + '/' + suffix;
+        if (newUrl !== currentUrl) {
+            if (window.history.pushState && !/localhost/.test(baseUrl)) {
+                window.history.pushState(state, '', newUrl);
+            }
+            else {
+                window.location.hash = suffix;
+            }
+        }
+        return state;
+    }
+
+    function setFormFromUrl() {
+        const suffix = window.location.href
+            .replace(/^https?:\/\/[^\/]+/, '')
+            .replace(/^\/[^\/#]+[\/#]*/, '');
+        const parts = suffix.split('/');
+        const state = {...stateDefaults};
+        let i = 0;
+        for (const key of Object.keys(state)) {
+            state[key] = parts[i] || stateDefaults[key];
+            i++;
+        }
+        const div = $('.leaflet-control-layers');
+        for (const [name, value] of Object.entries(state)) {
+            const input = div.find(`input[name="${name}"][value="${value}"]`);
+            if (!input.prop('checked')) {
+                input.trigger('click');
+            }
+        }
+        return state;
+    }
+
+    function hyphenize(s) {
+        return s.replace(/([a-z])(?=[A-Z])/g, '$1-')
+            .toLowerCase()
+            .replace(/[^a-z\d]+/g, '-')
+            .replace(/^-|-$/g, '');
     }
 
 });

@@ -120,16 +120,16 @@ jQuery(function ($) {
             }
             let baseRadioLabel;
             $('label', overlaysContainer).each(function (i, label) {
+                $(label).find('input')
+                    .attr({type: 'radio', name: 'candidate'});
                 if (i < 1) {
                     return;
                 }
                 if (!baseRadioLabel) {
                     baseRadioLabel = $(label);
                 }
-                const color = colors[i - 2] || '';
-                $(label).css('color', color)
-                    .find('input')
-                    .attr({type: 'radio', name: 'candidate'});
+                const color = colors[i - 1] || '';
+                $(label).css('color', color);
             });
             if ($('#type-radios').length === 0) {
                 const radioDiv = $('<div/>').attr({id: 'type-radios'}).append(

@@ -88,7 +88,7 @@ jQuery(function ($) {
             candidateLayers['heat map'][candidate] = L.heatLayer(pointsForHeatMap, heatMapOptions);
             candidateIndex++;
         }
-        const layersControl = L.control.layers(null, {'Wards': wardLayer}, {collapsed: false})
+        const layersControl = L.control.layers(null, {}, {collapsed: false})
             .addTo(map);
         map.fitBounds(wardLayer.getBounds());
         $('.leaflet-control-layers').on('click', '#type-radios', function () {

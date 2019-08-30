@@ -294,8 +294,7 @@ jQuery(function ($) {
 
     function setFormFromUrl() {
         const suffix = window.location.href
-            .replace(/^https?:\/\/[^\/]+/, '')
-            .replace(/^\/[^\/#]+[\/#]*/, '');
+            .replace(/^https?:\/\/[^\/]+\/[^\/#]+[\/#]*/, '');
         const parts = suffix.split('/');
         const state = {...stateDefaults};
         let i = 0;

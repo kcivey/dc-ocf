@@ -18,7 +18,7 @@ jQuery(function ($) {
                 fillColor: 'transparent', // need a fill so the tooltip works
             });
         })
-        .then(() => fetch('/contributors.json'))
+        .then(() => fetch('/ocf-2020-council-ward-2.json'))
         .then(response => response.json())
         .then(function ({points, stats, dateData, placeData}) {
             handlePoints(points);

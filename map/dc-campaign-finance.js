@@ -274,16 +274,27 @@ jQuery(function ($) {
             const name = $(radio).attr('name');
             state[name] = $(radio).val();
         }
-        const suffix = Object.values(state).join('/');
+        let suffix = Object.values(state).join('/');
+        if (suffix === Object.values(stateDefaults).join('/')) {
+            suffix = '';
+        }
         const currentUrl = window.location.href;
+        const currentHash = window.location.hash;
         const baseUrl = currentUrl.replace(/^(https?:\/\/[^/]+\/[^\/#]+).*/, '$1');
-        const newUrl = baseUrl + '/' + suffix;
+        const usePushState = window.history.pushState && !/localhost/.test(baseUrl);
+        let newUrl = baseUrl;
+        if (usePushState) {
+            newUrl += (suffix ? '/' + suffix : '') + (currentHash ? '#' + currentHash : '');
+        }
+        else {
+            newUrl += (suffix ? '#/' + suffix : '');
+        }
         if (newUrl !== currentUrl) {
-            if (window.history.pushState && !/localhost/.test(baseUrl)) {
+            if (usePushState) {
                 window.history.pushState(state, '', newUrl);
             }
             else {
-                window.location.hash = suffix;
+                window.location.hash = suffix ? '/' + suffix : '';
             }
         }
         return state;

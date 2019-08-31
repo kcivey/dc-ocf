@@ -128,11 +128,9 @@ jQuery(function ($) {
                 const value = hyphenize($(label).text());
                 $(label).find('input')
                     .attr({type: 'radio', name: 'candidate', value});
-                if (i < 1) {
-                    return;
-                }
-                if (!baseRadioLabel) {
+                if (i === 0) {
                     baseRadioLabel = $(label);
+                    return;
                 }
                 const color = colors[i - 1] || '';
                 $(label).css('color', color);

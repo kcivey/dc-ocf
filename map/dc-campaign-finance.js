@@ -240,31 +240,30 @@ jQuery(function ($) {
     function handlePlaceData(placeData) {
         const container = $('#place-chart-container');
         const html = $('#place-chart-div-template').html();
-        const colors = {
-            'Other': 'lightgray',
-            'Unknown Ward': '#900000',
-            'Ward 1': '#a60000',
-            'Ward 2': '#ff0000',
-            'Ward 3': '#c00000',
-            'Ward 4': '#dd0000',
-            'Ward 5': '#ff2727',
-            'Ward 6': '#ff5454',
-            'Ward 7': '#ff8888',
-            'Ward 8': '#ffc4c4',
-            'MD': 'green',
-            'VA': 'blue',
-        };
         Mustache.parse(html);
         for (const c of placeData) {
             $(Mustache.render(html, c)).appendTo(container);
-            c3.generate({
-                bindto: '#place-chart-' + c.code,
-                data: {
-                    colors,
-                    columns: c.columns,
-                    type: 'pie',
-                },
-            });
+            for (const type of ['state', 'ward']) {
+                const selector = `#place-chart-${type}-${c.code}`;
+                let chart = null;
+                const pieResizeHandler = function () {
+                    const width = $(selector).innerWidth();
+                    chart.resize({
+                        height: width * 0.9,
+                    });
+                };
+                chart = c3.generate({
+                    bindto: selector,
+                    data: {
+                        colors: c[type].colors,
+                        columns: c[type].columns,
+                        type: 'pie',
+                        order: null,
+                    },
+                    onresize: pieResizeHandler,
+                });
+                pieResizeHandler();
+            }
         }
     }
 

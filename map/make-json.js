@@ -72,10 +72,12 @@ async function main() {
     }
     const tableData = stats.map(formatRow);
     const data = {
+        office,
+        ward,
         points: await db.getDcContributionsWithPositions(filters),
         stats: {columnHeads, tableData},
         dateData: await getDateData(filters, ward),
-        placeData: await getPlaceData(argv.office),
+        placeData: await getPlaceData(argv.office, ward),
     };
     process.stdout.write(JSON.stringify(data, null, argv.pretty ? 2 : 0));
 
@@ -150,36 +152,111 @@ async function getDateData(baseFilters, ward) {
     return {start, end, contributors};
 }
 
-async function getPlaceData(office) {
+async function getPlaceData(office, ward = null) {
     const candidates = await db.getCandidatesForOffice(office);
+    const allStates = await db.getContributorPlaces(office);
+    const allWards = await db.getContributorPlaces(office, true);
     const placeData = [];
-    const thresholdFraction = 0.01;
     for (const candidate of candidates) {
-        const contributorsByPlace = await db.getContributorsByPlace(candidate);
-        const total = Object.values(contributorsByPlace)
-            .reduce((a, b) => a + b);
-        const threshold = total * thresholdFraction;
-        const columns = [];
-        let other = 0;
-        const otherPlaces = [];
-        for (const [place, contributors] of Object.entries(contributorsByPlace)) {
-            if (contributors >= threshold) {
-                columns.push([place, contributors]);
-            }
-            else {
-                other += contributors;
-                otherPlaces.push(place);
-            }
-        }
-        if (other) {
-            const place = otherPlaces.length === 1 ? otherPlaces[0] : 'Other';
-            columns.unshift([place, other]);
-        }
+        const contributorsByState = await db.getContributorsByPlace(candidate);
+        const stateColumns = makePlaceContributorColumns(allStates, contributorsByState);
+        const contributorStates = stateColumns.map(item => item[0]);
+        const stateColors = makeColors(allStates, contributorStates, 'DC');
+        const contributorsByWard = await db.getContributorsByPlace(candidate, true);
+        const wardColumns = makePlaceContributorColumns(allWards, contributorsByWard);
+        const contributorWards = wardColumns.map(item => item[0]);
+        const wardColors = makeColors(allWards, contributorWards, ward);
         placeData.push({
             candidate,
             code: dasherize(candidate.toLowerCase()),
-            columns,
+            state: {
+                columns: stateColumns,
+                colors: stateColors,
+            },
+            ward: {
+                columns: wardColumns,
+                colors: wardColors,
+            },
         });
     }
     return placeData;
+}
+
+function makePlaceContributorColumns(places, contributorsByPlace) {
+    const total = Object.values(contributorsByPlace)
+        .reduce((a, b) => a + b);
+    const threshold = total * 0.02;
+    const columns = [];
+    let otherContributors = 0;
+    const otherPlaces = [];
+    for (const place of places) {
+        const contributors = contributorsByPlace[place];
+        if (!contributors) {
+            continue;
+        }
+        if (contributors >= threshold) {
+            columns.push([place, contributors]);
+        }
+        else {
+            otherContributors += contributors;
+            otherPlaces.push(place);
+            columns.push([place, 0]);
+        }
+    }
+    if (otherPlaces.length === 1) {
+        // If there's only 1 place counted as 'Other', count it as itself
+        const place = otherPlaces[0];
+        const index = places.indexOf(place);
+        columns[index] = [place, otherContributors];
+        otherContributors = 0;
+    }
+    columns.push(['Other', otherContributors]);
+    return columns.filter(item => item[1] > 0);
+}
+
+function makeColors(allPlaces, contributorPlaces, primaryPlace) {
+    const primaryColor = '#ff0000';
+    const colorSeries = [ // taken from d3.schemeCategory10 and tableau10, with red one moved to 10th position
+        '#1f77b4',
+        '#ff7f0e',
+        '#2ca02c',
+        '#9467bd',
+        '#8c564b',
+        '#e377c2',
+        '#7f7f7f',
+        '#bcbd22',
+        '#17becf',
+        '#d62728',
+        '#4e79a7',
+        // '#f28e2c', too similar to #ff7f0e
+        '#e15759',
+        '#76b7b2',
+        '#59a14f',
+        '#edc949',
+        '#af7aa1',
+        '#ff9da7',
+        '#9c755f',
+        '#bab0ab',
+    ];
+    const colors = {};
+    let i = 0;
+    for (const place of allPlaces) {
+        if (place === primaryPlace) {
+            colors[place] = primaryColor;
+        }
+        else {
+            colors[place] = colorSeries[i];
+            i++;
+            if (i >= colorSeries.length) {
+                i = 0;
+            }
+        }
+        if (!contributorPlaces.includes(place)) {
+            delete colors[place];
+        }
+    }
+    if (contributorPlaces.includes('Other')) {
+        colors['Other'] = '#dddddd';
+    }
+    return colors;
 }

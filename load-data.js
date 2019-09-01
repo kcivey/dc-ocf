@@ -92,7 +92,7 @@ function transformRecord(record) {
     for (const [key, value] of Object.entries(record)) {
         const newKey = underscored(key);
         let newValue = trim(value);
-        if (/date/.test(key)) {
+        if (/_date/.test(newKey)) {
             newValue = fixDate(newValue);
         }
         else if (/amount|total/.test(newKey)) {

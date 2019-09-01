@@ -1,9 +1,13 @@
 #!/usr/bin/env node
 
+const fs = require('fs');
 const moment = require('moment');
-const {dasherize} = require('underscore.string');
 const argv = require('yargs')
     .options({
+        available: {
+            type: 'boolean',
+            describe: 'make JSON showing what is available',
+        },
         office: {
             type: 'string',
             describe: 'include only offices that match string',
@@ -79,7 +83,14 @@ async function main() {
         dateData: await getDateData(filters, ward),
         placeData: await getPlaceData(argv.office, ward),
     };
-    process.stdout.write(JSON.stringify(data, null, argv.pretty ? 2 : 0));
+    const officeCode = hyphenize(office);
+    const outputFile = `${__dirname}/ocf-2020-${officeCode}.json`;
+    fs.writeFileSync(outputFile, JSON.stringify(data, null, argv.pretty ? 2 : 0));
+    if (argv.available) {
+        const outputFile = __dirname + '/available.json';
+        const availableContests = await db.getAvailableContests();
+        fs.writeFileSync(outputFile, JSON.stringify(availableContests, null, argv.pretty ? 2 : 0));
+    }
 
     function formatRow(row) {
         return columnCodes.map(function (code) {
@@ -168,7 +179,7 @@ async function getPlaceData(office, ward = null) {
         const wardColors = makeColors(allWards, contributorWards, ward);
         placeData.push({
             candidate,
-            code: dasherize(candidate.toLowerCase()),
+            code: hyphenize(candidate),
             state: {
                 columns: stateColumns,
                 colors: stateColors,
@@ -184,7 +195,7 @@ async function getPlaceData(office, ward = null) {
 
 function makePlaceContributorColumns(places, contributorsByPlace) {
     const total = Object.values(contributorsByPlace)
-        .reduce((a, b) => a + b);
+        .reduce((a, b) => a + b, 0);
     const threshold = total * 0.02;
     const columns = [];
     let otherContributors = 0;
@@ -259,4 +270,11 @@ function makeColors(allPlaces, contributorPlaces, primaryPlace) {
         colors['Other'] = '#dddddd';
     }
     return colors;
+}
+
+function hyphenize(s) {
+    return s.replace(/([a-z])(?=[A-Z])/g, '$1-')
+        .toLowerCase()
+        .replace(/[^a-z\d]+/g, '-')
+        .replace(/^-|-$/g, '');
 }

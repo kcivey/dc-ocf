@@ -9,15 +9,41 @@ jQuery(function ($) {
     let candidateColors = {};
     let map;
 
-    setUpBaseMap()
-        .then(getContestData)
-        .then(function ({points, stats, dateData, placeData}) {
-            candidateColors = getCandidateColors(points);
-            handlePoints(points);
-            handleStats(stats);
-            handleDateData(dateData);
-            handlePlaceData(placeData);
-        });
+    setUpSelect()
+        .then(setUpBaseMap)
+        .then(loadContest);
+
+    function loadContest() {
+        console.log('loadContest')
+        return getContestData()
+            .then(function ({points, stats, dateData, placeData}) {
+                candidateColors = getCandidateColors(points);
+                handlePoints(points);
+                handleStats(stats);
+                handleDateData(dateData);
+                handlePlaceData(placeData);
+            });
+    }
+
+    function setUpSelect() {
+        const select = $('#contest-select')
+            .on('change', loadContest);
+        const state = getStateFromUrl();
+        return fetch('/available.json')
+            .then(response => response.json())
+            .then(function (contestsByYear) {
+                for (const [year, contests] of Object.entries(contestsByYear)) {
+                    for (const contest of contests) {
+                        const text = year + ' ' + contest;
+                        const code = hyphenize(text);
+                        $('<option/>').attr('value', code)
+                            .text(text)
+                            .appendTo(select);
+                    }
+                }
+                select.val(state.electionYear + '-' + state.contest);
+            });
+    }
 
     function setUpBaseMap() {
         return getWardLayer()
@@ -285,6 +311,9 @@ jQuery(function ($) {
     function setUrlFromForm() {
         const checkedRadios = $('.leaflet-control-layers input:radio:checked').get();
         const state = {...stateDefaults};
+        const m = $('#contest-select').val().match(/^(\d+)-(.+)/);
+        state.electionYear = m[1];
+        state.contest = m[2];
         for (const radio of checkedRadios) {
             const name = $(radio).attr('name');
             state[name] = $(radio).val();

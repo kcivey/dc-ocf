@@ -1,43 +1,72 @@
 /* globals jQuery, L, Mustache, c3 */
 jQuery(function ($) {
-    const candidateColors = {};
-    let wardLayer;
     const stateDefaults = {
         electionYear: '2020',
-        contest: 'council-at-large',
+        contest: 'council-ward-2',
         candidate: 'all-candidates',
         mapType: 'points',
     };
-    fetch('/dc-wards.json')
-        .then(response => response.json())
-        .then(function (wardGeoJson) {
-            wardLayer = L.geoJson(wardGeoJson, {
-                onEachFeature(feature, layer) {
-                    layer.bindTooltip(feature.properties.name);
-                },
-                fillColor: 'transparent', // need a fill so the tooltip works
-            });
-        })
-        .then(() => fetch('/ocf-2020-council-ward-2.json'))
-        .then(response => response.json())
+    let candidateColors = {};
+    let map;
+
+    setUpBaseMap()
+        .then(getContestData)
         .then(function ({points, stats, dateData, placeData}) {
+            candidateColors = getCandidateColors(points);
             handlePoints(points);
             handleStats(stats);
             handleDateData(dateData);
             handlePlaceData(placeData);
         });
 
-    function handlePoints(points) {
-        const map = L.map('map', {zoomSnap: 0.5, scrollWheelZoom: false});
-        L.tileLayer('https://{s}.tiles.mapbox.com/v3/kcivey.i8d7ca3k/{z}/{x}/{y}.png', {
-            attribution: '© <a href="https://www.mapbox.com/about/maps/">Mapbox</a> ' +
-                '© <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> ' +
-                '<strong><a href="https://www.mapbox.com/map-feedback/" target="_blank">' +
-                'Improve this map</a></strong>',
-            opacity: 0.5,
-        }).addTo(map);
-        map.addLayer(wardLayer);
+    function setUpBaseMap() {
+        return getWardLayer()
+            .then(function (wardLayer) {
+                map = L.map('map', {zoomSnap: 0.5, scrollWheelZoom: false});
+                L.tileLayer('https://{s}.tiles.mapbox.com/v3/kcivey.i8d7ca3k/{z}/{x}/{y}.png', {
+                    attribution: '© <a href="https://www.mapbox.com/about/maps/">Mapbox</a> ' +
+                        '© <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> ' +
+                        '<strong><a href="https://www.mapbox.com/map-feedback/" target="_blank">' +
+                        'Improve this map</a></strong>',
+                    opacity: 0.5,
+                }).addTo(map);
+                map.addLayer(wardLayer);
+                map.fitBounds(wardLayer.getBounds());
+                return map;
+            });
+    }
+
+    function getWardLayer() {
+        return fetch('/dc-wards.json')
+            .then(response => response.json())
+            .then(function (wardGeoJson) {
+                return L.geoJson(wardGeoJson, {
+                    onEachFeature(feature, layer) {
+                        layer.bindTooltip(feature.properties.name);
+                    },
+                    fillColor: 'transparent', // need a fill so the tooltip works
+                });
+            });
+    }
+
+    function getContestData() {
+        const state = getStateFromUrl();
+        const url = `/ocf-${state.electionYear}-${state.contest}.json`;
+        return fetch(url).then(response => response.json());
+    }
+
+    function getCandidateColors(points) {
         const colors = ['#e41a1c', '#377eb8', '#4daf4a', '#984ea3', '#ff7f00', '#ffff33', '#a65628'];
+        const candidateColors = {};
+        let i = 0;
+        for (const candidate of Object.keys(points)) {
+            candidateColors[candidate] = colors[i];
+            i++;
+        }
+        return candidateColors;
+    }
+
+    function handlePoints(points) {
         const baseRadius = 2.5;
         const heatMapOptions = {
             gradient: {
@@ -62,9 +91,7 @@ jQuery(function ($) {
                 [allLabel]: L.heatLayer([], heatMapOptions),
             },
         };
-        let candidateIndex = 0;
         for (const [candidate, candidatePoints] of Object.entries(points)) {
-            candidateColors[candidate] = colors[candidateIndex];
             const pointOptions = {
                 weight: 2,
                 color: candidateColors[candidate],
@@ -92,19 +119,20 @@ jQuery(function ($) {
             candidateLayers['clusters'][candidate] = clusterLayer;
             candidateLayers['clusters'][allLabel].addLayer(clusterLayer);
             candidateLayers['heat map'][candidate] = L.heatLayer(pointsForHeatMap, heatMapOptions);
-            candidateIndex++;
         }
         const layersControl = L.control.layers(null, candidateLayers['points'], {collapsed: false})
             .addTo(map);
-        map.fitBounds(wardLayer.getBounds());
-        $('.leaflet-control-layers').on('click', '#type-radios', function () {
-            const type = $('input:radio:checked', this).val();
-            adjustLayersControl(type);
-        }).on('click', 'input:radio', () => setTimeout(setUrlFromForm, 0)); // timeout to allow radios to be adjusted
+        $('.leaflet-control-layers')
+            .on('click', '#type-radios', function () {
+                const type = $('input:radio:checked', this).val();
+                adjustLayersControl(type);
+            })
+            .on('click', 'input:radio', function () {
+                setTimeout(setUrlFromForm, 0); // timeout to allow radios to be adjusted
+            });
         $(window).on('popstate', setFormFromUrl);
         const state = setFormFromUrl();
         adjustLayersControl(state.mapType, state.candidate);
-        setUpResizeHandler();
 
         function adjustLayersControl(wantedType, wantedCandidate) {
             const overlaysContainer = $('.leaflet-control-layers-overlays');
@@ -125,14 +153,15 @@ jQuery(function ($) {
             }
             let baseRadioLabel;
             $('label', overlaysContainer).each(function (i, label) {
-                const value = hyphenize($(label).text());
+                const candidate = $(label).text().trim();
+                const value = hyphenize(candidate);
                 $(label).find('input')
                     .attr({type: 'radio', name: 'candidate', value});
                 if (i === 0) {
                     baseRadioLabel = $(label);
                     return;
                 }
-                const color = colors[i - 1] || '';
+                const color = candidateColors[candidate] || '';
                 $(label).css('color', color);
             });
             if ($('#type-radios').length === 0) {
@@ -153,20 +182,6 @@ jQuery(function ($) {
                 .trigger('click');
         }
 
-        function setUpResizeHandler() {
-            const mapDiv = $('#map');
-            let prevWidth = mapDiv.width();
-            let prevHeight = mapDiv.height();
-            setInterval(function () {
-                const width = mapDiv.width();
-                const height = mapDiv.height();
-                if (width !== prevWidth || height !== prevHeight) {
-                    map.invalidateSize({debounceMoveend: true, pan: false});
-                    prevWidth = width;
-                    prevHeight = height;
-                }
-            }, 250);
-        }
     }
 
     function handleStats(stats) {
@@ -300,7 +315,7 @@ jQuery(function ($) {
         return state;
     }
 
-    function setFormFromUrl() {
+    function getStateFromUrl() {
         const suffix = window.location.href
             .replace(/^https?:\/\/[^\/]+\/[^\/#]+[\/#]*/, '');
         const parts = suffix.split('/');
@@ -310,6 +325,11 @@ jQuery(function ($) {
             state[key] = parts[i] || stateDefaults[key];
             i++;
         }
+        return state;
+    }
+
+    function setFormFromUrl() {
+        const state = getStateFromUrl();
         const div = $('.leaflet-control-layers');
         for (const [name, value] of Object.entries(state)) {
             const input = div.find(`input[name="${name}"][value="${value}"]`);

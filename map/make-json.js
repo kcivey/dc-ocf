@@ -54,7 +54,7 @@ async function main() {
     const m = office.match(/Ward (\d)/);
     const ward = m ? +m[1] : null;
     if (!ward) {
-        for (const key in Object.keys(codeToHead)) {
+        for (const key of Object.keys(codeToHead)) {
             if (/^ward_/.test(key)) {
                 delete codeToHead[key];
             }

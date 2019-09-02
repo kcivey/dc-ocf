@@ -67,9 +67,7 @@ jQuery(function ($) {
                         const type = $(evt.target).val().replace(/-/g, ' '); // ugh
                         adjustLayersControl(type);
                     })
-                    .on('click', 'input:radio[name=candidate]', function () {
-                        setTimeout(setUrlFromForm, 0); // timeout to allow radios to be adjusted
-                    });
+                    .on('click', 'input:radio[name=candidate]', setUrlFromForm);
                 $(window).on('popstate', setFormFromUrl);
                 return map;
             });
@@ -168,7 +166,7 @@ jQuery(function ($) {
     function removeLayersFromControl() {
         const layersControl = map.__layersControl;
         const layers = [...layersControl._layers]; // clone because removing Layers modifies it
-        for (const {name, layer} of layers) {
+        for (const {layer} of layers) {
             layersControl.removeLayer(layer);
             map.removeLayer(layer);
             if (layer instanceof L.LayerGroup) {

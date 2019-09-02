@@ -246,9 +246,7 @@ jQuery(function ($) {
             }
             i++;
         }
-        if (!contributors.hasOwnProperty('ward')) {
-            $('.ward-specific').hide();
-        }
+        $('.ward-specific').toggle(contributors.hasOwnProperty('ward'));
         for (const [key, columns] of Object.entries(contributors)) {
             columns.unshift(dateColumn);
             c3.generate({
@@ -300,6 +298,7 @@ jQuery(function ($) {
 
     function handlePlaceData(placeData) {
         const container = $('#place-chart-container');
+        container.empty();
         const html = $('#place-chart-div-template').html();
         Mustache.parse(html);
         for (const c of placeData) {

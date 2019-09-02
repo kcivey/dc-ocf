@@ -6,18 +6,19 @@ jQuery(function ($) {
         candidate: 'all-candidates',
         mapType: 'points',
     };
-    let candidateColors = {};
     let map;
+    let candidateLayers = {};
+    let candidateColors = {};
 
     setUpSelect()
         .then(setUpBaseMap)
         .then(loadContest);
 
     function loadContest() {
-        console.log('loadContest')
+        $('.leaflet-control-layers input:radio').prop('checked', false);
         return getContestData()
             .then(function ({points, stats, dateData, placeData}) {
-                candidateColors = getCandidateColors(points);
+                setCandidateColors(points);
                 handlePoints(points);
                 handleStats(stats);
                 handleDateData(dateData);
@@ -56,8 +57,20 @@ jQuery(function ($) {
                         'Improve this map</a></strong>',
                     opacity: 0.5,
                 }).addTo(map);
+                map.__layersControl = L.control.layers(null, [], {collapsed: false})
+                    .addTo(map);
                 map.addLayer(wardLayer);
                 map.fitBounds(wardLayer.getBounds());
+                $('.leaflet-control-layers')
+                    .on('click', 'input:radio[name=mapType]', function (evt) {
+                        setUrlFromForm();
+                        const type = $(evt.target).val().replace(/-/g, ' '); // ugh
+                        adjustLayersControl(type);
+                    })
+                    .on('click', 'input:radio[name=candidate]', function () {
+                        setTimeout(setUrlFromForm, 0); // timeout to allow radios to be adjusted
+                    });
+                $(window).on('popstate', setFormFromUrl);
                 return map;
             });
     }
@@ -76,20 +89,19 @@ jQuery(function ($) {
     }
 
     function getContestData() {
-        const state = getStateFromUrl();
+        const state = setUrlFromForm();
         const url = `/ocf-${state.electionYear}-${state.contest}.json`;
         return fetch(url).then(response => response.json());
     }
 
-    function getCandidateColors(points) {
+    function setCandidateColors(points) {
         const colors = ['#e41a1c', '#377eb8', '#4daf4a', '#984ea3', '#ff7f00', '#ffff33', '#a65628'];
-        const candidateColors = {};
+        candidateColors = {};
         let i = 0;
         for (const candidate of Object.keys(points)) {
             candidateColors[candidate] = colors[i];
             i++;
         }
-        return candidateColors;
     }
 
     function handlePoints(points) {
@@ -106,7 +118,7 @@ jQuery(function ($) {
             maxClusterRadius: 60,
         };
         const allLabel = 'All candidates';
-        const candidateLayers = {
+        candidateLayers = {
             'points': {
                 [allLabel]: L.layerGroup(),
             },
@@ -146,68 +158,78 @@ jQuery(function ($) {
             candidateLayers['clusters'][allLabel].addLayer(clusterLayer);
             candidateLayers['heat map'][candidate] = L.heatLayer(pointsForHeatMap, heatMapOptions);
         }
-        const layersControl = L.control.layers(null, candidateLayers['points'], {collapsed: false})
-            .addTo(map);
-        $('.leaflet-control-layers')
-            .on('click', '#type-radios', function () {
-                const type = $('input:radio:checked', this).val();
-                adjustLayersControl(type);
-            })
-            .on('click', 'input:radio', function () {
-                setTimeout(setUrlFromForm, 0); // timeout to allow radios to be adjusted
-            });
-        $(window).on('popstate', setFormFromUrl);
         const state = setFormFromUrl();
-        adjustLayersControl(state.mapType, state.candidate);
+        const candidate = Object.keys(candidateLayers['points'])
+            .find(name => hyphenize(name) === state.candidate); // ugh
+        const mapType = state.mapType.replace(/-/g, ' '); // also ugh
+        adjustLayersControl(mapType, candidate);
+    }
 
-        function adjustLayersControl(wantedType, wantedCandidate) {
-            const overlaysContainer = $('.leaflet-control-layers-overlays');
-            if (!wantedCandidate) {
-                wantedCandidate = $('input:radio:checked', overlaysContainer).val() ||
-                    $('input:radio', overlaysContainer).eq(0).val();
+    function removeLayersFromControl() {
+        const layersControl = map.__layersControl;
+        const layers = [...layersControl._layers]; // clone because removing Layers modifies it
+        for (const {name, layer} of layers) {
+            layersControl.removeLayer(layer);
+            map.removeLayer(layer);
+            if (layer instanceof L.LayerGroup) {
+                layer.eachLayer(sublayer => map.removeLayer(sublayer));
             }
-            for (const [type, layerMap] of Object.entries(candidateLayers)) {
-                for (const layer of Object.values(layerMap)) {
-                    layersControl.removeLayer(layer);
-                    map.removeLayer(layer);
-                }
-                if (hyphenize(type) === wantedType) {
-                    for (const [name, layer] of Object.entries(layerMap)) {
-                        layersControl.addOverlay(layer, name);
-                    }
-                }
-            }
-            let baseRadioLabel;
-            $('label', overlaysContainer).each(function (i, label) {
-                const candidate = $(label).text().trim();
-                const value = hyphenize(candidate);
-                $(label).find('input')
-                    .attr({type: 'radio', name: 'candidate', value});
-                if (i === 0) {
-                    baseRadioLabel = $(label);
-                    return;
-                }
-                const color = candidateColors[candidate] || '';
-                $(label).css('color', color);
-            });
-            if ($('#type-radios').length === 0) {
-                const radioDiv = $('<div/>').attr({id: 'type-radios'}).append(
-                    Object.keys(candidateLayers).map(function (key) {
-                        return baseRadioLabel.clone()
-                            .find('span').text(`Display as ${key}`).end()
-                            .find('input').attr({name: 'mapType', value: hyphenize(key)}).end();
-                    })
-                );
-                overlaysContainer.after(
-                    $('<div/>').addClass('leaflet-control-layers-separator'),
-                    radioDiv,
-                );
-                $(`#type-radios input:radio[value=${wantedType}]`).prop('checked', true);
-            }
-            $(`input:radio[value="${wantedCandidate}"]`, overlaysContainer)
-                .trigger('click');
         }
+    }
 
+    function adjustLayersControl(wantedType, wantedCandidate = '') {
+        removeLayersFromControl();
+        const overlaysContainer = $('.leaflet-control-layers-overlays');
+        const layersControl = map.__layersControl;
+        for (const [type, layerMap] of Object.entries(candidateLayers)) {
+            if (type === wantedType) {
+                for (const [name, layer] of Object.entries(layerMap)) {
+                    layersControl.addOverlay(layer, name);
+                }
+                break;
+            }
+        }
+        $('label', overlaysContainer).each(function (i, label) {
+            const candidate = $(label).text().trim();
+            const value = hyphenize(candidate);
+            const color = candidateColors[candidate] || '';
+            $(label).css('color', color)
+                .find('input')
+                .attr({type: 'radio', name: 'candidate', value});
+        });
+        if ($('#type-radios').length === 0) {
+            makeTypeRadios(wantedType);
+        }
+        if (!wantedCandidate) {
+            let input = $('input:radio:checked', overlaysContainer);
+            if (!input.length) {
+                input = $('input:radio', overlaysContainer).eq(0);
+            }
+            wantedCandidate = input.closest('label').text().trim();
+        }
+        const wantedCandidateCode = hyphenize(wantedCandidate);
+        const input = $(`input:radio[value="${wantedCandidateCode}"]`, overlaysContainer);
+        if (!input.prop('checked')) {
+            input.trigger('click');
+        }
+    }
+
+    function makeTypeRadios(wantedType) {
+        const overlaysContainer = $('.leaflet-control-layers-overlays');
+        const baseRadioLabel = $('label', overlaysContainer).eq(0);
+        const radioDiv = $('<div/>').attr({id: 'type-radios'}).append(
+            Object.keys(candidateLayers).map(function (key) {
+                return baseRadioLabel.clone()
+                    .find('span').text(`Display as ${key}`).end()
+                    .find('input').attr({name: 'mapType', value: hyphenize(key)}).end();
+            })
+        );
+        overlaysContainer.after(
+            $('<div/>').addClass('leaflet-control-layers-separator'),
+            radioDiv,
+        );
+        const wantedTypeCode = hyphenize(wantedType);
+        $(`#type-radios input:radio[value=${wantedTypeCode}]`).prop('checked', true);
     }
 
     function handleStats(stats) {
@@ -359,10 +381,15 @@ jQuery(function ($) {
 
     function setFormFromUrl() {
         const state = getStateFromUrl();
+        const yearContestCode = state.electionYear + '-' + state.contest;
+        const select = $('#contest-select');
+        if (select.val() !== yearContestCode) {
+            $('#contest-select').val(yearContestCode);
+        }
         const div = $('.leaflet-control-layers');
         for (const [name, value] of Object.entries(state)) {
             const input = div.find(`input[name="${name}"][value="${value}"]`);
-            if (!input.prop('checked')) {
+            if (input.length && !input.prop('checked')) {
                 input.trigger('click');
             }
         }

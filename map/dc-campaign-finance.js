@@ -176,8 +176,15 @@ jQuery(function ($) {
     }
 
     function adjustLayersControl(wantedType, wantedCandidate = '') {
-        removeLayersFromControl();
         const overlaysContainer = $('.leaflet-control-layers-overlays');
+        if (!wantedCandidate) {
+            let input = $('input:radio:checked', overlaysContainer);
+            if (!input.length) {
+                input = $('input:radio', overlaysContainer).eq(0);
+            }
+            wantedCandidate = input.closest('label').text().trim();
+        }
+        removeLayersFromControl();
         const layersControl = map.__layersControl;
         for (const [type, layerMap] of Object.entries(candidateLayers)) {
             if (type === wantedType) {
@@ -197,13 +204,6 @@ jQuery(function ($) {
         });
         if ($('#type-radios').length === 0) {
             makeTypeRadios(wantedType);
-        }
-        if (!wantedCandidate) {
-            let input = $('input:radio:checked', overlaysContainer);
-            if (!input.length) {
-                input = $('input:radio', overlaysContainer).eq(0);
-            }
-            wantedCandidate = input.closest('label').text().trim();
         }
         const wantedCandidateCode = hyphenize(wantedCandidate);
         const input = $(`input:radio[value="${wantedCandidateCode}"]`, overlaysContainer);

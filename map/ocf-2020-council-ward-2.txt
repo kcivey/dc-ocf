@@ -1,0 +1,26 @@
+=overall
+
+I analyzed the DC Office of Campaign Finance (OCF) reports for Ward 2 council candidates for the period
+ending July 31 (including amended filings for Fanning, Grossman, and Kennedy).
+
+Since all five candidates are seeking to qualify for public campaign financing under the Fair Elections Act,
+contributions all come from individuals and are limited to $50 (except for the candidate and their family,
+who can give up to $2,500). Therefore most of this analysis focuses on the number of contributors rather the
+amount raised, and there's nothing about corporate contributions because the candidates are prohibited from
+taking them.
+
+The contributor numbers are interesting because they give a clue about how much support a candidate has.
+There were 11 people who gave to more than 1 candidate, including 1 who gave to 3, 1 who gave to 4,
+and 1 who gave to all 5.
+
+=stats
+
+John Fanning has not been certified for the program yet, but I included Fair Elections funds for him
+because he seems to have enough DC contributors (I assume there's a minor problem like bad addresses
+that can be corrected).
+Daniel Hernandez is nowhere near qualifying yet.
+
+Note that Jordan Grossman's total amount raised will likely drop by $7,716 that he will need to refund
+because OCF changed its interpretation of the law limiting candidate and family contributions.
+It looks like Kishan Putta has 3 contributors who gave $50 twice each, so he may have to refund $150
+(or maybe that's a reporting error, but his total would still be $150 lower).

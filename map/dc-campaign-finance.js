@@ -17,12 +17,13 @@ jQuery(function ($) {
     function loadContest() {
         $('.leaflet-control-layers input:radio').prop('checked', false);
         return getContestData()
-            .then(function ({points, stats, dateData, placeData}) {
-                setCandidateColors(points);
-                handlePoints(points);
-                handleStats(stats);
-                handleDateData(dateData);
-                handlePlaceData(placeData);
+            .then(function (data) {
+                adjustPageText(data);
+                setCandidateColors(data.points);
+                handlePoints(data.points);
+                handleStats(data.stats);
+                handleDateData(data.dateData);
+                handlePlaceData(data.placeData);
             });
     }
 
@@ -90,6 +91,25 @@ jQuery(function ($) {
         const state = setUrlFromForm();
         const url = `/ocf-${state.electionYear}-${state.contest}.json`;
         return fetch(url, {cache: 'no-cache'}).then(response => response.json());
+    }
+
+
+    function adjustPageText({ward, contest, extras, updated}) {
+        const title = 'DC Campaign Contributions<br>' +
+            $('#contest-select').find('option:selected').text().trim();
+        $('h1').html(title);
+        $('title').text(title.replace('<br>', ' '));
+        $('#updated').text(updated);
+        for (const [section, extra] of Object.entries(extras)) {
+            const div = $('#extra-' + section);
+            if (extra) {
+                div.html(extra).show();
+            }
+            else {
+                div.hide();
+            }
+        }
+        $('.ward-specific').toggle(!!ward);
     }
 
     function setCandidateColors(points) {

@@ -75,15 +75,17 @@ async function main() {
         }
     }
     const tableData = stats.map(formatRow);
+    const officeCode = hyphenize(office);
     const data = {
+        updated: new Date().toLocaleDateString('en-US', {year: 'numeric', day: 'numeric', month: 'long'}),
         office,
         ward,
+        extras: getExtras(officeCode),
         points: await db.getDcContributionsWithPositions(filters),
         stats: {columnHeads, tableData},
         dateData: await getDateData(filters, ward),
         placeData: await getPlaceData(argv.office, ward),
     };
-    const officeCode = hyphenize(office);
     const outputFile = `${__dirname}/ocf-2020-${officeCode}.json`;
     fs.writeFileSync(outputFile, JSON.stringify(data, null, argv.pretty ? 2 : 0));
     if (argv.available) {
@@ -272,6 +274,28 @@ function makeColors(allPlaces, contributorPlaces, primaryPlace) {
         colors['Other'] = '#dddddd';
     }
     return colors;
+}
+
+function getExtras(officeCode) {
+    const inputFile = `${__dirname}/ocf-2020-${officeCode}.txt`;
+    const text = fs.readFileSync(inputFile, 'utf8');
+    const extras = {};
+    let key;
+    for (const line of text.split('\n')) {
+        if (/^=(\w+)\s*$/.test(line)) {
+            key = line.substr(1).trim();
+            extras[key] = '';
+        }
+        else {
+            extras[key] += '\n' + line;
+        }
+    }
+    for (const key of Object.keys(extras)) {
+        extras[key] = '<p>' +
+            extras[key].trim().replace(/\s*\n\s*\n\s*/g, '</p>\n<p>') +
+            '</p>';
+    }
+    return extras;
 }
 
 function hyphenize(s) {

@@ -95,7 +95,7 @@ jQuery(function ($) {
     function getContestData() {
         const state = setUrlFromForm();
         const url = `/ocf-${state.electionYear}-${state.contest}.json`;
-        return $.getJSON(url, {cache: 'no-cache'});
+        return $.getJSON(url);
     }
 
     function adjustPageText({ward, contest, extras, updated}) {

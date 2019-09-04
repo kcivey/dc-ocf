@@ -103,7 +103,7 @@ async function processOffice(office) {
         points: await db.getDcContributionsWithPositions(filters),
         stats: {columnHeads, tableData},
         dateData: await getDateData(filters, ward),
-        placeData: await getPlaceData(argv.office, ward),
+        placeData: await getPlaceData(office, ward),
     };
     const outputFile = `${outputDir}/ocf-2020-${officeCode}.json`;
     console.warn(`Writing ${outputFile}`);

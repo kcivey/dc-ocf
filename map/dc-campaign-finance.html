@@ -76,9 +76,6 @@
     th.rotate > div > span {
       padding: 6px 0;
     }
-    th.spacer {
-      width: 42px;
-    }
     td.min {
       background-color: #fff3cd;
     }
@@ -270,13 +267,8 @@
   <thead>
     <tr>
       {{#columnHeads}}
-          <th class="rotate">
-            <div>
-              <span>{{ . }}</span>
-            </div>
-          </th>
+        <th>{{ . }}</th>
       {{/columnHeads}}
-      <th class="spacer"></th>
     </tr>
   </thead>
   <tbody>
@@ -290,7 +282,6 @@
             <th>{{ . }}</th>
           {{/class}}
         {{/.}}
-        <td class="spacer"></td>
       </tr>
     {{/tableData}}
   </tbody>

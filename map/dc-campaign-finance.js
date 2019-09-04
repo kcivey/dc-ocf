@@ -255,7 +255,8 @@ jQuery(function ($) {
     function handleStats(stats) {
         const tableContent = Mustache.render($('#table-content-template').html(), stats);
         $('#stats-table').html(tableContent);
-        transposeTable('#stats-table');
+        // transposeTable('#stats-table');
+        adjustTableForRotatedHeads('#stats-table');
     }
 
     function handleDateData({start, end, contributors}) {
@@ -418,37 +419,61 @@ jQuery(function ($) {
     }
 
     function transposeTable(table) {
-        $(table).each(function () {
-            const $this = $(this);
-            $this.find('th').each(function () { // strip out markup for rotated heads
-                $(this).removeClass('rotate')
-                    .html($(this).find('span').html());
-            });
-            const newrows = [];
-            $this.find('tr').each(function () {
-                $(this).children().each(function (i) {
-                    if ($(this).hasClass('spacer')) {
-                        return;
-                    }
-                    if (newrows[i] === undefined) {
-                        newrows[i] = $('<tr/>');
-                    }
-                    newrows[i].append(this);
-                });
-            });
-            $this.find('tr').remove();
-            const $tbody = $this.find('tbody');
-            $.each(newrows, function (i) {
-                if (i === 0) {
-                    $(this).find('th').addClass('rotate')
-                        .wrapInner('<div><span></span></div>');
-                    $this.find('thead').append(this);
+        const $table = $(table);
+        $table.find('th').each(function () { // strip out markup for rotated heads
+            $(this).removeClass('rotate')
+                .html($(this).find('span').html());
+        });
+        const newrows = [];
+        $table.find('tr').each(function () {
+            $(this).children().each(function (i) {
+                if ($(this).hasClass('spacer')) {
+                    return;
                 }
-                else {
-                    $tbody.append(this);
+                if (newrows[i] === undefined) {
+                    newrows[i] = $('<tr/>');
                 }
+                newrows[i].append(this);
             });
         });
+        $table.find('tr').remove();
+        const $tbody = $table.find('tbody');
+        $.each(newrows, function (i) {
+            if (i === 0) {
+                $table.find('thead').append(this);
+            }
+            else {
+                $tbody.append(this);
+            }
+        });
+    }
+
+    function adjustTableForRotatedHeads(table) {
+        const $table = $(table);
+        const heads = $table.find('thead th');
+        heads.addClass('rotate')
+            .wrapInner('<div><span></span></div>');
+        let headHeight = 0;
+        let lastHeadWidth = 0;
+        heads.find('span').each(function () {
+            const width = $(this).width();
+            const height = $(this).height();
+            const rad = 45 * Math.PI / 180;
+            const sin = Math.sin(rad);
+            const cos = Math.cos(rad);
+            const actualWidth  = Math.abs(width * cos) + Math.abs(height * sin);
+            const actualHeight = Math.abs(width * sin) + Math.abs(height * cos);
+            if (actualHeight > headHeight) {
+                headHeight = actualHeight;
+            }
+            lastHeadWidth = actualWidth;
+        });
+        heads.height(headHeight);
+        const lastColumnWidth = $table.find('tbody tr').first().find('td').last().width();
+        if (lastHeadWidth > lastColumnWidth) {
+            const cell = `<td style="width: ${Math.ceil(lastHeadWidth - lastColumnWidth) + 4}px"></td>`;
+            $table.find('tr').append(cell);
+        }
     }
 
     function hyphenize(s) {

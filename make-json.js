@@ -23,7 +23,8 @@ const argv = require('yargs')
     })
     .strict(true)
     .argv;
-const db = require('../lib/db');
+const db = require('./lib/db');
+const outputDir = __dirname + '/src';
 
 main()
     .catch(console.trace)
@@ -40,14 +41,13 @@ async function main() {
     for (const office of offices) {
         await processOffice(office);
     }
-    const outputFile = __dirname + '/available.json';
+    const outputFile = outputDir + '/available.json';
     const availableContests = await db.getAvailableContests(argv.threshold);
     console.warn(`Writing ${outputFile}`);
     fs.writeFileSync(outputFile, JSON.stringify(availableContests, null, argv.pretty ? 2 : 0));
 }
 
 async function processOffice(office) {
-    console.warn(office);
     const codeToHead = {
         candidate_short_name: 'Candidate',
         contributions: 'Contributions',
@@ -105,7 +105,7 @@ async function processOffice(office) {
         dateData: await getDateData(filters, ward),
         placeData: await getPlaceData(argv.office, ward),
     };
-    const outputFile = `${__dirname}/ocf-2020-${officeCode}.json`;
+    const outputFile = `${outputDir}/ocf-2020-${officeCode}.json`;
     console.warn(`Writing ${outputFile}`);
     fs.writeFileSync(outputFile, JSON.stringify(data, null, argv.pretty ? 2 : 0));
 
@@ -292,7 +292,7 @@ function makeColors(allPlaces, contributorPlaces, primaryPlace) {
 }
 
 function getExtras(officeCode) {
-    const inputFile = `${__dirname}/ocf-2020-${officeCode}.txt`;
+    const inputFile = `${outputDir}/ocf-2020-${officeCode}.txt`;
     let text;
     try {
         text = fs.readFileSync(inputFile, 'utf8').trim();

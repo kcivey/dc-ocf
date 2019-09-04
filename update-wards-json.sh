@@ -2,7 +2,7 @@
 
 set -e
 ORIGINAL_FILE=original.json
-TARGET_FILE=dc-wards.json
+TARGET_FILE=src/dc-wards.json
 if [ ! -e $ORIGINAL_FILE ]
     then curl https://opendata.arcgis.com/datasets/0ef47379cbae44e88267c01eaec2ff6e_31.geojson -o $ORIGINAL_FILE
 fi

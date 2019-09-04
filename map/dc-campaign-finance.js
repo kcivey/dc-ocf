@@ -31,18 +31,17 @@ jQuery(function ($) {
         const select = $('#contest-select')
             .on('change', loadContest);
         const state = getStateFromUrl();
-        return fetch('/available.json')
-            .then(response => response.json())
+        return $.getJSON('/available.json')
             .then(function (contestsByYear) {
-                for (const [year, contests] of Object.entries(contestsByYear)) {
-                    for (const contest of contests) {
+                $.each(contestsByYear, function (year, contests) {
+                    $.each(contests, function (i, contest) {
                         const text = year + ' ' + contest;
                         const code = hyphenize(text);
                         $('<option/>').attr('value', code)
                             .text(text)
                             .appendTo(select);
-                    }
-                }
+                    });
+                });
                 select.val(state.electionYear + '-' + state.contest);
             });
     }
@@ -75,8 +74,7 @@ jQuery(function ($) {
     }
 
     function getWardLayer() {
-        return fetch('/dc-wards.json')
-            .then(response => response.json())
+        return $.getJSON('/dc-wards.json')
             .then(function (wardGeoJson) {
                 return L.geoJson(wardGeoJson, {
                     onEachFeature(feature, layer) {
@@ -90,7 +88,7 @@ jQuery(function ($) {
     function getContestData() {
         const state = setUrlFromForm();
         const url = `/ocf-${state.electionYear}-${state.contest}.json`;
-        return fetch(url, {cache: 'no-cache'}).then(response => response.json());
+        return $.getJSON(url, {cache: 'no-cache'});
     }
 
     function adjustPageText({ward, contest, extras, updated}) {
@@ -118,10 +116,10 @@ jQuery(function ($) {
         const colors = ['#e41a1c', '#377eb8', '#4daf4a', '#984ea3', '#ff7f00', '#ffff33', '#a65628'];
         candidateColors = {};
         let i = 0;
-        for (const candidate of Object.keys(points)) {
+        $.each(points, function (candidate) {
             candidateColors[candidate] = colors[i];
             i++;
-        }
+        });
     }
 
     function handlePoints(points) {
@@ -149,7 +147,7 @@ jQuery(function ($) {
                 [allLabel]: L.heatLayer([], heatMapOptions),
             },
         };
-        for (const [candidate, candidatePoints] of Object.entries(points)) {
+        $.each(points, function (candidate, candidatePoints) {
             const pointOptions = {
                 weight: 2,
                 color: candidateColors[candidate],
@@ -159,8 +157,9 @@ jQuery(function ($) {
             const pointsForHeatMap = [];
             const layer = L.layerGroup();
             const clusterLayer = L.markerClusterGroup(clusterOptions);
-            for (const [latitude, longitude, contributors] of candidatePoints) {
-                const position = [latitude, longitude];
+            $.each(candidatePoints, function (i, point) {
+                const position = [point[0], point[1]];
+                const contributors = point[2];
                 L.circleMarker(
                     position,
                     {...pointOptions, radius: baseRadius * (contributors ** 0.5)},
@@ -171,13 +170,13 @@ jQuery(function ($) {
                     candidateLayers['heat map'][allLabel].addLatLng(position);
                     pointsForHeatMap.push(position);
                 }
-            }
+            });
             candidateLayers['points'][candidate] = layer;
             candidateLayers['points'][allLabel].addLayer(layer);
             candidateLayers['clusters'][candidate] = clusterLayer;
             candidateLayers['clusters'][allLabel].addLayer(clusterLayer);
             candidateLayers['heat map'][candidate] = L.heatLayer(pointsForHeatMap, heatMapOptions);
-        }
+        });
         const state = setFormFromUrl();
         const candidate = Object.keys(candidateLayers['points'])
             .find(name => hyphenize(name) === state.candidate); // ugh
@@ -187,14 +186,15 @@ jQuery(function ($) {
 
     function removeLayersFromControl() {
         const layersControl = map.__layersControl;
-        const layers = [...layersControl._layers]; // clone because removing Layers modifies it
-        for (const {layer} of layers) {
+        const layers = [...layersControl._layers]; // clone because removing layers modifies it
+        $.each(layers, function (i, obj) {
+            const layer = obj.layer;
             layersControl.removeLayer(layer);
             map.removeLayer(layer);
             if (layer instanceof L.LayerGroup) {
                 layer.eachLayer(sublayer => map.removeLayer(sublayer));
             }
-        }
+        });
     }
 
     function adjustLayersControl(wantedType, wantedCandidate = '') {
@@ -208,14 +208,13 @@ jQuery(function ($) {
         }
         removeLayersFromControl();
         const layersControl = map.__layersControl;
-        for (const [type, layerMap] of Object.entries(candidateLayers)) {
+        $.each(candidateLayers, function (type, layerMap) {
             if (type === wantedType) {
-                for (const [name, layer] of Object.entries(layerMap)) {
+                $.each(layerMap, function (name, layer) {
                     layersControl.addOverlay(layer, name);
-                }
-                break;
+                });
             }
-        }
+        });
         $('label', overlaysContainer).each(function (i, label) {
             const candidate = $(label).text().trim();
             const value = hyphenize(candidate);
@@ -270,8 +269,8 @@ jQuery(function ($) {
             }
             i++;
         }
-        $('.ward-specific').toggle(contributors.hasOwnProperty('ward'));
-        for (const [key, columns] of Object.entries(contributors)) {
+        $('.ward-specific').toggle(!!contributors.ward);
+        $.each(contributors, function (key, columns) {
             columns.unshift(dateColumn);
             c3.generate({
                 bindto: '#date-chart-' + key,
@@ -312,7 +311,7 @@ jQuery(function ($) {
                     },
                 },
             });
-        }
+        });
 
         function incrementDate(date) {
             const timestamp = new Date(date).getTime();
@@ -325,9 +324,9 @@ jQuery(function ($) {
         container.empty();
         const html = $('#place-chart-div-template').html();
         Mustache.parse(html);
-        for (const c of placeData) {
+        $.each(placeData, function (i, c) {
             $(Mustache.render(html, c)).appendTo(container);
-            for (const type of ['state', 'ward']) {
+            $.each(['state', 'ward'], function (i, type) {
                 const selector = `#place-chart-${type}-${c.code}`;
                 let chart = null;
                 const pieResizeHandler = function () {
@@ -347,8 +346,8 @@ jQuery(function ($) {
                     onresize: pieResizeHandler,
                 });
                 pieResizeHandler();
-            }
-        }
+            });
+        });
     }
 
     function setUrlFromForm() {
@@ -357,10 +356,10 @@ jQuery(function ($) {
         const m = $('#contest-select').val().match(/^(\d+)-(.+)/);
         state.electionYear = m[1];
         state.contest = m[2];
-        for (const radio of checkedRadios) {
+        $.each(checkedRadios, function (i, radio) {
             const name = $(radio).attr('name');
             state[name] = $(radio).val();
-        }
+        });
         let suffix = Object.values(state).join('/');
         if (suffix === Object.values(stateDefaults).join('/')) {
             suffix = '';
@@ -393,10 +392,10 @@ jQuery(function ($) {
         const parts = suffix.split('/');
         const state = {...stateDefaults};
         let i = 0;
-        for (const key of Object.keys(state)) {
+        $.each(state, function (key) {
             state[key] = parts[i] || stateDefaults[key];
             i++;
-        }
+        });
         return state;
     }
 
@@ -409,12 +408,12 @@ jQuery(function ($) {
                 .trigger('change');
         }
         const div = $('.leaflet-control-layers');
-        for (const [name, value] of Object.entries(state)) {
+        $.each(state, function (name, value) {
             const input = div.find(`input[name="${name}"][value="${value}"]`);
             if (input.length && !input.prop('checked')) {
                 input.trigger('click');
             }
-        }
+        });
         return state;
     }
 

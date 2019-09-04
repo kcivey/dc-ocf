@@ -1,3 +1,10 @@
+/**
+ * Copyright 2019 Keith C. Ivey
+ * keith@iveys.org
+ * https://dcgeekery.com
+ * ISC License
+ * Source: https://github/kcivey/dc-ocf
+ */
 /* globals jQuery, L, Mustache, c3 */
 jQuery(function ($) {
     const stateDefaults = {

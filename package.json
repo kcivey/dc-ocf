@@ -11,7 +11,7 @@
     "url": "git://github.com/kcivey/dc-ocf"
   },
   "author": "Keith C. Ivey <keith@iveys.org>",
-  "license": "MIT",
+  "license": "ISC",
   "readmeFilename": "README.md",
   "bugs": {
     "url": "https://github.com/kcivey/dc-ocf/issues"

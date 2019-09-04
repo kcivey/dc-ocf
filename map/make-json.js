@@ -293,22 +293,31 @@ function makeColors(allPlaces, contributorPlaces, primaryPlace) {
 
 function getExtras(officeCode) {
     const inputFile = `${__dirname}/ocf-2020-${officeCode}.txt`;
-    const text = fs.readFileSync(inputFile, 'utf8');
-    const extras = {};
-    let key;
-    for (const line of text.split('\n')) {
-        if (/^=(\w+)\s*$/.test(line)) {
-            key = line.substr(1).trim();
-            extras[key] = '';
-        }
-        else {
-            extras[key] += '\n' + line;
-        }
+    let text;
+    try {
+        text = fs.readFileSync(inputFile, 'utf8').trim();
     }
-    for (const key of Object.keys(extras)) {
-        extras[key] = '<p>' +
-            extras[key].trim().replace(/\s*\n\s*\n\s*/g, '</p>\n<p>') +
-            '</p>';
+    catch {
+        text = '';
+    }
+    const extras = {};
+    if (text) {
+        let key;
+        for (const line of text.split('\n')) {
+            if (/^=(\w+)\s*$/.test(line)) {
+                key = line.substr(1).trim();
+                extras[key] = '';
+            } else if (key) {
+                extras[key] += '\n' + line;
+            } else {
+                throw new Error(`Missing key in ${inputFile}`);
+            }
+        }
+        for (const key of Object.keys(extras)) {
+            extras[key] = '<p>' +
+                extras[key].trim().replace(/\s*\n\s*\n\s*/g, '</p>\n<p>') +
+                '</p>';
+        }
     }
     return extras;
 }

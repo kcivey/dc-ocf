@@ -255,6 +255,7 @@ jQuery(function ($) {
     function handleStats(stats) {
         const tableContent = Mustache.render($('#table-content-template').html(), stats);
         $('#stats-table').html(tableContent);
+        transposeTable('#stats-table');
     }
 
     function handleDateData({start, end, contributors}) {
@@ -414,6 +415,40 @@ jQuery(function ($) {
             }
         }
         return state;
+    }
+
+    function transposeTable(table) {
+        $(table).each(function () {
+            const $this = $(this);
+            $this.find('th').each(function () { // strip out markup for rotated heads
+                $(this).removeClass('rotate')
+                    .html($(this).find('span').html());
+            });
+            const newrows = [];
+            $this.find('tr').each(function () {
+                $(this).children().each(function (i) {
+                    if ($(this).hasClass('spacer')) {
+                        return;
+                    }
+                    if (newrows[i] === undefined) {
+                        newrows[i] = $('<tr/>');
+                    }
+                    newrows[i].append(this);
+                });
+            });
+            $this.find('tr').remove();
+            const $tbody = $this.find('tbody');
+            $.each(newrows, function (i) {
+                if (i === 0) {
+                    $(this).find('th').addClass('rotate')
+                        .wrapInner('<div><span></span></div>');
+                    $this.find('thead').append(this);
+                }
+                else {
+                    $tbody.append(this);
+                }
+            });
+        });
     }
 
     function hyphenize(s) {

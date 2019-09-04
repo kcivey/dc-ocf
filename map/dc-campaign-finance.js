@@ -68,7 +68,7 @@ jQuery(function ($) {
                         adjustLayersControl(type);
                     })
                     .on('click', 'input:radio[name=candidate]', setUrlFromForm);
-                $(window).on('popstate', setFormFromUrl);
+                $(window).on('popstate hashchange', setFormFromUrl);
                 return map;
             });
     }
@@ -357,7 +357,7 @@ jQuery(function ($) {
                 window.history.pushState(state, '', newUrl);
             }
             else {
-                window.location.hash = suffix ? '/' + suffix : '';
+                window.location.hash = '/' + suffix;
             }
         }
         return state;
@@ -381,7 +381,8 @@ jQuery(function ($) {
         const yearContestCode = state.electionYear + '-' + state.contest;
         const select = $('#contest-select');
         if (select.val() !== yearContestCode) {
-            $('#contest-select').val(yearContestCode);
+            $('#contest-select').val(yearContestCode)
+                .trigger('change');
         }
         const div = $('.leaflet-control-layers');
         for (const [name, value] of Object.entries(state)) {

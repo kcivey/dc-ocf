@@ -89,7 +89,7 @@ jQuery(function ($) {
     function getContestData() {
         const state = setUrlFromForm();
         const url = `/ocf-${state.electionYear}-${state.contest}.json`;
-        return fetch(url).then(response => response.json());
+        return fetch(url, {cache: 'no-cache'}).then(response => response.json());
     }
 
     function setCandidateColors(points) {

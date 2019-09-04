@@ -114,7 +114,7 @@ async function main() {
 }
 
 async function getDateData(baseFilters, ward) {
-    const candidates = await db.getCandidatesForOffice(baseFilters.office);
+    const lastReportDates = await db.getLastReportDates(baseFilters.office);
     const sets = {
         all: {},
         dc: {state: 'DC'},
@@ -138,7 +138,7 @@ async function getDateData(baseFilters, ward) {
         }
         const runningTotals = {};
         let i = 0;
-        for (const candidate of candidates) {
+        for (const candidate of Object.keys(lastReportDates)) {
             contributors[key][i] = [candidate];
             runningTotals[candidate] = 0;
             i++;
@@ -152,10 +152,12 @@ async function getDateData(baseFilters, ward) {
         while (cursorDate <= endDate) {
             const isoDate = cursorDate.format('YYYY-MM-DD');
             let i = 0;
-            for (const candidate of candidates) {
-                runningTotals[candidate] += +(data[isoDate] && data[isoDate][candidate]) || 0;
-                contributors[key][i].push(runningTotals[candidate]);
-                i++;
+            for (const [candidate, lastReportDate] of Object.entries(lastReportDates)) {
+                if (isoDate <= lastReportDate) {
+                    runningTotals[candidate] += +(data[isoDate] && data[isoDate][candidate]) || 0;
+                    contributors[key][i].push(runningTotals[candidate]);
+                    i++;
+                }
             }
             cursorDate.add(1, 'day');
         }

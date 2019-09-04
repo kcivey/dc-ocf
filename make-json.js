@@ -49,7 +49,7 @@ async function main() {
 
 async function processOffice(office) {
     const codeToHead = {
-        candidate_short_name: 'Candidate',
+        candidate_short_name: '',
         contributions: 'Contributions',
         contributors: 'All contributors',
         dc_contributors: 'DC contributors',

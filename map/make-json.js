@@ -4,19 +4,21 @@ const fs = require('fs');
 const moment = require('moment');
 const argv = require('yargs')
     .options({
-        available: {
-            type: 'boolean',
-            describe: 'make JSON showing what is available',
-        },
         office: {
             type: 'string',
             describe: 'include only offices that match string',
-            required: true,
+            default: '',
             requiredArg: true,
         },
         pretty: {
             type: 'boolean',
             describe: 'pretty-print the JSON',
+        },
+        threshold: {
+            type: 'number',
+            describe: 'include only committees receiving at least threshold',
+            default: 0,
+            requiredArg: true,
         },
     })
     .strict(true)
@@ -28,6 +30,24 @@ main()
     .finally(() => db.close());
 
 async function main() {
+    let offices;
+    if (argv.office) {
+        offices = [await db.getMatchingOffice(argv.office)];
+    }
+    else {
+        offices = await db.getOfficesForReport(argv.threshold);
+    }
+    for (const office of offices) {
+        await processOffice(office);
+    }
+    const outputFile = __dirname + '/available.json';
+    const availableContests = await db.getAvailableContests(argv.threshold);
+    console.warn(`Writing ${outputFile}`);
+    fs.writeFileSync(outputFile, JSON.stringify(availableContests, null, argv.pretty ? 2 : 0));
+}
+
+async function processOffice(office) {
+    console.warn(office);
     const codeToHead = {
         candidate_short_name: 'Candidate',
         contributions: 'Contributions',
@@ -50,7 +70,6 @@ async function main() {
         mean: 'Mean $',
         median: 'Median $',
     };
-    const office = await db.getMatchingOffice(argv.office);
     const m = office.match(/Ward (\d)/);
     const ward = m ? +m[1] : null;
     if (!ward) {
@@ -87,12 +106,8 @@ async function main() {
         placeData: await getPlaceData(argv.office, ward),
     };
     const outputFile = `${__dirname}/ocf-2020-${officeCode}.json`;
+    console.warn(`Writing ${outputFile}`);
     fs.writeFileSync(outputFile, JSON.stringify(data, null, argv.pretty ? 2 : 0));
-    if (argv.available) {
-        const outputFile = __dirname + '/available.json';
-        const availableContests = await db.getAvailableContests();
-        fs.writeFileSync(outputFile, JSON.stringify(availableContests, null, argv.pretty ? 2 : 0));
-    }
 
     function formatRow(row) {
         return columnCodes.map(function (code) {
@@ -116,7 +131,7 @@ async function main() {
 }
 
 async function getDateData(baseFilters, ward) {
-    const lastReportDates = await db.getLastReportDates(baseFilters.office);
+    const lastDeadlines = await db.getLastDeadlines(baseFilters.office);
     const sets = {
         all: {},
         dc: {state: 'DC'},
@@ -140,7 +155,7 @@ async function getDateData(baseFilters, ward) {
         }
         const runningTotals = {};
         let i = 0;
-        for (const candidate of Object.keys(lastReportDates)) {
+        for (const candidate of Object.keys(lastDeadlines)) {
             contributors[key][i] = [candidate];
             runningTotals[candidate] = 0;
             i++;
@@ -154,8 +169,8 @@ async function getDateData(baseFilters, ward) {
         while (cursorDate <= endDate) {
             const isoDate = cursorDate.format('YYYY-MM-DD');
             let i = 0;
-            for (const [candidate, lastReportDate] of Object.entries(lastReportDates)) {
-                if (isoDate <= lastReportDate) {
+            for (const [candidate, lastDeadline] of Object.entries(lastDeadlines)) {
+                if (isoDate <= lastDeadline) {
                     runningTotals[candidate] += +(data[isoDate] && data[isoDate][candidate]) || 0;
                     contributors[key][i].push(runningTotals[candidate]);
                     i++;

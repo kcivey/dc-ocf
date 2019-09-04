@@ -54,13 +54,16 @@ async function processOffice(office) {
         contributors: 'All contributors',
         dc_contributors: 'DC contributors',
         ward_contributors: 'Ward contributors',
+        candidate_contributors: 'Candidate/Family contributors',
         // dc_ind_contributors: 'DC ind. contributors',
         // ward_ind_contributors: 'Ward ind. contributors',
         amount: 'All $',
         dc_amount: 'DC $',
         ward_amount: 'Ward $',
         candidate_amount: 'Candidate/Family $',
-        fair_elections_total: 'Projected $ w/ Fair Elections',
+        amount_to_refund: '$ to Refund',
+        fair_elections_addition: 'Projected $ from Fair Elections',
+        fair_elections_total: 'Projected Total $',
         // ind_amount: 'Individual $',
         // dc_ind_amount: 'DC individual $',
         // ward_ind_amount: 'Ward individual $',
@@ -82,7 +85,7 @@ async function processOffice(office) {
     const columnHeads = Object.values(codeToHead);
     const columnCodes = Object.keys(codeToHead);
     const filters = {office};
-    const stats = await db.getContributionStats({filters, ward});
+    const stats = await db.getContributionStats({filters});
     const minMax = {};
     for (const code of columnCodes) {
         if (code !== 'candidate_short_name') {

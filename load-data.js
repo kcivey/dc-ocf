@@ -18,7 +18,8 @@ function main() {
         .then(() => loadRecords(db.expenditureTableName, db.expenditureColumns))
         .then(() => db.addDummyContributions())
         .then(() => db.createCommitteeExtraRecords())
-        .then(() => db.runFixes());
+        .then(() => db.runFixes())
+        .then(() => db.setOcfLimits());
 }
 
 function loadRecords(tableName, columns) {

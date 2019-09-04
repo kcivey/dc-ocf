@@ -8,12 +8,12 @@ const inputFile = process.argv[2];
 
 if (!inputFile) {
     console.error('Input filename must be provided');
-    process.exit();
+    process.exit(1);
 }
 
 main()
     .then(() => console.warn('Finished'))
-    .catch(console.error)
+    .catch(console.trace)
     .finally(() => db.close())
     .finally(() => process.exit());
 
@@ -25,6 +25,7 @@ async function main() {
     await db.addDummyContributions();
     console.warn('Running fixes');
     await db.runFixes();
+    await db.setOcfLimits();
 }
 
 async function processFile(inputFile) {

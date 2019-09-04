@@ -110,6 +110,8 @@ jQuery(function ($) {
             }
         }
         $('.ward-specific').toggle(!!ward);
+        $('.container-fluid').css('visibility', 'visible');
+        $('#loader').hide();
     }
 
     function setCandidateColors(points) {

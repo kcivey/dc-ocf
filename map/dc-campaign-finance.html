@@ -123,10 +123,19 @@
       background-color: #eee;
       padding: 1rem;
     }
+    #loader{
+      display: block;
+      font-size: 1000%;
+      text-align: center;
+      color: #bf0000;
+      padding: 3rem;
+      opacity: 0.6;
+    }
   </style>
 </head>
 <body>
-<div class="container-fluid">
+<div id="loader" class="fas fa-spinner fa-pulse"></div>
+<div class="container-fluid" style="visibility: hidden">
   <div class="row">
     <div class="col-12">
       <div class="float-right">

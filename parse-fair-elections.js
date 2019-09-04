@@ -29,6 +29,11 @@ async function main() {
 
 async function processFile(inputFile) {
     const docText = await getPdfText(inputFile);
+    const m = docText.match(/Covering Period \d\d\/\d\d\/\d{4} through (\d\d)\/(\d\d)\/(\d{4})/);
+    if (!m) {
+        throw new Error(`Missing deadline in ${inputFile}`);
+    }
+    const deadline = m[3] + '-' + m[1] + '-' + m[2];
     const rowsBySchedule = {};
     let prevSchedule;
     let committeeName;
@@ -62,6 +67,15 @@ async function processFile(inputFile) {
             rowsBySchedule[schedule].push(row);
         }
     }
+    const committee = await db.getCommittee(committeeName);
+    if (!committee) {
+        throw new Error(`No committee record for "${committeeName}"`);
+    }
+    if (committee.is_fair_elections === null) {
+        throw new Error(`No committee extra record for "${committeeName}"`);
+    }
+    console.log('Updating committee info');
+    await db.updateCommitteeExtra(committeeName, {is_fair_elections: true, last_deadline: deadline});
     console.warn(`Deleting records for ${committeeName}`);
     await db.deleteContributions(committeeName);
     await db.deleteExpenditures(committeeName);

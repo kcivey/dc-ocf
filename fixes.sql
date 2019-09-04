@@ -56,6 +56,5 @@ UPDATE contributions SET contributor_middle_name = 'Levin' WHERE number_and_stre
 UPDATE contributions SET contributor_middle_name = 'L' WHERE number_and_street LIKE '916 Spruce%' AND contributor_last_name = 'Benjamin' AND contributor_first_name = 'Michael';
 UPDATE contributions SET contributor_last_name = 'Teutsch' WHERE contributor_last_name = 'Teutsh';
 
-INSERT OR IGNORE INTO committee_extras SELECT committee_name, NULL FROM committees;
-UPDATE committee_extras SET last_report_date = '2019-07-31';
-UPDATE committee_extras SET last_report_date = '2019-08-31' where committee_name LIKE '%Lewis George%';
+UPDATE committee_extras SET last_deadline = '2019-08-31' WHERE committee_name LIKE '%Lewis George%' AND last_deadline IS NULL;
+UPDATE committee_extras SET last_deadline = '2019-07-31' WHERE last_deadline IS NULL;

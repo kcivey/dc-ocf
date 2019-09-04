@@ -81,7 +81,7 @@ async function processOffice(office) {
     }
     const columnHeads = Object.values(codeToHead);
     const columnCodes = Object.keys(codeToHead);
-    const filters = {office: argv.office};
+    const filters = {office};
     const stats = await db.getContributionStats({filters, ward});
     const minMax = {};
     for (const code of columnCodes) {

@@ -93,22 +93,22 @@ jQuery(function ($) {
         return fetch(url, {cache: 'no-cache'}).then(response => response.json());
     }
 
-
     function adjustPageText({ward, contest, extras, updated}) {
         const title = 'DC Campaign Contributions<br>' +
             $('#contest-select').find('option:selected').text().trim();
         $('h1').html(title);
         $('title').text(title.replace('<br>', ' '));
         $('#updated').text(updated);
-        for (const [section, extra] of Object.entries(extras)) {
-            const div = $('#extra-' + section);
-            if (extra) {
-                div.html(extra).show();
+        $('.extra').each(function () {
+            const div = $(this);
+            const key = div.attr('id').replace('extra-', '');
+            if (extras[key]) {
+                div.html(extras[key]).show();
             }
             else {
-                div.hide();
+                div.html('').hide();
             }
-        }
+        });
         $('.ward-specific').toggle(!!ward);
         $('.container-fluid').css('visibility', 'visible');
         $('#loader').hide();

@@ -297,7 +297,7 @@ function getExtras(officeCode) {
     try {
         text = fs.readFileSync(inputFile, 'utf8').trim();
     }
-    catch {
+    catch (err) {
         text = '';
     }
     const extras = {};

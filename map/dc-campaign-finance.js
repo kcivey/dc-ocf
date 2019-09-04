@@ -255,7 +255,7 @@ jQuery(function ($) {
     function handleStats(stats) {
         const tableContent = Mustache.render($('#table-content-template').html(), stats);
         $('#stats-table').html(tableContent);
-        // transposeTable('#stats-table');
+        transposeTable('#stats-table');
         adjustTableForRotatedHeads('#stats-table');
     }
 
@@ -461,7 +461,7 @@ jQuery(function ($) {
             const rad = 45 * Math.PI / 180;
             const sin = Math.sin(rad);
             const cos = Math.cos(rad);
-            const actualWidth  = Math.abs(width * cos) + Math.abs(height * sin);
+            const actualWidth = Math.abs(width * cos) + Math.abs(height * sin);
             const actualHeight = Math.abs(width * sin) + Math.abs(height * cos);
             if (actualHeight > headHeight) {
                 headHeight = actualHeight;

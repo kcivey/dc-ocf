@@ -307,9 +307,11 @@ function getExtras(officeCode) {
             if (/^=(\w+)\s*$/.test(line)) {
                 key = line.substr(1).trim();
                 extras[key] = '';
-            } else if (key) {
+            }
+            else if (key) {
                 extras[key] += '\n' + line;
-            } else {
+            }
+            else {
                 throw new Error(`Missing key in ${inputFile}`);
             }
         }

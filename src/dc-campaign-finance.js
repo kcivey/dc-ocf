@@ -18,6 +18,7 @@ jQuery(function ($) {
     let candidateColors = {};
 
     setUpSelect()
+        .then(getWardLayer)
         .then(setUpBaseMap)
         .then(setFormFromUrl)
         .then(loadContest);
@@ -55,32 +56,29 @@ jQuery(function ($) {
             });
     }
 
-    function setUpBaseMap() {
-        return getWardLayer()
-            .then(function (wardLayer) {
-                map = L.map('map', {zoomSnap: 0.5, scrollWheelZoom: false});
-                L.tileLayer('https://{s}.tiles.mapbox.com/v3/kcivey.i8d7ca3k/{z}/{x}/{y}.png', {
-                    attribution: '© <a href="https://www.mapbox.com/about/maps/">Mapbox</a> ' +
-                        '© <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> ' +
-                        '<strong><a href="https://www.mapbox.com/map-feedback/" target="_blank">' +
-                        'Improve this map</a></strong>',
-                    opacity: 0.5,
-                }).addTo(map);
-                const layersControl = L.control.layers(null, [], {collapsed: false});
-                map.__layersControl = layersControl.addTo(map);
-                $('#layers-control').append(layersControl.getContainer());
-                map.addLayer(wardLayer);
-                map.fitBounds(wardLayer.getBounds());
-                $('.leaflet-control-layers')
-                    .on('click', 'input:radio[name=mapType]', function (evt) {
-                        setUrlFromForm();
-                        const type = $(evt.target).val().replace(/-/g, ' '); // ugh
-                        adjustLayersControl(type);
-                    })
-                    .on('click', 'input:radio[name=candidate]', setUrlFromForm);
-                $(window).on('popstate hashchange', setFormFromUrl);
-                return map;
-            });
+    function setUpBaseMap(wardLayer) {
+        map = L.map('map', {zoomSnap: 0.5, scrollWheelZoom: false});
+        L.tileLayer('https://{s}.tiles.mapbox.com/v3/kcivey.i8d7ca3k/{z}/{x}/{y}.png', {
+            attribution: '© <a href="https://www.mapbox.com/about/maps/">Mapbox</a> ' +
+                '© <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> ' +
+                '<strong><a href="https://www.mapbox.com/map-feedback/" target="_blank">' +
+                'Improve this map</a></strong>',
+            opacity: 0.5,
+        }).addTo(map);
+        const layersControl = L.control.layers(null, [], {collapsed: false});
+        map.__layersControl = layersControl.addTo(map);
+        $('#layers-control').append(layersControl.getContainer());
+        map.addLayer(wardLayer);
+        map.fitBounds(wardLayer.getBounds());
+        $('.leaflet-control-layers')
+            .on('click', 'input:radio[name=mapType]', function (evt) {
+                setUrlFromForm();
+                const type = $(evt.target).val().replace(/-/g, ' '); // ugh
+                adjustLayersControl(type);
+            })
+            .on('click', 'input:radio[name=candidate]', setUrlFromForm);
+        $(window).on('popstate hashchange', setFormFromUrl);
+        return map;
     }
 
     function getWardLayer() {

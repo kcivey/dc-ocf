@@ -78,13 +78,18 @@ jQuery(function ($) {
             })
             .on('click', 'input:radio[name=candidate]', setUrlFromForm);
         $(window).on('popstate hashchange', setFormFromUrl);
-        let pendingViewportEvent = false;
-        if (window.visualViewport) {
-            window.visualViewport.addEventListener('scroll', viewportHandler);
-            window.visualViewport.addEventListener('resize', viewportHandler);
-            window.addEventListener('scroll', viewportHandler);
-        }
+        setUpViewportHandler();
         return map;
+    }
+
+    function setUpViewportHandler(map) {
+        if (!window.visualViewport || L.Browser.touch) {
+            return;
+        }
+        let pendingViewportEvent = false;
+        window.visualViewport.addEventListener('scroll', viewportHandler);
+        window.visualViewport.addEventListener('resize', viewportHandler);
+        window.addEventListener('scroll', viewportHandler);
 
         function viewportHandler() {
             // If the page is too zoomed in only mobile, the map can fill the viewport,
@@ -96,10 +101,12 @@ jQuery(function ($) {
             pendingViewportEvent = true;
             const viewport = window.visualViewport;
             const mapBBox = map.getContainer().getBoundingClientRect();
-            if (mapBBox.left <= viewport.offsetLeft &&
-                mapBBox.top <= viewport.offsetTop &&
-                mapBBox.right >= viewport.offsetLeft + viewport.width &&
-                mapBBox.bottom >= viewport.offsetTop + viewport.height) {
+            // Scroll to top if map takes up whole viewport or almost all
+            const padding = 20;
+            if (mapBBox.left - padding <= viewport.offsetLeft &&
+                mapBBox.top - padding <= viewport.offsetTop &&
+                mapBBox.right + padding >= viewport.offsetLeft + viewport.width &&
+                mapBBox.bottom + padding >= viewport.offsetTop + viewport.height) {
                 window.scroll(0, 0);
             }
             setTimeout(() => pendingViewportEvent = false, 0);

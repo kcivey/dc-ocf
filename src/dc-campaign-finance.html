@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title></title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css" integrity="sha256-SHMGCYmST46SoyGgo4YR/9AlK1vf3ff84Aq9yK4hdqM=" crossorigin="anonymous" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/MarkerCluster.css" integrity="sha256-+bdWuWOXMFkX0v9Cvr3OWClPiYefDQz9GGZP/7xZxdc=" crossorigin="anonymous" />
@@ -13,14 +14,19 @@
     #map {
       height: 70vh;
       resize: both;
-      min-width: 600px;
+    }
+    #map-container {
+      padding-right: 6px;
+    }
+    #layers-control {
+      padding-left: 0;
     }
     @media (orientation: portrait) {
       #map { height: 50vh; }
     }
     .leaflet-control-layers {
       font-weight: bold;
-      font-size: 1rem;
+      font-size: 0.8rem;
     }
     .leaflet-container .leaflet-control-attribution {
       padding-right: 16px; /* make room for resize control */
@@ -172,7 +178,12 @@
       <div id="extra-map" class="extra"></div>
     </div>
     <div class="col-xl-8 col-12">
-      <div id="map"></div>
+      <div class="row">
+        <div id="map-container" class="col">
+          <div id="map"></div>
+        </div>
+        <div id="layers-control" class="col-auto"></div>
+      </div>
     </div>
     <div class="col-12">
       <h2 id="stats"><a href="#stats">Contribution Statistics</a></h2>

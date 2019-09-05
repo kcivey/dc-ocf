@@ -64,8 +64,9 @@ jQuery(function ($) {
                         'Improve this map</a></strong>',
                     opacity: 0.5,
                 }).addTo(map);
-                map.__layersControl = L.control.layers(null, [], {collapsed: false})
-                    .addTo(map);
+                const layersControl = L.control.layers(null, [], {collapsed: false});
+                map.__layersControl = layersControl.addTo(map);
+                $('#layers-control').append(layersControl.getContainer());
                 map.addLayer(wardLayer);
                 map.fitBounds(wardLayer.getBounds());
                 $('.leaflet-control-layers')

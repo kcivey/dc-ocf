@@ -48,27 +48,81 @@ async function main() {
 }
 
 async function processOffice(office) {
-    const codeToHead = {
-        candidate_short_name: '',
-        contributions: 'Contributions',
-        mean: 'Mean $',
-        median: 'Median $',
-        contributors: 'All contributors',
-        dc_contributors: 'DC contributors',
-        ward_contributors: 'Ward contributors',
-        candidate_contributors: 'Candidate/family contributors',
+    const columnDefs = {
+        candidate_short_name: {
+            head: '',
+            title: '',
+        },
+        contributions: {
+            head: 'Contributions',
+            title: 'Will be higher than the number of contributors if some people gave more than once',
+        },
+        mean: {
+            head: 'Mean $',
+            title: 'Mean contribution (combining all contributions for each contributor)',
+        },
+        median: {
+            head: 'Median $',
+            title: 'Median contribution (combining all contributions for each contributor)',
+        },
+        contributors: {
+            head: 'All contributors',
+            title: 'Number of entities who gave',
+        },
+        dc_contributors: {
+            head: 'DC contributors',
+            title: 'Contributors who live in DC',
+        },
+        ward_contributors: {
+            head: 'Ward contributors',
+            title: 'Contributors who live in the ward',
+        },
+        candidate_contributors: {
+            head: 'Candidate/family contributors',
+            title: 'Contributors who are the candidate or (under Fair Elections) family',
+        },
+        amount: {
+            head: 'All $',
+            title: 'Total amount contributed',
+        },
+        dc_amount: {
+            head: 'DC $',
+            title: 'Amount contributed from DC',
+        },
+        ward_amount: {
+            head: 'Ward $',
+            title: 'Amount contributed from the ward',
+        },
+        candidate_amount: {
+            head: 'Candidate/family $',
+            title: 'Amount contributed by the candidate or (under Fair Elections) family',
+        },
+        dc_percent: {
+            head: 'DC % of $',
+            title: 'Percent of the total amount that came from DC',
+        },
+        ward_percent: {
+            head: 'Ward % of $',
+            title: 'Percent of the total amount that came from the ward',
+        },
+        candidate_percent: {
+            head: 'Candidate/family % of $',
+            title: 'Percent of the total amount that came from the candidate or (under Fair Elections) family',
+        },
+        amount_to_refund: {
+            head: '$ to Refund',
+            title: 'Amount that still needs to be refunded (from contributions higher than the limit)',
+        },
+        fair_elections_addition: {
+            head: 'Projected $ from Fair Elections',
+            title: 'Amount of public money a Fair Elections candidate could expect based on current contributions',
+        },
+        fair_elections_total: {
+            head: 'Projected total $',
+            title: 'Total amount minus future refunds plus projected Fair Elections money',
+        },
         // dc_ind_contributors: 'DC ind. contributors',
         // ward_ind_contributors: 'Ward ind. contributors',
-        amount: 'All $',
-        dc_amount: 'DC $',
-        ward_amount: 'Ward $',
-        candidate_amount: 'Candidate/family $',
-        dc_percent: 'DC % of $',
-        ward_percent: 'Ward % of $',
-        candidate_percent: 'Candidate/family % of $',
-        amount_to_refund: '$ to Refund',
-        fair_elections_addition: 'Projected $ from Fair Elections',
-        fair_elections_total: 'Projected total $',
         // ind_amount: 'Individual $',
         // dc_ind_amount: 'DC individual $',
         // ward_ind_amount: 'Ward individual $',
@@ -76,14 +130,14 @@ async function processOffice(office) {
     const m = office.match(/Ward (\d)/);
     const ward = m ? +m[1] : null;
     if (!ward) {
-        for (const key of Object.keys(codeToHead)) {
+        for (const key of Object.keys(columnDefs)) {
             if (/^ward_/.test(key)) {
-                delete codeToHead[key];
+                delete columnDefs[key];
             }
         }
     }
-    const columnHeads = Object.values(codeToHead);
-    const columnCodes = Object.keys(codeToHead);
+    const columnHeads = Object.values(columnDefs);
+    const columnCodes = Object.keys(columnDefs);
     const filters = {office};
     const stats = await db.getContributionStats({filters});
     const minMax = {};

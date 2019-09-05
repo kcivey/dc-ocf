@@ -298,7 +298,8 @@ jQuery(function ($) {
 
     function handleStats(stats) {
         const tableContent = Mustache.render($('#table-content-template').html(), stats);
-        $('#stats-table').html(tableContent);
+        $('#stats-table').html(tableContent)
+            .find('th[title]').tooltip({container: 'body', boundary: 'viewport'});
         transposeTable('#stats-table');
         adjustTableForRotatedHeads('#stats-table');
     }

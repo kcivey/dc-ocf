@@ -16,16 +16,18 @@ jQuery(function ($) {
     let map;
     let candidateLayers = {};
     let candidateColors = {};
+    let setFormFromUrlBeingCalled = false; // kluge
 
     setUpSelect()
         .then(getWardLayer)
         .then(setUpBaseMap)
-        .then(setFormFromUrl)
         .then(loadContest);
 
-    function loadContest() {
-        setUrlFromForm();
-        $('.leaflet-control-layers input:radio').prop('checked', false);
+    function loadContest(evt) {
+        if (evt && evt.target) { // called as an event handler
+            $('#layers-control').find('input').prop('checked', false);
+            setUrlFromForm();
+        }
         return getContestData()
             .then(function (data) {
                 adjustPageText(data);
@@ -34,12 +36,12 @@ jQuery(function ($) {
                 handleStats(data.stats);
                 handleDateData(data.dateData);
                 handlePlaceData(data.placeData);
+                $('#contest-select').on('change', loadContest);
             });
     }
 
     function setUpSelect() {
-        const select = $('#contest-select')
-            .on('change', loadContest);
+        const select = $('#contest-select');
         const state = getStateFromUrl();
         return $.getJSON('/available.json')
             .then(function (contestsByYear) {
@@ -67,19 +69,20 @@ jQuery(function ($) {
         }).addTo(map);
         const layersControl = L.control.layers(null, [], {collapsed: false});
         map.__layersControl = layersControl.addTo(map);
-        $('#layers-control').append(layersControl.getContainer());
+        $('#layers-control').append(layersControl.getContainer())
+            .on('click', 'input:radio[name=mapType]', mapTypeHandler)
+            .on('click', 'input:radio[name=candidate]', setUrlFromForm);
         map.addLayer(wardLayer);
         map.fitBounds(wardLayer.getBounds());
-        $('.leaflet-control-layers')
-            .on('click', 'input:radio[name=mapType]', function (evt) {
-                setUrlFromForm();
-                const type = $(evt.target).val().replace(/-/g, ' '); // ugh
-                adjustLayersControl(type);
-            })
-            .on('click', 'input:radio[name=candidate]', setUrlFromForm);
         $(window).on('popstate hashchange', setFormFromUrl);
         setUpViewportHandler();
         return map;
+    }
+
+    function mapTypeHandler(evt) {
+        setUrlFromForm();
+        const type = $(evt.target).val().replace(/-/g, ' '); // ugh
+        adjustLayersControl(type);
     }
 
     function setUpViewportHandler(map) {
@@ -217,11 +220,12 @@ jQuery(function ($) {
             candidateLayers['clusters'][allLabel].addLayer(clusterLayer);
             candidateLayers['heat map'][candidate] = L.heatLayer(pointsForHeatMap, heatMapOptions);
         });
-        const state = setFormFromUrl();
+        const state = getStateFromUrl();
         const candidate = Object.keys(candidateLayers['points'])
             .find(name => hyphenize(name) === state.candidate); // ugh
         const mapType = state.mapType.replace(/-/g, ' '); // also ugh
         adjustLayersControl(mapType, candidate);
+        setFormFromUrl();
     }
 
     function removeLayersFromControl() {
@@ -446,22 +450,22 @@ jQuery(function ($) {
 
     function setFormFromUrl() {
         const state = getStateFromUrl();
-        const yearContestCode = state.electionYear + '-' + state.contest;
-        const select = $('#contest-select');
-        const triggers = [];
-        if (select.val() !== yearContestCode) {
-            const select = $('#contest-select').val(yearContestCode);
-            triggers.push(() => select.trigger('change'));
-        }
-        const div = $('.leaflet-control-layers');
-        $.each(state, function (name, value) {
-            const input = div.find(`input[name="${name}"][value="${value}"]`);
-            if (input.length && !input.prop('checked')) {
-                triggers.push(() => input.trigger('click'));
+        if (!setFormFromUrlBeingCalled) {
+            setFormFromUrlBeingCalled = true;
+            const yearContestCode = state.electionYear + '-' + state.contest;
+            const select = $('#contest-select');
+            if (select.val() !== yearContestCode) {
+                select.val(yearContestCode)
+                    .trigger('change');
             }
-        });
-        for (const trigger of triggers) {
-            trigger();
+            const div = $('#layers-control');
+            $.each(state, function (name, value) {
+                const input = div.find(`input[name="${name}"][value="${value}"]`);
+                if (input.length && !input.prop('checked')) {
+                    input.trigger('click');
+                }
+            });
+            setFormFromUrlBeingCalled = false;
         }
         return state;
     }

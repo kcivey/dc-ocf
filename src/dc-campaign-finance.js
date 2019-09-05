@@ -19,9 +19,11 @@ jQuery(function ($) {
 
     setUpSelect()
         .then(setUpBaseMap)
+        .then(setFormFromUrl)
         .then(loadContest);
 
     function loadContest() {
+        setUrlFromForm();
         $('.leaflet-control-layers input:radio').prop('checked', false);
         return getContestData()
             .then(function (data) {
@@ -94,7 +96,7 @@ jQuery(function ($) {
     }
 
     function getContestData() {
-        const state = setUrlFromForm();
+        const state = getStateFromUrl();
         const url = `/ocf-${state.electionYear}-${state.contest}.json`;
         return $.getJSON(url);
     }
@@ -416,17 +418,21 @@ jQuery(function ($) {
         const state = getStateFromUrl();
         const yearContestCode = state.electionYear + '-' + state.contest;
         const select = $('#contest-select');
+        const triggers = [];
         if (select.val() !== yearContestCode) {
-            $('#contest-select').val(yearContestCode)
-                .trigger('change');
+            const select = $('#contest-select').val(yearContestCode);
+            triggers.push(() => select.trigger('change'));
         }
         const div = $('.leaflet-control-layers');
         $.each(state, function (name, value) {
             const input = div.find(`input[name="${name}"][value="${value}"]`);
             if (input.length && !input.prop('checked')) {
-                input.trigger('click');
+                triggers.push(() => input.trigger('click'));
             }
         });
+        for (const trigger of triggers) {
+            trigger();
+        }
         return state;
     }
 

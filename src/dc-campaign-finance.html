@@ -143,6 +143,9 @@
     .loader.light {
       opacity: 0.3;
     }
+    .citywide-specific {
+      display: none;
+    }
   </style>
 </head>
 <body>
@@ -189,43 +192,49 @@
     <div class="col-12">
       <h2 id="stats"><a href="#stats">Contribution Statistics</a></h2>
     </div>
-    <div class="explanation columns col-xl-4 col-12">
+    <div class="explanation columns col-md-4 col-12">
       <p>
         This table is the only part of the analysis that includes amounts of money raised.
-        The first column after the candidate name is the total number of contributions made (which is higher than
-        the number of contributors because some people gave more than once).
-      </p>
-      <p>
-        The next two columns are the number of individual contributors in total and the number who live in DC.
-        <span class="ward-specific">After that is the number who live in the ward.</span>
-        There may be a small number of contributors who are double-counted because they gave twice under different
-        variations of their name or address, though I did try to standardize addresses to avoid that.
-        The next columns are the amount of money given by those categories of contributors, plus another
-        column for the amount given by the candidate and (for Fair Elections candidates) family members.
-      </p>
-      <p>
-        Next comes a calculation of the total amount the candidate would eventually have once the base grant and
-        matching funds (for what's been raised so far) from the Fair Elections Act are included.
-        For candidates who are not using the Fair Elections system, this is the same as the total raised.
-      </p>
-      <p>
-        The next columns show the percentage of the money given by the various categories of contributors.
-        The last two columns are the mean and median of the contributions (combining all contributions for each
+        The "Contributions" row shows the total number of contributions made (which is higher than
+        the number of contributors if some people gave more than once).
+        Then come the mean and median of the contributions (combining all contributions for a
         contributor).
       </p>
       <p>
-        For Fair Elections candidates, candidate and family contributions are defined for this analysis as those
-        that are not matched and have a higher limit.
-        Some candidates and family members gave $50 or less and are matched like any other contribution.
+        The next <span class="ward-specific">three</span><span class="citywide-specific">four</span> rows
+        are the number of individual contributors in total, the number who live in DC.
+        <span class="ward-specific">the number who live in the ward,</span>
+        and the number who are the candidate or family.
+        A small number of contributors may be double-counted because they gave twice under different
+        variations of their name or address, though I did try to standardize addresses to avoid that.
+        The next <span class="ward-specific">three</span><span class="citywide-specific">four</span> rows
+        are the amount of money given by those categories of contributors,
+        and the next <span class="ward-specific">two</span><span class="citywide-specific">three</span>
+        are what percentage of the total amount those represent ("All" is omitted because it's 100%).
       </p>
       <p>
-        In each column, the lowest number is highlighted in yellow and the highest in blue; which one of those is
-        good or bad depends on the column.
+        Next comes the amount the candidate still needs to refund: the total of any money contributors gave
+        that exceeded the contribution limits.
+        Then there's a calculation of the total amount the candidate would eventually get from public money
+        once the base grant and matching funds (for what's been raised so far) from the Fair Elections Act
+        are included.
+        This calculation assumes that anyone who has met the requirements for the funds will be approved
+        for them and make it onto the ballot.
+        For candidates who are not using the Fair Elections program, this is the same as the total raised.
+      </p>
+      <p>
+        For Fair Elections candidates, candidate and family contributions for this analysis are only those
+        that are not matched and have a higher limit.
+        Some candidates and family members gave $50 or less, and those contributions are matched like any other.
+      </p>
+      <p>
+        In each row, the lowest number is highlighted in yellow and the highest in blue; which one of those is
+        good or bad depends on the row.
       </p>
       <div id="extra-stats" class="extra">
       </div>
     </div>
-    <div class="col-xl-8 col-12">
+    <div class="col-md-8 col-12">
       <div class="table-scroller">
         <table id="stats-table" class="table"></table>
       </div>

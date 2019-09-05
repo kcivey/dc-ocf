@@ -375,13 +375,18 @@ jQuery(function ($) {
         const currentUrl = window.location.href;
         const currentHash = window.location.hash;
         const baseUrl = currentUrl.replace(/^(https?:\/\/[^/]+\/[^\/#]+).*/, '$1');
-        const usePushState = window.history.pushState && !/localhost/.test(baseUrl);
+        const usePushState = window.history && window.history.pushState && !/localhost/.test(baseUrl);
         let newUrl = baseUrl;
         if (usePushState) {
-            newUrl += (suffix ? '/' + suffix : '') + (currentHash ? '#' + currentHash : '');
+            if (suffix) {
+                newUrl += '/' + suffix;
+            }
+            if (currentHash && !currentHash.includes('/')) {
+                newUrl += '#' + currentHash;
+            }
         }
-        else {
-            newUrl += (suffix ? '#/' + suffix : '');
+        else if (suffix) {
+            newUrl += '#/' + suffix;
         }
         if (newUrl !== currentUrl) {
             if (usePushState) {

@@ -78,7 +78,32 @@ jQuery(function ($) {
             })
             .on('click', 'input:radio[name=candidate]', setUrlFromForm);
         $(window).on('popstate hashchange', setFormFromUrl);
+        let pendingViewportEvent = false;
+        if (window.visualViewport) {
+            window.visualViewport.addEventListener('scroll', viewportHandler);
+            window.visualViewport.addEventListener('resize', viewportHandler);
+            window.addEventListener('scroll', viewportHandler);
+        }
         return map;
+
+        function viewportHandler() {
+            // If the page is too zoomed in only mobile, the map can fill the viewport,
+            // which makes it impossible to zoom or scroll the page. This should
+            // prevent that. It depends on a visualViewport polyfill.
+            if (pendingViewportEvent) {
+                return;
+            }
+            pendingViewportEvent = true;
+            const viewport = window.visualViewport;
+            const mapBBox = map.getContainer().getBoundingClientRect();
+            if (mapBBox.left <= viewport.offsetLeft &&
+                mapBBox.top <= viewport.offsetTop &&
+                mapBBox.right >= viewport.offsetLeft + viewport.width &&
+                mapBBox.bottom >= viewport.offsetTop + viewport.height) {
+                window.scroll(0, 0);
+            }
+            setTimeout(() => pendingViewportEvent = false, 0);
+        }
     }
 
     function getWardLayer() {

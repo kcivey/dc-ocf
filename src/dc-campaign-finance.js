@@ -317,6 +317,16 @@ jQuery(function ($) {
         }
         $('.ward-specific').toggle(!!contributors.ward);
         $.each(contributors, function (key, columns) {
+            for (const column of columns) {
+                // change initial 0s to null so they don't show on chart
+                let i = 1;
+                while (column[i] === 0) {
+                    if (column[i + 1] === 0) {
+                        column[i] = null;
+                    }
+                    i++;
+                }
+            }
             columns.unshift(dateColumn);
             c3.generate({
                 bindto: '#date-chart-' + key,

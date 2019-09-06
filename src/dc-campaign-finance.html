@@ -21,6 +21,9 @@
     #layers-control {
       padding-left: 0;
     }
+    #contest-select {
+      margin-bottom: 1rem;
+    }
     @media (orientation: portrait) {
       #map { height: 50vh; }
     }
@@ -96,6 +99,8 @@
       columns: 2 20rem;
       column-fill: balance;
       column-gap: 2rem;
+      widows: 2;
+      orphans: 2;
     }
     .aspect-ratio {
       position: relative;
@@ -154,13 +159,13 @@
 <div class="container-fluid" style="visibility: hidden">
   <div class="row">
     <div class="col-12">
+      <div>
+        <label for="contest-select"><b>Select a contest:</b></label>
+        <select id="contest-select"></select>
+      </div>
       <h1></h1>
       <div class="byline">
         Keith C. Ivey (updated <span id="updated"></span>)
-      </div>
-      <div class="float-right">
-        <label for="contest-select"><b>Select a contest:</b></label><br>
-        <select id="contest-select"></select>
       </div>
       <div class="explanation">
         <div id="extra-overall" class="extra columns"></div>

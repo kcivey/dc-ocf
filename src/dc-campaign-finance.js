@@ -301,7 +301,6 @@ jQuery(function ($) {
         const tableContent = Mustache.render($('#table-content-template').html(), stats);
         $('#stats-table').html(tableContent)
             .find('th[title]').tooltip({container: 'body', boundary: 'viewport'});
-        transposeTable('#stats-table');
         adjustTableForRotatedHeads('#stats-table');
     }
 
@@ -471,36 +470,6 @@ jQuery(function ($) {
             setFormFromUrlBeingCalled = false;
         }
         return state;
-    }
-
-    function transposeTable(table) {
-        const $table = $(table);
-        $table.find('th').each(function () { // strip out markup for rotated heads
-            $(this).removeClass('rotate')
-                .html($(this).find('span').html());
-        });
-        const newrows = [];
-        $table.find('tr').each(function () {
-            $(this).children().each(function (i) {
-                if ($(this).hasClass('spacer')) {
-                    return;
-                }
-                if (newrows[i] === undefined) {
-                    newrows[i] = $('<tr/>');
-                }
-                newrows[i].append(this);
-            });
-        });
-        $table.find('tr').remove();
-        const $tbody = $table.find('tbody');
-        $.each(newrows, function (i) {
-            if (i === 0) {
-                $table.find('thead').append(this);
-            }
-            else {
-                $tbody.append(this);
-            }
-        });
     }
 
     function adjustTableForRotatedHeads(table) {

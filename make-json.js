@@ -27,7 +27,10 @@ const db = require('./lib/db');
 const outputDir = __dirname + '/src';
 
 main()
-    .catch(console.trace)
+    .catch(function (err) {
+        console.trace(err);
+        process.exit(1);
+    })
     .finally(() => db.close());
 
 async function main() {
@@ -48,7 +51,7 @@ async function main() {
 }
 
 async function processOffice(office) {
-    const columnDefs = {
+    const rowDefs = {
         candidate_short_name: {
             head: '',
             title: '',
@@ -161,36 +164,37 @@ async function processOffice(office) {
     const m = office.match(/Ward (\d)/);
     const ward = m ? +m[1] : null;
     if (!ward) {
-        for (const key of Object.keys(columnDefs)) {
+        for (const key of Object.keys(rowDefs)) {
             if (/^ward_/.test(key)) {
-                delete columnDefs[key];
+                delete rowDefs[key];
             }
         }
     }
     const allFairElections = await db.areAllCandidatesFairElections(office);
     if (allFairElections) {
         // Rows for individuals are redundant if all candidates can take money only from individuals
-        for (const key of Object.keys(columnDefs)) {
+        for (const key of Object.keys(rowDefs)) {
             if (/^ind_/.test(key)) {
-                delete columnDefs[key];
+                delete rowDefs[key];
             }
         }
     }
-    const columnHeads = Object.values(columnDefs);
-    const columnCodes = Object.keys(columnDefs);
     const filters = {office};
     const stats = await db.getContributionStats({filters});
+    const columnHeads = [''].concat(stats.map(row => row.candidate_short_name));
+    const rowCodes = Object.keys(rowDefs).slice(1); // skip candidate name
     const minMax = {};
-    for (const code of columnCodes) {
-        if (code !== 'candidate_short_name') {
-            const values = stats.map(row => row[code]);
-            minMax[code] = {
-                min: Math.min(...values),
-                max: Math.max(...values),
-            };
-        }
+    for (const code of rowCodes) {
+        const values = stats.map(row => row[code]);
+        minMax[code] = {
+            min: Math.min(...values),
+            max: Math.max(...values),
+        };
     }
-    const tableData = stats.map(formatRow);
+    const tableData = rowCodes.map(code => [rowDefs[code]]);
+    for (const row of stats) {
+        rowCodes.forEach((code, i) => tableData[i].push(formatCell(row[code], code)));
+    }
     const officeCode = hyphenize(office);
     const data = {
         updated: new Date().toLocaleDateString('en-US', {year: 'numeric', day: 'numeric', month: 'long'}),
@@ -207,24 +211,21 @@ async function processOffice(office) {
     console.warn(`Writing ${outputFile}`);
     fs.writeFileSync(outputFile, JSON.stringify(data, null, argv.pretty ? 2 : 0));
 
-    function formatRow(row) {
-        return columnCodes.map(function (code) {
-            const value = row[code];
-            if (typeof value !== 'number') {
-                return value;
+    function formatCell(value, code) {
+        if (typeof value !== 'number') {
+            return value;
+        }
+        let className = 'text-right';
+        for (const extreme of ['min', 'max']) {
+            if (value === minMax[code][extreme]) {
+                className += ' ' + extreme;
             }
-            let className = 'text-right';
-            for (const extreme of ['min', 'max']) {
-                if (value === minMax[code][extreme]) {
-                    className += ' ' + extreme;
-                }
-            }
-            className = className.replace(' min max', ''); // don't use class if all values are the same
-            return {
-                value: Math.round(value).toLocaleString(),
-                class: className,
-            };
-        });
+        }
+        className = className.replace(' min max', ''); // don't use class if all values are the same
+        return {
+            value: Math.round(value).toLocaleString(),
+            class: className,
+        };
     }
 }
 

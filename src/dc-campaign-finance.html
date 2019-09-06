@@ -283,7 +283,7 @@
   <thead>
     <tr>
       {{#columnHeads}}
-        <th title="{{ title }}">{{ head }}</th>
+        <th>{{ . }}</th>
       {{/columnHeads}}
     </tr>
   </thead>
@@ -291,12 +291,12 @@
     {{#tableData}}
       <tr>
         {{#.}}
-          {{#class}}
+          {{#head}}
+            <th title="{{ title }}">{{ head }}</th>
+          {{/head}}
+          {{^head}}
             <td class="{{ class }}">{{ value }}</td>
-          {{/class}}
-          {{^class}}
-            <th>{{ . }}</th>
-          {{/class}}
+          {{/head}}
         {{/.}}
       </tr>
     {{/tableData}}

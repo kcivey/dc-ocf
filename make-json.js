@@ -77,6 +77,18 @@ async function processOffice(office) {
             head: 'Ward contributors',
             title: 'Contributors who live in the ward',
         },
+        ind_contributors: {
+            head: 'Individual contributors',
+            title: 'Number of individuals who gave',
+        },
+        ind_dc_contributors: {
+            head: 'DC individual contributors',
+            title: 'Contributors who live in DC and are individuals',
+        },
+        ind_ward_contributors: {
+            head: 'Ward individual contributors',
+            title: 'Contributors who live in the ward and are individuals',
+        },
         candidate_contributors: {
             head: 'Candidate/family contributors',
             title: 'Contributors who are the candidate or (under Fair Elections) family',
@@ -93,6 +105,18 @@ async function processOffice(office) {
             head: 'Ward $',
             title: 'Amount contributed from the ward',
         },
+        ind_amount: {
+            head: 'Individual $',
+            title: 'Total amount contributed by individuals',
+        },
+        ind_dc_amount: {
+            head: 'DC individual $',
+            title: 'Amount contributed by individuals in DC',
+        },
+        ind_ward_amount: {
+            head: 'Ward individual $',
+            title: 'Amount contributed by individuals in the ward',
+        },
         candidate_amount: {
             head: 'Candidate/family $',
             title: 'Amount contributed by the candidate or (under Fair Elections) family',
@@ -104,6 +128,18 @@ async function processOffice(office) {
         ward_percent: {
             head: 'Ward % of $',
             title: 'Percent of the total amount that came from the ward',
+        },
+        ind_percent: {
+            head: 'Individual % of $',
+            title: 'Percent of the total amount that came from individuals',
+        },
+        ind_dc_percent: {
+            head: 'DC individual % of $',
+            title: 'Percent of the total amount that came from individuals in DC',
+        },
+        ind_ward_percent: {
+            head: 'Ward individual % of $',
+            title: 'Percent of the total amount that came from individuals in the ward',
         },
         candidate_percent: {
             head: 'Candidate/family % of $',
@@ -121,17 +157,21 @@ async function processOffice(office) {
             head: 'Projected total $',
             title: 'Total amount minus future refunds plus projected Fair Elections money',
         },
-        // dc_ind_contributors: 'DC ind. contributors',
-        // ward_ind_contributors: 'Ward ind. contributors',
-        // ind_amount: 'Individual $',
-        // dc_ind_amount: 'DC individual $',
-        // ward_ind_amount: 'Ward individual $',
     };
     const m = office.match(/Ward (\d)/);
     const ward = m ? +m[1] : null;
     if (!ward) {
         for (const key of Object.keys(columnDefs)) {
             if (/^ward_/.test(key)) {
+                delete columnDefs[key];
+            }
+        }
+    }
+    const allFairElections = await db.areAllCandidatesFairElections(office);
+    if (allFairElections) {
+        // Rows for individuals are redundant if all candidates can take money only from individuals
+        for (const key of Object.keys(columnDefs)) {
+            if (/^ind_/.test(key)) {
                 delete columnDefs[key];
             }
         }
@@ -156,6 +196,7 @@ async function processOffice(office) {
         updated: new Date().toLocaleDateString('en-US', {year: 'numeric', day: 'numeric', month: 'long'}),
         office,
         ward,
+        allFairElections,
         extras: getExtras(officeCode),
         points: await db.getDcContributionsWithPositions(filters),
         stats: {columnHeads, tableData},

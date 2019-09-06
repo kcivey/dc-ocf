@@ -134,7 +134,7 @@ jQuery(function ($) {
         return $.getJSON(url);
     }
 
-    function adjustPageText({ward, contest, extras, updated}) {
+    function adjustPageText({ward, extras, updated, allFairElections}) {
         const title = 'DC Campaign Contributions<br>' +
             $('#contest-select').find('option:selected').text().trim();
         $('h1').html(title);
@@ -152,6 +152,7 @@ jQuery(function ($) {
         });
         $('.ward-specific').toggle(!!ward);
         $('.citywide-specific').toggle(!ward);
+        $('.not-all-fair-elections').toggle(!allFairElections);
         $('.container-fluid').css('visibility', 'visible');
         $('.loader').hide();
     }

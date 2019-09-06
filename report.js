@@ -54,13 +54,13 @@ function printReport(rows) {
         const values = [
             c.contributions,
             c.contributors,
-            c.dc_ind_contributors,
+            c.ind_dc_contributors,
             c.amount,
             c.mean,
             c.median,
             c.ind_percent,
             c.dc_percent,
-            c.dc_ind_percent,
+            c.ind_dc_percent,
         ].map(numberFormat);
         values.unshift(c.candidate_short_name);
         if (argv.bins) {

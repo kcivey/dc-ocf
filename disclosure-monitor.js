@@ -27,7 +27,15 @@ function getTypes() {
 function getLastSeen(types) {
     return new Promise(function (resolve, reject) {
         fs.readFile(cacheFile, function (err, json) {
-            const lastSeen = err ? {} : JSON.parse(json);
+            let lastSeen = {};
+            if (err) {
+                if (err.code !== 'ENOENT') {
+                    return reject(err);
+                }
+            }
+            else {
+                lastSeen = JSON.parse(json);
+            }
             for (const type of types) {
                 if (!lastSeen[type]) {
                     lastSeen[type] = null;

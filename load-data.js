@@ -84,7 +84,7 @@ function loadRecords(tableName, columns) {
 
         async function insert() {
             await db.batchInsert(tableName, batch);
-            batch = [];
+            batch = []; // eslint-disable-line require-atomic-updates
         }
     });
 }

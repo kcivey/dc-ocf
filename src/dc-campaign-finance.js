@@ -422,7 +422,7 @@ jQuery(function ($) {
         }
         const currentUrl = window.location.href;
         const currentHash = window.location.hash;
-        const baseUrl = currentUrl.replace(/^(https?:\/\/[^/]+\/[^\/#]+).*/, '$1');
+        const baseUrl = currentUrl.replace(/^(https?:\/\/[^/]+\/[^/#]+).*/, '$1');
         const usePushState = window.history && window.history.pushState && !/localhost/.test(baseUrl);
         let newUrl = baseUrl;
         if (usePushState) {
@@ -449,7 +449,7 @@ jQuery(function ($) {
 
     function getStateFromUrl() {
         const suffix = window.location.href
-            .replace(/^https?:\/\/[^\/]+\/[^\/#]+[\/#]*/, '');
+            .replace(/^https?:\/\/[^/]+\/[^/#]+[/#]*/, '');
         const parts = suffix.split('/');
         const state = {...stateDefaults};
         let i = 0;

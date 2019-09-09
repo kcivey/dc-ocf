@@ -6,6 +6,7 @@
  * Source: https://github/kcivey/dc-ocf
  */
 /* globals jQuery, L, Mustache, c3 */
+/* eslint-disable no-restricted-properties */
 jQuery(function ($) {
     const stateDefaults = {
         electionYear: '2020',
@@ -25,7 +26,8 @@ jQuery(function ($) {
 
     function loadContest(evt) {
         if (evt && evt.target) { // called as an event handler
-            $('#layers-control').find('input').prop('checked', false);
+            $('#layers-control').find('input')
+                .prop('checked', false);
             setUrlFromForm();
         }
         return getContestData()
@@ -81,7 +83,8 @@ jQuery(function ($) {
 
     function mapTypeHandler(evt) {
         setUrlFromForm();
-        const type = $(evt.target).val().replace(/-/g, ' '); // ugh
+        const type = $(evt.target).val()
+            .replace(/-/g, ' '); // ugh
         adjustLayersControl(type);
     }
 
@@ -136,7 +139,9 @@ jQuery(function ($) {
 
     function adjustPageText({ward, extras, updated, allFairElections}) {
         const title = 'DC Campaign Contributions<br>' +
-            $('#contest-select').find('option:selected').text().trim();
+            $('#contest-select').find('option:selected')
+                .text()
+                .trim();
         $('h1').html(title);
         $('title').text(title.replace('<br>', ' '));
         $('#updated').text(updated);
@@ -250,7 +255,9 @@ jQuery(function ($) {
             if (!input.length) {
                 input = $('input:radio', overlaysContainer).eq(0);
             }
-            wantedCandidate = input.closest('label').text().trim();
+            wantedCandidate = input.closest('label')
+                .text()
+                .trim();
         }
         removeLayersFromControl();
         const layersControl = map.__layersControl;
@@ -262,7 +269,8 @@ jQuery(function ($) {
             }
         });
         $('label', overlaysContainer).each(function (i, label) {
-            const candidate = $(label).text().trim();
+            const candidate = $(label).text()
+                .trim();
             const value = hyphenize(candidate);
             const color = candidateColors[candidate] || '';
             $(label).css('color', color)
@@ -282,13 +290,18 @@ jQuery(function ($) {
     function makeTypeRadios(wantedType) {
         const overlaysContainer = $('.leaflet-control-layers-overlays');
         const baseRadioLabel = $('label', overlaysContainer).eq(0);
-        const radioDiv = $('<div/>').attr({id: 'type-radios'}).append(
-            Object.keys(candidateLayers).map(function (key) {
-                return baseRadioLabel.clone()
-                    .find('span').text(`Display as ${key}`).end()
-                    .find('input').attr({name: 'mapType', value: hyphenize(key)}).end();
-            })
-        );
+        const radioDiv = $('<div/>').attr({id: 'type-radios'})
+            .append(
+                Object.keys(candidateLayers).map(function (key) {
+                    return baseRadioLabel.clone()
+                        .find('span')
+                        .text(`Display as ${key}`)
+                        .end()
+                        .find('input')
+                        .attr({name: 'mapType', value: hyphenize(key)})
+                        .end();
+                })
+            );
         overlaysContainer.after(
             $('<div/>').addClass('leaflet-control-layers-separator'),
             radioDiv,
@@ -300,7 +313,8 @@ jQuery(function ($) {
     function handleStats(stats) {
         const tableContent = Mustache.render($('#table-content-template').html(), stats);
         $('#stats-table').html(tableContent)
-            .find('th[title]').tooltip({container: 'body', boundary: 'viewport'});
+            .find('th[title]')
+            .tooltip({container: 'body', boundary: 'viewport'});
         adjustTableForRotatedHeads('#stats-table');
     }
 
@@ -371,7 +385,8 @@ jQuery(function ($) {
 
         function incrementDate(date) {
             const timestamp = new Date(date).getTime();
-            return new Date(timestamp + 86400000).toISOString().substr(0, 10);
+            return new Date(timestamp + 86400000).toISOString()
+                .substr(0, 10);
         }
     }
 
@@ -409,7 +424,8 @@ jQuery(function ($) {
     function setUrlFromForm() {
         const checkedRadios = $('.leaflet-control-layers input:radio:checked').get();
         const state = {...stateDefaults};
-        const m = $('#contest-select').val().match(/^(\d+)-(.+)/);
+        const m = $('#contest-select').val()
+            .match(/^(\d+)-(.+)/);
         state.electionYear = m[1];
         state.contest = m[2];
         $.each(checkedRadios, function (i, radio) {
@@ -503,7 +519,11 @@ jQuery(function ($) {
             lastHeadWidth = actualWidth;
         });
         heads.height(headHeight);
-        const lastColumnWidth = $table.find('tbody tr').first().find('td').last().width();
+        const lastColumnWidth = $table.find('tbody tr')
+            .first()
+            .find('td')
+            .last()
+            .width();
         if (lastHeadWidth > lastColumnWidth) {
             const cell = `<td style="width: ${Math.ceil(lastHeadWidth - lastColumnWidth) + 4}px"></td>`;
             $table.find('tr').append(cell);

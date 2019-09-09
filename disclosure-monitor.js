@@ -41,7 +41,7 @@ function getLastSeen(types) {
                     lastSeen[type] = null;
                 }
             }
-            resolve(lastSeen);
+            return resolve(lastSeen);
         });
     });
 }
@@ -93,6 +93,7 @@ function getSearchData() {
             return JSON.parse(resource.response.body).data;
         }
     }
+    throw new Error('Search data not found');
 }
 
 function sendNotification(allNewRecords) {
@@ -111,7 +112,7 @@ function sendNotification(allNewRecords) {
     }
     if (count) {
         sendEmail({
-            text: text,
+            text,
             from: process.env.EMAIL_SENDER,
             to: process.env.EMAIL_RECIPIENT,
             subject: `${count} new OCF filing${count === 1 ? '' : 's'}`,

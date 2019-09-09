@@ -134,7 +134,9 @@ function getArgv() {
         })
         .argv;
     if (argv.all) {
-        argv.committees = argv.contributions = argv.expenditures = true;
+        argv.committees = true;
+        argv.contributions = true;
+        argv.expenditures = true;
     }
     return argv;
 }

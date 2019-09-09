@@ -10,6 +10,7 @@ db
     .orderBy('committee_name')
     .orderBy('contributor_name')
     .orderBy('receipt_date')
+
     /*
     .whereIn('committee_name', [
         'Boese 2018',

@@ -44,8 +44,9 @@ function printReport(rows) {
     const percentDecimals = 1;
     const percentLength = 4 + percentDecimals;
     let prevOffice = '';
-    const {header, format, officeFormat, footer} = argv.html ? getHtmlFormat() :
-        argv.csv ? getCsvFormat() : getTextFormat(percentLength);
+    const {header, format, officeFormat, footer} = argv.html
+        ? getHtmlFormat()
+        : argv.csv ? getCsvFormat() : getTextFormat(percentLength);
     console.log(header);
     for (const c of rows) {
         if (c.amount < argv.threshold) {
@@ -153,7 +154,9 @@ function getCsvFormat() {
         }
         header += '\t' + start + '+';
     }
-    const format = Array(columnCount).fill('%s').join('\t');
+    const format = Array(columnCount)
+        .fill('%s')
+        .join('\t');
     const officeFormat = '%s';
     const footer = '';
     return {header, format, officeFormat, footer};

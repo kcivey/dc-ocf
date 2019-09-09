@@ -14,9 +14,7 @@ rules:
     - error
     - 4
     - SwitchCase: 1
-  linebreak-style:
-    - error
-    - unix
+  linebreak-style: error
   quotes:
     - error
     - single
@@ -27,5 +25,157 @@ rules:
   no-constant-condition:
     - error
     - checkLoops: false
-  no-prototype-builtins:
-    - off
+  no-prototype-builtins: off
+  max-len:
+    - error
+    - code: 120
+  multiline-ternary:
+    - error
+    - always-multiline
+  no-template-curly-in-string: error
+  array-callback-return: error
+  consistent-return: error
+  default-case: error
+  guard-for-in: error
+  no-extend-native: error
+  curly: error
+  dot-location:
+    - error
+    - property
+  eqeqeq:
+    - error
+    - always
+    - null: ignore
+  no-else-return:
+    - error
+    - allowElseIf: false
+  no-floating-decimal: error
+  no-implicit-globals: error
+  no-invalid-this: error
+  no-lone-blocks: error
+  no-loop-func: error
+  no-multi-spaces: error
+  no-restricted-properties:
+    - error
+    - object: _
+      property: extend
+    - object: _
+      property: each
+    - object: $
+      property: extend
+    - object: $
+      property: each
+  no-return-await: error
+  no-self-compare: error
+  no-self-assign: error
+  no-sequences: error
+  no-throw-literal: error
+  no-unmodified-loop-condition: error
+  no-unused-expressions: error
+  require-await: error
+  #strict: error
+  no-shadow-restricted-names: error
+  no-use-before-define:
+    - error
+    - functions: false
+  callback-return:
+    - error
+    - [callback, cb, next, done]
+  global-require: error
+  handle-callback-err: error
+  no-buffer-constructor: error
+  no-mixed-requires: error
+  no-new-require: error
+  array-bracket-newline: error
+  array-bracket-spacing: error
+  array-element-newline:
+    - error
+    - consistent
+  block-spacing: error
+  brace-style:
+    - error
+    - stroustrup
+  camelcase:
+    - error
+    - properties: never
+  comma-dangle:
+    - error
+    - always-multiline
+  comma-spacing: error
+  comma-style: error
+  computed-property-spacing:
+    - error
+    - never
+  eol-last: error
+  func-call-spacing: error
+  function-call-argument-newline:
+    - error
+    - consistent
+  function-paren-newline:
+    - error
+    - multiline-arguments
+  implicit-arrow-linebreak: error
+  key-spacing: error
+  lines-around-comment: error
+  lines-between-class-members: error
+  max-depth:
+    - error
+    - 5
+  max-nested-callbacks:
+    - error
+    - 5
+  max-params: error
+  max-statements-per-line: error
+  new-cap: error
+  new-parens: error
+  newline-per-chained-call: error
+  no-array-constructor: error
+  no-multi-assign: error
+  no-multiple-empty-lines: error
+  no-new-object: error
+  no-lonely-if: error
+  no-tabs: error
+  no-trailing-spaces: error
+  no-unneeded-ternary: error
+  no-whitespace-before-property: error
+  nonblock-statement-body-position: error
+  object-curly-newline:
+    - error
+    - multiline: true
+      consistent: true
+  object-curly-spacing: error
+  one-var:
+    - error
+    - never
+  operator-assignment: error
+  operator-linebreak: error
+  padded-blocks:
+    - error
+    - classes: always
+  semi-spacing: error
+  semi-style: error
+  space-before-blocks: error
+  space-before-function-paren:
+    - error
+    - anonymous: always
+      named: never
+      asyncArrow: always
+  space-in-parens: error
+  space-infix-ops: error
+  space-unary-ops:
+    - error
+    - words: true
+      nonwords: false
+  spaced-comment: error
+  switch-colon-spacing: error
+  unicode-bom: error
+  no-confusing-arrow: error
+  no-duplicate-imports: error
+  no-useless-computed-key: error
+  no-var: error
+  object-shorthand: error
+  prefer-const: error
+  prefer-rest-params: error
+  prefer-spread: error
+  rest-spread-spacing: error
+  template-curly-spacing: error

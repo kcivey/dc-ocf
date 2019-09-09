@@ -101,7 +101,7 @@ function getPdfText(inputFile) {
             if (err) {
                 return reject(err);
             }
-            resolve(text);
+            return resolve(text);
         });
     });
 }
@@ -153,9 +153,10 @@ function getFields(line) {
     let m;
     let lastKey;
     while ((m = line.match(re))) {
-        const key = m[0].match(/^#\s*$/) ? 'line_number' :
-            underscored(m[0].replace(/\/.*/, ''));
-        // Allow for starting 1 character earluy except for first column
+        const key = m[0].match(/^#\s*$/)
+            ? 'line_number'
+            : underscored(m[0].replace(/\/.*/, ''));
+        // Allow for starting 1 character early except for first column
         fields[key] = m.index > 0 ? [m.index - 1, m[0].length] : [0, m[0].length - 1];
         lastKey = key;
     }
@@ -177,8 +178,11 @@ function parseRowText(text, fields) {
                 continue;
             }
             if (key.match(/^(?:address|business|individual)$|_name$/)) {
-                const newKey = key === 'address' ? key : key === 'individual' ? 'payee_address' :
-                    key.replace(/(?:_name)?$/, '_address');
+                const newKey = key === 'address'
+                    ? key
+                    : key === 'individual'
+                        ? 'payee_address'
+                        : key.replace(/(?:_name)?$/, '_address');
                 if (!row[newKey]) {
                     row[newKey] = value;
                 }

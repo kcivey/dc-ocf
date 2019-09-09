@@ -48,12 +48,13 @@ function loadRecords(tableName, columns) {
                 }
                 currentCount++;
             }
+            return undefined;
         });
         parser.on('error', reject);
         parser.on('end', async function () {
             if (batch.length) {
                 try {
-                    await insert();
+                    return await insert();
                 }
                 catch (err) {
                     return reject(err);
@@ -61,7 +62,7 @@ function loadRecords(tableName, columns) {
             }
             console.warn(`Finished reading ${totalCount} records for ${tableName}`);
             console.warn(`Inserted ${currentCount} records into ${tableName}`);
-            resolve();
+            return resolve();
         });
         input.pipe(parser);
 
@@ -77,9 +78,7 @@ function loadRecords(tableName, columns) {
                 currentCommittees.add(record.committee_name);
                 return false;
             }
-            else {
-                return !currentCommittees.has(record.committee_name);
-            }
+            return !currentCommittees.has(record.committee_name);
         }
 
         async function insert() {

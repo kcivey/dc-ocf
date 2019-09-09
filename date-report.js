@@ -49,10 +49,10 @@ async function main() {
         data[row.receipt_date][row.candidate_short_name] = useAmount ? row.amount : row.contributors;
     }
     console.log(['Date'].concat(candidates).join('\t'));
-    while (cursorDate <= endDate) {
+    while (cursorDate <= endDate) { // eslint-disable-line no-unmodified-loop-condition
         const isoDate = cursorDate.format('YYYY-MM-DD');
         const lineData = [cursorDate.format('M/D/YYYY')].concat(
-            candidates.map(function (candidate, i) {
+            candidates.map(function (candidate, i) { // eslint-disable-line no-loop-func
                 const n = (+(data[isoDate] && data[isoDate][candidate]) || 0) + +prevLineData[i + 1];
                 return argv.amount ? n.toFixed(2) : n;
             })

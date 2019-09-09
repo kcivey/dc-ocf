@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+'use strict';
 
 const fs = require('fs');
 const moment = require('moment');
@@ -265,7 +266,7 @@ async function getDateData(baseFilters, ward) {
         }
         const cursorDate = moment(start);
         const endDate = moment(end);
-        while (cursorDate <= endDate) {
+        while (cursorDate <= endDate) { // eslint-disable-line no-unmodified-loop-condition
             const isoDate = cursorDate.format('YYYY-MM-DD');
             let i = 0;
             for (const [candidate, lastDeadline] of Object.entries(lastDeadlines)) {

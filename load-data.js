@@ -107,13 +107,13 @@ function transformRecord(record) {
         }
         newRecord[newKey] = newValue;
     }
-    if (newRecord.hasOwnProperty('payee_name') && !newRecord.hasOwnProperty('organization_name')) {
-        newRecord.organization_name = ''; // missing for exploratory committees
+    if (newRecord.payment_date && !newRecord.payee_organization_name) {
+        newRecord.payee_organization_name = ''; // missing for exploratory committees
     }
-    if (newRecord.hasOwnProperty('city')) {
+    if (newRecord.city) {
         newRecord.normalized = normalizeNameAndAddress(newRecord);
     }
-    if (newRecord.hasOwnProperty('candidate_name')) {
+    if (newRecord.candidate_name) {
         const nameParts = parseName(newRecord.candidate_name);
         newRecord.candidate_short_name = nameParts.last; // have to manually edit if more than one with same last name
     }

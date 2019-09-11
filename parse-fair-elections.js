@@ -84,6 +84,13 @@ async function processFile(inputFile) {
         if (/^A/.test(schedule)) {
             console.warn(`Inserting ${rows.length} contributions`);
             await db.batchInsert(db.contributionTableName, rows);
+            const extraRecords = rows.map(function (row) {
+                return {
+                    committee_name: row.committee_name,
+                    is_fair_elections: true,
+                };
+            });
+            await db.createCommitteeExtraRecords(extraRecords);
         }
         else if (/^B/.test(schedule)) {
             console.warn(`Inserting ${rows.length} expenditures`);

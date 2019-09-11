@@ -1,3 +1,4 @@
+UPDATE committees SET candidate_name = 'Jordan Grossman', candidate_short_name = 'Grossman' WHERE candidate_name = 'Jordan Grosman';
 UPDATE contributions SET receipt_date = '2019-05-16' WHERE receipt_date = '1986-05-16';
 UPDATE contributions SET number_and_street = REPLACE(number_and_street, 'Chancellors', 'Chancellor''s') WHERE number_and_street LIKE '%Chancellors%';
 UPDATE contributions SET number_and_street = REPLACE(number_and_street, 'Queen Anne''s', 'Queen Annes') WHERE number_and_street LIKE '%Queen Anne''s%';

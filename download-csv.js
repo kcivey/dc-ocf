@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+const assert = require('assert');
 const fs = require('fs');
 const url = require('url');
 const util = require('util');
@@ -8,6 +9,7 @@ const yargs = require('yargs');
 const {createBrowser} = require('./lib/browser');
 const argv = getArgv();
 const electionYear = argv.year;
+const {getCsvFilename} = require('./lib/util');
 
 main().catch(console.error);
 
@@ -21,33 +23,59 @@ async function main() {
     if (argv.expenditures) {
         await writeTransactionCsv('expenditures');
     }
+    if (argv.exploratory) {
+        await writeCommitteeCsv('exploratory');
+        if (argv.contributions) {
+            await writeTransactionCsv('contributions', 'exploratory');
+        }
+        if (argv.expenditures) {
+            await writeTransactionCsv('expenditures', 'exploratory');
+        }
+    }
     process.exit();
 }
 
-async function writeCommitteeCsv() {
-    log('Getting committees');
+async function writeCommitteeCsv(filerType = 'principal') {
+    const filerTypeName = getFilerTypeName(filerType);
+    assert(filerTypeName, `Unknown filer type "${filerType}"`);
+    log(`Getting ${filerType} committees`);
+    const file = getCsvFilename('committees', filerType);
     const browser = await createBrowser();
-    const file = __dirname + '/committees.csv';
     await browser.visit('https://efiling.ocf.dc.gov/Disclosure');
-    await browser.select('#FilerTypeId', 'Principal Campaign Committee');
+    await browser.select('#FilerTypeId', filerTypeName);
     await browser.select('#ElectionYear', electionYear.toString());
     await browser.click('#btnSubmitSearch');
-    const csv = await getCsv(browser);
-    fs.writeFileSync(file, csv, {encoding: 'utf-8'});
+    let csv = await getCsv(browser);
+    const extraFile = file.replace('.csv', '.extra.csv');
+    let extraCsv = '';
+    try {
+        extraCsv = fs.readFileSync(extraFile, 'utf8');
+    }
+    catch (err) {
+        // ignore if file doesn't exist
+        if (err.code !== 'ENOENT') {
+            throw err;
+        }
+    }
+    csv += extraCsv;
+    fs.writeFileSync(file, csv);
     log('Finished writing committees');
 }
 
-async function writeTransactionCsv(type) {
-    log(`Getting ${type}`);
+async function writeTransactionCsv(transactionType, filerType = 'principal') {
+    const filerTypeName = getFilerTypeName(filerType);
+    log(`Getting ${filerType} ${transactionType}`);
     const browser = await createBrowser();
-    const file = __dirname + '/' + type + '.csv';
+    const file = getCsvFilename(transactionType, filerType);
     await browser.visit('https://efiling.ocf.dc.gov/ContributionExpenditure');
-    await browser.select('#FilerTypeId', 'Principal Campaign Committee');
-    await browser.click('#' + type);
+    await browser.select('#FilerTypeId', filerTypeName);
+    await browser.click('#' + transactionType);
     // For some reason clicking is not checking the radio button, so we need this:
-    await browser.evaluate(`document.getElementById('${type}').checked = true`);
-    browser.assert.element('#' + type + ':checked', `The ${type} radio is not checked after clicking`);
-    browser.assert.text('#recipientCriteria', type === 'contributions' ? 'Recipient' : 'Payor');
+    await browser.evaluate(`document.getElementById('${transactionType}').checked = true`);
+    browser.assert.text(
+        '#recipientCriteria',
+        transactionType === 'contributions' ? 'Recipient' : 'Payor'
+    );
     browser.assert.text('#accordionpanel4 a', 'Date');
     await browser.click('#accordionpanel4 a');
     browser.assert.hasClass('#panel4b', 'active');
@@ -55,15 +83,16 @@ async function writeTransactionCsv(type) {
         await browser.fill('#FromDate', '01/01/' + (electionYear - 2));
     }
     catch (err) {
+        // Ignore JS error that happens here, even in a normal browser
         if (err.message !== "Cannot read property 'settings' of undefined") {
             throw err;
         }
     }
     await browser.click('#btnSubmitSearch');
-    browser.assert.text('h3', `Principal Campaign Committee ${initialCap(type)} Search Result`);
+    browser.assert.text('h3', `${filerTypeName} ${initialCap(transactionType)} Search Result`);
     const csv = await getCsv(browser);
     fs.writeFileSync(file, csv, {encoding: 'utf-8'});
-    log(`Finished writing ${type}`);
+    log(`Finished writing ${transactionType}`);
 }
 
 async function getCsv(browser) {
@@ -95,6 +124,13 @@ function initialCap(s) {
     return s.substr(0, 1).toUpperCase() + s.substr(1).toLowerCase();
 }
 
+function getFilerTypeName(filerType) {
+    return {
+        principal: 'Principal Campaign Committee',
+        exploratory: 'Exploratory Committee',
+    }[filerType];
+}
+
 function getArgv() {
     const argv = yargs
         .options({
@@ -105,7 +141,7 @@ function getArgv() {
             },
             committees: {
                 type: 'boolean',
-                describe: 'download committees',
+                describe: 'download principal campaign committees',
             },
             contributions: {
                 type: 'boolean',
@@ -114,6 +150,10 @@ function getArgv() {
             expenditures: {
                 type: 'boolean',
                 describe: 'download expenditures',
+            },
+            exploratory: {
+                type: 'boolean',
+                description: 'download exploratory committees',
             },
             all: {
                 type: 'boolean',
@@ -127,7 +167,7 @@ function getArgv() {
         })
         .strict(true)
         .check(function (argv) {
-            if (!(argv.committees || argv.contributions || argv.expenditures || argv.all)) {
+            if (!(['committees', 'contributions', 'expenditures', 'exploratory', 'all'].some(n => argv[n]))) {
                 throw new Error('Must specify at least one data set to download');
             }
             return true;
@@ -137,6 +177,7 @@ function getArgv() {
         argv.committees = true;
         argv.contributions = true;
         argv.expenditures = true;
+        argv.exploratory = true;
     }
     return argv;
 }

@@ -4,28 +4,31 @@ const fs = require('fs');
 const parse = require('csv-parse');
 const underscored = require('underscore.string/underscored');
 const db = require('./lib/db');
-const {fixAmount, fixDate, normalizeNameAndAddress, parseName} = require('./lib/util');
+const {fixAmount, fixDate, getCsvFilename, normalizeNameAndAddress, parseName} = require('./lib/util');
 const currentCommittees = new Set();
 
 main()
     .catch(console.trace)
     .finally(() => db.close());
 
-function main() {
-    return db.createTables()
-        .then(() => loadRecords(db.committeeTableName, db.committeeColumns))
-        .then(() => loadRecords(db.contributionTableName, db.contributionColumns))
-        .then(() => loadRecords(db.expenditureTableName, db.expenditureColumns))
-        .then(() => db.addDummyContributions())
-        .then(() => db.createCommitteeExtraRecords())
-        .then(() => db.runFixes())
-        .then(() => db.setOcfLimits());
+async function main() {
+    await db.createTables();
+    for (const filerType of ['principal', 'exploratory']) {
+        await loadRecords(db.committeeTableName, db.committeeColumns, filerType);
+        await loadRecords(db.contributionTableName, db.contributionColumns, filerType);
+        await loadRecords(db.expenditureTableName, db.expenditureColumns, filerType);
+    }
+    await db.addDummyContributions();
+    await db.runFixes();
+    await db.setOcfLimits();
 }
 
-function loadRecords(tableName, columns) {
+function loadRecords(tableName, columns, filerType) {
+    console.warn(`Loading ${filerType} ${tableName} records`);
     return new Promise(function (resolve, reject) {
+        const extraBatch = [];
         const parser = parse({columns: true});
-        const input = fs.createReadStream(__dirname + '/' + tableName + '.csv');
+        const input = fs.createReadStream(getCsvFilename(tableName, filerType));
         let totalCount = 0;
         let currentCount = 0;
         let batch = [];
@@ -34,17 +37,19 @@ function loadRecords(tableName, columns) {
             while ((record = parser.read())) {
                 totalCount++;
                 record = transformRecord(record);
-                try {
-                    if (checkForProblem(record)) {
-                        continue;
-                    }
-                    batch.push(record);
-                    if (batch.length >= 10000) {
-                        await insert();
-                    }
+                if (checkForProblem(record)) {
+                    continue;
                 }
-                catch (err) {
-                    return reject(err);
+                batch.push(record);
+                if (batch.length >= 10000) {
+                    await insert();
+                }
+                if (tableName === db.committeeTableName) {
+                    extraBatch.push({
+                        committee_name: record.committee_name,
+                        filer_type: filerType,
+                        is_fair_elections: false,
+                    });
                 }
                 currentCount++;
             }
@@ -53,12 +58,10 @@ function loadRecords(tableName, columns) {
         parser.on('error', reject);
         parser.on('end', async function () {
             if (batch.length) {
-                try {
-                    return await insert();
-                }
-                catch (err) {
-                    return reject(err);
-                }
+                await insert();
+            }
+            if (extraBatch.length) {
+                await db.createCommitteeExtraRecords(extraBatch);
             }
             console.warn(`Finished reading ${totalCount} records for ${tableName}`);
             console.warn(`Inserted ${currentCount} records into ${tableName}`);
@@ -91,7 +94,10 @@ function loadRecords(tableName, columns) {
 function transformRecord(record) {
     const newRecord = {};
     for (const [key, value] of Object.entries(record)) {
-        const newKey = underscored(key);
+        let newKey = underscored(key);
+        if (newKey === 'explorer_name') { // for exploratory committees
+            newKey = 'candidate_name';
+        }
         let newValue = trim(value);
         if (/_date/.test(newKey)) {
             newValue = fixDate(newValue);
@@ -100,6 +106,9 @@ function transformRecord(record) {
             newValue = fixAmount(newValue);
         }
         newRecord[newKey] = newValue;
+    }
+    if (newRecord.hasOwnProperty('payee_name') && !newRecord.hasOwnProperty('organization_name')) {
+        newRecord.organization_name = ''; // missing for exploratory committees
     }
     if (newRecord.hasOwnProperty('city')) {
         newRecord.normalized = normalizeNameAndAddress(newRecord);

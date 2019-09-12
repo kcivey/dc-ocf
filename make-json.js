@@ -243,7 +243,7 @@ async function getDateData(baseFilters, ward) {
     let start;
     let end;
     for (const [key, addedFilters] of Object.entries(sets)) {
-        contributors[key] = [];
+        const columns = [];
         const filters = {...baseFilters, ...addedFilters};
         const rows = await db.getContributionsByDate(filters);
         const data = {};
@@ -256,7 +256,7 @@ async function getDateData(baseFilters, ward) {
         const runningTotals = {};
         let i = 0;
         for (const candidate of Object.keys(lastDeadlines)) {
-            contributors[key][i] = [candidate];
+            columns[i] = [candidate];
             runningTotals[candidate] = 0;
             i++;
         }
@@ -272,12 +272,13 @@ async function getDateData(baseFilters, ward) {
             for (const [candidate, lastDeadline] of Object.entries(lastDeadlines)) {
                 if (isoDate <= lastDeadline) {
                     runningTotals[candidate] += +(data[isoDate] && data[isoDate][candidate]) || 0;
-                    contributors[key][i].push(runningTotals[candidate]);
+                    columns[i].push(runningTotals[candidate]);
                     i++;
                 }
             }
             cursorDate.add(1, 'day');
         }
+        contributors[key] = columns;
     }
     return {start, end, contributors};
 }

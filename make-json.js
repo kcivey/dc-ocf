@@ -245,7 +245,7 @@ async function getDateData(baseFilters, ward) {
     for (const [key, addedFilters] of Object.entries(sets)) {
         const columns = [];
         const filters = {...baseFilters, ...addedFilters};
-        const rows = await db.getContributionsByDate(filters);
+        const rows = await db.getContributorsByDate(filters);
         const data = {};
         for (const row of rows) {
             if (!data[row.receipt_date]) {

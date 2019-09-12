@@ -37,7 +37,7 @@ main()
 
 async function main() {
     const candidates = await db.getCandidatesForOffice(argv.office);
-    const rows = await db.getContributionsByDate(filters, useAmount);
+    const rows = await db.getContributorsByDate(filters, useAmount);
     const data = {};
     const cursorDate = moment(rows[0].receipt_date);
     const endDate = moment(rows[rows.length - 1].receipt_date);

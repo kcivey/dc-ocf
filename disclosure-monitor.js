@@ -121,6 +121,7 @@ function sendNotification(allNewRecords) {
             for (const [key, value] of Object.entries(record)) {
                 text += `  ${key}: ${value}\n`;
             }
+            text += `  https://efiling.ocf.dc.gov/Disclosure/FilingHistory/${record.Id}\n`;
             count++;
         }
         text += '\n';

@@ -2,6 +2,16 @@
 
 require('dotenv').config();
 const fs = require('fs');
+const argv = require('yargs')
+    .options({
+        verbose: {
+            type: 'boolean',
+            describe: 'print something about what\'s going on',
+            alias: 'v',
+        },
+    })
+    .strict(true)
+    .argv;
 const sendEmail = require('./lib/send-email');
 const cacheFile = __dirname + '/last-seen-committees.json';
 const {createBrowser} = require('./lib/browser');
@@ -17,7 +27,10 @@ async function main() {
 }
 
 async function getTypes() {
-    await browser.visit('https://efiling.ocf.dc.gov/Disclosure');
+    const startUrl = 'https://efiling.ocf.dc.gov/Disclosure';
+    log(`Getting ${startUrl}`);
+    await browser.visit(startUrl);
+    browser.assert.text('h3', 'Registrant Disclosure Search');
     const types = [];
     const options = browser.field('#FilerTypeId').options;
     for (const option of options) {
@@ -54,6 +67,7 @@ async function findNewRecords(lastSeen) {
     const allNewRecords = {};
     let changed = false;
     for (const [type, lastSeenId] of Object.entries(lastSeen)) {
+        log(`Getting ${type} records`);
         const newRecords = await findNewRecordsForType(type, lastSeenId);
         if (newRecords.length) {
             lastSeen[type] = newRecords[0].Id;
@@ -70,6 +84,7 @@ async function findNewRecords(lastSeen) {
 async function findNewRecordsForType(type, lastSeenId) {
     await browser.select('#FilerTypeId', type);
     await browser.click('#btnSubmitSearch');
+    browser.assert.text('#divSearchResults h3', `${type} Search Result`);
     const records = getSearchData();
     const newRecords = [];
     for (const record of records) {
@@ -87,6 +102,9 @@ function getSearchData() {
         i--;
         const resource = browser.resources[i];
         if (resource.request.url.match(/\/Search$/)) {
+            if (resource.error) {
+                throw resource.error;
+            }
             return JSON.parse(resource.response.body).data;
         }
     }
@@ -107,12 +125,21 @@ function sendNotification(allNewRecords) {
         }
         text += '\n';
     }
+    const subject = `${count} new OCF filing${count === 1 ? '' : 's'}`;
+    log(subject);
     if (count) {
+        log(`Sending email to ${process.env.EMAIL_RECIPIENT}`);
         sendEmail({
             text,
             from: process.env.EMAIL_SENDER,
             to: process.env.EMAIL_RECIPIENT,
-            subject: `${count} new OCF filing${count === 1 ? '' : 's'}`,
+            subject,
         });
+    }
+}
+
+function log(...args) {
+    if (argv.verbose) {
+        console.warn(...args);
     }
 }

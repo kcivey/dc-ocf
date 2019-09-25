@@ -4,16 +4,20 @@ require('dotenv').config();
 const fs = require('fs');
 const sendEmail = require('./lib/send-email');
 const cacheFile = __dirname + '/last-seen-committees.json';
-const Browser = require('zombie');
-const browser = new Browser({waitDuration: '30s'});
+const {createBrowser} = require('./lib/browser');
+const browser = createBrowser();
 
-browser.visit('https://efiling.ocf.dc.gov/Disclosure')
-    .then(getTypes)
-    .then(getLastSeen)
-    .then(findNewRecords)
-    .then(sendNotification);
+main().catch(console.trace);
 
-function getTypes() {
+async function main() {
+    const types = await getTypes();
+    const lastSeen = await getLastSeen(types);
+    const allNewRecords = await findNewRecords(lastSeen);
+    await sendNotification(allNewRecords);
+}
+
+async function getTypes() {
+    await browser.visit('https://efiling.ocf.dc.gov/Disclosure');
     const types = [];
     const options = browser.field('#FilerTypeId').options;
     for (const option of options) {
@@ -63,25 +67,18 @@ async function findNewRecords(lastSeen) {
     return allNewRecords;
 }
 
-function findNewRecordsForType(type, lastSeenId) {
-    return browser.select('#FilerTypeId', type)
-        .then(pause)
-        .then(() => browser.click('#btnSubmitSearch'))
-        .then(getSearchData)
-        .then(function (records) {
-            const newRecords = [];
-            for (const record of records) {
-                if (lastSeenId && record.Id <= lastSeenId) {
-                    break;
-                }
-                newRecords.push(record);
-            }
-            return newRecords;
-        });
-}
-
-function pause() {
-    return new Promise(resolve => setTimeout(resolve, 5000));
+async function findNewRecordsForType(type, lastSeenId) {
+    await browser.select('#FilerTypeId', type);
+    await browser.click('#btnSubmitSearch');
+    const records = getSearchData();
+    const newRecords = [];
+    for (const record of records) {
+        if (lastSeenId && record.Id <= lastSeenId) {
+            break;
+        }
+        newRecords.push(record);
+    }
+    return newRecords;
 }
 
 function getSearchData() {

@@ -16,6 +16,7 @@ UPDATE contributions SET number_and_street = REPLACE(number_and_street, ' Farrag
 UPDATE contributions SET number_and_street = REPLACE(number_and_street, ' Pleasnat ', ' Pleasant ') WHERE number_and_street LIKE '% Pleasnat %';
 UPDATE contributions SET number_and_street = REPLACE(number_and_street, ' Randolf ', ' Randolph ') WHERE number_and_street LIKE '% Randolf %';
 UPDATE contributions SET number_and_street = REPLACE(number_and_street, ' Varumn ', ' Varnum ') WHERE number_and_street LIKE '% Varumn %';
+UPDATE contributions SET number_and_street = REPLACE(number_and_street, ' Ingelside ', ' Ingleside ') WHERE number_and_street LIKE '% Ingelside %';
 UPDATE contributions SET number_and_street = REPLACE(number_and_street, ' AspenSt ', ' Aspen St ') WHERE number_and_street LIKE '% AspenSt %';
 UPDATE contributions SET number_and_street = REPLACE(number_and_street, ' Piney Brand ', ' Piney Branch ') WHERE number_and_street LIKE '% Piney Brand %';
 UPDATE contributions SET number_and_street = REPLACE(number_and_street, ' Deer Xing', ' Deer Crossing') WHERE number_and_street LIKE '% Deer Xing%';
@@ -46,6 +47,10 @@ UPDATE contributions SET number_and_street = REPLACE(number_and_street, ' 8th NE
 UPDATE contributions SET number_and_street = REPLACE(number_and_street, ' A NE', ' A St NE') WHERE number_and_street LIKE '% A NE%';
 UPDATE contributions SET number_and_street = REPLACE(number_and_street, ' 3rd NE', ' 8th St NE') WHERE number_and_street LIKE '% 3rd NE%';
 UPDATE contributions SET number_and_street = '1301 M Street NW, Apt. 1003' WHERE number_and_street = '1301 M Street, Apt. 1003';
+UPDATE contributions SET number_and_street = '1500 Massachusetts Ave NW Apt 546' WHERE number_and_street = '1500 Massachusetts Ave Apt 546';
+UPDATE contributions SET number_and_street = '3700 O St NW' WHERE number_and_street = 'Alumni Square 78, 3700 O St NW';
+UPDATE contributions SET number_and_street = '45 Sutton Square SW' WHERE number_and_street = 'Vio 45 sutton Square sw';
+UPDATE contributions SET number_and_street = '1504 Upshur St NW' WHERE number_and_street = '1504 upshur nw';
 UPDATE contributions SET number_and_street = number_and_street || ' NE' WHERE number_and_street = '653 Anacostia Avenue';
 UPDATE contributions SET number_and_street = '1301 SOUTH CAROLINA AVENUE SE' WHERE number_and_street = '1301 SOUTH CAROLINA AVENUE ...';
 UPDATE contributions SET number_and_street = '1120 Rhode Island Avenue NW' WHERE number_and_street = '1120 Rhode Island Avenue, N...';

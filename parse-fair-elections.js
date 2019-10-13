@@ -1,15 +1,11 @@
 #!/usr/bin/env node
 
+const assert = require('assert');
+const fs = require('fs');
 const {pdfToText} = require('pdf-to-text');
 const underscored = require('underscore.string/underscored');
 const db = require('./lib/db');
 const {fixAmount, fixDate, normalizeNameAndAddress, parseAddress, parseName} = require('./lib/util');
-const inputFile = process.argv[2];
-
-if (!inputFile) {
-    console.error('Input filename must be provided');
-    process.exit(1);
-}
 
 main()
     .then(() => console.warn('Finished'))
@@ -18,8 +14,16 @@ main()
     .finally(() => process.exit());
 
 async function main() {
-    for (const inputFile of process.argv.slice(2)) {
-        await processFile(inputFile);
+    const inputFilesByCommittee = getInputFilesByCommittee();
+    for (const [committeeCode, inputFiles] of Object.entries(inputFilesByCommittee)) {
+        const committeeName = await db.getCommitteeNameByCode(committeeCode);
+        assert(committeeName, `Can't find committee for code "${committeeCode}"`);
+        console.warn(`Deleting records for ${committeeName}`);
+        await db.deleteContributions(committeeName);
+        await db.deleteExpenditures(committeeName);
+        for (const inputFile of inputFiles) {
+            await processFile(inputFile);
+        }
     }
     console.warn('Adding dummy contributions');
     await db.addDummyContributions();
@@ -29,6 +33,7 @@ async function main() {
 }
 
 async function processFile(inputFile) {
+    console.warn('processing', inputFile);
     const docText = await getPdfText(inputFile);
     const m = docText.match(/Covering Period \d\d\/\d\d\/\d{4} through (\d\d)\/(\d\d)\/(\d{4})/);
     if (!m) {
@@ -77,9 +82,6 @@ async function processFile(inputFile) {
     }
     console.log('Updating committee info');
     await db.updateCommitteeExtra(committeeName, {is_fair_elections: true, last_deadline: deadline});
-    console.warn(`Deleting records for ${committeeName}`);
-    await db.deleteContributions(committeeName);
-    await db.deleteExpenditures(committeeName);
     for (const [schedule, rows] of Object.entries(rowsBySchedule)) {
         if (/^A/.test(schedule)) {
             console.warn(`Inserting ${rows.length} contributions`);
@@ -100,6 +102,29 @@ async function processFile(inputFile) {
             throw new Error(`Got schedule ${schedule}`);
         }
     }
+}
+
+function getInputFilesByCommittee() {
+    const dir = __dirname + '/fair-elections';
+    const inputFiles = fs.readdirSync(dir)
+        .filter(fn => /\.pdf$/.test(fn))
+        .sort()
+        .map(fn => dir + '/' + fn);
+    const inputFilesByCommittee = {};
+    for (const inputFile of inputFiles) {
+        const m = inputFile.match(/^.+\/(.+?)-(\w+-\d+\w+)(?:-amendment-\d+)?-\d{8}\.pdf$/);
+        assert(m, `Unexpected filename format "${inputFile}`);
+        const committee = m[1];
+        const reportType = m[2];
+        if (!inputFilesByCommittee[committee]) {
+            inputFilesByCommittee[committee] = {};
+        }
+        inputFilesByCommittee[committee][reportType] = inputFile;
+    }
+    for (const committee of Object.keys(inputFilesByCommittee)) {
+        inputFilesByCommittee[committee] = Object.values(inputFilesByCommittee[committee]);
+    }
+    return inputFilesByCommittee;
 }
 
 function getPdfText(inputFile) {
@@ -131,6 +156,9 @@ function parseTable(text) {
         schedule: m[4].replace('-', ''),
         rows: [],
     };
+    if (pageData.schedule === 'A3' || pageData.schedule === 'A7') { // @todo handle public funds and offsets
+        return null;
+    }
     if (pageData.schedule === 'D' || pageData.schedule === 'E') {
         return pageData;
     }
@@ -247,6 +275,10 @@ function fixContributionRow(oldRow) {
         delete row.address;
     }
     else {
+        if (!row.employer_address) {
+            console.warn(row);
+            throw new Error('Missing employer address');
+        }
         row.employer_address = row.employer_address.replace('\n', ', ')
             .replace(/,\s*/, ', ')
             .replace(/, ([A-Z]{2})-(\d{5}(?:-\d{4})?)$/, ', $1 $2');

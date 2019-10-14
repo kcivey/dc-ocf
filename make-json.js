@@ -180,8 +180,9 @@ async function processOffice(office) {
             }
         }
     }
-    const filters = {office};
-    const stats = await db.getContributionStats({filters});
+    const candidates = await db.getCandidatesForOffice(office, argv.threshold);
+    const filters = {office, candidates};
+    const stats = (await db.getContributionStats({filters}));
     const columnHeads = [''].concat(stats.map(row => row.candidate_short_name));
     const rowCodes = Object.keys(rowDefs).slice(1); // skip candidate name
     const minMax = {};
@@ -206,7 +207,7 @@ async function processOffice(office) {
         points: await db.getDcContributionsWithPositions(filters),
         stats: {columnHeads, tableData},
         dateData: await getDateData(filters, ward),
-        placeData: await getPlaceData(office, ward),
+        placeData: await getPlaceData(filters, ward),
     };
     const outputFile = `${outputDir}/ocf-2020-${officeCode}.json`;
     console.warn(`Writing ${outputFile}`);
@@ -283,8 +284,9 @@ async function getDateData(baseFilters, ward) {
     return {start, end, contributors};
 }
 
-async function getPlaceData(office, ward = null) {
-    const candidates = await db.getCandidatesForOffice(office);
+async function getPlaceData(filters, ward = null) {
+    const office = filters.office;
+    const candidates = filters.candidates;
     const allStates = await db.getContributorPlaces(office);
     const allWards = await db.getContributorPlaces(office, true);
     const placeData = [];

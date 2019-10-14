@@ -324,7 +324,7 @@ jQuery(function ($) {
         const dateTicks = [];
         for (let date = start; date <= end; date = incrementDate(date)) {
             dateColumn.push(date);
-            if (i % 10 === 0) {
+            if (i % 14 === 0) {
                 dateTicks.push(date);
             }
             i++;

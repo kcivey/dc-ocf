@@ -273,8 +273,8 @@ async function getDateData(baseFilters, ward) {
                 if (isoDate <= lastDeadline) {
                     runningTotals[candidate] += +(data[isoDate] && data[isoDate][candidate]) || 0;
                     columns[i].push(runningTotals[candidate]);
-                    i++;
                 }
+                i++;
             }
             cursorDate.add(1, 'day');
         }

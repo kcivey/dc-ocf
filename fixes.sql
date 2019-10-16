@@ -2,9 +2,11 @@ UPDATE committees SET candidate_name = 'Jordan Grossman', candidate_short_name =
 UPDATE contributions SET receipt_date = '2019-05-16' WHERE receipt_date = '1986-05-16';
 UPDATE contributions SET receipt_date = '2019-09-22' WHERE receipt_date = '2018-09-22';
 UPDATE contributions SET receipt_date = '2019-09-12' WHERE receipt_date = '2011-09-12';
+UPDATE contributions SET receipt_date = '2019-09-15' WHERE receipt_date = '2015-09-15';
 UPDATE contributions SET number_and_street = REPLACE(number_and_street, 'Chancellors', 'Chancellor''s') WHERE number_and_street LIKE '%Chancellors%';
 UPDATE contributions SET number_and_street = REPLACE(number_and_street, 'Queen Anne''s', 'Queen Annes') WHERE number_and_street LIKE '%Queen Anne''s%';
 UPDATE contributions SET number_and_street = REPLACE(number_and_street, 'Buuchanan', 'Buchanan') WHERE number_and_street LIKE '%Buuchanan%';
+UPDATE contributions SET number_and_street = REPLACE(number_and_street, 'Quncy', 'Quincy') WHERE number_and_street LIKE '%Quncy%';
 UPDATE contributions SET number_and_street = REPLACE(number_and_street, 'N.W', 'NW') WHERE number_and_street LIKE '%N.W%';
 UPDATE contributions SET number_and_street = number_and_street || ' NW' WHERE number_and_street LIKE '% Western Ave'
     OR number_and_street LIKE ' New Hampshire Ave' OR number_and_street LIKE '% Garfield Terrace' OR number_and_street LIKE '% Chevy Chase Parkway';
@@ -47,7 +49,15 @@ UPDATE contributions SET number_and_street = REPLACE(number_and_street, ' 13th N
 UPDATE contributions SET number_and_street = REPLACE(number_and_street, ' M NW', ' M St NW') WHERE number_and_street LIKE '% M NW%';
 UPDATE contributions SET number_and_street = REPLACE(number_and_street, ' 8th NE', ' 8th St NE') WHERE number_and_street LIKE '% 8th NE%';
 UPDATE contributions SET number_and_street = REPLACE(number_and_street, ' A NE', ' A St NE') WHERE number_and_street LIKE '% A NE%';
-UPDATE contributions SET number_and_street = REPLACE(number_and_street, ' 3rd NE', ' 8th St NE') WHERE number_and_street LIKE '% 3rd NE%';
+UPDATE contributions SET number_and_street = REPLACE(number_and_street, ' 3rd NE', ' 3rd St NE') WHERE number_and_street LIKE '% 3rd NE%';
+UPDATE contributions SET number_and_street = REPLACE(number_and_street, ' Varnum Pl', ' Varnum Pl NE') WHERE number_and_street LIKE '% Varnum Pl';
+UPDATE contributions SET number_and_street = REPLACE(number_and_street, ' Belmont St', ' Belmont St NW') WHERE number_and_street LIKE '% Belmont St';
+UPDATE contributions SET number_and_street = REPLACE(number_and_street, '1400 New York Ave #', '1400 New York Ave NW #') WHERE number_and_street LIKE '%1400 New York Ave #%';
+UPDATE contributions SET number_and_street = REPLACE(number_and_street, '1600 Maryland Ave NW', '1600 Maryland Ave NE') WHERE number_and_street LIKE '%1600 Maryland Ave NW%';
+UPDATE contributions SET number_and_street = REPLACE(number_and_street, 'Gainsville Street apt', 'Gainesville Street SE Apt') WHERE number_and_street LIKE '%Gainsville Street apt%';
+UPDATE contributions SET number_and_street = REPLACE(number_and_street, '405A Woodcrest', '405 Woodcrest') WHERE number_and_street LIKE '%405A Woodcrest%';
+UPDATE contributions SET number_and_street = REPLACE(number_and_street, ' Arian St', ' Adrian St') WHERE number_and_street LIKE '% Arian St%';
+UPDATE contributions SET number_and_street = REPLACE(number_and_street, '1629 Columbia Rd Apt', '1629 Columbia Rd NW Apt') WHERE number_and_street LIKE '%1629 Columbia Rd Apt%';
 UPDATE contributions SET number_and_street = '1301 M Street NW, Apt. 1003' WHERE number_and_street = '1301 M Street, Apt. 1003';
 UPDATE contributions SET number_and_street = '1500 Massachusetts Ave NW Apt 546' WHERE number_and_street = '1500 Massachusetts Ave Apt 546';
 UPDATE contributions SET number_and_street = '3700 O St NW' WHERE number_and_street = 'Alumni Square 78, 3700 O St NW';

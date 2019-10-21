@@ -3,7 +3,7 @@
 I analyzed the DC Office of Campaign Finance (OCF) reports for Ward 2 council candidates for the period
 ending October 10 (Fanning and Zhang have not filed yet).
 
-Since all five candidates are seeking to qualify for public campaign financing under the Fair Elections Act,
+Since all six candidates are seeking to qualify for public campaign financing under the Fair Elections Act,
 contributions all come from individuals and are limited to $50 (except for the candidate and their family,
 who can give up to $2,500). Therefore most of this analysis focuses on the number of contributors rather the
 amount raised, and there's nothing about corporate contributions because the candidates are prohibited from

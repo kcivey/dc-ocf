@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
 require('dotenv').config();
-const fs = require('fs');
 const argv = require('yargs')
     .options({
         verbose: {
@@ -12,103 +11,22 @@ const argv = require('yargs')
     })
     .strict(true)
     .argv;
+const OcfDisclosures = require('./lib/ocf-disclosures');
 const sendEmail = require('./lib/send-email');
-const cacheFile = __dirname + '/last-seen-committees.json';
-const {createBrowser} = require('./lib/browser');
-const browser = createBrowser();
 
 main().catch(console.trace);
 
 async function main() {
-    const types = await getTypes();
-    const lastSeen = await getLastSeen(types);
-    const allNewRecords = await findNewRecords(lastSeen);
-    await sendNotification(allNewRecords);
-}
-
-async function getTypes() {
-    const startUrl = 'https://efiling.ocf.dc.gov/Disclosure';
-    log(`Getting ${startUrl}`);
-    await browser.visit(startUrl);
-    browser.assert.text('h3', 'Registrant Disclosure Search');
-    const types = [];
-    const options = browser.field('#FilerTypeId').options;
-    for (const option of options) {
-        if (option.value) {
-            types.push(option.text);
-        }
-    }
-    return types;
-}
-
-function getLastSeen(types) {
-    return new Promise(function (resolve, reject) {
-        fs.readFile(cacheFile, function (err, json) {
-            let lastSeen = {};
-            if (err) {
-                if (err.code !== 'ENOENT') {
-                    return reject(err);
-                }
-            }
-            else {
-                lastSeen = JSON.parse(json);
-            }
-            for (const type of types) {
-                if (!lastSeen[type]) {
-                    lastSeen[type] = null;
-                }
-            }
-            return resolve(lastSeen);
-        });
+    const ocf = new OcfDisclosures({
+        verbose: argv.verbose,
+        year: null,
+        withDetails: false,
+        useLastSeen: true,
     });
-}
-
-async function findNewRecords(lastSeen) {
-    const allNewRecords = {};
-    let changed = false;
-    for (const [type, lastSeenId] of Object.entries(lastSeen)) {
-        log(`Getting ${type} records`);
-        const newRecords = await findNewRecordsForType(type, lastSeenId);
-        if (newRecords.length) {
-            lastSeen[type] = newRecords[0].Id;
-            changed = true;
-            allNewRecords[type] = newRecords;
-        }
-    }
-    if (changed) {
-        fs.writeFileSync(cacheFile, JSON.stringify(lastSeen, null, 2));
-    }
-    return allNewRecords;
-}
-
-async function findNewRecordsForType(type, lastSeenId) {
-    await browser.select('#FilerTypeId', type);
-    await browser.click('#btnSubmitSearch');
-    browser.assert.text('#divSearchResults h3', `${type} Search Result`);
-    const records = getSearchData();
-    const newRecords = [];
-    for (const record of records) {
-        if (lastSeenId && record.Id <= lastSeenId) {
-            break;
-        }
-        newRecords.push(record);
-    }
-    return newRecords;
-}
-
-function getSearchData() {
-    let i = browser.resources.length;
-    while (i > 0) {
-        i--;
-        const resource = browser.resources[i];
-        if (resource.request.url.match(/\/Search$/)) {
-            if (resource.error) {
-                throw resource.error;
-            }
-            return JSON.parse(resource.response.body).data;
-        }
-    }
-    throw new Error('Search data not found');
+    const types = await ocf.getFilerTypes();
+    const lastSeen = await ocf.getLastSeen(types);
+    const allNewRecords = await ocf.findNewRecords(lastSeen);
+    await sendNotification(allNewRecords);
 }
 
 function sendNotification(allNewRecords) {

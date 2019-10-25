@@ -1,0 +1,487 @@
+Democrat:
+  Council At-Large:
+    - committee_id: 4103
+      first_name: Robert
+      last_name: White
+      candidate_key: CANCCL207108
+      committee_key: PCCCCL207108
+      election_year: 2020
+      candidate_approved: true
+      committee_approved: true
+      termination_approved: false
+      election_description: Primary Election
+      candidate_name: Robert White
+      committee_name: Friends of Robert White
+      id: 5027
+      name: Mr. Robert White
+      address: '1601 Holly Street, NW'
+      filing_date: 08/01/2019
+      phone: ''
+      email: robert.c.whiteii@gmail.com
+      committee_address: '1601 Holly Street, NW, Washington, DC 20012'
+      committee_phone: (202) 236-4074
+      treasurer_name: Mrs. Iris Bond Gill
+      treasurer_phone: (202) 321-5926
+      treasurer_email: iris007gill@gmail.com
+      chairperson_name: Mr. Matthew Frumin
+      chair_phone: (202) 247-0819
+      chair_email: matthewfrumin@gmail.com
+      zip: '20012'
+  Council Ward 2:
+    - committee_id: 4096
+      first_name: John
+      last_name: Fanning
+      candidate_key: CANCC2207103
+      committee_key: ''
+      election_year: 2020
+      candidate_approved: true
+      committee_approved: false
+      termination_approved: false
+      election_description: Primary Election
+      candidate_name: John Fanning
+      committee_name: John Fanning for Ward 2
+      id: 5019
+      name: Mr. John J. Fanning
+      address: '1307 12th Street, NW. #505'
+      filing_date: 06/03/2019
+      phone: (202) 510-1983
+      email: johnjfanning2@yahoo.com
+      committee_address: '1307 12th Street, NW. #505, Washington, DC 20005'
+      committee_phone: (202) 510-1983
+      treasurer_name: ''
+      treasurer_phone: ''
+      treasurer_email: ''
+      chairperson_name: ''
+      chair_phone: ''
+      chair_email: ''
+      zip: '20005'
+    - committee_id: 4090
+      first_name: Jordan
+      last_name: Grosman
+      candidate_key: CANCC2207101
+      committee_key: PCCCC2207101
+      election_year: 2020
+      candidate_approved: true
+      committee_approved: true
+      termination_approved: false
+      election_description: Primary Election
+      candidate_name: Jordan Grosman
+      committee_name: Jordan Grossman for Ward 2
+      id: 5013
+      name: Mr. Jordan Mitchell Grosman
+      address: '910 M Street, NW. #203'
+      filing_date: 05/15/2019
+      phone: (202) 350-1075
+      email: jordan.mitchell.grossman@gmail.com
+      committee_address: '910 M Street, NW, #203, Washington, DC 20001'
+      committee_phone: (202) 350-1075
+      treasurer_name: Mr. Jonah Efrem Perlin
+      treasurer_phone: (703) 801-4685
+      treasurer_email: jonahperlin@gmail.com
+      chairperson_name: Mr. William Joseph Grayson
+      chair_phone: (202) 427-3094
+      chair_email: williamgrayson@hotmail.com
+      zip: '20001'
+    - committee_id: 4095
+      first_name: Daniel
+      last_name: Hernandez
+      candidate_key: CANCC2207102
+      committee_key: ''
+      election_year: 2020
+      candidate_approved: true
+      committee_approved: false
+      termination_approved: false
+      election_description: Primary Election
+      candidate_name: Daniel Hernandez
+      committee_name: Daniel Hernandez For Ward 2
+      id: 5018
+      name: Mr. Daniel Hernandez
+      address: '1724 18th Street, NW. Apt. 1'
+      filing_date: 06/04/2019
+      phone: (202) 227-6728
+      email: hernandezd1@outlook.com
+      committee_address: '1724 18th Street, NW. Apt. 1, Washington, DC 20009'
+      committee_phone: (253) 312-2675
+      treasurer_name: ''
+      treasurer_phone: ''
+      treasurer_email: ''
+      chairperson_name: ''
+      chair_phone: ''
+      chair_email: ''
+      zip: '20009'
+    - committee_id: 4084
+      first_name: Patrick
+      last_name: Kennedy
+      candidate_key: CANCC2207098
+      committee_key: PCCCC2207098
+      election_year: 2020
+      candidate_approved: true
+      committee_approved: true
+      termination_approved: false
+      election_description: Primary Election
+      candidate_name: Patrick Kennedy
+      committee_name: Patrick Kennedy for Ward 2
+      id: 5007
+      name: Mr. Patrick Logan Kennedy
+      address: '532 20th Street, NW #312'
+      filing_date: 04/08/2019
+      phone: (202) 630-2201
+      email: patrickkennedydc@gmail.com
+      committee_address: '532 20th Street, NW. #312, Washington, DC 20006'
+      committee_phone: (202) 630-2201
+      treasurer_name: Ms. Marina Streznewski
+      treasurer_phone: (202) 441-3744
+      treasurer_email: mstreznewski@gmail.com
+      chairperson_name: Mr. David Bender
+      chair_phone: (202) 903-6025
+      chair_email: dbenderphd@aol.com
+      zip: '20006'
+    - committee_id: 4098
+      first_name: Kishan
+      last_name: Putta
+      candidate_key: CANCC2207105
+      committee_key: ''
+      election_year: 2020
+      candidate_approved: true
+      committee_approved: false
+      termination_approved: false
+      election_description: Primary Election
+      candidate_name: Kishan Putta
+      committee_name: Kishan for DC 2020
+      id: 5022
+      name: Mr. Kishan K. Putta
+      address: '3831 T Street, NW'
+      filing_date: 06/26/2019
+      phone: ''
+      email: kishanputta@gmail.com
+      committee_address: '3831 T Street, NW, Washington, DC 20007'
+      committee_phone: (202) 258-8753
+      treasurer_name: ''
+      treasurer_phone: ''
+      treasurer_email: ''
+      chairperson_name: ''
+      chair_phone: ''
+      chair_email: ''
+      zip: '20007'
+    - committee_id: 4113
+      first_name: Yilin
+      last_name: Zhang
+      candidate_key: CANCC2207115
+      committee_key: ''
+      election_year: 2020
+      candidate_approved: true
+      committee_approved: false
+      termination_approved: false
+      election_description: Primary Election
+      candidate_name: Yilin Zhang
+      committee_name: Yilin Zhang for Ward 2
+      id: 5038
+      name: Ms. Yilin Zhang
+      address: '2100 Connecticut Ave., NW #103'
+      filing_date: 09/16/2019
+      phone: ''
+      email: yilinzh2008@gmail.com
+      committee_address: '2100 Connecticut Ave., NW #103, Washington, DC 20008'
+      committee_phone: (248) 918-8910
+      treasurer_name: ''
+      treasurer_phone: ''
+      treasurer_email: ''
+      chairperson_name: ''
+      chair_phone: ''
+      chair_email: ''
+      zip: '20008'
+  Council Ward 4:
+    - committee_id: 4106
+      first_name: Janeese
+      last_name: Lewis George
+      candidate_key: CANCC4207111
+      committee_key: ''
+      election_year: 2020
+      candidate_approved: true
+      committee_approved: false
+      termination_approved: false
+      election_description: Primary Election
+      candidate_name: Janeese Lewis George
+      committee_name: Committee to Elect Janeese Lewis George
+      id: 5030
+      name: Mrs. Janeese Lewis George
+      address: '6207 8th Street, NW'
+      filing_date: 08/06/2019
+      phone: ''
+      email: janeesefor4@gmail.com
+      committee_address: '6207 8th Street, NW, Washington, DC 20011'
+      committee_phone: (202) 907-8240
+      treasurer_name: ''
+      treasurer_phone: ''
+      treasurer_email: ''
+      chairperson_name: ''
+      chair_phone: ''
+      chair_email: ''
+      zip: '20011'
+    - committee_id: 4088
+      first_name: Brandon
+      last_name: Todd
+      candidate_key: CANCC4207099
+      committee_key: PCCCC4207099
+      election_year: 2020
+      candidate_approved: true
+      committee_approved: true
+      termination_approved: false
+      election_description: Primary Election
+      candidate_name: Brandon Todd
+      committee_name: Re-Elect Brandon Todd 2020
+      id: 5011
+      name: Mr. Brandon Todd
+      address: '423 Buchanan Street, NW'
+      filing_date: 05/15/2019
+      phone: (202) 765-6948
+      email: brandonttodd@gmail.com
+      committee_address: '1312 Iris Street, NW, Washington, DC 20012'
+      committee_phone: (202) 765-6948
+      treasurer_name: Mr. Adam Hunter
+      treasurer_phone: (732) 986-4983
+      treasurer_email: arh@hunterandjohnson.com
+      chairperson_name: Mr. Darryl Wiggins
+      chair_phone: (202) 726-6204
+      chair_email: dwiggins@ps2g.us
+      zip: '20011'
+  Council Ward 7:
+    - committee_id: 4105
+      first_name: Kelvin
+      last_name: Brown
+      candidate_key: CANCC7207110
+      committee_key: ''
+      election_year: 2020
+      candidate_approved: true
+      committee_approved: false
+      termination_approved: false
+      election_description: Primary Election
+      candidate_name: Kelvin Brown
+      committee_name: Kelvin Brown for Ward 7 Council
+      id: 5029
+      name: Mr. Kelvin Brown
+      address: '3645 Austin Street, SE'
+      filing_date: 08/02/2019
+      phone: ''
+      email: kelvinbrown4dc@gmail.com
+      committee_address: '3645 Austin Street, SE, Washington, DC 20020'
+      committee_phone: (202) 503-4224
+      treasurer_name: Kelvin E Brown
+      treasurer_phone: (202) 503-4224
+      treasurer_email: kelvinbrown4dc@gmail.com
+      chairperson_name: Mr. Kelvin Earl Brown
+      chair_phone: (202) 503-4224
+      chair_email: kelvinbrown4dc@gmail.com
+      zip: '20020'
+    - committee_id: 4102
+      first_name: Anthony
+      last_name: Green
+      candidate_key: CANCC7207107
+      committee_key: ''
+      election_year: 2020
+      candidate_approved: true
+      committee_approved: false
+      termination_approved: false
+      election_description: Primary Election
+      candidate_name: Anthony Green
+      committee_name: Green for Ward 7
+      id: 5026
+      name: Mr. Anthony Green
+      address: '920 49th Street, NE'
+      filing_date: 07/16/2019
+      phone: (202) 840-9797
+      email: lorenzo.deanwood@gmail.com
+      committee_address: '920 49th Street, NE, Washington, DC 20019'
+      committee_phone: (202) 840-9797
+      treasurer_name: ''
+      treasurer_phone: ''
+      treasurer_email: ''
+      chairperson_name: ''
+      chair_phone: ''
+      chair_email: ''
+      zip: '20019'
+    - committee_id: 4089
+      first_name: James
+      last_name: Jennings
+      candidate_key: CANCC7207100
+      committee_key: PCCCC7207100
+      election_year: 2020
+      candidate_approved: true
+      committee_approved: true
+      termination_approved: false
+      election_description: Primary Election
+      candidate_name: James Jennings
+      committee_name: Vote Jennings Ward 7 DC Council 2020
+      id: 5012
+      name: Mr. James Leroy Jennings
+      address: '4418 Gault Place, NE'
+      filing_date: 05/16/2019
+      phone: ''
+      email: maxjames8110@gmail.com
+      committee_address: '2120 Vermont Ave., NW #522, Washington, DC 20001'
+      committee_phone: (202) 525-3080
+      treasurer_name: Ms. Robin Salas
+      treasurer_phone: (202) 525-3080
+      treasurer_email: robinsalas01@gmail.com
+      chairperson_name: Mr. Samuel Miller III
+      chair_phone: (202) 369-1389
+      chair_email: 3rdedition71@gmail.com
+      zip: '20019'
+    - committee_id: 4111
+      first_name: Veda
+      last_name: Rasheed
+      candidate_key: CANCC7207113
+      committee_key: PCCCC7207113
+      election_year: 2020
+      candidate_approved: true
+      committee_approved: true
+      termination_approved: false
+      election_description: Primary Election
+      candidate_name: Veda Rasheed
+      committee_name: Veda for Ward 7
+      id: 5036
+      name: Ms. Veda Rasheed
+      address: '703 Chaplin Street, SE'
+      filing_date: 09/09/2019
+      phone: (202) 391-4545
+      email: veda.rasheed@gmail.com
+      committee_address: '703 Chaplin Street, SE, Washington, DC 20019'
+      committee_phone: (314) 657-8455
+      treasurer_name: Mr. Sean Watson
+      treasurer_phone: (202) 412-1621
+      treasurer_email: sean.watson202@gmail.com
+      chairperson_name: Mr. Calvin Nophlin
+      chair_phone: (202) 582-1218
+      chair_email: ctn1441@gmail.com
+      zip: '20019'
+    - committee_id: 4104
+      first_name: Clayton
+      last_name: Rosenberg
+      candidate_key: CANCC7207109
+      committee_key: PCCCC7207109
+      election_year: 2020
+      candidate_approved: true
+      committee_approved: true
+      termination_approved: true
+      election_description: Primary Election
+      candidate_name: Clayton Rosenberg
+      committee_name: Rosenberg for Ward 7
+      id: 5028
+      name: Mr. Clayton Rosenberg
+      address: '4408 Lee Street, NE'
+      filing_date: 07/31/2019
+      phone: ''
+      email: claytonrosenberg0@gmail.com
+      committee_address: '4408 Lee Street, NE, Washington, DC 20019'
+      committee_phone: (202) 847-9386
+      treasurer_name: Mr. Nathaniel H. Moone
+      treasurer_phone: (202) 876-7260
+      treasurer_email: moone4054@yahoo.com
+      chairperson_name: Mr. Clayton Aristotle Rosenberg
+      chair_phone: (202) 847-9386
+      chair_email: rosenbergforward7@gmail.com
+      zip: '20019'
+Independent:
+  Council At-Large:
+    - committee_id: 4114
+      first_name: Markus
+      last_name: Batchelor
+      candidate_key: CANCCL207116
+      committee_key: ''
+      election_year: 2020
+      candidate_approved: true
+      committee_approved: false
+      termination_approved: false
+      election_description: General Election
+      candidate_name: Markus Batchelor
+      committee_name: Markus for DC
+      id: 5039
+      name: Mr. Markus E. Batchelor
+      address: '1241 Alabama Ave., SE Apt. !'
+      filing_date: 09/13/2019
+      phone: ''
+      email: info@markusfordc.com
+      committee_address: '1241 Alabama Ave., SE Apt. A, Washington, DC 20032'
+      committee_phone: (202) 455-1032
+      treasurer_name: ''
+      treasurer_phone: ''
+      treasurer_email: ''
+      chairperson_name: ''
+      chair_phone: ''
+      chair_email: ''
+      zip: '20032'
+    - committee_id: 4099
+      first_name: Anthony
+      last_name: Dale
+      candidate_key: CANCCL207106
+      committee_key: ''
+      election_year: 2020
+      candidate_approved: true
+      committee_approved: false
+      termination_approved: false
+      election_description: General Election
+      candidate_name: Anthony Dale
+      committee_name: Dale for DC
+      id: 5023
+      name: Mr. Anthony L. Dale
+      address: '222 M Street, SW #820'
+      filing_date: 06/28/2019
+      phone: ''
+      email: anthony@anthony-dale.com
+      committee_address: '222 M Street, SW. #820, Washington, DC 20024'
+      committee_phone: (718) 213-6770
+      treasurer_name: ''
+      treasurer_phone: ''
+      treasurer_email: ''
+      chairperson_name: ''
+      chair_phone: ''
+      chair_email: ''
+      zip: '20024'
+  Council Ward 8:
+    - committee_id: 4112
+      first_name: Taurus
+      last_name: Phillips
+      candidate_key: CANCC8207114
+      committee_key: ''
+      election_year: 2020
+      candidate_approved: true
+      committee_approved: false
+      termination_approved: false
+      election_description: General Election
+      candidate_name: Taurus  Phillips
+      committee_name: Committee to Elect Taurus Phillips
+      id: 5037
+      name: Mr. Taurus Douglas Phillips
+      address: '3216 15th Street, SE'
+      filing_date: 09/11/2019
+      phone: ''
+      email: taurus.d.phillips@gmail.com
+      committee_address: '3222 2nd Street, SE, Washington, DC 20020'
+      committee_phone: (202) 629-3793
+      treasurer_name: ''
+      treasurer_phone: ''
+      treasurer_email: ''
+      chairperson_name: ''
+      chair_phone: ''
+      chair_email: ''
+      zip: '20020'
+Other:
+  Council Ward 2:
+    - committee_id: 0
+      first_name: Robert
+      last_name: Lee
+      candidate_key: CANCC2207112
+      election_year: 2020
+      candidate_approved: true
+      committee_approved: false
+      termination_approved: false
+      election_description: Primary Election
+      candidate_name: Robert Lee
+      committee_name: Robert Lee
+      id: 5035
+      name: Mr. Robert Lee
+      address: '400 8th Street, NW. #301'
+      filing_date: 08/20/2019
+      phone: (571) 269-8254
+      email: robertleesystrol@gmail.com
+      zip: '20004'

@@ -1,7 +1,9 @@
 #!/usr/bin/env node
 
+const assert = require('assert');
 const fs = require('fs');
 const yaml = require('js-yaml');
+const _ = require('lodash');
 const underscored = require('underscore.string/underscored');
 const argv = require('yargs')
     .options({
@@ -25,15 +27,18 @@ const argv = require('yargs')
     .argv;
 const OcfDisclosures = require('./lib/ocf-disclosures');
 const yamlFile = `${__dirname}/dcision${argv.year.toString().substr(-2)}.yaml`;
+const templateFile = `${__dirname}/candidates.html.tpl`;
 
 main().catch(console.trace);
 
 async function main() {
-    const records = readYaml();
+    let records = readYaml();
     if (argv.update) {
         const newRecords = await getNewRecords();
-        writeYaml(combineRecords(records, newRecords));
+        records = combineRecords(records, newRecords);
+        writeYaml(records);
     }
+    writeHtml(records);
 }
 
 function readYaml() {
@@ -94,6 +99,10 @@ function transformRecords(flatRecordsByType) {
         ]) {
             delete r[key];
         }
+        const m = r.address.match(/^(.+), Washington, DC (\d+)$/);
+        assert(m, `Unexpected address format "${r.address}"`);
+        r.address = m[1];
+        r.zip = m[2];
         if (!recordsByPartyAndOffice[party]) {
             recordsByPartyAndOffice[party] = {};
         }
@@ -130,4 +139,10 @@ function combineRecords(records, newRecords) {
 
 function writeYaml(records) {
     fs.writeFileSync(yamlFile, yaml.safeDump(records));
+}
+
+function writeHtml(records) {
+    const template = _.template(fs.readFileSync(templateFile, 'utf8'));
+    const outputFile = templateFile.replace(/\.tpl$/, '');
+    fs.writeFileSync(outputFile, template({records}));
 }

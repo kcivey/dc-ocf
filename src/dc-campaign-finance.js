@@ -163,7 +163,7 @@ jQuery(function ($) {
     }
 
     function setCandidateColors(points) {
-        const colors = ['#e41a1c', '#377eb8', '#4daf4a', '#984ea3', '#ff7f00', '#ffff33', '#a65628'];
+        const colors = ['#e41a1c', '#377eb8', '#4daf4a', '#984ea3', '#ff7f00', '#f781bf', '#a65628'];
         candidateColors = {};
         let i = 0;
         $.each(points, function (candidate) {

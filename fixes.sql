@@ -41,6 +41,7 @@ UPDATE contributions SET number_and_street = REPLACE(number_and_street, ' MacArt
 UPDATE contributions SET number_and_street = REPLACE(number_and_street, ' Connecticut Ave 1', ' Connecticut Ave NW 1') WHERE number_and_street LIKE '% Connecticut Ave 1%';
 UPDATE contributions SET number_and_street = '3293 Worthington St NW' WHERE number_and_street = '6293 Worthington St NW';
 UPDATE contributions SET number_and_street = REPLACE(number_and_street, ' Lawrence NE', ' Lawrence St NE') WHERE number_and_street LIKE '% Lawrence NE%';
+UPDATE contributions SET number_and_street = REPLACE(number_and_street, '1432 Leegate', '1432 Leegate Rd NW') WHERE number_and_street = '1432 Leegate';
 UPDATE contributions SET number_and_street = REPLACE(number_and_street, ' Martin Luther King Jr SE', ' Martin Luther King Jr Ave SE')
     WHERE number_and_street LIKE '% Martin Luther King Jr SE%';
 UPDATE contributions SET number_and_street = REPLACE(number_and_street, ' NW#', ' NW #') WHERE number_and_street LIKE '% NW#%';

@@ -17,28 +17,46 @@ main().catch(console.error);
 async function main() {
     const endYear = argv['to-present'] ? currentElectionYear : electionYear;
     if (argv.committees) {
+        deleteOldFile('committees', 'principal');
         for (let year = electionYear; year <= endYear; year++) {
             await retry(async () => writeCommitteeCsv('principal', year));
         }
     }
     if (argv.contributions) {
+        deleteOldFile('contributions', 'principal');
         await retry(() => writeTransactionCsv('contributions'));
     }
     if (argv.expenditures) {
+        deleteOldFile('expenditures', 'principal');
         await retry(() => writeTransactionCsv('expenditures'));
     }
     if (argv.exploratory) {
+        deleteOldFile('committees', 'exploratory');
         for (let year = electionYear; year <= endYear; year++) {
             await retry(() => writeCommitteeCsv('exploratory', year));
         }
         if (argv.contributions) {
+            deleteOldFile('contributions', 'exploratory');
             await retry(() => writeTransactionCsv('contributions', 'exploratory'));
         }
         if (argv.expenditures) {
+            deleteOldFile('expenditures', 'exploratory');
             await retry(() => writeTransactionCsv('expenditures', 'exploratory'));
         }
     }
     process.exit();
+}
+
+function deleteOldFile(recordType, filerType) {
+    try {
+        fs.unlinkSync(getCsvFilename(recordType, filerType));
+    }
+    catch (err) {
+        // ignore if file doesn't exist
+        if (err.code !== 'ENOENT') {
+            throw err;
+        }
+    }
 }
 
 async function retry(fn) {

@@ -18,27 +18,42 @@ async function main() {
     const endYear = argv['to-present'] ? currentElectionYear : electionYear;
     if (argv.committees) {
         for (let year = electionYear; year <= endYear; year++) {
-            await writeCommitteeCsv('principal', year);
+            await retry(async () => writeCommitteeCsv('principal', year));
         }
     }
     if (argv.contributions) {
-        await writeTransactionCsv('contributions');
+        await retry(() => writeTransactionCsv('contributions'));
     }
     if (argv.expenditures) {
-        await writeTransactionCsv('expenditures');
+        await retry(() => writeTransactionCsv('expenditures'));
     }
     if (argv.exploratory) {
         for (let year = electionYear; year <= endYear; year++) {
-            await writeCommitteeCsv('exploratory', year);
+            await retry(() => writeCommitteeCsv('exploratory', year));
         }
         if (argv.contributions) {
-            await writeTransactionCsv('contributions', 'exploratory');
+            await retry(() => writeTransactionCsv('contributions', 'exploratory'));
         }
         if (argv.expenditures) {
-            await writeTransactionCsv('expenditures', 'exploratory');
+            await retry(() => writeTransactionCsv('expenditures', 'exploratory'));
         }
     }
     process.exit();
+}
+
+async function retry(fn) {
+    let tries = 0;
+    while (true) {
+        try {
+            return await fn();
+        }
+        catch (err) {
+            tries++;
+            if (tries >= 3) {
+                throw err;
+            }
+        }
+    }
 }
 
 async function writeCommitteeCsv(filerType = 'principal', year) {

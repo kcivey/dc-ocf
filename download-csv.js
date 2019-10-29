@@ -7,6 +7,7 @@ const util = require('util');
 const request = require('request-promise-native');
 const yargs = require('yargs');
 const {createBrowser} = require('./lib/browser');
+const currentElectionYear = Math.ceil(new Date().getFullYear() / 2) * 2;
 const argv = getArgv();
 const electionYear = argv.year;
 const {getCsvFilename} = require('./lib/util');
@@ -14,8 +15,11 @@ const {getCsvFilename} = require('./lib/util');
 main().catch(console.error);
 
 async function main() {
+    const endYear = argv['to-present'] ? currentElectionYear : electionYear;
     if (argv.committees) {
-        await writeCommitteeCsv();
+        for (let year = electionYear; year <= endYear; year++) {
+            await writeCommitteeCsv('principal', year);
+        }
     }
     if (argv.contributions) {
         await writeTransactionCsv('contributions');
@@ -24,7 +28,9 @@ async function main() {
         await writeTransactionCsv('expenditures');
     }
     if (argv.exploratory) {
-        await writeCommitteeCsv('exploratory');
+        for (let year = electionYear; year <= endYear; year++) {
+            await writeCommitteeCsv('exploratory', year);
+        }
         if (argv.contributions) {
             await writeTransactionCsv('contributions', 'exploratory');
         }
@@ -35,18 +41,18 @@ async function main() {
     process.exit();
 }
 
-async function writeCommitteeCsv(filerType = 'principal') {
+async function writeCommitteeCsv(filerType = 'principal', year) {
     const filerTypeName = getFilerTypeName(filerType);
     assert(filerTypeName, `Unknown filer type "${filerType}"`);
-    log(`Getting ${filerType} committees`);
+    log(`Getting ${filerType} committees for ${year}`);
     const file = getCsvFilename('committees', filerType);
     const browser = await createBrowser();
     await browser.visit('https://efiling.ocf.dc.gov/Disclosure');
     await browser.select('#FilerTypeId', filerTypeName);
-    await browser.select('#ElectionYear', electionYear.toString());
+    await browser.select('#ElectionYear', year.toString());
     await browser.click('#btnSubmitSearch');
     let csv = await getCsv(browser);
-    const extraFile = file.replace('.csv', '.extra.csv');
+    const extraFile = file.replace('.csv', `-${year}.extra.csv`);
     let extraCsv = '';
     try {
         extraCsv = fs.readFileSync(extraFile, 'utf8');
@@ -58,8 +64,13 @@ async function writeCommitteeCsv(filerType = 'principal') {
         }
     }
     csv += extraCsv;
-    fs.writeFileSync(file, csv);
-    log('Finished writing committees');
+    if (fs.existsSync(file)) {
+        csv = csv.replace(/^.+\n/, ''); // remove header line if there's already CSV in file
+    }
+    if (csv.match(/\S/)) { // skip writing if nothing in CSV
+        fs.appendFileSync(file, csv);
+    }
+    log(`Finished writing ${filerType} committees for ${year}`);
 }
 
 async function writeTransactionCsv(transactionType, filerType = 'principal') {
@@ -96,7 +107,15 @@ async function writeTransactionCsv(transactionType, filerType = 'principal') {
 }
 
 async function getCsv(browser) {
-    await browser.click('#divExportDropdown');
+    try {
+        await browser.click('#divExportDropdown');
+    }
+    catch (err) {
+        if (err.message.match(/^No target element/)) {
+            return '';
+        }
+        throw err;
+    }
     const link = browser.query('#exportDropDown > li:last-child > a');
     const csvUrl = url.resolve(browser.location.href, link.getAttribute('href'));
     await browser.tabs.closeAll();
@@ -137,7 +156,7 @@ function getArgv() {
             year: {
                 type: 'number',
                 describe: 'election year',
-                default: Math.ceil(new Date().getFullYear() / 2) * 2,
+                default: currentElectionYear,
             },
             committees: {
                 type: 'boolean',
@@ -158,6 +177,10 @@ function getArgv() {
             all: {
                 type: 'boolean',
                 describe: 'download committees, contributions, and expenditures',
+            },
+            'to-present': {
+                type: 'boolean',
+                describe: 'download all data from year to present',
             },
             verbose: {
                 type: 'boolean',

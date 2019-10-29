@@ -23,7 +23,7 @@ async function main() {
     if (argv.committees) {
         deleteOldFile('committees', 'principal');
         for (let year = electionYear; year <= endYear; year++) {
-            await retry(async () => writeCommitteeCsv('principal', year));
+            await retry(() => writeCommitteeCsv('principal', year));
         }
     }
     if (argv.contributions) {

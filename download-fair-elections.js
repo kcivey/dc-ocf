@@ -2,9 +2,9 @@
 
 const fs = require('fs');
 const request = require('request-promise-native');
-const {dasherize} = require('underscore.string');
 const yargs = require('yargs');
 const {createBrowser} = require('./lib/browser');
+const {hyphenize} = require('./lib/util');
 const argv = getArgv();
 const browser = createBrowser();
 const startUrl = 'https://fairelections.ocf.dc.gov/public/FinancialReport';
@@ -36,7 +36,7 @@ async function main() {
         console.warn(`Getting ${submittedDate} ${reportName} for ${committeeName}`);
         const pdfFile =
             outputDir + '/' +
-            dasherize(
+            hyphenize(
                 committeeName.toLowerCase() + ' ' +
                 reportName.replace(' Report', '') + ' ' +
                 submittedDate.replace(/^(\d\d)\/(\d\d)\/(\d{4})$/, '$3$1$2')

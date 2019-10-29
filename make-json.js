@@ -25,6 +25,7 @@ const argv = require('yargs')
     .strict(true)
     .argv;
 const db = require('./lib/db');
+const {hyphenize} = require('./lib/util');
 const outputDir = __dirname + '/src';
 
 main()
@@ -425,11 +426,4 @@ function getExtras(officeCode) {
         }
     }
     return extras;
-}
-
-function hyphenize(s) {
-    return s.replace(/([a-z])(?=[A-Z])/g, '$1-')
-        .toLowerCase()
-        .replace(/[^a-z\d]+/g, '-')
-        .replace(/^-|-$/g, '');
 }

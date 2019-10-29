@@ -12,7 +12,10 @@ const outputDir = __dirname + '/fair-elections';
 
 main()
     .then(() => console.warn('Finished'))
-    .catch(console.error);
+    .catch(function (err) {
+        console.trace(err);
+        process.exit(1);
+    });
 
 async function main() {
     console.warn(`Getting ${startUrl}`);

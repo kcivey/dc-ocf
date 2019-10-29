@@ -8,7 +8,10 @@ const {fixAmount, fixDate, getCsvFilename, normalizeNameAndAddress, parseName} =
 const currentCommittees = new Set();
 
 main()
-    .catch(console.trace)
+    .catch(function (err) {
+        console.trace(err);
+        process.exit(1);
+    })
     .finally(() => db.close());
 
 async function main() {

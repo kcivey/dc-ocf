@@ -9,7 +9,10 @@ const {fixAmount, fixDate, hyphenize, normalizeNameAndAddress, parseAddress, par
 
 main()
     .then(() => console.warn('Finished'))
-    .catch(console.trace)
+    .catch(function (err) {
+        console.trace(err);
+        process.exit(1);
+    })
     .finally(() => db.close())
     .finally(() => process.exit());
 

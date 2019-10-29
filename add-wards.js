@@ -6,7 +6,10 @@ const marClient = require('dc-mar').createClient({request});
 const batchSize = 50;
 
 main()
-    .catch(console.error)
+    .catch(function (err) {
+        console.trace(err);
+        process.exit(1);
+    })
     .finally(() => db.close());
 
 async function main() {

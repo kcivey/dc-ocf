@@ -12,7 +12,11 @@ const argv = getArgv();
 const electionYear = argv.year;
 const {getCsvFilename} = require('./lib/util');
 
-main().catch(console.error);
+main()
+    .catch(function (err) {
+        console.trace(err);
+        process.exit(1);
+    });
 
 async function main() {
     const endYear = argv['to-present'] ? currentElectionYear : electionYear;

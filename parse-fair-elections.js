@@ -5,7 +5,7 @@ const fs = require('fs');
 const {pdfToText} = require('pdf-to-text');
 const underscored = require('underscore.string/underscored');
 const db = require('./lib/db');
-const {fixAmount, fixDate, normalizeNameAndAddress, parseAddress, parseName} = require('./lib/util');
+const {fixAmount, fixDate, hyphenize, normalizeNameAndAddress, parseAddress, parseName} = require('./lib/util');
 
 main()
     .then(() => console.warn('Finished'))
@@ -89,6 +89,7 @@ async function processFile(inputFile) {
             const extraRecords = rows.map(function (row) {
                 return {
                     committee_name: row.committee_name,
+                    committee_code: hyphenize(row.committee_name),
                     is_fair_elections: true,
                 };
             });

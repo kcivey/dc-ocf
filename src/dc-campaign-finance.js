@@ -212,7 +212,7 @@ jQuery(function ($) {
                 const contributors = point[2];
                 L.circleMarker(
                     position,
-                    {...pointOptions, radius: baseRadius * (contributors ** 0.5)},
+                    {...pointOptions, radius: baseRadius * (contributors ** 0.5)}
                 ).addTo(layer);
                 for (let contributorIndex = 0; contributorIndex < contributors; contributorIndex++) {
                     L.circleMarker(position, pointOptions)
@@ -304,7 +304,7 @@ jQuery(function ($) {
             );
         overlaysContainer.after(
             $('<div/>').addClass('leaflet-control-layers-separator'),
-            radioDiv,
+            radioDiv
         );
         const wantedTypeCode = hyphenize(wantedType);
         $(`#type-radios input:radio[value=${wantedTypeCode}]`).prop('checked', true);

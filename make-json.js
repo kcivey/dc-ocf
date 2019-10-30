@@ -21,6 +21,13 @@ const argv = require('yargs')
             default: 0,
             requiredArg: true,
         },
+        year: {
+            type: 'number',
+            describe: 'election year',
+            default: 0,
+            defaultDescription: 'all available',
+            requiredArg: true,
+        },
     })
     .strict(true)
     .argv;
@@ -38,16 +45,16 @@ main()
 async function main() {
     let offices;
     if (argv.office) {
-        offices = [await db.getMatchingOffice(argv.office)];
+        offices = [await db.getMatchingOffice(argv.office, argv.year)];
     }
     else {
-        offices = await db.getOfficesForReport(argv.threshold);
+        offices = await db.getOfficesForReport(argv.threshold, argv.year);
     }
     for (const office of offices) {
         await processOffice(office);
     }
     const outputFile = outputDir + '/available.json';
-    const availableContests = await db.getAvailableContests(argv.threshold);
+    const availableContests = await db.getAvailableContests(argv.threshold, argv.year);
     console.warn(`Writing ${outputFile}`);
     fs.writeFileSync(outputFile, JSON.stringify(availableContests, null, argv.pretty ? 2 : 0));
 }
@@ -172,7 +179,7 @@ async function processOffice(office) {
             }
         }
     }
-    const allFairElections = await db.areAllCandidatesFairElections(office);
+    const allFairElections = await db.areAllCandidatesFairElections(office, argv.year);
     if (allFairElections) {
         // Rows for individuals are redundant if all candidates can take money only from individuals
         for (const key of Object.keys(rowDefs)) {
@@ -181,8 +188,8 @@ async function processOffice(office) {
             }
         }
     }
-    const candidates = await db.getCandidatesForOffice(office, argv.threshold);
-    const filters = {office, candidates};
+    const candidates = await db.getCandidatesForOffice(office, argv.year, argv.threshold);
+    const filters = {office, candidates, year: argv.year};
     const stats = (await db.getContributionStats({filters}));
     const columnHeads = [''].concat(stats.map(row => row.candidate_short_name));
     const rowCodes = Object.keys(rowDefs).slice(1); // skip candidate name
@@ -233,7 +240,7 @@ async function processOffice(office) {
 }
 
 async function getDateData(baseFilters, ward) {
-    const lastDeadlines = await db.getLastDeadlines(baseFilters.office);
+    const lastDeadlines = await db.getLastDeadlines(baseFilters.office, baseFilters.year);
     const sets = {
         all: {},
         dc: {state: 'DC'},
@@ -288,15 +295,16 @@ async function getDateData(baseFilters, ward) {
 async function getPlaceData(filters, ward = null) {
     const office = filters.office;
     const candidates = filters.candidates;
-    const allStates = await db.getContributorPlaces(office);
-    const allWards = await db.getContributorPlaces(office, true);
+    const year = filters.year;
+    const allStates = await db.getContributorPlaces(office, year);
+    const allWards = await db.getContributorPlaces(office, year, true);
     const placeData = [];
     for (const candidate of candidates) {
-        const contributorsByState = await db.getContributorsByPlace(candidate);
+        const contributorsByState = await db.getContributorsByPlace(candidate, year);
         const stateColumns = makePlaceContributorColumns(allStates, contributorsByState);
         const contributorStates = stateColumns.map(item => item[0]);
         const stateColors = makeColors(allStates, contributorStates, 'DC');
-        const contributorsByWard = await db.getContributorsByPlace(candidate, true);
+        const contributorsByWard = await db.getContributorsByPlace(candidate, year, true);
         const wardColumns = makePlaceContributorColumns(allWards, contributorsByWard);
         const contributorWards = wardColumns.map(item => item[0]);
         const wardColors = makeColors(allWards, contributorWards, ward);

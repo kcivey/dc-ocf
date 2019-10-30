@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 set -e
-./make-json.js
+./make-json.js --year 2020
 echo 'Copying files from src to dist'
 mkdir -p dist
 rm dist/*

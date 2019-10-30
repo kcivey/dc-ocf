@@ -27,6 +27,8 @@ Democratic:
       chair_phone: (202) 247-0819
       chair_email: matthewfrumin@gmail.com
       zip: '20012'
+      twitter: RobertWhite_DC
+      website: robertwhiteatlarge.com
   Council Ward 2:
     - committee_id: 4096
       first_name: John
@@ -82,6 +84,8 @@ Democratic:
       chair_phone: (202) 427-3094
       chair_email: williamgrayson@hotmail.com
       zip: '20001'
+      twitter: JMGinDC
+      website: jordanforward2.com
     - committee_id: 4095
       first_name: Daniel
       last_name: Hernandez
@@ -109,6 +113,8 @@ Democratic:
       chair_phone: ''
       chair_email: ''
       zip: '20009'
+      twitter: DanielH_DC
+      website: danielward2.com
     - committee_id: 4084
       first_name: Patrick
       last_name: Kennedy
@@ -136,6 +142,8 @@ Democratic:
       chair_phone: (202) 903-6025
       chair_email: dbenderphd@aol.com
       zip: '20006'
+      twitter: PLKDC
+      website: patrickforward2.com
     - committee_id: 4098
       first_name: Kishan
       last_name: Putta
@@ -163,6 +171,8 @@ Democratic:
       chair_phone: ''
       chair_email: ''
       zip: '20007'
+      twitter: KishanForDC
+      website: kishanfordc.com
     - committee_id: 4113
       first_name: Yilin
       last_name: Zhang
@@ -190,6 +200,8 @@ Democratic:
       chair_phone: ''
       chair_email: ''
       zip: '20008'
+      twitter: yilinforward2
+      website: yilinforward2.com
   Council Ward 4:
     - committee_id: 4106
       first_name: Janeese
@@ -218,6 +230,8 @@ Democratic:
       chair_phone: ''
       chair_email: ''
       zip: '20011'
+      twitter: Janeese4DC
+      website: janeese4dc.com
     - committee_id: 4088
       first_name: Brandon
       last_name: Todd
@@ -245,6 +259,8 @@ Democratic:
       chair_phone: (202) 726-6204
       chair_email: dwiggins@ps2g.us
       zip: '20011'
+      twitter: brandonttodd
+      website: ''
   Council Ward 7:
     - committee_id: 4105
       first_name: Kelvin
@@ -273,6 +289,8 @@ Democratic:
       chair_phone: (202) 503-4224
       chair_email: kelvinbrown4dc@gmail.com
       zip: '20020'
+      twitter: kelvinbrown4dc
+      website: kelvinebrown.com
     - committee_id: 4102
       first_name: Anthony
       last_name: Green
@@ -300,6 +318,8 @@ Democratic:
       chair_phone: ''
       chair_email: ''
       zip: '20019'
+      twitter: GreenForWard7
+      website: greenward7.com
     - committee_id: 4089
       first_name: James
       last_name: Jennings
@@ -327,6 +347,8 @@ Democratic:
       chair_phone: (202) 369-1389
       chair_email: 3rdedition71@gmail.com
       zip: '20019'
+      twitter: Vote4Jennings
+      website: ''
     - committee_id: 4111
       first_name: Veda
       last_name: Rasheed
@@ -354,6 +376,8 @@ Democratic:
       chair_phone: (202) 582-1218
       chair_email: ctn1441@gmail.com
       zip: '20019'
+      twitter: VedaRasheed
+      website: vedarasheed.com
     - committee_id: 4104
       first_name: Clayton
       last_name: Rosenberg
@@ -381,6 +405,8 @@ Democratic:
       chair_phone: (202) 847-9386
       chair_email: rosenbergforward7@gmail.com
       zip: '20019'
+      twitter: Rosenberg4DC
+      website: ''
   Council Ward 8:
     - committee_id: 4117
       first_name: Richard
@@ -409,6 +435,8 @@ Democratic:
       chair_phone: (202) 718-3148
       chair_email: baileyangie244@gmail.com
       zip: '20032'
+      twitter: ''
+      website: ''
 Independent:
   Council At-Large:
     - committee_id: 4114
@@ -438,6 +466,8 @@ Independent:
       chair_phone: ''
       chair_email: ''
       zip: '20032'
+      twitter: MarkusforDC
+      website: markusfordc.com
     - committee_id: 4099
       first_name: Anthony
       last_name: Dale
@@ -465,6 +495,8 @@ Independent:
       chair_phone: ''
       chair_email: ''
       zip: '20024'
+      twitter: ''
+      website: ''
   Council Ward 8:
     - committee_id: 4112
       first_name: Taurus
@@ -493,6 +525,8 @@ Independent:
       chair_phone: ''
       chair_email: ''
       zip: '20020'
+      twitter: ''
+      website: ''
 Other:
   Council Ward 2:
     - committee_id: 0
@@ -513,3 +547,5 @@ Other:
       phone: (571) 269-8254
       email: robertleesystrol@gmail.com
       zip: '20004'
+      twitter: ''
+      website: ''

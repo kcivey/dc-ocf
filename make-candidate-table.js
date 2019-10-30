@@ -80,7 +80,12 @@ function transformRecords(flatRecordsByType) {
                 return newRec;
             }
         )
-        .sort(candidateSort);
+        .sort(function (a, b) {
+            return a.office.localeCompare(b.office) ||
+                a.party_name.localeCompare(b.party_name) ||
+                a.last_name.localeCompare(b.last_name) ||
+                a.first_name.localeCompare(b.first_name);
+        });
     const recordsByPartyAndOffice = {};
     for (const r of underscoredRecords) {
         const office = r.office;
@@ -136,7 +141,10 @@ function combineRecords(records, newRecords) {
                     records[party][office].push(candidate);
                 }
             }
-            records[party][office].sort(candidateSort);
+            records[party][office].sort(function (a, b) {
+                return a.last_name.localeCompare(b.last_name) ||
+                    a.first_name.localeCompare(b.first_name);
+            });
         }
     }
     return records;
@@ -160,11 +168,4 @@ function writeHtml(records) {
         recordsByElection[election][party] = recordsByOffice;
     }
     fs.writeFileSync(outputFile, template({recordsByElection}));
-}
-
-function candidateSort(a, b) {
-    return a.office.localeCompare(b.office) ||
-        a.party_name.localeCompare(b.party_name) ||
-        a.last_name.localeCompare(b.last_name) ||
-        a.first_name.localeCompare(b.first_name);
 }

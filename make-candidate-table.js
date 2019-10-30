@@ -28,6 +28,12 @@ const argv = require('yargs')
 const OcfDisclosures = require('./lib/ocf-disclosures');
 const yamlFile = `${__dirname}/dcision${argv.year.toString().substr(-2)}.yaml`;
 const templateFile = `${__dirname}/candidates.html.tpl`;
+const majorParties = [
+    'Democratic',
+    'Libertarian',
+    'Republican',
+    'Statehood Green',
+];
 
 main().catch(console.trace);
 
@@ -78,7 +84,7 @@ function transformRecords(flatRecordsByType) {
     const recordsByPartyAndOffice = {};
     for (const r of underscoredRecords) {
         const office = r.office;
-        const party = r.party_name;
+        const party = r.party_name === 'Democrat' ? 'Democratic' : r.party_name;
         for (const key of [
             'office',
             'office_sought',
@@ -138,7 +144,17 @@ function writeYaml(records) {
 function writeHtml(records) {
     const template = _.template(fs.readFileSync(templateFile, 'utf8'));
     const outputFile = templateFile.replace(/\.tpl$/, '');
-    fs.writeFileSync(outputFile, template({records}));
+    const recordsByElection = {};
+    for (const [party, recordsByOffice] of Object.entries(records)) {
+        const election = majorParties.includes(party)
+            ? 'Primary Election, June 2, 2020'
+            : 'General Election, November 3, 2020';
+        if (!recordsByElection[election]) {
+            recordsByElection[election] = {};
+        }
+        recordsByElection[election][party] = recordsByOffice;
+    }
+    fs.writeFileSync(outputFile, template({recordsByElection}));
 }
 
 function candidateSort(a, b) {

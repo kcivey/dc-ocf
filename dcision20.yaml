@@ -250,7 +250,7 @@ Democrat:
       first_name: Kelvin
       last_name: Brown
       candidate_key: CANCC7207110
-      committee_key: ''
+      committee_key: PCCCC7207110
       election_year: 2020
       candidate_approved: true
       committee_approved: false
@@ -381,6 +381,34 @@ Democrat:
       chair_phone: (202) 847-9386
       chair_email: rosenbergforward7@gmail.com
       zip: '20019'
+  Council Ward 8:
+    - committee_id: 4117
+      first_name: Richard
+      last_name: Campbell
+      candidate_key: CANCC8207117
+      committee_key: PCCCC8207117
+      election_year: 2020
+      candidate_approved: true
+      committee_approved: true
+      termination_approved: false
+      election_description: Primary Election
+      candidate_name: Richard Campbell
+      committee_name: Richard Campbell -Ward 8 City Council
+      id: 5042
+      name: Mr. Richard Campbell
+      address: '1231 Alabama Ave., SE'
+      filing_date: 10/29/2019
+      phone: (202) 300-3417
+      email: richard2.campbell@gmail.com
+      committee_address: '2932 Southern Ave., SE #2, Washington, DC 20020'
+      committee_phone: (202) 300-3417
+      treasurer_name: Ms. Penelope A. Dade
+      treasurer_phone: (202) 544-4084
+      treasurer_email: p.a.dade@att.net
+      chairperson_name: Ms. Angela Bailey
+      chair_phone: (202) 718-3148
+      chair_email: baileyangie244@gmail.com
+      zip: '20032'
 Independent:
   Council At-Large:
     - committee_id: 4114

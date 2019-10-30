@@ -59,7 +59,7 @@ Democratic:
       zip: '20005'
     - committee_id: 4090
       first_name: Jordan
-      last_name: Grosman
+      last_name: Grossman
       candidate_key: CANCC2207101
       committee_key: PCCCC2207101
       election_year: 2020
@@ -67,10 +67,10 @@ Democratic:
       committee_approved: true
       termination_approved: false
       election_description: Primary Election
-      candidate_name: Jordan Grosman
+      candidate_name: Jordan Grossman
       committee_name: Jordan Grossman for Ward 2
       id: 5013
-      name: Mr. Jordan Mitchell Grosman
+      name: Mr. Jordan Mitchell Grossman
       address: '910 M Street, NW. #203'
       filing_date: 05/15/2019
       phone: (202) 350-1075

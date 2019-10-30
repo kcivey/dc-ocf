@@ -102,6 +102,11 @@ function transformRecords(flatRecordsByType) {
         assert(m, `Unexpected address format "${r.address}"`);
         r.address = m[1];
         r.zip = m[2];
+        if (r.last_name === 'Grosman') { // kluge to fix OCF typo
+            r.last_name = 'Grossman';
+            r.candidate_name = r.candidate_name.replace('Grosman', 'Grossman');
+            r.name = r.name.replace('Grosman', 'Grossman');
+        }
         if (!recordsByPartyAndOffice[party]) {
             recordsByPartyAndOffice[party] = {};
         }

@@ -74,14 +74,7 @@ function transformRecords(flatRecordsByType) {
                 return newRec;
             }
         )
-        .sort(
-            function (a, b) {
-                return a.office.localeCompare(b.office) ||
-                    a.party_name.localeCompare(b.party_name) ||
-                    a.last_name.localeCompare(b.last_name) ||
-                    a.first_name.localeCompare(b.first_name);
-            }
-        );
+        .sort(candidateSort);
     const recordsByPartyAndOffice = {};
     for (const r of underscoredRecords) {
         const office = r.office;
@@ -132,6 +125,7 @@ function combineRecords(records, newRecords) {
                     records[party][office].push(candidate);
                 }
             }
+            records[party][office].sort(candidateSort);
         }
     }
     return records;
@@ -145,4 +139,11 @@ function writeHtml(records) {
     const template = _.template(fs.readFileSync(templateFile, 'utf8'));
     const outputFile = templateFile.replace(/\.tpl$/, '');
     fs.writeFileSync(outputFile, template({records}));
+}
+
+function candidateSort(a, b) {
+    return a.office.localeCompare(b.office) ||
+        a.party_name.localeCompare(b.party_name) ||
+        a.last_name.localeCompare(b.last_name) ||
+        a.first_name.localeCompare(b.first_name);
 }

@@ -410,6 +410,35 @@ Democratic:
       twitter: Rosenberg4DC
       website: ''
   Council Ward 8:
+    - committee_id: 4118
+      first_name: Stuart
+      last_name: Anderson
+      candidate_key: CANCC8207118
+      committee_key: ''
+      election_year: 2020
+      candidate_approved: true
+      committee_approved: false
+      termination_approved: false
+      election_description: Primary Election
+      candidate_name: Stuart Anderson
+      committee_name: Committee to Elect Stuart Anderson 2020
+      id: 5043
+      name: Mr. Stuart Anderson
+      address: '1466 Morris Road, SE'
+      filing_date: 10/31/2019
+      phone: (202) 239-9439
+      email: swanderson6711@gmail.com
+      committee_address: '1466 Morris Road, SE, Washington, DC 20020'
+      committee_phone: (202) 239-9439
+      treasurer_name: ''
+      treasurer_phone: ''
+      treasurer_email: ''
+      chairperson_name: ''
+      chair_phone: ''
+      chair_email: ''
+      zip: '20020'
+      twitter: stuart4DC
+      website: ''
     - committee_id: 4117
       first_name: Richard
       last_name: Campbell
@@ -499,6 +528,35 @@ Independent:
       zip: '20024'
       twitter: ''
       website: ''
+    - committee_id: 4119
+      first_name: Chander
+      last_name: Jayaraman
+      candidate_key: CANCCL207119
+      committee_key: ''
+      election_year: 2020
+      candidate_approved: true
+      committee_approved: false
+      termination_approved: false
+      election_description: General Election
+      candidate_name: Chander Jayaraman
+      committee_name: Chander for Council
+      id: 5044
+      name: Mr. Chander Jayaraman
+      address: '1436 Independence Ave., SE'
+      filing_date: 10/31/2019
+      phone: (202) 546-2609
+      email: campaign@chander2020.com
+      committee_address: '1436 Independence Avenue, SE, Washington, DC 20003'
+      committee_phone: (202) 546-2609
+      treasurer_name: ''
+      treasurer_phone: ''
+      treasurer_email: ''
+      chairperson_name: ''
+      chair_phone: ''
+      chair_email: ''
+      zip: '20003'
+      twitter: chander4council
+      website: chander2020.com
   Council Ward 8:
     - committee_id: 4112
       first_name: Taurus
@@ -551,3 +609,93 @@ Other:
       zip: '20004'
       twitter: ''
       website: ''
+Non-Partisan:
+  SBOE Ward 7:
+    - committee_id: 4121
+      first_name: Charles
+      last_name: Boston
+      candidate_key: CANSD7207121
+      committee_key: ''
+      election_year: 2020
+      candidate_approved: true
+      committee_approved: false
+      termination_approved: false
+      election_description: General Election
+      candidate_name: Charles Boston
+      committee_name: Boston for State Board of Education Ward 7 2020
+      id: 5046
+      name: Mr. Charles Otto Boston
+      address: '2512 32nd Street, SE'
+      filing_date: 10/31/2019
+      phone: (202) 681-8487
+      email: cottob@gmail.com
+      committee_address: '2512 32nd Street, SE, Washington, DC 20020'
+      committee_phone: (202) 681-8487
+      treasurer_name: ''
+      treasurer_phone: ''
+      treasurer_email: ''
+      chairperson_name: ''
+      chair_phone: ''
+      chair_email: ''
+      zip: '20020'
+      twitter: ''
+      website: ''
+    - committee_id: 4122
+      first_name: Tyrell
+      last_name: Holcomb
+      candidate_key: CANSD7207122
+      committee_key: ''
+      election_year: 2020
+      candidate_approved: true
+      committee_approved: false
+      termination_approved: false
+      election_description: General Election
+      candidate_name: Tyrell Holcomb
+      committee_name: Holcomb for SBOE
+      id: 5047
+      name: Mr. Tyrell M. Holcomb
+      address: '4020 Minnesota Ave., NE'
+      filing_date: 10/22/2019
+      phone: (202) 491-6685
+      email: holcombforward7@gmail.com
+      committee_address: '4020 Minnesota Ave., NE, Washington, DC 20019'
+      committee_phone: (202) 491-6685
+      treasurer_name: ''
+      treasurer_phone: ''
+      treasurer_email: ''
+      chairperson_name: ''
+      chair_phone: ''
+      chair_email: ''
+      zip: '20019'
+      twitter: tmholcomb
+      website: tyrellholcomb.com
+  SBOE Ward 8:
+    - committee_id: 4120
+      first_name: Darrell
+      last_name: Gaston
+      candidate_key: CANSD8207120
+      committee_key: ''
+      election_year: 2020
+      candidate_approved: true
+      committee_approved: false
+      termination_approved: false
+      election_description: General Election
+      candidate_name: Darrell Gaston
+      committee_name: Gaston 2020
+      id: 5045
+      name: Mr. Darrell Gaston
+      address: '1618 Gainesville Street, SE'
+      filing_date: 10/31/2019
+      phone: (202) 790-2662
+      email: gastonsboe@gmail.com
+      committee_address: '1618 Gainesville Street, SE, Washington, DC 20020'
+      committee_phone: (202) 790-2662
+      treasurer_name: ''
+      treasurer_phone: ''
+      treasurer_email: ''
+      chairperson_name: ''
+      chair_phone: ''
+      chair_email: ''
+      zip: '20020'
+      twitter: DarrellGastonDC
+      website: darrellgastondc.com

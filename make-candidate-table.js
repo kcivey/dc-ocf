@@ -65,16 +65,16 @@ async function getNewRecords() {
         useLastSeen: false,
     });
     const lastSeen = await ocf.getLastSeen(['Candidate']);
-    const records = await ocf.findNewRecords(lastSeen);
-    return transformRecords(records);
+    const records = (await ocf.findNewRecords(lastSeen)).Candidate;
+    return objectify(transformRecords(records), ['party', 'office']);
 }
 
-function transformRecords(flatRecordsByType) {
-    const underscoredRecords = flatRecordsByType['Candidate']
+function transformRecords(records) {
+    return records
         .map(
-            function (rec) {
+            function (r) {
                 const newRec = {};
-                for (const [key, value] of Object.entries(rec)) {
+                for (const [key, value] of Object.entries(r)) {
                     newRec[underscored((key))] = typeof value === 'string' ? value.trim() : value;
                 }
                 return newRec;
@@ -85,42 +85,33 @@ function transformRecords(flatRecordsByType) {
                 a.party_name.localeCompare(b.party_name) ||
                 a.last_name.localeCompare(b.last_name) ||
                 a.first_name.localeCompare(b.first_name);
+        })
+        .map(function (r) {
+            r.party = r.party_name === 'Democrat' ? 'Democratic' : r.party_name;
+            r.office = r.office.replace('D.C. State Board of Education', 'SBOE');
+            for (const key of [
+                'office_sought',
+                'party_name',
+                'party_affiliation',
+                'name_of_committee',
+                'filer_type_id',
+                'election_year_description',
+                'ocf_identification_no',
+                'committee_alphanumeric_id',
+            ]) {
+                delete r[key];
+            }
+            const m = r.address.match(/^(.+), Washington, DC (\d+)$/);
+            assert(m, `Unexpected address format "${r.address}"`);
+            r.address = m[1];
+            r.zip = m[2];
+            if (r.last_name === 'Grosman') { // kluge to fix OCF typo
+                r.last_name = 'Grossman';
+                r.candidate_name = r.candidate_name.replace('Grosman', 'Grossman');
+                r.name = r.name.replace('Grosman', 'Grossman');
+            }
+            return r;
         });
-    const recordsByPartyAndOffice = {};
-    for (const r of underscoredRecords) {
-        const office = r.office;
-        const party = r.party_name === 'Democrat' ? 'Democratic' : r.party_name;
-        for (const key of [
-            'office',
-            'office_sought',
-            'party_name',
-            'party_affiliation',
-            'name_of_committee',
-            'filer_type_id',
-            'election_year_description',
-            'ocf_identification_no',
-            'committee_alphanumeric_id',
-        ]) {
-            delete r[key];
-        }
-        const m = r.address.match(/^(.+), Washington, DC (\d+)$/);
-        assert(m, `Unexpected address format "${r.address}"`);
-        r.address = m[1];
-        r.zip = m[2];
-        if (r.last_name === 'Grosman') { // kluge to fix OCF typo
-            r.last_name = 'Grossman';
-            r.candidate_name = r.candidate_name.replace('Grosman', 'Grossman');
-            r.name = r.name.replace('Grosman', 'Grossman');
-        }
-        if (!recordsByPartyAndOffice[party]) {
-            recordsByPartyAndOffice[party] = {};
-        }
-        if (!recordsByPartyAndOffice[party][office]) {
-            recordsByPartyAndOffice[party][office] = [];
-        }
-        recordsByPartyAndOffice[party][office].push(r);
-    }
-    return recordsByPartyAndOffice;
 }
 
 function combineRecords(records, newRecords) {
@@ -168,4 +159,35 @@ function writeHtml(records) {
         recordsByElection[election][party] = recordsByOffice;
     }
     fs.writeFileSync(outputFile, template({recordsByElection}));
+}
+
+function objectify(arr, keyNames) {
+    if (typeof keyNames === 'string') {
+        keyNames = [keyNames];
+    }
+    if (!keyNames.length) {
+        return arr;
+    }
+    const unsorted = {};
+    const keyName = keyNames[0];
+    for (const obj of arr) {
+        const key = obj[keyName];
+        delete obj[keyName];
+        if (!unsorted[key]) {
+            unsorted[key] = [];
+        }
+        unsorted[key].push(obj);
+    }
+    const sorted = {};
+    for (const key of Object.keys(unsorted).sort(keySort)) {
+        const subarray = unsorted[key];
+        sorted[key] = objectify(subarray, keyNames.slice(1));
+    }
+    return sorted;
+}
+
+function keySort(a, b) {
+    const [, a1, a2] = a.match(/^(?:(.+?)\s+)?(.+)$/);
+    const [, b1, b2] = b.match(/^(?:(.+?)\s+)?(.+)$/);
+    return a2.localeCompare(b2) || a1.localeCompare(b1);
 }

@@ -14,7 +14,7 @@ Democratic:
       committee_name: Friends of Robert White
       id: 5027
       name: Mr. Robert White
-      address: '1601 Holly Street, NW'
+      address: 1601 Holly St NW
       filing_date: 08/01/2019
       phone: ''
       email: robert.c.whiteii@gmail.com
@@ -44,7 +44,7 @@ Democratic:
       committee_name: John Fanning for Ward 2
       id: 5019
       name: Mr. John J. Fanning
-      address: '1307 12th Street, NW. #505'
+      address: '1307 12th St NW #505'
       filing_date: 06/03/2019
       phone: (202) 510-1983
       email: johnjfanning2@yahoo.com
@@ -73,7 +73,7 @@ Democratic:
       committee_name: Jordan Grossman for Ward 2
       id: 5013
       name: Mr. Jordan Mitchell Grossman
-      address: '910 M Street, NW. #203'
+      address: '910 M St NW #203'
       filing_date: 05/15/2019
       phone: (202) 350-1075
       email: jordan.mitchell.grossman@gmail.com
@@ -102,7 +102,7 @@ Democratic:
       committee_name: Daniel Hernandez For Ward 2
       id: 5018
       name: Mr. Daniel Hernandez
-      address: '1724 18th Street, NW. Apt. 1'
+      address: 1724 18th St NW Apt 1
       filing_date: 06/04/2019
       phone: (202) 227-6728
       email: hernandezd1@outlook.com
@@ -131,7 +131,7 @@ Democratic:
       committee_name: Patrick Kennedy for Ward 2
       id: 5007
       name: Mr. Patrick Logan Kennedy
-      address: '532 20th Street, NW #312'
+      address: '532 20th St NW #312'
       filing_date: 04/08/2019
       phone: (202) 630-2201
       email: patrickkennedydc@gmail.com
@@ -160,7 +160,7 @@ Democratic:
       committee_name: Kishan for DC 2020
       id: 5022
       name: Mr. Kishan K. Putta
-      address: '3831 T Street, NW'
+      address: 3831 T St NW
       filing_date: 06/26/2019
       phone: ''
       email: kishanputta@gmail.com
@@ -189,7 +189,7 @@ Democratic:
       committee_name: Yilin Zhang for Ward 2
       id: 5038
       name: Ms. Yilin Zhang
-      address: '2100 Connecticut Ave., NW #103'
+      address: '2100 Connecticut Ave NW #103'
       filing_date: 09/16/2019
       phone: ''
       email: yilinzh2008@gmail.com
@@ -219,7 +219,7 @@ Democratic:
       committee_name: Committee to Elect Janeese Lewis George
       id: 5030
       name: Mrs. Janeese Lewis George
-      address: '6207 8th Street, NW'
+      address: 6207 8th St NW
       filing_date: 08/06/2019
       phone: ''
       email: janeesefor4@gmail.com
@@ -248,7 +248,7 @@ Democratic:
       committee_name: Re-Elect Brandon Todd 2020
       id: 5011
       name: Mr. Brandon Todd
-      address: '423 Buchanan Street, NW'
+      address: 423 Buchanan St NW
       filing_date: 05/15/2019
       phone: (202) 765-6948
       email: brandonttodd@gmail.com
@@ -278,7 +278,7 @@ Democratic:
       committee_name: Kelvin Brown for Ward 7 Council
       id: 5029
       name: Mr. Kelvin Brown
-      address: '3645 Austin Street, SE'
+      address: 3645 Austin St SE
       filing_date: 08/02/2019
       phone: ''
       email: kelvinbrown4dc@gmail.com
@@ -307,7 +307,7 @@ Democratic:
       committee_name: Green for Ward 7
       id: 5026
       name: Mr. Anthony Green
-      address: '920 49th Street, NE'
+      address: 920 49th St NE
       filing_date: 07/16/2019
       phone: (202) 840-9797
       email: lorenzo.deanwood@gmail.com
@@ -336,7 +336,7 @@ Democratic:
       committee_name: Vote Jennings Ward 7 DC Council 2020
       id: 5012
       name: Mr. James Leroy Jennings
-      address: '4418 Gault Place, NE'
+      address: 4418 Gault Pl NE
       filing_date: 05/16/2019
       phone: ''
       email: maxjames8110@gmail.com
@@ -365,7 +365,7 @@ Democratic:
       committee_name: Veda for Ward 7
       id: 5036
       name: Ms. Veda Rasheed
-      address: '703 Chaplin Street, SE'
+      address: 703 Chaplin St SE
       filing_date: 09/09/2019
       phone: (202) 391-4545
       email: veda.rasheed@gmail.com
@@ -394,7 +394,7 @@ Democratic:
       committee_name: Rosenberg for Ward 7
       id: 5028
       name: Mr. Clayton Rosenberg
-      address: '4408 Lee Street, NE'
+      address: 4408 Lee St NE
       filing_date: 07/31/2019
       phone: ''
       email: claytonrosenberg0@gmail.com
@@ -424,7 +424,7 @@ Democratic:
       committee_name: Committee to Elect Stuart Anderson 2020
       id: 5043
       name: Mr. Stuart Anderson
-      address: '1466 Morris Road, SE'
+      address: 1466 Morris Road SE
       filing_date: 10/31/2019
       phone: (202) 239-9439
       email: swanderson6711@gmail.com
@@ -453,7 +453,7 @@ Democratic:
       committee_name: Richard Campbell -Ward 8 City Council
       id: 5042
       name: Mr. Richard Campbell
-      address: '1231 Alabama Ave., SE'
+      address: 1231 Alabama Ave SE
       filing_date: 10/29/2019
       phone: (202) 300-3417
       email: richard2.campbell@gmail.com
@@ -484,7 +484,7 @@ Independent:
       committee_name: Markus for DC
       id: 5039
       name: Mr. Markus E. Batchelor
-      address: '1241 Alabama Ave., SE Apt. !'
+      address: 1241 Alabama Ave SE Apt !
       filing_date: 09/13/2019
       phone: ''
       email: info@markusfordc.com
@@ -513,7 +513,7 @@ Independent:
       committee_name: Dale for DC
       id: 5023
       name: Mr. Anthony L. Dale
-      address: '222 M Street, SW #820'
+      address: '222 M St SW #820'
       filing_date: 06/28/2019
       phone: ''
       email: anthony@anthony-dale.com
@@ -542,7 +542,7 @@ Independent:
       committee_name: Chander for Council
       id: 5044
       name: Mr. Chander Jayaraman
-      address: '1436 Independence Ave., SE'
+      address: 1436 Independence Ave SE
       filing_date: 10/31/2019
       phone: (202) 546-2609
       email: campaign@chander2020.com
@@ -558,6 +558,33 @@ Independent:
       twitter: chander4council
       website: chander2020.com
   Council Ward 8:
+    - committee_id: 4123
+      first_name: Christopher
+      last_name: Cole
+      candidate_key: CANCC8207123
+      committee_key: ''
+      election_year: 2020
+      candidate_approved: true
+      committee_approved: false
+      termination_approved: false
+      election_description: General Election
+      candidate_name: Christopher Cole
+      committee_name: Christopher Cole For Ward 8
+      id: 5048
+      name: Mr. Christopher M. Cole
+      address: '2611 Bowen Road SE #4'
+      filing_date: 10/31/2019
+      phone: (202) 246-5764
+      email: mrchrismcole@gmail.com
+      committee_address: '2611 Bowen Road, SE #4, Washington, DC 20020'
+      committee_phone: (202) 246-5764
+      treasurer_name: ''
+      treasurer_phone: ''
+      treasurer_email: ''
+      chairperson_name: ''
+      chair_phone: ''
+      chair_email: ''
+      zip: '20020'
     - committee_id: 4112
       first_name: Taurus
       last_name: Phillips
@@ -572,7 +599,7 @@ Independent:
       committee_name: Committee to Elect Taurus Phillips
       id: 5037
       name: Mr. Taurus Douglas Phillips
-      address: '3216 15th Street, SE'
+      address: 3216 15th St SE
       filing_date: 09/11/2019
       phone: ''
       email: taurus.d.phillips@gmail.com
@@ -602,7 +629,7 @@ Other:
       committee_name: Robert Lee
       id: 5035
       name: Mr. Robert Lee
-      address: '400 8th Street, NW. #301'
+      address: '400 8th St NW #301'
       filing_date: 08/20/2019
       phone: (571) 269-8254
       email: robertleesystrol@gmail.com
@@ -625,7 +652,7 @@ Non-Partisan:
       committee_name: Boston for State Board of Education Ward 7 2020
       id: 5046
       name: Mr. Charles Otto Boston
-      address: '2512 32nd Street, SE'
+      address: 2512 32nd St SE
       filing_date: 10/31/2019
       phone: (202) 681-8487
       email: cottob@gmail.com
@@ -654,7 +681,7 @@ Non-Partisan:
       committee_name: Holcomb for SBOE
       id: 5047
       name: Mr. Tyrell M. Holcomb
-      address: '4020 Minnesota Ave., NE'
+      address: 4020 Minnesota Ave NE
       filing_date: 10/22/2019
       phone: (202) 491-6685
       email: holcombforward7@gmail.com
@@ -684,7 +711,7 @@ Non-Partisan:
       committee_name: Gaston 2020
       id: 5045
       name: Mr. Darrell Gaston
-      address: '1618 Gainesville Street, SE'
+      address: 1618 Gainesville St SE
       filing_date: 10/31/2019
       phone: (202) 790-2662
       email: gastonsboe@gmail.com

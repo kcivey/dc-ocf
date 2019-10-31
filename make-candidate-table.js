@@ -27,7 +27,7 @@ const argv = require('yargs')
     .argv;
 const OcfDisclosures = require('./lib/ocf-disclosures');
 const yamlFile = `${__dirname}/dcision${argv.year.toString().substr(-2)}.yaml`;
-const templateFile = `${__dirname}/candidates.html.tpl`;
+const templateFile = `${__dirname}/src/dc-2020-candidates.html.tpl`;
 const majorParties = [
     'Democratic',
     'Libertarian',

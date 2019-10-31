@@ -18,9 +18,10 @@
     }
     #candidate-table th.office-head {
       text-align: left;
+      padding-left: 1.75rem;
     }
     #candidate-table td:first-child {
-      padding-left: 2rem;
+      padding-left: 2.75rem;
     }
     #candidate-table tr+tr > th.election-head {
       border-top: 4rem solid white;
@@ -32,11 +33,11 @@
   <thead>
     <tr>
       <th>Candidate</th>
-      <th>Phone</th>
-      <th>Email</th>
       <th>Website</th>
       <th>Twitter</th>
       <th>OCF<br>Filing</th>
+      <th>Phone</th>
+      <th>Email</th>
       <th>Address</th>
       <th>Zip</th>
     </tr>
@@ -57,8 +58,6 @@
           <% for (const c of candidates) { %>
             <tr>
               <td><%- c.candidate_name %></td>
-              <td><%- c.committee_phone %></td>
-              <td><%- c.email %></td>
               <td>
                 <% if (c.website) { %>
                   <a href="https://<%- c.website %>"><%- c.website %></a>
@@ -70,6 +69,8 @@
                 <% } %>
               </td>
               <td><%- c.filing_date %></td>
+              <td><%- c.committee_phone %></td>
+              <td><%- c.email %></td>
               <td><%- c.address %></td>
               <td><%- c.zip %></td>
             </tr>

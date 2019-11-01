@@ -17,6 +17,7 @@
       border-bottom: 1px solid #dee2e6;
     }
     #candidate-table th.election-head {
+      padding-left: 0;
       text-align: left;
       font-size: 1.2rem;
       background-color: ivory;

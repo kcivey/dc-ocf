@@ -46,6 +46,8 @@
     #table-container {
       max-width: 100%;
       overflow-x: scroll;
+      width: auto;
+      display: table;
     }
     .details dl {
       max-width: 50rem;
@@ -59,6 +61,10 @@
       border: 1px dotted rgba(0,123,255,.5);
       box-shadow: none;
     }
+    #expand-control {
+      text-align: right;
+      padding: 0.75rem;
+    }
   </style>
 </head>
 <body>
@@ -67,6 +73,12 @@
     <div class="col-12">
       <h1>DC 2020 Candidates</h1>
       <div id="table-container">
+        <div id="expand-control">
+          <b>Expand all</b>
+          <button id="expand-all-button" class="btn btn-outline-primary">
+            <i class="fas fa-plus-square"></i>
+          </button>
+        </div>
         <table id="candidate-table" class="table">
         <tbody>
           <% let i = 0, cols = 6 %>
@@ -179,6 +191,27 @@
           .find('i')
           .addClass('fa-plus-square')
           .removeClass('fa-minus-square');
+      });
+    $('#expand-all-button')
+      .on('click', function () {
+        if ($(this).find('i').hasClass('fa-plus-square')) {
+          $(this).find('i')
+            .removeClass('fa-plus-square')
+            .addClass('fa-minus-square')
+            .end()
+            .prev()
+            .text('Collapse all');
+          $('#candidate-table .details').collapse('show');
+        }
+        else {
+          $('#candidate-table .details').collapse('hide');
+          $(this).find('i')
+            .removeClass('fa-minus-square')
+            .addClass('fa-plus-square')
+            .end()
+            .prev()
+            .text('Expand all');
+        }
       });
   });
 </script>

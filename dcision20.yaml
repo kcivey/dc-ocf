@@ -62,6 +62,7 @@ Democratic:
       zip: '20005'
       twitter: fanning_2
       website: fanningforward2.com
+      facebook: JohnFanningDC
       links:
         - url: >-
             https://www.washingtonpost.com/local/dc-politics/john-fanning-longtime-ward-2-activist-to-challenge-jack-evans-for-dc-council/2019/05/31/b05092ea-83b3-11e9-95a9-e2c830afe24f_story.html
@@ -104,6 +105,7 @@ Democratic:
       zip: '20001'
       twitter: JMGinDC
       website: jordanforward2.com
+      facebook: JordanForWard2
       links:
         - url: >-
             https://www.washingtonpost.com/local/dc-politics/dc-council-member-jack-evans-faces-second-challenger-in-ward-2/2019/05/15/8e5afaf6-7754-11e9-bd25-c989555e7766_story.html
@@ -146,6 +148,8 @@ Democratic:
       zip: '20009'
       twitter: DanielH_DC
       website: danielward2.com
+      facebook: DanielForWard2
+      instagram: danielfordc
       links:
         - url: 'https://www.washingtontimes.com/news/2019/jul/23/daniel-hernandez-to-challenge-for-jack-evans-ward-/'
           title: Daniel Hernandez to challenge for Jack Evans' Ward 2 seat on D.C. Council
@@ -180,6 +184,7 @@ Democratic:
       zip: '20006'
       twitter: PLKDC
       website: patrickforward2.com
+      facebook: PatrickForWard2
       links:
         - url: >-
             https://wamu.org/story/19/04/08/jack-evans-has-a-challenger-for-his-d-c-council-seat-his-former-campaign-chairperson/
@@ -234,6 +239,8 @@ Democratic:
       zip: '20007'
       twitter: KishanForDC
       website: kishanfordc.com
+      facebook: kishanfordc
+      instagram: kishanfordc
       links:
         - url: >-
             https://www.washingtonpost.com/local/dc-politics/dc-council-member-jack-evans-draws-his-fifth-democratic-primary-challenger/2019/06/26/7244be80-9827-11e9-830a-21b9b36b64ad_story.html
@@ -277,6 +284,7 @@ Democratic:
       zip: '20008'
       twitter: yilinforward2
       website: yilinforward2.com
+      facebook: yilinforward2
   Council Ward 4:
     - committee_id: 4106
       first_name: Janeese
@@ -307,6 +315,8 @@ Democratic:
       zip: '20011'
       twitter: Janeese4DC
       website: janeese4dc.com
+      facebook: Janeese4DC
+      instagram: janeese4dc
       links:
         - url: >-
             https://dcist.com/story/19/08/01/former-d-c-assistant-attorney-general-is-running-against-brandon-todd-in-ward-4/
@@ -345,7 +355,8 @@ Democratic:
       chair_email: dwiggins@ps2g.us
       zip: '20011'
       twitter: brandonttodd
-      website: ''
+      website: brandontodd2020.com
+      facebook: BrandonTodd4Ward4
       links:
         - url: 'https://www.brandontoddward4.com/'
           title: Councilmember website
@@ -379,6 +390,8 @@ Democratic:
       zip: '20020'
       twitter: kelvinbrown4dc
       website: kelvinebrown.com
+      facebook: Kel.Brown02
+      instagram: Kelvinbrown4dc
       links:
         - url: >-
             https://dcist.com/story/19/09/26/army-veteran-who-lost-write-in-anc-campaign-will-run-for-ward-7-councilmember/
@@ -412,6 +425,8 @@ Democratic:
       zip: '20019'
       twitter: GreenForWard7
       website: greenward7.com
+      facebook: GreenforWard7
+      instagram: greenforward7
       links:
         - url: >-
             https://dcist.com/story/19/07/12/anc-commissioner-anthony-lorenzo-green-announces-run-for-vincent-grays-ward-7-seat/
@@ -476,6 +491,8 @@ Democratic:
       zip: '20019'
       twitter: VedaRasheed
       website: vedarasheed.com
+      facebook: VedaforWard7
+      instagram: VoteforVeda
       links:
         - url: >-
             https://dcist.com/story/19/09/09/another-ward-7-anc-commissioner-will-challenge-vincent-gray-for-his-d-c-council-seat/
@@ -538,7 +555,8 @@ Democratic:
       chair_email: ''
       zip: '20020'
       twitter: stuart4DC
-      website: ''
+      website: sanderson4ward8.com
+      facebook: sanderson4ward8
     - committee_id: 4117
       first_name: Richard
       last_name: Campbell
@@ -602,6 +620,8 @@ Independent:
       zip: '20032'
       twitter: MarkusforDC
       website: markusfordc.com
+      facebook: markusfordc
+      instagram: markusfordc
       links:
         - url: >-
             https://www.washingtonpost.com/local/education/markus-batchelor-announces-he-will-run-for-dc-council/2019/09/21/aefcbbe4-db1a-11e9-ac63-3016711543fe_story.html
@@ -667,6 +687,8 @@ Independent:
       zip: '20003'
       twitter: chander4council
       website: chander2020.com
+      facebook: chander4council
+      instagram: chander4council
       links:
         - url: 'https://hillrag.com/2019/10/18/chander-jayaraman-announces-candidacy-for-at-large-council-seat/'
           title: Chander Jayaraman Announces Candidacy for At-Large Council Seat
@@ -811,6 +833,8 @@ Nonpartisan:
       zip: '20019'
       twitter: tmholcomb
       website: tyrellholcomb.com
+      facebook: tmholcomb
+      instagram: tmholcomb
       links:
         - url: 'https://washingtoninformer.com/d-c-election-roundup-holcomb-seeks-ward-7-school-board-seat/'
           title: 'D.C. ELECTION ROUNDUP: Holcomb Seeks Ward 7 School Board Seat'
@@ -844,3 +868,5 @@ Nonpartisan:
       zip: '20020'
       twitter: DarrellGastonDC
       website: darrellgastondc.com
+      facebook: darrellgastondc
+      instagram: darrellgastondc

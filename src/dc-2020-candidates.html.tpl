@@ -25,6 +25,7 @@
       text-align: left;
     }
     #candidate-table th.office-head {
+      background-color: #eef;
       text-align: left;
       padding-left: 1.75rem;
     }
@@ -81,7 +82,7 @@
         </div>
         <table id="candidate-table" class="table">
         <tbody>
-          <% let i = 0, cols = 6 %>
+          <% let i = 0, cols = 7 %>
           <%for (const [election, records] of Object.entries(recordsByElection)) { %>
             <% if (i) { %>
               <tr class="spacer">
@@ -92,6 +93,7 @@
               <th>Candidate</th>
               <th>Website</th>
               <th>Twitter</th>
+              <th>Other<br>Social</th>
               <th>Phone</th>
               <th>Email</th>
               <th></th>
@@ -118,6 +120,22 @@
                     <td>
                       <% if (c.twitter) { %>
                         <a href="https://twitter.com/<%- c.twitter %>">@<%- c.twitter %></a>
+                      <% } %>
+                    </td>
+                    <td>
+                      <% if (c.facebook) { %>
+                        <a href="https://www.facebook.com/<%- c.facebook %>" title="Facebook">
+                          <i class="fab fa-facebook">
+                            <span class="sr-only">Facebook</span>
+                          </i>
+                        </a>
+                      <% } %>
+                      <% if (c.instagram) { %>
+                        <a href="https://www.instagram.com/<%- c.instagram %>/" title="Instagram">
+                          <i class="fab fa-instagram">
+                            <span class="sr-only">Instagram</span>
+                          </i>
+                        </a>
                       <% } %>
                     </td>
                     <td><%- c.committee_phone %></td>

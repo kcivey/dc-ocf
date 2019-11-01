@@ -1,9 +1,21 @@
 #!/usr/bin/env node
 
+const argv = require('yargs')
+    .options({
+        year: {
+            type: 'number',
+            describe: 'election year',
+            default: 0,
+            defaultDescription: 'all available',
+            requiredArg: true,
+        },
+    })
+    .strict(true)
+    .argv;
 const db = require('./lib/db');
 const request = require('./lib/request');
 const marClient = require('dc-mar').createClient({request});
-const batchSize = 50;
+const batchSize = 40;
 
 main()
     .catch(function (err) {
@@ -14,7 +26,7 @@ main()
 
 async function main() {
     while (true) {
-        const addresses = await db.getUnverifiedContributionAddresses(batchSize);
+        const addresses = await db.getUnverifiedContributionAddresses(batchSize, argv.year);
         if (!addresses.length) {
             break;
         }

@@ -32,6 +32,8 @@ Democratic:
       links:
         - url: 'https://robertwhiteatlarge.com/'
           title: Councilmember website
+        - url: 'https://washingtoninformer.com/d-c-election-roundup-robert-white-set-for-reelection-bid/'
+          title: 'D.C. ELECTION ROUNDUP: Robert White Set for Reelection Bid'
   Council Ward 2:
     - committee_id: 4096
       first_name: John
@@ -360,6 +362,15 @@ Democratic:
       links:
         - url: 'https://www.brandontoddward4.com/'
           title: Councilmember website
+        - url: >-
+            https://www.washingtonpost.com/local/dc-politics/dc-lawmaker-brandon-todd-ramps-up-reelection-campaign-draws-first-challenger/2019/08/01/57b00bfe-b2f0-11e9-8949-5f36ff92706e_story.html
+          title: 'D.C. lawmaker Brandon Todd ramps up reelection campaign, draws first challenger'
+        - url: >-
+            https://dcist.com/story/19/05/15/group-of-ward-4-elected-officials-calls-on-brandon-todd-to-run-his-first-clean-campaign/
+          title: Group Of Ward 4 Elected Officials Calls On Brandon Todd To Run His 'First' Clean Campaign
+        - url: >-
+            https://www.washingtoncitypaper.com/news/loose-lips/article/21040506/frustrations-with-ward-4-councilmember-brandon-todd-grow
+          title: Frustrations With Ward 4 Councilmember Brandon Todd Grow
   Council Ward 7:
     - committee_id: 4105
       first_name: Kelvin

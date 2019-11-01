@@ -25,17 +25,12 @@
       border-right: 1px solid ivory;
       border-top: none;
     }
-    #candidate-table th.party-head {
-      background-color: #ccf;
-      text-align: left;
-    }
     #candidate-table th.office-head {
       background-color: #eef;
       text-align: left;
-      padding-left: 1.75rem;
     }
     #candidate-table td:first-child {
-      padding-left: 2.75rem;
+      padding-left: 1.75rem;
     }
     tr.details td {
       border-top: none;
@@ -48,6 +43,8 @@
     }
     tr.column-heads th {
       vertical-align: bottom;
+      background: #cce;
+      border-bottom: 3px solid #99c;
     }
     #table-container {
       max-width: 100%;

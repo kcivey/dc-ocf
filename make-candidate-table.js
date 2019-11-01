@@ -174,7 +174,10 @@ function writeHtml(records) {
         if (!recordsByElection[election]) {
             recordsByElection[election] = {};
         }
-        for (const [office, candidates] of Object.entries(recordsByOffice)) {
+        for (let [office, candidates] of Object.entries(recordsByOffice)) {
+            if (election === generalName && office === 'Council At-Large') {
+                office += ' (2 seats)';
+            }
             if (!recordsByElection[election][office]) {
                 recordsByElection[election][office] = [];
             }
@@ -183,6 +186,9 @@ function writeHtml(records) {
             if (election !== generalName) {
                 if (!recordsByElection[generalName]) {
                     recordsByElection[generalName] = {};
+                }
+                if (office === 'Council At-Large') {
+                    office += ' (2 seats)';
                 }
                 if (!recordsByElection[generalName][office]) {
                     recordsByElection[generalName][office] = [

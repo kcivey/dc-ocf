@@ -69,7 +69,10 @@
     }
     #expand-control {
       text-align: right;
-      padding: 0.75rem;
+      padding: 0 0.75rem;
+    }
+    #intro {
+      max-width: 50rem;
     }
   </style>
 </head>
@@ -79,11 +82,22 @@
     <div class="col-12">
       <h1>DC 2020 Candidates</h1>
       <div id="table-container">
-        <div id="expand-control">
-          <b>Expand all</b>
-          <button id="expand-all-button" class="btn btn-outline-primary">
-            <i class="fas fa-plus-square"></i>
-          </button>
+        <div class="byline">
+          Keith C. Ivey (updated <%- updated %>)
+        </div>
+        <div>
+          <div id="expand-control" class="float-right">
+            <b>Expand all</b>
+            <button id="expand-all-button" class="btn btn-outline-primary">
+              <i class="fas fa-plus-square"></i>
+            </button>
+          </div>
+          <p id="intro">
+            These are the candidates registered with the DC Office of Campaign Finance (they can't
+            register with the Board of Elections yet). I added websites, social media accounts,
+            and whatever news articles and could find. Send comments and corrections to
+            keith@iveys.org or to @kcivey on Twitter.
+          </p>
         </div>
         <table id="candidate-table" class="table">
         <tbody>

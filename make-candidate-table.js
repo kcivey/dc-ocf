@@ -196,7 +196,13 @@ function writeHtml(records) {
             }
         }
     }
-    fs.writeFileSync(outputFile, template({recordsByElection}));
+    fs.writeFileSync(
+        outputFile,
+        template({
+            recordsByElection,
+            updated: new Date().toLocaleDateString('en-US', {year: 'numeric', day: 'numeric', month: 'long'}),
+        })
+    );
 }
 
 function objectify(arr, keyNames) {

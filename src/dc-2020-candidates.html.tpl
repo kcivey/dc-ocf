@@ -12,13 +12,17 @@
       width: auto;
       background-color: white;
       color: black;
-      border: 1px solid #dee2e6;
+      border-left: 1px solid #dee2e6;
+      border-right: 1px solid #dee2e6;
+      border-bottom: 1px solid #dee2e6;
     }
     #candidate-table th.election-head {
-      background-color: #44d;
-      color: white;
       text-align: left;
       font-size: 1.2rem;
+      background-color: ivory;
+      border-left: 1px solid ivory;
+      border-right: 1px solid ivory;
+      border-top: none;
     }
     #candidate-table th.party-head {
       background-color: #ccf;
@@ -36,7 +40,7 @@
       border-top: none;
     }
     tr.spacer td {
-      height: 4rem;
+      height: 3rem;
       background: ivory;
       border-left: 1px solid ivory;
       border-right: 1px solid ivory;
@@ -50,8 +54,8 @@
       width: auto;
       display: inline-block;
     }
-    .details dl {
-      max-width: 50rem;
+    tr.details dl {
+      max-width: 40rem;
     }
     button.btn-outline-primary {
       border-color: transparent;
@@ -82,15 +86,21 @@
         </div>
         <table id="candidate-table" class="table">
         <tbody>
-          <% let i = 0, cols = 7 %>
-          <%for (const [election, records] of Object.entries(recordsByElection)) { %>
+          <% let i = 0, cols = 8 %>
+          <%for (const [election, candidatesByOffice] of Object.entries(recordsByElection)) { %>
             <% if (i) { %>
               <tr class="spacer">
                 <td colspan="<%= cols %>"></td>
               </tr>
             <% }%>
+            <tr>
+              <th class="election-head" colspan="<%= cols %>">
+                <h2><%- election %></h2>
+              </th>
+            </tr>
             <tr class="column-heads">
               <th>Candidate</th>
+              <th>Party</th>
               <th>Website</th>
               <th>Twitter</th>
               <th>Other<br>Social</th>
@@ -98,54 +108,63 @@
               <th>Email</th>
               <th></th>
             </tr>
-            <tr>
-              <th class="election-head" colspan="<%= cols %>"><%- election %></th>
-            </tr>
-            <% for (const [party, candidatesByOffice] of Object.entries(records)) { %>
+            <% for (const [office, candidates] of Object.entries(candidatesByOffice)) { %>
               <tr>
-                <th class="party-head" colspan="<%= cols %>"><%- party %></th>
+                <th class="office-head" colspan="<%= cols %>"><%- office %></th>
               </tr>
-              <% for (const [office, candidates] of Object.entries(candidatesByOffice)) { %>
+              <% for (const c of candidates) { %>
                 <tr>
-                  <th class="office-head" colspan="<%= cols %>"><%- office %></th>
-                </tr>
-                <% for (const c of candidates) { %>
-                  <tr>
-                    <td><%- c.candidate_name %></td>
-                    <td>
-                      <% if (c.website) { %>
-                        <a href="https://<%- c.website %>"><%- c.website %></a>
-                      <% } %>
-                    </td>
-                    <td>
-                      <% if (c.twitter) { %>
-                        <a href="https://twitter.com/<%- c.twitter %>">@<%- c.twitter %></a>
-                      <% } %>
-                    </td>
-                    <td>
-                      <% if (c.facebook) { %>
-                        <a href="https://www.facebook.com/<%- c.facebook %>" title="Facebook">
-                          <i class="fab fa-facebook">
-                            <span class="sr-only">Facebook</span>
-                          </i>
-                        </a>
-                      <% } %>
-                      <% if (c.instagram) { %>
-                        <a href="https://www.instagram.com/<%- c.instagram %>/" title="Instagram">
-                          <i class="fab fa-instagram">
-                            <span class="sr-only">Instagram</span>
-                          </i>
-                        </a>
-                      <% } %>
-                    </td>
-                    <td><%- c.committee_phone %></td>
-                    <td><%- c.email %></td>
-                    <td class="text-right">
+                  <td><%- c.candidate_name %></td>
+                  <td>
+                    <% if (c.party_abbr) { %>
+                      <abbr title="<%- c.party %>">
+                        <%- c.party_abbr %>
+                      </abbr>
+                    <% } %>
+                  </td>
+                  <td>
+                    <% if (c.website) { %>
+                      <a href="https://<%- c.website %>"><%- c.website %></a>
+                    <% } %>
+                  </td>
+                  <td>
+                    <% if (c.twitter) { %>
+                      <a href="https://twitter.com/<%- c.twitter %>">@<%- c.twitter %></a>
+                    <% } %>
+                  </td>
+                  <td>
+                    <% if (c.facebook) { %>
+                      <a href="https://www.facebook.com/<%- c.facebook %>" title="Facebook">
+                        <i class="fab fa-facebook">
+                          <span class="sr-only">Facebook</span>
+                        </i>
+                      </a>
+                    <% } %>
+                    <% if (c.instagram) { %>
+                      <a href="https://www.instagram.com/<%- c.instagram %>/" title="Instagram">
+                        <i class="fab fa-instagram">
+                          <span class="sr-only">Instagram</span>
+                        </i>
+                      </a>
+                    <% } %>
+                  </td>
+                  <td><%- c.committee_phone %></td>
+                  <td>
+                    <% if (c.email) { %>
+                      <a href="mailto:<%- c.email %>">
+                        <%- c.email %>
+                      </a>
+                    <% } %>
+                  </td>
+                  <td class="text-right">
+                    <% if (c.address) { %>
                       <button class="btn btn-outline-primary" title="Show Details" data-toggle="collapse" data-target="#details-<%= i %>">
                         <i class="fas fa-plus-square"></i>
                       </button>
-                    </td>
-                  </tr>
+                    <% } %>
+                  </td>
+                </tr>
+                <% if (c.address) { %>
                   <tr id="details-<%= i %>" class="collapse details">
                     <td colspan="<%= Math.floor(cols / 2) %>">
                       <dl>

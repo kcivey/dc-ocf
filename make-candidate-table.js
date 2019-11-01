@@ -34,6 +34,15 @@ const majorParties = [
     'Republican',
     'Statehood Green',
 ];
+const partyAbbr = {
+    Democratic: 'Dem',
+    Libertarian: 'Lib',
+    Republican: 'Rep',
+    'Statehood Green': 'StG',
+    Independent: 'Ind',
+    Other: 'Oth',
+    Nonpartisan: '',
+};
 
 main().catch(console.trace);
 
@@ -159,14 +168,33 @@ function writeHtml(records) {
     const template = _.template(fs.readFileSync(templateFile, 'utf8'));
     const outputFile = templateFile.replace(/\.tpl$/, '');
     const recordsByElection = {};
+    const generalName = 'General Election, November 3, 2020';
     for (const [party, recordsByOffice] of Object.entries(records)) {
-        const election = majorParties.includes(party)
-            ? 'Primary Election, June 2, 2020'
-            : 'General Election, November 3, 2020';
+        const election = majorParties.includes(party) ? `${party} Primary Election, June 2, 2020` : generalName;
         if (!recordsByElection[election]) {
             recordsByElection[election] = {};
         }
-        recordsByElection[election][party] = recordsByOffice;
+        for (const [office, candidates] of Object.entries(recordsByOffice)) {
+            if (!recordsByElection[election][office]) {
+                recordsByElection[election][office] = [];
+            }
+            recordsByElection[election][office] = recordsByElection[election][office]
+                .concat(candidates.map(c => ({...c, party, party_abbr: partyAbbr[party]})));
+            if (election !== generalName) {
+                if (!recordsByElection[generalName]) {
+                    recordsByElection[generalName] = {};
+                }
+                if (!recordsByElection[generalName][office]) {
+                    recordsByElection[generalName][office] = [
+                        {
+                            candidate_name: `(${party} nominee)`,
+                            party_abbr: partyAbbr[party],
+                            party,
+                        },
+                    ];
+                }
+            }
+        }
     }
     fs.writeFileSync(outputFile, template({recordsByElection}));
 }

@@ -42,8 +42,8 @@ async function main() {
     if (argv.update) {
         const newRecords = await getNewRecords();
         records = combineRecords(records, newRecords);
-        writeYaml(records);
     }
+    writeYaml(records);
     writeHtml(records);
 }
 
@@ -52,6 +52,9 @@ function readYaml() {
         return yaml.safeLoad(fs.readFileSync(yamlFile, 'utf8'));
     }
     catch (err) {
+        if (err.code !== 'ENOENT') {
+            throw err;
+        }
         return {};
     }
 }
@@ -149,7 +152,7 @@ function combineRecords(records, newRecords) {
 }
 
 function writeYaml(records) {
-    fs.writeFileSync(yamlFile, yaml.safeDump(records));
+    fs.writeFileSync(yamlFile, yaml.safeDump(records, {lineWidth: 120}));
 }
 
 function writeHtml(records) {

@@ -47,6 +47,18 @@
       max-width: 100%;
       overflow-x: scroll;
     }
+    .details dl {
+      max-width: 50rem;
+    }
+    button.btn-outline-primary {
+      border-color: transparent;
+      padding: 0.2rem;
+      line-height: 0.67;
+    }
+    .btn-outline-primary.focus, .btn-outline-primary:focus {
+      border: 1px dotted rgba(0,123,255,.5);
+      box-shadow: none;
+    }
   </style>
 </head>
 <body>
@@ -57,7 +69,7 @@
       <div id="table-container">
         <table id="candidate-table" class="table">
         <tbody>
-          <% let i = 0, cols = 8 %>
+          <% let i = 0, cols = 6 %>
           <%for (const [election, records] of Object.entries(recordsByElection)) { %>
             <% if (i) { %>
               <tr class="spacer">
@@ -68,12 +80,9 @@
               <th>Candidate</th>
               <th>Website</th>
               <th>Twitter</th>
-              <th>OCF<br>Filing</th>
               <th>Phone</th>
               <th>Email</th>
-              <th>Address</th>
-              <th>Zip</th>
-              <!-- <th></th> -->
+              <th></th>
             </tr>
             <tr>
               <th class="election-head" colspan="<%= cols %>"><%- election %></th>
@@ -99,14 +108,44 @@
                         <a href="https://twitter.com/<%- c.twitter %>">@<%- c.twitter %></a>
                       <% } %>
                     </td>
-                    <td><%- c.filing_date %></td>
                     <td><%- c.committee_phone %></td>
                     <td><%- c.email %></td>
-                    <td><%- c.address %></td>
-                    <td><%- c.zip %></td>
-                    <!-- <td><button data-toggle="collapse" data-target="#details-<%= i %>">Details</button></td> -->
+                    <td class="text-right">
+                      <button class="btn btn-outline-primary" title="Show Details" data-toggle="collapse" data-target="#details-<%= i %>">
+                        <i class="fas fa-plus-square"></i>
+                      </button>
+                    </td>
                   </tr>
-                  <!-- <tr id="details-<%= i%>" class="collapse details"><td colspan="<%= cols %>">Details</td></tr> -->
+                  <tr id="details-<%= i %>" class="collapse details">
+                    <td colspan="<%= Math.floor(cols / 2) %>">
+                      <dl>
+                        <dt>OCF filing date</dt>
+                        <dd><%- c.filing_date %></dd>
+                        <dt>Address</dt>
+                        <dd><%- c.address %></dd>
+                        <dt>Zip</dt>
+                        <dd><%- c.zip %></dd>
+                      </dl>
+                    </td>
+                    <td colspan="<%= cols - Math.floor(cols / 2) %>">
+                      <% if (c.links && c.links.length) { %>
+                        <dl>
+                          <dt>Links</dt>
+                          <dd>
+                            <ul>
+                              <% for (const l of c.links) { %>
+                                <li>
+                                  <a href="<%- l.url %>">
+                                    <%- l.title %>
+                                  </a>
+                                </li>
+                              <% } %>
+                            </ul>
+                          </dd>
+                        </dl>
+                      <% } %>
+                    </td>
+                  </tr>
                   <% i++ %>
                 <% } %>
               <% } %>
@@ -122,5 +161,26 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js" integrity="sha256-fTuUgtT7O2rqoImwjrhDgbXTKUwyxxujIMRIK7TbuNU=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha256-CjSoeELFOcH0/uxWu6mC/Vlrc1AARqbm/jiiImDGV3s=" crossorigin="anonymous"></script>
+<script>
+  jQuery(function ($) {
+    $('#candidate-table')
+      .on('show.bs.collapse', '.details', function () {
+        $(this).prev()
+          .find('button')
+          .prop('title', 'Hide Details')
+          .find('i')
+          .addClass('fa-minus-square')
+          .removeClass('fa-plus-square');
+      })
+      .on('hidden.bs.collapse', '.details', function () {
+        $(this).prev()
+          .find('button')
+          .prop('title', 'Show Details')
+          .find('i')
+          .addClass('fa-plus-square')
+          .removeClass('fa-minus-square');
+      });
+  });
+</script>
 </body>
 </html>

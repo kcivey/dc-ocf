@@ -48,7 +48,7 @@
       max-width: 100%;
       overflow-x: scroll;
       width: auto;
-      display: table;
+      display: inline-block;
     }
     .details dl {
       max-width: 50rem;

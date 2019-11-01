@@ -129,6 +129,9 @@ function transformRecords(records) {
                 r.candidate_name = r.candidate_name.replace('Grosman', 'Grossman');
                 r.name = r.name.replace('Grosman', 'Grossman');
             }
+            else if (r.last_name === 'Hernandez') { // kluge to fix OCF typo
+                r.email = r.email.replace('hernandezd1', 'hernandezdl');
+            }
             return r;
         });
 }

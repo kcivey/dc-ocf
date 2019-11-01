@@ -15,12 +15,22 @@ meets some requirements.
 Rasheed can accept up to $500 from individuals and from corporations and other groups, as well
 as put in any amount of her own money.
 
-=map
+=contributors-map
 
 Green's most recent contributors are missing from the map because of a problem with the DC Master Address
 Repository service.
 
-=place
+=stats
+
+The ward contributor numbers for Green are inaccurate (too low) because of a problem with the DC Master Address
+Repository service.
+
+=date
 
 The last part of the ward graph is incorrect because of missing data caused by a problem with the DC Master Address
+Repository service. It should not be flat.
+
+=place
+
+The ward graph for Green is not up-to-date because of missing data caused by a problem with the DC Master Address
 Repository service.

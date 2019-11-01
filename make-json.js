@@ -416,7 +416,7 @@ function getExtras(officeCode) {
     if (text) {
         let key;
         for (const line of text.split('\n')) {
-            if (/^=(\w+)\s*$/.test(line)) {
+            if (/^=([\w-]+)\s*$/.test(line)) {
                 key = line.substr(1).trim();
                 extras[key] = '';
             }

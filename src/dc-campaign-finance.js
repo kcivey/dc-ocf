@@ -45,7 +45,7 @@ jQuery(function ($) {
     function setUpSelect() {
         const select = $('#contest-select');
         const state = getStateFromUrl();
-        return $.getJSON('/available.json')
+        return $.getJSON('/available.json' + '?' + getNumberForCacheBusting())
             .then(function (contestsByYear) {
                 $.each(contestsByYear, function (year, contests) {
                     $.each(contests, function (i, contest) {
@@ -58,6 +58,11 @@ jQuery(function ($) {
                 });
                 select.val(state.electionYear + '-' + state.contest);
             });
+    }
+
+    function getNumberForCacheBusting() {
+        // Lasts for 5 min
+        return Math.floor(Date.now() / 300000);
     }
 
     function setUpBaseMap(wardLayer) {
@@ -134,7 +139,7 @@ jQuery(function ($) {
     function getContestData() {
         const state = getStateFromUrl();
         const url = `/ocf-${state.electionYear}-${state.contest}.json`;
-        return $.getJSON(url);
+        return $.getJSON(url + '?' + getNumberForCacheBusting());
     }
 
     function adjustPageText({ward, extras, updated, allFairElections}) {

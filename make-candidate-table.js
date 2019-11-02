@@ -25,6 +25,7 @@ const argv = require('yargs')
     })
     .strict(true)
     .argv;
+const {getNeighborhoodName} = require('./lib/dc-neighborhoods');
 const OcfDisclosures = require('./lib/ocf-disclosures');
 const yamlFile = `${__dirname}/dcision${argv.year.toString().substr(-2)}.yaml`;
 const templateFile = `${__dirname}/src/dc-2020-candidates.html.tpl`;
@@ -78,11 +79,11 @@ async function getNewRecords() {
     });
     const lastSeen = await ocf.getLastSeen(['Candidate']);
     const records = (await ocf.findNewRecords(lastSeen)).Candidate;
-    return objectify(transformRecords(records), ['party', 'office']);
+    return objectify(await transformRecords(records), ['party', 'office']);
 }
 
-function transformRecords(records) {
-    return records
+async function transformRecords(records) {
+    const newRecords = records
         .map(
             function (r) {
                 const newRec = {};
@@ -137,6 +138,15 @@ function transformRecords(records) {
             }
             return r;
         });
+    for (const r of newRecords) {
+        try {
+            r.neighborhood = await getNeighborhoodName(r.address);
+        }
+        catch (err) {
+            // ignore if address can't be found
+        }
+    }
+    return newRecords;
 }
 
 function combineRecords(records, newRecords) {

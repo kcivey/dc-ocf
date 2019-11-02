@@ -182,8 +182,10 @@
                       <dl>
                         <dt>OCF filing date</dt>
                         <dd><%- c.filing_date %></dd>
-                        <dt>Address</dt>
-                        <dd><%- c.address %></dd>
+                        <% if (c.neighborhood) { %>
+                          <dt>Neighborhood</dt>
+                          <dd><%- c.neighborhood %></dd>
+                        <% } %>
                         <dt>Zip</dt>
                         <dd><%- c.zip %></dd>
                       </dl>

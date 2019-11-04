@@ -198,7 +198,11 @@ function writeHtml(records) {
                 recordsByElection[election][office] = [];
             }
             recordsByElection[election][office] = recordsByElection[election][office]
-                .concat(candidates.map(c => ({...c, party, party_abbr: partyAbbr[party]})));
+                .concat(
+                    candidates
+                        .filter(c => !c.termination_approved)
+                        .map(c => ({...c, party, party_abbr: partyAbbr[party]}))
+                );
             if (election !== generalName) {
                 if (!recordsByElection[generalName]) {
                     recordsByElection[generalName] = {};

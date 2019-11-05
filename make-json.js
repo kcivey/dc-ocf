@@ -207,7 +207,7 @@ async function processOffice(office) {
     }
     const officeCode = hyphenize(office);
     const data = {
-        updated: new Date().toLocaleDateString('en-US', {year: 'numeric', day: 'numeric', month: 'long'}),
+        updated: '', // new Date().toLocaleDateString('en-US', {year: 'numeric', day: 'numeric', month: 'long'}),
         office,
         ward,
         allFairElections,
@@ -218,6 +218,19 @@ async function processOffice(office) {
         placeData: await getPlaceData(filters, ward),
     };
     const outputFile = `${outputDir}/ocf-2020-${officeCode}.json`;
+    let oldData = null;
+    try {
+        oldData = JSON.parse(fs.readFileSync(outputFile, 'utf8'));
+        oldData.updated = '';
+    }
+    catch (err) {
+        // no data if file missing
+    }
+    if (JSON.stringify(data) === JSON.stringify(oldData)) {
+        console.warn('Data is unchanged -- not writing');
+        return;
+    }
+    data.updated = new Date().toLocaleDateString('en-US', {year: 'numeric', day: 'numeric', month: 'long'});
     console.warn(`Writing ${outputFile}`);
     fs.writeFileSync(outputFile, JSON.stringify(data, null, argv.pretty ? 2 : 0));
 

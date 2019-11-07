@@ -111,6 +111,12 @@ Democratic:
           party: Nonpartisan
           office: ANC 2F01
           result: Won
+        - year: 1994
+          election: General
+          party: Nonpartisan
+          office: SBOE Ward 2
+          result: Lost
+          percent: 12
         - year: 2000
           election: Primary
           party: Democratic
@@ -295,6 +301,12 @@ Democratic:
           office: ANC 2A01
           result: Won
           percent: 68
+        - year: 2014
+          election: Primary
+          party: Democratic
+          office: Committeeman Ward 2
+          result: Won
+          percent: 100
         - year: 2014
           election: General
           party: Nonpartisan
@@ -851,6 +863,12 @@ Independent:
           title: State Board Of Education VP Markus Batchelor Will Run For At-Large Council Seat
       neighborhood: Congress Heights
       elections:
+        - year: 2014
+          election: General
+          party: Nonpartisan
+          office: ANC 8C04
+          result: Won
+          percent: 54
         - year: 2016
           election: General
           party: Nonpartisan

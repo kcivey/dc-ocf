@@ -54,6 +54,7 @@ Democratic:
           office: Council At-Large
           result: Won
           percent: 75
+      fair_elections: false
   Council Ward 2:
     - committee_id: 4096
       first_name: John
@@ -146,6 +147,7 @@ Democratic:
           office: ANC 2F04
           result: Won
           percent: 97
+      fair_elections: true
     - committee_id: 4090
       first_name: Jordan
       last_name: Grossman
@@ -191,6 +193,7 @@ Democratic:
         - url: 'https://washingtonjewishweek.com/59932/jordan-grossman-aims-for-the-ward-2-crown/featured-slider-post/'
           title: Jordan Grossman aims for the Ward 2 crown
       neighborhood: Shaw
+      fair_elections: true
     - committee_id: 4095
       first_name: Daniel
       last_name: Hernandez
@@ -228,6 +231,7 @@ Democratic:
         - url: 'https://www.gwhatchet.com/2019/06/11/fourth-challenger-enters-race-for-ward-2-councilmember/'
           title: Fourth challenger enters race for Ward 2 Councilmember
       neighborhood: Dupont Circle
+      fair_elections: true
     - committee_id: 4084
       first_name: Patrick
       last_name: Kennedy
@@ -309,6 +313,7 @@ Democratic:
           office: ANC 2A01
           result: Won
           percent: 94
+      fair_elections: true
     - committee_id: 4098
       first_name: Kishan
       last_name: Putta
@@ -378,6 +383,7 @@ Democratic:
           office: ANC 2E01
           result: Won
           percent: 68
+      fair_elections: true
     - committee_id: 4113
       first_name: Yilin
       last_name: Zhang
@@ -409,6 +415,7 @@ Democratic:
       website: yilinforward2.com
       facebook: yilinforward2
       neighborhood: Sheridan-Kalorama
+      fair_elections: true
   Council Ward 4:
     - committee_id: 4106
       first_name: Janeese
@@ -459,6 +466,7 @@ Democratic:
           office: Committeewoman At-Large
           result: Lost
           percent: 21
+      fair_elections: true
     - committee_id: 4088
       first_name: Brandon
       last_name: Todd
@@ -521,6 +529,7 @@ Democratic:
           office: Council Ward 4
           result: Won
           percent: 95
+      fair_elections: false
   Council Ward 7:
     - committee_id: 4105
       first_name: Kelvin
@@ -558,6 +567,7 @@ Democratic:
             https://dcist.com/story/19/09/26/army-veteran-who-lost-write-in-anc-campaign-will-run-for-ward-7-councilmember/
           title: Army Veteran Who Lost Write-In ANC Campaign Will Run For Ward 7 Councilmember
       neighborhood: Hillcrest
+      fair_elections: true
     - committee_id: 4102
       first_name: Anthony
       last_name: Green
@@ -615,6 +625,7 @@ Democratic:
           office: ANC 7C04
           result: Won
           percent: 95
+      fair_elections: true
     - committee_id: 4089
       first_name: James
       last_name: Jennings
@@ -645,6 +656,7 @@ Democratic:
       twitter: Vote4Jennings
       website: ''
       neighborhood: Hillbrook
+      fair_elections: false
     - committee_id: 4111
       first_name: Veda
       last_name: Rasheed
@@ -686,6 +698,7 @@ Democratic:
           office: ANC 7E01
           result: Won
           percent: 69
+      fair_elections: false
     - committee_id: 4104
       first_name: Clayton
       last_name: Rosenberg
@@ -716,6 +729,7 @@ Democratic:
       twitter: Rosenberg4DC
       website: ''
       neighborhood: Deanwood
+      fair_elections: false
   Council Ward 8:
     - committee_id: 4118
       first_name: Stuart
@@ -760,6 +774,7 @@ Democratic:
           office: Committeeman Ward 8
           result: Won
           percent: 35
+      fair_elections: true
     - committee_id: 4117
       first_name: Richard
       last_name: Campbell
@@ -793,6 +808,7 @@ Democratic:
         - url: 'https://washingtoninformer.com/campbell-challenges-trayon-white-for-council-seat/'
           title: Campbell Challenges Trayon White for Council Seat
       neighborhood: Congress Heights
+      fair_elections: false
 Independent:
   Council At-Large:
     - committee_id: 4114
@@ -847,6 +863,7 @@ Independent:
           office: National Committeeman
           result: Lost
           percent: 36
+      fair_elections: true
     - committee_id: 4099
       first_name: Anthony
       last_name: Dale
@@ -877,6 +894,7 @@ Independent:
       twitter: ''
       website: ''
       neighborhood: Southwest Waterfront
+      fair_elections: true
     - committee_id: 4119
       first_name: Chander
       last_name: Jayaraman
@@ -939,6 +957,7 @@ Independent:
           office: ANC 6B08
           result: Won
           percent: 95
+      fair_elections: true
   Council Ward 8:
     - committee_id: 4123
       first_name: Christopher
@@ -968,6 +987,7 @@ Independent:
       chair_email: ''
       zip: '20020'
       neighborhood: Buena Vista
+      fair_elections: true
     - committee_id: 4112
       first_name: Taurus
       last_name: Phillips
@@ -997,6 +1017,7 @@ Independent:
       zip: '20020'
       twitter: ''
       website: ''
+      fair_elections: true
 Other:
   Council Ward 2:
     - committee_id: 0
@@ -1020,6 +1041,7 @@ Other:
       twitter: ''
       website: ''
       neighborhood: Downtown
+      fair_elections: null
 Nonpartisan:
   SBOE Ward 7:
     - committee_id: 4121
@@ -1052,6 +1074,7 @@ Nonpartisan:
       twitter: ''
       website: ''
       neighborhood: Hillcrest
+      fair_elections: true
     - committee_id: 4122
       first_name: Tyrell
       last_name: Holcomb
@@ -1100,6 +1123,7 @@ Nonpartisan:
           office: ANC 7F01
           result: Won
           percent: 96
+      fair_elections: true
   SBOE Ward 8:
     - committee_id: 4120
       first_name: Darrell
@@ -1176,6 +1200,7 @@ Nonpartisan:
           office: ANC 8B04
           result: Won
           percent: 64
+      fair_elections: true
     - committee_id: 4124
       first_name: Dr. Carlene
       last_name: Reid
@@ -1204,3 +1229,4 @@ Nonpartisan:
       chair_email: carlene_reid@yahoo.com
       zip: '20020'
       neighborhood: Anacostia
+      fair_elections: false

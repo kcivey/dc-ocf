@@ -99,7 +99,7 @@
         </div>
         <table id="candidate-table" class="table">
         <tbody>
-          <% let i = 0, cols = 8 %>
+          <% let i = 0, cols = 9 %>
           <%for (const [election, candidatesByOffice] of Object.entries(recordsByElection)) { %>
             <% if (i) { %>
               <tr class="spacer">
@@ -114,6 +114,7 @@
             <tr class="column-heads">
               <th>Candidate</th>
               <th>Party</th>
+              <th>Fair<br>Elections?</th>
               <th>Website</th>
               <th>Twitter</th>
               <th>Other<br>Social</th>
@@ -133,6 +134,13 @@
                       <abbr title="<%- c.party %>">
                         <%- c.party_abbr %>
                       </abbr>
+                    <% } %>
+                  </td>
+                  <td class="text-center">
+                    <% if (c.fair_elections) { %>
+                      <i class="fas fa-balance-scale text-primary" title="Using/seeking public financing">
+                        <span class="sr-only">Fair Elections</span>
+                      </i>
                     <% } %>
                   </td>
                   <td>

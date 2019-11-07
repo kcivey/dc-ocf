@@ -136,6 +136,11 @@ async function transformRecords(records) {
             else if (r.committee_phone && r.committee_phone.match(/236-4074$/)) { // remove personal phone number
                 r.committee_phone = '';
             }
+            if (r.fair_elections == null) {
+                r.fair_elections = r.committee_key
+                    ? (r.committee_key.match(/^PCC/) ? false : null)
+                    : (r.committee_key == null ? null : true);
+            }
             return r;
         });
     for (const r of newRecords) {

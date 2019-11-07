@@ -29,19 +29,20 @@
       background-color: #eef;
       text-align: left;
     }
-    #candidate-table td:first-child {
+    #candidate-table td.candidate {
       padding-left: 1.75rem;
     }
-    tr.details td {
+    tr.details > td {
+      padding-left: 1.75rem;
       border-top: none;
     }
-    tr.spacer td {
+    tr.spacer > td {
       height: 3rem;
       background: ivory;
       border-left: 1px solid ivory;
       border-right: 1px solid ivory;
     }
-    tr.column-heads th {
+    tr.column-heads > th {
       vertical-align: bottom;
       background: #cce;
       border-bottom: 3px solid #99c;
@@ -126,7 +127,7 @@
               </tr>
               <% for (const c of candidates) { %>
                 <tr>
-                  <td><%- c.candidate_name %></td>
+                  <td class="candidate"><%- c.candidate_name %></td>
                   <td>
                     <% if (c.party_abbr) { %>
                       <abbr title="<%- c.party %>">
@@ -207,6 +208,43 @@
                           </dd>
                         </dl>
                       <% } %>
+                        <% if (c.elections && c.elections.length) { %>
+                          <dl>
+                            <dt>Electoral history</dt>
+                            <dd>
+                              <table class="table table-sm">
+                                <thead>
+                                  <tr>
+                                    <th>Year</th>
+                                    <th>Election</th>
+                                    <th>Party</th>
+                                    <th>Office</th>
+                                    <th>Result</th>
+                                    <th class="text-right">%</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <% for (const e of c.elections) { %>
+                                    <tr>
+                                      <td><%- e.year %></td>
+                                      <td><%- e.election %></td>
+                                      <td>
+                                        <% if (e.party_abbr) { %>
+                                          <abbr title="<%- e.party %>">
+                                            <%- e.party_abbr %>
+                                          </abbr>
+                                        <% } %>
+                                      </td>
+                                      <td><%- e.office %></td>
+                                      <td><%- e.result %></td>
+                                      <td class="text-right"><%- e.percent %></td>
+                                    </tr>
+                                  <% } %>
+                                </tbody>
+                              </table>
+                            </dd>
+                          </dl>
+                        <% } %>
                     </td>
                   </tr>
                   <% i++ %>
@@ -252,10 +290,14 @@
             .end()
             .prev()
             .text('Collapse all');
+          $('#candidate-table > tbody > tr:not(.details) > td, th.office-head')
+            .css('borderTop', '1px solid #666');
           $('#candidate-table .details').collapse('show');
         }
         else {
           $('#candidate-table .details').collapse('hide');
+          $('#candidate-table > tbody > tr:not(.details) > td, th.office-head')
+            .css('borderTop', '1px solid #dee2e6');
           $(this).find('i')
             .removeClass('fa-minus-square')
             .addClass('fa-plus-square')

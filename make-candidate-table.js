@@ -201,7 +201,14 @@ function writeHtml(records) {
                 .concat(
                     candidates
                         .filter(c => !c.termination_approved)
-                        .map(c => ({...c, party, party_abbr: partyAbbr[party]}))
+                        .map(function (c) {
+                            const newC = {...c, party, party_abbr: partyAbbr[party]};
+                            if (c.elections) {
+                                newC.elections = [...c.elections]
+                                    .map(e => ({...e, party_abbr: partyAbbr[e.party]}));
+                            }
+                            return newC;
+                        })
                 );
             if (election !== generalName) {
                 if (!recordsByElection[generalName]) {

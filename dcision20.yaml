@@ -35,6 +35,25 @@ Democratic:
         - url: 'https://washingtoninformer.com/d-c-election-roundup-robert-white-set-for-reelection-bid/'
           title: 'D.C. ELECTION ROUNDUP: Robert White Set for Reelection Bid'
       neighborhood: Colonial Village
+      elections:
+        - year: 2014
+          election: General
+          party: Independent
+          office: Council At-Large
+          result: Lost
+          percent: 13
+        - year: 2016
+          election: Primary
+          party: Democratic
+          office: Council At-Large
+          result: Won
+          percent: 43
+        - year: 2016
+          election: General
+          party: Democratic
+          office: Council At-Large
+          result: Won
+          percent: 75
   Council Ward 2:
     - committee_id: 4096
       first_name: John
@@ -80,6 +99,53 @@ Democratic:
         - url: 'https://www.washingtonblade.com/2019/09/04/fanning-in-4th-place-in-fundraising-for-ward-2-council-race/'
           title: Fanning in 4th place in fundraising for Ward 2 Council race
       neighborhood: Logan Circle
+      elections:
+        - year: 1990
+          election: General
+          party: Nonpartisan
+          office: ANC 2C04
+          result: Won
+        - year: 1992
+          election: General
+          party: Nonpartisan
+          office: ANC 2F01
+          result: Won
+        - year: 2000
+          election: Primary
+          party: Democratic
+          office: Council Ward 2
+          result: Lost
+          percent: 18
+        - year: 2012
+          election: General
+          party: Nonpartisan
+          office: ANC 2F04
+          result: Won
+          percent: 52
+        - year: 2014
+          election: General
+          party: Nonpartisan
+          office: ANC 2F04
+          result: Won
+          percent: 97
+        - year: 2016
+          election: General
+          party: Nonpartisan
+          office: ANC 2F04
+          result: Won
+          percent: 98
+        - year: 2018
+          election: Primary
+          party: Democratic
+          office: Committeeman Ward 2
+          result: Won
+          percent: 30
+        - year: 2018
+          election: General
+          party: Nonpartisan
+          office: ANC 2F04
+          result: Won
+          percent: 97
     - committee_id: 4090
       first_name: Jordan
       last_name: Grossman
@@ -218,6 +284,31 @@ Democratic:
             https://www.washingtoncitypaper.com/news/loose-lips/article/21064556/jack-evans-challenger-is-first-to-test-dcs-new-publicly-funded-elections
           title: Jack Evans Challenger Is First to Test D.C.'s New Publicly Funded Elections Program
       neighborhood: Foggy Bottom
+      elections:
+        - year: 2012
+          election: General
+          party: Nonpartisan
+          office: ANC 2A01
+          result: Won
+          percent: 68
+        - year: 2014
+          election: General
+          party: Nonpartisan
+          office: ANC 2A01
+          result: Won
+          percent: 92
+        - year: 2016
+          election: General
+          party: Nonpartisan
+          office: ANC 2A01
+          result: Won
+          percent: 96
+        - year: 2018
+          election: General
+          party: Nonpartisan
+          office: ANC 2A01
+          result: Won
+          percent: 94
     - committee_id: 4098
       first_name: Kishan
       last_name: Putta
@@ -264,6 +355,29 @@ Democratic:
             https://www.washingtoncitypaper.com/news/loose-lips/article/21075826/evans-challenger-kishan-putta-grapples-with-his-conservative-past
           title: Evans Challenger Kishan Putta Grapples With His Conservative Past
       neighborhood: Burleith
+      elections:
+        - year: 2012
+          election: General
+          party: Nonpartisan
+          office: ANC 2B04
+          result: Won
+          percent: 62
+        - year: 2014
+          office: Council At-Large
+          result: Lost
+          percent: 3
+        - year: 2018
+          election: Primary
+          party: Democratic
+          office: Committeeman At-Large
+          result: Lost
+          percent: 24
+        - year: 2018
+          election: General
+          party: Nonpartisan
+          office: ANC 2E01
+          result: Won
+          percent: 68
     - committee_id: 4113
       first_name: Yilin
       last_name: Zhang
@@ -338,6 +452,13 @@ Democratic:
             https://www.washingtonpost.com/local/dc-politics/dc-lawmaker-brandon-todd-ramps-up-reelection-campaign-draws-first-challenger/2019/08/01/57b00bfe-b2f0-11e9-8949-5f36ff92706e_story.html
           title: 'D.C. lawmaker Brandon Todd ramps up reelection campaign, draws first challenger'
       neighborhood: Brightwood
+      elections:
+        - year: 2018
+          election: Primary
+          party: Democratic
+          office: Committeewoman At-Large
+          result: Lost
+          percent: 21
     - committee_id: 4088
       first_name: Brandon
       last_name: Todd
@@ -381,6 +502,25 @@ Democratic:
             https://www.washingtoncitypaper.com/news/loose-lips/article/21040506/frustrations-with-ward-4-councilmember-brandon-todd-grow
           title: Frustrations With Ward 4 Councilmember Brandon Todd Grow
       neighborhood: Petworth
+      elections:
+        - year: 2015
+          election: Special
+          party: Democratic
+          office: Council Ward 4
+          result: Won
+          percent: 43
+        - year: 2016
+          election: Primary
+          party: Democratic
+          office: Council Ward 4
+          result: Won
+          percent: 51
+        - year: 2016
+          election: General
+          party: Democratic
+          office: Council Ward 4
+          result: Won
+          percent: 95
   Council Ward 7:
     - committee_id: 4105
       first_name: Kelvin
@@ -456,6 +596,25 @@ Democratic:
         - url: 'https://www.washingtonblade.com/2019/07/18/gay-anc-commissioner-challenges-gray-for-ward-7-seat/'
           title: Gay ANC commissioner challenges Gray for Ward 7 seat
       neighborhood: Deanwood
+      elections:
+        - year: 2014
+          election: General
+          party: Nonpartisan
+          office: ANC 8B04
+          result: Won
+          percent: 95
+        - year: 2016
+          election: General
+          party: Nonpartisan
+          office: ANC 7C04
+          result: Won
+          percent: 66
+        - year: 2018
+          election: General
+          party: Nonpartisan
+          office: ANC 7C04
+          result: Won
+          percent: 95
     - committee_id: 4089
       first_name: James
       last_name: Jennings
@@ -522,6 +681,11 @@ Democratic:
             https://dcist.com/story/19/09/09/another-ward-7-anc-commissioner-will-challenge-vincent-gray-for-his-d-c-council-seat/
           title: Another Ward 7 ANC Commissioner Will Challenge Vincent Gray For His D.C. Council Seat
       neighborhood: Benning Ridge
+      elections:
+        - year: 2018
+          office: ANC 7E01
+          result: Won
+          percent: 69
     - committee_id: 4104
       first_name: Clayton
       last_name: Rosenberg
@@ -584,6 +748,18 @@ Democratic:
       website: sanderson4ward8.com
       facebook: sanderson4ward8
       neighborhood: Buena Vista
+      elections:
+        - year: 2015
+          election: Special
+          party: Democratic
+          result: Withdrew
+          percent: 0
+        - year: 2018
+          election: Primary
+          party: Democratic
+          office: Committeeman Ward 8
+          result: Won
+          percent: 35
     - committee_id: 4117
       first_name: Richard
       last_name: Campbell
@@ -658,6 +834,19 @@ Independent:
             https://dcist.com/story/19/09/19/state-board-of-education-vp-markus-batchelor-will-run-for-at-large-council-seat/
           title: State Board Of Education VP Markus Batchelor Will Run For At-Large Council Seat
       neighborhood: Congress Heights
+      elections:
+        - year: 2016
+          election: General
+          party: Nonpartisan
+          office: SBOE Ward 8
+          result: Won
+          percent: 35
+        - year: 2018
+          election: Primary
+          party: Democratic
+          office: National Committeeman
+          result: Lost
+          percent: 36
     - committee_id: 4099
       first_name: Anthony
       last_name: Dale
@@ -725,6 +914,31 @@ Independent:
         - url: 'https://capitolhillcorner.org/2019/10/18/chander-jayaraman-announces-bid-for-city-council-seat/'
           title: Chander Jayaraman Announces Bid for City Council Seat
       neighborhood: Capitol Hill
+      elections:
+        - year: 2012
+          election: General
+          party: Nonpartisan
+          office: ANC 6B08
+          result: Won
+          percent: 94
+        - year: 2014
+          election: General
+          party: Nonpartisan
+          office: ANC 6B08
+          result: Won
+          percent: 95
+        - year: 2016
+          election: General
+          party: Nonpartisan
+          office: ANC 6B08
+          result: Won
+          percent: 96
+        - year: 2018
+          election: General
+          party: Nonpartisan
+          office: ANC 6B08
+          result: Won
+          percent: 95
   Council Ward 8:
     - committee_id: 4123
       first_name: Christopher
@@ -873,6 +1087,19 @@ Nonpartisan:
         - url: 'https://washingtoninformer.com/d-c-election-roundup-holcomb-seeks-ward-7-school-board-seat/'
           title: 'D.C. ELECTION ROUNDUP: Holcomb Seeks Ward 7 School Board Seat'
       neighborhood: Mahaning Heights/Central Northeast
+      elections:
+        - year: 2016
+          election: General
+          party: Nonpartisan
+          office: ANC 7F01
+          result: Won
+          percent: 44
+        - year: 2018
+          election: General
+          party: Nonpartisan
+          office: ANC 7F01
+          result: Won
+          percent: 96
   SBOE Ward 8:
     - committee_id: 4120
       first_name: Darrell
@@ -906,3 +1133,46 @@ Nonpartisan:
       facebook: darrellgastondc
       instagram: darrellgastondc
       neighborhood: Fort Stanton
+      elections:
+        - year: 2008
+          election: General
+          party: Nonpartisan
+          office: ANC 8B03
+          result: Won
+          percent: 98
+        - year: 2008
+          election: General
+          party: Independent
+          office: Council Ward 8
+          result: Lost
+          percent: 4
+        - year: 2010
+          election: General
+          party: Nonpartisan
+          office: ANC 8B03
+          result: Won
+          percent: 64
+        - year: 2008
+          election: Primary
+          party: Democratic
+          office: Council Ward 8
+          result: Lost
+          percent: 3
+        - year: 2012
+          election: General
+          party: Nonpartisan
+          office: ANC 8B02
+          result: Won
+          percent: Write-in
+        - year: 2014
+          election: General
+          party: Nonpartisan
+          office: ANC 8B02
+          result: Lost
+          percent: 40
+        - year: 2018
+          election: General
+          party: Nonpartisan
+          office: ANC 8B04
+          result: Won
+          percent: 64

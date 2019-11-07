@@ -70,7 +70,12 @@
       padding: 0 0.75rem;
     }
     #intro {
-      max-width: 50rem;
+      max-width: 70rem;
+      columns: 2 20rem;
+      column-fill: balance;
+      column-gap: 2rem;
+      widows: 2;
+      orphans: 2;
     }
   </style>
 </head>
@@ -90,12 +95,20 @@
               <i class="fas fa-plus-square"></i>
             </button>
           </div>
-          <p id="intro">
-            These are the candidates registered with the DC Office of Campaign Finance (they can't
-            register with the Board of Elections yet). I added websites, social media accounts,
-            and whatever news articles and could find. Send comments and corrections to
-            keith@iveys.org or to @kcivey on Twitter.
-          </p>
+          <div id="intro">
+            <p>
+              These are the candidates registered with the DC Office of Campaign Finance (they can't
+              register with the Board of Elections yet). I added websites, social media accounts,
+              and whatever news articles and could find. Send comments and corrections to
+              keith@iveys.org or to @kcivey on Twitter.
+            </p>
+            <p>
+              In the electoral histories, for races that have more than one winner (like those for
+              council at-large), the percentages are based on the total number of ballots, since the
+              Board of Elections does not release numbers for how many ballots contained votes for
+              the particular race.
+            </p>
+          </div>
         </div>
         <table id="candidate-table" class="table">
         <tbody>

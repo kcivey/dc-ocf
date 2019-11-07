@@ -1176,3 +1176,31 @@ Nonpartisan:
           office: ANC 8B04
           result: Won
           percent: 64
+    - committee_id: 4124
+      first_name: Dr. Carlene
+      last_name: Reid
+      candidate_key: CANSD8207124
+      committee_key: PCCSD8207124
+      election_year: 2020
+      candidate_approved: true
+      committee_approved: true
+      termination_approved: false
+      election_description: General Election
+      candidate_name: Dr. Carlene Reid
+      committee_name: Carlene Reid for State Board of Education
+      id: 5049
+      name: Dr. Carlene Reid
+      address: 1922 15th St SE
+      filing_date: 11/05/2019
+      phone: (301) 642-9051
+      email: carlene_reid@yahoo.com
+      committee_address: '1922 15th Street, SE, Washington, DC 20020'
+      committee_phone: (301) 642-9051
+      treasurer_name: Dr. Carlene Reid
+      treasurer_phone: (301) 642-9051
+      treasurer_email: carlene_reid@yahoo.com
+      chairperson_name: Dr. Carlene Reid
+      chair_phone: (301) 642-9051
+      chair_email: carlene_reid@yahoo.com
+      zip: '20020'
+      neighborhood: Anacostia

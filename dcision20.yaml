@@ -158,7 +158,7 @@ Democratic:
       first_name: Jordan
       last_name: Grossman
       candidate_key: CANCC2207101
-      committee_key: PCCCC2207101
+      committee_key: ''
       election_year: 2020
       candidate_approved: true
       committee_approved: true
@@ -242,7 +242,7 @@ Democratic:
       first_name: Patrick
       last_name: Kennedy
       candidate_key: CANCC2207098
-      committee_key: PCCCC2207098
+      committee_key: ''
       election_year: 2020
       candidate_approved: true
       committee_approved: true
@@ -635,7 +635,7 @@ Democratic:
       first_name: Kelvin
       last_name: Brown
       candidate_key: CANCC7207110
-      committee_key: PCCCC7207110
+      committee_key: ''
       election_year: 2020
       candidate_approved: true
       committee_approved: false
@@ -1318,7 +1318,7 @@ Nonpartisan:
           percent: 64
       fair_elections: true
     - committee_id: 4124
-      first_name: Dr. Carlene
+      first_name: Carlene
       last_name: Reid
       candidate_key: CANSD8207124
       committee_key: PCCSD8207124
@@ -1327,7 +1327,7 @@ Nonpartisan:
       committee_approved: true
       termination_approved: false
       election_description: General Election
-      candidate_name: Dr. Carlene Reid
+      candidate_name: Carlene Reid
       committee_name: Carlene Reid for State Board of Education
       id: 5049
       name: Dr. Carlene Reid

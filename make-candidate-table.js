@@ -125,6 +125,8 @@ async function transformRecords(records) {
                 .replace(/ Place\b/, ' Pl')
                 .replace(/[.,]/g, '');
             r.zip = m[2];
+            r.candidate_name = r.candidate_name.replace(/^(?:[DM]r|Mr?s)\.? /, '');
+            r.first_name = r.first_name.replace(/^(?:[DM]r|Mr?s)\.? /, '');
             if (r.last_name === 'Grosman') { // kluge to fix OCF typo
                 r.last_name = 'Grossman';
                 r.candidate_name = r.candidate_name.replace('Grosman', 'Grossman');
@@ -135,6 +137,10 @@ async function transformRecords(records) {
             }
             else if (r.committee_phone && r.committee_phone.match(/236-4074$/)) { // remove personal phone number
                 r.committee_phone = '';
+            }
+            if (['Jordan Grossman', 'Patrick Kennedy', 'Kelvin Brown'].includes(r.candidate_name) &&
+                r.committee_key.match(/^PCC/)) {
+                r.committee_key = ''; // remove erroneous PCCs
             }
             if (r.fair_elections == null) {
                 r.fair_elections = r.committee_key

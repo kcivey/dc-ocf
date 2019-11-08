@@ -429,6 +429,94 @@ Democratic:
       neighborhood: Sheridan-Kalorama
       fair_elections: true
   Council Ward 4:
+    - first_name: Renee
+      last_name: Bowser
+      election_year: 2020
+      election_description: Primary Election
+      candidate_name: Renee Bowser
+      committee_name: Committee to Elect Renee Bowser
+      address: 5322 2nd St NW
+      filing_date: 09/05/2019
+      email: reneelb@outlook.com
+      committee_address: '5322 2nd St NW, Washington, DC 20011'
+      committee_phone: (202) 505-2187
+      zip: '20011'
+      twitter: ReneeLBowser
+      neighborhood: Petworth
+      elections:
+        - year: 2000
+          election: General
+          party: Statehood Green
+          office: Council Ward 4
+          result: Lost
+          percent: 11
+        - year: 2002
+          election: General
+          party: Nonpartisan
+          office: ANC 4D02
+          result: Won
+          percent: 52
+        - year: 2004
+          election: General
+          party: Nonpartisan
+          office: ANC 4D02
+          result: Won
+          percent: 98
+        - year: 2006
+          election: General
+          party: Nonpartisan
+          office: ANC 4D02
+          result: Won
+          percent: 98
+        - year: 2007
+          election: Special
+          party: Statehood Green
+          office: Council Ward 4
+          result: Lost
+          percent: 5
+        - year: 2012
+          election: Primary
+          party: Democratic
+          office: Council Ward 4
+          result: Lost
+          percent: 13
+        - year: 2012
+          election: General
+          party: Nonpartisan
+          office: ANC 4D02
+          result: Won
+          percent: 99
+        - year: 2014
+          election: General
+          party: Nonpartisan
+          office: ANC 4D02
+          result: Won
+          percent: 98
+        - year: 2015
+          election: Special
+          party: Democratic
+          office: Council Ward 4
+          result: Lost
+          percent: 22
+        - year: 2016
+          election: General
+          party: Nonpartisan
+          office: ANC 4D02
+          result: Won
+          percent: 98
+        - year: 2018
+          election: Primary
+          party: Democratic
+          office: Committeewoman Ward 4
+          result: Won
+          percent: 29
+        - year: 2018
+          election: General
+          party: Nonpartisan
+          office: ANC 4D02
+          result: Won
+          percent: 98
+      fair_elections: true
     - committee_id: 4106
       first_name: Janeese
       last_name: Lewis George
@@ -912,6 +1000,16 @@ Independent:
       twitter: ''
       website: ''
       neighborhood: Southwest Waterfront
+      fair_elections: true
+    - first_name: Christina
+      last_name: Henderson
+      election_year: 2020
+      election_description: General Election
+      candidate_name: Christina Henderson
+      committee_name: Friends of Christina Henderson
+      email: hello@christinahenderson.org
+      twitter: chenderson
+      facebook: CHendersonDC
       fair_elections: true
     - committee_id: 4119
       first_name: Chander

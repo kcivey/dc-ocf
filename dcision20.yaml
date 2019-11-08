@@ -866,6 +866,7 @@ Democratic:
         - year: 2015
           election: Special
           party: Democratic
+          office: Council Ward 8
           result: Withdrew
           percent: 0
         - year: 2018

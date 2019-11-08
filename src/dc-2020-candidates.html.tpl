@@ -256,7 +256,7 @@
                                           </abbr>
                                         <% } %>
                                       </td>
-                                      <td><%- e.office %></td>
+                                      <td><%= e.office %></td>
                                       <td><%- e.result %></td>
                                       <td class="text-right"><%- e.percent %></td>
                                     </tr>

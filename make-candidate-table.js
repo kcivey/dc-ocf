@@ -216,7 +216,13 @@ function writeHtml(records) {
                             const newC = {...c, party, party_abbr: partyAbbr[party]};
                             if (c.elections) {
                                 newC.elections = [...c.elections]
-                                    .map(e => ({...e, party_abbr: partyAbbr[e.party]}));
+                                    .map(function (e) {
+                                        return {
+                                            ...e,
+                                            party_abbr: partyAbbr[e.party],
+                                            office: addAbbr(e.office),
+                                        };
+                                    });
                             }
                             return newC;
                         })
@@ -247,6 +253,12 @@ function writeHtml(records) {
             updated: new Date().toLocaleDateString('en-US', {year: 'numeric', day: 'numeric', month: 'long'}),
         })
     );
+    function addAbbr(office) {
+        return office.replace(/\b(ANC|SBOE)\b/, function (m, m1) {
+            const spelledOut = {ANC: 'Advisory Neighborhood Commissioner', SBOE: 'State Board of Education'}[m1];
+            return spelledOut ? `<abbr title="${spelledOut}">${m1}</abbr>` : m1;
+        });
+    }
 }
 
 function objectify(arr, keyNames) {

@@ -246,13 +246,16 @@ function writeHtml(records) {
             }
         }
     }
-    fs.writeFileSync(
-        outputFile,
-        template({
-            recordsByElection,
-            updated: new Date().toLocaleDateString('en-US', {year: 'numeric', day: 'numeric', month: 'long'}),
-        })
-    );
+    const currentContent = fs.readFileSync(outputFile, 'utf8').replace(/(\(updated )[^)]+\)/, '$1)');
+    if (currentContent !== template({recordsByElection, updated: ''})) {
+        fs.writeFileSync(
+            outputFile,
+            template({
+                recordsByElection,
+                updated: new Date().toLocaleDateString('en-US', {year: 'numeric', day: 'numeric', month: 'long'}),
+            })
+        );
+    }
     function addAbbr(office) {
         return office.replace(/\b(ANC|SBOE)\b/, function (m, m1) {
             const spelledOut = {ANC: 'Advisory Neighborhood Commissioner', SBOE: 'State Board of Education'}[m1];

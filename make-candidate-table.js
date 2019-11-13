@@ -170,7 +170,10 @@ function combineRecords(records, newRecords) {
                 records[party][office] = [];
             }
             for (const candidate of candidates) {
-                const existingCandidate = records[party][office].find(r => r.id === candidate.id);
+                const existingCandidate = records[party][office].find(function (r) {
+                    return r.last_name === candidate.last_name &&
+                        r.first_name === candidate.first_name;
+                });
                 if (existingCandidate) {
                     Object.assign(existingCandidate, candidate);
                 }

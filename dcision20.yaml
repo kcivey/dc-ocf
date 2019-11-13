@@ -435,10 +435,10 @@ Democratic:
       election_description: Primary Election
       candidate_name: Renee Bowser
       committee_name: Committee to Elect Renee Bowser
-      address: 5322 2nd St NW
-      filing_date: 09/05/2019
+      address: 5322 Second St NW
+      filing_date: 11/06/2019
       email: reneelb@outlook.com
-      committee_address: '5322 2nd St NW, Washington, DC 20011'
+      committee_address: '5322 Second Street, NW, Washington, DC 20011'
       committee_phone: (202) 505-2187
       zip: '20011'
       twitter: ReneeLBowser
@@ -517,6 +517,21 @@ Democratic:
           result: Won
           percent: 98
       fair_elections: true
+      committee_id: 4125
+      candidate_key: CANCC4207125
+      committee_key: ''
+      candidate_approved: true
+      committee_approved: false
+      termination_approved: false
+      id: 5050
+      name: Ms. Renee Bowser
+      phone: (202) 957-2921
+      treasurer_name: ''
+      treasurer_phone: ''
+      treasurer_email: ''
+      chairperson_name: ''
+      chair_phone: ''
+      chair_email: ''
     - committee_id: 4106
       first_name: Janeese
       last_name: Lewis George
@@ -1008,10 +1023,31 @@ Independent:
       election_description: General Election
       candidate_name: Christina Henderson
       committee_name: Friends of Christina Henderson
-      email: hello@christinahenderson.org
+      email: christina@christinahenderson.org
       twitter: chenderson
       facebook: CHendersonDC
       fair_elections: true
+      committee_id: 4126
+      candidate_key: CANCCL207126
+      committee_key: ''
+      candidate_approved: true
+      committee_approved: false
+      termination_approved: false
+      id: 5051
+      name: Ms. Christina Diane Henderson
+      address: 816 Farragut St NW
+      filing_date: 11/08/2019
+      phone: (864) 593-8710
+      committee_address: '816 Farragut Street, NW, Washington, DC 20011'
+      committee_phone: (202) 630-7656
+      treasurer_name: ''
+      treasurer_phone: ''
+      treasurer_email: ''
+      chairperson_name: ''
+      chair_phone: ''
+      chair_email: ''
+      zip: '20011'
+      neighborhood: Petworth
     - committee_id: 4119
       first_name: Chander
       last_name: Jayaraman

@@ -246,7 +246,15 @@ function writeHtml(records) {
             }
         }
     }
-    const currentContent = fs.readFileSync(outputFile, 'utf8').replace(/(\(updated )[^)]+\)/, '$1)');
+    let currentContent;
+    try {
+        currentContent = fs.readFileSync(outputFile, 'utf8').replace(/(\(updated )[^)]+\)/, '$1)');
+    }
+    catch (err) {
+        if (err.code !== 'ENOENT') { // ignore if file not found
+            throw err;
+        }
+    }
     if (currentContent !== template({recordsByElection, updated: ''})) {
         fs.writeFileSync(
             outputFile,

@@ -118,14 +118,17 @@ async function transformRecords(records) {
             ]) {
                 delete r[key];
             }
-            const m = r.address.match(/^(.+), Washington, DC (\d+)$/);
+            const m = r.address.match(/^(.+), Washington,? DC (\d+)$/i);
             assert(m, `Unexpected address format "${r.address}"`);
             r.address = m[1].replace(/ Avenue\b/, ' Ave')
                 .replace(/ Street\b/, ' St')
                 .replace(/ Place\b/, ' Pl')
                 .replace(/[.,]/g, '');
             r.zip = m[2];
-            r.candidate_name = r.candidate_name.replace(/^(?:[DM]r|Mr?s)\.? /, '');
+            r.candidate_name = r.candidate_name.replace(/^(?:[DM]r|Mr?s)\.? /i, '');
+            if (!/[A-Z][a-z]/.test(r.candidate_name)) { // handle all-caps or all-lowercase name
+                r.candidate_name = r.candidate_name.toLowerCase().replace(/\b[a-z]/g, m => m.toUpperCase());
+            }
             r.first_name = r.first_name.replace(/^(?:[DM]r|Mr?s)\.? /, '');
             if (r.last_name === 'Grosman') { // kluge to fix OCF typo
                 r.last_name = 'Grossman';

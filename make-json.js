@@ -264,16 +264,8 @@ async function getSharedData({candidates, year}) {
         }
         const total = await db.getContributorCount(candidate, year);
         let prevCount = 1;
-        let numberTied = 1;
         let i = 0;
         for (const row of rows) {
-            if (prevCount === row.contributors) {
-                numberTied++;
-            }
-            else {
-                prevCount = row.contributors;
-                numberTied = 1;
-            }
             i++;
             if (i > places || row.contributors < threshold) {
                 break;
@@ -282,13 +274,14 @@ async function getSharedData({candidates, year}) {
                 data[candidate] = [];
             }
             data[candidate].push([
-                i - numberTied + 1,
+                prevCount === row.contributors ? '<i>tie</i>' : i,
                 row.candidate_name,
                 row.election_year,
                 row.office,
                 row.contributors,
                 (100 * row.contributors / total).toFixed(1),
             ]);
+            prevCount = row.contributors;
         }
     }
     return Object.keys(data).length ? data : null;

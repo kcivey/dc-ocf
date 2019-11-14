@@ -1115,6 +1115,35 @@ Independent:
           result: Won
           percent: 95
       fair_elections: true
+    - committee_id: 4127
+      first_name: eric
+      last_name: rogers
+      candidate_key: CANCCL207127
+      committee_key: ''
+      election_year: 2020
+      candidate_approved: true
+      committee_approved: false
+      termination_approved: false
+      election_description: General Election
+      candidate_name: Eric Rogers
+      committee_name: Committee to Elect Eric Rogers for Council
+      id: 5052
+      name: Mr. eric rogers
+      address: 3720 Southern Ave SE
+      filing_date: 11/14/2019
+      phone: (202) 531-1675
+      email: m.eric.rogers@gmail.com
+      committee_address: '3720 Southern Ave SE, washington, DC 20020'
+      committee_phone: ''
+      treasurer_name: ''
+      treasurer_phone: ''
+      treasurer_email: ''
+      chairperson_name: ''
+      chair_phone: ''
+      chair_email: ''
+      zip: '20020'
+      fair_elections: true
+      neighborhood: Hillcrest
   Council Ward 8:
     - committee_id: 4123
       first_name: Christopher

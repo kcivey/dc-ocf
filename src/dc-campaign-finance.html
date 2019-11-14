@@ -54,9 +54,11 @@
     h3, h4 {
       text-align: center;
     }
-    #stats-table {
+    table {
       border: 1px solid #dee2e6;
       background-color: white;
+    }
+    #stats-table {
       width: auto;
       margin-bottom: 0;
     }
@@ -234,6 +236,28 @@
         <table id="stats-table" class="table"></table>
       </div>
     </div>
+  </div>
+  <div class="row shared">
+    <div class="col-12">
+      <h2 id="shared"><a href="#shared">Top Campaigns That Share Contributors</a></h2>
+      <div class="explanation">
+        <p>
+          I thought it would be interesting to see what contributors have given to these candidates and have also
+          given to other campaigns in the past (or even this year).
+          I matched up contributors across campaign committees back to 2012.
+          These tables list the top 5 campaigns that these candidates share contributors with, with the number
+          of shared contributors and the percentage that is of the current candidate's contributors.
+          I included only campaigns that share at least 5 contributors (so candidates without enough contributors
+          will not have a table shown).
+          These numbers are not perfect because of variations in names and addresses (though I did a lot of
+          fixing up to make them match better), and because people change their addresses and their names.
+        </p>
+        <div id="extra-shared" class="extra"></div>
+      </div>
+    </div>
+  </div>
+  <div class="row shared" id="shared-table-container"></div>
+  <div class="row">
     <div class="col-12">
       <h2 id="date"><a href="#date">Contributors by Date</a></h2>
       <div class="explanation">
@@ -302,6 +326,35 @@
       </tr>
     {{/tableData}}
   </tbody>
+</script>
+<script type="text/template" id="shared-table-template">
+  <div class="col-lg-6 col-12">
+    <h3>{{ candidate }}</h3>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th class="text-right">Rank</th>
+          <th>Candidate</th>
+          <th>Year</th>
+          <th>Office</th>
+          <th class="text-right">Contributors</th>
+          <th class="text-right">%</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#rows}}
+          <tr>
+            <td class="text-right">{{ 0 }}</td>
+            <td>{{ 1 }}</td>
+            <td>{{ 2 }}</td>
+            <td>{{ 3 }}</td>
+            <td class="text-right">{{ 4 }}</td>
+            <td class="text-right">{{ 5 }}</td>
+          </tr>
+        {{/rows}}
+      </tbody>
+    </table>
+  </div>
 </script>
 <script type="text/template" id="place-chart-div-template">
   <div class="col-xl-4 col-lg-6 col-12">

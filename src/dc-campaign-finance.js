@@ -36,6 +36,7 @@ jQuery(function ($) {
                 setCandidateColors(data.points);
                 handlePoints(data.points);
                 handleStats(data.stats);
+                handleSharedData(data.shared);
                 handleDateData(data.dateData);
                 handlePlaceData(data.placeData);
                 $('#contest-select').on('change', loadContest);
@@ -323,6 +324,20 @@ jQuery(function ($) {
         adjustTableForRotatedHeads('#stats-table');
     }
 
+    function handleSharedData(sharedData) {
+        $('.shared').toggle(!!sharedData);
+        if (!sharedData) {
+            return;
+        }
+        const templateHtml = $('#shared-table-template').html();
+        const container = $('#shared-table-container').empty();
+        Mustache.parse(templateHtml);
+        $.each(sharedData, function (candidate, rows) {
+            $(Mustache.render(templateHtml, {candidate, rows}))
+                .appendTo(container);
+        });
+    }
+
     function handleDateData({start, end, contributors}) {
         const dateColumn = ['date'];
         let i = 0;
@@ -396,8 +411,7 @@ jQuery(function ($) {
     }
 
     function handlePlaceData(placeData) {
-        const container = $('#place-chart-container');
-        container.empty();
+        const container = $('#place-chart-container').empty();
         const html = $('#place-chart-div-template').html();
         Mustache.parse(html);
         $.each(placeData, function (i, c) {

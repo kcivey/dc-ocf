@@ -214,6 +214,7 @@ async function processOffice(office) {
         extras: getExtras(officeCode),
         points: await db.getDcContributionsWithPositions(filters),
         stats: {columnHeads, tableData},
+        shared: await getSharedData(filters),
         dateData: await getDateData(filters, ward),
         placeData: await getPlaceData(filters, ward),
     };
@@ -250,6 +251,47 @@ async function processOffice(office) {
             class: className,
         };
     }
+}
+
+async function getSharedData({candidates, year}) {
+    const threshold = 5;
+    const places = 5;
+    const data = {};
+    for (const candidate of candidates) {
+        const rows = await db.getCommitteesWithTopSharedContributors(candidate, 2020);
+        if (!rows[0] || rows[0].count < threshold) {
+            continue;
+        }
+        const total = await db.getContributorCount(candidate, year);
+        let prevCount = 1;
+        let numberTied = 1;
+        let i = 0;
+        for (const row of rows) {
+            if (prevCount === row.contributors) {
+                numberTied++;
+            }
+            else {
+                prevCount = row.contributors;
+                numberTied = 1;
+            }
+            i++;
+            if (i > places || row.contributors < threshold) {
+                break;
+            }
+            if (!data[candidate]) {
+                data[candidate] = [];
+            }
+            data[candidate].push([
+                i - numberTied + 1,
+                row.candidate_name,
+                row.election_year,
+                row.office,
+                row.contributors,
+                (100 * row.contributors / total).toFixed(1),
+            ]);
+        }
+    }
+    return Object.keys(data).length ? data : null;
 }
 
 async function getDateData(baseFilters, ward) {

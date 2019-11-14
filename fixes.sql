@@ -76,8 +76,11 @@ UPDATE contributions SET contributor_middle_name = 'L' WHERE number_and_street L
 UPDATE contributions SET contributor_last_name = 'Teutsch' WHERE contributor_last_name = 'Teutsh';
 
 UPDATE contributions SET state = 'DC' WHERE state LIKE 'Dist%Col%';
+UPDATE contributions SET state = 'DC' WHERE state = 'MD' AND (city LIKE 'Washington' OR city LIKE 'Washington DC') AND SUBSTR(number_and_street, -3) IN (' NE', ' NW', 'SE', ' SW');
 UPDATE contributions SET city = 'Columbus', state = 'OH' WHERE city = 'WashingtonColumbus' AND state = 'DC';
-UPDATE contributions SET city = 'Washington' WHERE state = 'DC' AND (city LIKE 'Was%' OR city LIKE 'Wsh%') AND city <> 'Washington';
+UPDATE contributions SET city = 'Washington' WHERE state = 'DC' AND (city LIKE 'Was%' OR city LIKE 'Wsh%' OR city LIKE 'Wah%' OR city LIKE 'Wadh%' OR city LIKE 'Waas%')
+    AND city <> 'Washington';
+UPDATE contributions SET state = 'DC' WHERE state = '' AND city LIKE 'Was%';
 
 UPDATE committee_extras SET last_deadline = '2019-08-31' WHERE committee_name LIKE '%Lewis George%' AND last_deadline IS NULL;
 UPDATE committee_extras SET last_deadline = '2019-07-31' WHERE last_deadline IS NULL;

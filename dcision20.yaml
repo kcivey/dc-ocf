@@ -683,6 +683,98 @@ Democratic:
           title: Army Veteran Who Lost Write-In ANC Campaign Will Run For Ward 7 Councilmember
       neighborhood: Hillcrest
       fair_elections: true
+    - committee_id: 4128
+      first_name: Vincent
+      last_name: Gray
+      candidate_key: CANCC7207128
+      committee_key: PCCCC7207128
+      election_year: 2020
+      candidate_approved: true
+      committee_approved: true
+      termination_approved: false
+      election_description: Primary Election
+      candidate_name: Vincent Gray
+      committee_name: Vince Gray 2020
+      id: 5053
+      name: Mr. Vincent C. Gray
+      address: 2619 Branch Ave SE
+      filing_date: 11/18/2019
+      phone: (202) 957-0873
+      email: vincegray2020@gmail.com
+      committee_address: '2619 Branch Ave., SE, Washington, DC 20020'
+      committee_phone: (202) 957-0873
+      treasurer_name: Mr. Charles Thies
+      treasurer_phone: (202) 957-0873
+      treasurer_email: chuckthies@gmail.com
+      chairperson_name: Ms. Carrie L. Thornhill
+      chair_phone: (202) 627-2104
+      chair_email: thornhilthornhil3301@comcast.net
+      zip: '20020'
+      fair_elections: false
+      neighborhood: Hillcrest
+      website: vincegray2020.com
+      twitter: VinceGray2020
+      facebook: vincegray2020
+      instagram: vincegray2020
+      links:
+        - url: >-
+            https://dcist.com/story/19/11/12/its-official-ward-7-councilmember-vincent-gray-is-mounting-a-reelection-campaign/
+          title: 'It''s Official: Ward 7 Councilmember Vincent Gray Is Mounting A Reelection Campaign'
+      elections:
+        - year: 2004
+          election: Primary
+          party: Democratic
+          office: Council Ward 7
+          result: Won
+          percent: 50
+        - year: 2004
+          election: General
+          party: Democratic
+          office: Council Ward 7
+          result: Won
+          percent: 91
+        - year: 2006
+          election: Primary
+          party: Democratic
+          office: Council Chair
+          result: Won
+          percent: 57
+        - year: 2006
+          election: General
+          party: Democratic
+          office: Council Chair
+          result: Won
+          percent: 98
+        - year: 2010
+          election: Primary
+          party: Democratic
+          office: Mayor
+          result: Won
+          percent: 54
+        - year: 2010
+          election: General
+          party: Democratic
+          office: Mayor
+          result: Won
+          percent: 74
+        - year: 2014
+          election: Primary
+          party: Democratic
+          office: Mayor
+          result: Lost
+          percent: 33
+        - year: 2016
+          election: Primary
+          party: Democratic
+          office: Council Ward 7
+          result: Won
+          percent: 61
+        - year: 2016
+          election: General
+          party: Democratic
+          office: Council Ward 7
+          result: Won
+          percent: 86
     - committee_id: 4102
       first_name: Anthony
       last_name: Green
@@ -1395,7 +1487,7 @@ Nonpartisan:
       election_year: 2020
       candidate_approved: true
       committee_approved: true
-      termination_approved: false
+      termination_approved: true
       election_description: General Election
       candidate_name: Carlene Reid
       committee_name: Carlene Reid for State Board of Education

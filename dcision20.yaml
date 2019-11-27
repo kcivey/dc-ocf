@@ -1017,6 +1017,93 @@ Democratic:
           title: Campbell Challenges Trayon White for Council Seat
       neighborhood: Congress Heights
       fair_elections: false
+  US Senator:
+    - committee_id: 4129
+      first_name: Paul
+      last_name: Strauss
+      candidate_key: CANSEN207129
+      committee_key: PCCSEN207129
+      election_year: 2020
+      candidate_approved: true
+      committee_approved: true
+      termination_approved: false
+      election_description: Primary Election
+      candidate_name: Paul Strauss
+      committee_name: Paul Strauss Committee
+      id: 5054
+      name: Mr. Paul Strauss
+      address: 2828 Wisconsin Ave NW
+      filing_date: 11/26/2019
+      phone: (202) 223-8664
+      email: senator@paulstrauss.org
+      committee_address: '1020 16th Street, NW. Suite 500, Washington, DC 20036'
+      committee_phone: (202) 223-8664
+      treasurer_name: Ms. Taylor Berlin
+      treasurer_phone: (203) 767-1219
+      treasurer_email: taylorbberlin@gmail.com
+      chairperson_name: Mr. Paul Strauss
+      chair_phone: (202) 223-8664
+      chair_email: senator@paulstrauss.org
+      zip: '20007'
+      fair_elections: false
+      neighborhood: Cathedral Heights
+      twitter: SenPaulStrauss
+      website: paulstrauss.org
+      elections:
+        - year: 1996
+          election: Primary
+          party: Democratic
+          office: US Senator
+          result: Won
+          percent: 74
+        - year: 1996
+          election: General
+          party: Democratic
+          office: US Senator
+          result: Won
+          percent: 76
+        - year: 2002
+          election: Primary
+          party: Democratic
+          office: US Senator
+          result: Won
+          percent: 66
+        - year: 2002
+          election: General
+          party: Democratic
+          office: US Senator
+          result: Won
+          percent: 77
+        - year: 2006
+          election: Primary
+          party: Democratic
+          office: Council Ward 3
+          result: Lost
+          percent: 14
+        - year: 2008
+          election: Primary
+          party: Democratic
+          office: US Senator
+          result: Won
+          percent: 65
+        - year: 2008
+          election: General
+          party: Democratic
+          office: US Senator
+          result: Won
+          percent: 81
+        - year: 2014
+          election: Primary
+          party: Democratic
+          office: US Senator
+          result: Won
+          percent: 59
+        - year: 2014
+          election: General
+          party: Democratic
+          office: US Senator
+          result: Won
+          percent: 76
 Independent:
   Council At-Large:
     - committee_id: 4114
@@ -1241,7 +1328,7 @@ Independent:
       first_name: Christopher
       last_name: Cole
       candidate_key: CANCC8207123
-      committee_key: ''
+      committee_key: PCCCC8207123
       election_year: 2020
       candidate_approved: true
       committee_approved: false
@@ -1257,15 +1344,15 @@ Independent:
       email: mrchrismcole@gmail.com
       committee_address: '2611 Bowen Road, SE #4, Washington, DC 20020'
       committee_phone: (202) 246-5764
-      treasurer_name: ''
-      treasurer_phone: ''
-      treasurer_email: ''
-      chairperson_name: ''
-      chair_phone: ''
-      chair_email: ''
+      treasurer_name: Ms. Ida Hughes
+      treasurer_phone: (202) 396-9396
+      treasurer_email: tinahughes99@yahoo.com
+      chairperson_name: Mr. Malik Lang
+      chair_phone: (202) 818-9955
+      chair_email: langm@faunteroycenter.org
       zip: '20020'
       neighborhood: Buena Vista
-      fair_elections: true
+      fair_elections: false
     - committee_id: 4112
       first_name: Taurus
       last_name: Phillips

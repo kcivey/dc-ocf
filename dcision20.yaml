@@ -1298,10 +1298,10 @@ Independent:
       first_name: eric
       last_name: rogers
       candidate_key: CANCCL207127
-      committee_key: ''
+      committee_key: PCCCCL207127
       election_year: 2020
       candidate_approved: true
-      committee_approved: false
+      committee_approved: true
       termination_approved: false
       election_description: General Election
       candidate_name: Eric Rogers
@@ -1314,15 +1314,15 @@ Independent:
       email: m.eric.rogers@gmail.com
       committee_address: '3720 Southern Ave SE, washington, DC 20020'
       committee_phone: ''
-      treasurer_name: ''
-      treasurer_phone: ''
-      treasurer_email: ''
-      chairperson_name: ''
-      chair_phone: ''
-      chair_email: ''
+      treasurer_name: Ms. Daphne Taylor
+      treasurer_phone: (202) 460-2271
+      treasurer_email: kokio29@yahoo.com
+      chairperson_name: Mr. Eric Rogers
+      chair_phone: (202) 531-1675
+      chair_email: m.eric.rogers@gmail.com
       zip: '20020'
-      fair_elections: true
       neighborhood: Hillcrest
+      fair_elections: false
   Council Ward 8:
     - committee_id: 4123
       first_name: Christopher

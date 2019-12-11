@@ -340,15 +340,11 @@ jQuery(function ($) {
 
     function handleDateData({start, end, contributors}) {
         const dateColumn = ['date'];
-        let i = 0;
-        const dateTicks = [];
         for (let date = start; date <= end; date = incrementDate(date)) {
             dateColumn.push(date);
-            if (i % 14 === 0) {
-                dateTicks.push(date);
-            }
-            i++;
         }
+        const interval = Math.ceil((dateColumn.length - 1) / 12 / 7) * 7;
+        const dateTicks = dateColumn.filter((v, i) => i > 0 && (i % interval === 0));
         $('.ward-specific').toggle(!!contributors.ward);
         $.each(contributors, function (key, columns) {
             for (const column of columns) {

@@ -85,7 +85,11 @@ async function processFile(inputFile) {
         throw new Error(`No committee extra record for "${committeeName}"`);
     }
     console.log('Updating committee info');
-    await db.updateCommitteeExtra(committeeName, {is_fair_elections: true, last_deadline: deadline});
+    const updates = {is_fair_elections: true};
+    if (deadline > committee.last_deadline) {
+        updates.last_deadline = deadline;
+    }
+    await db.updateCommitteeExtra(committeeName, updates);
     for (const [schedule, rows] of Object.entries(rowsBySchedule)) {
         if (/^A/.test(schedule)) {
             console.warn(`Inserting ${rows.length} contributions`);

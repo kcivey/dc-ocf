@@ -104,6 +104,7 @@ async function writeCommitteeCsv(filerType = 'principal', year) {
     if (fs.existsSync(file)) {
         csv = csv.replace(/^.+\n/, ''); // remove header line if there's already CSV in file
     }
+    csv = csv.replace(/\n\s+\n/g, '\n'); // remove blank lines
     if (csv.match(/\S/)) { // skip writing if nothing in CSV
         fs.appendFileSync(file, csv);
     }

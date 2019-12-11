@@ -174,7 +174,7 @@ async function processOffice(office) {
     const ward = m ? +m[1] : null;
     if (!ward) {
         for (const key of Object.keys(rowDefs)) {
-            if (/^ward_/.test(key)) {
+            if (/^(?:ind_)?ward_/.test(key)) {
                 delete rowDefs[key];
             }
         }

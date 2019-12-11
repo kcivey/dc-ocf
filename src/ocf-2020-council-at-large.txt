@@ -1,10 +1,21 @@
 =overall
 
-I analyzed the DC Office of Campaign Finance (OCF) reports for the only at-large council candidate
-who has filed so far, Markus Batchelor.
-His filing covers contributions through October 10.
+I analyzed the DC Office of Campaign Finance (OCF) reports for the at-large council candidates
+who have filed so far:
+<ul>
+<li>Markus Batchelor is a Fair Elections candidate running as an independent; his last filing was October 10.</li>
+<li>Robert White is an incumbent councilmember running in the Democratic primary; his last filing was December 10.</li>
+</ul>
 
-Since Batchelor is participating in the the Fair Elections public campaign finance program, he can
+Two candidates will win this contest in the general election.
+In all previous elections the Democrat has been in first place by a large margin, so the race is often
+thought of as two separate races: the Democratic race, whose winner is determined in the primary, and
+the non-Democratic race, which finishes in November.
+
+Candidates participating in the Fair Elections public campaign finance program can
 accept contributions up to $100 and only from individuals (except for the candidate and their family,
-who can give up to $2,500), but can receive considerable additional funds from public money if he
-meets some requirements.
+who can give up to $2,500), but can receive considerable additional funds from public money if they
+meet some requirements.
+Candidates using the traditional system can accept contributions of up to $1,000 from
+individuals and from organizations (corporations, LLCs, PACs, unions, and so on) and can put in
+unlimited amounts of their own money.

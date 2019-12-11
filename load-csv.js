@@ -120,6 +120,9 @@ function transformRecord(record) {
         const nameParts = parseName(newRecord.candidate_name);
         newRecord.candidate_short_name = nameParts.last; // have to manually edit if more than one with same last name
     }
+    if (newRecord.office) {
+        newRecord.office = newRecord.office.replace('D.C. State Board of Education', 'SBOE');
+    }
     return newRecord;
 }
 

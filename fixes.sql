@@ -1,8 +1,5 @@
 UPDATE committees SET candidate_name = 'Jordan Grossman', candidate_short_name = 'Grossman' WHERE candidate_name = 'Jordan Grosman';
-UPDATE contributions SET receipt_date = '2019-05-16' WHERE receipt_date = '1986-05-16';
-UPDATE contributions SET receipt_date = '2019-09-22' WHERE receipt_date = '2018-09-22';
-UPDATE contributions SET receipt_date = '2019-09-12' WHERE receipt_date = '2011-09-12';
-UPDATE contributions SET receipt_date = '2019-09-15' WHERE receipt_date = '2015-09-15';
+UPDATE contributions SET receipt_date = '2019-12-01' WHERE receipt_date = '2001-12-01' AND committee_name = 'Committee to Elect Renee Bowser';
 UPDATE contributions SET number_and_street = REPLACE(number_and_street, 'Chancellors', 'Chancellor''s') WHERE number_and_street LIKE '%Chancellors%';
 UPDATE contributions SET number_and_street = REPLACE(number_and_street, 'Queen Anne''s', 'Queen Annes') WHERE number_and_street LIKE '%Queen Anne''s%';
 UPDATE contributions SET number_and_street = REPLACE(number_and_street, 'Buuchanan', 'Buchanan') WHERE number_and_street LIKE '%Buuchanan%';

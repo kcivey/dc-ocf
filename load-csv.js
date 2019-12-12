@@ -29,7 +29,7 @@ async function main() {
 function loadRecords(tableName, columns, filerType) {
     console.warn(`Loading ${filerType} ${tableName} records`);
     return new Promise(function (resolve, reject) {
-        const extraBatch = [];
+        let extraBatch = [];
         const parser = parse({columns: true});
         const input = fs.createReadStream(getCsvFilename(tableName, filerType));
         let totalCount = 0;
@@ -41,22 +41,30 @@ function loadRecords(tableName, columns, filerType) {
                 totalCount++;
                 record = transformRecord(record);
                 if (checkForProblem(record)) {
-                    // remove earlier record with the same committee name. @todo handle better
-                    console.warn(`Removing duplicate committee "${record.committee_name}"`);
-                    batch = batch.filter(function (r) { // eslint-disable-line no-loop-func
-                        return r.committee_name !== record.committee_name;
-                    });
-                }
-                batch.push(record);
-                if (batch.length >= 10000) {
-                    await insert();
+                    console.warn(`Skipping ${tableName} record associated with "${record.committee_name}"`);
+                    continue;
                 }
                 if (tableName === db.committeeTableName) {
+                    if (currentCommittees.has(record.committee_name)) {
+                        // remove earlier record with the same committee name. @todo handle better
+                        console.warn(`Removing duplicate committee "${record.committee_name}"`);
+                        batch = batch.filter(function (r) { // eslint-disable-line no-loop-func
+                            return r.committee_name !== record.committee_name;
+                        });
+                        extraBatch = extraBatch.filter(function (r) { // eslint-disable-line no-loop-func
+                            return r.committee_name !== record.committee_name;
+                        });
+                    }
+                    currentCommittees.add(record.committee_name);
                     extraBatch.push({
                         committee_name: record.committee_name,
                         filer_type: filerType,
                         is_fair_elections: false,
                     });
+                }
+                batch.push(record);
+                if (batch.length >= 10000) {
+                    await insert();
                 }
                 currentCount++;
             }
@@ -76,7 +84,7 @@ function loadRecords(tableName, columns, filerType) {
         });
         input.pipe(parser);
 
-        // Throw error if record structure is bad, return true if record has duplicate committee name
+        // Throw error if record structure is bad, return true if record should be skipped
         function checkForProblem(record) {
             if (totalCount === 1) {
                 if (!arraysHaveSameElements(columns, Object.keys(record))) {
@@ -84,12 +92,10 @@ function loadRecords(tableName, columns, filerType) {
                     throw new Error(`Columns have changed in ${tableName}`);
                 }
             }
-            if (tableName === db.committeeTableName) {
-                const exists = currentCommittees.has(record.committee_name);
-                currentCommittees.add(record.committee_name);
-                return !exists;
-            }
-            return true;
+            // skip if record is associated with a committee we don't have (avoid foreign key error)
+            return tableName !== db.committeeTableName &&
+                record.committee_name &&
+                !currentCommittees.has(record.committee_name);
         }
 
         async function insert() {

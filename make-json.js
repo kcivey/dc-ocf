@@ -327,7 +327,7 @@ async function getDateData(baseFilters, ward) {
             const isoDate = cursorDate.format('YYYY-MM-DD');
             let i = 0;
             for (const [candidate, lastDeadline] of Object.entries(lastDeadlines)) {
-                if (isoDate <= lastDeadline) {
+                if (isoDate <= lastDeadline || (data[isoDate] && data[isoDate][candidate])) {
                     runningTotals[candidate] += +(data[isoDate] && data[isoDate][candidate]) || 0;
                     columns[i].push(runningTotals[candidate]);
                 }

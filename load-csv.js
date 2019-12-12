@@ -41,7 +41,11 @@ function loadRecords(tableName, columns, filerType) {
                 totalCount++;
                 record = transformRecord(record);
                 if (checkForProblem(record)) {
-                    continue;
+                    // remove earlier record with the same committee name. @todo handle better
+                    console.warn(`Removing duplicate committee "${record.committee_name}"`);
+                    batch = batch.filter(function (r) { // eslint-disable-line no-loop-func
+                        return r.committee_name !== record.committee_name;
+                    });
                 }
                 batch.push(record);
                 if (batch.length >= 10000) {
@@ -72,7 +76,7 @@ function loadRecords(tableName, columns, filerType) {
         });
         input.pipe(parser);
 
-        // Throw error if file structure is bad, return true if just this record should be skipped
+        // Throw error if record structure is bad, return true if record has duplicate committee name
         function checkForProblem(record) {
             if (totalCount === 1) {
                 if (!arraysHaveSameElements(columns, Object.keys(record))) {
@@ -81,10 +85,11 @@ function loadRecords(tableName, columns, filerType) {
                 }
             }
             if (tableName === db.committeeTableName) {
+                const exists = currentCommittees.has(record.committee_name);
                 currentCommittees.add(record.committee_name);
-                return false;
+                return !exists;
             }
-            return !currentCommittees.has(record.committee_name);
+            return true;
         }
 
         async function insert() {

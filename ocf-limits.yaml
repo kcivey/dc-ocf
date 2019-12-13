@@ -39,7 +39,7 @@ SBOE At-Large:
   fe_contributor_threshold: 150
   fe_amount_threshold: 5000
   fe_base_grant: 10000
-  fe_max: $21877
+  fe_max: 21877
 SBOE Ward:
   traditional_limit: 200
   fe_limit: 20

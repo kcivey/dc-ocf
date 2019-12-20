@@ -17,9 +17,9 @@
     "url": "https://github.com/kcivey/dc-ocf/issues"
   },
   "dependencies": {
-    "@babel/cli": "^7.7.5",
-    "@babel/core": "^7.7.5",
-    "@babel/preset-env": "^7.7.6",
+    "@babel/cli": "^7.7.7",
+    "@babel/core": "^7.7.7",
+    "@babel/preset-env": "^7.7.7",
     "browserify": "^16.5.0",
     "cache-manager": "^2.10.1",
     "cache-manager-fs": "^1.0.8",
@@ -41,7 +41,7 @@
     "sprintf-js": "^1.1.2",
     "sqlite3": "^4.1.1",
     "stats-lite": "^2.2.0",
-    "terser": "^4.4.2",
+    "terser": "^4.4.3",
     "topojson": "^3.0.2",
     "underscore.string": "^3.3.5",
     "yargs": "^15.0.2",

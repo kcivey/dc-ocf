@@ -138,6 +138,10 @@ async function transformRecords(records) {
             else if (r.last_name === 'Hernandez') { // kluge to fix OCF typo
                 r.email = r.email.replace('hernandezd1', 'hernandezdl');
             }
+            else if (r.first_name === "Jeanne'") {
+                r.first_name = 'Jeanné';
+                r.candidate_name = r.candidate_name.replace("Jeanne'", 'Jeanné');
+            }
             else if (r.committee_phone && r.committee_phone.match(/236-4074$/)) { // remove personal phone number
                 r.committee_phone = '';
             }

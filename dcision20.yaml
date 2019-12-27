@@ -1165,6 +1165,49 @@ Independent:
           result: Lost
           percent: 36
       fair_elections: true
+    - committee_id: 4137
+      first_name: Mario
+      last_name: Cristaldo
+      candidate_key: CANCCL207132
+      committee_key: ''
+      election_year: 2020
+      candidate_approved: true
+      committee_approved: false
+      termination_approved: false
+      election_description: General Election
+      candidate_name: Mario Cristaldo
+      committee_name: Committee to Elect Mario Cristaldo
+      id: 5062
+      name: Mr. Mario Cristaldo
+      address: 2440 16th St NW Unit 103
+      filing_date: 12/23/2019
+      phone: (202) 813-7170
+      email: mariocristaldo94@gmail.com
+      committee_address: '2440 16th Street, NW. Unit 103, Washington, DC 20009'
+      committee_phone: (202) 813-7170
+      treasurer_name: ''
+      treasurer_phone: ''
+      treasurer_email: ''
+      chairperson_name: ''
+      chair_phone: ''
+      chair_email: ''
+      zip: '20009'
+      fair_elections: true
+      neighborhood: Reed-Cooke
+      twitter: Mario2020dc
+      elections:
+        - year: 2014
+          election: Primary
+          party: Democratic
+          office: Committeeman At-Large
+          result: Won
+          percent: 24
+        - year: 2018
+          election: Primary
+          party: Democratic
+          office: Committeeman At-Large
+          result: Won
+          percent: 31
     - committee_id: 4099
       first_name: Anthony
       last_name: Dale
@@ -1294,6 +1337,38 @@ Independent:
           result: Won
           percent: 95
       fair_elections: true
+    - committee_id: 4136
+      first_name: Jeanné
+      last_name: Lewis
+      candidate_key: CANCCL207131
+      committee_key: ''
+      election_year: 2020
+      candidate_approved: true
+      committee_approved: false
+      termination_approved: false
+      election_description: General Election
+      candidate_name: Jeanné Lewis
+      committee_name: Committee to Elect Jeanne' Lewis for City Council
+      id: 5061
+      name: Ms. Jeanne' L. Lewis
+      address: 1727 41st Pl SE
+      filing_date: 12/16/2019
+      phone: (202) 253-3728
+      email: jeanne.isler@gmail.com
+      committee_address: '349 Kentucky Ave., SE, Washington, DC 20003'
+      committee_phone: (802) 355-9778
+      treasurer_name: ''
+      treasurer_phone: ''
+      treasurer_email: ''
+      chairperson_name: ''
+      chair_phone: ''
+      chair_email: ''
+      zip: '20020'
+      fair_elections: true
+      neighborhood: Fort Davis
+      twitter: msjeannelewis
+      facebook: jeanneatlarge
+      instagram: msjeannelewis
     - committee_id: 4127
       first_name: eric
       last_name: rogers

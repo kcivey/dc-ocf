@@ -533,9 +533,8 @@ Democratic:
       chair_phone: ''
       chair_email: ''
       links:
-        - url: >-
-            https://dcist.com/story/19/12/05/a-bowser-no-not-that-bowser-throws-her-hat-into-the-ring-for-ward-4-seat/
-          title: A Bowser (No, Not *That* Bowser) Throws Her Hat Into The Ring For Ward 4 Seat
+        - url: 'https://dcist.com/story/19/12/05/a-bowser-no-not-that-bowser-throws-her-hat-into-the-ring-for-ward-4-seat/'
+          title: 'A Bowser (No, Not *That* Bowser) Throws Her Hat Into The Ring For Ward 4 Seat'
     - committee_id: 4106
       first_name: Janeese
       last_name: Lewis George
@@ -1245,6 +1244,43 @@ Independent:
       website: ''
       neighborhood: Southwest Waterfront
       fair_elections: true
+    - committee_id: 4139
+      first_name: Franklin
+      last_name: Garcia
+      candidate_key: CANCCL207133
+      committee_key: PCCCCL207133
+      election_year: 2020
+      candidate_approved: true
+      committee_approved: true
+      termination_approved: false
+      election_description: General Election
+      candidate_name: Franklin Garcia
+      committee_name: Franklin for DC 2020
+      id: 5064
+      name: Mr. Franklin Garcia
+      address: 2218 Newton St NE
+      filing_date: 12/27/2019
+      phone: (202) 460-3046
+      email: fgarcia@maestropc.com
+      committee_address: '2218 Newton Street, SE, Washington, DC 20018'
+      committee_phone: (202) 460-3046
+      treasurer_name: Mr. Ronnie Edwards
+      treasurer_phone: (202) 558-6389
+      treasurer_email: ronnieedwards.5C11@gmail.com
+      chairperson_name: Franklin Garcia
+      chair_phone: (202) 460-3046
+      chair_email: fgarcia@maestropc.com
+      zip: '20018'
+      fair_elections: false
+      neighborhood: Woodridge
+      twitter: fgarciadc
+      website: franklingarciaatlarge.com
+      facebook: franklingarciadc
+      instagram: fgarciadc
+      youtube: DCiReporter
+      links:
+        - url: 'http://franklinfordc.com/'
+          title: Shadow representative website
     - first_name: Christina
       last_name: Henderson
       election_year: 2020

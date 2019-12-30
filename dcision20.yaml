@@ -532,6 +532,10 @@ Democratic:
       chairperson_name: ''
       chair_phone: ''
       chair_email: ''
+      links:
+        - url: >-
+            https://dcist.com/story/19/12/05/a-bowser-no-not-that-bowser-throws-her-hat-into-the-ring-for-ward-4-seat/
+          title: A Bowser (No, Not *That* Bowser) Throws Her Hat Into The Ring For Ward 4 Seat
     - committee_id: 4106
       first_name: Janeese
       last_name: Lewis George
@@ -1195,6 +1199,8 @@ Independent:
       fair_elections: true
       neighborhood: Reed-Cooke
       twitter: Mario2020dc
+      facebook: Mario-Cristaldo-105283947645712
+      website: mario2020dc.com
       elections:
         - year: 2014
           election: Primary

@@ -1107,6 +1107,45 @@ Democratic:
           office: US Senator
           result: Won
           percent: 76
+  US Representative:
+    - committee_id: 4141
+      first_name: Oye
+      last_name: Owolewa
+      candidate_key: CANREP207134
+      committee_key: PCCREP207134
+      election_year: 2020
+      candidate_approved: true
+      committee_approved: true
+      termination_approved: false
+      election_description: Primary Election
+      candidate_name: Oye Owolewa
+      committee_name: Oye 4 U.S. Representative
+      id: 5066
+      name: Mr. Oye Owolewa
+      address: 1430 Tobias Dr SE
+      filing_date: 01/03/2020
+      phone: (202) 860-0882
+      email: adeoye.owdewa@gmail.com
+      committee_address: '1430 Tobias Dr., SE, Washington, DC 20020'
+      committee_phone: (202) 860-0882
+      treasurer_name: Mr. Oye Owolewa
+      treasurer_phone: (202) 390-9480
+      treasurer_email: oye4dc@yahoo.com
+      chairperson_name: Mr. Oye Owolewa
+      chair_phone: (202) 390-9480
+      chair_email: oye4dc@yahoo.com
+      zip: '20020'
+      fair_elections: false
+      neighborhood: Douglas
+      twitter: AdeoyeOwolewa
+      website: deoye.net
+      elections:
+        - year: 2018
+          election: General
+          party: Nonpartisan
+          office: ANC 8E01
+          result: Won (after recount)
+          percent: 39
 Independent:
   Council At-Large:
     - committee_id: 4114

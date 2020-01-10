@@ -836,6 +836,26 @@ Democratic:
           result: Won
           percent: 95
       fair_elections: true
+    - committee_id: 0
+      first_name: Tam
+      last_name: Haye
+      candidate_key: CANCC7207135
+      election_year: 2020
+      candidate_approved: true
+      committee_approved: false
+      termination_approved: false
+      election_description: Primary Election
+      candidate_name: Tam Haye
+      committee_name: Tam Haye
+      id: 5067
+      name: Ms. Tam Haye
+      address: 4200 Grant St NE Unit 102
+      filing_date: 01/07/2020
+      phone: (202) 567-8022
+      email: teamtamhaye2019@gmail.com
+      zip: '20019'
+      fair_elections: null
+      neighborhood: Mahaning Heights/Central Northeast
     - committee_id: 4089
       first_name: James
       last_name: Jennings
@@ -1128,9 +1148,9 @@ Democratic:
       email: adeoye.owdewa@gmail.com
       committee_address: '1430 Tobias Dr., SE, Washington, DC 20020'
       committee_phone: (202) 860-0882
-      treasurer_name: Mr. Oye Owolewa
-      treasurer_phone: (202) 390-9480
-      treasurer_email: oye4dc@yahoo.com
+      treasurer_name: Mr. Sadik Owolewa
+      treasurer_phone: (857) 318-4036
+      treasurer_email: sadik.owolewa@gmail.com
       chairperson_name: Mr. Oye Owolewa
       chair_phone: (202) 390-9480
       chair_email: oye4dc@yahoo.com
@@ -1146,6 +1166,47 @@ Democratic:
           office: ANC 8E01
           result: Won (after recount)
           percent: 39
+    - committee_id: 0
+      first_name: Pete
+      last_name: Ross
+      candidate_key: CANREP207136
+      election_year: 2020
+      candidate_approved: true
+      committee_approved: false
+      termination_approved: false
+      election_description: Primary Election
+      candidate_name: Pete Ross
+      committee_name: Pete Ross
+      id: 5068
+      name: Mr. Pete Ross
+      address: 1712 Surrey Lane NW
+      filing_date: 01/10/2020
+      phone: (202) 607-0000
+      email: pete@peteross.com
+      zip: '20007'
+      fair_elections: null
+      neighborhood: Foxhall Village
+      website: peteross.com
+      twitter: peterosstweet
+      elections:
+        - year: 2000
+          election: Primary
+          party: Democratic
+          office: Council Ward 2
+          result: Lost
+          percent: 14
+        - year: 2012
+          election: Primary
+          party: Democratic
+          office: Shadow Senator
+          result: Lost
+          percent: 29
+        - year: 2014
+          election: Primary
+          party: Democratic
+          office: Shadow Senator
+          result: Lost
+          percent: 38
 Independent:
   Council At-Large:
     - committee_id: 4114
@@ -1320,6 +1381,43 @@ Independent:
       links:
         - url: 'http://franklinfordc.com/'
           title: Shadow representative website
+      elections:
+        - year: 2014
+          election: Primary
+          party: Democratic
+          office: Shadow Representative
+          result: Won
+          percent: 96
+        - year: 2014
+          election: General
+          party: Democratic
+          office: Shadow Representative
+          result: Won
+          percent: 78
+        - year: 2016
+          election: Primary
+          party: Democratic
+          office: Shadow Representative
+          result: Won
+          percent: 96
+        - year: 2016
+          election: General
+          party: Democratic
+          office: Shadow Representative
+          result: Won
+          percent: 97
+        - year: 2016
+          election: Primary
+          party: Democratic
+          office: Shadow Representative
+          result: Won
+          percent: 97
+        - year: 2016
+          election: General
+          party: Democratic
+          office: Shadow Representative
+          result: Won
+          percent: 97
     - first_name: Christina
       last_name: Henderson
       election_year: 2020

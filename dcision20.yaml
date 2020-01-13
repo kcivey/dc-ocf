@@ -1040,6 +1040,35 @@ Democratic:
           title: Campbell Challenges Trayon White for Council Seat
       neighborhood: Congress Heights
       fair_elections: false
+    - committee_id: 4142
+      first_name: Yaida
+      last_name: Ford
+      candidate_key: CANCC8207137
+      committee_key: PCCCC8207137
+      election_year: 2020
+      candidate_approved: true
+      committee_approved: true
+      termination_approved: false
+      election_description: Primary Election
+      candidate_name: Yaida Ford
+      committee_name: Elect Yaiden Ford
+      id: 5069
+      name: Ms. Yaida Ford
+      address: '1907 Good Hope Road SE #305'
+      filing_date: 01/10/2020
+      phone: (360) 903-3460
+      email: yoflawfirm@gmail.com
+      committee_address: '204 Malcolm X Ave., SE, Washington, DC 20032'
+      committee_phone: (360) 903-3460
+      treasurer_name: Ms. Yaida Ford
+      treasurer_phone: (360) 903-3460
+      treasurer_email: yoflawfirm@gmail.com
+      chairperson_name: Ms. Yaida Ford
+      chair_phone: (360) 903-3460
+      chair_email: yoflawfirm@gmail.com
+      zip: '20020'
+      fair_elections: false
+      neighborhood: Anacostia
   US Senator:
     - committee_id: 4129
       first_name: Paul
@@ -1128,6 +1157,35 @@ Democratic:
           result: Won
           percent: 76
   US Representative:
+    - committee_id: 4143
+      first_name: Ivan
+      last_name: Cloyd
+      candidate_key: CANREP207138
+      committee_key: PCCREP207138
+      election_year: 2020
+      candidate_approved: true
+      committee_approved: true
+      termination_approved: false
+      election_description: Primary Election
+      candidate_name: Ivan Cloyd
+      committee_name: Ivan Cloyd for US Representative
+      id: 5070
+      name: Mr. Ivan Cloyd
+      address: '3721 D St SE #202'
+      filing_date: 01/10/2020
+      phone: (347) 697-8952
+      email: cloydnation@outlook.com
+      committee_address: '3721 D Street, SE #202, Washington, DC 20019'
+      committee_phone: (347) 697-8952
+      treasurer_name: Mr. Ivan Cloyd
+      treasurer_phone: (347) 697-8952
+      treasurer_email: cloydnation@outlook.com
+      chairperson_name: Mr. Ivan Cloyd
+      chair_phone: (347) 697-8952
+      chair_email: cloydnation@outlook.com
+      zip: '20019'
+      fair_elections: false
+      neighborhood: Fort Dupont
     - committee_id: 4141
       first_name: Oye
       last_name: Owolewa

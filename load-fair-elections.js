@@ -201,6 +201,10 @@ function getFields(line) {
             : underscored(m[0].replace(/\/.*/, ''));
         // Allow for starting 1 character early except for first column
         fields[key] = m.index > 0 ? [m.index - 1, m[0].length] : [0, m[0].length - 1];
+        if (key === 'amount') {
+            fields[key][0] -= 3; // adjust because Amount is right-aligned with short head
+            fields[lastKey][1] -= 3;
+        }
         lastKey = key;
     }
     fields[lastKey][1] += 20; // don't cut off value when last column head is short

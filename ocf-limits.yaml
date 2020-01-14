@@ -47,3 +47,11 @@ SBOE Ward:
   fe_amount_threshold: 1000
   fe_base_grant: 10000
   fe_max: 14006
+US Representative:
+  traditional_limit: 1000
+US Senator:
+  traditional_limit: 1000
+ANC:
+  traditional_limit: 25
+Committee:
+  traditional_limit: 200

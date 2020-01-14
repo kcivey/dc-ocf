@@ -1,5 +1,25 @@
 Democratic:
   Council At-Large:
+    - committee_id: 0
+      first_name: Tyrone
+      last_name: Carmichael
+      candidate_key: CANCCL207139
+      election_year: 2020
+      candidate_approved: true
+      committee_approved: false
+      termination_approved: false
+      election_description: Primary Election
+      candidate_name: Tyrone Carmichael
+      committee_name: Tyrone Carmichael
+      id: 5071
+      name: Mr. Tyrone Carmichael
+      address: 1503 41st St SE
+      filing_date: 01/13/2020
+      phone: (202) 294-5943
+      email: T1rone@yahoo.com
+      zip: '20020'
+      fair_elections: null
+      neighborhood: Fort Davis
     - committee_id: 4103
       first_name: Robert
       last_name: White

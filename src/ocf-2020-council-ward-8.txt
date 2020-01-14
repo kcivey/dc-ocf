@@ -1,8 +1,8 @@
 =overall
 
-I analyzed the DC Office of Campaign Finance (OCF) reports for the only Ward 8 council candidate who has filed
-so far: Richard Campbell. He is not using Fair Elections.
-Stuart Anderson, who is a Fair Elections candidate, has not yet filed his December 10 report.
+I analyzed the DC Office of Campaign Finance (OCF) reports for December 10 for Ward 8 council candidates
+Stuart Anderson (who is running as a Fair Elections candidate)
+and Richard Campbell (who is not).
 
 Candidates participating in the Fair Elections public campaign finance program can
 accept contributions up to $50 and only from individuals (except for the candidate and their family,

@@ -3,8 +3,9 @@
 I analyzed the DC Office of Campaign Finance (OCF) reports for the at-large council candidates
 who have filed so far:
 <ul>
-<li>Markus Batchelor is a Fair Elections candidate running as an independent; his last filing was October 10.</li>
-<li>Robert White is an incumbent councilmember running in the Democratic primary; his last filing was December 10.</li>
+<li>Markus Batchelor is a Fair Elections candidate running as an independent; his last filing was for October 10.</li>
+<li>Chander Jayaraman is a Fair Elections candidate running as an independent; his last filing was for January 10.</li>
+<li>Robert White is an incumbent councilmember running in the Democratic primary; his last filing was for December 10.</li>
 </ul>
 
 Two candidates will win this contest in the general election.

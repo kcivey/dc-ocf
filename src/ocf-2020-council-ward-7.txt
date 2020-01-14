@@ -1,6 +1,6 @@
 =overall
 
-I analyzed the DC Office of Campaign Finance (OCF) reports for Ward 7 council candidates
+I analyzed the DC Office of Campaign Finance (OCF) reports for December 10 for Ward 7 council candidates
 Anthony Lorenzo Green and Kelvin Brown (who are running as Fair Elections candidates) and
 Veda Rasheed and Vince Gray (who are not).
 Rasheed's contributions also include those made to the exploratory committee she set up before forming a principal

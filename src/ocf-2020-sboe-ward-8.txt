@@ -1,16 +1,10 @@
 =overall
 
-I analyzed the DC Office of Campaign Finance (OCF) reports for the only Ward 8 candidate for
-State Board of Education who has filed so far, Darrell Gaston.
-His filing covers contributions through October 10.
+I analyzed the DC Office of Campaign Finance (OCF) reports for the Ward 8 candidates for
+State Board of Education: Darrell Gaston and Carlene Reid.
+Gaston's report covers through October 10; Reid's covers through January 10.
 
-Since Gaston is participating in the the Fair Elections public campaign finance program, he can
+Both are participating in the the Fair Elections public campaign finance program, so they can
 accept contributions up to $20 and only from individuals (except for the candidate and their family,
-who can give up to $2,500), but can receive considerable additional funds from public money if he
+who can give up to $2,500), but can receive considerable additional funds from public money if they
 meets some requirements.
-
-=stats
-
-Gaston seems to have met the Fair Elections requirement of at least $1,000 from at least 50 DC
-contributors, so he will likely be eligible for public campaign funds, which are reflected in
-the table.

@@ -5,6 +5,7 @@ UPDATE contributions SET receipt_date = '2019-09-12' WHERE receipt_date = '2011-
 UPDATE contributions SET receipt_date = '2019-09-15' WHERE receipt_date = '2015-09-15' AND committee_name = 'Committee to Elect Janeese Lewis George';
 UPDATE contributions SET receipt_date = '2019-12-01' WHERE receipt_date = '2001-12-01' AND committee_name = 'Committee to Elect Renee Bowser';
 UPDATE contributions SET receipt_date = '2019-12-09' WHERE receipt_date = '2018-12-09' AND committee_name = 'Patrick Kennedy for Ward 2';
+UPDATE contributions SET receipt_date = '2019-11-25' WHERE receipt_date = '2001-11-25' AND committee_name = 'Committee to Elect Stuart Anderson 2020';
 UPDATE contributions SET number_and_street = REPLACE(number_and_street, 'Chancellors', 'Chancellor''s') WHERE number_and_street LIKE '%Chancellors%';
 UPDATE contributions SET number_and_street = REPLACE(number_and_street, 'Queen Anne''s', 'Queen Annes') WHERE number_and_street LIKE '%Queen Anne''s%';
 UPDATE contributions SET number_and_street = REPLACE(number_and_street, 'Buuchanan', 'Buchanan') WHERE number_and_street LIKE '%Buuchanan%';

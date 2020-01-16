@@ -1081,14 +1081,43 @@ Democratic:
       email: yoflawfirm@gmail.com
       committee_address: '204 Malcolm X Ave., SE, Washington, DC 20032'
       committee_phone: (360) 903-3460
-      treasurer_name: Ms. Yaida Ford
-      treasurer_phone: (360) 903-3460
-      treasurer_email: yoflawfirm@gmail.com
+      treasurer_name: Mr. Wilson Reynolds
+      treasurer_phone: (202) 227-9820
+      treasurer_email: wreynoldsanc@aol.com
       chairperson_name: Ms. Yaida Ford
       chair_phone: (360) 903-3460
       chair_email: yoflawfirm@gmail.com
       zip: '20020'
       fair_elections: false
+      neighborhood: Anacostia
+    - committee_id: 4145
+      first_name: Fria
+      last_name: Moore
+      candidate_key: CANCC8207141
+      committee_key: ''
+      election_year: 2020
+      candidate_approved: true
+      committee_approved: false
+      termination_approved: false
+      election_description: Primary Election
+      candidate_name: Fria Moore
+      committee_name: Vote Fria Moore 2020
+      id: 5073
+      name: Fria M. Moore
+      address: '1757 W St SE #A'
+      filing_date: 01/13/2020
+      phone: (202) 203-0290
+      email: votefriamoore@gmail.com
+      committee_address: '1757 W Street, SE. #A, Washington, DC 20020'
+      committee_phone: (202) 203-0290
+      treasurer_name: ''
+      treasurer_phone: ''
+      treasurer_email: ''
+      chairperson_name: ''
+      chair_phone: ''
+      chair_email: ''
+      zip: '20020'
+      fair_elections: true
       neighborhood: Anacostia
   US Senator:
     - committee_id: 4129
@@ -1497,6 +1526,35 @@ Independent:
           office: Shadow Representative
           result: Won
           percent: 97
+    - committee_id: 4147
+      first_name: Marcus
+      last_name: Goodwin
+      candidate_key: CANCCL207143
+      committee_key: PCCCCL207143
+      election_year: 2020
+      candidate_approved: true
+      committee_approved: true
+      termination_approved: false
+      election_description: General Election
+      candidate_name: Marcus Goodwin
+      committee_name: Goodwin For DC 2020
+      id: 5075
+      name: Mr. Marcus Goodwin
+      address: 1407 Webster St NW
+      filing_date: 01/15/2020
+      phone: (202) 380-6299
+      email: marcus@goodwinfordc.com
+      committee_address: '1407 Webster Street, NW, Washington, DC 20011'
+      committee_phone: (202) 599-5790
+      treasurer_name: Mr. Robert Cunningham III
+      treasurer_phone: (202) 841-2748
+      treasurer_email: roberte.cunningham3@gmail.com
+      chairperson_name: Mr. Marcus Goodwin
+      chair_phone: (202) 380-6299
+      chair_email: marcus@goodwinfordc.com
+      zip: '20011'
+      fair_elections: false
+      neighborhood: 16th Street Heights
     - first_name: Christina
       last_name: Henderson
       election_year: 2020
@@ -1929,3 +1987,64 @@ Nonpartisan:
       zip: '20020'
       neighborhood: Anacostia
       fair_elections: false
+  Council Ward 2:
+    - committee_id: 4144
+      first_name: Jordan
+      last_name: Grossman
+      candidate_key: CANCC2207140
+      committee_key: ''
+      election_year: 2020
+      candidate_approved: true
+      committee_approved: false
+      termination_approved: false
+      election_description: Special Election
+      candidate_name: Jordan Grossman
+      committee_name: Jordan Grossman for Ward 2 Special Election
+      id: 5072
+      name: Jordan M. Grossman
+      address: '910 M St NW #203'
+      filing_date: 01/14/2020
+      phone: (202) 350-1075
+      email: jordan.mitchell.grossman@gmail.com
+      committee_address: '910 M Street, NW. #203, Washington, DC 20001'
+      committee_phone: (202) 350-1075
+      treasurer_name: ''
+      treasurer_phone: ''
+      treasurer_email: ''
+      chairperson_name: ''
+      chair_phone: ''
+      chair_email: ''
+      zip: '20001'
+      fair_elections: true
+      neighborhood: Shaw
+Republican:
+  Republican National Committeewoman:
+    - committee_id: 4146
+      first_name: Ashley
+      last_name: Carter MacLeay
+      candidate_key: CANRNW207142
+      committee_key: ''
+      election_year: 2020
+      candidate_approved: true
+      committee_approved: false
+      termination_approved: false
+      election_description: Primary Election
+      candidate_name: Ashley Carter MacLeay
+      committee_name: Ashley for DC
+      id: 5074
+      name: Ms. Ashley Carter MacLeay
+      address: 124 E St SE
+      filing_date: 01/14/2020
+      phone: (410) 490-5939
+      email: carterab@gmail.com
+      committee_address: '124 E Street, SE, Washington, DC 20003'
+      committee_phone: (410) 490-5939
+      treasurer_name: ''
+      treasurer_phone: ''
+      treasurer_email: ''
+      chairperson_name: ''
+      chair_phone: ''
+      chair_email: ''
+      zip: '20003'
+      fair_elections: true
+      neighborhood: Capitol Hill

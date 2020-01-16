@@ -79,7 +79,7 @@ async function getNewRecords() {
     });
     const lastSeen = await ocf.getLastSeen(['Candidate']);
     const records = (await ocf.findNewRecords(lastSeen)).Candidate;
-    return objectify(await transformRecords(records), ['party', 'office']);
+    return objectify(await transformRecords(records), ['election_description', 'party', 'office']);
 }
 
 async function transformRecords(records) {
@@ -150,9 +150,14 @@ async function transformRecords(records) {
                 r.committee_key = ''; // remove erroneous PCCs
             }
             if (r.fair_elections == null) {
-                r.fair_elections = r.committee_key
-                    ? (r.committee_key.match(/^PCC/) ? false : null)
-                    : (r.committee_key == null ? null : true);
+                if (r.office.match(/Committee|^US/)) {
+                    r.fair_elections = false;
+                }
+                else {
+                    r.fair_elections = r.committee_key
+                        ? (r.committee_key.match(/^PCC/) ? false : null)
+                        : (r.committee_key == null ? null : true);
+                }
             }
             return r;
         });
@@ -168,30 +173,34 @@ async function transformRecords(records) {
 }
 
 function combineRecords(records, newRecords) {
-    for (const [party, recordsByOffice] of Object.entries(newRecords)) {
-        if (!records[party]) {
-            records[party] = {};
+    for (const [electionDescription, recordsByParty] of Object.entries(newRecords)) {
+        if (!records[electionDescription]) {
+            records[electionDescription] = {};
         }
-        for (const [office, candidates] of Object.entries(recordsByOffice)) {
-            if (!records[party][office]) {
-                records[party][office] = [];
+        for (const [party, recordsByOffice] of Object.entries(recordsByParty)) {
+            if (!records[electionDescription][party]) {
+                records[electionDescription][party] = {};
             }
-            for (const candidate of candidates) {
-                const existingCandidate = records[party][office].find(function (r) {
-                    return r.last_name === candidate.last_name &&
-                        r.first_name === candidate.first_name;
+            for (const [office, candidates] of Object.entries(recordsByOffice)) {
+                if (!records[electionDescription][party][office]) {
+                    records[electionDescription][party][office] = [];
+                }
+                for (const candidate of candidates) {
+                    const existingCandidate = records[electionDescription][party][office].find(function (r) {
+                        return r.last_name === candidate.last_name &&
+                            r.first_name === candidate.first_name;
+                    });
+                    if (existingCandidate) {
+                        Object.assign(existingCandidate, candidate);
+                    } else {
+                        records[electionDescription][party][office].push(candidate);
+                    }
+                }
+                records[electionDescription][party][office].sort(function (a, b) {
+                    return a.last_name.localeCompare(b.last_name) ||
+                        a.first_name.localeCompare(b.first_name);
                 });
-                if (existingCandidate) {
-                    Object.assign(existingCandidate, candidate);
-                }
-                else {
-                    records[party][office].push(candidate);
-                }
             }
-            records[party][office].sort(function (a, b) {
-                return a.last_name.localeCompare(b.last_name) ||
-                    a.first_name.localeCompare(b.first_name);
-            });
         }
     }
     return records;
@@ -206,56 +215,65 @@ function writeHtml(records) {
     const outputFile = templateFile.replace(/\.tpl$/, '');
     const recordsByElection = {};
     const generalName = 'General Election, November 3, 2020';
-    for (const [party, recordsByOffice] of Object.entries(records)) {
-        const election = majorParties.includes(party) ? `${party} Primary Election, June 2, 2020` : generalName;
-        if (!recordsByElection[election]) {
-            recordsByElection[election] = {};
-        }
-        for (let [office, candidates] of Object.entries(recordsByOffice)) {
-            if (election === generalName && office === 'Council At-Large') {
-                office += ' (2 seats)';
+    const specialName = 'Special Election, June 16, 2020';
+    for (const [electionDescription, recordsByParty] of Object.entries(records)) {
+        for (const [party, recordsByOffice] of Object.entries(recordsByParty)) {
+            const election = electionDescription === 'General Election'
+                ? generalName
+                : electionDescription === 'Special Election'
+                    ? specialName
+                    : `${party} Primary Election, June 2, 2020`;
+            if (!recordsByElection[election]) {
+                recordsByElection[election] = {};
             }
-            if (!recordsByElection[election][office]) {
-                recordsByElection[election][office] = [];
-            }
-            recordsByElection[election][office] = recordsByElection[election][office]
-                .concat(
-                    candidates
-                        .filter(c => !c.termination_approved)
-                        .map(function (c) {
-                            const newC = {...c, party, party_abbr: partyAbbr[party]};
-                            if (c.elections) {
-                                newC.elections = [...c.elections]
-                                    .map(function (e) {
-                                        return {
-                                            ...e,
-                                            party_abbr: partyAbbr[e.party],
-                                            office: addAbbr(e.office),
-                                        };
-                                    });
-                            }
-                            return newC;
-                        })
-                );
-            if (election !== generalName) {
-                if (!recordsByElection[generalName]) {
-                    recordsByElection[generalName] = {};
-                }
-                if (office === 'Council At-Large') {
+            for (let [office, candidates] of Object.entries(recordsByOffice)) {
+                if (election === generalName && office === 'Council At-Large') {
                     office += ' (2 seats)';
                 }
-                if (!recordsByElection[generalName][office]) {
-                    recordsByElection[generalName][office] = [
-                        {
+                if (!recordsByElection[election][office]) {
+                    recordsByElection[election][office] = [];
+                }
+                recordsByElection[election][office] = recordsByElection[election][office]
+                    .concat(
+                        candidates
+                            .filter(c => !c.termination_approved)
+                            .map(function (c) {
+                                const newC = {...c, party, party_abbr: partyAbbr[party]};
+                                if (c.elections) {
+                                    newC.elections = [...c.elections]
+                                        .map(function (e) {
+                                            return {
+                                                ...e,
+                                                party_abbr: partyAbbr[e.party],
+                                                office: addAbbr(e.office),
+                                            };
+                                        });
+                                }
+                                return newC;
+                            })
+                    );
+                if (election !== generalName) {
+                    if (!recordsByElection[generalName]) {
+                        recordsByElection[generalName] = {};
+                    }
+                    if (office === 'Council At-Large') {
+                        office += ' (2 seats)';
+                    }
+                    if (!office.match(/Committee/) && !recordsByElection[generalName][office]) {
+                        recordsByElection[generalName][office] = [{
                             candidate_name: `(${party} nominee)`,
                             party_abbr: partyAbbr[party],
                             party,
-                        },
-                    ];
+                        }];
+                    }
                 }
             }
         }
     }
+    // Move general election to end
+    const general = recordsByElection[generalName];
+    delete recordsByElection[generalName];
+    recordsByElection[generalName] = general;
     let currentContent;
     try {
         currentContent = fs.readFileSync(outputFile, 'utf8').replace(/(\(updated )[^)]+\)/, '$1)');

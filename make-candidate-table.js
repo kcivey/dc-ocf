@@ -5,6 +5,10 @@ const fs = require('fs');
 const yaml = require('js-yaml');
 const _ = require('lodash');
 const underscored = require('underscore.string/underscored');
+const {pdfToText} = require('pdf-to-text');
+const request = require('request-promise-native');
+const cheerio = require('cheerio');
+const tempy = require('tempy');
 const argv = require('yargs')
     .options({
         update: {
@@ -29,12 +33,6 @@ const {getNeighborhoodName} = require('./lib/dc-neighborhoods');
 const OcfDisclosures = require('./lib/ocf-disclosures');
 const yamlFile = `${__dirname}/dcision${argv.year.toString().substr(-2)}.yaml`;
 const templateFile = `${__dirname}/src/dc-2020-candidates.html.tpl`;
-const majorParties = [
-    'Democratic',
-    'Libertarian',
-    'Republican',
-    'Statehood Green',
-];
 const partyAbbr = {
     Democratic: 'Dem',
     Libertarian: 'Lib',
@@ -48,6 +46,7 @@ const partyAbbr = {
 main().catch(console.trace);
 
 async function main() {
+    //await getBoePickups(); return
     let records = readYaml();
     if (argv.update) {
         const newRecords = await getNewRecords();
@@ -329,4 +328,35 @@ function keySort(a, b) {
     const [, a1, a2] = a.match(/^(?:(.+?)\s+)?(.+)$/);
     const [, b1, b2] = b.match(/^(?:(.+?)\s+)?(.+)$/);
     return a2.localeCompare(b2) || a1.localeCompare(b1);
+}
+
+async function getBoePickups() {
+    const newsUrl = 'https://dcboe.org/Community-Outreach/News';
+    const html = await request(newsUrl);
+    const $ = cheerio.load(html);
+    for (const link of $('.article .newsItem a').get()) {
+        const text = $(link).text()
+            .trim();
+        if (!text.match(/^Candidate List/)) {
+            continue;
+        }
+        const election = text.match(/SPECIAL/i) ? 'special' : 'primary';
+        const pdfUrl = new URL($(link).attr('href'), newsUrl).toString();
+        const pdfText = await getPdfText(pdfUrl);
+        console.log(election, pdfText)
+    }
+}
+
+async function getPdfText(pdfUrl) {
+    const pdfContent = await request({url: pdfUrl, gzip: true, encoding: null});
+    const file = tempy.file({extension: 'pdf'});
+    fs.writeFileSync(file, pdfContent);
+    return new Promise(function (resolve, reject) {
+        pdfToText(file, {}, function (err, text) {
+            if (err) {
+                return reject(err);
+            }
+            return resolve(text);
+        });
+    });
 }

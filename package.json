@@ -41,6 +41,7 @@
     "sprintf-js": "^1.1.2",
     "sqlite3": "^4.1.1",
     "stats-lite": "^2.2.0",
+    "tempy": "^0.3.0",
     "terser": "^4.5.1",
     "topojson": "^3.0.2",
     "underscore.string": "^3.3.5",

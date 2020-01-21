@@ -909,6 +909,34 @@ Primary Election:
         website: ''
         neighborhood: Hillbrook
         fair_elections: false
+      - committee_id: 14147
+        first_name: Rebecca
+        last_name: Morris
+        candidate_key: CANCC7207145
+        committee_key: PCCCC7207145
+        election_year: 2020
+        candidate_approved: true
+        committee_approved: true
+        termination_approved: false
+        candidate_name: Rebecca Morris
+        committee_name: Rebecca Morris Committee of Ward 7
+        id: 15075
+        name: Ms. Rebecca Morris
+        address: 116 44th St NE Apt 203
+        filing_date: 01/16/2020
+        phone: (202) 907-6924
+        email: rebeccamorris07@gmail.com
+        committee_address: '116 44th Street, NE. Apt. 203, Washington, DC 20019'
+        committee_phone: (202) 907-6924
+        treasurer_name: Ms. Rebecca Morris
+        treasurer_phone: (202) 907-6924
+        treasurer_email: rebeccamorris07@gmail.com
+        chairperson_name: Ms. Rebecca Morris
+        chair_phone: (202) 907-6924
+        chair_email: rebeccamorris07@gmail.com
+        zip: '20019'
+        fair_elections: false
+        neighborhood: Mahaning Heights/Central Northeast
       - committee_id: 4111
         first_name: Veda
         last_name: Rasheed
@@ -1028,6 +1056,38 @@ Primary Election:
             result: Won
             percent: 35
         fair_elections: true
+      - committee_id: 14150
+        first_name: Michael
+        last_name: Austin
+        candidate_key: CANCC8207148
+        committee_key: ''
+        election_year: 2020
+        candidate_approved: true
+        committee_approved: false
+        termination_approved: false
+        candidate_name: Michael Austin
+        committee_name: Mike For Ward 8
+        id: 15078
+        name: Mr. Michael Austin
+        address: 226 Malcolm X Ave SE
+        filing_date: 01/17/2020
+        phone: (202) 779-3904
+        email: info.mikeaustin8@gmail.com
+        committee_address: '226 Malcolm X Avenue, SE, Washington, DC 20032'
+        committee_phone: (202) 779-3904
+        treasurer_name: ''
+        treasurer_phone: ''
+        treasurer_email: ''
+        chairperson_name: ''
+        chair_phone: ''
+        chair_email: ''
+        zip: '20032'
+        fair_elections: true
+        neighborhood: Congress Heights
+        twitter: Mike8Austin
+        website: mikeaustin8.com
+        facebook: mike8austin8
+        instagram: mike8austin
       - committee_id: 4117
         first_name: Richard
         last_name: Campbell
@@ -1091,6 +1151,34 @@ Primary Election:
         zip: '20020'
         fair_elections: false
         neighborhood: Anacostia
+      - committee_id: 14146
+        first_name: Jeronda
+        last_name: Hilton
+        candidate_key: CANCC8207144
+        committee_key: ''
+        election_year: 2020
+        candidate_approved: true
+        committee_approved: false
+        termination_approved: false
+        candidate_name: Jeronda Hilton
+        committee_name: Jeronda Hilton 2020
+        id: 15074
+        name: Ms. Jeronda Hilton
+        address: 2409 Irving Pl SE
+        filing_date: 01/16/2020
+        phone: (301) 789-6738
+        email: hiltonjeronda@gmail.com
+        committee_address: '2409 Irving Pl., SE, Washington, DC 20020'
+        committee_phone: (301) 789-6738
+        treasurer_name: ''
+        treasurer_phone: ''
+        treasurer_email: ''
+        chairperson_name: ''
+        chair_phone: ''
+        chair_email: ''
+        zip: '20020'
+        fair_elections: true
+        neighborhood: Knox Hill
       - committee_id: 4145
         first_name: Fria
         last_name: Moore
@@ -1347,6 +1435,35 @@ Primary Election:
         zip: '20003'
         fair_elections: false
         neighborhood: Capitol Hill
+    Republican National Committeeman:
+      - committee_id: 14149
+        first_name: Jose
+        last_name: Cunningham
+        candidate_key: CANRNM207147
+        committee_key: ''
+        election_year: 2020
+        candidate_approved: true
+        committee_approved: false
+        termination_approved: false
+        candidate_name: Jose Cunningham
+        committee_name: Jose' 2020
+        id: 15077
+        name: Mr. Jose EV Cunningham
+        address: 1609 16th St NW
+        filing_date: 01/17/2020
+        phone: (202) 236-0717
+        email: josecunningham@hotmail.com
+        committee_address: '1609 16th Street, NW, Washington, DC 20009'
+        committee_phone: (202) 236-0717
+        treasurer_name: ''
+        treasurer_phone: ''
+        treasurer_email: ''
+        chairperson_name: ''
+        chair_phone: ''
+        chair_email: ''
+        zip: '20009'
+        fair_elections: false
+        neighborhood: Logan Circle
 General Election:
   Independent:
     Council At-Large:
@@ -1748,6 +1865,7 @@ General Election:
         zip: '20020'
         neighborhood: Hillcrest
         fair_elections: false
+        twitter: rogersfordc51
     Council Ward 8:
       - committee_id: 4123
         first_name: Christopher
@@ -2068,3 +2186,90 @@ Special Election:
               Isn't Quite Sure.
           - url: 'https://washingtonjewishweek.com/59932/jordan-grossman-aims-for-the-ward-2-crown/featured-slider-post/'
             title: Jordan Grossman aims for the Ward 2 crown
+      - committee_id: 14148
+        first_name: Patrick
+        last_name: Kennedy
+        candidate_key: CANCC2207146
+        committee_key: ''
+        election_year: 2020
+        candidate_approved: true
+        committee_approved: false
+        termination_approved: false
+        candidate_name: Patrick Kennedy
+        committee_name: 'Patrick Kennedy for Ward 2 Special June 16, 2020'
+        id: 15076
+        name: Mr. Patrick Logan Kennedy
+        address: 532 20th St NW Apt 312
+        filing_date: 01/17/2020
+        phone: (202) 630-2201
+        email: patrickkennedydc@gmail.com
+        committee_address: '532 20th Street, NW #312, Washington, DC 20006'
+        committee_phone: (202) 630-2201
+        treasurer_name: ''
+        treasurer_phone: ''
+        treasurer_email: ''
+        chairperson_name: ''
+        chair_phone: ''
+        chair_email: ''
+        zip: '20006'
+        fair_elections: true
+        neighborhood: Foggy Bottom
+        twitter: PLKDC
+        website: patrickforward2.com
+        facebook: PatrickForWard2
+        links:
+          - url: >-
+              https://wamu.org/story/19/04/08/jack-evans-has-a-challenger-for-his-d-c-council-seat-his-former-campaign-chairperson/
+            title: 'Jack Evans Has A Challenger For His D.C. Council Seat: His Former Campaign Chairperson'
+          - url: >-
+              https://www.washingtonpost.com/local/dc-politics/patrick-kennedy-to-run-against-embattled-dc-council-member-jack-evans-in-2020/2019/04/08/7d6f1c60-5a10-11e9-9625-01d48d50ef75_story.html
+            title: Patrick Kennedy to run against embattled D.C. Council member Jack Evans in 2020
+          - url: 'https://dcist.com/story/19/04/09/jack-evans-former-campaign-chair-is-running-for-his-seat/'
+            title: Jack Evans' Former Campaign Chair Is Running For His Council Seat
+          - url: 'https://www.washingtonblade.com/2019/06/12/opinion-patrick-kennedy-for-ward-2-council-seat/'
+            title: Kennedy for Ward 2 Council seat
+          - url: >-
+              https://www.gwhatchet.com/2019/09/30/patrick-kennedy-is-the-progressive-voice-students-need-on-the-d-c-council-for-ward-2/
+            title: Patrick Kennedy is the progressive voice students need on the D.C. Council for Ward 2
+          - url: >-
+              https://www.gwhatchet.com/2019/06/26/almost-half-of-ward-2s-anc-commissioners-support-kennedy-for-d-c-council/
+            title: Almost half of Ward 2’s ANC commissioners support Kennedy for D.C. Council
+          - url: 'https://www.gwhatchet.com/2019/04/10/alumnus-local-politician-to-challenge-evans-for-d-c-council-seat/'
+            title: 'Alumnus, local politician to challenge Evans for D.C. Council seat'
+          - url: >-
+              https://thedcline.org/2019/04/17/foggy-bottom-neighborhood-commissioner-first-to-challenge-ward-2s-jack-evans-for-council-seat-since-2008/
+            title: Foggy Bottom neighborhood commissioner first to challenge Ward 2's Jack Evans for council seat since 2008
+          - url: >-
+              https://www.washingtoncitypaper.com/news/loose-lips/article/21064556/jack-evans-challenger-is-first-to-test-dcs-new-publicly-funded-elections
+            title: Jack Evans Challenger Is First to Test D.C.'s New Publicly Funded Elections Program
+        elections:
+          - year: 2012
+            election: General
+            party: Nonpartisan
+            office: ANC 2A01
+            result: Won
+            percent: 68
+          - year: 2014
+            election: Primary
+            party: Democratic
+            office: Committeeman Ward 2
+            result: Won
+            percent: 100
+          - year: 2014
+            election: General
+            party: Nonpartisan
+            office: ANC 2A01
+            result: Won
+            percent: 92
+          - year: 2016
+            election: General
+            party: Nonpartisan
+            office: ANC 2A01
+            result: Won
+            percent: 96
+          - year: 2018
+            election: General
+            party: Nonpartisan
+            office: ANC 2A01
+            result: Won
+            percent: 94

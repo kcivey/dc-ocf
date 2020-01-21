@@ -33,6 +33,12 @@ const {getNeighborhoodName} = require('./lib/dc-neighborhoods');
 const OcfDisclosures = require('./lib/ocf-disclosures');
 const yamlFile = `${__dirname}/dcision${argv.year.toString().substr(-2)}.yaml`;
 const templateFile = `${__dirname}/src/dc-2020-candidates.html.tpl`;
+const majorParties = [
+    'Democratic',
+    'Libertarian',
+    'Republican',
+    'Statehood Green',
+];
 const partyAbbr = {
     Democratic: 'Dem',
     Libertarian: 'Lib',
@@ -157,6 +163,9 @@ async function transformRecords(records) {
                         ? (r.committee_key.match(/^PCC/) ? false : null)
                         : (r.committee_key == null ? null : true);
                 }
+            }
+            if (!majorParties.includes(r.party) && r.election_description === 'Primary Election') {
+                r.election_description = 'General Election';
             }
             return r;
         });

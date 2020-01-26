@@ -98,6 +98,7 @@ async function transformRecords(records) {
                 return newRec;
             }
         )
+        .filter(r => !/committee/i.test(r.office))
         .sort(function (a, b) {
             return a.office.localeCompare(b.office) ||
                 a.party_name.localeCompare(b.party_name) ||

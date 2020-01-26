@@ -508,5 +508,6 @@ function standardizeOffice(office) {
         : /Delegate to the House/.test(office)
             ? 'Delegate to the US House'
             : office.replace(/(.*) Member of the Council of the District of Columbia/, 'Council $1')
-                .replace('At-large', 'At-Large');
+                .replace('At-large', 'At-Large')
+                .replace('United States', 'US');
 }

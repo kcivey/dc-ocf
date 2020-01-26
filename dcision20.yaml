@@ -1435,6 +1435,18 @@ Primary Election:
         last_name: White
         fair_elections: null
     US Senator:
+      - candidate_name: Dorothy Douglas
+        contact_name: Dorothy Douglas
+        address: 4401 Minnesota Ave NE
+        zip: '20019'
+        phone: 202-640-9584
+        boe_pickup_date: 1/22/2020
+        boe_filing_date: ''
+        email: d.douglas0123@gmail.com
+        first_name: Dorothy
+        last_name: Douglas
+        fair_elections: false
+        neighborhood: Deanwood
       - committee_id: 4129
         first_name: Paul
         last_name: Strauss
@@ -1449,9 +1461,9 @@ Primary Election:
         committee_name: Paul Strauss Committee
         id: 5054
         name: Mr. Paul Strauss
-        address: 2828 Wisconsin Ave NW
+        address: 1020 16th St NW
         filing_date: 11/26/2019
-        phone: (202) 223-8664
+        phone: 202-223-8664
         email: senator@paulstrauss.org
         committee_address: '1020 16th Street, NW. Suite 500, Washington, DC 20036'
         committee_phone: (202) 223-8664
@@ -1461,7 +1473,7 @@ Primary Election:
         chairperson_name: Mr. Paul Strauss
         chair_phone: (202) 223-8664
         chair_email: senator@paulstrauss.org
-        zip: '20007'
+        zip: '20036'
         fair_elections: false
         neighborhood: Cathedral Heights
         twitter: SenPaulStrauss
@@ -1521,7 +1533,22 @@ Primary Election:
             office: US Senator
             result: Won
             percent: 76
+        contact_name: Taylor Berlin
+        boe_pickup_date: 1/10/2020
+        boe_filing_date: ''
     US Representative:
+      - candidate_name: Susana Baranano
+        contact_name: Susana Baranano
+        address: 2000 F St NW
+        zip: '20006'
+        phone: 202-320-7035
+        boe_pickup_date: 1/10/2020
+        boe_filing_date: ''
+        email: susigbf@yahoo.com
+        first_name: Susana
+        last_name: Baranano
+        fair_elections: false
+        neighborhood: Foggy Bottom
       - committee_id: 4143
         first_name: Ivan
         last_name: Cloyd
@@ -1536,10 +1563,10 @@ Primary Election:
         committee_name: Ivan Cloyd for US Representative
         id: 5070
         name: Mr. Ivan Cloyd
-        address: '3721 D St SE #202'
+        address: 3721 D St SE
         filing_date: 01/10/2020
-        phone: (347) 697-8952
-        email: cloydnation@outlook.com
+        phone: 347-697-8952
+        email: Jacksonpau42@gmail.com
         committee_address: '3721 D Street, SE #202, Washington, DC 20019'
         committee_phone: (347) 697-8952
         treasurer_name: Mr. Ivan Cloyd
@@ -1551,6 +1578,21 @@ Primary Election:
         zip: '20019'
         fair_elections: false
         neighborhood: Fort Dupont
+        contact_name: Paulette Jackson
+        boe_pickup_date: 1/10/2020
+        boe_filing_date: ''
+      - candidate_name: 'Thomas Williams, Jr.'
+        contact_name: 'Thomas Williams, Jr.'
+        address: 2336 Irving St SE
+        zip: '20020'
+        phone: 301-613-2139
+        boe_pickup_date: 1/13/2020
+        boe_filing_date: ''
+        email: t.williams16323@spartans.nsu.edu
+        first_name: 'Thomas Williams,'
+        last_name: Jr.
+        fair_elections: false
+        neighborhood: Knox Hill
       - committee_id: 4141
         first_name: Oye
         last_name: Owolewa
@@ -1567,8 +1609,8 @@ Primary Election:
         name: Mr. Oye Owolewa
         address: 1430 Tobias Dr SE
         filing_date: 01/03/2020
-        phone: (202) 860-0882
-        email: adeoye.owdewa@gmail.com
+        phone: 202-579-0586
+        email: salimadofo@salim4dc.com
         committee_address: '1430 Tobias Dr., SE, Washington, DC 20020'
         committee_phone: (202) 860-0882
         treasurer_name: Mr. Sadik Owolewa
@@ -1589,8 +1631,11 @@ Primary Election:
             office: ANC 8E01
             result: Won (after recount)
             percent: 39
+        contact_name: Salim Adofo
+        boe_pickup_date: 1/10/2020
+        boe_filing_date: ''
       - committee_id: 14151
-        first_name: Dalton
+        first_name: Dalton E.
         last_name: Patterson
         candidate_key: CANREP207149
         committee_key: PCCREP207149
@@ -1602,9 +1647,9 @@ Primary Election:
         committee_name: Dalton Patterson 2020 Campaign
         id: 15079
         name: Mr. Dalton Patterson
-        address: 60 L St NE Apt 1011
+        address: 60 L St NE
         filing_date: 01/21/2020
-        phone: (301) 503-5513
+        phone: 301-503-5513
         email: dalton.e.patterson@gmail.com
         committee_address: '60 L Street, NE. Apt. 1011, Washington, DC 20002'
         committee_phone: (301) 503-5513
@@ -1617,6 +1662,9 @@ Primary Election:
         zip: '20002'
         fair_elections: false
         neighborhood: NoMa
+        contact_name: Dalton E. Patterson
+        boe_pickup_date: 1/10/2020
+        boe_filing_date: ''
       - committee_id: 0
         first_name: Pete
         last_name: Ross
@@ -1630,10 +1678,10 @@ Primary Election:
         committee_name: Pete Ross
         id: 5068
         name: Mr. Pete Ross
-        address: 1712 Surrey Lane NW
+        address: 1712 Surrey LN
         filing_date: 01/10/2020
-        phone: (202) 607-0000
-        email: pete@peteross.com
+        phone: 202-607-0000
+        email: PETE@PETEROSS.com
         zip: '20007'
         fair_elections: false
         neighborhood: Foxhall Village
@@ -1658,6 +1706,21 @@ Primary Election:
             office: Shadow Senator
             result: Lost
             percent: 38
+        contact_name: Pete Ross
+        boe_pickup_date: 1/10/2020
+        boe_filing_date: ''
+      - candidate_name: Pedro Rubio
+        contact_name: Pedro Rubio
+        address: 5749 13th St NW
+        zip: '20011'
+        phone: 202-386-0194
+        boe_pickup_date: 1/10/2020
+        boe_filing_date: ''
+        email: PRUBIO4DC2020@gmail.com
+        first_name: Pedro
+        last_name: Rubio
+        fair_elections: false
+        neighborhood: 16th Street Heights
     President:
       - candidate_name: Joseph R. Biden
         contact_name: Greg Schultz
@@ -1694,115 +1757,6 @@ Primary Election:
         first_name: Andrew
         last_name: Yang
         fair_elections: null
-    United States Representative:
-      - candidate_name: Susana Baranano
-        contact_name: Susana Baranano
-        address: 2000 F St NW
-        zip: '20006'
-        phone: 202-320-7035
-        boe_pickup_date: 1/10/2020
-        boe_filing_date: ''
-        email: susigbf@yahoo.com
-        first_name: Susana
-        last_name: Baranano
-        fair_elections: null
-        neighborhood: Foggy Bottom
-      - candidate_name: Ivan Cloyd
-        contact_name: Paulette Jackson
-        address: 3721 D St SE
-        zip: '20019'
-        phone: 347-697-8952
-        boe_pickup_date: 1/10/2020
-        boe_filing_date: ''
-        email: Jacksonpau42@gmail.com
-        first_name: Ivan
-        last_name: Cloyd
-        fair_elections: null
-        neighborhood: Fort Dupont
-      - candidate_name: 'Thomas Williams, Jr.'
-        contact_name: 'Thomas Williams, Jr.'
-        address: 2336 Irving St SE
-        zip: '20020'
-        phone: 301-613-2139
-        boe_pickup_date: 1/13/2020
-        boe_filing_date: ''
-        email: t.williams16323@spartans.nsu.edu
-        first_name: 'Thomas Williams,'
-        last_name: Jr.
-        fair_elections: null
-        neighborhood: Knox Hill
-      - candidate_name: Oye Owolewa
-        contact_name: Salim Adofo
-        address: 1430 Tobias Dr SE
-        zip: '20020'
-        phone: 202-579-0586
-        boe_pickup_date: 1/10/2020
-        boe_filing_date: ''
-        email: salimadofo@salim4dc.com
-        first_name: Oye
-        last_name: Owolewa
-        fair_elections: null
-        neighborhood: Douglas
-      - candidate_name: Dalton E. Patterson
-        contact_name: Dalton E. Patterson
-        address: 60 L St NE
-        zip: '20002'
-        phone: 301-503-5513
-        boe_pickup_date: 1/10/2020
-        boe_filing_date: ''
-        email: dalton.e.patterson@gmail.com
-        first_name: Dalton E.
-        last_name: Patterson
-        fair_elections: null
-        neighborhood: NoMa
-      - candidate_name: Pete Ross
-        contact_name: Pete Ross
-        address: 1712 Surrey LN
-        zip: '20007'
-        phone: 202-607-0000
-        boe_pickup_date: 1/10/2020
-        boe_filing_date: ''
-        email: PETE@PETEROSS.com
-        first_name: Pete
-        last_name: Ross
-        fair_elections: null
-      - candidate_name: Pedro Rubio
-        contact_name: Pedro Rubio
-        address: 5749 13th St NW
-        zip: '20011'
-        phone: 202-386-0194
-        boe_pickup_date: 1/10/2020
-        boe_filing_date: ''
-        email: PRUBIO4DC2020@gmail.com
-        first_name: Pedro
-        last_name: Rubio
-        fair_elections: null
-        neighborhood: 16th Street Heights
-    United States Senator:
-      - candidate_name: Dorothy Douglas
-        contact_name: Dorothy Douglas
-        address: 4401 Minnesota Ave NE
-        zip: '20019'
-        phone: 202-640-9584
-        boe_pickup_date: 1/22/2020
-        boe_filing_date: ''
-        email: d.douglas0123@gmail.com
-        first_name: Dorothy
-        last_name: Douglas
-        fair_elections: null
-        neighborhood: Deanwood
-      - candidate_name: Paul Strauss
-        contact_name: Taylor Berlin
-        address: 1020 16th St NW
-        zip: '20036'
-        phone: 202-223-8664
-        boe_pickup_date: 1/10/2020
-        boe_filing_date: ''
-        email: senator@paulstrauss.org
-        first_name: Paul
-        last_name: Strauss
-        fair_elections: null
-        neighborhood: Downtown
     Delegate to the US House:
       - candidate_name: Eleanor Holmes Norton
         contact_name: Jacqueline Pelt

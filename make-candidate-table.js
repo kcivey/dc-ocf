@@ -48,15 +48,37 @@ const partyAbbr = {
     Other: 'Oth',
     Nonpartisan: '',
 };
+const abbrParty = {};
+for (const [party, abbr] of Object.entries(partyAbbr)) {
+    abbrParty[abbr] = party;
+}
 
 main().catch(console.trace);
 
 async function main() {
-    //await getBoePickups(); return
     let records = readYaml();
+    const moreRecords = await getBoePickups();
+    records = combineRecords(records, moreRecords);
     if (argv.update) {
         const newRecords = await getNewRecords();
         records = combineRecords(records, newRecords);
+    }
+    for (const election of Object.keys(records)) {
+        for (const party of Object.keys(records[election])) {
+            for (const office of Object.keys(records[election][party])) {
+                for (const r of records[election][party][office]) {
+                    if (r.neighborhood) {
+                        continue;
+                    }
+                    try {
+                        r.neighborhood = await getNeighborhoodName(r.address);
+                    }
+                    catch (err) {
+                        // ignore if address can't be found
+                    }
+                }
+            }
+        }
     }
     writeYaml(records);
     writeHtml(records);
@@ -84,11 +106,16 @@ async function getNewRecords() {
     });
     const lastSeen = await ocf.getLastSeen(['Candidate']);
     const records = (await ocf.findNewRecords(lastSeen)).Candidate;
+    for (const r of records) {
+        if (r.election_description === 'Special Election') {
+            r.party = r.last_name === 'Venice' ? 'Republican' : 'Democratic';
+        }
+    }
     return objectify(await transformRecords(records), ['election_description', 'party', 'office']);
 }
 
-async function transformRecords(records) {
-    const newRecords = records
+function transformRecords(records) {
+    return records
         .map(
             function (r) {
                 const newRec = {};
@@ -125,12 +152,10 @@ async function transformRecords(records) {
                 delete r[key];
             }
             const m = r.address.match(/^(.+), Washington,? DC (\d+)$/i);
-            assert(m, `Unexpected address format "${r.address}"`);
-            r.address = m[1].replace(/ Avenue\b/, ' Ave')
-                .replace(/ Street\b/, ' St')
-                .replace(/ Place\b/, ' Pl')
-                .replace(/[.,]/g, '');
-            r.zip = m[2];
+            if (m) {
+                r.address = standardizeAddress(m[1]);
+                r.zip = m[2];
+            }
             r.candidate_name = r.candidate_name.replace(/^(?:[DM]r|Mr?s)\.? /i, '');
             if (!/[A-Z][a-z]/.test(r.candidate_name)) { // handle all-caps or all-lowercase name
                 r.candidate_name = r.candidate_name.toLowerCase().replace(/\b[a-z]/g, m => m.toUpperCase());
@@ -140,6 +165,14 @@ async function transformRecords(records) {
                 r.last_name = 'Grossman';
                 r.candidate_name = r.candidate_name.replace('Grosman', 'Grossman');
                 r.name = r.name.replace('Grosman', 'Grossman');
+            }
+            else if (r.last_name === 'Carmichel') { // kluge to fix OCF typo
+                r.last_name = 'Carmichael';
+                r.candidate_name = r.candidate_name.replace('Carmichel', 'Carmichael');
+            }
+            else if (r.last_name === 'Lewis George') {
+                r.last_name = 'George';
+                r.first_name = 'Janeese Lewis';
             }
             else if (r.last_name === 'Hernandez') { // kluge to fix OCF typo
                 r.email = r.email.replace('hernandezd1', 'hernandezdl');
@@ -152,11 +185,12 @@ async function transformRecords(records) {
                 r.committee_phone = '';
             }
             if (['Jordan Grossman', 'Patrick Kennedy', 'Kelvin Brown'].includes(r.candidate_name) &&
+                r.committee_key &&
                 r.committee_key.match(/^PCC/)) {
                 r.committee_key = ''; // remove erroneous PCCs
             }
             if (r.fair_elections == null) {
-                if (r.office.match(/Committee|^US/)) {
+                if (r.office.match(/Committee|^US|Delegate/)) {
                     r.fair_elections = false;
                 }
                 else {
@@ -170,15 +204,6 @@ async function transformRecords(records) {
             }
             return r;
         });
-    for (const r of newRecords) {
-        try {
-            r.neighborhood = await getNeighborhoodName(r.address);
-        }
-        catch (err) {
-            // ignore if address can't be found
-        }
-    }
-    return newRecords;
 }
 
 function combineRecords(records, newRecords) {
@@ -195,13 +220,28 @@ function combineRecords(records, newRecords) {
                     records[electionDescription][party][office] = [];
                 }
                 for (const candidate of candidates) {
+                    let first = candidate.first_name.replace(/^(\S+) .*/, '$1');
+                    if (first === 'Mike') {
+                        first = 'Michael';
+                    }
                     const existingCandidate = records[electionDescription][party][office].find(function (r) {
+                        let existingFirst = r.first_name.replace(/^(\S+) .*/, '$1');
+                        if (existingFirst === 'Mike') {
+                            existingFirst = 'Michael';
+                        }
                         return r.last_name === candidate.last_name &&
-                            r.first_name === candidate.first_name;
+                            existingFirst === first;
                     });
                     if (existingCandidate) {
+                        if (candidate.fair_elections == null) { // eslint-disable-line max-depth
+                            delete candidate.fair_elections;
+                        }
+                        if (existingCandidate.candidate_name) { // eslint-disable-line max-depth
+                            delete candidate.candidate_name;
+                        }
                         Object.assign(existingCandidate, candidate);
-                    } else {
+                    }
+                    else {
                         records[electionDescription][party][office].push(candidate);
                     }
                 }
@@ -269,11 +309,13 @@ function writeHtml(records) {
                         office += ' (2 seats)';
                     }
                     if (!office.match(/Committee/) && !recordsByElection[generalName][office]) {
-                        recordsByElection[generalName][office] = [{
-                            candidate_name: `(${party} nominee)`,
-                            party_abbr: partyAbbr[party],
-                            party,
-                        }];
+                        recordsByElection[generalName][office] = [
+                            {
+                                candidate_name: `(${party} nominee)`,
+                                party_abbr: partyAbbr[party],
+                                party,
+                            },
+                        ];
                     }
                 }
             }
@@ -342,8 +384,12 @@ function keySort(a, b) {
 
 async function getBoePickups() {
     const newsUrl = 'https://dcboe.org/Community-Outreach/News';
+    if (argv.verbose) {
+        console.warn(newsUrl);
+    }
     const html = await request(newsUrl);
     const $ = cheerio.load(html);
+    const pickups = [];
     for (const link of $('.article .newsItem a').get()) {
         const text = $(link).text()
             .trim();
@@ -352,9 +398,87 @@ async function getBoePickups() {
         }
         const election = text.match(/SPECIAL/i) ? 'special' : 'primary';
         const pdfUrl = new URL($(link).attr('href'), newsUrl).toString();
+        if (argv.verbose) {
+            console.warn(pdfUrl);
+        }
         const pdfText = await getPdfText(pdfUrl);
-        console.log(election, pdfText)
+        if (election === 'special') {
+            const lineRe =
+                /^(\S+(?: \S+)+) +(\w{3}) +(\S+(?: \S+)+|) +((?:P\.?O\.? Box )?\d.*?) (\d{5}) +(\d[-\d]+) +([\d/]+) +([\d/]*) +(\S+)\s*$/; // eslint-disable-line max-len
+            const office = 'Council Ward 2';
+            for (const line of pdfText.split('\n')) {
+                if (!/^\S/.test(line)) {
+                    continue;
+                }
+                const m = line.match(lineRe);
+                assert(m, `Unexpected format in PDF:\n${line}`);
+                pickups.push({
+                    election_description: 'Special Election',
+                    office,
+                    candidate_name: m[1],
+                    party_name: abbrParty[m[2]] || m[2],
+                    contact_name: m[3],
+                    address: standardizeAddress(m[4]),
+                    zip: m[5],
+                    phone: m[6],
+                    boe_pickup_date: m[7],
+                    boe_filing_date: m[8],
+                    email: m[9],
+                });
+            }
+        }
+        else {
+            const lineRe =
+                /^(\S+(?: \S+)+)  +(\S+(?: \S+)+|) +((?:P\.?O\.? Box )?\d.*?) (\d{5})? +(\d[-\d]+) +([\d/]+) +([\d/]*) +(\S+)\s*$/; // eslint-disable-line max-len
+            for (const page of pdfText.split('\f')) {
+                if (!/\S/.test(page)) {
+                    continue;
+                }
+                let party;
+                const m = page.match(/District of Columbia Board of Elections\n +(.+?)(?: List of| Candidates| *\n)/);
+                assert(m, `Missing party:\n${page}`);
+                if (m) {
+                    party = m[1];
+                }
+                let office;
+                for (const line of page.split('\n')) {
+                    if (!/^\S/.test(line) || /^Candidate's/.test(line)) {
+                        continue;
+                    }
+                    if (/^\S+(?: \S+)*$/.test(line)) {
+                        office = line;
+                        continue;
+                    }
+                    const m = line.match(lineRe);
+                    assert(m, `Unexpected format in PDF:\n${JSON.stringify(line)}`);
+                    assert(office, `Missing office for "${line}"`);
+                    if (/Committee/.test(office)) {
+                        continue; // skip party positions
+                    }
+                    pickups.push({
+                        election_description: 'Primary Election',
+                        office: standardizeOffice(office),
+                        candidate_name: m[1],
+                        party_name: party,
+                        contact_name: m[2],
+                        address: standardizeAddress(m[3]),
+                        zip: m[4] || '',
+                        phone: m[5],
+                        boe_pickup_date: m[6],
+                        boe_filing_date: m[7],
+                        email: m[8],
+                    });
+                }
+            }
+        }
     }
+    for (const r of pickups) {
+        const m = r.candidate_name.match(/^(.*?) (\S+)$/);
+        assert(m, `Unexpected name format "${r.candidate_name}"`);
+        r.first_name = m[1];
+        r.last_name = m[2];
+    }
+    return objectify(await transformRecords(pickups), ['election_description', 'party', 'office']);
 }
 
 async function getPdfText(pdfUrl) {
@@ -369,4 +493,20 @@ async function getPdfText(pdfUrl) {
             return resolve(text);
         });
     });
+}
+
+function standardizeAddress(address) {
+    return address.replace(/ Avenue\b/, ' Ave')
+        .replace(/ Street\b/, ' St')
+        .replace(/ Place\b/, ' Pl')
+        .replace(/[.,]/g, '');
+}
+
+function standardizeOffice(office) {
+    return office === 'Presidential Nominee'
+        ? 'President'
+        : /Delegate to the House/.test(office)
+            ? 'Delegate to the US House'
+            : office.replace(/(.*) Member of the Council of the District of Columbia/, 'Council $1')
+                .replace('At-large', 'At-Large');
 }

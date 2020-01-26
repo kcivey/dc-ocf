@@ -557,6 +557,47 @@ Primary Election:
         links:
           - url: 'https://dcist.com/story/19/12/05/a-bowser-no-not-that-bowser-throws-her-hat-into-the-ring-for-ward-4-seat/'
             title: 'A Bowser (No, Not *That* Bowser) Throws Her Hat Into The Ring For Ward 4 Seat'
+      - committee_id: 14152
+        first_name: Marlena
+        last_name: Edwards
+        candidate_key: CANCC4207150
+        committee_key: PCCCC4207150
+        election_year: 2020
+        candidate_approved: true
+        committee_approved: true
+        termination_approved: false
+        candidate_name: Marlena Edwards
+        committee_name: Edwards for Ward 4 2020
+        id: 15080
+        name: Ms. Marlena D. Edwards
+        address: 1117 Fern St NW
+        filing_date: 01/21/2020
+        phone: (202) 389-7875
+        email: metroA1@aol.com
+        committee_address: '1117 Fern Street, NW, Washington, DC 20012'
+        committee_phone: (202) 389-7875
+        treasurer_name: Ms. Marlena D. Edwards
+        treasurer_phone: (202) 389-7875
+        treasurer_email: metroA1@aol.com
+        chairperson_name: Ms. Marlena D. Edwards
+        chair_phone: (202) 389-7875
+        chair_email: metroA1@aol.com
+        zip: '20012'
+        fair_elections: false
+        neighborhood: Shepherd Park
+        elections:
+          - year: 2007
+            election: Special
+            party: Democratic
+            office: Council Ward 4
+            result: Lost
+            percent: 1
+          - year: 2014
+            election: Primary
+            party: Democratic
+            office: Committeewoman Ward 4
+            result: Won
+            percent: 42
       - committee_id: 4106
         first_name: Janeese
         last_name: Lewis George
@@ -1179,6 +1220,34 @@ Primary Election:
         zip: '20020'
         fair_elections: true
         neighborhood: Knox Hill
+      - committee_id: 14153
+        first_name: Nelson
+        last_name: Jackson
+        candidate_key: CANCC8207152
+        committee_key: PCCCC8207152
+        election_year: 2020
+        candidate_approved: true
+        committee_approved: true
+        termination_approved: false
+        candidate_name: Nelson Jackson
+        committee_name: Campaign to Elect Nelson Jackson Ward 8 City Council
+        id: 15082
+        name: Mr. Nelson Jackson Sr.
+        address: 3412 21st St SE
+        filing_date: 01/24/2020
+        phone: (240) 750-4112
+        email: nelson.jackson@njaxunl.com
+        committee_address: '3412 21st Street, SE, Washington, DC 20020'
+        committee_phone: (240) 750-4112
+        treasurer_name: Mr. Nelson Jackson Sr.
+        treasurer_phone: (240) 750-4112
+        treasurer_email: nelson.jackson@njaxunl.com
+        chairperson_name: Mr. Nelson Jackson Sr.
+        chair_phone: (240) 750-4112
+        chair_email: nelson.jackson@njaxunl
+        zip: '20020'
+        fair_elections: false
+        neighborhood: Shipley Terrace
       - committee_id: 4145
         first_name: Fria
         last_name: Moore
@@ -1363,6 +1432,34 @@ Primary Election:
             office: ANC 8E01
             result: Won (after recount)
             percent: 39
+      - committee_id: 14151
+        first_name: Dalton
+        last_name: Patterson
+        candidate_key: CANREP207149
+        committee_key: PCCREP207149
+        election_year: 2020
+        candidate_approved: true
+        committee_approved: true
+        termination_approved: false
+        candidate_name: Dalton  Patterson
+        committee_name: Dalton Patterson 2020 Campaign
+        id: 15079
+        name: Mr. Dalton Patterson
+        address: 60 L St NE Apt 1011
+        filing_date: 01/21/2020
+        phone: (301) 503-5513
+        email: dalton.e.patterson@gmail.com
+        committee_address: '60 L Street, NE. Apt. 1011, Washington, DC 20002'
+        committee_phone: (301) 503-5513
+        treasurer_name: Ms. Nancy L. Pinto
+        treasurer_phone: (301) 503-0988
+        treasurer_email: nancypinto27@gmail.com
+        chairperson_name: Mr. Dalton Patterson
+        chair_phone: (301) 503-5513
+        chair_email: daltonfordc@gmail.com
+        zip: '20002'
+        fair_elections: false
+        neighborhood: NoMa
       - committee_id: 0
         first_name: Pete
         last_name: Ross
@@ -1464,6 +1561,26 @@ Primary Election:
         zip: '20009'
         fair_elections: false
         neighborhood: Logan Circle
+    Ward 1 of the DC Republican Committee:
+      - committee_id: 0
+        first_name: Michael
+        last_name: McHugh
+        candidate_key: CANRC1207151
+        election_year: 2020
+        candidate_approved: true
+        committee_approved: false
+        termination_approved: false
+        candidate_name: Michael McHugh
+        committee_name: Michael McHugh
+        id: 15081
+        name: Mr. Michael McHugh
+        address: 1111 W St NW Unit 14
+        filing_date: 01/17/2020
+        phone: (202) 412-1028
+        email: mkmchugh@gmail.com
+        zip: '20009'
+        fair_elections: false
+        neighborhood: U Street
 General Election:
   Independent:
     Council At-Large:
@@ -1838,8 +1955,8 @@ General Election:
         instagram: msjeannelewis
         website: jeannelewisatlarge.com
       - committee_id: 4127
-        first_name: eric
-        last_name: rogers
+        first_name: Eric
+        last_name: Rogers
         candidate_key: CANCCL207127
         committee_key: PCCCCL207127
         election_year: 2020
@@ -1850,7 +1967,7 @@ General Election:
         candidate_name: Eric Rogers
         committee_name: Committee to Elect Eric Rogers for Council
         id: 5052
-        name: Mr. eric rogers
+        name: Mr. Eric Rogers
         address: 3720 Southern Ave SE
         filing_date: 11/14/2019
         phone: (202) 531-1675
@@ -1864,8 +1981,8 @@ General Election:
         chair_phone: (202) 531-1675
         chair_email: m.eric.rogers@gmail.com
         zip: '20020'
-        neighborhood: Hillcrest
         fair_elections: false
+        neighborhood: Hillcrest
         twitter: rogersfordc51
     Council Ward 8:
       - committee_id: 4123

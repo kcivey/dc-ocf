@@ -204,6 +204,10 @@
                       <dl>
                         <dt>OCF filing date</dt>
                         <dd><%- c.filing_date %></dd>
+                        <dt>BOE pickup date</dt>
+                        <dd><%- c.boe_pickup_date %></dd>
+                        <dt>BOE filing date</dt>
+                        <dd><%- c.boe_filing_date %></dd>
                         <% if (c.neighborhood) { %>
                           <dt>Neighborhood</dt>
                           <dd><%- c.neighborhood %></dd>

@@ -1343,8 +1343,8 @@ Primary Election:
         name: Mr. Nelson Jackson Sr.
         address: 3412 21st St SE
         filing_date: 01/24/2020
-        phone: (240) 750-4112
-        email: nelson.jackson@njaxunl.com
+        phone: 240-750-4112
+        email: Nelson.Jackson@njaxunl.com
         committee_address: '3412 21st Street, SE, Washington, DC 20020'
         committee_phone: (240) 750-4112
         treasurer_name: Mr. Nelson Jackson Sr.
@@ -1356,18 +1356,9 @@ Primary Election:
         zip: '20020'
         fair_elections: false
         neighborhood: Shipley Terrace
-      - candidate_name: Thomas Williams Jr.
-        contact_name: Thomas Williams Jr.
-        address: 2336 irving St SE
-        zip: '20020'
-        phone: 301-613-2139
-        boe_pickup_date: 1/10/2020
+        contact_name: Nelson Jackson Jr.
+        boe_pickup_date: 1/13/2020
         boe_filing_date: ''
-        email: t.williams16323@spartans.nsu.edu
-        first_name: Thomas Williams
-        last_name: Jr.
-        fair_elections: null
-        neighborhood: Knox Hill
       - committee_id: 4145
         first_name: Fria M.
         last_name: Moore
@@ -1411,18 +1402,6 @@ Primary Election:
         first_name: Danielle
         last_name: Platt
         fair_elections: null
-      - candidate_name: Nelson Jackson Sr.
-        contact_name: Nelson Jackson Jr.
-        address: 3412 21st St SE
-        zip: '20020'
-        phone: 240-750-4112
-        boe_pickup_date: 1/13/2020
-        boe_filing_date: ''
-        email: Nelson.Jackson@njaxunl.com
-        first_name: Nelson Jackson
-        last_name: Sr.
-        fair_elections: null
-        neighborhood: Shipley Terrace
       - candidate_name: Trayon "Ward Eight" White
         contact_name: Absalom Jordan
         address: 2763 Martin Luther King Ave
@@ -1434,6 +1413,18 @@ Primary Election:
         first_name: Trayon "Ward Eight"
         last_name: White
         fair_elections: null
+      - candidate_name: Thomas Williams Jr.
+        contact_name: Thomas Williams Jr.
+        address: 2336 irving St SE
+        zip: '20020'
+        phone: 301-613-2139
+        boe_pickup_date: 1/10/2020
+        boe_filing_date: ''
+        email: t.williams16323@spartans.nsu.edu
+        first_name: Thomas
+        last_name: Williams
+        fair_elections: null
+        neighborhood: Knox Hill
     US Senator:
       - candidate_name: Dorothy Douglas
         contact_name: Dorothy Douglas
@@ -1581,18 +1572,6 @@ Primary Election:
         contact_name: Paulette Jackson
         boe_pickup_date: 1/10/2020
         boe_filing_date: ''
-      - candidate_name: 'Thomas Williams, Jr.'
-        contact_name: 'Thomas Williams, Jr.'
-        address: 2336 Irving St SE
-        zip: '20020'
-        phone: 301-613-2139
-        boe_pickup_date: 1/13/2020
-        boe_filing_date: ''
-        email: t.williams16323@spartans.nsu.edu
-        first_name: 'Thomas Williams,'
-        last_name: Jr.
-        fair_elections: false
-        neighborhood: Knox Hill
       - committee_id: 4141
         first_name: Oye
         last_name: Owolewa
@@ -1721,6 +1700,18 @@ Primary Election:
         last_name: Rubio
         fair_elections: false
         neighborhood: 16th Street Heights
+      - candidate_name: Thomas Williams Jr
+        contact_name: 'Thomas Williams, Jr.'
+        address: 2336 Irving St SE
+        zip: '20020'
+        phone: 301-613-2139
+        boe_pickup_date: 1/13/2020
+        boe_filing_date: ''
+        email: t.williams16323@spartans.nsu.edu
+        first_name: Thomas
+        last_name: Williams
+        fair_elections: false
+        neighborhood: Knox Hill
     President:
       - candidate_name: Joseph R. Biden
         contact_name: Greg Schultz

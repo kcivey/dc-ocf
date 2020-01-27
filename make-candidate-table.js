@@ -475,8 +475,12 @@ async function getBoePickups() {
         }
     }
     for (const r of pickups) {
-        const m = r.candidate_name.match(/^(.*?) (\S+)$/);
+        const m = r.candidate_name.match(/^(.*?) (\S*\w)(?:,? ([JS]r|I+|I?V))?\.?$/i);
         assert(m, `Unexpected name format "${r.candidate_name}"`);
+        r.candidate_name = `${m[1]} ${m[2]}`;
+        if (m[3]) {
+            r.candidate_name += ' ' + m[3];
+        }
         r.first_name = m[1];
         r.last_name = m[2];
     }

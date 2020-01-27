@@ -2467,6 +2467,34 @@ General Election:
             result: Won
             percent: 64
         fair_elections: true
+      - committee_id: 14154
+        first_name: LaJoy
+        last_name: Johnson Law
+        candidate_key: CANSD8207153
+        committee_key: PCCSD8207153
+        election_year: 2020
+        candidate_approved: true
+        committee_approved: true
+        termination_approved: false
+        candidate_name: LaJoy  Johnson Law
+        committee_name: LaJoy Johnson Law SBOE 2020
+        id: 15083
+        name: Ms. LaJoy Johnson Law
+        address: 3702 2nd St SE Apt D
+        filing_date: 01/27/2020
+        phone: (202) 553-4460
+        email: ljohnsonlaw22@gmail.com
+        committee_address: '3702 2nd Street, SE. Apt. D, Washington, DC 20032'
+        committee_phone: (202) 553-4460
+        treasurer_name: Ms. Vanessa C. Lemme
+        treasurer_phone: (240) 464-6715
+        treasurer_email: vanessale2020@gmail.com
+        chairperson_name: Mr. Lamont A. Harrell
+        chair_phone: (202) 642-8991
+        chair_email: L.A.Harrell@gmail.com
+        zip: '20032'
+        fair_elections: false
+        neighborhood: Congress Heights
       - committee_id: 4124
         first_name: Carlene
         last_name: Reid
@@ -2496,6 +2524,34 @@ General Election:
         zip: '20020'
         neighborhood: Anacostia
         fair_elections: false
+      - committee_id: 4135
+        first_name: Carlene
+        last_name: Reid
+        candidate_key: CANNON207130
+        committee_key: ''
+        election_year: 2020
+        candidate_approved: true
+        committee_approved: false
+        termination_approved: false
+        candidate_name: Carlene Reid
+        committee_name: Let's Reid 2020
+        id: 5060
+        name: Dr. Carlene Daisy Reid
+        address: 1922 15th St SE
+        filing_date: 12/20/2019
+        phone: (202) 618-0525
+        email: creidsboe@gmail.com
+        committee_address: '1922 15th Street, SE, Washington, DC 20020'
+        committee_phone: (202) 618-0525
+        treasurer_name: ''
+        treasurer_phone: ''
+        treasurer_email: ''
+        chairperson_name: ''
+        chair_phone: ''
+        chair_email: ''
+        zip: '20020'
+        fair_elections: true
+        neighborhood: Anacostia
 Special Election:
   Democratic:
     Council Ward 2:

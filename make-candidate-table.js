@@ -57,12 +57,12 @@ main().catch(console.trace);
 
 async function main() {
     let records = readYaml();
-    const moreRecords = await getBoePickups();
-    records = combineRecords(records, moreRecords);
     if (argv.update) {
         const newRecords = await getNewRecords();
         records = combineRecords(records, newRecords);
     }
+    const moreRecords = await getBoePickups();
+    records = combineRecords(records, moreRecords);
     for (const election of Object.keys(records)) {
         for (const party of Object.keys(records[election])) {
             for (const office of Object.keys(records[election][party])) {
@@ -107,8 +107,8 @@ async function getNewRecords() {
     const lastSeen = await ocf.getLastSeen(['Candidate']);
     const records = (await ocf.findNewRecords(lastSeen)).Candidate;
     for (const r of records) {
-        if (r.election_description === 'Special Election') {
-            r.party = r.last_name === 'Venice' ? 'Republican' : 'Democratic';
+        if (r.ElectionDescription === 'Special Election' && /Non-?Partisan/i.test(r.PartyName)) {
+            r.PartyName = r.LastName === 'Venice' ? 'Republican' : 'Democratic';
         }
     }
     return objectify(await transformRecords(records), ['election_description', 'party', 'office']);
@@ -230,7 +230,9 @@ function combineRecords(records, newRecords) {
                             existingFirst = 'Michael';
                         }
                         return r.last_name === candidate.last_name &&
-                            existingFirst === first;
+                            existingFirst === first &&
+                            (!r.committee_name || !candidate.committee_name ||
+                                r.committee_name === candidate.committee_name);
                     });
                     if (existingCandidate) {
                         if (candidate.fair_elections == null) { // eslint-disable-line max-depth

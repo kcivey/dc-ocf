@@ -431,7 +431,8 @@ async function getBoePickups() {
         }
         else {
             const lineRe =
-                /^(\S+(?: \S+)+)  +(\S+(?: \S+)+|) +((?:P\.?O\.? Box )?\d.*?) (\d{5})? +(\d[-\d]+) +([\d/]+) +([\d/]*) +(\S+)\s*$/; // eslint-disable-line max-len
+                /^(\S+(?: \S+)*)  +(\S+(?: \S+)+|) +((?:P\.?O\.? Box )?\d.*?) (\d{5})? +(\d[-\d]+) +([\d/]+) +([\d/]*) +(\S+)\s*$/; // eslint-disable-line max-len
+            let office;
             for (const page of pdfText.split('\f')) {
                 if (!/\S/.test(page)) {
                     continue;
@@ -442,33 +443,43 @@ async function getBoePickups() {
                 if (m) {
                     party = m[1];
                 }
-                let office;
+                let prevOffice;
                 for (const line of page.split('\n')) {
+                    let withdrew = '';
                     if (!/^\S/.test(line) || /^Candidate's/.test(line)) {
                         continue;
                     }
                     if (/^\S+(?: \S+)*$/.test(line)) {
+                        prevOffice = office;
                         office = line;
                         continue;
                     }
-                    const m = line.match(lineRe);
+                    let m = line.match(lineRe);
                     assert(m, `Unexpected format in PDF:\n${JSON.stringify(line)}`);
+                    let [, candidate, contact, address, zip, phone, pickupDate, filingDate, email] = m;
                     assert(office, `Missing office for "${line}"`);
                     if (/Committee/.test(office)) {
                         continue; // skip party positions
                     }
+                    m = (office + ' ' + candidate).match(/^(.+?) \(withdrew (\d\d?\/\d\d?\/\d{4})\)/i);
+                    if (m) {
+                        candidate = m[1];
+                        office = prevOffice;
+                        withdrew = m[2];
+                    }
                     pickups.push({
                         election_description: 'Primary Election',
                         office: standardizeOffice(office),
-                        candidate_name: m[1],
+                        candidate_name: candidate,
                         party_name: party,
-                        contact_name: m[2],
-                        address: standardizeAddress(m[3]),
-                        zip: m[4] || '',
-                        phone: m[5],
-                        boe_pickup_date: m[6],
-                        boe_filing_date: m[7],
-                        email: m[8],
+                        contact_name: contact,
+                        address: standardizeAddress(address),
+                        zip: zip || '',
+                        phone,
+                        boe_pickup_date: pickupDate,
+                        boe_filing_date: filingDate,
+                        email,
+                        withdrew,
                     });
                 }
             }

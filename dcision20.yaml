@@ -1598,6 +1598,7 @@ Primary Election:
         last_name: Platt
         fair_elections: null
         withdrew: ''
+        neighborhood: null
       - candidate_name: Trayon "Ward Eight" White
         contact_name: Absalom Jordan
         address: 2763 Martin Luther King Ave
@@ -1640,6 +1641,7 @@ Primary Election:
             office: Council Ward 8
             result: Won
             percent: 98
+        neighborhood: null
       - candidate_name: Thomas Williams Jr.
         contact_name: Thomas Williams Jr.
         address: 2336 irving St SE
@@ -2082,6 +2084,7 @@ Primary Election:
         last_name: Yang
         fair_elections: null
         withdrew: ''
+        neighborhood: null
     Delegate to the US House:
       - candidate_name: Eleanor Holmes Norton
         contact_name: Jacqueline Pelt
@@ -2095,6 +2098,7 @@ Primary Election:
         last_name: Norton
         fair_elections: false
         withdrew: ''
+        neighborhood: null
   Republican:
     Council At-Large:
       - candidate_name: Marya Pickering
@@ -2123,6 +2127,7 @@ Primary Election:
         last_name: Trump
         fair_elections: null
         withdrew: ''
+        neighborhood: null
     Council Ward 2:
       - candidate_name: Katherine Venice
         contact_name: ''
@@ -2646,6 +2651,7 @@ General Election:
         twitter: ''
         website: ''
         fair_elections: true
+        neighborhood: null
   Other:
     Council Ward 2:
       - committee_id: 0
@@ -2940,6 +2946,7 @@ Special Election:
         first_name: John
         last_name: Fanning
         fair_elections: null
+        neighborhood: null
       - committee_id: 4144
         first_name: Jordan
         last_name: Grossman

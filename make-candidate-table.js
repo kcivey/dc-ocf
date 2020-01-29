@@ -67,14 +67,14 @@ async function main() {
         for (const party of Object.keys(records[election])) {
             for (const office of Object.keys(records[election][party])) {
                 for (const r of records[election][party][office]) {
-                    if (r.neighborhood) {
+                    if (r.hasOwnProperty('neighborhood')) {
                         continue;
                     }
                     try {
                         r.neighborhood = await getNeighborhoodName(r.address);
                     }
                     catch (err) {
-                        // ignore if address can't be found
+                        r.neighborhood = null; // if address can't be found
                     }
                 }
             }

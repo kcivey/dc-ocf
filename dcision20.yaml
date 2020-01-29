@@ -137,6 +137,113 @@ Primary Election:
         last_name: Evans
         fair_elections: null
         neighborhood: East Village Georgetown
+        elections:
+          - year: 1988
+            election: General
+            party: Nonpartisan
+            office: ANC 2B07
+            result: Won
+          - year: 1990
+            election: General
+            party: Nonpartisan
+            office: ANC 2B07
+            result: Won
+          - year: 1991
+            election: Special
+            party: Democratic
+            office: Council Ward 2
+            result: Won
+            percent: 31
+          - year: 1992
+            election: Primary
+            party: Democratic
+            office: Council Ward 2
+            result: Won
+            percent: 95
+          - year: 1992
+            election: General
+            party: Democratic
+            office: Council Ward 2
+            result: Won
+            percent: 79
+          - year: 1996
+            election: Primary
+            party: Democratic
+            office: Council Ward 2
+            result: Won
+            percent: 78
+          - year: 1996
+            election: General
+            party: Democratic
+            office: Council Ward 2
+            result: Won
+            percent: 79
+          - year: 2000
+            election: Primary
+            party: Democratic
+            office: Council Ward 2
+            result: Won
+            percent: 66
+          - year: 2000
+            election: General
+            party: Democratic
+            office: Council Ward 2
+            result: Won
+            percent: 80
+          - year: 2004
+            election: Primary
+            party: Democratic
+            office: Council Ward 2
+            result: Won
+            percent: 96
+          - year: 2004
+            election: General
+            party: Democratic
+            office: Council Ward 2
+            result: Won
+            percent: 82
+          - year: 2008
+            election: Primary
+            party: Democratic
+            office: Council Ward 2
+            result: Won
+            percent: 64
+          - year: 2008
+            election: General
+            party: Democratic
+            office: Council Ward 2
+            result: Won
+            percent: 82
+          - year: 2012
+            election: Primary
+            party: Democratic
+            office: Council Ward 2
+            result: Won
+            percent: 92
+          - year: 2012
+            election: General
+            party: Democratic
+            office: Council Ward 2
+            result: Won
+            percent: 97
+          - year: 2016
+            election: Primary
+            party: Democratic
+            office: Council Ward 2
+            result: Won
+            percent: 95
+          - year: 2016
+            election: General
+            party: Democratic
+            office: Council Ward 2
+            result: Won
+            percent: 95
+          - year: 2018
+            election: Primary
+            party: Democratic
+            office: National Committeeman
+            result: Won
+            percent: 64
       - committee_id: 4096
         first_name: John
         last_name: Fanning

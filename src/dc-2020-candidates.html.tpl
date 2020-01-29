@@ -97,10 +97,11 @@
           </div>
           <div id="intro">
             <p>
-              These are the candidates registered with the DC Office of Campaign Finance (they can't
-              register with the Board of Elections yet). I added websites, social media accounts,
-              and whatever news articles and could find. Send comments and corrections to
-              keith@iveys.org or to @kcivey on Twitter.
+              These are the candidates who have registered with the DC Office of Campaign Finance
+              or picked up nominating petitions from the Board of Elections but have not withdrawn.
+              I added websites, social media accounts, electoral histories,
+              and whatever news articles and other links could find.
+              Send comments and corrections to keith@iveys.org or to @kcivey on Twitter.
             </p>
             <p>
               In the electoral histories, for races that have more than one winner (like those for

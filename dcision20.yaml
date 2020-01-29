@@ -2297,6 +2297,7 @@ General Election:
         website: ''
         neighborhood: Southwest Waterfront
         fair_elections: true
+        withdrew: 7/18/2019
       - committee_id: 4139
         first_name: Franklin
         last_name: Garcia

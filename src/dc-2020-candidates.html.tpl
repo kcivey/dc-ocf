@@ -139,7 +139,9 @@
               <tr>
                 <th class="office-head" colspan="<%= cols %>"><%- office %></th>
               </tr>
-              <% for (const c of candidates) { %>
+              <% for (const c of candidates) {
+                  if (c.withdrew) continue;
+              %>
                 <tr>
                   <td class="candidate"><%- c.candidate_name %></td>
                   <td>

@@ -182,7 +182,7 @@
                       </a>
                     <% } %>
                   </td>
-                  <td><%- c.committee_phone %></td>
+                  <td><%- c.phone || c.committee_phone %></td>
                   <td>
                     <% if (c.email) { %>
                       <a href="mailto:<%- c.email %>">

@@ -32,7 +32,7 @@ Primary Election:
         phone: 202-294-5943
         email: t1rone@yahoo.com
         zip: '20020'
-        fair_elections: null
+        fair_elections: false
         neighborhood: Fort Davis
         contact_name: Tyrone E. Carmichel
         boe_pickup_date: 1/10/2020
@@ -1495,7 +1495,7 @@ Primary Election:
         chair_phone: ''
         chair_email: ''
         zip: '20020'
-        fair_elections: true
+        fair_elections: false
         neighborhood: Knox Hill
         contact_name: Jeronda Hilton
         boe_pickup_date: 1/10/2020
@@ -2056,7 +2056,7 @@ Primary Election:
         email: gschultz@joebiden.com
         first_name: Joseph R.
         last_name: Biden
-        fair_elections: null
+        fair_elections: false
         neighborhood: Downtown
         withdrew: ''
       - candidate_name: William Feegbeh
@@ -2069,7 +2069,7 @@ Primary Election:
         email: wfeegbeh@outlook.com
         first_name: William
         last_name: Feegbeh
-        fair_elections: null
+        fair_elections: false
         neighborhood: Downtown
         withdrew: ''
       - candidate_name: Andrew Yang
@@ -2082,7 +2082,7 @@ Primary Election:
         email: esther@yang2020.com
         first_name: Andrew
         last_name: Yang
-        fair_elections: null
+        fair_elections: false
         withdrew: ''
         neighborhood: null
     Delegate to the US House:
@@ -2125,7 +2125,7 @@ Primary Election:
         email: ntrainer@donaldtrump.com
         first_name: Donald J.
         last_name: Trump
-        fair_elections: null
+        fair_elections: false
         withdrew: ''
         neighborhood: null
     Council Ward 2:
@@ -2139,7 +2139,7 @@ Primary Election:
         email: kv@katherineward2.com
         first_name: Katherine
         last_name: Venice
-        fair_elections: null
+        fair_elections: true
         neighborhood: North Michigan Park
         withdrew: ''
         website: katherineward2.com
@@ -2945,7 +2945,7 @@ Special Election:
         email: fanningforward2@gmail.com
         first_name: John
         last_name: Fanning
-        fair_elections: null
+        fair_elections: true
         neighborhood: null
       - committee_id: 4144
         first_name: Jordan
@@ -3095,7 +3095,7 @@ Special Election:
         email: kishanfordc@gmail.com
         first_name: Kishan
         last_name: Putta
-        fair_elections: null
+        fair_elections: true
         neighborhood: Burleith
       - candidate_name: Yilin (Ellen) Zhang
         contact_name: P.O. Box
@@ -3107,7 +3107,7 @@ Special Election:
         email: yilin@yilinforward2.com
         first_name: Yilin (Ellen)
         last_name: Zhang
-        fair_elections: null
+        fair_elections: true
         neighborhood: Edgewood
   Republican:
     Council Ward 2:
@@ -3121,5 +3121,5 @@ Special Election:
         email: kv@katherineward2.com
         first_name: Katherine
         last_name: Venice
-        fair_elections: null
+        fair_elections: true
         neighborhood: Downtown

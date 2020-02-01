@@ -1603,7 +1603,7 @@ Primary Election:
         contact_name: Absalom Jordan
         address: 2763 Martin Luther King Ave
         zip: '20020'
-        phone: 202-696-0735
+        phone: 202-553-7704
         boe_pickup_date: 1/16/2020
         boe_filing_date: ''
         email: trayonwhite2020@gmail.com
@@ -2086,6 +2086,19 @@ Primary Election:
         withdrew: ''
         neighborhood: null
     Delegate to the US House:
+      - candidate_name: Barbara Washington Franklin
+        contact_name: Barbara Washington Franklin
+        address: 4417 46th St NW
+        zip: '20016'
+        phone: 202-583-7426
+        boe_pickup_date: 1/31/2020
+        boe_filing_date: ''
+        email: JohnnieRice@comcast.net
+        withdrew: ''
+        first_name: Barbara Washington
+        last_name: Franklin
+        fair_elections: false
+        neighborhood: American University Park
       - candidate_name: Eleanor Holmes Norton
         contact_name: Jacqueline Pelt
         address: PO Box 70626

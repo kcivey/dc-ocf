@@ -177,7 +177,7 @@ function parseTable(text) {
     }
     const fields = getFields(m[1]);
     unparsed = unparsed.substr(m[0].length);
-    while ((m = unparsed.match(/^\d(?:.*\n){3,4}\n?(?=\d|\s+Subtotal)/))) {
+    while ((m = unparsed.match(/^\d(?:.*\n){3,5}?\n?(?=\d|\s+Subtotal)/))) {
         unparsed = unparsed.substr(m[0].length);
         const row = parseRowText(m[0], fields);
         Object.assign(row, {committee_name: pageData.committee_name});
@@ -237,7 +237,7 @@ function parseRowText(text, fields) {
                     row[newKey] += '\n' + value;
                 }
             }
-            else if (key === 'occupation' || key === 'mode_of_payment') {
+            else if (key.match(/^(?:occupation|reason|mode_of_payment)$/)) {
                 if (!row[key]) {
                     row[key] = value;
                 }

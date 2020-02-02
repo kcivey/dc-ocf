@@ -188,8 +188,8 @@ async function processOffice(office) {
             }
         }
     }
-    const candidates = await db.getCandidatesForOffice(office, argv.year, argv.threshold);
-    const filters = {office, candidates, year: argv.year};
+    const committees = await db.getCommitteesForOffice(office, argv.year, argv.threshold);
+    const filters = {office, committees, year: argv.year};
     const stats = (await db.getContributionStats({filters}));
     const columnHeads = [''].concat(stats.map(row => row.candidate_short_name));
     const rowCodes = Object.keys(rowDefs).slice(1); // skip candidate name
@@ -253,16 +253,16 @@ async function processOffice(office) {
     }
 }
 
-async function getSharedData({candidates, year}) {
+async function getSharedData({committees, year}) {
     const threshold = 5;
     const places = 5;
     const data = {};
-    for (const candidate of candidates) {
-        const rows = await db.getCommitteesWithTopSharedContributors(candidate, 2020);
+    for (const committeeName of committees) {
+        const rows = await db.getCommitteesWithTopSharedContributors(committeeName, year);
         if (!rows[0] || rows[0].count < threshold) {
             continue;
         }
-        const total = await db.getContributorCount(candidate, year);
+        const total = await db.getContributorCount(committeeName, year);
         let prevCount = 1;
         let i = 0;
         for (const row of rows) {
@@ -270,10 +270,10 @@ async function getSharedData({candidates, year}) {
             if (i > places || row.contributors < threshold) {
                 break;
             }
-            if (!data[candidate]) {
-                data[candidate] = [];
+            if (!data[committeeName]) {
+                data[committeeName] = [];
             }
-            data[candidate].push([
+            data[committeeName].push([
                 prevCount === row.contributors ? '<i>tie</i>' : i,
                 row.candidate_name,
                 row.election_year,
@@ -341,24 +341,23 @@ async function getDateData(baseFilters, ward) {
 }
 
 async function getPlaceData(filters, ward = null) {
-    const office = filters.office;
-    const candidates = filters.candidates;
-    const year = filters.year;
+    const {office, committees, year} = filters;
     const allStates = await db.getContributorPlaces(office, year);
     const allWards = await db.getContributorPlaces(office, year, true);
     const placeData = [];
-    for (const candidate of candidates) {
-        const contributorsByState = await db.getContributorsByPlace(candidate, year);
+    for (const committeeName of committees) {
+        const contributorsByState = await db.getContributorsByPlace(committeeName, year);
         const stateColumns = makePlaceContributorColumns(allStates, contributorsByState);
         const contributorStates = stateColumns.map(item => item[0]);
         const stateColors = makeColors(allStates, contributorStates, 'DC');
-        const contributorsByWard = await db.getContributorsByPlace(candidate, year, true);
+        const contributorsByWard = await db.getContributorsByPlace(committeeName, year, true);
         const wardColumns = makePlaceContributorColumns(allWards, contributorsByWard);
         const contributorWards = wardColumns.map(item => item[0]);
         const wardColors = makeColors(allWards, contributorWards, ward);
+        const committee = await db.getCommittee(committeeName);
         placeData.push({
-            candidate,
-            code: hyphenize(candidate),
+            candidate: committee.candidate_short_name,
+            code: hyphenize(committee.candidate_short_name),
             state: {
                 columns: stateColumns,
                 colors: stateColors,

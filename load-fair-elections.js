@@ -177,7 +177,7 @@ function parseTable(text) {
     }
     const fields = getFields(m[1]);
     unparsed = unparsed.substr(m[0].length);
-    while ((m = unparsed.match(/^\d(?:.*\n){3,5}?\n?(?=\d|\s+Subtotal)/))) {
+    while ((m = unparsed.match(/^\d(?:.*\n){1,5}?\n?(?=\d|\s+Subtotal)/))) {
         unparsed = unparsed.substr(m[0].length);
         const row = parseRowText(m[0], fields);
         Object.assign(row, {committee_name: pageData.committee_name});
@@ -330,6 +330,14 @@ function fixExpenditureRow(oldRow) {
         delete row.contribution_date;
         delete row.reason;
         delete row.mode_of_payment;
+    }
+    else if (row.mode_of_payment) { // B-5
+        row.payee_name = 'DC Treasury';
+        row.purpose_of_expenditure = row.reason;
+        delete row.reason;
+        delete row.mode_of_payment;
+        row.payment_date = row.date;
+        delete row.date;
     }
     else {
         row.payee_name = row.business;

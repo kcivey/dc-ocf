@@ -189,8 +189,12 @@ async function processOffice(office) {
         }
     }
     const committees = await db.getCommitteesForOffice(office, argv.year, argv.threshold);
+    const candidates = committees.map(c => c.candidate_short_name);
     const filters = {office, committees, year: argv.year};
-    const stats = (await db.getContributionStats({filters}));
+    const stats = (await db.getContributionStats({filters}))
+        .sort(function (a, b) {
+            return candidates.indexOf(a.candidate_short_name) - candidates.indexOf(b.candidate_short_name);
+        });
     const columnHeads = [''].concat(stats.map(row => row.candidate_short_name));
     const rowCodes = Object.keys(rowDefs).slice(1); // skip candidate name
     const minMax = {};
@@ -257,7 +261,7 @@ async function getSharedData({committees, year}) {
     const threshold = 5;
     const places = 5;
     const data = {};
-    for (const committeeName of committees) {
+    for (const committeeName of committees.map(c => c.committee_name)) {
         const rows = await db.getCommitteesWithTopSharedContributors(committeeName, year);
         if (!rows[0] || rows[0].count < threshold) {
             continue;
@@ -312,7 +316,10 @@ async function getDateData(baseFilters, ward) {
         }
         const runningTotals = {};
         let i = 0;
-        for (const candidate of Object.keys(lastDeadlines)) {
+        const candidates = filters.committees
+            ? filters.committees.map(c => c.candidate_short_name)
+            : Object.keys(lastDeadlines);
+        for (const candidate of candidates) {
             columns[i] = [candidate];
             runningTotals[candidate] = 0;
             i++;
@@ -326,7 +333,8 @@ async function getDateData(baseFilters, ward) {
         while (cursorDate <= endDate) { // eslint-disable-line no-unmodified-loop-condition
             const isoDate = cursorDate.format('YYYY-MM-DD');
             let i = 0;
-            for (const [candidate, lastDeadline] of Object.entries(lastDeadlines)) {
+            for (const candidate of candidates) {
+                const lastDeadline = lastDeadlines[candidate];
                 if (isoDate <= lastDeadline || (data[isoDate] && data[isoDate][candidate])) {
                     runningTotals[candidate] += +(data[isoDate] && data[isoDate][candidate]) || 0;
                     columns[i].push(runningTotals[candidate]);
@@ -345,7 +353,8 @@ async function getPlaceData(filters, ward = null) {
     const allStates = await db.getContributorPlaces(office, year);
     const allWards = await db.getContributorPlaces(office, year, true);
     const placeData = [];
-    for (const committeeName of committees) {
+    for (const committee of committees) {
+        const committeeName = committee.committee_name;
         const contributorsByState = await db.getContributorsByPlace(committeeName, year);
         const stateColumns = makePlaceContributorColumns(allStates, contributorsByState);
         const contributorStates = stateColumns.map(item => item[0]);
@@ -354,7 +363,6 @@ async function getPlaceData(filters, ward = null) {
         const wardColumns = makePlaceContributorColumns(allWards, contributorsByWard);
         const contributorWards = wardColumns.map(item => item[0]);
         const wardColors = makeColors(allWards, contributorWards, ward);
-        const committee = await db.getCommittee(committeeName);
         placeData.push({
             candidate: committee.candidate_short_name,
             code: hyphenize(committee.candidate_short_name),

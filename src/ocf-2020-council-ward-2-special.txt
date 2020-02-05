@@ -6,12 +6,13 @@ In order by number of contributors, they are
 <ul>
 <li>Jordan Grossman</li>
 <li>Kishan Putta</li>
+<li>Jack Evans</li>
 </ul>
 
-Both candidates are Democrats, both are seeking to qualify or have qualified for Fair Elections public
-campaign funds, and hte last report for both candidates covers contributions through January 31.
+All the candidates are Democrats, all are are seeking to qualify or have qualified for Fair Elections public
+campaign funds, and the last report for all of them covers contributions through January 31.
 
-Since both candidates are seeking to qualify for public campaign financing under the Fair Elections Act,
+Since all candidates are seeking to qualify for public campaign financing under the Fair Elections Act,
 contributions all come from individuals and are limited to $50 (except for the candidate and their family,
 who can give up to $2,500). Therefore most of this analysis focuses on the number of contributors rather the
 amount raised, and there's nothing about corporate contributions because the candidates are prohibited from

@@ -431,7 +431,7 @@ async function getBoePickups() {
         }
         else {
             const lineRe =
-                /^(\S+(?: \S+)*)  +?(\S+(?: \S+)+|) +((?:P\.?O\.? Box )?\d.*?) (\d{5})? +(\d[-\d]+) +([\d/]+) +([\d/]*) +(\S+)\s*$/; // eslint-disable-line max-len
+                /^(\S+(?: \S+)*)  +?(\S+(?: \S+)+|) +((?:P\.?O\.? Box )?\d.*?)? (\d{5})? +(\d[-\d]+) +([\d/]+)(?: +([\d/]*) +(\S+)\s*)?$/; // eslint-disable-line max-len
             let office;
             for (const page of pdfText.split('\f')) {
                 if (!/\S/.test(page)) {
@@ -477,8 +477,8 @@ async function getBoePickups() {
                         zip: zip || '',
                         phone,
                         boe_pickup_date: pickupDate,
-                        boe_filing_date: filingDate,
-                        email,
+                        boe_filing_date: filingDate || '',
+                        email: email || '',
                         withdrew,
                     });
                 }

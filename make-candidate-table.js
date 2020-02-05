@@ -220,15 +220,9 @@ function combineRecords(records, newRecords) {
                     records[electionDescription][party][office] = [];
                 }
                 for (const candidate of candidates) {
-                    let first = candidate.first_name.replace(/^(\S+) .*/, '$1');
-                    if (first === 'Mike') {
-                        first = 'Michael';
-                    }
+                    const first = getFirstName(candidate.first_name);
                     const existingCandidate = records[electionDescription][party][office].find(function (r) {
-                        let existingFirst = r.first_name.replace(/^(\S+) .*/, '$1');
-                        if (existingFirst === 'Mike') {
-                            existingFirst = 'Michael';
-                        }
+                        const existingFirst = getFirstName(r.first_name);
                         return r.last_name === candidate.last_name &&
                             existingFirst === first &&
                             (!r.committee_name || !candidate.committee_name ||
@@ -255,6 +249,17 @@ function combineRecords(records, newRecords) {
         }
     }
     return records;
+
+    function getFirstName(name) {
+        let first = name.replace(/^(\S+) .*/, '$1');
+        if (first === 'Mike') {
+            first = 'Michael';
+        }
+        else if (first === 'Nate') {
+            first = 'Nathan';
+        }
+        return first;
+    }
 }
 
 function writeYaml(records) {

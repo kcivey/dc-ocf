@@ -310,14 +310,18 @@ function writeHtml(records) {
                     if (office === 'Council At-Large') {
                         office += ' (2 seats)';
                     }
-                    if (!office.match(/Committee/) && !recordsByElection[generalName][office]) {
-                        recordsByElection[generalName][office] = [
-                            {
-                                candidate_name: `(${party} nominee)`,
-                                party_abbr: partyAbbr[party],
-                                party,
-                            },
-                        ];
+                    if (office.match(/Committee/)) {
+                        continue; // skip party positions
+                    }
+                    if (!recordsByElection[generalName][office]) {
+                        recordsByElection[generalName][office] = [];
+                    }
+                    if (!recordsByElection[generalName][office].some(r => r.party === party)) {
+                        recordsByElection[generalName][office].push({
+                            candidate_name: `(${party} nominee)`,
+                            party_abbr: partyAbbr[party],
+                            party,
+                        });
                     }
                 }
             }

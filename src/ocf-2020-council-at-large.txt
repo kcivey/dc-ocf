@@ -1,12 +1,22 @@
 =overall
 
 I analyzed the DC Office of Campaign Finance (OCF) reports for the at-large council candidates
-who have filed so far:
+who have filed so far.
+In order by number of contributors, they are
 <ul>
-<li>Markus Batchelor is a Fair Elections candidate running as an independent; his last filing was for October 10.</li>
-<li>Chander Jayaraman is a Fair Elections candidate running as an independent; his last filing was for January 10.</li>
-<li>Robert White is an incumbent councilmember running in the Democratic primary; his last filing was for December 10.</li>
+  <li>Robert White</li>
+  <li>Christina Henderson*</li>
+  <li>Markus Batchelor*</li>
+  <li>Chander Jayaraman*</li>
+  <li>Marcus Goodwin</li>
+  <li>Franklin Garcia*</li>
+  <li>Eric Rogers</li>
+  <li>Mario Cristaldo*</li>
 </ul>
+
+Candidates marked with asterisks are seeking to qualify or have qualified for Fair Elections public campaign funds.
+The last report for all candidates covers contributions through January 31.
+White is a Democrat; the others are independents.
 
 Two candidates will win this contest in the general election.
 In all previous elections the Democrat has been in first place by a large margin, so the race is often

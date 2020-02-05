@@ -1,21 +1,17 @@
 =overall
 
 I analyzed the DC Office of Campaign Finance (OCF) reports for the Ward 2 council candidates
-who have filed so far.
+for the June 16 special election who have filed so far.
 In order by number of contributors, they are
 <ul>
 <li>Jordan Grossman</li>
 <li>Kishan Putta</li>
-<li>Patrick Kennedy</li>
-<li>John Fanning</li>
-<li>Yilin Zhang</li>
-<li>Daniel Hernandez</li>
 </ul>
 
-All the candidates are Democrats, all are seeking to qualify or have qualified for Fair Elections public
-campaign funds, and the last report for all candidates covers contributions through January 31.
+Both candidates are Democrats, both are seeking to qualify or have qualified for Fair Elections public
+campaign funds, and hte last report for both candidates covers contributions through January 31.
 
-Since all six candidates are seeking to qualify for public campaign financing under the Fair Elections Act,
+Since both candidates are seeking to qualify for public campaign financing under the Fair Elections Act,
 contributions all come from individuals and are limited to $50 (except for the candidate and their family,
 who can give up to $2,500). Therefore most of this analysis focuses on the number of contributors rather the
 amount raised, and there's nothing about corporate contributions because the candidates are prohibited from

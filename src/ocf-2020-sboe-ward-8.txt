@@ -1,10 +1,21 @@
 =overall
 
-I analyzed the DC Office of Campaign Finance (OCF) reports for the Ward 8 candidates for
-State Board of Education: Darrell Gaston and Carlene Reid.
-Gaston's report covers through October 10; Reid's covers through January 10.
+I analyzed the DC Office of Campaign Finance (OCF) reports for the Ward 8 candidates
+for State Board of Education who have filed so far.
+In order by number of contributors, they are
+<ul>
+<li>Carlene Reid</li>
+<li>Darrell Gaston</li>
+<li>LaJoy Johnson Law</li>
+</ul>
 
-Both are participating in the the Fair Elections public campaign finance program, so they can
-accept contributions up to $20 and only from individuals (except for the candidate and their family,
+This race is nonpartisan.
+Reports for Reid and Law cover contributions through January 31.
+Gaston has not yet filed his January 31 report, so the analysis covers only through October 10 for him.
+
+Law can accept contributions up to $200, from individuals and from organizations (corporations, LLCs,
+PACs, unions, and so on), and use as much of her own money as she wishes.
+Reid and Gaston are participating in the Fair Elections public campaign finance program
+and so can accept up to $50 and only from individuals (except for the candidate and their family,
 who can give up to $2,500), but can receive considerable additional funds from public money if they
-meets some requirements.
+meet some requirements.

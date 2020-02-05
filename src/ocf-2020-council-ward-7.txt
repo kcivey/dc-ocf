@@ -1,16 +1,25 @@
 =overall
 
-I analyzed the DC Office of Campaign Finance (OCF) reports for December 10 for Ward 7 council candidates
-Anthony Lorenzo Green and Kelvin Brown (who are running as Fair Elections candidates) and
-Veda Rasheed and Vince Gray (who are not).
+I analyzed the DC Office of Campaign Finance (OCF) reports for the Ward 7 council candidates
+who have filed so far.
+In order by number of contributors, they are
+<ul>
+<li>Vincent Gray (the incumbent)</li>
+<li>Anthony Lorenzo Green</li>
+<li>Kelvin Brown</li>
+<li>Veda Rasheed</li>
+</ul>
+
+All the candidates are Democrats.
+Reports for Gray and Rasheed cover contributions through January 31.
+Green and Brown have not yet filed their January 31 reports, so the analysis covers only through December 10 for them.
+
 Rasheed's contributions also include those made to the exploratory committee she set up before forming a principal
 campaign committee.
-Vincent Gray is the incumbent councilmember.
 
-Candidates participating in the Fair Elections public campaign finance program can
-accept contributions up to $50 and only from individuals (except for the candidate and their family,
+Gray and Rasheed can accept contributions up to $500, from individuals and from organizations (corporations, LLCs,
+PACs, unions, and so on), and use as much of their own money as they wish.
+George and Bowser are participating in the Fair Elections public campaign finance program
+and so can accept up to $50 and only from individuals (except for the candidate and their family,
 who can give up to $2,500), but can receive considerable additional funds from public money if they
 meet some requirements.
-Candidates using the traditional system can accept contributions of up to $500 from
-individuals and from organizations (corporations, LLCs, PACs, unions, and so on) and can put in
-unlimited amounts of their own money.

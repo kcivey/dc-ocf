@@ -1,15 +1,19 @@
 =overall
 
-I analyzed the DC Office of Campaign Finance (OCF) reports for Ward 4 council candidates for the December
-10 filings. The candidates are
+I analyzed the DC Office of Campaign Finance (OCF) reports for the Ward 4 council candidates
+who have filed so far.
+In order by number of contributors, they are
 <ul>
-<li>Renee Bowser</li>
-<li>Janeese Lewis George</li>
 <li>Brandon Todd (the incumbent)</li>
+<li>Janeese Lewis George</li>
+<li>Renee Bowser</li>
+<li>Marlena Edwards</li>
 </ul>
 
-Todd can accept contributions up to $500, from individuals and from organizations (corporations, LLCs,
-PACs, unions, and so on), and use as much of his own money as he wishes.
+All the candidates are Democrats, and the last report for all candidates covers contributions through January 31.
+
+Todd and Edwards can accept contributions up to $500, from individuals and from organizations (corporations, LLCs,
+PACs, unions, and so on), and use as much of their own money as they wish.
 George and Bowser are participating in the Fair Elections public campaign finance program
 and so can accept up to $50 and only from individuals (except for the candidate and their family,
 who can give up to $2,500), but can receive considerable additional funds from public money if they

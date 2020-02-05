@@ -135,7 +135,7 @@ Primary Election:
         withdrew: ''
         first_name: Jack
         last_name: Evans
-        fair_elections: null
+        fair_elections: true
         neighborhood: East Village Georgetown
         elections:
           - year: 1988
@@ -244,6 +244,25 @@ Primary Election:
             office: National Committeeman
             result: Won
             percent: 64
+        committee_id: 14159
+        candidate_key: CANCC2207158
+        committee_key: ''
+        election_year: 2020
+        candidate_approved: true
+        committee_approved: false
+        termination_approved: false
+        committee_name: Evans 2020
+        id: 15089
+        name: Mr. Jack Evans
+        filing_date: 01/31/2020
+        committee_address: '3141 P Street, NW, Washington, DC 20007'
+        committee_phone: (202) 255-3300
+        treasurer_name: ''
+        treasurer_phone: ''
+        treasurer_email: ''
+        chairperson_name: ''
+        chair_phone: ''
+        chair_email: ''
       - committee_id: 4096
         first_name: John
         last_name: Fanning
@@ -1473,10 +1492,10 @@ Primary Election:
         first_name: Jeronda
         last_name: Hilton
         candidate_key: CANCC8207144
-        committee_key: ''
+        committee_key: PCCCC8207144
         election_year: 2020
         candidate_approved: true
-        committee_approved: false
+        committee_approved: true
         termination_approved: false
         candidate_name: Jeronda Hilton
         committee_name: Jeronda Hilton 2020
@@ -1488,12 +1507,12 @@ Primary Election:
         email: hiltonjeronda@gmail.com
         committee_address: '2409 Irving Pl., SE, Washington, DC 20020'
         committee_phone: (301) 789-6738
-        treasurer_name: ''
-        treasurer_phone: ''
-        treasurer_email: ''
-        chairperson_name: ''
-        chair_phone: ''
-        chair_email: ''
+        treasurer_name: Ms. Vanessa Hilton
+        treasurer_phone: (301) 267-4580
+        treasurer_email: nessah88@gmail.com
+        chairperson_name: Ms. Jeronda Hilton
+        chair_phone: (301) 789-6738
+        chair_email: hiltonjeronda@gmail.com
         zip: '20020'
         fair_elections: false
         neighborhood: Knox Hill
@@ -1609,11 +1628,11 @@ Primary Election:
         email: trayonwhite2020@gmail.com
         first_name: Trayon "Ward Eight"
         last_name: White
-        fair_elections: null
+        fair_elections: true
         withdrew: ''
         links:
           - url: 'https://www.trayonwhite8.com/'
-            title: Councimember website
+            title: Councilmember website
         twitter: trayonwhite
         instagram: trayonwhite
         elections:
@@ -2150,9 +2169,28 @@ Primary Election:
         email: cvincent010@gmail.com
         first_name: Marya
         last_name: Pickering
-        fair_elections: null
+        fair_elections: false
         neighborhood: American University Park
         withdrew: ''
+        committee_id: 14156
+        candidate_key: CANCCL207154
+        committee_key: PCCCCL207154
+        election_year: 2020
+        candidate_approved: true
+        committee_approved: true
+        termination_approved: false
+        committee_name: Marya DC 2020
+        id: 15085
+        name: Ms. Marya Pickering
+        filing_date: 01/29/2020
+        committee_address: '4402 44th Street, NW, Washington, DC 20016'
+        committee_phone: (703) 967-5023
+        treasurer_name: Mr. Michael McHugh
+        treasurer_phone: (202) 412-1028
+        treasurer_email: mkmchugh@gmail.com
+        chairperson_name: Dr. Charles Vincent
+        chair_phone: (202) 231-7244
+        chair_email: cvincent01@gmail.com
     President:
       - candidate_name: Donald J. Trump
         contact_name: Nicholas Trainer
@@ -2199,10 +2237,29 @@ Primary Election:
         email: nathan.derenge@gmail.com
         first_name: Nate "Ward 8"
         last_name: Derenge
-        fair_elections: null
+        fair_elections: false
         neighborhood: Fairlawn
         withdrew: ''
         website: nateward8.com
+        committee_id: 14157
+        candidate_key: CANCC8207155
+        committee_key: PCCCC8207155
+        election_year: 2020
+        candidate_approved: true
+        committee_approved: true
+        termination_approved: false
+        committee_name: Nate Ward 8
+        id: 15086
+        name: Mr. Nathan Derenge
+        filing_date: 01/29/2020
+        committee_address: '2131 Young Street, SE #101, Washington, DC 20020'
+        committee_phone: (571) 557-2795
+        treasurer_name: Mr. Nathan Derenge
+        treasurer_phone: (605) 553-8895
+        treasurer_email: nathan.derenge@gmail.com
+        chairperson_name: Mr. Nathan Derenge
+        chair_phone: (605) 553-8895
+        chair_email: nathan.derenge@gmail.com
 General Election:
   Independent:
     Council At-Large:
@@ -2427,7 +2484,7 @@ General Election:
         termination_approved: false
         election_description: General Election
         candidate_name: Marcus Goodwin
-        committee_name: Goodwin For DC 2020
+        committee_name: Marcus Goodwin For DC 2020
         id: 5075
         name: Mr. Marcus Goodwin
         address: 1407 Webster St NW
@@ -2972,8 +3029,27 @@ Special Election:
         email: jackevans1@aol.com
         first_name: Jack
         last_name: Evans
-        fair_elections: null
+        fair_elections: true
         neighborhood: East Village Georgetown
+        committee_id: 14160
+        candidate_key: CANCC2207159
+        committee_key: ''
+        election_year: 2020
+        candidate_approved: true
+        committee_approved: false
+        termination_approved: false
+        committee_name: Evans Ward 2
+        id: 15090
+        name: Mr. Jack Evans
+        filing_date: 01/31/2020
+        committee_address: '3141 P Street, NW, Washington, DC 20007'
+        committee_phone: (202) 255-3300
+        treasurer_name: ''
+        treasurer_phone: ''
+        treasurer_email: ''
+        chairperson_name: ''
+        chair_phone: ''
+        chair_email: ''
       - candidate_name: John Fanning
         contact_name: Bill Brown 1418
         address: 14th St NW
@@ -3146,8 +3222,27 @@ Special Election:
         email: yilin@yilinforward2.com
         first_name: Yilin (Ellen)
         last_name: Zhang
-        fair_elections: true
+        fair_elections: false
         neighborhood: Edgewood
+        committee_id: 14158
+        candidate_key: CANCC2207156
+        committee_key: PCCCC2207156
+        election_year: 2020
+        candidate_approved: true
+        committee_approved: true
+        termination_approved: false
+        committee_name: Yilin Zhang For Ward 2 Special Election
+        id: 15087
+        name: Ms. Yilin Zhang
+        filing_date: 01/28/2020
+        committee_address: '2100 Connecticut Ave., NW. #103, Washington, DC 20008'
+        committee_phone: ''
+        treasurer_name: Ms. Yilin Zhang
+        treasurer_phone: (202) 524-0536
+        treasurer_email: yilinzh2008@gmail.com
+        chairperson_name: Ms. Yilin Zhang
+        chair_phone: (202) 524-0536
+        chair_email: yilinzh2008@gmail.com
   Republican:
     Council Ward 2:
       - candidate_name: Katherine Venice

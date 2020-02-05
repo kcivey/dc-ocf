@@ -35,19 +35,24 @@ function loadRecords(tableName, columns, filerType) {
         let totalCount = 0;
         let currentCount = 0;
         let batch = [];
+        const unknownCommittees = new Set();
         parser.on('readable', async function () {
             let record;
             while ((record = parser.read())) {
                 totalCount++;
                 record = transformRecord(record);
+                const committeeName = record.committee_name;
                 if (checkForProblem(record)) {
-                    console.warn(`Skipping ${tableName} record associated with "${record.committee_name}"`);
+                    if (!unknownCommittees.has(committeeName)) {
+                        console.warn(`Skipping ${tableName} record associated with "${committeeName}"`);
+                    }
+                    unknownCommittees.add(committeeName);
                     continue;
                 }
                 if (tableName === db.committeeTableName) {
-                    if (currentCommittees.has(record.committee_name)) {
+                    if (currentCommittees.has(committeeName)) {
                         // remove earlier record with the same committee name. @todo handle better
-                        console.warn(`Removing duplicate committee "${record.committee_name}"`);
+                        console.warn(`Removing duplicate committee "${committeeName}"`);
                         batch = batch.filter(function (r) { // eslint-disable-line no-loop-func
                             return r.committee_name !== record.committee_name;
                         });
@@ -55,9 +60,9 @@ function loadRecords(tableName, columns, filerType) {
                             return r.committee_name !== record.committee_name;
                         });
                     }
-                    currentCommittees.add(record.committee_name);
+                    currentCommittees.add(committeeName);
                     extraBatch.push({
-                        committee_name: record.committee_name,
+                        committee_name: committeeName,
                         filer_type: filerType,
                         is_fair_elections: false,
                     });

@@ -2072,6 +2072,19 @@ Primary Election:
         fair_elections: false
         neighborhood: Downtown
         withdrew: ''
+      - candidate_name: Tom Steyer
+        contact_name: George B Scharroo
+        address: '94121'
+        zip: ''
+        phone: 941-962-1845
+        boe_pickup_date: 2/4/2020
+        boe_filing_date: ''
+        email: ''
+        withdrew: ''
+        first_name: Tom
+        last_name: Steyer
+        fair_elections: null
+        neighborhood: null
       - candidate_name: Andrew Yang
         contact_name: Esther Baldwin
         address: 214 W 39th St New York NY
@@ -2114,6 +2127,19 @@ Primary Election:
         neighborhood: null
   Republican:
     Council At-Large:
+      - candidate_name: Aderonke Balongun
+        contact_name: Aderonke Balongun
+        address: 3003 Van Ness St NW
+        zip: '20008'
+        phone: 240-474-8700
+        boe_pickup_date: 2/4/2020
+        boe_filing_date: ''
+        email: AderonkeBalogun99@gmail.com
+        withdrew: ''
+        first_name: Aderonke
+        last_name: Balongun
+        fair_elections: null
+        neighborhood: Forest Hills
       - candidate_name: Marya Pickering
         contact_name: Dr. Charles Vincent
         address: 4402 44th St NW

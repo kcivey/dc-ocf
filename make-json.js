@@ -48,7 +48,7 @@ async function main() {
         offices = [await db.getMatchingOffice(argv.office, argv.year)];
     }
     else {
-        offices = await db.getOfficesForReport(argv.threshold, argv.year)
+        offices = (await db.getOfficesForReport(argv.threshold, argv.year))
             .filter(office => !/Committee/.test(office)); // skip party positions
     }
     for (const office of offices) {

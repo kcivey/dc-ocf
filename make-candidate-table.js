@@ -522,10 +522,12 @@ async function getPdfText(pdfUrl) {
 }
 
 function standardizeAddress(address) {
-    return address.replace(/ Avenue\b/, ' Ave')
-        .replace(/ Street\b/, ' St')
-        .replace(/ Place\b/, ' Pl')
-        .replace(/[.,]/g, '');
+    return address
+        ? address.replace(/ Avenue\b/, ' Ave')
+            .replace(/ Street\b/, ' St')
+            .replace(/ Place\b/, ' Pl')
+            .replace(/[.,]/g, '')
+        : '';
 }
 
 function standardizeOffice(office) {

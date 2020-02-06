@@ -2426,7 +2426,7 @@ General Election:
         chair_phone: (202) 460-3046
         chair_email: fgarcia@maestropc.com
         zip: '20018'
-        fair_elections: false
+        fair_elections: true
         neighborhood: Woodridge
         twitter: fgarciadc
         website: franklingarciaatlarge.com
@@ -2716,7 +2716,7 @@ General Election:
         chair_email: langm@faunteroycenter.org
         zip: '20020'
         neighborhood: Buena Vista
-        fair_elections: false
+        fair_elections: true
       - committee_id: 4112
         first_name: Taurus
         last_name: Phillips
@@ -2987,7 +2987,7 @@ General Election:
         chair_email: carlene_reid@yahoo.com
         zip: '20020'
         neighborhood: Anacostia
-        fair_elections: false
+        fair_elections: true
       - committee_id: 4135
         first_name: Carlene
         last_name: Reid

@@ -263,6 +263,16 @@ Primary Election:
         chairperson_name: ''
         chair_phone: ''
         chair_email: ''
+        website: evansward2.com
+        links:
+          - url: 'https://www.washingtonpost.com/opinions/2020/02/01/jack-evans-approaches-trumpian-levels-shamelessness/'
+            title: Jack Evans approaches Trumpian levels of shamelessness
+          - url: >-
+              https://www.washingtonpost.com/local/dc-politics/jack-evans-to-run-for-dc-council-after-resigning-seat-amid-ethics-scandal/2020/01/27/fdd6cdfc-4138-11ea-b503-2b077c436617_story.html
+            title: Jack Evans to run for D.C. Council after resigning seat amid ethics scandal
+          - url: >-
+              https://wamu.org/story/20/01/31/disgraced-d-c-councilmember-jack-evans-wants-public-financing-to-win-back-his-seat/
+            title: Disgraced Former D.C. Council Member Jack Evans Wants Public Financing To Win Back His Seat
       - committee_id: 4096
         first_name: John
         last_name: Fanning
@@ -1117,6 +1127,9 @@ Primary Election:
             title: ANC Commissioner Anthony Lorenzo Green Announces Run For Vincent Gray's Ward 7 Seat
           - url: 'https://www.washingtonblade.com/2019/07/18/gay-anc-commissioner-challenges-gray-for-ward-7-seat/'
             title: Gay ANC commissioner challenges Gray for Ward 7 seat
+          - url: >-
+              https://www.metroweekly.com/2020/01/openly-gay-d-c-council-candidate-earns-working-families-party-endorsement/
+            title: Openly gay D.C. Council candidate earns Working Families Party endorsement
         neighborhood: Deanwood
         elections:
           - year: 2014
@@ -1233,6 +1246,9 @@ Primary Election:
         boe_pickup_date: 1/10/2020
         boe_filing_date: ''
         withdrew: ''
+        website: rebeccamorrisward7.com
+        instagram: voterebeccaward7
+        facebook: Rebecca-Morris-2020-111199900439248
       - committee_id: 4111
         first_name: Veda
         last_name: Rasheed
@@ -1403,6 +1419,9 @@ Primary Election:
             office: ANC 8C01
             result: Won
             percent: 89
+        links:
+          - url: 'https://www.washingtoninformer.com/d-c-election-roundup-austin-to-challenge-trayon-white-in-ward-8/'
+            title: 'D.C. ELECTION ROUNDUP: Austin to Challenge Trayon White in Ward 8'
       - committee_id: 4117
         first_name: Richard
         last_name: Campbell
@@ -1475,6 +1494,9 @@ Primary Election:
         boe_filing_date: ''
         withdrew: ''
         website: yaidaford.com
+        links:
+          - url: 'https://www.washingtoninformer.com/d-c-election-roundup-ford-wants-a-ward-8-driven-by-education-economics/'
+            title: 'D.C. ELECTION ROUNDUP: Ford Wants a Ward 8 Driven by Education, Economics'
       - candidate_name: Christopher Hawthorne
         contact_name: Christopher Hawthorne
         address: 1922 Valley Terr SE
@@ -1605,6 +1627,7 @@ Primary Election:
         boe_pickup_date: 1/10/2020
         boe_filing_date: ''
         withdrew: ''
+        facebook: votefriamoore2020
       - candidate_name: Danielle Platt
         contact_name: Danielle Platt
         address: 2801 Buena Vista Terr
@@ -1618,6 +1641,7 @@ Primary Election:
         fair_elections: null
         withdrew: ''
         neighborhood: null
+        facebook: DaniellePlatt4W8
       - candidate_name: Trayon "Ward Eight" White
         contact_name: Absalom Jordan
         address: 2763 Martin Luther King Ave
@@ -1633,6 +1657,10 @@ Primary Election:
         links:
           - url: 'https://www.trayonwhite8.com/'
             title: Councilmember website
+          - url: 'https://www.washingtoninformer.com/d-c-election-roundup-white-announces-reelection-bid/'
+            title: 'D.C. ELECTION ROUNDUP: White Announces Reelection Bid'
+          - url: 'https://www.washingtonblade.com/2020/01/21/d-c-council-member-white-announces-re-election-bid/'
+            title: D.C. Council member White announces re-election bid
         twitter: trayonwhite
         instagram: trayonwhite
         elections:
@@ -1936,6 +1964,7 @@ Primary Election:
         neighborhood: Douglas
         twitter: AdeoyeOwolewa
         website: deoye.net
+        instagram: oye4dc
         elections:
           - year: 2018
             election: General
@@ -1947,6 +1976,9 @@ Primary Election:
         boe_pickup_date: 1/10/2020
         boe_filing_date: ''
         withdrew: ''
+        links:
+          - url: 'https://www.washingtoninformer.com/d-c-election-roundup-owolewa-seeks-shadow-rep-position/'
+            title: 'D.C. ELECTION ROUNDUP: Owolewa Seeks Shadow Rep Position'
       - committee_id: 14151
         first_name: Dalton E.
         last_name: Patterson
@@ -2091,6 +2123,19 @@ Primary Election:
         fair_elections: false
         neighborhood: Downtown
         withdrew: ''
+      - candidate_name: Tulsi Gabbard
+        contact_name: Erika Tsuji
+        address: PO Box 75255 Kapolei HI
+        zip: '96707'
+        phone: 808-861-0793
+        boe_pickup_date: 2/5/2020
+        boe_filing_date: ''
+        email: info@tulsi2020.com
+        withdrew: ''
+        first_name: Tulsi
+        last_name: Gabbard
+        fair_elections: null
+        neighborhood: null
       - candidate_name: Tom Steyer
         contact_name: George B Scharroo
         address: '94121'
@@ -2144,6 +2189,9 @@ Primary Election:
         fair_elections: false
         withdrew: ''
         neighborhood: null
+        links:
+          - url: 'https://norton.house.gov/'
+            title: House website
   Republican:
     Council At-Large:
       - candidate_name: Aderonke Balongun
@@ -2191,11 +2239,25 @@ Primary Election:
         chairperson_name: Dr. Charles Vincent
         chair_phone: (202) 231-7244
         chair_email: cvincent01@gmail.com
+        facebook: maryafordc
     President:
+      - candidate_name: Roque "Rocky" De La Fuente
+        contact_name: CA 92101
+        address: ''
+        zip: ''
+        phone: 202-445-1813
+        boe_pickup_date: 2/5/2020
+        boe_filing_date: ''
+        email: ''
+        withdrew: ''
+        first_name: Roque "Rocky" De La
+        last_name: Fuente
+        fair_elections: null
+        neighborhood: null
       - candidate_name: Donald J. Trump
         contact_name: Nicholas Trainer
-        address: '22219'
-        zip: ''
+        address: PO Box 13570 Arlington VA
+        zip: '22219'
         phone: 484-400-1971
         boe_pickup_date: 1/14/2020
         boe_filing_date: ''
@@ -2768,8 +2830,6 @@ General Election:
         phone: (571) 269-8254
         email: robertleesystrol@gmail.com
         zip: '20004'
-        twitter: ''
-        website: ''
         neighborhood: Downtown
         fair_elections: null
   Nonpartisan:
@@ -3050,6 +3110,123 @@ Special Election:
         chairperson_name: ''
         chair_phone: ''
         chair_email: ''
+        elections:
+          - year: 1988
+            election: General
+            party: Nonpartisan
+            office: ANC 2B07
+            result: Won
+          - year: 1990
+            election: General
+            party: Nonpartisan
+            office: ANC 2B07
+            result: Won
+          - year: 1991
+            election: Special
+            party: Democratic
+            office: Council Ward 2
+            result: Won
+            percent: 31
+          - year: 1992
+            election: Primary
+            party: Democratic
+            office: Council Ward 2
+            result: Won
+            percent: 95
+          - year: 1992
+            election: General
+            party: Democratic
+            office: Council Ward 2
+            result: Won
+            percent: 79
+          - year: 1996
+            election: Primary
+            party: Democratic
+            office: Council Ward 2
+            result: Won
+            percent: 78
+          - year: 1996
+            election: General
+            party: Democratic
+            office: Council Ward 2
+            result: Won
+            percent: 79
+          - year: 2000
+            election: Primary
+            party: Democratic
+            office: Council Ward 2
+            result: Won
+            percent: 66
+          - year: 2000
+            election: General
+            party: Democratic
+            office: Council Ward 2
+            result: Won
+            percent: 80
+          - year: 2004
+            election: Primary
+            party: Democratic
+            office: Council Ward 2
+            result: Won
+            percent: 96
+          - year: 2004
+            election: General
+            party: Democratic
+            office: Council Ward 2
+            result: Won
+            percent: 82
+          - year: 2008
+            election: Primary
+            party: Democratic
+            office: Council Ward 2
+            result: Won
+            percent: 64
+          - year: 2008
+            election: General
+            party: Democratic
+            office: Council Ward 2
+            result: Won
+            percent: 82
+          - year: 2012
+            election: Primary
+            party: Democratic
+            office: Council Ward 2
+            result: Won
+            percent: 92
+          - year: 2012
+            election: General
+            party: Democratic
+            office: Council Ward 2
+            result: Won
+            percent: 97
+          - year: 2016
+            election: Primary
+            party: Democratic
+            office: Council Ward 2
+            result: Won
+            percent: 95
+          - year: 2016
+            election: General
+            party: Democratic
+            office: Council Ward 2
+            result: Won
+            percent: 95
+          - year: 2018
+            election: Primary
+            party: Democratic
+            office: National Committeeman
+            result: Won
+            percent: 64
+        website: evansward2.com
+        links:
+          - url: 'https://www.washingtonpost.com/opinions/2020/02/01/jack-evans-approaches-trumpian-levels-shamelessness/'
+            title: Jack Evans approaches Trumpian levels of shamelessness
+          - url: >-
+              https://www.washingtonpost.com/local/dc-politics/jack-evans-to-run-for-dc-council-after-resigning-seat-amid-ethics-scandal/2020/01/27/fdd6cdfc-4138-11ea-b503-2b077c436617_story.html
+            title: Jack Evans to run for D.C. Council after resigning seat amid ethics scandal
+          - url: >-
+              https://wamu.org/story/20/01/31/disgraced-d-c-councilmember-jack-evans-wants-public-financing-to-win-back-his-seat/
+            title: Disgraced Former D.C. Council Member Jack Evans Wants Public Financing To Win Back His Seat
       - candidate_name: John Fanning
         contact_name: Bill Brown 1418
         address: 14th St NW
@@ -3212,6 +3389,47 @@ Special Election:
         last_name: Putta
         fair_elections: true
         neighborhood: Burleith
+        twitter: KishanForDC
+        website: kishanfordc.com
+        facebook: kishanfordc
+        instagram: kishanfordc
+        links:
+          - url: >-
+              https://www.washingtonpost.com/local/dc-politics/dc-council-member-jack-evans-draws-his-fifth-democratic-primary-challenger/2019/06/26/7244be80-9827-11e9-830a-21b9b36b64ad_story.html
+            title: D.C. Council member Jack Evans draws his fifth Democratic primary challenger
+          - url: 'https://georgetowner.com/articles/2019/06/27/jack-evanss-challenges-mount/'
+            title: Evans's Challenges Mount; Putta Announces
+          - url: >-
+              https://dcist.com/story/19/06/26/anc-commissioner-jumps-into-the-crowded-race-for-ward-2-councilmember-jack-evans-seat/
+            title: ANC Commissioner Jumps Into The Crowded Race For Ward 2 Councilmember Jack Evans' Seat
+          - url: 'https://www.gwhatchet.com/2019/06/27/fifth-candidate-announces-bid-against-jack-evans/'
+            title: Fifth candidate announces bid against Jack Evans
+          - url: >-
+              https://www.washingtoncitypaper.com/news/loose-lips/article/21075826/evans-challenger-kishan-putta-grapples-with-his-conservative-past
+            title: Evans Challenger Kishan Putta Grapples With His Conservative Past
+        elections:
+          - year: 2012
+            election: General
+            party: Nonpartisan
+            office: ANC 2B04
+            result: Won
+            percent: 62
+          - year: 2014
+            office: Council At-Large
+            result: Lost
+            percent: 3
+          - year: 2018
+            election: Primary
+            party: Democratic
+            office: Committeeman At-Large
+            result: Lost
+            percent: 24
+          - year: 2018
+            election: General
+            party: Nonpartisan
+            office: ANC 2E01
+            result: Won
+            percent: 68
       - candidate_name: Yilin (Ellen) Zhang
         contact_name: P.O. Box
         address: '53082'
@@ -3243,6 +3461,14 @@ Special Election:
         chairperson_name: Ms. Yilin Zhang
         chair_phone: (202) 524-0536
         chair_email: yilinzh2008@gmail.com
+        twitter: yilinforward2
+        website: yilinforward2.com
+        facebook: yilinforward2
+        withdrew: ''
+        links:
+          - url: >-
+              https://dcist.com/story/20/01/09/this-political-newcomer-is-the-only-woman-running-for-jack-evans-empty-ward-2-seat/
+            title: This Political Newcomer Is The Only Woman Running For Jack Evans' Empty Ward 2 Seat
   Republican:
     Council Ward 2:
       - candidate_name: Katherine Venice
@@ -3257,3 +3483,11 @@ Special Election:
         last_name: Venice
         fair_elections: true
         neighborhood: Downtown
+        withdrew: ''
+        website: katherineward2.com
+        twitter: Katherine4Ward2
+        links:
+          - url: 'https://dcist.com/story/20/01/15/a-republican-candidate-joins-the-crowded-ward-2-race/'
+            title: A Republican Candidate Joins The Crowded Ward 2 Race
+          - url: 'https://www.gwhatchet.com/2020/01/15/lone-republican-enters-race-to-succeed-jack-evans-as-councilmember/'
+            title: Lone Republican enters race to succeed Jack Evans as councilmember

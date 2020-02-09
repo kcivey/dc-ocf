@@ -288,8 +288,7 @@ function fixContributionRow(oldRow) {
     }
     else {
         if (!row.employer_address) {
-            console.warn(row);
-            throw new Error('Missing employer address');
+            row.employer_address = '';
         }
         row.employer_address = row.employer_address.replace('\n', ', ')
             .replace(/,\s*/, ', ')

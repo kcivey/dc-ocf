@@ -31,42 +31,56 @@ async function main() {
     if (argv.committee) {
         await browser.fill('input[placeholder="Search by Committee Name"]', argv.committee);
     }
-    const rows = await browser.querySelectorAll('table > tbody > tr');
-    for (const row of rows) {
-        const cells = Array.from(row.querySelectorAll('td'));
-        const link = cells[0].querySelector('a');
-        const [committeeName, reportName, /* filingYear */, submittedDate] = cells.map(n => n.textContent);
-        console.warn(`Getting ${submittedDate} ${reportName} for ${committeeName}`);
-        const pdfFile =
-            outputDir + '/' +
-            hyphenize(
-                committeeName.toLowerCase() + ' ' +
-                reportName.replace(' Report', '') + ' ' +
-                submittedDate.replace(/^(\d\d)\/(\d\d)\/(\d{4})$/, '$3$1$2')
-            ) +
-            '.pdf';
-        if (!argv.refresh) {
-            try {
-                fs.accessSync(pdfFile);
-                console.warn('File exists');
-                continue;
+    let page = 1;
+    doTable: while (true) {
+        const rows = await browser.querySelectorAll('table > tbody > tr');
+        for (const row of rows) {
+            const cells = Array.from(row.querySelectorAll('td'));
+            const link = cells[0].querySelector('a');
+            const [committeeName, reportName, /* filingYear */, submittedDate] = cells.map(n => n.textContent);
+            console.warn(`Getting ${submittedDate} ${reportName} for ${committeeName}`);
+            const pdfFile =
+                outputDir + '/' +
+                hyphenize(
+                    committeeName.toLowerCase() + ' ' +
+                    reportName.replace(' Report', '') + ' ' +
+                    submittedDate.replace(/^(\d\d)\/(\d\d)\/(\d{4})$/, '$3$1$2')
+                ) +
+                '.pdf';
+            if (!argv.refresh) {
+                try {
+                    fs.accessSync(pdfFile);
+                    console.warn('File exists');
+                    continue;
+                }
+                catch (err) {
+                    // File doesn't exist, so go on
+                }
             }
-            catch (err) {
-                // File doesn't exist, so go on
+            await browser.click(link);
+            const resource = browser.resources[browser.resources.length - 1];
+            // A zombie bug causes the PDF content to be corrupted by conversion to a UTF-8 string,
+            // so we have to make the request again with the request module
+            const pdfUrl = resource.response.url;
+            const jar = request.jar();
+            for (const cookie of browser.cookies) {
+                jar.setCookie(request.cookie(cookie.toString()), pdfUrl);
+            }
+            const pdfContent = await request({url: pdfUrl, gzip: true, encoding: null, jar});
+            fs.writeFileSync(pdfFile, pdfContent);
+            console.warn(`Wrote ${pdfContent.length} bytes to ${pdfFile}`);
+        }
+        page++;
+        const buttons = await browser.querySelectorAll('ul.pagination > li.page-item > button');
+        for (const button of buttons) {
+            if (+button.textContent === page) {
+                console.warn(`Clicking ${page}`);
+                await browser.click(button);
+                continue doTable;
             }
         }
-        await browser.click(link);
-        const resource = browser.resources[browser.resources.length - 1];
-        // A zombie bug causes the PDF content to be corrupted by conversion to a UTF-8 string,
-        // so we have to make the request again with the request module
-        const pdfUrl = resource.response.url;
-        const jar = request.jar();
-        for (const cookie of browser.cookies) {
-            jar.setCookie(request.cookie(cookie.toString()), pdfUrl);
-        }
-        const pdfContent = await request({url: pdfUrl, gzip: true, encoding: null, jar});
-        fs.writeFileSync(pdfFile, pdfContent);
-        console.warn(`Wrote ${pdfContent.length} bytes to ${pdfFile}`);
+        console.warn('Last page');
+        break;
     }
 }
 

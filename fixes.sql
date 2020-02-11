@@ -85,7 +85,8 @@ UPDATE contributions SET city = 'Washington' WHERE state = 'DC' AND (city LIKE '
     AND city <> 'Washington';
 UPDATE contributions SET state = 'DC' WHERE state = '' AND city LIKE 'Was%';
 
-UPDATE committee_extras SET last_deadline = '2019-08-31' WHERE committee_name LIKE '%Lewis George%' AND last_deadline IS NULL;
-UPDATE committee_extras SET last_deadline = '2019-07-31' WHERE last_deadline IS NULL;
+UPDATE committee_extras SET is_special = 1 WHERE committee_name = 'Evans Ward 2';
+UPDATE committee_extras SET is_special = 1 WHERE committee_name LIKE '%Special%';
+UPDATE committee_extras SET is_special = 0 WHERE is_special IS NULL;
 
 UPDATE contributions SET contributor_type = 'Candidate' WHERE contributor_last_name = 'Grossman' AND contributor_first_name = 'Seth' AND amount < 2000;

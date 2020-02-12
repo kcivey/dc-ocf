@@ -12,11 +12,10 @@ In order by number of contributors, they are
 
 All the candidates are Democrats.
 Reports for Gray, Brown, and Rasheed cover contributions through January 31.
-Green has not yet filed his January 31 reports, so the analysis covers only through December 10 for him.
+Green filed the optional February 10 report.
 
 Rasheed's contributions also include those made to the exploratory committee she set up before forming a principal
 campaign committee.
-There are some bugs related to her exploratory committee that I haven't fixed yet.
 
 Gray and Rasheed can accept contributions up to $500, from individuals and from organizations (corporations, LLCs,
 PACs, unions, and so on), and use as much of their own money as they wish.

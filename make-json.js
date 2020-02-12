@@ -262,12 +262,21 @@ async function getSharedData({committees, year}) {
     const threshold = 5;
     const places = 5;
     const data = {};
-    for (const committeeName of committees.map(c => c.committee_name)) {
-        const rows = await db.getCommitteesWithTopSharedContributors(committeeName, year);
+    for (const committee of committees) {
+        const candidate = committee.candidate_short_name;
+        if (data[candidate]) { // already seen (candidate has more than one committee)
+            continue;
+        }
+        const args = {
+            candidate,
+            office: committee.office,
+            year,
+        };
+        const rows = await db.getCommitteesWithTopSharedContributors(args);
         if (!rows[0] || rows[0].count < threshold) {
             continue;
         }
-        const total = await db.getContributorCount(committeeName, year);
+        const total = await db.getContributorCount(args);
         let prevCount = 1;
         let i = 0;
         for (const row of rows) {
@@ -275,10 +284,10 @@ async function getSharedData({committees, year}) {
             if (i > places || row.contributors < threshold) {
                 break;
             }
-            if (!data[committeeName]) {
-                data[committeeName] = [];
+            if (!data[candidate]) {
+                data[candidate] = [];
             }
-            data[committeeName].push([
+            data[candidate].push([
                 prevCount === row.contributors ? '<i>tie</i>' : i,
                 row.candidate_name,
                 row.election_year,
@@ -318,7 +327,7 @@ async function getDateData(baseFilters, ward) {
         const runningTotals = {};
         let i = 0;
         const candidates = filters.committees
-            ? filters.committees.map(c => c.candidate_short_name)
+            ? new Set(filters.committees.map(c => c.candidate_short_name))
             : Object.keys(lastDeadlines);
         for (const candidate of candidates) {
             columns[i] = [candidate];
@@ -336,7 +345,7 @@ async function getDateData(baseFilters, ward) {
             let i = 0;
             for (const candidate of candidates) {
                 const lastDeadline = lastDeadlines[candidate];
-                if (isoDate <= lastDeadline || (data[isoDate] && data[isoDate][candidate])) {
+                if (isoDate <= lastDeadline) {
                     runningTotals[candidate] += +(data[isoDate] && data[isoDate][candidate]) || 0;
                     columns[i].push(runningTotals[candidate]);
                 }
@@ -354,19 +363,24 @@ async function getPlaceData(filters, ward = null) {
     const allStates = await db.getContributorPlaces(office, year);
     const allWards = await db.getContributorPlaces(office, year, true);
     const placeData = [];
-    for (const committee of committees) {
-        const committeeName = committee.committee_name;
-        const contributorsByState = await db.getContributorsByPlace(committeeName, year);
+    const candidates = new Set(committees.map(c => c.candidate_short_name));
+    for (const candidate of candidates) {
+        const args = {
+            candidate,
+            office: filters.office,
+            year,
+        };
+        const contributorsByState = await db.getContributorsByPlace(args);
         const stateColumns = makePlaceContributorColumns(allStates, contributorsByState);
         const contributorStates = stateColumns.map(item => item[0]);
         const stateColors = makeColors(allStates, contributorStates, 'DC');
-        const contributorsByWard = await db.getContributorsByPlace(committeeName, year, true);
+        const contributorsByWard = await db.getContributorsByPlace({...args, byWard: true});
         const wardColumns = makePlaceContributorColumns(allWards, contributorsByWard);
         const contributorWards = wardColumns.map(item => item[0]);
         const wardColors = makeColors(allWards, contributorWards, ward);
         placeData.push({
-            candidate: committee.candidate_short_name,
-            code: hyphenize(committee.candidate_short_name),
+            candidate,
+            code: hyphenize(candidate),
             state: {
                 columns: stateColumns,
                 colors: stateColors,

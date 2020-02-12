@@ -373,7 +373,7 @@ Primary Election:
         fair_elections: true
         contact_name: Bill Brown
         boe_pickup_date: 1/10/2020
-        boe_filing_date: ''
+        boe_filing_date: 2/10/2020
         withdrew: ''
       - committee_id: 4090
         first_name: Jordan
@@ -423,7 +423,7 @@ Primary Election:
         fair_elections: true
         contact_name: Jordan Grossman
         boe_pickup_date: 1/10/2020
-        boe_filing_date: ''
+        boe_filing_date: 2/10/2020
         withdrew: ''
       - committee_id: 4095
         first_name: Daniel
@@ -828,7 +828,7 @@ Primary Election:
             percent: 42
         contact_name: Marlena D. Edwards
         boe_pickup_date: 1/10/2020
-        boe_filing_date: ''
+        boe_filing_date: 2/10/2020
         withdrew: ''
         website: marlenaedwardsward4.com
       - committee_id: 4106
@@ -883,7 +883,7 @@ Primary Election:
         fair_elections: true
         contact_name: Michelle Whittaker
         boe_pickup_date: 1/10/2020
-        boe_filing_date: ''
+        boe_filing_date: 2/10/2020
         withdrew: ''
       - committee_id: 4088
         first_name: Brandon
@@ -1853,7 +1853,7 @@ Primary Election:
             percent: 76
         contact_name: Taylor Berlin
         boe_pickup_date: 1/10/2020
-        boe_filing_date: ''
+        boe_filing_date: 2/10/2020
         withdrew: ''
     US Representative:
       - candidate_name: Susana Baranano
@@ -2182,7 +2182,7 @@ Primary Election:
         zip: '20024'
         phone: 202-207-8829
         boe_pickup_date: 1/10/2020
-        boe_filing_date: ''
+        boe_filing_date: 2/10/2020
         email: citizenstoelectnorton@gmail.com
         first_name: Eleanor Holmes
         last_name: Norton
@@ -3076,6 +3076,21 @@ General Election:
         zip: '20020'
         fair_elections: true
         neighborhood: Anacostia
+  DC Statehood Green:
+    US Senator:
+      - candidate_name: Eleanor Ory
+        contact_name: ''
+        address: 1825 T St NW
+        zip: '20009'
+        phone: 954-940-8281
+        boe_pickup_date: 2/10/2020
+        boe_filing_date: ''
+        email: echo4senate@gmail.com
+        withdrew: ''
+        first_name: Eleanor
+        last_name: Ory
+        fair_elections: false
+        neighborhood: Strivers Section
 Special Election:
   Democratic:
     Council Ward 2:
@@ -3233,7 +3248,7 @@ Special Election:
         zip: '20005'
         phone: 202-271-3467
         boe_pickup_date: 1/15/2020
-        boe_filing_date: ''
+        boe_filing_date: 2/10/2020
         email: fanningforward2@gmail.com
         first_name: John
         last_name: Fanning

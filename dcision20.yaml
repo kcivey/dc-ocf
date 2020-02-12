@@ -2322,6 +2322,21 @@ Primary Election:
         chairperson_name: Mr. Nathan Derenge
         chair_phone: (605) 553-8895
         chair_email: nathan.derenge@gmail.com
+  Statehood Green:
+    US Senator:
+      - candidate_name: Eleanor Ory
+        contact_name: ''
+        address: 1825 T St NW
+        zip: '20009'
+        phone: 954-940-8281
+        boe_pickup_date: 2/10/2020
+        boe_filing_date: ''
+        email: echo4senate@gmail.com
+        withdrew: ''
+        first_name: Eleanor
+        last_name: Ory
+        fair_elections: false
+        neighborhood: Strivers Section
 General Election:
   Independent:
     Council At-Large:
@@ -3076,21 +3091,6 @@ General Election:
         zip: '20020'
         fair_elections: true
         neighborhood: Anacostia
-  DC Statehood Green:
-    US Senator:
-      - candidate_name: Eleanor Ory
-        contact_name: ''
-        address: 1825 T St NW
-        zip: '20009'
-        phone: 954-940-8281
-        boe_pickup_date: 2/10/2020
-        boe_filing_date: ''
-        email: echo4senate@gmail.com
-        withdrew: ''
-        first_name: Eleanor
-        last_name: Ory
-        fair_elections: false
-        neighborhood: Strivers Section
 Special Election:
   Democratic:
     Council Ward 2:

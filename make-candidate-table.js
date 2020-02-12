@@ -133,11 +133,11 @@ function transformRecords(records) {
                 a.first_name.localeCompare(b.first_name);
         })
         .map(function (r) {
-            r.party = r.party_name === 'Democrat'
-                ? 'Democratic'
-                : r.party_name === 'Non-Partisan'
-                    ? 'Nonpartisan'
-                    : r.party_name;
+            r.party = {
+                Democrat: 'Democratic',
+                'Non-Partisan': 'Nonpartisan',
+                'DC Statehood Green': 'Statehood Green',
+            }[r.party_name] || r.party_name;
             r.office = r.office.replace('D.C. State Board of Education', 'SBOE');
             for (const key of [
                 'office_sought',

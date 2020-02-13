@@ -6,15 +6,16 @@ In order by number of contributors, they are
 <ul>
 <li>Stuart Anderson</li>
 <li>Mike Austin</li>
+<li>Yaida Ford</li>
 <li>Richard Campbell</li>
 </ul>
 
 All the candidates are Democrats.
-Auston's report covers contributions through January 31.
+Austin's and Ford's reports cover contributions through January 31.
 Anderson and Campbell have not yet filed their January 31 reports, so the analysis covers only through December 10 for them.
 
-Campbell can accept contributions up to $500, from individuals and from organizations (corporations, LLCs,
-PACs, unions, and so on), and use as much of his own money as he wishes.
+Ford and Campbell can accept contributions up to $500, from individuals and from organizations (corporations, LLCs,
+PACs, unions, and so on), and use as much of their own money as they wish.
 Anderson and Austin are participating in the Fair Elections public campaign finance program
 and so can accept up to $50 and only from individuals (except for the candidate and their family,
 who can give up to $2,500), but can receive considerable additional funds from public money if they

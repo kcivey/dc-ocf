@@ -108,7 +108,7 @@ Primary Election:
         fair_elections: false
         contact_name: Daniel Moskovitz
         boe_pickup_date: 1/10/2020
-        boe_filing_date: ''
+        boe_filing_date: 2/13/2020
         withdrew: ''
       - candidate_name: Tori Fernandez Whitney
         contact_name: Tori Fernandez Whitney
@@ -559,6 +559,28 @@ Primary Election:
         boe_pickup_date: 1/10/2020
         boe_filing_date: ''
         withdrew: ''
+      - candidate_name: Brooke Pinto
+        contact_name: Brooke Pinto
+        address: 1219 Q St NW
+        zip: '20009'
+        phone: 202-400-1295
+        boe_pickup_date: 2/13/2020
+        boe_filing_date: ''
+        email: brook@brookepintoforward2.com
+        withdrew: ''
+        first_name: Brooke
+        last_name: Pinto
+        fair_elections: false
+        neighborhood: Logan Circle
+        links:
+          - url: >-
+              https://www.washingtonpost.com/local/dc-politics/jack-evans-draws-seventh-opponent-in-dc-council-comeback-bid-brooke-pinto/2020/02/13/2423d504-4d23-11ea-b721-9f4cdc90bc1c_story.html
+            title: 'Jack Evans draws seventh opponent in D.C. Council comeback bid: Brooke Pinto'
+          - url: >-
+              https://dcist.com/story/20/02/13/former-racine-staffer-joins-ward-2-d-c-council-race-widening-an-already-crowded-field/
+            title: 'Eighth Democrat Joins Ward 2 D.C. Council Race, Widening An Already Crowded Field'
+        twitter: brookecpinto
+        website: brookepintoforward2.com
       - committee_id: 4098
         first_name: Kishan
         last_name: Putta
@@ -2024,7 +2046,7 @@ Primary Election:
         committee_name: Pete Ross
         id: 5068
         name: Mr. Pete Ross
-        address: 1712 Surrey LN
+        address: 1712 Surrey Ln
         filing_date: 01/10/2020
         phone: 202-607-0000
         email: PETE@PETEROSS.com
@@ -2243,9 +2265,9 @@ Primary Election:
     President:
       - candidate_name: Roque "Rocky" De La Fuente
         contact_name: CA 92101
-        address: ''
+        address: 202-445-1813
         zip: ''
-        phone: 202-445-1813
+        phone: ''
         boe_pickup_date: 2/5/2020
         boe_filing_date: ''
         email: ''
@@ -2322,6 +2344,20 @@ Primary Election:
         chairperson_name: Mr. Nathan Derenge
         chair_phone: (605) 553-8895
         chair_email: nathan.derenge@gmail.com
+    US Representative:
+      - candidate_name: Donald R. Green Jr
+        contact_name: ''
+        address: 1355 New York Ave NE
+        zip: '20002'
+        phone: ''
+        boe_pickup_date: 2/13/2020
+        boe_filing_date: ''
+        email: d.green42192@gmail.com
+        withdrew: ''
+        first_name: Donald R.
+        last_name: Green
+        fair_elections: false
+        neighborhood: Ivy City
   Statehood Green:
     US Senator:
       - candidate_name: Eleanor Ory
@@ -2734,6 +2770,25 @@ General Election:
         facebook: jeanneatlarge
         instagram: msjeannelewis
         website: jeannelewisatlarge.com
+      - committee_id: 0
+        first_name: Asar
+        last_name: Mustafa
+        candidate_key: CANCCL207162
+        election_year: 2020
+        candidate_approved: true
+        committee_approved: false
+        termination_approved: false
+        candidate_name: Asar Mustafa
+        committee_name: Asar Mustafa
+        id: 15094
+        name: Mr. Asar Mustafa
+        address: 1211 5th St NE
+        filing_date: 02/12/2020
+        phone: (202) 255-7898
+        email: economicprotectionparty@gmail.com
+        zip: '20002'
+        fair_elections: null
+        neighborhood: Near Northeast
       - committee_id: 4127
         first_name: Eric
         last_name: Rogers
@@ -2793,7 +2848,7 @@ General Election:
         chair_email: langm@faunteroycenter.org
         zip: '20020'
         neighborhood: Buena Vista
-        fair_elections: true
+        fair_elections: false
       - committee_id: 4112
         first_name: Taurus
         last_name: Phillips
@@ -3392,6 +3447,27 @@ Special Election:
         contact_name: ''
         boe_pickup_date: 1/17/2020
         boe_filing_date: ''
+      - candidate_name: Brooke Pinto
+        contact_name: ''
+        address: 1219 Q St NW
+        zip: '20009'
+        phone: 202-400-1295
+        boe_pickup_date: 2/13/2020
+        boe_filing_date: ''
+        email: brook@brookepintoforward2.com
+        first_name: Brooke
+        last_name: Pinto
+        fair_elections: false
+        neighborhood: Logan Circle
+        links:
+          - url: >-
+              https://www.washingtonpost.com/local/dc-politics/jack-evans-draws-seventh-opponent-in-dc-council-comeback-bid-brooke-pinto/2020/02/13/2423d504-4d23-11ea-b721-9f4cdc90bc1c_story.html
+            title: 'Jack Evans draws seventh opponent in D.C. Council comeback bid: Brooke Pinto'
+          - url: >-
+              https://dcist.com/story/20/02/13/former-racine-staffer-joins-ward-2-d-c-council-race-widening-an-already-crowded-field/
+            title: 'Eighth Democrat Joins Ward 2 D.C. Council Race, Widening An Already Crowded Field'
+        twitter: brookecpinto
+        website: brookepintoforward2.com
       - candidate_name: Kishan Putta
         contact_name: ''
         address: 3831 T St NW

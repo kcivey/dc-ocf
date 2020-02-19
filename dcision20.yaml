@@ -38,6 +38,19 @@ Primary Election:
         boe_pickup_date: 1/10/2020
         boe_filing_date: ''
         withdrew: ''
+      - candidate_name: A'Shia Howard
+        contact_name: Adrienne Darling
+        address: 1416 Michigan Ave NE
+        zip: '20017'
+        phone: 202-557-9583
+        boe_pickup_date: 2/18/2020
+        boe_filing_date: ''
+        email: adrienne.darling.ad@gmail.com
+        withdrew: ''
+        first_name: A'Shia
+        last_name: Howard
+        fair_elections: null
+        neighborhood: Michigan Park
       - candidate_name: Keith A. Silver
         contact_name: Keith A. Silver
         address: 901 New Jersey Ave NW
@@ -566,7 +579,7 @@ Primary Election:
         phone: 202-400-1295
         boe_pickup_date: 2/13/2020
         boe_filing_date: ''
-        email: brook@brookepintoforward2.com
+        email: brooke@brookepintoforward2.com
         withdrew: ''
         first_name: Brooke
         last_name: Pinto
@@ -1491,9 +1504,8 @@ Primary Election:
         candidate_approved: true
         committee_approved: true
         termination_approved: false
-        election_description: Primary Election
         candidate_name: Yaida Ford
-        committee_name: Elect Yaiden Ford
+        committee_name: Elect Yaida Ford
         id: 5069
         name: Ms. Yaida Ford
         address: 224 Malcolm X Ave SE
@@ -2079,7 +2091,7 @@ Primary Election:
         boe_filing_date: ''
         withdrew: ''
       - candidate_name: Pedro Rubio
-        contact_name: Pedro Rubio
+        contact_name: ''
         address: 5749 13th St NW
         zip: '20011'
         phone: 202-386-0194
@@ -2090,7 +2102,7 @@ Primary Election:
         last_name: Rubio
         fair_elections: false
         neighborhood: 16th Street Heights
-        withdrew: ''
+        withdrew: 1/27/2020
         twitter: PedroRubio_DC
         elections:
           - year: 2014
@@ -2151,7 +2163,7 @@ Primary Election:
         zip: '96707'
         phone: 808-861-0793
         boe_pickup_date: 2/5/2020
-        boe_filing_date: ''
+        boe_filing_date: 2/5/2020
         email: info@tulsi2020.com
         withdrew: ''
         first_name: Tulsi
@@ -2373,6 +2385,34 @@ Primary Election:
         last_name: Ory
         fair_elections: false
         neighborhood: Strivers Section
+    Council At-Large:
+      - candidate_name: Ann C. Wilcox
+        contact_name: ''
+        address: 7312 Alaska Ave NW
+        zip: '20012'
+        phone: 202-441-3265
+        boe_pickup_date: 2/14/2020
+        boe_filing_date: ''
+        email: Ann1Wilcox@gmail.com
+        withdrew: ''
+        first_name: Ann C.
+        last_name: Wilcox
+        fair_elections: null
+        neighborhood: Shepherd Park
+    Delegate to the US House:
+      - candidate_name: Natale Lino Stracuzzi
+        contact_name: ''
+        address: 2804 Jasper Rd SE
+        zip: '20020'
+        phone: 202-258-1699
+        boe_pickup_date: 2/14/2020
+        boe_filing_date: ''
+        email: stracuzziforcongress@gmail.com
+        withdrew: ''
+        first_name: Natale Lino
+        last_name: Stracuzzi
+        fair_elections: false
+        neighborhood: Douglas
 General Election:
   Independent:
     Council At-Large:
@@ -2532,9 +2572,9 @@ General Election:
         email: fgarcia@maestropc.com
         committee_address: '2218 Newton Street, SE, Washington, DC 20018'
         committee_phone: (202) 460-3046
-        treasurer_name: Mr. Ronnie Edwards
-        treasurer_phone: (202) 558-6389
-        treasurer_email: ronnieedwards.5C11@gmail.com
+        treasurer_name: Mr. Edier Cossio
+        treasurer_phone: (202) 492-0273
+        treasurer_email: edier24@gmail.com
         chairperson_name: Franklin Garcia
         chair_phone: (202) 460-3046
         chair_email: fgarcia@maestropc.com

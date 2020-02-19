@@ -432,8 +432,8 @@ async function getBoePickups() {
                     address: standardizeAddress(m[4]),
                     zip: m[5],
                     phone: m[6],
-                    boe_pickup_date: m[7],
-                    boe_filing_date: m[8],
+                    boe_pickup_date: standardizeDate(m[7]),
+                    boe_filing_date: standardizeDate(m[8]),
                     email: m[9],
                 });
             }
@@ -441,6 +441,7 @@ async function getBoePickups() {
         else {
             const lineRe =
                 /^(\S+(?: \S+)*)  +?(\S+(?: \S+)+|) +((?:P\.?O\.? Box )?\d.*?)? (\d{5})? +(\d[-\d]+)? +([\d/]+)(?: +([\d/]*) +(\S+)\s*)?$/; // eslint-disable-line max-len
+            const withdrewRe = /^(.+?)\s*\(withdrew (\d\d?\/\d\d?\/(?:\d\d|\d{4}))\)/i;
             let office;
             for (const page of pdfText.split('\f')) {
                 if (!/\S/.test(page)) {
@@ -470,11 +471,16 @@ async function getBoePickups() {
                     if (/Committee/.test(office)) {
                         continue; // skip party positions
                     }
-                    m = (office + ' ' + candidate).match(/^(.+?) \(withdrew (\d\d?\/\d\d?\/\d{4})\)/i);
+                    m = candidate.match(withdrewRe);
+                    if (!m) {
+                        m = (office + ' ' + candidate).match(withdrewRe);
+                        if (m) { // eslint-disable-line max-depth
+                            office = prevOffice;
+                        }
+                    }
                     if (m) {
                         candidate = m[1];
-                        office = prevOffice;
-                        withdrew = m[2];
+                        withdrew = standardizeDate(m[2]);
                     }
                     pickups.push({
                         election_description: 'Primary Election',
@@ -485,8 +491,8 @@ async function getBoePickups() {
                         address: standardizeAddress(address),
                         zip: zip || '',
                         phone: phone || '',
-                        boe_pickup_date: pickupDate,
-                        boe_filing_date: filingDate || '',
+                        boe_pickup_date: standardizeDate(pickupDate),
+                        boe_filing_date: standardizeDate(filingDate || ''),
                         email: email || '',
                         withdrew,
                     });
@@ -538,4 +544,8 @@ function standardizeOffice(office) {
             : office.replace(/(.*) Member of the Council of the District of Columbia/, 'Council $1')
                 .replace('At-large', 'At-Large')
                 .replace('United States', 'US');
+}
+
+function standardizeDate(d) {
+    return d.replace(/\/(?=\d\d$)/, '/20');
 }

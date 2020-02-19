@@ -594,6 +594,25 @@ Primary Election:
             title: 'Eighth Democrat Joins Ward 2 D.C. Council Race, Widening An Already Crowded Field'
         twitter: brookecpinto
         website: brookepintoforward2.com
+        committee_id: 14162
+        candidate_key: CANCC2207165
+        committee_key: PCCCC2207165
+        election_year: 2020
+        candidate_approved: true
+        committee_approved: true
+        termination_approved: false
+        committee_name: Brooke Pinto for Ward 2
+        id: 15097
+        name: Ms. Brooke Pinto
+        filing_date: 02/13/2020
+        committee_address: '1219 Q Street, NW, Washington, DC 20009'
+        committee_phone: (202) 400-1295
+        treasurer_name: Ms. Brooke Pinto
+        treasurer_phone: (202) 400-1295
+        treasurer_email: brooke@brookepintoforward2.com
+        chairperson_name: Ms. Brooke Pinto
+        chair_phone: (202) 400-1295
+        chair_email: brooke@brookepintoforward2.com
       - committee_id: 4098
         first_name: Kishan
         last_name: Putta
@@ -1799,6 +1818,16 @@ Primary Election:
             office: Committeewoman Ward 7
             result: Won
             percent: 57
+        committee_id: 0
+        candidate_key: CANSEN207164
+        election_year: 2020
+        candidate_approved: true
+        committee_approved: false
+        termination_approved: false
+        committee_name: Dorothy Douglas
+        id: 15096
+        name: Ms. Dorothy Douglas
+        filing_date: 02/19/2020
       - committee_id: 4129
         first_name: Paul
         last_name: Strauss
@@ -2091,7 +2120,7 @@ Primary Election:
         boe_filing_date: ''
         withdrew: ''
       - candidate_name: Pedro Rubio
-        contact_name: ''
+        contact_name: Pedro Rubio
         address: 5749 13th St NW
         zip: '20011'
         phone: 202-386-0194
@@ -2102,7 +2131,7 @@ Primary Election:
         last_name: Rubio
         fair_elections: false
         neighborhood: 16th Street Heights
-        withdrew: 1/27/2020
+        withdrew: 2/18/2020
         twitter: PedroRubio_DC
         elections:
           - year: 2014
@@ -2370,6 +2399,16 @@ Primary Election:
         last_name: Green
         fair_elections: false
         neighborhood: Ivy City
+        committee_id: 0
+        candidate_key: CANREP207163
+        election_year: 2020
+        candidate_approved: true
+        committee_approved: false
+        termination_approved: false
+        committee_name: Donald Green
+        id: 15095
+        name: Mr. Donald R. Green Jr.
+        filing_date: 02/19/2020
   Statehood Green:
     US Senator:
       - candidate_name: Eleanor Ory
@@ -3508,6 +3547,25 @@ Special Election:
             title: 'Eighth Democrat Joins Ward 2 D.C. Council Race, Widening An Already Crowded Field'
         twitter: brookecpinto
         website: brookepintoforward2.com
+        committee_id: 14163
+        candidate_key: CANCC2207166
+        committee_key: PCCCC2207166
+        election_year: 2020
+        candidate_approved: true
+        committee_approved: true
+        termination_approved: false
+        committee_name: Brooke Pinto for Ward 2 Special Election
+        id: 15098
+        name: Ms. Brooke Pinto
+        filing_date: 02/13/2020
+        committee_address: '1219 Q Street, NW, Washington, DC 20009'
+        committee_phone: (202) 400-1295
+        treasurer_name: ''
+        treasurer_phone: ''
+        treasurer_email: ''
+        chairperson_name: ''
+        chair_phone: ''
+        chair_email: ''
       - candidate_name: Kishan Putta
         contact_name: ''
         address: 3831 T St NW

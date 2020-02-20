@@ -2424,6 +2424,25 @@ Primary Election:
         last_name: Ory
         fair_elections: false
         neighborhood: Strivers Section
+        committee_id: 14164
+        candidate_key: CANSEN207167
+        committee_key: PCCSEN207167
+        election_year: 2020
+        candidate_approved: true
+        committee_approved: true
+        termination_approved: false
+        committee_name: Committee to Elect Ory for Senator
+        id: 15099
+        name: Ms. Eleanor Ory
+        filing_date: 02/18/2020
+        committee_address: '1825 T Street, NW. #203, Washington, DC 20009'
+        committee_phone: (954) 940-8281
+        treasurer_name: Ms. Eleanor Ory
+        treasurer_phone: (954) 940-8281
+        treasurer_email: echo4senate@gmail.com
+        chairperson_name: Ms. Elenor Ory
+        chair_phone: (954) 940-8281
+        chair_email: echo4senate@gmail.com
     Council At-Large:
       - candidate_name: Ann C. Wilcox
         contact_name: ''
@@ -2595,7 +2614,7 @@ General Election:
         first_name: Franklin
         last_name: Garcia
         candidate_key: CANCCL207133
-        committee_key: PCCCCL207133
+        committee_key: ''
         election_year: 2020
         candidate_approved: true
         committee_approved: true
@@ -3172,7 +3191,7 @@ General Election:
         first_name: Carlene
         last_name: Reid
         candidate_key: CANSD8207124
-        committee_key: PCCSD8207124
+        committee_key: ''
         election_year: 2020
         candidate_approved: true
         committee_approved: true

@@ -137,6 +137,7 @@ function transformRecords(records) {
                 Democrat: 'Democratic',
                 'Non-Partisan': 'Nonpartisan',
                 'DC Statehood Green': 'Statehood Green',
+                'D.C. Statehood Green Party': 'Statehood Green',
             }[r.party_name] || r.party_name;
             r.office = r.office.replace('D.C. State Board of Education', 'SBOE');
             for (const key of [
@@ -184,7 +185,8 @@ function transformRecords(records) {
             else if (r.committee_phone && r.committee_phone.match(/236-4074$/)) { // remove personal phone number
                 r.committee_phone = '';
             }
-            if (['Jordan Grossman', 'Patrick Kennedy', 'Kelvin Brown'].includes(r.candidate_name) &&
+            if (['Jordan Grossman', 'Patrick Kennedy', 'Kelvin Brown', 'Franklin Garcia', 'Carlene Reid']
+                .includes(r.candidate_name) &&
                 r.committee_key &&
                 r.committee_key.match(/^PCC/)) {
                 r.committee_key = ''; // remove erroneous PCCs

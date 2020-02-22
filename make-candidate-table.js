@@ -459,11 +459,12 @@ async function getBoePickups() {
                     party = m[1];
                 }
                 let prevOffice;
-                for (const line of page.split('\n')) {
+                for (let line of page.split('\n')) {
                     let withdrew = '';
                     if (!/^\S/.test(line) || /^Candidate's/.test(line)) {
                         continue;
                     }
+                    line = line.replace(/\s+in the June .*/, ''); // formatting problem
                     if (/^\S+(?: \S+)*$/.test(line)) {
                         prevOffice = office;
                         office = line;

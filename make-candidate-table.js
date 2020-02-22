@@ -161,6 +161,9 @@ function transformRecords(records) {
                 r.zip = m[2];
             }
             r.candidate_name = r.candidate_name.replace(/^(?:[DM]r|Mr?s)\.? /i, '');
+            if (r.committee_name === 'N/A') {
+                r.committee_name = '';
+            }
             if (!/[A-Z][a-z]/.test(r.candidate_name)) { // handle all-caps or all-lowercase name
                 r.candidate_name = r.candidate_name.toLowerCase().replace(/\b[a-z]/g, m => m.toUpperCase());
             }
@@ -195,7 +198,7 @@ function transformRecords(records) {
                 r.committee_key = ''; // remove erroneous PCCs
             }
             if (r.fair_elections == null) {
-                if (r.office.match(/Committee|^US|Delegate/)) {
+                if (r.office.match(/Committee|Party|^US|Delegate/)) {
                     r.fair_elections = false;
                 }
                 else {
@@ -320,7 +323,7 @@ function writeHtml(records) {
                     if (office === 'Council At-Large') {
                         office += ' (2 seats)';
                     }
-                    if (office.match(/Committee/)) {
+                    if (office.match(/Committee|Party/)) {
                         continue; // skip party positions
                     }
                     if (!recordsByElection[generalName][office]) {
@@ -474,7 +477,7 @@ async function getBoePickups() {
                     assert(m, `Unexpected format in PDF:\n${JSON.stringify(line)}`);
                     let [, candidate, contact, address, zip, phone, pickupDate, filingDate, email] = m;
                     assert(office, `Missing office for "${line}"`);
-                    if (/Committee/.test(office)) {
+                    if (/Committee|Party/.test(office)) {
                         continue; // skip party positions
                     }
                     m = candidate.match(withdrewRe);

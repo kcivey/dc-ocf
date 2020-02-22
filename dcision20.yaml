@@ -2013,7 +2013,7 @@ Primary Election:
         address: 1430 Tobias Dr SE
         filing_date: 01/03/2020
         phone: 202-579-0586
-        email: salimadofo@salim4dc.com
+        email: oye4DC@yahoo.com
         committee_address: '1430 Tobias Dr., SE, Washington, DC 20020'
         committee_phone: (202) 860-0882
         treasurer_name: Mr. Sadik Owolewa
@@ -2035,7 +2035,7 @@ Primary Election:
             office: ANC 8E01
             result: Won (after recount)
             percent: 39
-        contact_name: Salim Adofo
+        contact_name: Oye Owolewa
         boe_pickup_date: 1/10/2020
         boe_filing_date: ''
         withdrew: ''
@@ -2160,6 +2160,19 @@ Primary Election:
         neighborhood: Knox Hill
         withdrew: ''
     President:
+      - candidate_name: Donna Jean Alston
+        contact_name: ''
+        address: 5017 East Capitol St SE
+        zip: '20019'
+        phone: ''
+        boe_pickup_date: 2/21/2020
+        boe_filing_date: ''
+        email: ''
+        withdrew: ''
+        first_name: Donna Jean
+        last_name: Alston
+        fair_elections: null
+        neighborhood: Capitol View
       - candidate_name: Joseph R. Biden
         contact_name: Greg Schultz
         address: 1120 20th St NW
@@ -2173,6 +2186,19 @@ Primary Election:
         fair_elections: false
         neighborhood: Downtown
         withdrew: ''
+      - candidate_name: Peter Buttigieg
+        contact_name: Jacob Burman
+        address: PO Box 1226 South Bend IN
+        zip: '46624'
+        phone: 818-536-1877
+        boe_pickup_date: 2/20/2020
+        boe_filing_date: 2/20/2020
+        email: jburman@peteforamerica.com
+        withdrew: ''
+        first_name: Peter
+        last_name: Buttigieg
+        fair_elections: null
+        neighborhood: null
       - candidate_name: William Feegbeh
         contact_name: William Feegbeh
         address: 425 2nd St NW
@@ -2201,8 +2227,8 @@ Primary Election:
         neighborhood: null
       - candidate_name: Tom Steyer
         contact_name: George B Scharroo
-        address: '94121'
-        zip: ''
+        address: 496 Sea Cliff Ave San Francisco CA
+        zip: '94121'
         phone: 941-962-1845
         boe_pickup_date: 2/4/2020
         boe_filing_date: ''
@@ -2399,16 +2425,25 @@ Primary Election:
         last_name: Green
         fair_elections: false
         neighborhood: Ivy City
-        committee_id: 0
+        committee_id: 14165
         candidate_key: CANREP207163
         election_year: 2020
         candidate_approved: true
         committee_approved: false
         termination_approved: false
-        committee_name: Donald Green
+        committee_name: ''
         id: 15095
         name: Mr. Donald R. Green Jr.
         filing_date: 02/19/2020
+        committee_key: ''
+        committee_address: 'Washington, DC'
+        committee_phone: ''
+        treasurer_name: ''
+        treasurer_phone: ''
+        treasurer_email: ''
+        chairperson_name: ''
+        chair_phone: ''
+        chair_email: ''
   Statehood Green:
     US Senator:
       - candidate_name: Eleanor Ory
@@ -2471,6 +2506,49 @@ Primary Election:
         last_name: Stracuzzi
         fair_elections: false
         neighborhood: Douglas
+    US Representative:
+      - candidate_name: Joyce (Chestnut) Robinson-Paul
+        contact_name: ''
+        address: 16 N St NW
+        zip: '20001'
+        phone: 202-330-7955
+        boe_pickup_date: 2/21/2020
+        boe_filing_date: ''
+        email: statehood4dcnow@gmail.com
+        withdrew: ''
+        first_name: Joyce (Chestnut)
+        last_name: Robinson-Paul
+        fair_elections: false
+        neighborhood: Truxton Circle
+  Libertarian:
+    Council At-Large:
+      - candidate_name: Joseph Bishop-Henchman
+        contact_name: ''
+        address: 415 W St NE
+        zip: '20002'
+        phone: 202-766-5019
+        boe_pickup_date: 2/21/2020
+        boe_filing_date: ''
+        email: jdhenchman@gmail.com
+        withdrew: ''
+        first_name: Joseph
+        last_name: Bishop-Henchman
+        fair_elections: null
+        neighborhood: Eckington
+    Delegate to the US House:
+      - candidate_name: Ford Fischer
+        contact_name: Joseph Henchman
+        address: 415 W St NE
+        zip: '20002'
+        phone: 202-766-5019
+        boe_pickup_date: 2/21/2020
+        boe_filing_date: ''
+        email: jdhenchman@gmail.com
+        withdrew: ''
+        first_name: Ford
+        last_name: Fischer
+        fair_elections: false
+        neighborhood: Eckington
 General Election:
   Independent:
     Council At-Large:
@@ -2624,7 +2702,7 @@ General Election:
         committee_name: Franklin for DC 2020
         id: 5064
         name: Mr. Franklin Garcia
-        address: 2218 Newton St NE
+        address: ''
         filing_date: 12/27/2019
         phone: (202) 460-3046
         email: fgarcia@maestropc.com
@@ -3579,12 +3657,12 @@ Special Election:
         filing_date: 02/13/2020
         committee_address: '1219 Q Street, NW, Washington, DC 20009'
         committee_phone: (202) 400-1295
-        treasurer_name: ''
-        treasurer_phone: ''
-        treasurer_email: ''
-        chairperson_name: ''
-        chair_phone: ''
-        chair_email: ''
+        treasurer_name: Ms. Brooke Pinto
+        treasurer_phone: (202) 400-1295
+        treasurer_email: brooke@brookepintoforward2.com
+        chairperson_name: Ms. Brooke Pinto
+        chair_phone: (202) 400-1295
+        chair_email: brooke@brookeforward2.com
       - candidate_name: Kishan Putta
         contact_name: ''
         address: 3831 T St NW

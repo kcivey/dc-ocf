@@ -152,6 +152,9 @@ function transformRecords(records) {
             ]) {
                 delete r[key];
             }
+            if (!r.address) {
+                r.address = '';
+            }
             const m = r.address.match(/^(.+), Washington,? DC (\d+)$/i);
             if (m) {
                 r.address = standardizeAddress(m[1]);

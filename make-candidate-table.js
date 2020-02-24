@@ -11,6 +11,10 @@ const cheerio = require('cheerio');
 const tempy = require('tempy');
 const argv = require('yargs')
     .options({
+        'print-emails': {
+            type: 'boolean',
+            describe: 'print emails and exit',
+        },
         update: {
             type: 'boolean',
             describe: 'get new data from OCF site',
@@ -57,6 +61,10 @@ main().catch(console.trace);
 
 async function main() {
     let records = readYaml();
+    if (argv['print-emails']) {
+        printEmails(records);
+        return;
+    }
     if (argv.update) {
         const newRecords = await getNewRecords();
         records = combineRecords(records, newRecords);
@@ -267,6 +275,29 @@ function combineRecords(records, newRecords) {
             first = 'Nathan';
         }
         return first;
+    }
+}
+
+function printEmails(records) {
+    for (const [electionDescription, recordsByParty] of Object.entries(records)) {
+        if (electionDescription !== 'Primary Election') {
+            continue;
+        }
+        for (const [party, recordsByOffice] of Object.entries(recordsByParty)) {
+            if (party !== 'Democratic') {
+                continue;
+            }
+            for (const [office, candidates] of Object.entries(recordsByOffice)) {
+                console.log(office.toUpperCase());
+                for (const candidate of candidates) {
+                    if (candidate.withdrew || candidate.termination_approved) {
+                        continue;
+                    }
+                    console.log(`${candidate.candidate_name} <${candidate.email}>`);
+                }
+                console.log('');
+            }
+        }
     }
 }
 

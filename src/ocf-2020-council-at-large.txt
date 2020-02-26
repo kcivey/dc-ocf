@@ -9,6 +9,7 @@ In order by number of contributors, they are
   <li>Markus Batchelor*</li>
   <li>Chander Jayaraman*</li>
   <li>Marcus Goodwin</li>
+  <li>Jeanné Lewis*</li>
   <li>Franklin Garcia*</li>
   <li>Eric Rogers</li>
   <li>Mario Cristaldo*</li>

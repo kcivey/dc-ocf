@@ -578,7 +578,7 @@ Primary Election:
         zip: '20009'
         phone: 202-400-1295
         boe_pickup_date: 2/13/2020
-        boe_filing_date: ''
+        boe_filing_date: 2/25/2020
         email: brooke@brookepintoforward2.com
         withdrew: ''
         first_name: Brooke
@@ -1563,6 +1563,19 @@ Primary Election:
         fair_elections: null
         neighborhood: Shipley Terrace
         withdrew: ''
+      - candidate_name: Frederick Hill III
+        contact_name: Frederick Hill III
+        address: 1425 Bangor St SE
+        zip: '20020'
+        phone: 202-330-2211
+        boe_pickup_date: 2/25/2020
+        boe_filing_date: ''
+        email: FredHill@gotta-gonow.com
+        withdrew: ''
+        first_name: Frederick
+        last_name: Hill
+        fair_elections: null
+        neighborhood: Buena Vista
       - committee_id: 14146
         first_name: Jeronda
         last_name: Hilton
@@ -1744,7 +1757,7 @@ Primary Election:
         neighborhood: null
       - candidate_name: Thomas Williams Jr.
         contact_name: Thomas Williams Jr.
-        address: 2336 irving St SE
+        address: 2336 Irving St SE
         zip: '20020'
         phone: 301-613-2139
         boe_pickup_date: 1/10/2020
@@ -1768,7 +1781,7 @@ Primary Election:
         last_name: Douglas
         fair_elections: false
         neighborhood: Deanwood
-        withdrew: ''
+        withdrew: 1/27/2020
         elections:
           - year: 2008
             election: General
@@ -2225,6 +2238,45 @@ Primary Election:
         last_name: Gabbard
         fair_elections: null
         neighborhood: null
+      - candidate_name: Amy Klobuchar
+        contact_name: Kieran McCarney
+        address: PO Box 18360 MinneapolisMN
+        zip: '55418'
+        phone: 612-927-3400
+        boe_pickup_date: 2/24/2020
+        boe_filing_date: 2/24/2020
+        email: Info@AmyKlobuchar.com
+        withdrew: ''
+        first_name: Amy
+        last_name: Klobuchar
+        fair_elections: null
+        neighborhood: null
+      - candidate_name: Bernie Sanders
+        contact_name: Matt Berg
+        address: PO Box 391 Burlington VT
+        zip: '05402'
+        phone: 802-862-1505
+        boe_pickup_date: 2/25/2020
+        boe_filing_date: 2/25/2020
+        email: delegates@berniesanders.com
+        withdrew: ''
+        first_name: Bernie
+        last_name: Sanders
+        fair_elections: null
+        neighborhood: null
+      - candidate_name: Mark Stewart
+        contact_name: Mark Stewart
+        address: '06107'
+        zip: ''
+        phone: 914-482-5166
+        boe_pickup_date: 2/25/2020
+        boe_filing_date: ''
+        email: stewartforliberty@gmail.com
+        withdrew: ''
+        first_name: Mark
+        last_name: Stewart
+        fair_elections: null
+        neighborhood: null
       - candidate_name: Tom Steyer
         contact_name: George B Scharroo
         address: 496 Sea Cliff Ave San Francisco CA
@@ -2300,10 +2352,10 @@ Primary Election:
         contact_name: Dr. Charles Vincent
         address: 4402 44th St NW
         zip: '20016'
-        phone: 202-239-7244
+        phone: ''
         boe_pickup_date: 1/17/2020
         boe_filing_date: ''
-        email: cvincent010@gmail.com
+        email: marigold316@aol.com
         first_name: Marya
         last_name: Pickering
         fair_elections: false
@@ -2380,13 +2432,13 @@ Primary Election:
     Council Ward 8:
       - candidate_name: Nate "Ward 8" Derenge
         contact_name: Nate Derenge
-        address: 2131 Young St SE
+        address: '2131 Young St SE #101'
         zip: '20020'
-        phone: 605-553-8895
+        phone: (571) 557-2795
         boe_pickup_date: 1/16/2020
         boe_filing_date: ''
         email: nathan.derenge@gmail.com
-        first_name: Nate "Ward 8"
+        first_name: Nathan
         last_name: Derenge
         fair_elections: false
         neighborhood: Fairlawn
@@ -2419,9 +2471,9 @@ Primary Election:
         phone: ''
         boe_pickup_date: 2/13/2020
         boe_filing_date: ''
-        email: d.green42192@gmail.com
+        email: dgreen42192@gmail.com
         withdrew: ''
-        first_name: Donald R.
+        first_name: Donald
         last_name: Green
         fair_elections: false
         neighborhood: Ivy City
@@ -2448,9 +2500,9 @@ Primary Election:
     US Senator:
       - candidate_name: Eleanor Ory
         contact_name: ''
-        address: 1825 T St NW
+        address: '1825 T St NW #203'
         zip: '20009'
-        phone: 954-940-8281
+        phone: (954) 990-8281
         boe_pickup_date: 2/10/2020
         boe_filing_date: ''
         email: echo4senate@gmail.com

@@ -3024,6 +3024,23 @@ General Election:
         facebook: jeanneatlarge
         instagram: msjeannelewis
         website: jeannelewisatlarge.com
+      - first_name: Will
+        last_name: Merrifield
+        candidate_name: Will Merrifield
+        election_year: 2020
+        website: willfordc.com
+        instagram: willm4dc
+        twitter: willm4dc
+        facebook: willm4dc
+        neighborhood: null
+        links:
+          - url: >-
+              https://www.washingtoncitypaper.com/news/loose-lips/article/21115697/tenant-attorney-will-merrifield-to-run-for-atlarge-council-seat
+            title: >-
+              Tenant Attorney Will Merrifield Wants to Rout out Developer Influence at the Wilson Building. So He's
+              Running for Office.
+          - url: 'https://dcist.com/story/20/02/14/tenant-rights-attorney-declares-candidacy-in-competitive-at-large-race/'
+            title: Tenant Rights Attorney Enters Competitive At-Large Race To Replace David Grosso
       - committee_id: 0
         first_name: Asar
         last_name: Mustafa
@@ -3043,6 +3060,19 @@ General Election:
         zip: '20002'
         fair_elections: null
         neighborhood: Near Northeast
+      - first_name: Mónica
+        last_name: Palacio
+        candidate_name: Mónica Palacio
+        election_year: 2020
+        website: monicaforalldc.org
+        instagram: mpforalldc
+        twitter: Monicaforalldc
+        facebook: MonicaForAllDC
+        neighborhood: null
+        links:
+          - url: >-
+              https://www.washingtonblade.com/2020/02/26/human-rights-office-director-resigns-to-run-for-at-large-d-c-council-seat/
+            title: Human Rights Office director resigns to run for at-large D.C. Council seat
       - committee_id: 4127
         first_name: Eric
         last_name: Rogers
@@ -3073,6 +3103,12 @@ General Election:
         fair_elections: false
         neighborhood: Hillcrest
         twitter: rogersfordc51
+        website: rogersfordc.com
+        instagram: rogersfordc51
+        facebook: rogersfordc51
+        links:
+          - url: 'https://www.washingtoninformer.com/d-c-election-roundup-rogers-seeks-to-improve-d-c-neighborhoods/'
+            title: 'D.C. ELECTION ROUNDUP: Rogers Seeks to Improve D.C. Neighborhoods'
     Council Ward 8:
       - committee_id: 4123
         first_name: Christopher

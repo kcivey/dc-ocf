@@ -3033,6 +3033,7 @@ General Election:
         twitter: willm4dc
         facebook: willm4dc
         neighborhood: null
+        fair_elections: true
         links:
           - url: >-
               https://www.washingtoncitypaper.com/news/loose-lips/article/21115697/tenant-attorney-will-merrifield-to-run-for-atlarge-council-seat
@@ -3069,6 +3070,7 @@ General Election:
         twitter: Monicaforalldc
         facebook: MonicaForAllDC
         neighborhood: null
+        fair_elections: true
         links:
           - url: >-
               https://www.washingtonblade.com/2020/02/26/human-rights-office-director-resigns-to-run-for-at-large-d-c-council-seat/

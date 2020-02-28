@@ -2159,6 +2159,19 @@ Primary Election:
             office: Council Ward 4
             result: Withdrew
             percent: 0
+      - candidate_name: Christine M. Warnke
+        contact_name: Christine M. Warnke
+        address: 3101 New Mexico Ave NW
+        zip: '20019'
+        phone: 202-549-0524
+        boe_pickup_date: 2/27/2020
+        boe_filing_date: ''
+        email: DRCHRISTINEWARNKE@gmail.com
+        withdrew: ''
+        first_name: Christine M.
+        last_name: Warnke
+        fair_elections: false
+        neighborhood: Wesley Heights
       - candidate_name: Thomas Williams Jr
         contact_name: 'Thomas Williams, Jr.'
         address: 2336 Irving St SE
@@ -2266,8 +2279,8 @@ Primary Election:
         neighborhood: null
       - candidate_name: Mark Stewart
         contact_name: Mark Stewart
-        address: '06107'
-        zip: ''
+        address: 381 South Main St West Hartford CT
+        zip: '06107'
         phone: 914-482-5166
         boe_pickup_date: 2/25/2020
         boe_filing_date: ''
@@ -2317,6 +2330,19 @@ Primary Election:
         last_name: Franklin
         fair_elections: false
         neighborhood: American University Park
+      - candidate_name: Greg Maye
+        contact_name: Greg Maye
+        address: 400 Galloway St NE
+        zip: '20011'
+        phone: 301-537-6293
+        boe_pickup_date: 2/27/2020
+        boe_filing_date: ''
+        email: gregmaye151@gmail.com
+        withdrew: ''
+        first_name: Greg
+        last_name: Maye
+        fair_elections: false
+        neighborhood: Fort Totten
       - candidate_name: Eleanor Holmes Norton
         contact_name: Jacqueline Pelt
         address: PO Box 70626

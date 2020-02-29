@@ -721,7 +721,7 @@ Primary Election:
         fair_elections: true
         contact_name: Yilin Zhang
         boe_pickup_date: 1/10/2020
-        boe_filing_date: ''
+        boe_filing_date: 2/28/2020
         withdrew: ''
         links:
           - url: >-
@@ -1232,7 +1232,7 @@ Primary Election:
         contact_name: Tam Haye
         boe_pickup_date: 1/10/2020
         boe_filing_date: ''
-        withdrew: ''
+        withdrew: 2/28/2020
       - committee_id: 4089
         first_name: James Leroy
         last_name: Jennings
@@ -1574,8 +1574,27 @@ Primary Election:
         withdrew: ''
         first_name: Frederick
         last_name: Hill
-        fair_elections: null
+        fair_elections: false
         neighborhood: Buena Vista
+        committee_id: 14167
+        candidate_key: CANCC8207168
+        committee_key: PCCCC8207168
+        election_year: 2020
+        candidate_approved: true
+        committee_approved: true
+        termination_approved: false
+        committee_name: Hill Force One
+        id: 15101
+        name: Mr. Frederick Hill III
+        filing_date: 02/27/2020
+        committee_address: '1425 Bangor Street, SE, Washington, DC 20020'
+        committee_phone: (202) 330-2211
+        treasurer_name: Mr. Frederick Hill III
+        treasurer_phone: (202) 330-2211
+        treasurer_email: fredhill@gotta-gonow.com
+        chairperson_name: Mr. Frederick Hill III
+        chair_phone: (202) 330-2211
+        chair_email: fredhill@gotta-gonow.com
       - committee_id: 14146
         first_name: Jeronda
         last_name: Hilton
@@ -2212,6 +2231,19 @@ Primary Election:
         fair_elections: false
         neighborhood: Downtown
         withdrew: ''
+      - candidate_name: Michael R. Bloomberg
+        contact_name: Howard Wolfson
+        address: 909 3rd Ave NY NY
+        zip: '10022'
+        phone: 917-882-7220
+        boe_pickup_date: 2/28/2020
+        boe_filing_date: 2/28/2020
+        email: HWOLFSON@MIKEBLOOMBERG.COM
+        withdrew: ''
+        first_name: Michael R.
+        last_name: Bloomberg
+        fair_elections: null
+        neighborhood: null
       - candidate_name: Peter Buttigieg
         contact_name: Jacob Burman
         address: PO Box 1226 South Bend IN

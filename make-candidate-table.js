@@ -240,9 +240,7 @@ function combineRecords(records, newRecords) {
                     const existingCandidate = records[electionDescription][party][office].find(function (r) {
                         const existingFirst = getFirstName(r.first_name);
                         return r.last_name === candidate.last_name &&
-                            existingFirst === first &&
-                            (!r.committee_name || !candidate.committee_name ||
-                                r.committee_name === candidate.committee_name);
+                            existingFirst === first;
                     });
                     if (existingCandidate) {
                         if (candidate.fair_elections == null) { // eslint-disable-line max-depth

@@ -11,8 +11,8 @@ In order by number of contributors, they are
   <li>Marcus Goodwin</li>
   <li>Jeanné Lewis*</li>
   <li>Franklin Garcia*</li>
-  <li>Eric Rogers</li>
   <li>Mario Cristaldo*</li>
+  <li>Eric Rogers</li>
 </ul>
 
 Candidates marked with asterisks are seeking to qualify or have qualified for Fair Elections public campaign funds.

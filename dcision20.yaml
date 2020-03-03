@@ -837,7 +837,7 @@ Primary Election:
             title: 'A Bowser (No, Not *That* Bowser) Throws Her Hat Into The Ring For Ward 4 Seat'
         contact_name: Renee Bowser
         boe_pickup_date: 1/10/2020
-        boe_filing_date: ''
+        boe_filing_date: 3/2/2020
         withdrew: ''
       - committee_id: 14152
         first_name: Marlena D.
@@ -1583,7 +1583,7 @@ Primary Election:
         candidate_approved: true
         committee_approved: true
         termination_approved: false
-        committee_name: Hill Force One
+        committee_name: Fred Hill for Ward 8 Council
         id: 15101
         name: Mr. Frederick Hill III
         filing_date: 02/27/2020
@@ -1625,7 +1625,7 @@ Primary Election:
         neighborhood: Knox Hill
         contact_name: Jeronda Hilton
         boe_pickup_date: 1/10/2020
-        boe_filing_date: ''
+        boe_filing_date: 3/2/2020
         withdrew: ''
         elections:
           - year: 2014
@@ -2335,6 +2335,19 @@ Primary Election:
         last_name: Steyer
         fair_elections: null
         neighborhood: null
+      - candidate_name: Elizabeth Warren
+        contact_name: Kristin Turner
+        address: PO Box 171375 Boston MA
+        zip: '02117'
+        phone: 240-535-4727
+        boe_pickup_date: 3/2/2020
+        boe_filing_date: ''
+        email: kt@elizabethwarren.com
+        withdrew: ''
+        first_name: Elizabeth
+        last_name: Warren
+        fair_elections: null
+        neighborhood: null
       - candidate_name: Andrew Yang
         contact_name: Esther Baldwin
         address: 214 W 39th St New York NY
@@ -2410,10 +2423,10 @@ Primary Election:
         contact_name: Dr. Charles Vincent
         address: 4402 44th St NW
         zip: '20016'
-        phone: ''
+        phone: 202-239-7244
         boe_pickup_date: 1/17/2020
-        boe_filing_date: ''
-        email: marigold316@aol.com
+        boe_filing_date: 3/2/2020
+        email: cvincent010@gmail.com
         first_name: Marya
         last_name: Pickering
         fair_elections: false
@@ -2441,10 +2454,10 @@ Primary Election:
         facebook: maryafordc
     President:
       - candidate_name: Roque "Rocky" De La Fuente
-        contact_name: CA 92101
-        address: 202-445-1813
+        contact_name: ''
+        address: '92101'
         zip: ''
-        phone: ''
+        phone: 202-445-1813
         boe_pickup_date: 2/5/2020
         boe_filing_date: ''
         email: ''
@@ -2490,13 +2503,13 @@ Primary Election:
     Council Ward 8:
       - candidate_name: Nate "Ward 8" Derenge
         contact_name: Nate Derenge
-        address: '2131 Young St SE #101'
+        address: 2131 Young St SE
         zip: '20020'
-        phone: (571) 557-2795
+        phone: 605-553-8895
         boe_pickup_date: 1/16/2020
         boe_filing_date: ''
         email: nathan.derenge@gmail.com
-        first_name: Nathan
+        first_name: Nate "Ward 8"
         last_name: Derenge
         fair_elections: false
         neighborhood: Fairlawn
@@ -2529,9 +2542,9 @@ Primary Election:
         phone: ''
         boe_pickup_date: 2/13/2020
         boe_filing_date: ''
-        email: dgreen42192@gmail.com
+        email: d.green42192@gmail.com
         withdrew: ''
-        first_name: Donald
+        first_name: Donald R.
         last_name: Green
         fair_elections: false
         neighborhood: Ivy City
@@ -2558,9 +2571,9 @@ Primary Election:
     US Senator:
       - candidate_name: Eleanor Ory
         contact_name: ''
-        address: '1825 T St NW #203'
+        address: 1825 T St NW
         zip: '20009'
-        phone: (954) 990-8281
+        phone: 954-940-8281
         boe_pickup_date: 2/10/2020
         boe_filing_date: ''
         email: echo4senate@gmail.com
@@ -2630,6 +2643,20 @@ Primary Election:
         last_name: Robinson-Paul
         fair_elections: false
         neighborhood: Truxton Circle
+    Council Ward 4:
+      - candidate_name: Perry Redd
+        contact_name: Perry Redd
+        address: 422 Marietta Pl NW
+        zip: '20011'
+        phone: 202-717-7729
+        boe_pickup_date: 3/2/2020
+        boe_filing_date: ''
+        email: redd4council@gmail.com
+        withdrew: ''
+        first_name: Perry
+        last_name: Redd
+        fair_elections: null
+        neighborhood: Manor Park
   Libertarian:
     Council At-Large:
       - candidate_name: Joseph Bishop-Henchman

@@ -570,7 +570,7 @@ Primary Election:
         fair_elections: true
         contact_name: Patrick Kennedy
         boe_pickup_date: 1/10/2020
-        boe_filing_date: ''
+        boe_filing_date: 3/3/2020
         withdrew: ''
       - candidate_name: Brooke Pinto
         contact_name: Brooke Pinto
@@ -685,7 +685,7 @@ Primary Election:
         fair_elections: true
         contact_name: Kishan Putta
         boe_pickup_date: 1/10/2020
-        boe_filing_date: ''
+        boe_filing_date: 3/3/2020
         withdrew: ''
       - committee_id: 4113
         first_name: Yilin
@@ -1142,7 +1142,7 @@ Primary Election:
             percent: 86
         contact_name: Chuck Thies
         boe_pickup_date: 1/10/2020
-        boe_filing_date: ''
+        boe_filing_date: 2/3/2020
         withdrew: ''
       - committee_id: 4102
         first_name: Anthony Lorenzo
@@ -1207,7 +1207,7 @@ Primary Election:
         fair_elections: true
         contact_name: Anthony Lorenzo Green
         boe_pickup_date: 1/10/2020
-        boe_filing_date: ''
+        boe_filing_date: 2/3/2020
         withdrew: ''
       - committee_id: 0
         first_name: Tam
@@ -1560,9 +1560,28 @@ Primary Election:
         email: christopherhawthorne@verizon.net
         first_name: Christopher
         last_name: Hawthorne
-        fair_elections: null
+        fair_elections: true
         neighborhood: Shipley Terrace
         withdrew: ''
+        committee_id: 14168
+        candidate_key: CANCC8207169
+        committee_key: ''
+        election_year: 2020
+        candidate_approved: true
+        committee_approved: false
+        termination_approved: false
+        committee_name: Christopher Hawthorne4Ward8 2020
+        id: 15102
+        name: Mr. Christopher Hawthorne
+        filing_date: 03/02/2020
+        committee_address: '1922 Valley Terrace, SE, Washington, DC 20032'
+        committee_phone: (202) 893-1623
+        treasurer_name: ''
+        treasurer_phone: ''
+        treasurer_email: ''
+        chairperson_name: ''
+        chair_phone: ''
+        chair_email: ''
       - candidate_name: Frederick Hill III
         contact_name: Frederick Hill III
         address: 1425 Bangor St SE
@@ -1733,7 +1752,7 @@ Primary Election:
         zip: '20020'
         phone: 202-553-7704
         boe_pickup_date: 1/16/2020
-        boe_filing_date: ''
+        boe_filing_date: 3/2/2020
         email: trayonwhite2020@gmail.com
         first_name: Trayon "Ward Eight"
         last_name: White
@@ -2069,7 +2088,7 @@ Primary Election:
             percent: 39
         contact_name: Oye Owolewa
         boe_pickup_date: 1/10/2020
-        boe_filing_date: ''
+        boe_filing_date: 3/3/2020
         withdrew: ''
         links:
           - url: 'https://www.washingtoninformer.com/d-c-election-roundup-owolewa-seeks-shadow-rep-position/'
@@ -2252,7 +2271,7 @@ Primary Election:
         boe_pickup_date: 2/20/2020
         boe_filing_date: 2/20/2020
         email: jburman@peteforamerica.com
-        withdrew: ''
+        withdrew: 3/2/2020
         first_name: Peter
         last_name: Buttigieg
         fair_elections: null
@@ -2263,7 +2282,7 @@ Primary Election:
         zip: '20001'
         phone: 410-814-9598
         boe_pickup_date: 1/10/2020
-        boe_filing_date: ''
+        boe_filing_date: 3/3/2020
         email: wfeegbeh@outlook.com
         first_name: William
         last_name: Feegbeh
@@ -2423,10 +2442,10 @@ Primary Election:
         contact_name: Dr. Charles Vincent
         address: 4402 44th St NW
         zip: '20016'
-        phone: 202-239-7244
+        phone: ''
         boe_pickup_date: 1/17/2020
         boe_filing_date: 3/2/2020
-        email: cvincent010@gmail.com
+        email: marigold316@aol.com
         first_name: Marya
         last_name: Pickering
         fair_elections: false
@@ -2503,13 +2522,13 @@ Primary Election:
     Council Ward 8:
       - candidate_name: Nate "Ward 8" Derenge
         contact_name: Nate Derenge
-        address: 2131 Young St SE
+        address: '2131 Young St SE #101'
         zip: '20020'
-        phone: 605-553-8895
+        phone: (571) 557-2795
         boe_pickup_date: 1/16/2020
         boe_filing_date: ''
         email: nathan.derenge@gmail.com
-        first_name: Nate "Ward 8"
+        first_name: Nathan
         last_name: Derenge
         fair_elections: false
         neighborhood: Fairlawn
@@ -2542,9 +2561,9 @@ Primary Election:
         phone: ''
         boe_pickup_date: 2/13/2020
         boe_filing_date: ''
-        email: d.green42192@gmail.com
+        email: dgreen42192@gmail.com
         withdrew: ''
-        first_name: Donald R.
+        first_name: Donald
         last_name: Green
         fair_elections: false
         neighborhood: Ivy City
@@ -2571,9 +2590,9 @@ Primary Election:
     US Senator:
       - candidate_name: Eleanor Ory
         contact_name: ''
-        address: 1825 T St NW
+        address: '1825 T St NW #203'
         zip: '20009'
-        phone: 954-940-8281
+        phone: (954) 990-8281
         boe_pickup_date: 2/10/2020
         boe_filing_date: ''
         email: echo4senate@gmail.com
@@ -2661,17 +2680,27 @@ Primary Election:
     Council At-Large:
       - candidate_name: Joseph Bishop-Henchman
         contact_name: ''
-        address: 415 W St NE
+        address: '415 W St NE #A'
         zip: '20002'
-        phone: 202-766-5019
+        phone: (202) 766-5019
         boe_pickup_date: 2/21/2020
         boe_filing_date: ''
         email: jdhenchman@gmail.com
         withdrew: ''
-        first_name: Joseph
+        first_name: Joe
         last_name: Bishop-Henchman
         fair_elections: null
         neighborhood: Eckington
+        committee_id: 0
+        candidate_key: CANCCL207170
+        election_year: 2020
+        candidate_approved: true
+        committee_approved: false
+        termination_approved: false
+        committee_name: Joe Bishop-Henchman
+        id: 15103
+        name: Mr. Joe Bishop-Henchman
+        filing_date: 02/21/2020
     Delegate to the US House:
       - candidate_name: Ford Fischer
         contact_name: Joseph Henchman
@@ -2684,6 +2713,26 @@ Primary Election:
         withdrew: ''
         first_name: Ford
         last_name: Fischer
+        fair_elections: false
+        neighborhood: Eckington
+    DC Libertarian Party Chairperson:
+      - committee_id: 0
+        first_name: Joe
+        last_name: Bishop-Henchman
+        candidate_key: CANLPC207171
+        election_year: 2020
+        candidate_approved: true
+        committee_approved: false
+        termination_approved: false
+        candidate_name: Joe Bishop-Henchman
+        committee_name: Joe Bishop-Henchman
+        id: 15104
+        name: Mr. Joe Bishop-Henchman
+        address: '415 W St NE #A'
+        filing_date: 02/21/2020
+        phone: (202) 766-5019
+        email: jdhenchman@gmail.com
+        zip: '20002'
         fair_elections: false
         neighborhood: Eckington
 General Election:
@@ -3938,7 +3987,7 @@ Special Election:
         zip: '20091'
         phone: 202-600-6958
         boe_pickup_date: 1/17/2020
-        boe_filing_date: ''
+        boe_filing_date: 3/3/2020
         email: kv@katherineward2.com
         first_name: Katherine
         last_name: Venice

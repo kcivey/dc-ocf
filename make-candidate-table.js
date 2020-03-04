@@ -266,12 +266,11 @@ function combineRecords(records, newRecords) {
 
     function getFirstName(name) {
         let first = name.replace(/^(\S+) .*/, '$1');
-        if (first === 'Mike') {
-            first = 'Michael';
-        }
-        else if (first === 'Nate') {
-            first = 'Nathan';
-        }
+        first = {
+            Mike: 'Michael',
+            Nate: 'Nathan',
+            Joe: 'Joseph',
+        }[first] || first;
         return first;
     }
 }

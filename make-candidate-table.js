@@ -11,6 +11,14 @@ const cheerio = require('cheerio');
 const tempy = require('tempy');
 const argv = require('yargs')
     .options({
+        'general-filing': {
+            type: 'boolean',
+            describe: 'omit all candidates who have not filed with BOE',
+        },
+        'primary-filing': {
+            type: 'boolean',
+            describe: 'omit primary candidates who have not filed with BOE',
+        },
         'print-emails': {
             type: 'boolean',
             describe: 'print emails and exit',
@@ -287,7 +295,7 @@ function printEmails(records) {
             for (const [office, candidates] of Object.entries(recordsByOffice)) {
                 console.log(office.toUpperCase());
                 for (const candidate of candidates) {
-                    if (candidate.withdrew || candidate.termination_approved) {
+                    if (omitCandidate(candidate, electionDescription)) {
                         continue;
                     }
                     console.log(`${candidate.candidate_name} <${candidate.email}>`);
@@ -328,7 +336,7 @@ function writeHtml(records) {
                 recordsByElection[election][office] = recordsByElection[election][office]
                     .concat(
                         candidates
-                            .filter(c => !c.termination_approved)
+                            .filter(c => !omitCandidate(c, electionDescription))
                             .map(function (c) {
                                 const newC = {...c, party, party_abbr: partyAbbr[party]};
                                 if (c.elections) {
@@ -585,4 +593,11 @@ function standardizeOffice(office) {
 
 function standardizeDate(d) {
     return d.replace(/\/(?=\d\d$)/, '/20');
+}
+
+function omitCandidate(c, election) {
+    return c.withdrew ||
+        c.termination_approved ||
+        (argv['primary-filing'] && /Primary/.test(election) && !c.boe_filing_date) ||
+        (argv['general-filing'] && !c.boe_filing_date);
 }

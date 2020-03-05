@@ -46,7 +46,7 @@ Primary Election:
         boe_pickup_date: 2/18/2020
         boe_filing_date: ''
         email: adrienne.darling.ad@gmail.com
-        withdrew: ''
+        withdrew: 3/4/2020
         first_name: A'Shia
         last_name: Howard
         fair_elections: null
@@ -143,7 +143,7 @@ Primary Election:
         zip: '20007'
         phone: 202-255-3300
         boe_pickup_date: 1/27/2020
-        boe_filing_date: ''
+        boe_filing_date: 3/4/2020
         email: jackevans1@aol.com
         withdrew: ''
         first_name: Jack
@@ -478,7 +478,7 @@ Primary Election:
         fair_elections: true
         contact_name: Laurel Saito
         boe_pickup_date: 1/10/2020
-        boe_filing_date: ''
+        boe_filing_date: 3/4/2020
         withdrew: ''
       - committee_id: 4084
         first_name: Patrick
@@ -1004,7 +1004,7 @@ Primary Election:
         fair_elections: false
         contact_name: Jackson Carnes
         boe_pickup_date: 1/10/2020
-        boe_filing_date: ''
+        boe_filing_date: 3/4/2020
         withdrew: ''
     Council Ward 7:
       - committee_id: 4105
@@ -1046,7 +1046,7 @@ Primary Election:
         fair_elections: true
         contact_name: Kelvin Brown
         boe_pickup_date: 1/10/2020
-        boe_filing_date: ''
+        boe_filing_date: 2/3/2020
         withdrew: ''
       - committee_id: 4128
         first_name: Vincent C.
@@ -1207,7 +1207,7 @@ Primary Election:
         fair_elections: true
         contact_name: Anthony Lorenzo Green
         boe_pickup_date: 1/10/2020
-        boe_filing_date: 2/3/2020
+        boe_filing_date: 3/3/2020
         withdrew: ''
       - committee_id: 0
         first_name: Tam
@@ -1266,7 +1266,7 @@ Primary Election:
         fair_elections: false
         contact_name: Robin Salas
         boe_pickup_date: 1/10/2020
-        boe_filing_date: ''
+        boe_filing_date: 3/4/2020
         withdrew: ''
       - committee_id: 14147
         first_name: Rebecca J.
@@ -1298,7 +1298,7 @@ Primary Election:
         neighborhood: Mahaning Heights/Central Northeast
         contact_name: Rebecca J. Morris
         boe_pickup_date: 1/10/2020
-        boe_filing_date: ''
+        boe_filing_date: 3/4/2020
         withdrew: ''
         website: rebeccamorrisward7.com
         instagram: voterebeccaward7
@@ -1347,7 +1347,7 @@ Primary Election:
         fair_elections: false
         contact_name: Lacricha Warren
         boe_pickup_date: 1/10/2020
-        boe_filing_date: ''
+        boe_filing_date: 3/4/2020
         withdrew: ''
       - committee_id: 4104
         first_name: Clayton
@@ -1428,7 +1428,7 @@ Primary Election:
         fair_elections: true
         contact_name: Stuart Anderson
         boe_pickup_date: 1/17/2020
-        boe_filing_date: ''
+        boe_filing_date: 3/4/2020
         withdrew: ''
       - committee_id: 14150
         first_name: Mike
@@ -1464,7 +1464,7 @@ Primary Election:
         instagram: mike8austin
         contact_name: Michael Austin
         boe_pickup_date: 1/13/2020
-        boe_filing_date: ''
+        boe_filing_date: 3/4/2020
         withdrew: ''
         elections:
           - year: 2018
@@ -1544,7 +1544,7 @@ Primary Election:
         neighborhood: Anacostia
         contact_name: Yaida Ford
         boe_pickup_date: 1/10/2020
-        boe_filing_date: ''
+        boe_filing_date: 3/4/2020
         withdrew: ''
         website: yaidaford.com
         links:
@@ -1556,7 +1556,7 @@ Primary Election:
         zip: '20032'
         phone: 202-893-1623
         boe_pickup_date: 1/10/2020
-        boe_filing_date: ''
+        boe_filing_date: 3/2/2020
         email: christopherhawthorne@verizon.net
         first_name: Christopher
         last_name: Hawthorne
@@ -1588,7 +1588,7 @@ Primary Election:
         zip: '20020'
         phone: 202-330-2211
         boe_pickup_date: 2/25/2020
-        boe_filing_date: ''
+        boe_filing_date: 3/4/2020
         email: FredHill@gotta-gonow.com
         withdrew: ''
         first_name: Frederick
@@ -1695,7 +1695,7 @@ Primary Election:
         neighborhood: Shipley Terrace
         contact_name: Nelson Jackson Jr.
         boe_pickup_date: 1/13/2020
-        boe_filing_date: ''
+        boe_filing_date: 3/4/2020
         withdrew: ''
         twitter: njax
       - committee_id: 4145
@@ -1729,7 +1729,7 @@ Primary Election:
         neighborhood: Anacostia
         contact_name: Fria M. Moore
         boe_pickup_date: 1/10/2020
-        boe_filing_date: ''
+        boe_filing_date: 3/4/2020
         withdrew: ''
         facebook: votefriamoore2020
       - candidate_name: Danielle Platt
@@ -1738,7 +1738,7 @@ Primary Election:
         zip: '20020'
         phone: 202-391-8884
         boe_pickup_date: 1/21/2020
-        boe_filing_date: ''
+        boe_filing_date: 3/4/2020
         email: justice4W8@gmail.com
         first_name: Danielle
         last_name: Platt
@@ -1976,7 +1976,7 @@ Primary Election:
         zip: '20006'
         phone: 202-320-7035
         boe_pickup_date: 1/10/2020
-        boe_filing_date: ''
+        boe_filing_date: 3/4/2020
         email: susigbf@yahoo.com
         first_name: Susana
         last_name: Baranano
@@ -2123,7 +2123,7 @@ Primary Election:
         neighborhood: NoMa
         contact_name: Dalton E. Patterson
         boe_pickup_date: 1/10/2020
-        boe_filing_date: ''
+        boe_filing_date: 3/4/2020
         withdrew: ''
       - committee_id: 0
         first_name: Pete
@@ -2243,7 +2243,7 @@ Primary Election:
         zip: '20036'
         phone: 614-204-3617
         boe_pickup_date: 1/17/2020
-        boe_filing_date: ''
+        boe_filing_date: 3/2/2020
         email: gschultz@joebiden.com
         first_name: Joseph R.
         last_name: Biden
@@ -2258,7 +2258,7 @@ Primary Election:
         boe_pickup_date: 2/28/2020
         boe_filing_date: 2/28/2020
         email: HWOLFSON@MIKEBLOOMBERG.COM
-        withdrew: ''
+        withdrew: 3/4/2020
         first_name: Michael R.
         last_name: Bloomberg
         fair_elections: null
@@ -2330,8 +2330,8 @@ Primary Election:
         neighborhood: null
       - candidate_name: Mark Stewart
         contact_name: Mark Stewart
-        address: 381 South Main St West Hartford CT
-        zip: '06107'
+        address: '06107'
+        zip: ''
         phone: 914-482-5166
         boe_pickup_date: 2/25/2020
         boe_filing_date: ''
@@ -2387,7 +2387,7 @@ Primary Election:
         zip: '20016'
         phone: 202-583-7426
         boe_pickup_date: 1/31/2020
-        boe_filing_date: ''
+        boe_filing_date: 3/4/2020
         email: JohnnieRice@comcast.net
         withdrew: ''
         first_name: Barbara Washington
@@ -2442,10 +2442,10 @@ Primary Election:
         contact_name: Dr. Charles Vincent
         address: 4402 44th St NW
         zip: '20016'
-        phone: ''
+        phone: 202-239-7244
         boe_pickup_date: 1/17/2020
         boe_filing_date: 3/2/2020
-        email: marigold316@aol.com
+        email: cvincent010@gmail.com
         first_name: Marya
         last_name: Pickering
         fair_elections: false
@@ -2479,7 +2479,7 @@ Primary Election:
         phone: 202-445-1813
         boe_pickup_date: 2/5/2020
         boe_filing_date: ''
-        email: ''
+        email: 3/4/2020
         withdrew: ''
         first_name: Roque "Rocky" De La
         last_name: Fuente
@@ -2491,7 +2491,7 @@ Primary Election:
         zip: '22219'
         phone: 484-400-1971
         boe_pickup_date: 1/14/2020
-        boe_filing_date: ''
+        boe_filing_date: 3/3/2020
         email: ntrainer@donaldtrump.com
         first_name: Donald J.
         last_name: Trump
@@ -2505,7 +2505,7 @@ Primary Election:
         zip: '20091'
         phone: 202-600-6958
         boe_pickup_date: 1/17/2020
-        boe_filing_date: ''
+        boe_filing_date: 3/3/2020
         email: kv@katherineward2.com
         first_name: Katherine
         last_name: Venice
@@ -2522,13 +2522,13 @@ Primary Election:
     Council Ward 8:
       - candidate_name: Nate "Ward 8" Derenge
         contact_name: Nate Derenge
-        address: '2131 Young St SE #101'
+        address: 2131 Young St SE
         zip: '20020'
-        phone: (571) 557-2795
+        phone: 605-553-8895
         boe_pickup_date: 1/16/2020
         boe_filing_date: ''
         email: nathan.derenge@gmail.com
-        first_name: Nathan
+        first_name: Nate "Ward 8"
         last_name: Derenge
         fair_elections: false
         neighborhood: Fairlawn
@@ -2560,10 +2560,10 @@ Primary Election:
         zip: '20002'
         phone: ''
         boe_pickup_date: 2/13/2020
-        boe_filing_date: ''
-        email: dgreen42192@gmail.com
+        boe_filing_date: 3/4/2020
+        email: d.green42192@gmail.com
         withdrew: ''
-        first_name: Donald
+        first_name: Donald R.
         last_name: Green
         fair_elections: false
         neighborhood: Ivy City
@@ -2590,11 +2590,11 @@ Primary Election:
     US Senator:
       - candidate_name: Eleanor Ory
         contact_name: ''
-        address: '1825 T St NW #203'
+        address: 1825 T St NW
         zip: '20009'
-        phone: (954) 990-8281
+        phone: 954-940-8281
         boe_pickup_date: 2/10/2020
-        boe_filing_date: ''
+        boe_filing_date: 3/4/2020
         email: echo4senate@gmail.com
         withdrew: ''
         first_name: Eleanor
@@ -2627,7 +2627,7 @@ Primary Election:
         zip: '20012'
         phone: 202-441-3265
         boe_pickup_date: 2/14/2020
-        boe_filing_date: ''
+        boe_filing_date: 3/4/2020
         email: Ann1Wilcox@gmail.com
         withdrew: ''
         first_name: Ann C.
@@ -2655,13 +2655,23 @@ Primary Election:
         zip: '20001'
         phone: 202-330-7955
         boe_pickup_date: 2/21/2020
-        boe_filing_date: ''
+        boe_filing_date: 3/3/2020
         email: statehood4dcnow@gmail.com
         withdrew: ''
-        first_name: Joyce (Chestnut)
+        first_name: Joyce
         last_name: Robinson-Paul
         fair_elections: false
         neighborhood: Truxton Circle
+        committee_id: 0
+        candidate_key: CANREP207172
+        election_year: 2020
+        candidate_approved: true
+        committee_approved: false
+        termination_approved: false
+        committee_name: Joyce Robinson Paul
+        id: 15105
+        name: Ms. Joyce Robinson Paul
+        filing_date: 03/03/2020
     Council Ward 4:
       - candidate_name: Perry Redd
         contact_name: Perry Redd
@@ -2669,7 +2679,7 @@ Primary Election:
         zip: '20011'
         phone: 202-717-7729
         boe_pickup_date: 3/2/2020
-        boe_filing_date: ''
+        boe_filing_date: 3/4/2020
         email: redd4council@gmail.com
         withdrew: ''
         first_name: Perry
@@ -2680,14 +2690,14 @@ Primary Election:
     Council At-Large:
       - candidate_name: Joseph Bishop-Henchman
         contact_name: ''
-        address: '415 W St NE #A'
+        address: 415 W St NE
         zip: '20002'
-        phone: (202) 766-5019
+        phone: 202-766-5019
         boe_pickup_date: 2/21/2020
-        boe_filing_date: ''
+        boe_filing_date: 3/4/2020
         email: jdhenchman@gmail.com
         withdrew: ''
-        first_name: Joe
+        first_name: Joseph
         last_name: Bishop-Henchman
         fair_elections: null
         neighborhood: Eckington
@@ -2708,7 +2718,7 @@ Primary Election:
         zip: '20002'
         phone: 202-766-5019
         boe_pickup_date: 2/21/2020
-        boe_filing_date: ''
+        boe_filing_date: 3/4/2020
         email: jdhenchman@gmail.com
         withdrew: ''
         first_name: Ford
@@ -3948,7 +3958,7 @@ Special Election:
         boe_pickup_date: 1/15/2020
         boe_filing_date: ''
         email: yilin@yilinforward2.com
-        first_name: Yilin (Ellen)
+        first_name: Yilin
         last_name: Zhang
         fair_elections: false
         neighborhood: Edgewood

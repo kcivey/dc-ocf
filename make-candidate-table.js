@@ -183,7 +183,8 @@ function transformRecords(records) {
             if (!/[A-Z][a-z]/.test(r.candidate_name)) { // handle all-caps or all-lowercase name
                 r.candidate_name = r.candidate_name.toLowerCase().replace(/\b[a-z]/g, m => m.toUpperCase());
             }
-            r.first_name = r.first_name.replace(/^(?:[DM]r|Mr?s)\.? /, '');
+            r.first_name = r.first_name.replace(/^(?:[DM]r|Mr?s)\.? /, '')
+                .replace(/\s*\(.+\)/, '');
             if (r.last_name === 'Grosman') { // kluge to fix OCF typo
                 r.last_name = 'Grossman';
                 r.candidate_name = r.candidate_name.replace('Grosman', 'Grossman');
@@ -203,6 +204,10 @@ function transformRecords(records) {
             else if (r.first_name === "Jeanne'") {
                 r.first_name = 'Jeanné';
                 r.candidate_name = r.candidate_name.replace("Jeanne'", 'Jeanné');
+            }
+            else if (r.last_name === 'Robinson Paul') {
+                r.last_name = 'Robinson-Paul';
+                r.candidate_name = 'Joyce (Chestnut) Robinson-Paul';
             }
             else if (r.committee_phone && r.committee_phone.match(/236-4074$/)) { // remove personal phone number
                 r.committee_phone = '';

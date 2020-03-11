@@ -177,7 +177,7 @@ function parseTable(text) {
     }
     const fields = getFields(m[1]);
     unparsed = unparsed.substr(m[0].length);
-    while ((m = unparsed.match(/^\d(?:.*\n){1,5}?\n?(?=\d|\s+Subtotal)/))) {
+    while ((m = unparsed.match(/^\d(?:.*\n){1,6}?\n?(?=\d|\s+Subtotal)/))) {
         unparsed = unparsed.substr(m[0].length);
         const row = parseRowText(m[0], fields);
         Object.assign(row, {committee_name: pageData.committee_name});

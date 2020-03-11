@@ -90,3 +90,5 @@ UPDATE committee_extras SET is_special = 1 WHERE committee_name LIKE '%Special%'
 UPDATE committee_extras SET is_special = 0 WHERE is_special IS NULL;
 
 UPDATE contributions SET contributor_type = 'Candidate' WHERE contributor_last_name = 'Grossman' AND contributor_first_name = 'Seth' AND amount < 2000;
+
+UPDATE committees SET office = 'Council Ward 2 (Special)' WHERE office = 'Council Ward 2' AND election_year = 2020 AND committee_name like '%Special%';

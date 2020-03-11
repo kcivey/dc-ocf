@@ -1,9 +1,15 @@
 =overall
 
-I analyzed the DC Office of Campaign Finance (OCF) reports for Oye Owolewa, who is the only candidate
-for shadow representative who has reported so far.
-His report covers through January 31.
+I analyzed the DC Office of Campaign Finance (OCF) reports for the candidates
+for shadow representative who have reported so far. In order by number of contributors, they are
 
-Owolewa can accept contributions of up to $2,000 from individuals and from organizations (corporations,
-LLCs, PACs, unions, and so on) and can put in unlimited amounts of his own money.
+<ul>
+<li>Oye Owolewa</li>
+<li>Dalton Patterson</li>
+</ul>
+
+Both candidates are Democrats, and reports for both cover contributions through March 10,
+
+Candidates can accept contributions of up to $2,000 from individuals and from organizations (corporations,
+LLCs, PACs, unions, and so on) and can put in unlimited amounts of their own money.
 Candidates for this office are not eligible for the Fair Elections public campaign finance program.

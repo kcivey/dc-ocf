@@ -4,20 +4,24 @@ I analyzed the DC Office of Campaign Finance (OCF) reports for the at-large coun
 who have filed so far.
 In order by number of contributors, they are
 <ul>
-  <li>Robert White</li>
+  <li>Robert White (incumbent, Democrat)</li>
   <li>Christina Henderson*</li>
   <li>Markus Batchelor*</li>
   <li>Chander Jayaraman*</li>
+  <li>Will Merrifield*</li>
   <li>Marcus Goodwin</li>
   <li>Jeanné Lewis*</li>
   <li>Franklin Garcia*</li>
+  <li>Mónica Palacio*</li>
   <li>Mario Cristaldo*</li>
+  <li>Marya Pickering (Republican)</li>
   <li>Eric Rogers</li>
 </ul>
 
 Candidates marked with asterisks are seeking to qualify or have qualified for Fair Elections public campaign funds.
-The last report for all candidates covers contributions through January 31.
-White is a Democrat; the others are independents.
+All candidates' reports cover contributions through March 10,
+except for Eric Rogers, who has reported only through January 31.
+White is a Democrat; Pickering is a Republican; the others are independents.
 
 Two candidates will win this contest in the general election.
 In all previous elections the Democrat has been in first place by a large margin, so the race is often
@@ -28,6 +32,6 @@ Candidates participating in the Fair Elections public campaign finance program c
 accept contributions up to $100 and only from individuals (except for the candidate and their family,
 who can give up to $2,500), but can receive considerable additional funds from public money if they
 meet some requirements.
-Candidates using the traditional system can accept contributions of up to $1,000 from
+Candidates using the traditional system can accept contributions up to $1,000 from
 individuals and from organizations (corporations, LLCs, PACs, unions, and so on) and can put in
 unlimited amounts of their own money.

@@ -1,10 +1,15 @@
 =overall
 
-I analyzed the DC Office of Campaign Finance (OCF) reports for the incumbent US senator (shadow senator),
-Paul Strauss, who is the only candidate who has filed so far.
-His report covers through January 31.
+I analyzed the DC Office of Campaign Finance (OCF) reports for the candidates
+for shadow senator who have reported so far. In order by number of contributors, they are
 
-Strauss can accept contributions of up to $2,000 from individuals and from organizations (corporations,
-LLCs, PACs, unions, and so on) and can put in unlimited amounts of his own money.
-He has given his campaign a $25,000 loan, which is not reflected in this analysis.
+<ul>
+<li>Paul Strauss (the incumbent, Democrat)</li>
+<li>Eleanor Ory (DC Statehood Green)</li>
+</ul>
+
+Reports for both candidates cover contributions through March 10,
+
+Candidates can accept contributions of up to $2,000 from individuals and from organizations (corporations,
+LLCs, PACs, unions, and so on) and can put in unlimited amounts of their own money.
 Candidates for this office are not eligible for the Fair Elections public campaign finance program.

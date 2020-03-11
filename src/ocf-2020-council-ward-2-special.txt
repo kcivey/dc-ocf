@@ -6,14 +6,19 @@ In order by number of contributors, they are
 <ul>
 <li>Jordan Grossman</li>
 <li>Kishan Putta</li>
+<li>Patrick Kennedy</li>
+<li>John Fanning</li>
+<li>Brooke Pinto</li>
 <li>Jack Evans</li>
 </ul>
 
-All the candidates are Democrats, all are are seeking to qualify or have qualified for Fair Elections public
-campaign funds, and the last report for all of them covers contributions through January 31.
+All the candidates are Democrats.
+All except Brooke Pinto are are seeking to qualify or have qualified for Fair Elections public campaign funds.
+The last report for all of them covers contributions through March 10.
 
-Since all candidates are seeking to qualify for public campaign financing under the Fair Elections Act,
-contributions all come from individuals and are limited to $50 (except for the candidate and their family,
-who can give up to $2,500). Therefore most of this analysis focuses on the number of contributors rather the
-amount raised, and there's nothing about corporate contributions because the candidates are prohibited from
-taking them.
+Pinto can accept contributions up to $500, from individuals and from organizations (corporations, LLCs,
+PACs, unions, and so on), and use as much of her own money as she wishes.
+The others are participating in the Fair Elections public campaign finance program
+and so can accept up to $50 and only from individuals (except for the candidate and their family,
+who can give up to $2,500), but can receive considerable additional funds from public money if they
+meet some requirements.

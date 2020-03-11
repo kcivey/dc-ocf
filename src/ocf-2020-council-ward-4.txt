@@ -10,7 +10,9 @@ In order by number of contributors, they are
 <li>Marlena Edwards</li>
 </ul>
 
-All the candidates are Democrats, and the last report for all candidates covers contributions through January 31.
+All the candidates are Democrats.
+All candidates have reported their contributions through March 10, except for Renee Bowser,
+whose last report covers only through January 31.
 
 Todd and Edwards can accept contributions up to $500, from individuals and from organizations (corporations, LLCs,
 PACs, unions, and so on), and use as much of their own money as they wish.

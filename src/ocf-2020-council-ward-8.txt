@@ -4,19 +4,23 @@ I analyzed the DC Office of Campaign Finance (OCF) reports for the Ward 8 counci
 who have filed so far.
 In order by number of contributors, they are
 <ul>
-<li>Stuart Anderson</li>
-<li>Mike Austin</li>
+<li>Trayon White (the incumbent)*</li>
+<li>Mike Austin*</li>
+<li>Stuart Anderson*</li>
 <li>Yaida Ford</li>
+<li>Christopher Cole*</li>
 <li>Richard Campbell</li>
+<li>Nelson Jackson Sr</li>
 </ul>
 
+Candidates marked with asterisks are seeking to qualify or have qualified for Fair Elections public campaign funds.
 All the candidates are Democrats.
-Austin's and Ford's reports cover contributions through January 31.
-Anderson and Campbell have not yet filed their January 31 reports, so the analysis covers only through December 10 for them.
+All candidates' reports cover contributions through March 10.
 
-Ford and Campbell can accept contributions up to $500, from individuals and from organizations (corporations, LLCs,
-PACs, unions, and so on), and use as much of their own money as they wish.
-Anderson and Austin are participating in the Fair Elections public campaign finance program
-and so can accept up to $50 and only from individuals (except for the candidate and their family,
-who can give up to $2,500), but can receive considerable additional funds from public money if they
-meet some requirements.
+Candidates participating in the Fair Elections public campaign finance program
+can accept up to $50 and only from individuals (except for the candidate and their family,
+who can give up to $2,500), but can receive considerable additional funds from public money
+if they meet some requirements.
+Candidates using the traditional system can accept contributions up to $500,
+from individuals and from organizations (corporations, LLCs, PACs, unions, and so on),
+and use as much of their own money as they wish.

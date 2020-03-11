@@ -2521,14 +2521,14 @@ Primary Election:
             title: Lone Republican enters race to succeed Jack Evans as councilmember
     Council Ward 8:
       - candidate_name: Nate "Ward 8" Derenge
-        contact_name: Nate Derenge
+        contact_name: ''
         address: 2131 Young St SE
-        zip: '20020'
+        zip: ''
         phone: 605-553-8895
         boe_pickup_date: 1/16/2020
-        boe_filing_date: ''
+        boe_filing_date: 3/2/2020
         email: nathan.derenge@gmail.com
-        first_name: Nate "Ward 8"
+        first_name: Nate
         last_name: Derenge
         fair_elections: false
         neighborhood: Fairlawn
@@ -2641,7 +2641,7 @@ Primary Election:
         zip: '20020'
         phone: 202-258-1699
         boe_pickup_date: 2/14/2020
-        boe_filing_date: ''
+        boe_filing_date: 3/3/2020
         email: stracuzziforcongress@gmail.com
         withdrew: ''
         first_name: Natale Lino

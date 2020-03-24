@@ -1443,7 +1443,7 @@ Primary Election:
         committee_name: Mike For Ward 8
         id: 15078
         name: Mr. Michael Austin
-        address: 226 Malcolm X Ave SE
+        address: PO Box 31528
         filing_date: 01/17/2020
         phone: 202-779-3904
         email: info.mikeaustin8@gmail.com
@@ -1455,14 +1455,14 @@ Primary Election:
         chairperson_name: ''
         chair_phone: ''
         chair_email: ''
-        zip: '20032'
+        zip: '20030'
         fair_elections: true
         neighborhood: Congress Heights
         twitter: Mike8Austin
         website: mikeaustin8.com
         facebook: mike8austin8
         instagram: mike8austin
-        contact_name: Michael Austin
+        contact_name: Breanna Bledoe
         boe_pickup_date: 1/13/2020
         boe_filing_date: 3/4/2020
         withdrew: ''
@@ -1754,7 +1754,7 @@ Primary Election:
         boe_pickup_date: 1/16/2020
         boe_filing_date: 3/2/2020
         email: trayonwhite2020@gmail.com
-        first_name: Trayon "Ward Eight"
+        first_name: Trayon
         last_name: White
         fair_elections: true
         withdrew: ''
@@ -3766,7 +3766,7 @@ Special Election:
             title: Jordan Grossman aims for the Ward 2 crown
         contact_name: ''
         boe_pickup_date: 1/15/2020
-        boe_filing_date: ''
+        boe_filing_date: 3/16/2020
       - committee_id: 14148
         first_name: Patrick
         last_name: Kennedy
@@ -3856,15 +3856,15 @@ Special Election:
             percent: 94
         contact_name: ''
         boe_pickup_date: 1/17/2020
-        boe_filing_date: ''
+        boe_filing_date: 3/16/2020
       - candidate_name: Brooke Pinto
         contact_name: ''
         address: 1219 Q St NW
         zip: '20009'
         phone: 202-400-1295
         boe_pickup_date: 2/13/2020
-        boe_filing_date: ''
-        email: brook@brookepintoforward2.com
+        boe_filing_date: 3/15/2020
+        email: brooke@brookepintoforward2.com
         first_name: Brooke
         last_name: Pinto
         fair_elections: false
@@ -3903,7 +3903,7 @@ Special Election:
         zip: '20007'
         phone: 202-320-0058
         boe_pickup_date: 1/15/2020
-        boe_filing_date: ''
+        boe_filing_date: 3/18/2020
         email: kishanfordc@gmail.com
         first_name: Kishan
         last_name: Putta
@@ -3956,7 +3956,7 @@ Special Election:
         zip: '20009'
         phone: 202-524-0536
         boe_pickup_date: 1/15/2020
-        boe_filing_date: ''
+        boe_filing_date: 3/18/2020
         email: yilin@yilinforward2.com
         first_name: Yilin
         last_name: Zhang

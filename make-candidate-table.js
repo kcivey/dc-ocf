@@ -23,6 +23,10 @@ const argv = require('yargs')
             type: 'boolean',
             describe: 'print emails and exit',
         },
+        'special-filing': {
+            type: 'boolean',
+            describe: 'omit special election candidates who have not filed with BOE',
+        },
         update: {
             type: 'boolean',
             describe: 'get new data from OCF site',
@@ -39,6 +43,17 @@ const argv = require('yargs')
             requiresArg: true,
         },
     })
+    .middleware(
+        function (argv) {
+            if (argv['general-filing']) {
+                argv['special-filing'] = true;
+            }
+            if (argv['special-filing']) {
+                argv['primary-filing'] = true;
+            }
+        },
+        true
+    )
     .strict(true)
     .argv;
 const {getNeighborhoodName} = require('./lib/dc-neighborhoods');
@@ -184,7 +199,8 @@ function transformRecords(records) {
                 r.candidate_name = r.candidate_name.toLowerCase().replace(/\b[a-z]/g, m => m.toUpperCase());
             }
             r.first_name = r.first_name.replace(/^(?:[DM]r|Mr?s)\.? /, '')
-                .replace(/\s*\(.+\)/, '');
+                .replace(/\s*\(.+\)/, '')
+                .replace(/\s*"[^"]*"/, '');
             if (r.last_name === 'Grosman') { // kluge to fix OCF typo
                 r.last_name = 'Grossman';
                 r.candidate_name = r.candidate_name.replace('Grosman', 'Grossman');
@@ -604,5 +620,6 @@ function omitCandidate(c, election) {
     return c.withdrew ||
         c.termination_approved ||
         (argv['primary-filing'] && /Primary/.test(election) && !c.boe_filing_date) ||
+        (argv['special-filing'] && /Special/.test(election) && !c.boe_filing_date) ||
         (argv['general-filing'] && !c.boe_filing_date);
 }

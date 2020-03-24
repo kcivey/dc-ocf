@@ -2,7 +2,7 @@
 
 set -e
 ./make-json.js --year 2020
-./make-candidate-table.js --year 2020 --primary-filing
+./make-candidate-table.js --year 2020 --special-filing
 echo 'Copying files from src to dist'
 mkdir -p dist
 rm dist/*

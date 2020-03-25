@@ -9,55 +9,10 @@ const {pdfToText} = require('pdf-to-text');
 const request = require('request-promise-native');
 const cheerio = require('cheerio');
 const tempy = require('tempy');
-const argv = require('yargs')
-    .options({
-        'general-filing': {
-            type: 'boolean',
-            describe: 'omit all candidates who have not filed with BOE',
-        },
-        'primary-filing': {
-            type: 'boolean',
-            describe: 'omit primary candidates who have not filed with BOE',
-        },
-        'print-emails': {
-            type: 'boolean',
-            describe: 'print emails and exit',
-        },
-        'special-filing': {
-            type: 'boolean',
-            describe: 'omit special election candidates who have not filed with BOE',
-        },
-        update: {
-            type: 'boolean',
-            describe: 'get new data from OCF site',
-        },
-        verbose: {
-            type: 'boolean',
-            describe: 'print something about what\'s going on',
-            alias: 'v',
-        },
-        year: {
-            type: 'number',
-            describe: 'retrieve only for specified election year',
-            default: Math.floor((new Date().getFullYear() + 1) / 2) * 2,
-            requiresArg: true,
-        },
-    })
-    .middleware(
-        function (argv) {
-            if (argv['general-filing']) {
-                argv['special-filing'] = true;
-            }
-            if (argv['special-filing']) {
-                argv['primary-filing'] = true;
-            }
-        },
-        true
-    )
-    .strict(true)
-    .argv;
+const yargs = require('yargs');
 const {getNeighborhoodName} = require('./lib/dc-neighborhoods');
 const OcfDisclosures = require('./lib/ocf-disclosures');
+const argv = getArgv();
 const yamlFile = `${__dirname}/dcision${argv.year.toString().substr(-2)}.yaml`;
 const templateFile = `${__dirname}/src/dc-2020-candidates.html.tpl`;
 const majorParties = [
@@ -425,6 +380,56 @@ function writeHtml(records) {
             return spelledOut ? `<abbr title="${spelledOut}">${m1}</abbr>` : m1;
         });
     }
+}
+
+function getArgv() {
+    return yargs
+        .options({
+            'general-filing': {
+                type: 'boolean',
+                describe: 'omit all candidates who have not filed with BOE',
+            },
+            'primary-filing': {
+                type: 'boolean',
+                describe: 'omit primary candidates who have not filed with BOE',
+            },
+            'print-emails': {
+                type: 'boolean',
+                describe: 'print emails and exit',
+            },
+            'special-filing': {
+                type: 'boolean',
+                describe: 'omit special election candidates who have not filed with BOE',
+            },
+            update: {
+                type: 'boolean',
+                describe: 'get new data from OCF site',
+            },
+            verbose: {
+                type: 'boolean',
+                describe: 'print something about what\'s going on',
+                alias: 'v',
+            },
+            year: {
+                type: 'number',
+                describe: 'retrieve only for specified election year',
+                default: Math.floor((new Date().getFullYear() + 1) / 2) * 2,
+                requiresArg: true,
+            },
+        })
+        .middleware(
+            function (argv) {
+                if (argv['general-filing']) {
+                    argv['special-filing'] = true;
+                }
+                if (argv['special-filing']) {
+                    argv['primary-filing'] = true;
+                }
+            },
+            true
+        )
+        .strict(true)
+        .argv;
 }
 
 function objectify(arr, keyNames) {

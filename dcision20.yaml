@@ -3109,6 +3109,15 @@ General Election:
             result: Won
             percent: 95
         fair_elections: true
+      - candidate_name: Ed Lazere
+        first_name: Ed
+        last_name: Lazere
+        election_year: 2020
+        fair_elections: true
+        website: edfordc.com
+        twitter: edlazere
+        facebook: EdforDC
+        neighborhood: null
       - committee_id: 4136
         first_name: Jeanné
         last_name: Lewis

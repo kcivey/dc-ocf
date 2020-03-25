@@ -1556,7 +1556,7 @@ Primary Election:
         zip: '20032'
         phone: 202-893-1623
         boe_pickup_date: 1/10/2020
-        boe_filing_date: 3/2/2020
+        boe_filing_date: ''
         email: christopherhawthorne@verizon.net
         first_name: Christopher
         last_name: Hawthorne
@@ -1695,7 +1695,7 @@ Primary Election:
         neighborhood: Shipley Terrace
         contact_name: Nelson Jackson Jr.
         boe_pickup_date: 1/13/2020
-        boe_filing_date: 3/4/2020
+        boe_filing_date: ''
         withdrew: ''
         twitter: njax
       - committee_id: 4145
@@ -1729,7 +1729,7 @@ Primary Election:
         neighborhood: Anacostia
         contact_name: Fria M. Moore
         boe_pickup_date: 1/10/2020
-        boe_filing_date: 3/4/2020
+        boe_filing_date: ''
         withdrew: ''
         facebook: votefriamoore2020
       - candidate_name: Danielle Platt
@@ -2282,7 +2282,7 @@ Primary Election:
         zip: '20001'
         phone: 410-814-9598
         boe_pickup_date: 1/10/2020
-        boe_filing_date: 3/3/2020
+        boe_filing_date: ''
         email: wfeegbeh@outlook.com
         first_name: William
         last_name: Feegbeh
@@ -2308,7 +2308,7 @@ Primary Election:
         zip: '55418'
         phone: 612-927-3400
         boe_pickup_date: 2/24/2020
-        boe_filing_date: 2/24/2020
+        boe_filing_date: ''
         email: Info@AmyKlobuchar.com
         withdrew: ''
         first_name: Amy
@@ -2387,7 +2387,7 @@ Primary Election:
         zip: '20016'
         phone: 202-583-7426
         boe_pickup_date: 1/31/2020
-        boe_filing_date: 3/4/2020
+        boe_filing_date: ''
         email: JohnnieRice@comcast.net
         withdrew: ''
         first_name: Barbara Washington
@@ -2560,7 +2560,7 @@ Primary Election:
         zip: '20002'
         phone: ''
         boe_pickup_date: 2/13/2020
-        boe_filing_date: 3/4/2020
+        boe_filing_date: ''
         email: d.green42192@gmail.com
         withdrew: ''
         first_name: Donald R.

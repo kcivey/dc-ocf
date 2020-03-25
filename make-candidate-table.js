@@ -47,6 +47,7 @@ async function main() {
         const newRecords = await getNewRecords();
         records = combineRecords(records, newRecords);
     }
+    records = removeBoeDates(records);
     const moreRecords = await getBoePickups();
     records = combineRecords(records, moreRecords);
     for (const election of Object.keys(records)) {
@@ -383,7 +384,7 @@ function writeHtml(records) {
 }
 
 function getArgv() {
-    return yargs
+    const argv = yargs
         .options({
             'general-filing': {
                 type: 'boolean',
@@ -417,19 +418,15 @@ function getArgv() {
                 requiresArg: true,
             },
         })
-        .middleware(
-            function (argv) {
-                if (argv['general-filing']) {
-                    argv['special-filing'] = true;
-                }
-                if (argv['special-filing']) {
-                    argv['primary-filing'] = true;
-                }
-            },
-            true
-        )
         .strict(true)
         .argv;
+    if (argv['general-filing']) {
+        argv['special-filing'] = true;
+    }
+    if (argv['special-filing']) {
+        argv['primary-filing'] = true;
+    }
+    return argv;
 }
 
 function objectify(arr, keyNames) {
@@ -461,6 +458,21 @@ function keySort(a, b) {
     const [, a1, a2] = a.match(/^(?:(.+?)\s+)?(.+)$/);
     const [, b1, b2] = b.match(/^(?:(.+?)\s+)?(.+)$/);
     return a2.localeCompare(b2) || a1.localeCompare(b1);
+}
+
+function removeBoeDates(records) {
+    for (const recordsByParty of Object.values(records)) {
+        for (const recordsByOffice of Object.values(recordsByParty)) {
+            for (const candidates of Object.values(recordsByOffice)) {
+                for (const candidate of candidates) {
+                    if (!candidate.withdrew && candidate.boe_filing_date) {
+                        candidate.boe_filing_date = '';
+                    }
+                }
+            }
+        }
+    }
+    return records;
 }
 
 async function getBoePickups() {

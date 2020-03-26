@@ -120,7 +120,7 @@ function getInputFilesByCommittee() {
         .map(fn => dir + '/' + fn);
     const inputFilesByCommittee = {};
     for (const inputFile of inputFiles) {
-        const m = inputFile.match(/^.+\/(.+?)-(\w+-\d+\w+)(?:-amendment-\d+)?-\d{8}\.pdf$/);
+        const m = inputFile.match(/^.+\/(.+?)-(\w+-\d+\w+|termination)(?:-amendment-\d+)?-\d{8}\.pdf$/);
         assert(m, `Unexpected filename format "${inputFile}`);
         const committee = m[1];
         const reportType = m[2];
@@ -167,7 +167,7 @@ function parseTable(text) {
     if (pageData.schedule === 'A3' || pageData.schedule === 'A7') { // @todo handle public funds and offsets
         return null;
     }
-    if (pageData.schedule === 'D' || pageData.schedule === 'E') {
+    if (pageData.schedule >= 'C') { // can't parse for now
         return pageData;
     }
     m = unparsed.match(/^(#.+)\n(?:.*\n)?\n(?=\d)/);
@@ -224,8 +224,8 @@ function parseRowText(text, fields) {
             if (value === '') {
                 continue;
             }
-            if (key.match(/^(?:address|business|individual)$|_name$/)) {
-                const newKey = key === 'address'
+            if (key.match(/^(?:address|business|individual)$|_name$|_address$/)) {
+                const newKey = /address$/.test(key)
                     ? key
                     : key === 'individual'
                         ? 'payee_address'
@@ -335,6 +335,17 @@ function fixExpenditureRow(oldRow) {
         row.purpose_of_expenditure = row.reason;
         delete row.reason;
         delete row.mode_of_payment;
+        row.payment_date = row.date;
+        delete row.date;
+    }
+    else if (row.equipment_short_description) { // B-1
+        row.purpose_of_expenditure = row.equipment_short_description;
+        delete row.equipment_short_description;
+        row.payee_name = row.source;
+        delete row.source;
+        delete row.source_type;
+        row.payee_address = row.source_address;
+        delete row.source_address;
         row.payment_date = row.date;
         delete row.date;
     }

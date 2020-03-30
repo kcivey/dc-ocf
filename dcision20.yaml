@@ -1443,7 +1443,7 @@ Primary Election:
         committee_name: Mike For Ward 8
         id: 15078
         name: Mr. Michael Austin
-        address: PO Box 31528
+        address: 226 Malcolm X Ave SE
         filing_date: 01/17/2020
         phone: 202-779-3904
         email: info.mikeaustin8@gmail.com
@@ -1455,14 +1455,14 @@ Primary Election:
         chairperson_name: ''
         chair_phone: ''
         chair_email: ''
-        zip: '20030'
+        zip: '20032'
         fair_elections: true
         neighborhood: Congress Heights
         twitter: Mike8Austin
         website: mikeaustin8.com
         facebook: mike8austin8
         instagram: mike8austin
-        contact_name: Breanna Bledoe
+        contact_name: Michael Austin
         boe_pickup_date: 1/13/2020
         boe_filing_date: 3/4/2020
         withdrew: ''
@@ -1644,7 +1644,7 @@ Primary Election:
         neighborhood: Knox Hill
         contact_name: Jeronda Hilton
         boe_pickup_date: 1/10/2020
-        boe_filing_date: 3/2/2020
+        boe_filing_date: ''
         withdrew: ''
         elections:
           - year: 2014
@@ -2123,7 +2123,7 @@ Primary Election:
         neighborhood: NoMa
         contact_name: Dalton E. Patterson
         boe_pickup_date: 1/10/2020
-        boe_filing_date: 3/4/2020
+        boe_filing_date: ''
         withdrew: ''
       - committee_id: 0
         first_name: Pete

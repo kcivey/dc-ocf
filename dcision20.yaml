@@ -15,7 +15,7 @@ Primary Election:
         fair_elections: null
         neighborhood: Northwest One
       - committee_id: 0
-        first_name: Tyrone E.
+        first_name: Tyrone
         last_name: Carmichael
         candidate_key: CANCCL207139
         election_year: 2020
@@ -29,8 +29,8 @@ Primary Election:
         name: Mr. Tyrone Carmichael
         address: 1503 41st St SE
         filing_date: 01/13/2020
-        phone: 202-294-5943
-        email: t1rone@yahoo.com
+        phone: (202) 294-5943
+        email: T1rone@yahoo.com
         zip: '20020'
         fair_elections: false
         neighborhood: Fort Davis
@@ -734,9 +734,9 @@ Primary Election:
         election_description: Primary Election
         candidate_name: Renee Bowser
         committee_name: Committee to Elect Renee Bowser
-        address: 5322 2ND St NW
+        address: 5322 Second St NW
         filing_date: 11/06/2019
-        email: electreneebowser@gmail.com
+        email: reneelb@outlook.com
         committee_address: '5322 Second Street, NW, Washington, DC 20011'
         committee_phone: (202) 505-2187
         zip: '20011'
@@ -825,7 +825,7 @@ Primary Election:
         termination_approved: false
         id: 5050
         name: Ms. Renee Bowser
-        phone: 202-957-2921
+        phone: (202) 957-2921
         treasurer_name: ''
         treasurer_phone: ''
         treasurer_email: ''
@@ -1222,10 +1222,10 @@ Primary Election:
         committee_name: Tam Haye
         id: 5067
         name: Ms. Tam Haye
-        address: 4200 Grant St NE
+        address: 4200 Grant St NE Unit 102
         filing_date: 01/07/2020
-        phone: 202-567-8022
-        email: teamtamhaye2020@gmail.com
+        phone: (202) 567-8022
+        email: teamtamhaye2019@gmail.com
         zip: '20019'
         fair_elections: null
         neighborhood: Mahaning Heights/Central Northeast
@@ -1490,10 +1490,10 @@ Primary Election:
         committee_name: Richard Campbell -Ward 8 City Council
         id: 5042
         name: Mr. Richard Campbell
-        address: 2932 Southern Ave SE
+        address: 1231 Alabama Ave SE
         filing_date: 10/29/2019
-        phone: 202-718-3148
-        email: baileyangie244@gmail.com
+        phone: (202) 300-3417
+        email: richard2.campbell@gmail.com
         committee_address: '2932 Southern Ave., SE #2, Washington, DC 20020'
         committee_phone: (202) 300-3417
         treasurer_name: Ms. Penelope A. Dade
@@ -1502,7 +1502,7 @@ Primary Election:
         chairperson_name: Ms. Angela Bailey
         chair_phone: (202) 718-3148
         chair_email: baileyangie244@gmail.com
-        zip: '20020'
+        zip: '20032'
         twitter: ''
         website: ''
         links:
@@ -1552,9 +1552,9 @@ Primary Election:
             title: 'D.C. ELECTION ROUNDUP: Ford Wants a Ward 8 Driven by Education, Economics'
       - candidate_name: Christopher Hawthorne
         contact_name: Christopher Hawthorne
-        address: 1922 Valley Terr SE
+        address: 1922 Valley Terrace SE
         zip: '20032'
-        phone: 202-893-1623
+        phone: (202) 893-1623
         boe_pickup_date: 1/10/2020
         boe_filing_date: ''
         email: christopherhawthorne@verizon.net
@@ -1602,7 +1602,7 @@ Primary Election:
         candidate_approved: true
         committee_approved: true
         termination_approved: false
-        committee_name: Fred Hill for Ward 8 Council
+        committee_name: Fred Hill Ward 8
         id: 15101
         name: Mr. Frederick Hill III
         filing_date: 02/27/2020
@@ -1629,7 +1629,7 @@ Primary Election:
         name: Ms. Jeronda Hilton
         address: 2409 Irving Pl SE
         filing_date: 01/16/2020
-        phone: 301-789-6438
+        phone: (301) 789-6738
         email: hiltonjeronda@gmail.com
         committee_address: '2409 Irving Pl., SE, Washington, DC 20020'
         committee_phone: (301) 789-6738
@@ -1680,8 +1680,8 @@ Primary Election:
         name: Mr. Nelson Jackson Sr.
         address: 3412 21st St SE
         filing_date: 01/24/2020
-        phone: 240-750-4112
-        email: Nelson.Jackson@njaxunl.com
+        phone: (240) 750-4112
+        email: nelson.jackson@njaxunl.com
         committee_address: '3412 21st Street, SE, Washington, DC 20020'
         committee_phone: (240) 750-4112
         treasurer_name: Mr. Nelson Jackson Sr.
@@ -1699,7 +1699,7 @@ Primary Election:
         withdrew: ''
         twitter: njax
       - committee_id: 4145
-        first_name: Fria M.
+        first_name: Fria
         last_name: Moore
         candidate_key: CANCC8207141
         committee_key: ''
@@ -1712,9 +1712,9 @@ Primary Election:
         committee_name: Vote Fria Moore 2020
         id: 5073
         name: Fria M. Moore
-        address: 1757 W St SE
+        address: '1757 W St SE #A'
         filing_date: 01/13/2020
-        phone: 202-203-0290
+        phone: (202) 203-0290
         email: votefriamoore@gmail.com
         committee_address: '1757 W Street, SE. #A, Washington, DC 20020'
         committee_phone: (202) 203-0290
@@ -1811,7 +1811,7 @@ Primary Election:
         contact_name: Dorothy Douglas
         address: 4401 Minnesota Ave NE
         zip: '20019'
-        phone: 202-640-9584
+        phone: (202) 640-9584
         boe_pickup_date: 1/22/2020
         boe_filing_date: ''
         email: d.douglas0123@gmail.com
@@ -2028,10 +2028,10 @@ Primary Election:
         committee_name: Ivan Cloyd for US Representative
         id: 5070
         name: Mr. Ivan Cloyd
-        address: 3721 D St SE
+        address: '3721 D St SE #202'
         filing_date: 01/10/2020
-        phone: 347-697-8952
-        email: Jacksonpau42@gmail.com
+        phone: (347) 697-8952
+        email: cloydnation@outlook.com
         committee_address: '3721 D Street, SE #202, Washington, DC 20019'
         committee_phone: (347) 697-8952
         treasurer_name: Mr. Ivan Cloyd
@@ -2094,7 +2094,7 @@ Primary Election:
           - url: 'https://www.washingtoninformer.com/d-c-election-roundup-owolewa-seeks-shadow-rep-position/'
             title: 'D.C. ELECTION ROUNDUP: Owolewa Seeks Shadow Rep Position'
       - committee_id: 14151
-        first_name: Dalton E.
+        first_name: Dalton
         last_name: Patterson
         candidate_key: CANREP207149
         committee_key: PCCREP207149
@@ -2106,9 +2106,9 @@ Primary Election:
         committee_name: Dalton Patterson 2020 Campaign
         id: 15079
         name: Mr. Dalton Patterson
-        address: 60 L St NE
+        address: 60 L St NE Apt 1011
         filing_date: 01/21/2020
-        phone: 301-503-5513
+        phone: (301) 503-5513
         email: dalton.e.patterson@gmail.com
         committee_address: '60 L Street, NE. Apt. 1011, Washington, DC 20002'
         committee_phone: (301) 503-5513
@@ -2138,10 +2138,10 @@ Primary Election:
         committee_name: Pete Ross
         id: 5068
         name: Mr. Pete Ross
-        address: 1712 Surrey Ln
+        address: 1712 Surrey Lane NW
         filing_date: 01/10/2020
-        phone: 202-607-0000
-        email: PETE@PETEROSS.com
+        phone: (202) 607-0000
+        email: pete@peteross.com
         zip: '20007'
         fair_elections: false
         neighborhood: Foxhall Village
@@ -2561,9 +2561,9 @@ Primary Election:
         phone: ''
         boe_pickup_date: 2/13/2020
         boe_filing_date: ''
-        email: d.green42192@gmail.com
+        email: dgreen42192@gmail.com
         withdrew: ''
-        first_name: Donald R.
+        first_name: Donald
         last_name: Green
         fair_elections: false
         neighborhood: Ivy City
@@ -2686,6 +2686,35 @@ Primary Election:
         last_name: Redd
         fair_elections: null
         neighborhood: Manor Park
+    Council Ward 2:
+      - committee_id: 14170
+        first_name: Peter
+        last_name: Bolton
+        candidate_key: CANCC2207177
+        committee_key: PCCCC2207177
+        election_year: 2020
+        candidate_approved: true
+        committee_approved: true
+        termination_approved: false
+        candidate_name: Peter Bolton
+        committee_name: Peter Bolton for Ward 2
+        id: 15110
+        name: Mr. Peter Bolton
+        address: 2007 O St NW Apt 504
+        filing_date: 03/27/2020
+        phone: (202) 602-7360
+        email: peterboltonjournalist@gmail.com
+        committee_address: '2007 O Street, NW. Apt. 504, Washington, DC 20036'
+        committee_phone: (202) 602-7360
+        treasurer_name: Mr. Peter Bolton
+        treasurer_phone: (202) 602-7360
+        treasurer_email: peterboltonjournalist@gmail.com
+        chairperson_name: Mr. David Schwartzman
+        chair_phone: (202) 602-7360
+        chair_email: dschwartzman@gmail.com
+        zip: '20036'
+        fair_elections: false
+        neighborhood: Dupont Circle
   Libertarian:
     Council At-Large:
       - candidate_name: Joseph Bishop-Henchman
@@ -3572,7 +3601,7 @@ Special Election:
         contact_name: ''
         address: 3141 P St NW
         zip: '20007'
-        phone: 202-255-3300
+        phone: ''
         boe_pickup_date: 1/27/2020
         boe_filing_date: ''
         email: jackevans1@aol.com
@@ -3986,10 +4015,10 @@ Special Election:
         committee_phone: ''
         treasurer_name: Ms. Yilin Zhang
         treasurer_phone: (202) 524-0536
-        treasurer_email: yilinzh2008@gmail.com
+        treasurer_email: yilin@yilinforward2.com
         chairperson_name: Ms. Yilin Zhang
         chair_phone: (202) 524-0536
-        chair_email: yilinzh2008@gmail.com
+        chair_email: yilin@yilinforward2.com
         twitter: yilinforward2
         website: yilinforward2.com
         facebook: yilinforward2

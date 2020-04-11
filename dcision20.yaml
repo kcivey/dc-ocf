@@ -1588,7 +1588,7 @@ Primary Election:
         zip: '20020'
         phone: 202-330-2211
         boe_pickup_date: 2/25/2020
-        boe_filing_date: 3/4/2020
+        boe_filing_date: ''
         email: FredHill@gotta-gonow.com
         withdrew: ''
         first_name: Frederick
@@ -1738,7 +1738,7 @@ Primary Election:
         zip: '20020'
         phone: 202-391-8884
         boe_pickup_date: 1/21/2020
-        boe_filing_date: 3/4/2020
+        boe_filing_date: ''
         email: justice4W8@gmail.com
         first_name: Danielle
         last_name: Platt
@@ -1895,7 +1895,7 @@ Primary Election:
         name: Mr. Paul Strauss
         address: 1020 16th St NW
         filing_date: 11/26/2019
-        phone: 202-223-8664
+        phone: 202-497-8948
         email: senator@paulstrauss.org
         committee_address: '1020 16th Street, NW. Suite 500, Washington, DC 20036'
         committee_phone: (202) 223-8664
@@ -1965,7 +1965,7 @@ Primary Election:
             office: US Senator
             result: Won
             percent: 76
-        contact_name: Taylor Berlin
+        contact_name: Coley Smith
         boe_pickup_date: 1/10/2020
         boe_filing_date: 2/10/2020
         withdrew: ''
@@ -1976,7 +1976,7 @@ Primary Election:
         zip: '20006'
         phone: 202-320-7035
         boe_pickup_date: 1/10/2020
-        boe_filing_date: 3/4/2020
+        boe_filing_date: ''
         email: susigbf@yahoo.com
         first_name: Susana
         last_name: Baranano
@@ -2360,7 +2360,7 @@ Primary Election:
         zip: '02117'
         phone: 240-535-4727
         boe_pickup_date: 3/2/2020
-        boe_filing_date: ''
+        boe_filing_date: 3/2/2020
         email: kt@elizabethwarren.com
         withdrew: ''
         first_name: Elizabeth
@@ -2528,7 +2528,7 @@ Primary Election:
         boe_pickup_date: 1/16/2020
         boe_filing_date: 3/2/2020
         email: nathan.derenge@gmail.com
-        first_name: Nate
+        first_name: Nate 'Ward8'
         last_name: Derenge
         fair_elections: false
         neighborhood: Fairlawn
@@ -2726,7 +2726,7 @@ Primary Election:
         boe_filing_date: 3/4/2020
         email: jdhenchman@gmail.com
         withdrew: ''
-        first_name: Joseph
+        first_name: Joe
         last_name: Bishop-Henchman
         fair_elections: null
         neighborhood: Eckington

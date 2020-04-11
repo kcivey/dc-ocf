@@ -5,9 +5,10 @@ who have filed so far.
 In order by number of contributors, they are
 <ul>
 <li>Vincent Gray (the incumbent)</li>
-<li>Kelvin Brown*</li>
 <li>Anthony Lorenzo Green*</li>
+<li>Kelvin Brown*</li>
 <li>Veda Rasheed</li>
+<li>Fria Moore*</li>
 <li>Rebecca Morria</li>
 </ul>
 

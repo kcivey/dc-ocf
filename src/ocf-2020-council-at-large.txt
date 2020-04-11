@@ -5,12 +5,13 @@ who have filed so far.
 In order by number of contributors, they are
 <ul>
   <li>Robert White (incumbent, Democrat)</li>
+  <li>Ed Lazere*</li>
   <li>Christina Henderson*</li>
-  <li>Markus Batchelor*</li>
   <li>Chander Jayaraman*</li>
   <li>Will Merrifield*</li>
-  <li>Marcus Goodwin</li>
+  <li>Markus Batchelor*</li>
   <li>Jeanné Lewis*</li>
+  <li>Marcus Goodwin</li>
   <li>Franklin Garcia*</li>
   <li>Mónica Palacio*</li>
   <li>Mario Cristaldo*</li>
@@ -19,8 +20,10 @@ In order by number of contributors, they are
 </ul>
 
 Candidates marked with asterisks are seeking to qualify or have qualified for Fair Elections public campaign funds.
-All candidates' reports cover contributions through March 10,
-except for Eric Rogers, who has reported only through January 31.
+All Fair Elections candidates' have reported contributions through April 10,
+except for Batchelor who has reported only through March 10.
+White and Goodwin have also reported tthrough March 10.
+Rogers has reported only through January 31.
 White is a Democrat; Pickering is a Republican; the others are independents.
 
 Two candidates will win this contest in the general election.

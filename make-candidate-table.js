@@ -530,7 +530,7 @@ async function getBoePickups() {
                     continue;
                 }
                 let party;
-                const m = page.match(/District of Columbia Board of Elections\n +(.+?)(?: List of| Candidates| *\n)/);
+                const m = page.match(/District of Columbia Board of Elections\n +(.+?)(?: List of| Candidates| in Ballot Order| *\n)/);
                 assert(m, `Missing party:\n${page}`);
                 if (m) {
                     party = m[1];
@@ -584,7 +584,7 @@ async function getBoePickups() {
         }
     }
     for (const r of pickups) {
-        const m = r.candidate_name.match(/^(.*?) (\S*\w)(?:,? ([JS]r|I+|I?V))?\.?$/i);
+        const m = r.candidate_name.match(/^\(?(.*?) (\S*\w)(?:,? ([JS]r|I+|I?V))?\.?\)?$/i);
         assert(m, `Unexpected name format "${r.candidate_name}"`);
         r.candidate_name = `${m[1]} ${m[2]}`;
         if (m[3]) {

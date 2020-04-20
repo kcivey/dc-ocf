@@ -2634,6 +2634,16 @@ Primary Election:
         last_name: Wilcox
         fair_elections: null
         neighborhood: Shepherd Park
+        committee_id: 0
+        candidate_key: CANCCL207179
+        election_year: 2020
+        candidate_approved: true
+        committee_approved: false
+        termination_approved: false
+        committee_name: Ann Wilcox
+        id: 15112
+        name: Ms. Ann C. Wilcox
+        filing_date: 04/20/2020
     Delegate to the US House:
       - candidate_name: Natale Lino Stracuzzi
         contact_name: ''
@@ -3198,6 +3208,34 @@ General Election:
               Running for Office.
           - url: 'https://dcist.com/story/20/02/14/tenant-rights-attorney-declares-candidacy-in-competitive-at-large-race/'
             title: Tenant Rights Attorney Enters Competitive At-Large Race To Replace David Grosso
+      - committee_id: 14171
+        first_name: Rick
+        last_name: Murphree
+        candidate_key: CANCCL207178
+        committee_key: ''
+        election_year: 2020
+        candidate_approved: true
+        committee_approved: false
+        termination_approved: false
+        candidate_name: Rick Murphree
+        committee_name: Friends of Rick Murphree
+        id: 15111
+        name: Mr. Rick Murphree
+        address: '1100 New Jersey SE #2112'
+        filing_date: 04/20/2020
+        phone: (202) 503-5021
+        email: rickmurphree@ymail.com
+        committee_address: '1100 New Jersey SE #2112, Washington, DC 20003'
+        committee_phone: (202) 503-5021
+        treasurer_name: ''
+        treasurer_phone: ''
+        treasurer_email: ''
+        chairperson_name: ''
+        chair_phone: ''
+        chair_email: ''
+        zip: '20003'
+        fair_elections: true
+        neighborhood: null
       - committee_id: 0
         first_name: Asar
         last_name: Mustafa

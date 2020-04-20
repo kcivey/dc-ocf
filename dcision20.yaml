@@ -1586,10 +1586,10 @@ Primary Election:
         contact_name: Frederick Hill III
         address: 1425 Bangor St SE
         zip: '20020'
-        phone: 202-330-2211
+        phone: ''
         boe_pickup_date: 2/25/2020
         boe_filing_date: ''
-        email: FredHill@gotta-gonow.com
+        email: fredhill@gotta-gonow.com
         withdrew: ''
         first_name: Frederick
         last_name: Hill
@@ -1600,7 +1600,7 @@ Primary Election:
         committee_key: PCCCC8207168
         election_year: 2020
         candidate_approved: true
-        committee_approved: true
+        committee_approved: false
         termination_approved: false
         committee_name: Fred Hill Ward 8
         id: 15101

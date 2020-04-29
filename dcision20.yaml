@@ -286,6 +286,11 @@ Primary Election:
           - url: >-
               https://wamu.org/story/20/01/31/disgraced-d-c-councilmember-jack-evans-wants-public-financing-to-win-back-his-seat/
             title: Disgraced Former D.C. Council Member Jack Evans Wants Public Financing To Win Back His Seat
+          - url: >-
+              https://www.washingtoncitypaper.com/news/loose-lips/article/21128931/ward-2-candidate-jack-evans-has-a-new-ethics-statement-and-a-new-campaign-website
+            title: Ward 2 Candidate Jack Evans Has A New Ethics Statement and a New Campaign Website
+          - url: 'https://thehoya.com/evans-drops-out-of-special-election-will-remain-in-primary/'
+            title: 'Evans Drops Out of DC Council Special Election, Will Remain in Primary'
       - committee_id: 4096
         first_name: John
         last_name: Fanning
@@ -320,6 +325,8 @@ Primary Election:
           - url: >-
               https://www.washingtonpost.com/local/dc-politics/john-fanning-longtime-ward-2-activist-to-challenge-jack-evans-for-dc-council/2019/05/31/b05092ea-83b3-11e9-95a9-e2c830afe24f_story.html
             title: 'John Fanning, longtime Ward 2 activist, to challenge Jack Evans for D.C. Council'
+          - url: 'https://dcist.com/story/19/06/05/a-third-candidate-jumps-in-the-race-to-unseat-jack-evans-in-ward-2/'
+            title: A Third Candidate Jumps In The Race To Unseat Jack Evans In Ward 2
           - url: 'https://www.washingtonblade.com/2019/06/03/gay-anc-chair-enters-race-for-ward-2-d-c-council-seat/'
             title: Gay ANC chair enters race for Ward 2 D.C. Council seat
           - url: 'https://www.gwhatchet.com/2019/06/01/logan-circle-anc-chair-to-compete-for-jack-evans-ward-2-seat/'
@@ -432,6 +439,9 @@ Primary Election:
               Isn't Quite Sure.
           - url: 'https://washingtonjewishweek.com/59932/jordan-grossman-aims-for-the-ward-2-crown/featured-slider-post/'
             title: Jordan Grossman aims for the Ward 2 crown
+          - url: >-
+              https://www.washingtoncitypaper.com/news/loose-lips/article/21119656/jordan-grossman-doesnt-have-much-to-say-about-the-polls-in-ward-2
+            title: Jordan Grossman Doesn't Have Much to Say About the Polls in Ward 2
         neighborhood: Shaw
         fair_elections: true
         contact_name: Jordan Grossman
@@ -535,6 +545,9 @@ Primary Election:
           - url: >-
               https://www.washingtoncitypaper.com/news/loose-lips/article/21064556/jack-evans-challenger-is-first-to-test-dcs-new-publicly-funded-elections
             title: Jack Evans Challenger Is First to Test D.C.'s New Publicly Funded Elections Program
+          - url: >-
+              https://dcist.com/story/20/03/25/poll-anc-commissioner-patrick-kennedy-leads-ward-2-race-ahead-of-disgraced-ex-councilmember-jack-evans/
+            title: 'Poll: ANC Commissioner Patrick Kennedy Leads Ward 2 Race, Ahead Of Disgraced Ex-Councilmember Jack Evans'
         neighborhood: Foggy Bottom
         elections:
           - year: 2012
@@ -592,6 +605,8 @@ Primary Election:
           - url: >-
               https://dcist.com/story/20/02/13/former-racine-staffer-joins-ward-2-d-c-council-race-widening-an-already-crowded-field/
             title: 'Eighth Democrat Joins Ward 2 D.C. Council Race, Widening An Already Crowded Field'
+          - url: 'http://www.thegeorgetowndish.com/thedish/meet-brooke-pinto-shes-running-dc-council'
+            title: 'Meet Brooke Pinto, She''s Running for D.C. Council'
         twitter: brookecpinto
         website: brookepintoforward2.com
         committee_id: 14162
@@ -926,6 +941,9 @@ Primary Election:
           - url: >-
               https://www.washingtonpost.com/local/dc-politics/dc-lawmaker-brandon-todd-ramps-up-reelection-campaign-draws-first-challenger/2019/08/01/57b00bfe-b2f0-11e9-8949-5f36ff92706e_story.html
             title: 'D.C. lawmaker Brandon Todd ramps up reelection campaign, draws first challenger'
+          - url: >-
+              https://dcist.com/story/20/03/18/first-candidate-claims-to-max-out-public-financing-funds-for-d-c-elections/
+            title: First Candidate Claims To Max Out Public Financing Funds For D.C. Elections
         neighborhood: Brightwood
         elections:
           - year: 2018
@@ -2962,6 +2980,8 @@ General Election:
         links:
           - url: 'http://franklinfordc.com/'
             title: Shadow representative website
+          - url: 'https://www.washingtoninformer.com/d-c-election-roundup-garcia-aims-to-be-1st-latino-on-council/'
+            title: 'D.C. Election Roundup: Garcia Aims to be 1st Latino on Council'
         elections:
           - year: 2014
             election: Primary
@@ -3123,6 +3143,9 @@ General Election:
             title: Chander Jayaraman Announces Candidacy for At-Large Council Seat
           - url: 'https://capitolhillcorner.org/2019/10/18/chander-jayaraman-announces-bid-for-city-council-seat/'
             title: Chander Jayaraman Announces Bid for City Council Seat
+          - url: >-
+              https://dcist.com/story/20/01/24/in-crowded-race-to-replace-david-grosso-anc-commissioner-is-the-first-to-qualify-for-public-financing/
+            title: 'In Crowded Race To Replace David Grosso, ANC Commissioner Is The First To Qualify For Public Financing'
         neighborhood: Capitol Hill
         elections:
           - year: 2012
@@ -3156,6 +3179,12 @@ General Election:
         election_year: 2020
         fair_elections: true
         website: edfordc.com
+        links:
+          - url: >-
+              https://www.washingtonpost.com/local/dc-politics/ed-lazere-left-leaning-think-tank-leader-joins-crowded-at-large-dc-council-race/2020/03/16/022b3d32-67dd-11ea-abef-020f086a3fab_story.html
+            title: 'Ed Lazere, left-leaning think tank leader, joins crowded at-large D.C. Council race'
+          - url: 'https://www.washingtoninformer.com/d-c-election-roundup-lazere-runs-for-at-large-council-seat/'
+            title: 'D.C. ELECTION ROUNDUP: Lazere Runs for At-Large Council Seat'
         twitter: edlazere
         facebook: EdforDC
         neighborhood: null
@@ -3271,6 +3300,9 @@ General Election:
           - url: >-
               https://www.washingtonblade.com/2020/02/26/human-rights-office-director-resigns-to-run-for-at-large-d-c-council-seat/
             title: Human Rights Office director resigns to run for at-large D.C. Council seat
+          - url: >-
+              https://dcist.com/story/20/02/20/former-director-of-d-c-office-for-human-rights-office-announces-at-large-candidacy/
+            title: Former Director of D.C. Office For Human Rights Announces At-Large Candidacy
       - committee_id: 4127
         first_name: Eric
         last_name: Rogers
@@ -3785,6 +3817,11 @@ Special Election:
           - url: >-
               https://wamu.org/story/20/01/31/disgraced-d-c-councilmember-jack-evans-wants-public-financing-to-win-back-his-seat/
             title: Disgraced Former D.C. Council Member Jack Evans Wants Public Financing To Win Back His Seat
+          - url: >-
+              https://www.washingtoncitypaper.com/news/loose-lips/article/21128931/ward-2-candidate-jack-evans-has-a-new-ethics-statement-and-a-new-campaign-website
+            title: Ward 2 Candidate Jack Evans Has A New Ethics Statement and a New Campaign Website
+          - url: 'https://thehoya.com/evans-drops-out-of-special-election-will-remain-in-primary/'
+            title: 'Evans Drops Out of DC Council Special Election, Will Remain in Primary'
       - candidate_name: John Fanning
         contact_name: Bill Brown 1418
         address: 14th St NW
@@ -3833,6 +3870,8 @@ Special Election:
           - url: >-
               https://www.washingtonpost.com/local/dc-politics/dc-council-member-jack-evans-faces-second-challenger-in-ward-2/2019/05/15/8e5afaf6-7754-11e9-bd25-c989555e7766_story.html
             title: D.C. Council member Jack Evans faces second challenger in Ward 2
+          - url: 'https://dcist.com/story/19/06/05/a-third-candidate-jumps-in-the-race-to-unseat-jack-evans-in-ward-2/'
+            title: A Third Candidate Jumps In The Race To Unseat Jack Evans In Ward 2
           - url: 'https://dcist.com/story/19/05/17/jack-evans-gets-a-second-challenger-for-his-ward-2-council-seat/'
             title: Jack Evans Gets A Second Challenger For His Ward 2 Council Seat
           - url: >-
@@ -3842,6 +3881,9 @@ Special Election:
               Isn't Quite Sure.
           - url: 'https://washingtonjewishweek.com/59932/jordan-grossman-aims-for-the-ward-2-crown/featured-slider-post/'
             title: Jordan Grossman aims for the Ward 2 crown
+          - url: >-
+              https://www.washingtoncitypaper.com/news/loose-lips/article/21119656/jordan-grossman-doesnt-have-much-to-say-about-the-polls-in-ward-2
+            title: Jordan Grossman Doesn't Have Much to Say About the Polls in Ward 2
         contact_name: ''
         boe_pickup_date: 1/15/2020
         boe_filing_date: 3/16/2020
@@ -3901,6 +3943,9 @@ Special Election:
           - url: >-
               https://www.washingtoncitypaper.com/news/loose-lips/article/21064556/jack-evans-challenger-is-first-to-test-dcs-new-publicly-funded-elections
             title: Jack Evans Challenger Is First to Test D.C.'s New Publicly Funded Elections Program
+          - url: >-
+              https://dcist.com/story/20/03/25/poll-anc-commissioner-patrick-kennedy-leads-ward-2-race-ahead-of-disgraced-ex-councilmember-jack-evans/
+            title: 'Poll: ANC Commissioner Patrick Kennedy Leads Ward 2 Race, Ahead Of Disgraced Ex-Councilmember Jack Evans'
         elections:
           - year: 2012
             election: General
@@ -3954,6 +3999,8 @@ Special Election:
           - url: >-
               https://dcist.com/story/20/02/13/former-racine-staffer-joins-ward-2-d-c-council-race-widening-an-already-crowded-field/
             title: 'Eighth Democrat Joins Ward 2 D.C. Council Race, Widening An Already Crowded Field'
+          - url: 'http://www.thegeorgetowndish.com/thedish/meet-brooke-pinto-shes-running-dc-council'
+            title: 'Meet Brooke Pinto, She''s Running for D.C. Council'
         twitter: brookecpinto
         website: brookepintoforward2.com
         committee_id: 14163

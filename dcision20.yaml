@@ -3243,10 +3243,10 @@ General Election:
         first_name: Rick
         last_name: Murphree
         candidate_key: CANCCL207178
-        committee_key: ''
+        committee_key: PCCCCL207178
         election_year: 2020
         candidate_approved: true
-        committee_approved: false
+        committee_approved: true
         termination_approved: false
         candidate_name: Rick Murphree
         committee_name: Friends of Rick Murphree
@@ -3258,14 +3258,14 @@ General Election:
         email: rickmurphree@ymail.com
         committee_address: '1100 New Jersey SE #2112, Washington, DC 20003'
         committee_phone: (202) 503-5021
-        treasurer_name: ''
-        treasurer_phone: ''
-        treasurer_email: ''
-        chairperson_name: ''
-        chair_phone: ''
-        chair_email: ''
+        treasurer_name: Ms. Andrea Ford
+        treasurer_phone: (703) 859-2976
+        treasurer_email: kempford23@yahoo.com
+        chairperson_name: Mr. Keith Lamon Gray
+        chair_phone: (202) 644-2678
+        chair_email: keithlgray21@gmail.com
         zip: '20003'
-        fair_elections: true
+        fair_elections: false
         neighborhood: null
       - committee_id: 0
         first_name: Asar

@@ -2716,6 +2716,16 @@ Primary Election:
         last_name: Redd
         fair_elections: null
         neighborhood: Manor Park
+        committee_id: 0
+        candidate_key: CANCC4207180
+        election_year: 2020
+        candidate_approved: true
+        committee_approved: false
+        termination_approved: false
+        committee_name: Perry Redd
+        id: 15121
+        name: Mr. Perry D Redd
+        filing_date: 05/04/2020
     Council Ward 2:
       - committee_id: 14170
         first_name: Peter

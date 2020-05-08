@@ -612,7 +612,11 @@ Primary Election:
         boe_filing_date: 3/3/2020
         withdrew: ''
         endorsements:
+          Baltimore/Washington Laborers' District Council: 'https://www.facebook.com/BWLDC/posts/530684547619025'
+          DC Council Chair Phil Mendelson: 'https://patrickforward2.com/news/dc-council-chair-phil-mendelson-endorses-patrick-kennedy'
+          Democrats for Education Reform DC: 'https://dfer.org/dc/dfer-dc-announces-endorsements-for-june-elections/'
           Greater Greater Washington: 'https://ggwash.org/view/77510/dc-endorsements'
+          Mid-Atlantic Pipe Trades Association: 'https://www.facebook.com/MidAtlanticpipetrades/photos/a.3645882475482427/3645882695482405/'
           Sierra Club DC Chapter: >-
             https://www.sierraclub.org/dc/sierra-club-endorses-robert-white-patrick-kennedy-janeese-lewis-george-vince-gray-and-trayon
       - candidate_name: Brooke Pinto
@@ -991,7 +995,8 @@ Primary Election:
           1199SEIU United Healthcare Workers East: 'https://www.facebook.com/1199SEIU.mddc/photos/a.242227409553194/922454588197136/'
           350 DC: 'https://twitter.com/350_DC/status/1234538059175165953'
           Amalgamated Transit Union Local 689: 'https://www.facebook.com/atulocal689group/posts/2969954546381082'
-          Black Lives Matter DC: 'https://www.jufjcampaignfund.org/2020-endorsements-release/'
+          Black Lives Matter DC: 'https://twitter.com/DMVBlackLives/status/1194982586470326274'
+          DC Attorney General Karl Racine: 'https://www.janeese4dc.com/news/dc-attorney-general-karl-racine-endorses-janeese-lewis-george-for-ward-4/'
           DC for Democracy: 'https://dcfordemocracy.org/get-involved/electoral-campaigns/'
           DC Latino Caucus: >-
             http://www.dclc.org/dc-latino-caucus-announces-candidate-endorsements-in-the-dc-june-2-2020-democratic-primary/
@@ -1008,6 +1013,7 @@ Primary Election:
             https://www.sierraclub.org/dc/sierra-club-endorses-robert-white-patrick-kennedy-janeese-lewis-george-vince-gray-and-trayon
           Sunrise Movement DC: 'https://www.facebook.com/SunriseMvmtDC/posts/1159948711021785'
           Unite Here Local 25: 'https://www.local25union.org/news-1/local-25-endorses-janeese-lewis-george-and-jordan-grossman'
+          Ward 4 State Board of Education Member Frazier O'Leary: 'https://www.facebook.com/photo.php?fbid=716815222414212&set=a.136308617131545&type=3&theater'
           Washington Teachers' Union: 'https://www.wtulocal6.net/2020_endorsements'
       - committee_id: 4088
         first_name: Brandon
@@ -1076,6 +1082,12 @@ Primary Election:
         boe_pickup_date: 1/10/2020
         boe_filing_date: 3/4/2020
         withdrew: ''
+        endorsements:
+          Baltimore/Washington Laborers' District Council: 'https://www.facebook.com/BWLDC/posts/530683894285757'
+          Democrats for Education Reform DC: 'https://dfer.org/dc/dfer-dc-announces-endorsements-for-june-elections/'
+          Mid-Atlantic Pipe Trades Association: 'https://www.facebook.com/MidAtlanticpipetrades/photos/a.3645882475482427/3645882695482405/'
+          Washington Post: >-
+            https://www.washingtonpost.com/opinions/the-posts-2020-endorsements-for-the-dc-council/2020/04/30/d1136ecc-84fb-11ea-ae26-989cfce1c7c7_story.html
     Council Ward 7:
       - committee_id: 4105
         first_name: Kelvin
@@ -1217,9 +1229,12 @@ Primary Election:
         endorsements:
           DC Latino Caucus: >-
             http://www.dclc.org/dc-latino-caucus-announces-candidate-endorsements-in-the-dc-june-2-2020-democratic-primary/
+          Democrats for Education Reform DC: 'https://dfer.org/dc/dfer-dc-announces-endorsements-for-june-elections/'
           Greater Greater Washington: 'https://ggwash.org/view/77510/dc-endorsements'
           Sierra Club DC Chapter: >-
             https://www.sierraclub.org/dc/sierra-club-endorses-robert-white-patrick-kennedy-janeese-lewis-george-vince-gray-and-trayon
+          Washington Post: >-
+            https://www.washingtonpost.com/opinions/the-posts-2020-endorsements-for-the-dc-council/2020/04/30/d1136ecc-84fb-11ea-ae26-989cfce1c7c7_story.html
       - committee_id: 4102
         first_name: Anthony Lorenzo
         last_name: Green
@@ -1566,6 +1581,8 @@ Primary Election:
             title: 'D.C. ELECTION ROUNDUP: Austin to Challenge Trayon White in Ward 8'
         endorsements:
           Greater Greater Washington: 'https://ggwash.org/view/77510/dc-endorsements'
+          Washington Post: >-
+            https://www.washingtonpost.com/opinions/the-posts-2020-endorsements-for-the-dc-council/2020/04/30/d1136ecc-84fb-11ea-ae26-989cfce1c7c7_story.html
       - committee_id: 4117
         first_name: Richard
         last_name: Campbell
@@ -1888,6 +1905,7 @@ Primary Election:
         endorsements:
           1199SEIU United Healthcare Workers East: 'https://www.facebook.com/1199SEIU.mddc/photos/a.242227409553194/922457351530193/'
           Amalgamated Transit Union Local 689: 'https://www.facebook.com/atulocal689group/posts/2969954546381082'
+          Baltimore/Washington Laborers' District Council: 'https://www.facebook.com/BWLDC/posts/533969137290566'
           DC Latino Caucus: >-
             http://www.dclc.org/dc-latino-caucus-announces-candidate-endorsements-in-the-dc-june-2-2020-democratic-primary/
           Greater Greater Washington: 'https://ggwash.org/view/77510/dc-endorsements'
@@ -4171,7 +4189,11 @@ Special Election:
         boe_pickup_date: 1/17/2020
         boe_filing_date: 3/16/2020
         endorsements:
+          Baltimore/Washington Laborers' District Council: 'https://www.facebook.com/BWLDC/posts/530684547619025'
+          DC Council Chair Phil Mendelson: 'https://patrickforward2.com/news/dc-council-chair-phil-mendelson-endorses-patrick-kennedy'
+          Democrats for Education Reform DC: 'https://dfer.org/dc/dfer-dc-announces-endorsements-for-june-elections/'
           Greater Greater Washington: 'https://ggwash.org/view/77510/dc-endorsements'
+          Mid-Atlantic Pipe Trades Association: 'https://www.facebook.com/MidAtlanticpipetrades/photos/a.3645882475482427/3645882695482405/'
           Sierra Club DC Chapter: >-
             https://www.sierraclub.org/dc/sierra-club-endorses-robert-white-patrick-kennedy-janeese-lewis-george-vince-gray-and-trayon
       - candidate_name: Brooke Pinto
@@ -4216,6 +4238,9 @@ Special Election:
         chairperson_name: Ms. Brooke Pinto
         chair_phone: (202) 400-1295
         chair_email: brooke@brookeforward2.com
+        endorsements:
+          Washington Post: >-
+            https://www.washingtonpost.com/opinions/the-posts-2020-endorsements-for-the-dc-council/2020/04/30/d1136ecc-84fb-11ea-ae26-989cfce1c7c7_story.html
       - candidate_name: Kishan Putta
         contact_name: ''
         address: 3831 T St NW

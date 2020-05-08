@@ -123,6 +123,14 @@ Primary Election:
         boe_pickup_date: 1/10/2020
         boe_filing_date: 2/13/2020
         withdrew: ''
+        endorsements:
+          1199SEIU United Healthcare Workers East: 'https://www.facebook.com/1199SEIU.mddc/photos/a.242227409553194/922458888196706/'
+          Amalgamated Transit Union Local 689: 'https://www.facebook.com/atulocal689group/posts/2969954546381082'
+          Greater Greater Washington: 'https://ggwash.org/view/77510/dc-endorsements'
+          Jews United for Justice Campaign Fund: 'https://www.jufjcampaignfund.org/washington-dc/'
+          Metro Washington Council AFL/CIO: 'http://www.dclabor.org/endorsements.html'
+          Sierra Club DC Chapter: >-
+            https://www.sierraclub.org/dc/sierra-club-endorses-robert-white-patrick-kennedy-janeese-lewis-george-vince-gray-and-trayon
       - candidate_name: Tori Fernandez Whitney
         contact_name: Tori Fernandez Whitney
         address: 2523 17th St NE
@@ -395,6 +403,9 @@ Primary Election:
         boe_pickup_date: 1/10/2020
         boe_filing_date: 2/10/2020
         withdrew: ''
+        endorsements:
+          DC Latino Caucus: >-
+            http://www.dclc.org/dc-latino-caucus-announces-candidate-endorsements-in-the-dc-june-2-2020-democratic-primary/
       - committee_id: 4090
         first_name: Jordan
         last_name: Grossman
@@ -448,6 +459,21 @@ Primary Election:
         boe_pickup_date: 1/10/2020
         boe_filing_date: 2/10/2020
         withdrew: ''
+        endorsements:
+          1199SEIU United Healthcare Workers East: 'https://www.facebook.com/1199SEIU.mddc/photos/a.242227409553194/922453628197232/'
+          350 DC: 'https://twitter.com/350_DC/status/1234538057170288641'
+          Amalgamated Transit Union Local 689: 'https://www.facebook.com/atulocal689group/posts/2969954546381082'
+          DC for Democracy: 'https://dcfordemocracy.org/get-involved/electoral-campaigns/'
+          DC Working Families Party: 'https://workingfamilies.org/2019/12/were-endorsing-jordan-grossman-for-ward-2-councilmember/'
+          Jews United for Justice Campaign Fund: 'https://www.jufjcampaignfund.org/washington-dc/'
+          Metro Washington Council AFL/CIO: 'http://www.dclabor.org/endorsements.html'
+          'National Organization for Women, DC Chapter': 'https://www.dc-now.org/elections'
+          Nonprofit Professional Employees Union: >-
+            https://npeu.org/news/2020/4/12/npeu-endorses-in-dc-council-races-jordan-grossman-for-ward-2-janeese-lewis-george-for-ward-4-anthony-lorenzo-green-for-ward-7
+          Our Revolution DC: 'https://twitter.com/OurRevolutionDC/status/1255201913206865922'
+          Sunrise Movement DC: 'https://www.facebook.com/SunriseMvmtDC/posts/1159948711021785'
+          Unite Here Local 25: 'https://www.local25union.org/news-1/local-25-endorses-janeese-lewis-george-and-jordan-grossman'
+          Washington Teachers' Union: 'https://www.wtulocal6.net/2020_endorsements'
       - committee_id: 4095
         first_name: Daniel
         last_name: Hernandez
@@ -585,6 +611,10 @@ Primary Election:
         boe_pickup_date: 1/10/2020
         boe_filing_date: 3/3/2020
         withdrew: ''
+        endorsements:
+          Greater Greater Washington: 'https://ggwash.org/view/77510/dc-endorsements'
+          Sierra Club DC Chapter: >-
+            https://www.sierraclub.org/dc/sierra-club-endorses-robert-white-patrick-kennedy-janeese-lewis-george-vince-gray-and-trayon
       - candidate_name: Brooke Pinto
         contact_name: Brooke Pinto
         address: 1219 Q St NW
@@ -957,6 +987,28 @@ Primary Election:
         boe_pickup_date: 1/10/2020
         boe_filing_date: 2/10/2020
         withdrew: ''
+        endorsements:
+          1199SEIU United Healthcare Workers East: 'https://www.facebook.com/1199SEIU.mddc/photos/a.242227409553194/922454588197136/'
+          350 DC: 'https://twitter.com/350_DC/status/1234538059175165953'
+          Amalgamated Transit Union Local 689: 'https://www.facebook.com/atulocal689group/posts/2969954546381082'
+          Black Lives Matter DC: 'https://www.jufjcampaignfund.org/2020-endorsements-release/'
+          DC for Democracy: 'https://dcfordemocracy.org/get-involved/electoral-campaigns/'
+          DC Latino Caucus: >-
+            http://www.dclc.org/dc-latino-caucus-announces-candidate-endorsements-in-the-dc-june-2-2020-democratic-primary/
+          DC Working Families Party: 'https://workingfamilies.org/2019/11/dcwfp-endorses-janeese-lewis-george-for-ward-4/'
+          Greater Greater Washington: 'https://ggwash.org/view/77510/dc-endorsements'
+          Jews United for Justice Campaign Fund: 'https://www.jufjcampaignfund.org/washington-dc/'
+          Metro DC Democratic Socialists of America: 'https://mdcdsa.org/endorsements/'
+          Metro Washington Council AFL/CIO: 'http://www.dclabor.org/endorsements.html'
+          'National Organization for Women, DC Chapter': 'https://www.dc-now.org/elections'
+          Nonprofit Professional Employees Union: >-
+            https://npeu.org/news/2020/4/12/npeu-endorses-in-dc-council-races-jordan-grossman-for-ward-2-janeese-lewis-george-for-ward-4-anthony-lorenzo-green-for-ward-7
+          Our Revolution DC: 'https://twitter.com/OurRevolutionDC/status/1255201910405115907'
+          Sierra Club DC Chapter: >-
+            https://www.sierraclub.org/dc/sierra-club-endorses-robert-white-patrick-kennedy-janeese-lewis-george-vince-gray-and-trayon
+          Sunrise Movement DC: 'https://www.facebook.com/SunriseMvmtDC/posts/1159948711021785'
+          Unite Here Local 25: 'https://www.local25union.org/news-1/local-25-endorses-janeese-lewis-george-and-jordan-grossman'
+          Washington Teachers' Union: 'https://www.wtulocal6.net/2020_endorsements'
       - committee_id: 4088
         first_name: Brandon
         last_name: Todd
@@ -1162,6 +1214,12 @@ Primary Election:
         boe_pickup_date: 1/10/2020
         boe_filing_date: 2/3/2020
         withdrew: ''
+        endorsements:
+          DC Latino Caucus: >-
+            http://www.dclc.org/dc-latino-caucus-announces-candidate-endorsements-in-the-dc-june-2-2020-democratic-primary/
+          Greater Greater Washington: 'https://ggwash.org/view/77510/dc-endorsements'
+          Sierra Club DC Chapter: >-
+            https://www.sierraclub.org/dc/sierra-club-endorses-robert-white-patrick-kennedy-janeese-lewis-george-vince-gray-and-trayon
       - committee_id: 4102
         first_name: Anthony Lorenzo
         last_name: Green
@@ -1227,6 +1285,18 @@ Primary Election:
         boe_pickup_date: 1/10/2020
         boe_filing_date: 3/3/2020
         withdrew: ''
+        endorsements:
+          1199SEIU United Healthcare Workers East: 'https://www.facebook.com/1199SEIU.mddc/photos/a.242227409553194/922455478197047/'
+          350 DC: 'https://twitter.com/350_DC/status/1234538061985439744'
+          Amalgamated Transit Union Local 689: 'https://www.facebook.com/atulocal689group/posts/2969954546381082'
+          DC for Democracy: 'https://dcfordemocracy.org/get-involved/electoral-campaigns/'
+          DC Working Families Party: 'https://workingfamilies.org/2020/01/wfp-endorses-anthony-lorenzo-green-in-ward-7/'
+          Jews United for Justice Campaign Fund: 'https://www.jufjcampaignfund.org/washington-dc/'
+          Metro Washington Council AFL/CIO: 'http://www.dclabor.org/endorsements.html'
+          Nonprofit Professional Employees Union: >-
+            https://npeu.org/news/2020/4/12/npeu-endorses-in-dc-council-races-jordan-grossman-for-ward-2-janeese-lewis-george-for-ward-4-anthony-lorenzo-green-for-ward-7
+          Our Revolution DC: 'https://twitter.com/OurRevolutionDC/status/1255201911864786944'
+          Washington Teachers' Union: 'https://www.wtulocal6.net/2020_endorsements'
       - committee_id: 0
         first_name: Tam
         last_name: Haye
@@ -1494,6 +1564,8 @@ Primary Election:
         links:
           - url: 'https://www.washingtoninformer.com/d-c-election-roundup-austin-to-challenge-trayon-white-in-ward-8/'
             title: 'D.C. ELECTION ROUNDUP: Austin to Challenge Trayon White in Ward 8'
+        endorsements:
+          Greater Greater Washington: 'https://ggwash.org/view/77510/dc-endorsements'
       - committee_id: 4117
         first_name: Richard
         last_name: Campbell
@@ -1568,6 +1640,8 @@ Primary Election:
         links:
           - url: 'https://www.washingtoninformer.com/d-c-election-roundup-ford-wants-a-ward-8-driven-by-education-economics/'
             title: 'D.C. ELECTION ROUNDUP: Ford Wants a Ward 8 Driven by Education, Economics'
+        endorsements:
+          'National Organization for Women, DC Chapter': 'https://www.dc-now.org/elections'
       - candidate_name: Christopher Hawthorne
         contact_name: Christopher Hawthorne
         address: 1922 Valley Terrace SE
@@ -1811,6 +1885,16 @@ Primary Election:
             result: Won
             percent: 98
         neighborhood: null
+        endorsements:
+          1199SEIU United Healthcare Workers East: 'https://www.facebook.com/1199SEIU.mddc/photos/a.242227409553194/922457351530193/'
+          Amalgamated Transit Union Local 689: 'https://www.facebook.com/atulocal689group/posts/2969954546381082'
+          DC Latino Caucus: >-
+            http://www.dclc.org/dc-latino-caucus-announces-candidate-endorsements-in-the-dc-june-2-2020-democratic-primary/
+          Greater Greater Washington: 'https://ggwash.org/view/77510/dc-endorsements'
+          Metro Washington Council AFL/CIO: 'http://www.dclabor.org/endorsements.html'
+          Sierra Club DC Chapter: >-
+            https://www.sierraclub.org/dc/sierra-club-endorses-robert-white-patrick-kennedy-janeese-lewis-george-vince-gray-and-trayon
+          Washington Teachers' Union: 'https://www.wtulocal6.net/2020_endorsements'
       - candidate_name: Thomas Williams Jr.
         contact_name: Thomas Williams Jr.
         address: 2336 Irving St SE
@@ -2441,6 +2525,8 @@ Primary Election:
         links:
           - url: 'https://norton.house.gov/'
             title: House website
+        endorsements:
+          DC for Democracy: 'https://twitter.com/dc4d/status/1244735683006259209'
   Republican:
     Council At-Large:
       - candidate_name: Aderonke Balongun
@@ -3897,6 +3983,25 @@ Special Election:
         contact_name: ''
         boe_pickup_date: 1/15/2020
         boe_filing_date: 3/16/2020
+        endorsements:
+          1199SEIU United Healthcare Workers East: 'https://www.facebook.com/1199SEIU.mddc/photos/a.242227409553194/922453628197232/'
+          350 DC: 'https://twitter.com/350_DC/status/1234538057170288641'
+          Amalgamated Transit Union Local 689: 'https://www.facebook.com/atulocal689group/posts/2969954546381082'
+          DC Councilmember Elissa Silverman: >-
+            https://jordanforward2.com/at-large-dc-councilmember-elissa-silverman-endorses-jordan-grossman-for-ward-2-councilmember/
+          DC for Democracy: 'https://dcfordemocracy.org/get-involved/electoral-campaigns/'
+          DC Working Families Party: 'https://workingfamilies.org/2019/12/were-endorsing-jordan-grossman-for-ward-2-councilmember/'
+          Former US Representative Henry Waxman: >-
+            https://jordanforward2.com/henry-waxman-former-congressman-and-chair-of-house-oversight-committee-endorses-jordan-grossman-for-ward-2-dc-council/
+          Jews United for Justice Campaign Fund: 'https://www.jufjcampaignfund.org/washington-dc/'
+          Metro Washington Council AFL/CIO: 'http://www.dclabor.org/endorsements.html'
+          'National Organization for Women, DC Chapter': 'https://www.dc-now.org/elections'
+          Nonprofit Professional Employees Union: >-
+            https://npeu.org/news/2020/4/12/npeu-endorses-in-dc-council-races-jordan-grossman-for-ward-2-janeese-lewis-george-for-ward-4-anthony-lorenzo-green-for-ward-7
+          Our Revolution DC: 'https://twitter.com/OurRevolutionDC/status/1255201913206865922'
+          Sunrise Movement DC: 'https://www.facebook.com/SunriseMvmtDC/posts/1159948711021785'
+          Unite Here Local 25: 'https://www.local25union.org/news-1/local-25-endorses-janeese-lewis-george-and-jordan-grossman'
+          Washington Teachers' Union: 'https://www.wtulocal6.net/2020_endorsements'
       - committee_id: 14148
         first_name: Patrick
         last_name: Kennedy
@@ -3990,6 +4095,10 @@ Special Election:
         contact_name: ''
         boe_pickup_date: 1/17/2020
         boe_filing_date: 3/16/2020
+        endorsements:
+          Greater Greater Washington: 'https://ggwash.org/view/77510/dc-endorsements'
+          Sierra Club DC Chapter: >-
+            https://www.sierraclub.org/dc/sierra-club-endorses-robert-white-patrick-kennedy-janeese-lewis-george-vince-gray-and-trayon
       - candidate_name: Brooke Pinto
         contact_name: ''
         address: 1219 Q St NW

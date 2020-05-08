@@ -3930,6 +3930,81 @@ Special Election:
         last_name: Fanning
         fair_elections: true
         neighborhood: null
+        twitter: fanning_2
+        website: fanningforward2.com
+        facebook: JohnFanningDC
+        links:
+          - url: >-
+              https://www.washingtonpost.com/local/dc-politics/john-fanning-longtime-ward-2-activist-to-challenge-jack-evans-for-dc-council/2019/05/31/b05092ea-83b3-11e9-95a9-e2c830afe24f_story.html
+            title: 'John Fanning, longtime Ward 2 activist, to challenge Jack Evans for D.C. Council'
+          - url: 'https://dcist.com/story/19/06/05/a-third-candidate-jumps-in-the-race-to-unseat-jack-evans-in-ward-2/'
+            title: A Third Candidate Jumps In The Race To Unseat Jack Evans In Ward 2
+          - url: 'https://www.washingtonblade.com/2019/06/03/gay-anc-chair-enters-race-for-ward-2-d-c-council-seat/'
+            title: Gay ANC chair enters race for Ward 2 D.C. Council seat
+          - url: 'https://www.gwhatchet.com/2019/06/01/logan-circle-anc-chair-to-compete-for-jack-evans-ward-2-seat/'
+            title: Logan Circle ANC chair to compete for Jack Evans' Ward 2 seat
+          - url: >-
+              https://www.washingtoncitypaper.com/news/loose-lips/article/21071903/ward-2-council-candidate-john-fanning-is-trying-to-have-his-arrest-record-sealed
+            title: Ward 2 Council Candidate John Fanning Is Trying to Seal His Arrest Record
+          - url: 'https://www.washingtonblade.com/2019/09/04/fanning-in-4th-place-in-fundraising-for-ward-2-council-race/'
+            title: Fanning in 4th place in fundraising for Ward 2 Council race
+        elections:
+          - year: 1990
+            election: General
+            party: Nonpartisan
+            office: ANC 2C04
+            result: Won
+          - year: 1992
+            election: General
+            party: Nonpartisan
+            office: ANC 2F01
+            result: Won
+          - year: 1994
+            election: General
+            party: Nonpartisan
+            office: SBOE Ward 2
+            result: Lost
+            percent: 12
+          - year: 2000
+            election: Primary
+            party: Democratic
+            office: Council Ward 2
+            result: Lost
+            percent: 18
+          - year: 2012
+            election: General
+            party: Nonpartisan
+            office: ANC 2F04
+            result: Won
+            percent: 52
+          - year: 2014
+            election: General
+            party: Nonpartisan
+            office: ANC 2F04
+            result: Won
+            percent: 97
+          - year: 2016
+            election: General
+            party: Nonpartisan
+            office: ANC 2F04
+            result: Won
+            percent: 98
+          - year: 2018
+            election: Primary
+            party: Democratic
+            office: Committeeman Ward 2
+            result: Won
+            percent: 30
+          - year: 2018
+            election: General
+            party: Nonpartisan
+            office: ANC 2F04
+            result: Won
+            percent: 97
+        withdrew: ''
+        endorsements:
+          DC Latino Caucus: >-
+            http://www.dclc.org/dc-latino-caucus-announces-candidate-endorsements-in-the-dc-june-2-2020-democratic-primary/
       - committee_id: 4144
         first_name: Jordan
         last_name: Grossman

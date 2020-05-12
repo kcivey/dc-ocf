@@ -164,7 +164,7 @@ function parseTable(text) {
         schedule: m[4].replace('-', ''),
         rows: [],
     };
-    if (pageData.schedule === 'A3' || pageData.schedule === 'A7') { // @todo handle public funds and offsets
+    if (pageData.schedule.match(/^A[367]$/)) { // @todo handle public funds, interest, offsets, etc.
         return null;
     }
     if (pageData.schedule >= 'C') { // can't parse for now
@@ -281,12 +281,23 @@ function fixRow(oldRow, scheduleType) {
 function fixContributionRow(oldRow) {
     const row = {...oldRow};
     if (row.address) { // unauthorized contribution
+        if (row.business_address) {
+            row.business += ' ' + row.business_address;
+        }
         row.contributor_name = row.business;
         delete row.business;
+        delete row.business_address;
         row.contributor_address = row.address;
         delete row.address;
     }
     else {
+        if (row.organization_name) { // A-6
+            row.contributor_name = row.organization_name;
+            delete row.organization_name;
+            row.contributor_address = row.organization_address;
+            delete row.organization_address;
+            delete row.phone_number;
+        }
         if (!row.employer_address) {
             row.employer_address = '';
         }

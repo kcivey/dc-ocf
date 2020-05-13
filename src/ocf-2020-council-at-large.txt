@@ -4,8 +4,8 @@ I analyzed the DC Office of Campaign Finance (OCF) reports for the at-large coun
 who have filed so far.
 In order by number of contributors, they are
 <ul>
-  <li>Robert White (incumbent, Democrat)</li>
   <li>Ed Lazere*</li>
+  <li>Robert White (incumbent, Democrat)</li>
   <li>Christina Henderson*</li>
   <li>Markus Batchelor*</li>
   <li>Chander Jayaraman*</li>
@@ -20,9 +20,8 @@ In order by number of contributors, they are
 </ul>
 
 Candidates marked with asterisks are seeking to qualify or have qualified for Fair Elections public campaign funds.
-All Fair Elections candidates have reported contributions through April 10.
-White, Goodwin, and Pickering have reported through March 10.
-Rogers has reported only through January 31.
+All Fair Elections candidates have reported contributions through May 10.
+The other have reported through March 10.
 White is a Democrat; Pickering is a Republican; the others are independents.
 
 Two candidates will win this contest in the general election.

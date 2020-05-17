@@ -530,7 +530,9 @@ async function getBoePickups() {
                     continue;
                 }
                 let party;
-                const m = page.match(/District of Columbia Board of Elections\n +(.+?)(?: List of| Candidates| in Ballot Order| *\n)/);
+                const m = page.match(
+                    /District of Columbia Board of Elections\n +(.+?)(?: List of| Candidates| in Ballot Order| *\n)/
+                );
                 assert(m, `Missing party:\n${page}`);
                 if (m) {
                     party = m[1];

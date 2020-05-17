@@ -131,6 +131,8 @@ Primary Election:
           Metro Washington Council AFL/CIO: 'http://www.dclabor.org/endorsements.html'
           Sierra Club DC Chapter: >-
             https://www.sierraclub.org/dc/sierra-club-endorses-robert-white-patrick-kennedy-janeese-lewis-george-vince-gray-and-trayon
+          United Food and Commercial Workers Local 400: 'https://twitter.com/UFCW400/status/1261301716433145856'
+          Washington Teachers' Union: 'https://www.wtulocal6.net/2020_endorsements'
       - candidate_name: Tori Fernandez Whitney
         contact_name: Tori Fernandez Whitney
         address: 2523 17th St NE
@@ -463,16 +465,25 @@ Primary Election:
           1199SEIU United Healthcare Workers East: 'https://www.facebook.com/1199SEIU.mddc/photos/a.242227409553194/922453628197232/'
           350 DC: 'https://twitter.com/350_DC/status/1234538057170288641'
           Amalgamated Transit Union Local 689: 'https://www.facebook.com/atulocal689group/posts/2969954546381082'
+          Carpenters’ Local 197: 'https://jordanforward2.com/carpenters-local-union-197-endorses-jordan/'
+          DC Councilmember Elissa Silverman: >-
+            https://jordanforward2.com/at-large-dc-councilmember-elissa-silverman-endorses-jordan-grossman-for-ward-2-councilmember/
           DC for Democracy: 'https://dcfordemocracy.org/get-involved/electoral-campaigns/'
           DC Working Families Party: 'https://workingfamilies.org/2019/12/were-endorsing-jordan-grossman-for-ward-2-councilmember/'
+          Former US Representative Henry Waxman: >-
+            https://jordanforward2.com/henry-waxman-former-congressman-and-chair-of-house-oversight-committee-endorses-jordan-grossman-for-ward-2-dc-council/
           Jews United for Justice Campaign Fund: 'https://www.jufjcampaignfund.org/washington-dc/'
           Metro Washington Council AFL/CIO: 'http://www.dclabor.org/endorsements.html'
           'National Organization for Women, DC Chapter': 'https://www.dc-now.org/elections'
           Nonprofit Professional Employees Union: >-
             https://npeu.org/news/2020/4/12/npeu-endorses-in-dc-council-races-jordan-grossman-for-ward-2-janeese-lewis-george-for-ward-4-anthony-lorenzo-green-for-ward-7
           Our Revolution DC: 'https://twitter.com/OurRevolutionDC/status/1255201913206865922'
+          SEIU Local 500: 'https://www.seiu500.org/dc-council-endorsements'
+          Service Employees International Union 32BJ: 'https://jordanforward2.com/32bj-seiu-endorses-jordan-grossman/'
           Sunrise Movement DC: 'https://www.facebook.com/SunriseMvmtDC/posts/1159948711021785'
           Unite Here Local 25: 'https://www.local25union.org/news-1/local-25-endorses-janeese-lewis-george-and-jordan-grossman'
+          United Food and Commercial Workers Local 400: 'https://twitter.com/UFCW400/status/1261301715229433856'
+          US Senator Amy Klobuchar: 'https://jordanforward2.com/u-s-senator-amy-klobuchar-endorses-jordan-grossman-for-ward-2-dc-councilmember/'
           Washington Teachers' Union: 'https://www.wtulocal6.net/2020_endorsements'
       - committee_id: 4095
         first_name: Daniel
@@ -615,6 +626,7 @@ Primary Election:
           Baltimore/Washington Laborers' District Council: 'https://www.facebook.com/BWLDC/posts/530684547619025'
           DC Council Chair Phil Mendelson: 'https://patrickforward2.com/news/dc-council-chair-phil-mendelson-endorses-patrick-kennedy'
           Democrats for Education Reform DC: 'https://dfer.org/dc/dfer-dc-announces-endorsements-for-june-elections/'
+          Georgetoen Metropolitan: 'https://georgetownmetropolitan.com/2020/05/04/vote-kennedy-for-ward-2/'
           Greater Greater Washington: 'https://ggwash.org/view/77510/dc-endorsements'
           Mid-Atlantic Pipe Trades Association: 'https://www.facebook.com/MidAtlanticpipetrades/photos/a.3645882475482427/3645882695482405/'
           Sierra Club DC Chapter: >-
@@ -662,6 +674,10 @@ Primary Election:
         chairperson_name: Ms. Brooke Pinto
         chair_phone: (202) 400-1295
         chair_email: brooke@brookepintoforward2.com
+        endorsements:
+          DC Women in Politics: 'https://www.dcwomeninpolitics.org/'
+          Washington Post: >-
+            https://www.washingtonpost.com/opinions/the-posts-2020-endorsements-for-the-dc-council/2020/04/30/d1136ecc-84fb-11ea-ae26-989cfce1c7c7_story.html
       - committee_id: 4098
         first_name: Kishan
         last_name: Putta
@@ -997,9 +1013,11 @@ Primary Election:
           Amalgamated Transit Union Local 689: 'https://www.facebook.com/atulocal689group/posts/2969954546381082'
           Black Lives Matter DC: 'https://twitter.com/DMVBlackLives/status/1194982586470326274'
           DC Attorney General Karl Racine: 'https://www.janeese4dc.com/news/dc-attorney-general-karl-racine-endorses-janeese-lewis-george-for-ward-4/'
+          DC Councilmember Elissa Silverman: 'https://twitter.com/Janeese4DC/status/1261359215630708737'
           DC for Democracy: 'https://dcfordemocracy.org/get-involved/electoral-campaigns/'
           DC Latino Caucus: >-
             http://www.dclc.org/dc-latino-caucus-announces-candidate-endorsements-in-the-dc-june-2-2020-democratic-primary/
+          DC Women in Politics: 'https://www.dcwomeninpolitics.org/'
           DC Working Families Party: 'https://workingfamilies.org/2019/11/dcwfp-endorses-janeese-lewis-george-for-ward-4/'
           Greater Greater Washington: 'https://ggwash.org/view/77510/dc-endorsements'
           Jews United for Justice Campaign Fund: 'https://www.jufjcampaignfund.org/washington-dc/'
@@ -1009,10 +1027,13 @@ Primary Election:
           Nonprofit Professional Employees Union: >-
             https://npeu.org/news/2020/4/12/npeu-endorses-in-dc-council-races-jordan-grossman-for-ward-2-janeese-lewis-george-for-ward-4-anthony-lorenzo-green-for-ward-7
           Our Revolution DC: 'https://twitter.com/OurRevolutionDC/status/1255201910405115907'
+          Sanctuary DMV: 'https://twitter.com/SanctuaryDMV/status/1260579026789425156'
+          SEIU Local 500: 'https://www.seiu500.org/dc-council-endorsements'
           Sierra Club DC Chapter: >-
             https://www.sierraclub.org/dc/sierra-club-endorses-robert-white-patrick-kennedy-janeese-lewis-george-vince-gray-and-trayon
           Sunrise Movement DC: 'https://www.facebook.com/SunriseMvmtDC/posts/1159948711021785'
           Unite Here Local 25: 'https://www.local25union.org/news-1/local-25-endorses-janeese-lewis-george-and-jordan-grossman'
+          United Food and Commercial Workers Local 400: 'https://twitter.com/UFCW400/status/1261301714029871104'
           Ward 4 State Board of Education Member Frazier O'Leary: 'https://www.facebook.com/photo.php?fbid=716815222414212&set=a.136308617131545&type=3&theater'
           Washington Teachers' Union: 'https://www.wtulocal6.net/2020_endorsements'
       - committee_id: 4088
@@ -1083,7 +1104,7 @@ Primary Election:
         boe_filing_date: 3/4/2020
         withdrew: ''
         endorsements:
-          Baltimore/Washington Laborers' District Council: 'https://www.facebook.com/BWLDC/posts/530683894285757'
+          Baltimore/Washington Laborers' District Council (LiUNA): 'https://www.facebook.com/BWLDC/posts/530683894285757'
           Democrats for Education Reform DC: 'https://dfer.org/dc/dfer-dc-announces-endorsements-for-june-elections/'
           Mid-Atlantic Pipe Trades Association: 'https://www.facebook.com/MidAtlanticpipetrades/photos/a.3645882475482427/3645882695482405/'
           Washington Post: >-
@@ -1311,6 +1332,7 @@ Primary Election:
           Nonprofit Professional Employees Union: >-
             https://npeu.org/news/2020/4/12/npeu-endorses-in-dc-council-races-jordan-grossman-for-ward-2-janeese-lewis-george-for-ward-4-anthony-lorenzo-green-for-ward-7
           Our Revolution DC: 'https://twitter.com/OurRevolutionDC/status/1255201911864786944'
+          United Food and Commercial Workers Local 400: 'https://twitter.com/UFCW400/status/1261301712758939649'
           Washington Teachers' Union: 'https://www.wtulocal6.net/2020_endorsements'
       - committee_id: 0
         first_name: Tam
@@ -1452,6 +1474,8 @@ Primary Election:
         boe_pickup_date: 1/10/2020
         boe_filing_date: 3/4/2020
         withdrew: ''
+        endorsements:
+          DC Women in Politics: 'https://www.dcwomeninpolitics.org/'
       - committee_id: 4104
         first_name: Clayton
         last_name: Rosenberg
@@ -1658,6 +1682,7 @@ Primary Election:
           - url: 'https://www.washingtoninformer.com/d-c-election-roundup-ford-wants-a-ward-8-driven-by-education-economics/'
             title: 'D.C. ELECTION ROUNDUP: Ford Wants a Ward 8 Driven by Education, Economics'
         endorsements:
+          DC Women in Politics: 'https://www.dcwomeninpolitics.org/'
           'National Organization for Women, DC Chapter': 'https://www.dc-now.org/elections'
       - candidate_name: Christopher Hawthorne
         contact_name: Christopher Hawthorne
@@ -4080,6 +4105,7 @@ Special Election:
           1199SEIU United Healthcare Workers East: 'https://www.facebook.com/1199SEIU.mddc/photos/a.242227409553194/922453628197232/'
           350 DC: 'https://twitter.com/350_DC/status/1234538057170288641'
           Amalgamated Transit Union Local 689: 'https://www.facebook.com/atulocal689group/posts/2969954546381082'
+          Carpenters’ Local 197: 'https://jordanforward2.com/carpenters-local-union-197-endorses-jordan/'
           DC Councilmember Elissa Silverman: >-
             https://jordanforward2.com/at-large-dc-councilmember-elissa-silverman-endorses-jordan-grossman-for-ward-2-councilmember/
           DC for Democracy: 'https://dcfordemocracy.org/get-involved/electoral-campaigns/'
@@ -4092,8 +4118,12 @@ Special Election:
           Nonprofit Professional Employees Union: >-
             https://npeu.org/news/2020/4/12/npeu-endorses-in-dc-council-races-jordan-grossman-for-ward-2-janeese-lewis-george-for-ward-4-anthony-lorenzo-green-for-ward-7
           Our Revolution DC: 'https://twitter.com/OurRevolutionDC/status/1255201913206865922'
+          SEIU Local 500: 'https://www.seiu500.org/dc-council-endorsements'
+          Service Employees International Union 32BJ: 'https://jordanforward2.com/32bj-seiu-endorses-jordan-grossman/'
           Sunrise Movement DC: 'https://www.facebook.com/SunriseMvmtDC/posts/1159948711021785'
           Unite Here Local 25: 'https://www.local25union.org/news-1/local-25-endorses-janeese-lewis-george-and-jordan-grossman'
+          United Food and Commercial Workers Local 400: 'https://twitter.com/UFCW400/status/1261301715229433856'
+          US Senator Amy Klobuchar: 'https://jordanforward2.com/u-s-senator-amy-klobuchar-endorses-jordan-grossman-for-ward-2-dc-councilmember/'
           Washington Teachers' Union: 'https://www.wtulocal6.net/2020_endorsements'
       - committee_id: 14148
         first_name: Patrick
@@ -4192,6 +4222,7 @@ Special Election:
           Baltimore/Washington Laborers' District Council: 'https://www.facebook.com/BWLDC/posts/530684547619025'
           DC Council Chair Phil Mendelson: 'https://patrickforward2.com/news/dc-council-chair-phil-mendelson-endorses-patrick-kennedy'
           Democrats for Education Reform DC: 'https://dfer.org/dc/dfer-dc-announces-endorsements-for-june-elections/'
+          Georgetoen Metropolitan: 'https://georgetownmetropolitan.com/2020/05/04/vote-kennedy-for-ward-2/'
           Greater Greater Washington: 'https://ggwash.org/view/77510/dc-endorsements'
           Mid-Atlantic Pipe Trades Association: 'https://www.facebook.com/MidAtlanticpipetrades/photos/a.3645882475482427/3645882695482405/'
           Sierra Club DC Chapter: >-
@@ -4239,6 +4270,7 @@ Special Election:
         chair_phone: (202) 400-1295
         chair_email: brooke@brookeforward2.com
         endorsements:
+          DC Women in Politics: 'https://www.dcwomeninpolitics.org/'
           Washington Post: >-
             https://www.washingtonpost.com/opinions/the-posts-2020-endorsements-for-the-dc-council/2020/04/30/d1136ecc-84fb-11ea-ae26-989cfce1c7c7_story.html
       - candidate_name: Kishan Putta

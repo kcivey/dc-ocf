@@ -5,20 +5,16 @@
  * ISC License
  * Source: https://github/kcivey/dc-ocf
  */
-/* globals d3 */
+/* globals d3 cola */
 /* eslint-disable no-restricted-properties */
 (function () {
     const svg = d3.select('svg');
-    const {height, width} = svg.node().getBoundingClientRect();
-    const simulation = d3.forceSimulation()
-        .force(
-            'link',
-            d3.forceLink()
-                .id(d => d.id)
-                // .distance(d => 200 / d.count)
-        )
-        .force('charge', d3.forceManyBody().strength(-100))
-        .force('center', d3.forceCenter(width / 2, height / 2));
+    const {width, height} = svg.node().getBoundingClientRect();
+    const simulation = cola.d3adaptor(d3)
+        .avoidOverlaps(true)
+        .handleDisconnected(true)
+        .jaccardLinkLengths(40, 0.7)
+        .size([width, height]);
 
     d3.json('dc-endorsements.json').then(drawGraph);
 
@@ -39,19 +35,14 @@
             .append('circle')
             .attr('r', d => (d.type === 'endorser' ? 5 : 8))
             .attr('fill', d => (d.type === 'endorser' ? '#1f77b4' : '#ff7f0e'))
-            .call(
-                d3.drag()
-                    .on('start', dragstarted)
-                    .on('drag', dragged)
-                    .on('end', dragended)
-            );
+            .call(simulation.drag());
         node.append('title')
-            .text(d => d.id);
+            .text(d => d.name);
         simulation
             .nodes(endorsementData.nodes)
-            .on('tick', ticked);
-        simulation.force('link')
-            .links(endorsementData.links);
+            .links(endorsementData.links)
+            .on('tick', ticked)
+            .start(50, 50, 50);
 
         function ticked() {
             link

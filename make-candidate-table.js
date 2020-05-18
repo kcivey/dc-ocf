@@ -676,9 +676,17 @@ function writeEndorsements(records) {
         }
     }
     const nodes = [
-        ...[...candidateSet].sort().map(name => ({id: name, type: 'candidate'})),
-        ...[...endorserSet].sort().map(name => ({id: name, type: 'endorser'})),
+        ...[...candidateSet].sort().map(name => ({name, type: 'candidate'})),
+        ...[...endorserSet].sort().map(name => ({name, type: 'endorser'})),
     ];
+    const nodeIdByName = {};
+    for (let i = 0; i < nodes.length; i++) {
+        nodeIdByName[nodes[i].name] = i;
+    }
+    for (const link of links) {
+        link.source = nodeIdByName[link.source];
+        link.target = nodeIdByName[link.target];
+    }
 
     /*
     const sharedEndorsements = {};

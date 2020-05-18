@@ -69,6 +69,7 @@ async function main() {
     }
     writeYaml(records);
     writeHtml(records);
+    writeEndorsements(records);
 }
 
 function readYaml() {
@@ -641,4 +642,72 @@ function omitCandidate(c, election) {
         (argv['primary-filing'] && /Primary/.test(election) && !c.boe_filing_date) ||
         (argv['special-filing'] && /Special/.test(election) && !c.boe_filing_date) ||
         (argv['general-filing'] && !c.boe_filing_date);
+}
+
+function writeEndorsements(records) {
+    const candidateSet = new Set();
+    const endorserSet = new Set();
+    const links = [];
+    const endorsementsByGroup = {};
+    for (const election of Object.keys(records)) {
+        for (const party of Object.keys(records[election])) {
+            for (const office of Object.keys(records[election][party])) {
+                if (!/Council/.test(office)) {
+                    continue;
+                }
+                for (const r of records[election][party][office]) {
+                    if (omitCandidate(r, election) || !r.endorsements) {
+                        continue;
+                    }
+                    candidateSet.add(r.candidate_name);
+                    for (const group of Object.keys(r.endorsements)) {
+                        if (!endorsementsByGroup[group]) { // eslint-disable-line max-depth
+                            endorsementsByGroup[group] = new Set();
+                        }
+                        endorsementsByGroup[group].add(r.candidate_name);
+                        links.push({
+                            source: group,
+                            target: r.candidate_name,
+                        });
+                        endorserSet.add(group);
+                    }
+                }
+            }
+        }
+    }
+    const nodes = [
+        ...[...candidateSet].sort().map(name => ({id: name, type: 'candidate'})),
+        ...[...endorserSet].sort().map(name => ({id: name, type: 'endorser'})),
+    ];
+
+    /*
+    const sharedEndorsements = {};
+    for (const [group, endorseeSet] of Object.entries(endorsementsByGroup)) {
+        nodes.push({id: group, type: 'endorser'});
+        const endorsees = [...endorseeSet].sort();
+        for (let i = 0; i < endorsees.length - 1; i++) {
+            for (let j = i + 1; j < endorsees.length; j++) {
+                if (!sharedEndorsements[endorsees[i]]) {
+                    sharedEndorsements[endorsees[i]] = {};
+                }
+                if (!sharedEndorsements[endorsees[i]][endorsees[j]]) {
+                    sharedEndorsements[endorsees[i]][endorsees[j]] = [];
+                }
+                sharedEndorsements[endorsees[i]][endorsees[j]].push(group);
+            }
+        }
+    }
+    const links = [];
+    for (const {id: c1} of nodes) {
+        for (const [c2, groups] of Object.entries(sharedEndorsements[c1] || {})) {
+            links.push({
+                source: c1,
+                target: c2,
+                count: groups.length,
+                groups,
+            });
+        }
+    }
+     */
+    process.stdout.write(JSON.stringify({nodes, links}, null, 2));
 }

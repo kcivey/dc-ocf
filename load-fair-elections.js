@@ -120,7 +120,7 @@ function getInputFilesByCommittee() {
         .map(fn => dir + '/' + fn);
     const inputFilesByCommittee = {};
     for (const inputFile of inputFiles) {
-        const m = inputFile.match(/^.+\/(.+?)-(\w+-\d+\w+|termination)(?:-amendment-\d+)?-\d{8}\.pdf$/);
+        const m = inputFile.match(/^.+\/(.+?)-(\w+-\d+\w+|termination|8-day-pre-\w+)(?:-amendment-\d+)?-\d{8}\.pdf$/);
         assert(m, `Unexpected filename format "${inputFile}`);
         const committee = m[1];
         const reportType = m[2];

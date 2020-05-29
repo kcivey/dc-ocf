@@ -7,8 +7,8 @@ In order by number of contributors, they are
 <li>Jordan Grossman</li>
 <li>Kishan Putta</li>
 <li>Patrick Kennedy</li>
-<li>John Fanning</li>
 <li>Brooke Pinto</li>
+<li>John Fanning</li>
 <li>Jack Evans</li>
 <li>Yilin Zhang</li>
 <li>Daniel Hernandez</li>
@@ -17,8 +17,7 @@ In order by number of contributors, they are
 
 All the candidates are Democrats except for Venice, who is a Republican.
 All are seeking to qualify or have qualified for Fair Elections public campaign funds except for Brooke Pinto.
-The last report for all the Fair Elections candidates covers contributions through May 10.
-Pinto has reported through March 10.
+The last report for all the candidates covers contributions through May 25.
 
 Pinto can accept contributions up to $500, from individuals and from organizations (corporations, LLCs,
 PACs, unions, and so on), and use as much of her own money as she wishes.

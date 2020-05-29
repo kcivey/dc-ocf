@@ -21,6 +21,9 @@ async function main() {
     const inputFilesByCommittee = getInputFilesByCommittee();
     for (const [committeeCode, inputFiles] of Object.entries(inputFilesByCommittee)) {
         const committeeName = await db.getCommitteeNameByCode(committeeCode);
+        if (/^test-committee/.test(committeeCode)) {
+            continue;
+        }
         assert(committeeName, `Can't find committee for code "${committeeCode}"`);
         console.warn(`Deleting records for ${committeeName}`);
         await db.deleteContributions(committeeName);

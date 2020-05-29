@@ -47,9 +47,9 @@ async function main() {
         const newRecords = await getNewRecords();
         records = combineRecords(records, newRecords);
     }
-    records = removeBoeDates(records);
-    const moreRecords = await getBoePickups();
-    records = combineRecords(records, moreRecords);
+    // records = removeBoeDates(records);
+    // const moreRecords = await getBoePickups();
+    // records = combineRecords(records, moreRecords);
     for (const election of Object.keys(records)) {
         for (const party of Object.keys(records[election])) {
             for (const office of Object.keys(records[election][party])) {

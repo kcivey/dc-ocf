@@ -2872,7 +2872,7 @@ Primary Election:
         address: 2007 O St NW Apt 504
         filing_date: 03/27/2020
         phone: (202) 602-7360
-        email: peterboltonjournalist@gmail.com
+        email: peterboltonforward2@gmail.com
         committee_address: '2007 O Street, NW. Apt. 504, Washington, DC 20036'
         committee_phone: (202) 602-7360
         treasurer_name: Mr. Peter Bolton
@@ -3478,6 +3478,34 @@ General Election:
         links:
           - url: 'https://www.washingtoninformer.com/d-c-election-roundup-rogers-seeks-to-improve-d-c-neighborhoods/'
             title: 'D.C. ELECTION ROUNDUP: Rogers Seeks to Improve D.C. Neighborhoods'
+      - committee_id: 14180
+        first_name: Michangelo
+        last_name: Scruggs
+        candidate_key: CANCCL207181
+        committee_key: ''
+        election_year: 2020
+        candidate_approved: true
+        committee_approved: false
+        termination_approved: false
+        candidate_name: Michangelo Scruggs
+        committee_name: Committee to Elect Dr. MIch DC Councilmember at Large
+        id: 15122
+        name: Mr. Michangelo D Scruggs
+        address: 4316 18th St NW
+        filing_date: 05/14/2020
+        phone: (202) 412-9664
+        email: DrMScruggs@aol.com
+        committee_address: 'Washington, DC'
+        committee_phone: ''
+        treasurer_name: ''
+        treasurer_phone: ''
+        treasurer_email: ''
+        chairperson_name: ''
+        chair_phone: ''
+        chair_email: ''
+        zip: '20011'
+        fair_elections: true
+        neighborhood: Crestwood
     Council Ward 8:
       - committee_id: 4123
         first_name: Christopher
@@ -4061,9 +4089,9 @@ Special Election:
         committee_name: Jordan Grossman for Ward 2 Special Election
         id: 5072
         name: Jordan M. Grossman
-        address: 910 M St NW
+        address: '910 M St NW #203'
         filing_date: 01/14/2020
-        phone: 202-350-1075
+        phone: (202) 350-1075
         email: jordan.mitchell.grossman@gmail.com
         committee_address: '910 M Street, NW. #203, Washington, DC 20001'
         committee_phone: (202) 350-1075
@@ -4138,9 +4166,9 @@ Special Election:
         committee_name: 'Patrick Kennedy for Ward 2 Special June 16, 2020'
         id: 15076
         name: Mr. Patrick Logan Kennedy
-        address: 532 20th St NW
+        address: 532 20th St NW Apt 312
         filing_date: 01/17/2020
-        phone: 202-630-2201
+        phone: (202) 630-2201
         email: patrickkennedydc@gmail.com
         committee_address: '532 20th Street, NW #312, Washington, DC 20006'
         committee_phone: (202) 630-2201
@@ -4231,7 +4259,7 @@ Special Election:
         contact_name: ''
         address: 1219 Q St NW
         zip: '20009'
-        phone: 202-400-1295
+        phone: (202) 400-1295
         boe_pickup_date: 2/13/2020
         boe_filing_date: 3/15/2020
         email: brooke@brookepintoforward2.com
@@ -4328,9 +4356,9 @@ Special Election:
             percent: 68
       - candidate_name: Yilin (Ellen) Zhang
         contact_name: P.O. Box
-        address: '53082'
-        zip: '20009'
-        phone: 202-524-0536
+        address: '2100 Connecticut Ave NW #103'
+        zip: '20008'
+        phone: ''
         boe_pickup_date: 1/15/2020
         boe_filing_date: 3/18/2020
         email: yilin@yilinforward2.com

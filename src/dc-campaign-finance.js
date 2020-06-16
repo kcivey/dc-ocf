@@ -39,12 +39,12 @@ jQuery(function ($) {
                 handleSharedData(data.shared);
                 handleDateData(data.dateData);
                 handlePlaceData(data.placeData);
-                $('#contest-select').on('change', loadContest);
+                $('#contest-select');
             });
     }
 
     function setUpSelect() {
-        const select = $('#contest-select');
+        const select = $('#contest-select').on('change', loadContest);
         const state = getStateFromUrl();
         return $.getJSON('/available.json' + '?' + getNumberForCacheBusting())
             .then(function (contestsByYear) {

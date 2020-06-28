@@ -3406,6 +3406,9 @@ General Election:
         zip: '20003'
         fair_elections: false
         neighborhood: null
+        website: murphreedc.com
+        twitter: RickMurphree
+        facebook: Rick-Murphree-113667536938741
       - committee_id: 0
         first_name: Asar
         last_name: Mustafa

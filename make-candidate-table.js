@@ -29,10 +29,19 @@ const partyAbbr = {
     Independent: 'Ind',
     Other: 'Oth',
     Nonpartisan: '',
+    DEM: 'Dem',
+    REP: 'Rep',
+    LBT: 'Lib',
+    STG: 'StG',
+    STHG: 'StG',
+    IND: 'Ind',
+    'N/A': '',
 };
 const abbrParty = {};
 for (const [party, abbr] of Object.entries(partyAbbr)) {
-    abbrParty[abbr] = party;
+    if (!abbrParty[abbr]) {
+        abbrParty[abbr] = party;
+    }
 }
 
 main().catch(console.trace);
@@ -69,7 +78,7 @@ async function main() {
     }
     writeYaml(records);
     writeHtml(records);
-    writeEndorsements(records);
+    // writeEndorsements(records);
 }
 
 function readYaml() {
@@ -343,6 +352,8 @@ function writeHtml(records) {
                     if (!recordsByElection[generalName][office]) {
                         recordsByElection[generalName][office] = [];
                     }
+
+                    /*
                     if (!recordsByElection[generalName][office].some(r => r.party === party)) {
                         recordsByElection[generalName][office].push({
                             candidate_name: `(${party} nominee)`,
@@ -350,6 +361,7 @@ function writeHtml(records) {
                             party,
                         });
                     }
+                    */
                 }
             }
         }
@@ -461,6 +473,7 @@ function keySort(a, b) {
     return a2.localeCompare(b2) || a1.localeCompare(b1);
 }
 
+/*
 function removeBoeDates(records) {
     for (const recordsByParty of Object.values(records)) {
         for (const recordsByOffice of Object.values(recordsByParty)) {
@@ -475,22 +488,23 @@ function removeBoeDates(records) {
     }
     return records;
 }
+*/
 
 async function getBoePickups() {
-    const newsUrl = 'https://dcboe.org/Community-Outreach/News';
+    const newsUrl = 'https://dcboe.org/Candidates/2020-Candidates';
     if (argv.verbose) {
         console.warn(newsUrl);
     }
     const html = await request(newsUrl);
     const $ = cheerio.load(html);
     const pickups = [];
-    for (const link of $('.article .newsItem a').get()) {
+    for (const link of $('.article ul li a').get()) {
         const text = $(link).text()
             .trim();
-        if (!text.match(/^Candidate List/)) {
+        if (!text.match(/^Candidate List.+General/)) { // now that special is over, get only general
             continue;
         }
-        const election = text.match(/SPECIAL/i) ? 'special' : 'primary';
+        const election = text.match(/Special/i) ? 'special' : text.match(/General/i) ? 'general' : 'primary';
         const pdfUrl = new URL($(link).attr('href'), newsUrl).toString();
         if (argv.verbose) {
             console.warn(pdfUrl);
@@ -522,20 +536,22 @@ async function getBoePickups() {
             }
         }
         else {
-            const lineRe =
-                /^(\S+(?: \S+)*)  +?(\S+(?: \S+)+|) +((?:P\.?O\.? Box )?\d.*?)? (\d{5})? +(\d[-\d]+)? +([\d/]+)(?: +([\d/]*) +(\S+)\s*)?$/; // eslint-disable-line max-len
+            const primary = election === 'primary';
+            const lineRe = primary
+                ? /^(\S+(?: \S+)*)  +?(\S+(?: \S+)+|) +((?:P\.?O\.? Box )?\d.*?)? (\d{5})? +(\d[-\d]+)? +([\d/]+)(?: +([\d/]*) +(\S+)\s*)?$/ // eslint-disable-line max-len
+                : /^(\S+(?: \S+)+) +([A-Z/]{3,4}) +([\w.-]+(?: [\w.-]+)+|)  +((?:P\.?O\.? Box )?\d.*?|) (\d{5}|) +(\S+@\S+|) *(\d[-\d.]+|) *([\d/NA]*) *([\d/NA]*)\s*$/; // eslint-disable-line max-len
             const withdrewRe = /^(.+?)\s*\(withdrew (\d\d?\/\d\d?\/(?:\d\d|\d{4}))\)/i;
             let office;
             for (const page of pdfText.split('\f')) {
                 if (!/\S/.test(page)) {
                     continue;
                 }
-                let party;
-                const m = page.match(
-                    /District of Columbia Board of Elections\n +(.+?)(?: List of| Candidates| in Ballot Order| *\n)/
-                );
-                assert(m, `Missing party:\n${page}`);
-                if (m) {
+                let party = '';
+                if (primary) {
+                    const m = page.match(
+                        /District of Columbia Board of Elections\n +(.+?)(?: List of| Candidates| in Ballot Order| *\n)/
+                    );
+                    assert(m, `Missing party:\n${page}`);
                     party = m[1];
                 }
                 let prevOffice;
@@ -550,9 +566,17 @@ async function getBoePickups() {
                         office = line;
                         continue;
                     }
+                    line = line.replace('DC BetterChoice', 'DCBetterChoice'); // kluge to handle error
                     let m = line.match(lineRe);
                     assert(m, `Unexpected format in PDF:\n${JSON.stringify(line)}`);
-                    let [, candidate, contact, address, zip, phone, pickupDate, filingDate, email] = m;
+                    const values = [...m].slice(1);
+                    let candidate = values.shift();
+                    if (!primary) {
+                        party = values.shift();
+                        party = abbrParty[partyAbbr[party]] || party;
+                    }
+                    const email = primary ? values.pop() : values.splice(3, 1)[0];
+                    const [contact, address, zip, phone, pickupDate, filingDate] = values;
                     assert(office, `Missing office for "${line}"`);
                     if (/Committee|Party/.test(office)) {
                         continue; // skip party positions
@@ -569,7 +593,7 @@ async function getBoePickups() {
                         withdrew = standardizeDate(m[2]);
                     }
                     pickups.push({
-                        election_description: 'Primary Election',
+                        election_description: election.substr(0, 1).toUpperCase() + election.substr(1) + ' Election',
                         office: standardizeOffice(office),
                         candidate_name: candidate,
                         party_name: party,
@@ -623,11 +647,12 @@ function standardizeAddress(address) {
 }
 
 function standardizeOffice(office) {
-    return office === 'Presidential Nominee'
+    return /President/.test(office)
         ? 'President'
-        : /Delegate to the House/.test(office)
+        : /Delegate to the .*House/.test(office)
             ? 'Delegate to the US House'
-            : office.replace(/(.*) Member of the Council of the District of Columbia/, 'Council $1')
+            : office.replace(/(.*) Member of the Council of the District of Columbia$/, 'Council $1')
+                .replace(/(.*?)(?: District)? Member of the State Board of Education$/, 'SBOE $1')
                 .replace('At-large', 'At-Large')
                 .replace('United States', 'US');
 }
@@ -644,7 +669,7 @@ function omitCandidate(c, election) {
         (argv['general-filing'] && !c.boe_filing_date);
 }
 
-function writeEndorsements(records) {
+function writeEndorsements(records) { // eslint-disable-line no-unused-vars
     const candidateSet = new Set();
     const endorserSet = new Set();
     const links = [];

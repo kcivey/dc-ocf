@@ -9,7 +9,6 @@ Primary Election:
         boe_pickup_date: 1/28/2020
         boe_filing_date: ''
         email: votemrward6.natebrown@gmail.com
-        withdrew: ''
         first_name: Nathan
         last_name: Brown
         fair_elections: null
@@ -37,7 +36,6 @@ Primary Election:
         contact_name: Tyrone E. Carmichel
         boe_pickup_date: 1/10/2020
         boe_filing_date: ''
-        withdrew: ''
       - candidate_name: A'Shia Howard
         contact_name: Adrienne Darling
         address: 1416 Michigan Ave NE
@@ -122,7 +120,6 @@ Primary Election:
         contact_name: Daniel Moskovitz
         boe_pickup_date: 1/10/2020
         boe_filing_date: 2/13/2020
-        withdrew: ''
         endorsements:
           1199SEIU United Healthcare Workers East: 'https://www.facebook.com/1199SEIU.mddc/photos/a.242227409553194/922458888196706/'
           Amalgamated Transit Union Local 689: 'https://www.facebook.com/atulocal689group/posts/2969954546381082'
@@ -155,7 +152,6 @@ Primary Election:
         boe_pickup_date: 1/27/2020
         boe_filing_date: 3/4/2020
         email: jackevans1@aol.com
-        withdrew: ''
         first_name: Jack
         last_name: Evans
         fair_elections: true
@@ -404,7 +400,6 @@ Primary Election:
         contact_name: Bill Brown
         boe_pickup_date: 1/10/2020
         boe_filing_date: 2/10/2020
-        withdrew: ''
         endorsements:
           DC Latino Caucus: >-
             http://www.dclc.org/dc-latino-caucus-announces-candidate-endorsements-in-the-dc-june-2-2020-democratic-primary/
@@ -460,7 +455,6 @@ Primary Election:
         contact_name: Jordan Grossman
         boe_pickup_date: 1/10/2020
         boe_filing_date: 2/10/2020
-        withdrew: ''
         endorsements:
           1199SEIU United Healthcare Workers East: 'https://www.facebook.com/1199SEIU.mddc/photos/a.242227409553194/922453628197232/'
           350 DC: 'https://twitter.com/350_DC/status/1234538057170288641'
@@ -526,7 +520,6 @@ Primary Election:
         contact_name: Laurel Saito
         boe_pickup_date: 1/10/2020
         boe_filing_date: 3/4/2020
-        withdrew: ''
       - committee_id: 4084
         first_name: Patrick
         last_name: Kennedy
@@ -621,7 +614,6 @@ Primary Election:
         contact_name: Patrick Kennedy
         boe_pickup_date: 1/10/2020
         boe_filing_date: 3/3/2020
-        withdrew: ''
         endorsements:
           Baltimore/Washington Laborers' District Council (LIUNA): 'https://www.facebook.com/BWLDC/posts/530684547619025'
           DC Council Chair Phil Mendelson: 'https://patrickforward2.com/news/dc-council-chair-phil-mendelson-endorses-patrick-kennedy'
@@ -639,7 +631,6 @@ Primary Election:
         boe_pickup_date: 2/13/2020
         boe_filing_date: 2/25/2020
         email: brooke@brookepintoforward2.com
-        withdrew: ''
         first_name: Brooke
         last_name: Pinto
         fair_elections: false
@@ -751,7 +742,6 @@ Primary Election:
         contact_name: Kishan Putta
         boe_pickup_date: 1/10/2020
         boe_filing_date: 3/3/2020
-        withdrew: ''
       - committee_id: 4113
         first_name: Yilin
         last_name: Zhang
@@ -787,7 +777,6 @@ Primary Election:
         contact_name: Yilin Zhang
         boe_pickup_date: 1/10/2020
         boe_filing_date: 2/28/2020
-        withdrew: ''
         links:
           - url: >-
               https://dcist.com/story/20/01/09/this-political-newcomer-is-the-only-woman-running-for-jack-evans-empty-ward-2-seat/
@@ -948,7 +937,6 @@ Primary Election:
         contact_name: Marlena D. Edwards
         boe_pickup_date: 1/10/2020
         boe_filing_date: 2/10/2020
-        withdrew: ''
         website: marlenaedwardsward4.com
       - committee_id: 4106
         first_name: Janeese Lewis
@@ -1006,7 +994,6 @@ Primary Election:
         contact_name: Michelle Whittaker
         boe_pickup_date: 1/10/2020
         boe_filing_date: 2/10/2020
-        withdrew: ''
         endorsements:
           1199SEIU United Healthcare Workers East: 'https://www.facebook.com/1199SEIU.mddc/photos/a.242227409553194/922454588197136/'
           350 DC: 'https://twitter.com/350_DC/status/1234538059175165953'
@@ -1102,7 +1089,6 @@ Primary Election:
         contact_name: Jackson Carnes
         boe_pickup_date: 1/10/2020
         boe_filing_date: 3/4/2020
-        withdrew: ''
         endorsements:
           Baltimore/Washington Laborers' District Council (LIUNA): 'https://www.facebook.com/BWLDC/posts/530683894285757'
           Democrats for Education Reform DC: 'https://dfer.org/dc/dfer-dc-announces-endorsements-for-june-elections/'
@@ -1150,7 +1136,6 @@ Primary Election:
         contact_name: Kelvin Brown
         boe_pickup_date: 1/10/2020
         boe_filing_date: 2/3/2020
-        withdrew: ''
       - committee_id: 4128
         first_name: Vincent C.
         last_name: Gray
@@ -1246,7 +1231,6 @@ Primary Election:
         contact_name: Chuck Thies
         boe_pickup_date: 1/10/2020
         boe_filing_date: 2/3/2020
-        withdrew: ''
         endorsements:
           DC Latino Caucus: >-
             http://www.dclc.org/dc-latino-caucus-announces-candidate-endorsements-in-the-dc-june-2-2020-democratic-primary/
@@ -1320,7 +1304,6 @@ Primary Election:
         contact_name: Anthony Lorenzo Green
         boe_pickup_date: 1/10/2020
         boe_filing_date: 3/3/2020
-        withdrew: ''
         endorsements:
           1199SEIU United Healthcare Workers East: 'https://www.facebook.com/1199SEIU.mddc/photos/a.242227409553194/922455478197047/'
           350 DC: 'https://twitter.com/350_DC/status/1234538061985439744'
@@ -1392,7 +1375,6 @@ Primary Election:
         contact_name: Robin Salas
         boe_pickup_date: 1/10/2020
         boe_filing_date: 3/4/2020
-        withdrew: ''
       - committee_id: 14147
         first_name: Rebecca J.
         last_name: Morris
@@ -1424,7 +1406,6 @@ Primary Election:
         contact_name: Rebecca J. Morris
         boe_pickup_date: 1/10/2020
         boe_filing_date: 3/4/2020
-        withdrew: ''
         website: rebeccamorrisward7.com
         instagram: voterebeccaward7
         facebook: Rebecca-Morris-2020-111199900439248
@@ -1473,7 +1454,6 @@ Primary Election:
         contact_name: Lacricha Warren
         boe_pickup_date: 1/10/2020
         boe_filing_date: 3/4/2020
-        withdrew: ''
         endorsements:
           DC Women in Politics: 'https://www.dcwomeninpolitics.org/'
       - committee_id: 4104
@@ -1556,7 +1536,6 @@ Primary Election:
         contact_name: Stuart Anderson
         boe_pickup_date: 1/17/2020
         boe_filing_date: 3/4/2020
-        withdrew: ''
       - committee_id: 14150
         first_name: Mike
         last_name: Austin
@@ -1592,7 +1571,6 @@ Primary Election:
         contact_name: Michael Austin
         boe_pickup_date: 1/13/2020
         boe_filing_date: 3/4/2020
-        withdrew: ''
         elections:
           - year: 2018
             election: General
@@ -1644,7 +1622,6 @@ Primary Election:
         contact_name: Angela Bailey
         boe_pickup_date: 1/10/2020
         boe_filing_date: ''
-        withdrew: ''
       - committee_id: 4142
         first_name: Yaida
         last_name: Ford
@@ -1676,7 +1653,6 @@ Primary Election:
         contact_name: Yaida Ford
         boe_pickup_date: 1/10/2020
         boe_filing_date: 3/4/2020
-        withdrew: ''
         website: yaidaford.com
         links:
           - url: 'https://www.washingtoninformer.com/d-c-election-roundup-ford-wants-a-ward-8-driven-by-education-economics/'
@@ -1696,7 +1672,6 @@ Primary Election:
         last_name: Hawthorne
         fair_elections: true
         neighborhood: Shipley Terrace
-        withdrew: ''
         committee_id: 14168
         candidate_key: CANCC8207169
         committee_key: ''
@@ -1724,7 +1699,6 @@ Primary Election:
         boe_pickup_date: 2/25/2020
         boe_filing_date: ''
         email: fredhill@gotta-gonow.com
-        withdrew: ''
         first_name: Frederick
         last_name: Hill
         fair_elections: false
@@ -1779,7 +1753,6 @@ Primary Election:
         contact_name: Jeronda Hilton
         boe_pickup_date: 1/10/2020
         boe_filing_date: ''
-        withdrew: ''
         elections:
           - year: 2014
             election: General
@@ -1830,7 +1803,6 @@ Primary Election:
         contact_name: Nelson Jackson Jr.
         boe_pickup_date: 1/13/2020
         boe_filing_date: ''
-        withdrew: ''
         twitter: njax
       - committee_id: 4145
         first_name: Fria
@@ -1864,7 +1836,6 @@ Primary Election:
         contact_name: Fria M. Moore
         boe_pickup_date: 1/10/2020
         boe_filing_date: ''
-        withdrew: ''
         facebook: votefriamoore2020
       - candidate_name: Danielle Platt
         contact_name: Danielle Platt
@@ -1877,7 +1848,6 @@ Primary Election:
         first_name: Danielle
         last_name: Platt
         fair_elections: null
-        withdrew: ''
         neighborhood: null
         facebook: DaniellePlatt4W8
       - candidate_name: Trayon "Ward Eight" White
@@ -1891,7 +1861,6 @@ Primary Election:
         first_name: Trayon
         last_name: White
         fair_elections: true
-        withdrew: ''
         links:
           - url: 'https://www.trayonwhite8.com/'
             title: Councilmember website
@@ -1950,7 +1919,6 @@ Primary Election:
         last_name: Williams
         fair_elections: null
         neighborhood: Knox Hill
-        withdrew: ''
     US Senator:
       - candidate_name: Dorothy Douglas
         contact_name: Dorothy Douglas
@@ -2113,7 +2081,6 @@ Primary Election:
         contact_name: Coley Smith
         boe_pickup_date: 1/10/2020
         boe_filing_date: 2/10/2020
-        withdrew: ''
     US Representative:
       - candidate_name: Susana Baranano
         contact_name: Susana Baranano
@@ -2127,7 +2094,6 @@ Primary Election:
         last_name: Baranano
         fair_elections: false
         neighborhood: Foggy Bottom
-        withdrew: ''
         elections:
           - year: 1998
             election: General
@@ -2191,7 +2157,6 @@ Primary Election:
         contact_name: Paulette Jackson
         boe_pickup_date: 1/10/2020
         boe_filing_date: ''
-        withdrew: ''
       - committee_id: 4141
         first_name: Oye
         last_name: Owolewa
@@ -2234,7 +2199,6 @@ Primary Election:
         contact_name: Oye Owolewa
         boe_pickup_date: 1/10/2020
         boe_filing_date: 3/3/2020
-        withdrew: ''
         links:
           - url: 'https://www.washingtoninformer.com/d-c-election-roundup-owolewa-seeks-shadow-rep-position/'
             title: 'D.C. ELECTION ROUNDUP: Owolewa Seeks Shadow Rep Position'
@@ -2269,7 +2233,6 @@ Primary Election:
         contact_name: Dalton E. Patterson
         boe_pickup_date: 1/10/2020
         boe_filing_date: ''
-        withdrew: ''
       - committee_id: 0
         first_name: Pete
         last_name: Ross
@@ -2314,7 +2277,6 @@ Primary Election:
         contact_name: Pete Ross
         boe_pickup_date: 1/10/2020
         boe_filing_date: ''
-        withdrew: ''
       - candidate_name: Pedro Rubio
         contact_name: Pedro Rubio
         address: 5749 13th St NW
@@ -2350,7 +2312,6 @@ Primary Election:
         boe_pickup_date: 2/27/2020
         boe_filing_date: ''
         email: DRCHRISTINEWARNKE@gmail.com
-        withdrew: ''
         first_name: Christine M.
         last_name: Warnke
         fair_elections: false
@@ -2367,7 +2328,6 @@ Primary Election:
         last_name: Williams
         fair_elections: false
         neighborhood: Knox Hill
-        withdrew: ''
     President:
       - candidate_name: Donna Jean Alston
         contact_name: ''
@@ -2377,7 +2337,6 @@ Primary Election:
         boe_pickup_date: 2/21/2020
         boe_filing_date: ''
         email: ''
-        withdrew: ''
         first_name: Donna Jean
         last_name: Alston
         fair_elections: null
@@ -2394,7 +2353,6 @@ Primary Election:
         last_name: Biden
         fair_elections: false
         neighborhood: Downtown
-        withdrew: ''
       - candidate_name: Michael R. Bloomberg
         contact_name: Howard Wolfson
         address: 909 3rd Ave NY NY
@@ -2433,7 +2391,6 @@ Primary Election:
         last_name: Feegbeh
         fair_elections: false
         neighborhood: Downtown
-        withdrew: ''
       - candidate_name: Tulsi Gabbard
         contact_name: Erika Tsuji
         address: PO Box 75255 Kapolei HI
@@ -2442,7 +2399,6 @@ Primary Election:
         boe_pickup_date: 2/5/2020
         boe_filing_date: 2/5/2020
         email: info@tulsi2020.com
-        withdrew: ''
         first_name: Tulsi
         last_name: Gabbard
         fair_elections: null
@@ -2455,7 +2411,6 @@ Primary Election:
         boe_pickup_date: 2/24/2020
         boe_filing_date: ''
         email: Info@AmyKlobuchar.com
-        withdrew: ''
         first_name: Amy
         last_name: Klobuchar
         fair_elections: null
@@ -2468,7 +2423,6 @@ Primary Election:
         boe_pickup_date: 2/25/2020
         boe_filing_date: 2/25/2020
         email: delegates@berniesanders.com
-        withdrew: ''
         first_name: Bernie
         last_name: Sanders
         fair_elections: null
@@ -2481,7 +2435,6 @@ Primary Election:
         boe_pickup_date: 2/25/2020
         boe_filing_date: ''
         email: stewartforliberty@gmail.com
-        withdrew: ''
         first_name: Mark
         last_name: Stewart
         fair_elections: null
@@ -2494,7 +2447,6 @@ Primary Election:
         boe_pickup_date: 2/4/2020
         boe_filing_date: ''
         email: ''
-        withdrew: ''
         first_name: Tom
         last_name: Steyer
         fair_elections: null
@@ -2507,7 +2459,6 @@ Primary Election:
         boe_pickup_date: 3/2/2020
         boe_filing_date: 3/2/2020
         email: kt@elizabethwarren.com
-        withdrew: ''
         first_name: Elizabeth
         last_name: Warren
         fair_elections: null
@@ -2523,7 +2474,6 @@ Primary Election:
         first_name: Andrew
         last_name: Yang
         fair_elections: false
-        withdrew: ''
         neighborhood: null
     Delegate to the US House:
       - candidate_name: Barbara Washington Franklin
@@ -2534,7 +2484,6 @@ Primary Election:
         boe_pickup_date: 1/31/2020
         boe_filing_date: ''
         email: JohnnieRice@comcast.net
-        withdrew: ''
         first_name: Barbara Washington
         last_name: Franklin
         fair_elections: false
@@ -2547,7 +2496,6 @@ Primary Election:
         boe_pickup_date: 2/27/2020
         boe_filing_date: ''
         email: gregmaye151@gmail.com
-        withdrew: ''
         first_name: Greg
         last_name: Maye
         fair_elections: false
@@ -2563,7 +2511,6 @@ Primary Election:
         first_name: Eleanor Holmes
         last_name: Norton
         fair_elections: false
-        withdrew: ''
         neighborhood: null
         links:
           - url: 'https://norton.house.gov/'
@@ -2580,7 +2527,6 @@ Primary Election:
         boe_pickup_date: 2/4/2020
         boe_filing_date: ''
         email: AderonkeBalogun99@gmail.com
-        withdrew: ''
         first_name: Aderonke
         last_name: Balongun
         fair_elections: null
@@ -2597,7 +2543,6 @@ Primary Election:
         last_name: Pickering
         fair_elections: false
         neighborhood: American University Park
-        withdrew: ''
         committee_id: 14156
         candidate_key: CANCCL207154
         committee_key: PCCCCL207154
@@ -2627,7 +2572,6 @@ Primary Election:
         boe_pickup_date: 2/5/2020
         boe_filing_date: ''
         email: 3/4/2020
-        withdrew: ''
         first_name: Roque "Rocky" De La
         last_name: Fuente
         fair_elections: null
@@ -2643,7 +2587,6 @@ Primary Election:
         first_name: Donald J.
         last_name: Trump
         fair_elections: false
-        withdrew: ''
         neighborhood: null
     Council Ward 2:
       - candidate_name: Katherine Venice
@@ -2658,7 +2601,6 @@ Primary Election:
         last_name: Venice
         fair_elections: true
         neighborhood: North Michigan Park
-        withdrew: ''
         website: katherineward2.com
         twitter: Katherine4Ward2
         links:
@@ -2679,7 +2621,6 @@ Primary Election:
         last_name: Derenge
         fair_elections: false
         neighborhood: Fairlawn
-        withdrew: ''
         website: nateward8.com
         committee_id: 14157
         candidate_key: CANCC8207155
@@ -2711,7 +2652,6 @@ Primary Election:
         boe_pickup_date: 2/13/2020
         boe_filing_date: ''
         email: dgreen42192@gmail.com
-        withdrew: ''
         first_name: Donald
         last_name: Green
         fair_elections: false
@@ -2745,7 +2685,6 @@ Primary Election:
         boe_pickup_date: 2/10/2020
         boe_filing_date: 3/4/2020
         email: echo4senate@gmail.com
-        withdrew: ''
         first_name: Eleanor
         last_name: Ory
         fair_elections: false
@@ -2778,7 +2717,6 @@ Primary Election:
         boe_pickup_date: 2/14/2020
         boe_filing_date: 3/4/2020
         email: Ann1Wilcox@gmail.com
-        withdrew: ''
         first_name: Ann C.
         last_name: Wilcox
         fair_elections: null
@@ -2802,7 +2740,6 @@ Primary Election:
         boe_pickup_date: 2/14/2020
         boe_filing_date: 3/3/2020
         email: stracuzziforcongress@gmail.com
-        withdrew: ''
         first_name: Natale Lino
         last_name: Stracuzzi
         fair_elections: false
@@ -2816,7 +2753,6 @@ Primary Election:
         boe_pickup_date: 2/21/2020
         boe_filing_date: 3/3/2020
         email: statehood4dcnow@gmail.com
-        withdrew: ''
         first_name: Joyce
         last_name: Robinson-Paul
         fair_elections: false
@@ -2840,7 +2776,6 @@ Primary Election:
         boe_pickup_date: 3/2/2020
         boe_filing_date: 3/4/2020
         email: redd4council@gmail.com
-        withdrew: ''
         first_name: Perry
         last_name: Redd
         fair_elections: null
@@ -2894,7 +2829,6 @@ Primary Election:
         boe_pickup_date: 2/21/2020
         boe_filing_date: 3/4/2020
         email: jdhenchman@gmail.com
-        withdrew: ''
         first_name: Joe
         last_name: Bishop-Henchman
         fair_elections: null
@@ -3004,7 +2938,6 @@ General Election:
         contact_name: Daniel Moskovitz
         boe_pickup_date: 1/10/2020
         boe_filing_date: 2/13/2020
-        withdrew: ''
         endorsements:
           1199SEIU United Healthcare Workers East: 'https://www.facebook.com/1199SEIU.mddc/photos/a.242227409553194/922458888196706/'
           Amalgamated Transit Union Local 689: 'https://www.facebook.com/atulocal689group/posts/2969954546381082'
@@ -3024,7 +2957,6 @@ General Election:
         boe_pickup_date: 2/13/2020
         boe_filing_date: 2/25/2020
         email: brooke@brookepintoforward2.com
-        withdrew: ''
         first_name: Brooke
         last_name: Pinto
         fair_elections: false
@@ -3120,7 +3052,6 @@ General Election:
         contact_name: Michelle Whittaker
         boe_pickup_date: 1/10/2020
         boe_filing_date: 2/10/2020
-        withdrew: ''
         endorsements:
           1199SEIU United Healthcare Workers East: 'https://www.facebook.com/1199SEIU.mddc/photos/a.242227409553194/922454588197136/'
           350 DC: 'https://twitter.com/350_DC/status/1234538059175165953'
@@ -3246,7 +3177,6 @@ General Election:
         contact_name: Chuck Thies
         boe_pickup_date: 1/10/2020
         boe_filing_date: 2/3/2020
-        withdrew: ''
         endorsements:
           DC Latino Caucus: >-
             http://www.dclc.org/dc-latino-caucus-announces-candidate-endorsements-in-the-dc-june-2-2020-democratic-primary/
@@ -3268,7 +3198,6 @@ General Election:
         first_name: Trayon
         last_name: White
         fair_elections: true
-        withdrew: ''
         links:
           - url: 'https://www.trayonwhite8.com/'
             title: Councilmember website
@@ -3405,7 +3334,6 @@ General Election:
         contact_name: Coley Smith
         boe_pickup_date: 1/10/2020
         boe_filing_date: 2/10/2020
-        withdrew: ''
     US Representative:
       - committee_id: 4141
         first_name: Oye
@@ -3449,7 +3377,6 @@ General Election:
         contact_name: Oye Owolewa
         boe_pickup_date: 1/10/2020
         boe_filing_date: 3/3/2020
-        withdrew: ''
         links:
           - url: 'https://www.washingtoninformer.com/d-c-election-roundup-owolewa-seeks-shadow-rep-position/'
             title: 'D.C. ELECTION ROUNDUP: Owolewa Seeks Shadow Rep Position'
@@ -3466,7 +3393,6 @@ General Election:
         last_name: Biden
         fair_elections: false
         neighborhood: Downtown
-        withdrew: ''
     Delegate to the US House:
       - candidate_name: Eleanor Holmes Norton
         contact_name: Jacqueline Pelt
@@ -3479,7 +3405,6 @@ General Election:
         first_name: Eleanor Holmes
         last_name: Norton
         fair_elections: false
-        withdrew: ''
         neighborhood: null
         links:
           - url: 'https://norton.house.gov/'
@@ -3500,7 +3425,6 @@ General Election:
         last_name: Pickering
         fair_elections: false
         neighborhood: American University Park
-        withdrew: ''
         committee_id: 14156
         candidate_key: CANCCL207154
         committee_key: PCCCCL207154
@@ -3533,7 +3457,6 @@ General Election:
         first_name: Donald J.
         last_name: Trump
         fair_elections: false
-        withdrew: ''
         neighborhood: null
     Council Ward 2:
       - candidate_name: Katherine Venice
@@ -3548,7 +3471,6 @@ General Election:
         last_name: Venice
         fair_elections: true
         neighborhood: North Michigan Park
-        withdrew: ''
         website: katherineward2.com
         twitter: Katherine4Ward2
         links:
@@ -3569,7 +3491,6 @@ General Election:
         last_name: Derenge
         fair_elections: false
         neighborhood: Fairlawn
-        withdrew: ''
         website: nateward8.com
         committee_id: 14157
         candidate_key: CANCC8207155
@@ -3602,7 +3523,6 @@ General Election:
         boe_pickup_date: 2/10/2020
         boe_filing_date: 3/4/2020
         email: echo4senate@gmail.com
-        withdrew: ''
         first_name: Eleanor
         last_name: Ory
         fair_elections: false
@@ -3635,7 +3555,6 @@ General Election:
         boe_pickup_date: 2/14/2020
         boe_filing_date: 3/4/2020
         email: Ann1Wilcox@gmail.com
-        withdrew: ''
         first_name: Ann C.
         last_name: Wilcox
         fair_elections: null
@@ -3659,7 +3578,6 @@ General Election:
         boe_pickup_date: 2/14/2020
         boe_filing_date: 3/3/2020
         email: stracuzziforcongress@gmail.com
-        withdrew: ''
         first_name: Natale Lino
         last_name: Stracuzzi
         fair_elections: false
@@ -3673,7 +3591,6 @@ General Election:
         boe_pickup_date: 2/21/2020
         boe_filing_date: 3/3/2020
         email: statehood4dcnow@gmail.com
-        withdrew: ''
         first_name: Joyce
         last_name: Robinson-Paul
         fair_elections: false
@@ -3697,7 +3614,6 @@ General Election:
         boe_pickup_date: 3/2/2020
         boe_filing_date: 3/4/2020
         email: redd4council@gmail.com
-        withdrew: ''
         first_name: Perry
         last_name: Redd
         fair_elections: null
@@ -3722,7 +3638,6 @@ General Election:
         boe_pickup_date: 2/21/2020
         boe_filing_date: 3/4/2020
         email: jdhenchman@gmail.com
-        withdrew: ''
         first_name: Joe
         last_name: Bishop-Henchman
         fair_elections: null
@@ -4868,7 +4783,6 @@ Special Election:
             office: ANC 2F04
             result: Won
             percent: 97
-        withdrew: ''
         endorsements:
           DC Latino Caucus: >-
             http://www.dclc.org/dc-latino-caucus-announces-candidate-endorsements-in-the-dc-june-2-2020-democratic-primary/
@@ -5184,7 +5098,6 @@ Special Election:
         twitter: yilinforward2
         website: yilinforward2.com
         facebook: yilinforward2
-        withdrew: ''
         links:
           - url: >-
               https://dcist.com/story/20/01/09/this-political-newcomer-is-the-only-woman-running-for-jack-evans-empty-ward-2-seat/
@@ -5203,7 +5116,6 @@ Special Election:
         last_name: Venice
         fair_elections: true
         neighborhood: Downtown
-        withdrew: ''
         website: katherineward2.com
         twitter: Katherine4Ward2
         links:

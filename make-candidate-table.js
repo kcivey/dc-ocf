@@ -592,7 +592,7 @@ async function getBoePickups() {
                         candidate = m[1];
                         withdrew = standardizeDate(m[2]);
                     }
-                    pickups.push({
+                    const record = {
                         election_description: election.substr(0, 1).toUpperCase() + election.substr(1) + ' Election',
                         office: standardizeOffice(office),
                         candidate_name: candidate,
@@ -604,8 +604,11 @@ async function getBoePickups() {
                         boe_pickup_date: standardizeDate(pickupDate),
                         boe_filing_date: standardizeDate(filingDate || ''),
                         email: email || '',
-                        withdrew,
-                    });
+                    };
+                    if (withdrew) {
+                        record.withdrew = withdrew;
+                    }
+                    pickups.push(record);
                 }
             }
         }

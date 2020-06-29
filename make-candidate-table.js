@@ -239,7 +239,8 @@ function combineRecords(records, newRecords) {
                     const existingCandidate = records[electionDescription][party][office].find(function (r) {
                         const existingFirst = getFirstName(r.first_name);
                         return r.last_name === candidate.last_name &&
-                            existingFirst === first;
+                            existingFirst === first &&
+                            (!r.committee_id || !candidate.committee_id || r.committee_id === candidate.committee_id);
                     });
                     if (existingCandidate) {
                         if (candidate.fair_elections == null) { // eslint-disable-line max-depth
@@ -269,6 +270,7 @@ function combineRecords(records, newRecords) {
             Mike: 'Michael',
             Nate: 'Nathan',
             Joe: 'Joseph',
+            "Le'Troy": 'Troy',
         }[first] || first;
         return first;
     }
@@ -342,7 +344,11 @@ function writeHtml(records) {
                                 }
                                 return newC;
                             })
-                    );
+                    )
+                    .sort(function (a, b) {
+                        return a.last_name.localeCompare(b.last_name) ||
+                            a.first_name.localeCompare(b.first_name);
+                    });
                 if (election !== generalName) {
                     if (!recordsByElection[generalName]) {
                         recordsByElection[generalName] = {};

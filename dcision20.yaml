@@ -76,10 +76,10 @@ Primary Election:
         committee_name: Friends of Robert White
         id: 5027
         name: Mr. Robert White
-        address: PO Box 76655
+        address: 1601 Holly St NW
         filing_date: 08/01/2019
-        phone: 214-681-1832
-        email: daniel@robertwhitefordc.com
+        phone: ''
+        email: robert.c.whiteii@gmail.com
         committee_address: '1601 Holly Street, NW, Washington, DC 20012'
         committee_phone: ''
         treasurer_name: Mrs. Iris Bond Gill
@@ -88,7 +88,7 @@ Primary Election:
         chairperson_name: Mr. Matthew Frumin
         chair_phone: (202) 247-0819
         chair_email: matthewfrumin@gmail.com
-        zip: '20013'
+        zip: '20012'
         twitter: RobertWhite_DC
         website: robertwhitefordc.com
         links:
@@ -148,7 +148,7 @@ Primary Election:
         contact_name: ''
         address: 3141 P St NW
         zip: '20007'
-        phone: 202-255-3300
+        phone: ''
         boe_pickup_date: 1/27/2020
         boe_filing_date: 3/4/2020
         email: jackevans1@aol.com
@@ -311,10 +311,10 @@ Primary Election:
         committee_name: John Fanning for Ward 2
         id: 5019
         name: Mr. John J. Fanning
-        address: 1418 14th St NW
+        address: '1307 12th St NW #505'
         filing_date: 06/03/2019
-        phone: 202-271-3467
-        email: fanningforward2@gmail.com
+        phone: (202) 510-1983
+        email: johnjfanning2@yahoo.com
         committee_address: '1307 12th Street, NW. #505, Washington, DC 20005'
         committee_phone: (202) 510-1983
         treasurer_name: ''
@@ -323,7 +323,7 @@ Primary Election:
         chairperson_name: ''
         chair_phone: ''
         chair_email: ''
-        zip: '20012'
+        zip: '20005'
         twitter: fanning_2
         website: fanningforward2.com
         facebook: JohnFanningDC
@@ -417,9 +417,9 @@ Primary Election:
         committee_name: Jordan Grossman for Ward 2
         id: 5013
         name: Mr. Jordan Mitchell Grossman
-        address: 910 M St NW
+        address: '910 M St NW #203'
         filing_date: 05/15/2019
-        phone: 202-350-1075
+        phone: (202) 350-1075
         email: jordan.mitchell.grossman@gmail.com
         committee_address: '910 M Street, NW, #203, Washington, DC 20001'
         committee_phone: (202) 350-1075
@@ -493,10 +493,10 @@ Primary Election:
         committee_name: Daniel Hernandez For Ward 2
         id: 5018
         name: Mr. Daniel Hernandez
-        address: 1724 18th St NW
+        address: 1724 18th St NW Apt 1
         filing_date: 06/04/2019
-        phone: 253-312-2675
-        email: saito.laurel@gmail.com
+        phone: (202) 227-6728
+        email: hernandezdl@outlook.com
         committee_address: '1724 18th Street, NW. Apt. 1, Washington, DC 20009'
         committee_phone: (253) 312-2675
         treasurer_name: ''
@@ -534,9 +534,9 @@ Primary Election:
         committee_name: Patrick Kennedy for Ward 2
         id: 5007
         name: Mr. Patrick Logan Kennedy
-        address: 532 20th St NW
+        address: '532 20th St NW #312'
         filing_date: 04/08/2019
-        phone: 202-630-2201
+        phone: (202) 630-2201
         email: patrickkennedydc@gmail.com
         committee_address: '532 20th Street, NW. #312, Washington, DC 20006'
         committee_phone: (202) 630-2201
@@ -627,7 +627,7 @@ Primary Election:
         contact_name: Brooke Pinto
         address: 1219 Q St NW
         zip: '20009'
-        phone: 202-400-1295
+        phone: (202) 400-1295
         boe_pickup_date: 2/13/2020
         boe_filing_date: 2/25/2020
         email: brooke@brookepintoforward2.com
@@ -685,8 +685,8 @@ Primary Election:
         name: Mr. Kishan K. Putta
         address: 3831 T St NW
         filing_date: 06/26/2019
-        phone: 202-320-0058
-        email: kishanfordc@gmail.com
+        phone: ''
+        email: kishanputta@gmail.com
         committee_address: '3831 T Street, NW, Washington, DC 20007'
         committee_phone: (202) 258-8753
         treasurer_name: ''
@@ -756,10 +756,10 @@ Primary Election:
         committee_name: Yilin Zhang for Ward 2
         id: 5038
         name: Ms. Yilin Zhang
-        address: 2100 Connecticut Ave NW
+        address: '2100 Connecticut Ave NW #103'
         filing_date: 09/16/2019
-        phone: 202-524-0536
-        email: yilin@yilinforward2.com
+        phone: ''
+        email: yilinzh2008@gmail.com
         committee_address: '2100 Connecticut Ave., NW #103, Washington, DC 20008'
         committee_phone: (248) 918-8910
         treasurer_name: ''
@@ -894,7 +894,7 @@ Primary Election:
         boe_filing_date: 3/2/2020
         withdrew: 3/5/2020
       - committee_id: 14152
-        first_name: Marlena D.
+        first_name: Marlena
         last_name: Edwards
         candidate_key: CANCC4207150
         committee_key: PCCCC4207150
@@ -908,8 +908,8 @@ Primary Election:
         name: Ms. Marlena D. Edwards
         address: 1117 Fern St NW
         filing_date: 01/21/2020
-        phone: 202-389-7875
-        email: metroa1@aol.com
+        phone: (202) 389-7875
+        email: metroA1@aol.com
         committee_address: '1117 Fern Street, NW, Washington, DC 20012'
         committee_phone: (202) 389-7875
         treasurer_name: Ms. Marlena D. Edwards
@@ -952,10 +952,10 @@ Primary Election:
         committee_name: Committee to Elect Janeese Lewis George
         id: 5030
         name: Mrs. Janeese Lewis George
-        address: PO Box 56667
+        address: 6207 8th St NW
         filing_date: 08/06/2019
-        phone: 202-701-8420
-        email: michelle@janeese4dc.com
+        phone: ''
+        email: janeesefor4@gmail.com
         committee_address: '6207 8th Street, NW, Washington, DC 20011'
         committee_phone: (202) 907-8240
         treasurer_name: ''
@@ -964,7 +964,7 @@ Primary Election:
         chairperson_name: ''
         chair_phone: ''
         chair_email: ''
-        zip: '20040'
+        zip: '20011'
         twitter: Janeese4DC
         website: janeese4dc.com
         facebook: Janeese4DC
@@ -1039,8 +1039,8 @@ Primary Election:
         name: Mr. Brandon Todd
         address: 423 Buchanan St NW
         filing_date: 05/15/2019
-        phone: 202-316-3537
-        email: jackson.carnes@gmail.com
+        phone: (202) 765-6948
+        email: brandonttodd@gmail.com
         committee_address: '1312 Iris Street, NW, Washington, DC 20012'
         committee_phone: (202) 765-6948
         treasurer_name: Mr. Adam Hunter
@@ -1112,7 +1112,7 @@ Primary Election:
         name: Mr. Kelvin Brown
         address: 3645 Austin St SE
         filing_date: 08/02/2019
-        phone: 202-503-5224
+        phone: ''
         email: kelvinbrown4dc@gmail.com
         committee_address: '3645 Austin Street, SE, Washington, DC 20020'
         committee_phone: (202) 503-4224
@@ -1137,7 +1137,7 @@ Primary Election:
         boe_pickup_date: 1/10/2020
         boe_filing_date: 2/3/2020
       - committee_id: 4128
-        first_name: Vincent C.
+        first_name: Vincent
         last_name: Gray
         candidate_key: CANCC7207128
         committee_key: PCCCC7207128
@@ -1152,7 +1152,7 @@ Primary Election:
         name: Mr. Vincent C. Gray
         address: 2619 Branch Ave SE
         filing_date: 11/18/2019
-        phone: 202-957-0873
+        phone: (202) 957-0873
         email: vincegray2020@gmail.com
         committee_address: '2619 Branch Ave., SE, Washington, DC 20020'
         committee_phone: (202) 957-0873
@@ -1241,7 +1241,7 @@ Primary Election:
           Washington Post: >-
             https://www.washingtonpost.com/opinions/the-posts-2020-endorsements-for-the-dc-council/2020/04/30/d1136ecc-84fb-11ea-ae26-989cfce1c7c7_story.html
       - committee_id: 4102
-        first_name: Anthony Lorenzo
+        first_name: Anthony
         last_name: Green
         candidate_key: CANCC7207107
         committee_key: ''
@@ -1254,10 +1254,10 @@ Primary Election:
         committee_name: Green for Ward 7
         id: 5026
         name: Mr. Anthony Green
-        address: PO Box 64407
+        address: 920 49th St NE
         filing_date: 07/16/2019
-        phone: 202-840-9797
-        email: info@greenward7.com
+        phone: (202) 840-9797
+        email: lorenzo.deanwood@gmail.com
         committee_address: '920 49th Street, NE, Washington, DC 20019'
         committee_phone: (202) 840-9797
         treasurer_name: ''
@@ -1266,7 +1266,7 @@ Primary Election:
         chairperson_name: ''
         chair_phone: ''
         chair_email: ''
-        zip: ''
+        zip: '20019'
         twitter: GreenForWard7
         website: greenward7.com
         facebook: GreenforWard7
@@ -1342,7 +1342,7 @@ Primary Election:
         boe_filing_date: ''
         withdrew: 2/28/2020
       - committee_id: 4089
-        first_name: James Leroy
+        first_name: James
         last_name: Jennings
         candidate_key: CANCC7207100
         committee_key: PCCCC7207100
@@ -1355,10 +1355,10 @@ Primary Election:
         committee_name: Vote Jennings Ward 7 DC Council 2020
         id: 5012
         name: Mr. James Leroy Jennings
-        address: 2120 Vermont Ave NW
+        address: 4418 Gault Pl NE
         filing_date: 05/16/2019
-        phone: 202-525-3088
-        email: robinsalas01@gmail.com
+        phone: ''
+        email: maxjames8110@gmail.com
         committee_address: '2120 Vermont Ave., NW #522, Washington, DC 20001'
         committee_phone: (202) 525-3080
         treasurer_name: Ms. Robin Salas
@@ -1367,7 +1367,7 @@ Primary Election:
         chairperson_name: Mr. Samuel Miller III
         chair_phone: (202) 369-1389
         chair_email: 3rdedition71@gmail.com
-        zip: '20001'
+        zip: '20019'
         twitter: Vote4Jennings
         website: ''
         neighborhood: Hillbrook
@@ -1376,7 +1376,7 @@ Primary Election:
         boe_pickup_date: 1/10/2020
         boe_filing_date: 3/4/2020
       - committee_id: 14147
-        first_name: Rebecca J.
+        first_name: Rebecca
         last_name: Morris
         candidate_key: CANCC7207145
         committee_key: PCCCC7207145
@@ -1388,10 +1388,10 @@ Primary Election:
         committee_name: Rebecca Morris Committee of Ward 7
         id: 15075
         name: Ms. Rebecca Morris
-        address: 116 44th St NE
+        address: 116 44th St NE Apt 203
         filing_date: 01/16/2020
-        phone: 202-907-6924
-        email: RebeccaMorris07@gmail.com
+        phone: (202) 907-6924
+        email: rebeccamorris07@gmail.com
         committee_address: '116 44th Street, NE. Apt. 203, Washington, DC 20019'
         committee_phone: (202) 907-6924
         treasurer_name: Ms. Rebecca Morris
@@ -1425,7 +1425,7 @@ Primary Election:
         name: Ms. Veda Rasheed
         address: 703 Chaplin St SE
         filing_date: 09/09/2019
-        phone: 202-841-4784
+        phone: (202) 391-4545
         email: veda.rasheed@gmail.com
         committee_address: '703 Chaplin Street, SE, Washington, DC 20019'
         committee_phone: (314) 657-8455
@@ -1502,10 +1502,10 @@ Primary Election:
         committee_name: Committee to Elect Stuart Anderson 2020
         id: 5043
         name: Mr. Stuart Anderson
-        address: 1466 Morris Rd SE
+        address: 1466 Morris Road SE
         filing_date: 10/31/2019
-        phone: 202-239-9439
-        email: Sanderson.socmedia@gmail.com
+        phone: (202) 239-9439
+        email: swanderson6711@gmail.com
         committee_address: '1466 Morris Road, SE, Washington, DC 20020'
         committee_phone: (202) 239-9439
         treasurer_name: ''
@@ -1537,7 +1537,7 @@ Primary Election:
         boe_pickup_date: 1/17/2020
         boe_filing_date: 3/4/2020
       - committee_id: 14150
-        first_name: Mike
+        first_name: Michael
         last_name: Austin
         candidate_key: CANCC8207148
         committee_key: ''
@@ -1551,7 +1551,7 @@ Primary Election:
         name: Mr. Michael Austin
         address: 226 Malcolm X Ave SE
         filing_date: 01/17/2020
-        phone: 202-779-3904
+        phone: (202) 779-3904
         email: info.mikeaustin8@gmail.com
         committee_address: '226 Malcolm X Avenue, SE, Washington, DC 20032'
         committee_phone: (202) 779-3904
@@ -1635,9 +1635,9 @@ Primary Election:
         committee_name: Elect Yaida Ford
         id: 5069
         name: Ms. Yaida Ford
-        address: 224 Malcolm X Ave SE
+        address: '1907 Good Hope Road SE #305'
         filing_date: 01/10/2020
-        phone: 360-903-3460
+        phone: (360) 903-3460
         email: yoflawfirm@gmail.com
         committee_address: '204 Malcolm X Ave., SE, Washington, DC 20032'
         committee_phone: (360) 903-3460
@@ -1647,7 +1647,7 @@ Primary Election:
         chairperson_name: Ms. Yaida Ford
         chair_phone: (360) 903-3460
         chair_email: yoflawfirm@gmail.com
-        zip: '20032'
+        zip: '20020'
         fair_elections: false
         neighborhood: Anacostia
         contact_name: Yaida Ford
@@ -2006,9 +2006,9 @@ Primary Election:
         committee_name: Paul Strauss Committee
         id: 5054
         name: Mr. Paul Strauss
-        address: 1020 16th St NW
+        address: 2828 Wisconsin Ave NW
         filing_date: 11/26/2019
-        phone: 202-497-8948
+        phone: (202) 223-8664
         email: senator@paulstrauss.org
         committee_address: '1020 16th Street, NW. Suite 500, Washington, DC 20036'
         committee_phone: (202) 223-8664
@@ -2018,7 +2018,7 @@ Primary Election:
         chairperson_name: Mr. Paul Strauss
         chair_phone: (202) 223-8664
         chair_email: senator@paulstrauss.org
-        zip: '20036'
+        zip: '20007'
         fair_elections: false
         neighborhood: Cathedral Heights
         twitter: SenPaulStrauss
@@ -2173,8 +2173,8 @@ Primary Election:
         name: Mr. Oye Owolewa
         address: 1430 Tobias Dr SE
         filing_date: 01/03/2020
-        phone: 202-579-0586
-        email: oye4DC@yahoo.com
+        phone: (202) 860-0882
+        email: adeoye.owdewa@gmail.com
         committee_address: '1430 Tobias Dr., SE, Washington, DC 20020'
         committee_phone: (202) 860-0882
         treasurer_name: Mr. Sadik Owolewa
@@ -2535,10 +2535,10 @@ Primary Election:
         contact_name: Dr. Charles Vincent
         address: 4402 44th St NW
         zip: '20016'
-        phone: 202-239-7244
+        phone: ''
         boe_pickup_date: 1/17/2020
         boe_filing_date: 3/2/2020
-        email: cvincent010@gmail.com
+        email: marigold316@aol.com
         first_name: Marya
         last_name: Pickering
         fair_elections: false
@@ -2611,13 +2611,13 @@ Primary Election:
     Council Ward 8:
       - candidate_name: Nate "Ward 8" Derenge
         contact_name: ''
-        address: 2131 Young St SE
-        zip: ''
-        phone: 605-553-8895
+        address: '2131 Young St SE #101'
+        zip: '20020'
+        phone: (571) 557-2795
         boe_pickup_date: 1/16/2020
         boe_filing_date: 3/2/2020
         email: nathan.derenge@gmail.com
-        first_name: Nate 'Ward8'
+        first_name: Nathan
         last_name: Derenge
         fair_elections: false
         neighborhood: Fairlawn
@@ -2679,9 +2679,9 @@ Primary Election:
     US Senator:
       - candidate_name: Eleanor Ory
         contact_name: ''
-        address: 1825 T St NW
+        address: '1825 T St NW #203'
         zip: '20009'
-        phone: 954-940-8281
+        phone: (954) 990-8281
         boe_pickup_date: 2/10/2020
         boe_filing_date: 3/4/2020
         email: echo4senate@gmail.com
@@ -2713,11 +2713,11 @@ Primary Election:
         contact_name: ''
         address: 7312 Alaska Ave NW
         zip: '20012'
-        phone: 202-441-3265
+        phone: (202) 441-3265
         boe_pickup_date: 2/14/2020
         boe_filing_date: 3/4/2020
-        email: Ann1Wilcox@gmail.com
-        first_name: Ann C.
+        email: ann1.wilcox@gmail.com
+        first_name: Ann
         last_name: Wilcox
         fair_elections: null
         neighborhood: Shepherd Park
@@ -2749,7 +2749,7 @@ Primary Election:
         contact_name: ''
         address: 16 N St NW
         zip: '20001'
-        phone: 202-330-7955
+        phone: (202) 330-7955
         boe_pickup_date: 2/21/2020
         boe_filing_date: 3/3/2020
         email: statehood4dcnow@gmail.com
@@ -2770,9 +2770,9 @@ Primary Election:
     Council Ward 4:
       - candidate_name: Perry Redd
         contact_name: Perry Redd
-        address: 422 Marietta Pl NW
+        address: 422 Marietta Pl NM
         zip: '20011'
-        phone: 202-717-7729
+        phone: (202) 717-7729
         boe_pickup_date: 3/2/2020
         boe_filing_date: 3/4/2020
         email: redd4council@gmail.com
@@ -2823,9 +2823,9 @@ Primary Election:
     Council At-Large:
       - candidate_name: Joseph Bishop-Henchman
         contact_name: ''
-        address: 415 W St NE
+        address: '415 W St NE #A'
         zip: '20002'
-        phone: 202-766-5019
+        phone: (202) 766-5019
         boe_pickup_date: 2/21/2020
         boe_filing_date: 3/4/2020
         email: jdhenchman@gmail.com
@@ -3526,6 +3526,16 @@ General Election:
         last_name: Weiss
         fair_elections: false
         neighborhood: Southwest Waterfront
+        committee_id: 0
+        candidate_key: CANSEN207186
+        election_year: 2020
+        candidate_approved: true
+        committee_approved: false
+        termination_approved: false
+        committee_name: Cornelia Weiss
+        id: 15128
+        name: Ms. Cornelia Weiss
+        filing_date: 06/25/2020
   Statehood Green:
     US Senator:
       - candidate_name: Eleanor Ory
@@ -4255,8 +4265,27 @@ General Election:
         email: Padroanc@gmail.com
         first_name: Alexander M.
         last_name: Padro
-        fair_elections: null
+        fair_elections: false
         neighborhood: Shaw
+        committee_id: 14182
+        candidate_key: CANCCL207182
+        committee_key: PCCCCL207182
+        election_year: 2020
+        candidate_approved: true
+        committee_approved: true
+        termination_approved: false
+        committee_name: Committee to Elect Alex Padro
+        id: 15124
+        name: Mr. Alexander Michael Padro
+        filing_date: 06/17/2020
+        committee_address: '1519 8TH ST NW, WASHINGTON, DC 200013205'
+        committee_phone: (202) 518-3794
+        treasurer_name: Pleasant P. Mann
+        treasurer_phone: (202) 518-3799
+        treasurer_email: treasurer@alexpadro.com
+        chairperson_name: Mr. Alex Padro
+        chair_phone: (202) 518-3794
+        chair_email: alex@alexpadro.com
       - first_name: Mónica
         last_name: Palacio
         candidate_name: Mónica Palacio
@@ -4324,10 +4353,10 @@ General Election:
         first_name: Michangelo
         last_name: Scruggs
         candidate_key: CANCCL207181
-        committee_key: ''
+        committee_key: PCCCCL207181
         election_year: 2020
         candidate_approved: true
-        committee_approved: false
+        committee_approved: true
         termination_approved: false
         candidate_name: Michangelo Scruggs
         committee_name: Committee to Elect Dr. MIch DC Councilmember at Large
@@ -4337,16 +4366,16 @@ General Election:
         filing_date: 05/14/2020
         phone: 202-412-9664
         email: DrMScruggs@aol.com
-        committee_address: 'Washington, DC'
+        committee_address: '4316 18th Street NW, Washington, DC 20011'
         committee_phone: ''
-        treasurer_name: ''
-        treasurer_phone: ''
-        treasurer_email: ''
-        chairperson_name: ''
-        chair_phone: ''
-        chair_email: ''
+        treasurer_name: Mr. Jeremiah D West
+        treasurer_phone: (443) 768-2785
+        treasurer_email: jeremiahd.west@gmail.com
+        chairperson_name: Mr. Frederick J Lewis
+        chair_phone: (703) 400-3022
+        chair_email: FrederickJLewis@aol.com
         zip: '20016'
-        fair_elections: true
+        fair_elections: false
         neighborhood: Crestwood
         contact_name: ''
         boe_pickup_date: 6/16/2020
@@ -4396,6 +4425,34 @@ General Election:
         last_name: Hill
         fair_elections: null
         neighborhood: null
+      - committee_id: 14185
+        first_name: Frederick
+        last_name: Hill
+        candidate_key: CANCC8207185
+        committee_key: ''
+        election_year: 2020
+        candidate_approved: true
+        committee_approved: false
+        termination_approved: false
+        candidate_name: Frederick Hill
+        committee_name: Fred 4 Ward 8
+        id: 15127
+        name: Mr. Frederick Hill III
+        address: 1425 Bangor St SE
+        filing_date: 06/24/2020
+        phone: (202) 330-2211
+        email: fredhill@gotta-gonow.com
+        committee_address: '1730 S Street, SE, Washington, DC 20020'
+        committee_phone: (202) 330-2211
+        treasurer_name: ''
+        treasurer_phone: ''
+        treasurer_email: ''
+        chairperson_name: ''
+        chair_phone: ''
+        chair_email: ''
+        zip: '20011'
+        fair_elections: true
+        neighborhood: Buena Vista
       - candidate_name: Nelson Jackson Sr
         contact_name: ''
         address: 3412 21st St SE
@@ -4406,8 +4463,27 @@ General Election:
         email: NelsonJackson@njaxurl.com
         first_name: Nelson
         last_name: Jackson
-        fair_elections: null
+        fair_elections: false
         neighborhood: Shipley Terrace
+        committee_id: 14183
+        candidate_key: CANCC8207183
+        committee_key: PCCCC8207183
+        election_year: 2020
+        candidate_approved: true
+        committee_approved: true
+        termination_approved: false
+        committee_name: Independent Campaign for Nelson Jackson
+        id: 15125
+        name: Mr. Nelson Jackson SR.
+        filing_date: 06/17/2020
+        committee_address: '3412 21st St SE, Washington, DC 20020'
+        committee_phone: (240) 750-0411
+        treasurer_name: Mr. Nelson Jackson
+        treasurer_phone: (240) 750-4112
+        treasurer_email: nelson.jackson@njaxunl.com
+        chairperson_name: Mr. Nelson Jackson
+        chair_phone: (240) 750-4112
+        chair_email: nelson.jackson@njaxunl.com
       - committee_id: 4112
         first_name: Taurus
         last_name: Phillips
@@ -4752,36 +4828,8 @@ General Election:
         contact_name: ''
         boe_pickup_date: 6/17/2020
         boe_filing_date: ''
-      - committee_id: 4135
-        first_name: Carlene
-        last_name: Reid
-        candidate_key: CANNON207130
-        committee_key: ''
-        election_year: 2020
-        candidate_approved: true
-        committee_approved: false
-        termination_approved: false
-        candidate_name: Carlene Reid
-        committee_name: Let's Reid 2020
-        id: 5060
-        name: Dr. Carlene Daisy Reid
-        address: 1922 15th St SE
-        filing_date: 12/20/2019
-        phone: (202) 618-0525
-        email: creidsboe@gmail.com
-        committee_address: '1922 15th Street, SE, Washington, DC 20020'
-        committee_phone: (202) 618-0525
-        treasurer_name: ''
-        treasurer_phone: ''
-        treasurer_email: ''
-        chairperson_name: ''
-        chair_phone: ''
-        chair_email: ''
-        zip: '20020'
-        fair_elections: true
-        neighborhood: Anacostia
       - committee_id: 4124
-        first_name: Carlene D.
+        first_name: Carlene
         last_name: Reid
         candidate_key: CANSD8207124
         committee_key: ''
@@ -4794,10 +4842,10 @@ General Election:
         committee_name: Carlene Reid for State Board of Education
         id: 5049
         name: Dr. Carlene Reid
-        address: PO Box 31503
+        address: 1922 15th St SE
         filing_date: 11/05/2019
-        phone: 202-618-0525
-        email: info@letsreid.com
+        phone: (301) 642-9051
+        email: carlene_reid@yahoo.com
         committee_address: '1922 15th Street, SE, Washington, DC 20020'
         committee_phone: (301) 642-9051
         treasurer_name: Dr. Carlene Reid
@@ -4806,9 +4854,40 @@ General Election:
         chairperson_name: Dr. Carlene Reid
         chair_phone: (301) 642-9051
         chair_email: carlene_reid@yahoo.com
-        zip: '20030'
+        zip: '20020'
         neighborhood: Anacostia
         fair_elections: true
+        contact_name: ''
+        boe_pickup_date: 6/17/2020
+        boe_filing_date: ''
+      - committee_id: 4135
+        first_name: Carlene D.
+        last_name: Reid
+        candidate_key: CANNON207130
+        committee_key: ''
+        election_year: 2020
+        candidate_approved: true
+        committee_approved: false
+        termination_approved: false
+        candidate_name: Carlene Reid
+        committee_name: Let's Reid 2020
+        id: 5060
+        name: Dr. Carlene Daisy Reid
+        address: PO Box 31503
+        filing_date: 12/20/2019
+        phone: 202-618-0525
+        email: info@letsreid.com
+        committee_address: '1922 15th Street, SE, Washington, DC 20020'
+        committee_phone: (202) 618-0525
+        treasurer_name: ''
+        treasurer_phone: ''
+        treasurer_email: ''
+        chairperson_name: ''
+        chair_phone: ''
+        chair_email: ''
+        zip: '20030'
+        fair_elections: true
+        neighborhood: Anacostia
         contact_name: ''
         boe_pickup_date: 6/17/2020
         boe_filing_date: ''
@@ -4837,6 +4916,16 @@ General Election:
         last_name: Murphy
         fair_elections: null
         neighborhood: Near South East
+        committee_id: 0
+        candidate_key: CANSBL207187
+        election_year: 2020
+        candidate_approved: true
+        committee_approved: false
+        termination_approved: false
+        committee_name: Le'Troy Murphy
+        id: 15129
+        name: Mr. Le'Troy Murphy
+        filing_date: 06/25/2020
       - candidate_name: Jacque Patterson
         contact_name: ''
         address: PO Box 30629
@@ -4849,6 +4938,34 @@ General Election:
         last_name: Patterson
         fair_elections: null
         neighborhood: null
+      - committee_id: 14184
+        first_name: Jacques
+        last_name: Patterson
+        candidate_key: CANSBL207184
+        committee_key: ''
+        election_year: 2020
+        candidate_approved: true
+        committee_approved: false
+        termination_approved: false
+        candidate_name: Jacques Patterson
+        committee_name: Jacque4DC
+        id: 15126
+        name: Mr. Jacques Patterson
+        address: 3521 21st St SE
+        filing_date: 06/12/2020
+        phone: (202) 834-2553
+        email: jacquedpatterson@yahoo.com
+        committee_address: '3521 21st Street, SE, Washington, DC 20020'
+        committee_phone: (202) 834-2553
+        treasurer_name: ''
+        treasurer_phone: ''
+        treasurer_email: ''
+        chairperson_name: ''
+        chair_phone: ''
+        chair_email: ''
+        zip: '20020'
+        fair_elections: true
+        neighborhood: Shipley Terrace
     SBOE Ward 2:
       - candidate_name: Jamaal T. Burton
         contact_name: ''

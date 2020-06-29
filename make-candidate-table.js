@@ -180,6 +180,10 @@ function transformRecords(records) {
                 r.last_name = 'George';
                 r.first_name = 'Janeese Lewis';
             }
+            else if (/^Johnson[- ]Law$/.test(r.last_name)) {
+                r.last_name = 'Law';
+                r.first_name = 'LaJoy Johnson';
+            }
             else if (r.last_name === 'Hernandez') { // kluge to fix OCF typo
                 r.email = r.email.replace('hernandezd1', 'hernandezdl');
             }

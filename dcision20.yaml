@@ -2894,10 +2894,10 @@ General Election:
         committee_name: Friends of Robert White
         id: 5027
         name: Mr. Robert White
-        address: PO Box 76655
+        address: 1601 Holly St NW
         filing_date: 08/01/2019
-        phone: 214-681-1832
-        email: daniel@robertwhitefordc.com
+        phone: 202-236-4074
+        email: RCLyoleWhite@yahoo.com
         committee_address: '1601 Holly Street, NW, Washington, DC 20012'
         committee_phone: ''
         treasurer_name: Mrs. Iris Bond Gill
@@ -2906,7 +2906,7 @@ General Election:
         chairperson_name: Mr. Matthew Frumin
         chair_phone: (202) 247-0819
         chair_email: matthewfrumin@gmail.com
-        zip: '20013'
+        zip: '20011'
         twitter: RobertWhite_DC
         website: robertwhitefordc.com
         links:
@@ -2935,9 +2935,9 @@ General Election:
             result: Won
             percent: 75
         fair_elections: false
-        contact_name: Daniel Moskovitz
-        boe_pickup_date: 1/10/2020
-        boe_filing_date: 2/13/2020
+        contact_name: ''
+        boe_pickup_date: N/A
+        boe_filing_date: N/A
         endorsements:
           1199SEIU United Healthcare Workers East: 'https://www.facebook.com/1199SEIU.mddc/photos/a.242227409553194/922458888196706/'
           Amalgamated Transit Union Local 689: 'https://www.facebook.com/atulocal689group/posts/2969954546381082'
@@ -2950,12 +2950,12 @@ General Election:
           Washington Teachers' Union: 'https://www.wtulocal6.net/2020_endorsements'
     Council Ward 2:
       - candidate_name: Brooke Pinto
-        contact_name: Brooke Pinto
+        contact_name: ''
         address: 1219 Q St NW
         zip: '20009'
         phone: 202-400-1295
-        boe_pickup_date: 2/13/2020
-        boe_filing_date: 2/25/2020
+        boe_pickup_date: N/A
+        boe_filing_date: N/A
         email: brooke@brookepintoforward2.com
         first_name: Brooke
         last_name: Pinto
@@ -3010,10 +3010,10 @@ General Election:
         committee_name: Committee to Elect Janeese Lewis George
         id: 5030
         name: Mrs. Janeese Lewis George
-        address: PO Box 56667
+        address: 6207 8th St NW
         filing_date: 08/06/2019
-        phone: 202-701-8420
-        email: michelle@janeese4dc.com
+        phone: 202-258-5866
+        email: Janeesefor4@gmail.com
         committee_address: '6207 8th Street, NW, Washington, DC 20011'
         committee_phone: (202) 907-8240
         treasurer_name: ''
@@ -3022,7 +3022,7 @@ General Election:
         chairperson_name: ''
         chair_phone: ''
         chair_email: ''
-        zip: '20040'
+        zip: '20011'
         twitter: Janeese4DC
         website: janeese4dc.com
         facebook: Janeese4DC
@@ -3049,9 +3049,9 @@ General Election:
             result: Lost
             percent: 21
         fair_elections: true
-        contact_name: Michelle Whittaker
-        boe_pickup_date: 1/10/2020
-        boe_filing_date: 2/10/2020
+        contact_name: ''
+        boe_pickup_date: N/A
+        boe_filing_date: N/A
         endorsements:
           1199SEIU United Healthcare Workers East: 'https://www.facebook.com/1199SEIU.mddc/photos/a.242227409553194/922454588197136/'
           350 DC: 'https://twitter.com/350_DC/status/1234538059175165953'
@@ -3175,8 +3175,8 @@ General Election:
             result: Won
             percent: 86
         contact_name: Chuck Thies
-        boe_pickup_date: 1/10/2020
-        boe_filing_date: 2/3/2020
+        boe_pickup_date: N/A
+        boe_filing_date: N/A
         endorsements:
           DC Latino Caucus: >-
             http://www.dclc.org/dc-latino-caucus-announces-candidate-endorsements-in-the-dc-june-2-2020-democratic-primary/
@@ -3188,12 +3188,12 @@ General Election:
             https://www.washingtonpost.com/opinions/the-posts-2020-endorsements-for-the-dc-council/2020/04/30/d1136ecc-84fb-11ea-ae26-989cfce1c7c7_story.html
     Council Ward 8:
       - candidate_name: Trayon "Ward Eight" White
-        contact_name: Absalom Jordan
-        address: 2763 Martin Luther King Ave
-        zip: '20020'
-        phone: 202-553-7704
-        boe_pickup_date: 1/16/2020
-        boe_filing_date: 3/2/2020
+        contact_name: ''
+        address: 1109 Wahler Pl SE
+        zip: '20032'
+        phone: 202-696-0735
+        boe_pickup_date: N/A
+        boe_filing_date: N/A
         email: trayonwhite2020@gmail.com
         first_name: Trayon
         last_name: White
@@ -3259,10 +3259,10 @@ General Election:
         committee_name: Paul Strauss Committee
         id: 5054
         name: Mr. Paul Strauss
-        address: 1020 16th St NW
+        address: 2828 Wisconsin Ave
         filing_date: 11/26/2019
-        phone: 202-497-8948
-        email: senator@paulstrauss.org
+        phone: 202-223-8664
+        email: senator@paulstraiss.org
         committee_address: '1020 16th Street, NW. Suite 500, Washington, DC 20036'
         committee_phone: (202) 223-8664
         treasurer_name: Ms. Taylor Berlin
@@ -3271,7 +3271,7 @@ General Election:
         chairperson_name: Mr. Paul Strauss
         chair_phone: (202) 223-8664
         chair_email: senator@paulstrauss.org
-        zip: '20036'
+        zip: '20007'
         fair_elections: false
         neighborhood: Cathedral Heights
         twitter: SenPaulStrauss
@@ -3331,9 +3331,9 @@ General Election:
             office: US Senator
             result: Won
             percent: 76
-        contact_name: Coley Smith
-        boe_pickup_date: 1/10/2020
-        boe_filing_date: 2/10/2020
+        contact_name: ''
+        boe_pickup_date: N/A
+        boe_filing_date: N/A
     US Representative:
       - committee_id: 4141
         first_name: Oye
@@ -3351,8 +3351,8 @@ General Election:
         name: Mr. Oye Owolewa
         address: 1430 Tobias Dr SE
         filing_date: 01/03/2020
-        phone: 202-579-0586
-        email: oye4DC@yahoo.com
+        phone: 202-390-9480
+        email: oye4dc@yahoo.com
         committee_address: '1430 Tobias Dr., SE, Washington, DC 20020'
         committee_phone: (202) 860-0882
         treasurer_name: Mr. Sadik Owolewa
@@ -3374,33 +3374,33 @@ General Election:
             office: ANC 8E01
             result: Won (after recount)
             percent: 39
-        contact_name: Oye Owolewa
-        boe_pickup_date: 1/10/2020
-        boe_filing_date: 3/3/2020
+        contact_name: ''
+        boe_pickup_date: N/A
+        boe_filing_date: N/A
         links:
           - url: 'https://www.washingtoninformer.com/d-c-election-roundup-owolewa-seeks-shadow-rep-position/'
             title: 'D.C. ELECTION ROUNDUP: Owolewa Seeks Shadow Rep Position'
     President:
       - candidate_name: Joseph R. Biden
-        contact_name: Greg Schultz
-        address: 1120 20th St NW
-        zip: '20036'
-        phone: 614-204-3617
-        boe_pickup_date: 1/17/2020
-        boe_filing_date: 3/2/2020
-        email: gschultz@joebiden.com
+        contact_name: Carla Frank
+        address: PO Box 58174 Philadelphia PA
+        zip: '19102'
+        phone: 206.849-1804
+        boe_pickup_date: ''
+        boe_filing_date: ''
+        email: cfrank@joebiden.com
         first_name: Joseph R.
         last_name: Biden
         fair_elections: false
         neighborhood: Downtown
     Delegate to the US House:
       - candidate_name: Eleanor Holmes Norton
-        contact_name: Jacqueline Pelt
-        address: PO Box 70626
-        zip: '20024'
+        contact_name: ''
+        address: 10 9th St SE
+        zip: '20003'
         phone: 202-207-8829
-        boe_pickup_date: 1/10/2020
-        boe_filing_date: 2/10/2020
+        boe_pickup_date: ''
+        boe_filing_date: ''
         email: citizenstoelectnorton@gmail.com
         first_name: Eleanor Holmes
         last_name: Norton
@@ -3414,13 +3414,13 @@ General Election:
   Republican:
     Council At-Large:
       - candidate_name: Marya Pickering
-        contact_name: Dr. Charles Vincent
+        contact_name: ''
         address: 4402 44th St NW
         zip: '20016'
-        phone: 202-239-7244
-        boe_pickup_date: 1/17/2020
-        boe_filing_date: 3/2/2020
-        email: cvincent010@gmail.com
+        phone: 703-967-5023
+        boe_pickup_date: N/A
+        boe_filing_date: N/A
+        email: marigold316@aol.com
         first_name: Marya
         last_name: Pickering
         fair_elections: false
@@ -3450,9 +3450,9 @@ General Election:
         contact_name: Nicholas Trainer
         address: PO Box 13570 Arlington VA
         zip: '22219'
-        phone: 484-400-1971
-        boe_pickup_date: 1/14/2020
-        boe_filing_date: 3/3/2020
+        phone: ''
+        boe_pickup_date: ''
+        boe_filing_date: ''
         email: ntrainer@donaldtrump.com
         first_name: Donald J.
         last_name: Trump
@@ -3461,11 +3461,11 @@ General Election:
     Council Ward 2:
       - candidate_name: Katherine Venice
         contact_name: ''
-        address: 800 K St NW
-        zip: '20091'
+        address: ''
+        zip: ''
         phone: 202-600-6958
-        boe_pickup_date: 1/17/2020
-        boe_filing_date: 3/3/2020
+        boe_pickup_date: N/A
+        boe_filing_date: N/A
         email: kv@katherineward2.com
         first_name: Katherine
         last_name: Venice
@@ -3482,12 +3482,12 @@ General Election:
       - candidate_name: Nate "Ward 8" Derenge
         contact_name: ''
         address: 2131 Young St SE
-        zip: ''
-        phone: 605-553-8895
-        boe_pickup_date: 1/16/2020
-        boe_filing_date: 3/2/2020
-        email: nathan.derenge@gmail.com
-        first_name: Nate 'Ward8'
+        zip: '20020'
+        phone: 571-557-2797
+        boe_pickup_date: N/A
+        boe_filing_date: N/A
+        email: NATHAN.DERENGE@GMAIL.COM
+        first_name: Nate
         last_name: Derenge
         fair_elections: false
         neighborhood: Fairlawn
@@ -3513,6 +3513,19 @@ General Election:
         chair_email: nathan.derenge@gmail.com
         instagram: nateward_8
         facebook: NateWard8
+    US Senator:
+      - candidate_name: Cornelia Weiss
+        contact_name: ''
+        address: 1435 4th St SW
+        zip: '20024'
+        phone: 202-655-9210
+        boe_pickup_date: N/A
+        boe_filing_date: N/A
+        email: koislmeier@yahoo.com
+        first_name: Cornelia
+        last_name: Weiss
+        fair_elections: false
+        neighborhood: Southwest Waterfront
   Statehood Green:
     US Senator:
       - candidate_name: Eleanor Ory
@@ -3520,8 +3533,8 @@ General Election:
         address: 1825 T St NW
         zip: '20009'
         phone: 954-940-8281
-        boe_pickup_date: 2/10/2020
-        boe_filing_date: 3/4/2020
+        boe_pickup_date: N/A
+        boe_filing_date: N/A
         email: echo4senate@gmail.com
         first_name: Eleanor
         last_name: Ory
@@ -3552,8 +3565,8 @@ General Election:
         address: 7312 Alaska Ave NW
         zip: '20012'
         phone: 202-441-3265
-        boe_pickup_date: 2/14/2020
-        boe_filing_date: 3/4/2020
+        boe_pickup_date: N/A
+        boe_filing_date: N/A
         email: Ann1Wilcox@gmail.com
         first_name: Ann C.
         last_name: Wilcox
@@ -3572,12 +3585,12 @@ General Election:
     Delegate to the US House:
       - candidate_name: Natale Lino Stracuzzi
         contact_name: ''
-        address: 2804 Jasper Rd SE
+        address: 2806 Jasper Rd SE
         zip: '20020'
         phone: 202-258-1699
-        boe_pickup_date: 2/14/2020
-        boe_filing_date: 3/3/2020
-        email: stracuzziforcongress@gmail.com
+        boe_pickup_date: ''
+        boe_filing_date: ''
+        email: Stracuzziforcongress@gmail.com
         first_name: Natale Lino
         last_name: Stracuzzi
         fair_elections: false
@@ -3588,8 +3601,8 @@ General Election:
         address: 16 N St NW
         zip: '20001'
         phone: 202-330-7955
-        boe_pickup_date: 2/21/2020
-        boe_filing_date: 3/3/2020
+        boe_pickup_date: N/A
+        boe_filing_date: N/A
         email: statehood4dcnow@gmail.com
         first_name: Joyce
         last_name: Robinson-Paul
@@ -3607,13 +3620,13 @@ General Election:
         filing_date: 03/03/2020
     Council Ward 4:
       - candidate_name: Perry Redd
-        contact_name: Perry Redd
+        contact_name: ''
         address: 422 Marietta Pl NW
         zip: '20011'
         phone: 202-717-7729
-        boe_pickup_date: 3/2/2020
-        boe_filing_date: 3/4/2020
-        email: redd4council@gmail.com
+        boe_pickup_date: N/A
+        boe_filing_date: N/A
+        email: rdd4council@gmail.com
         first_name: Perry
         last_name: Redd
         fair_elections: null
@@ -3628,6 +3641,19 @@ General Election:
         id: 15121
         name: Mr. Perry D Redd
         filing_date: 05/04/2020
+    President:
+      - candidate_name: Howie Hawkins
+        contact_name: ''
+        address: PO Box 562 Syracuse NY
+        zip: '13205'
+        phone: 315-200-6046
+        boe_pickup_date: ''
+        boe_filing_date: ''
+        email: howie@howiehawkins.us
+        first_name: Howie
+        last_name: Hawkins
+        fair_elections: null
+        neighborhood: null
   Libertarian:
     Council At-Large:
       - candidate_name: Joseph Bishop-Henchman
@@ -3652,6 +3678,18 @@ General Election:
         id: 15103
         name: Mr. Joe Bishop-Henchman
         filing_date: 02/21/2020
+      - candidate_name: Joseph Henchman
+        contact_name: ''
+        address: 415 W St NE
+        zip: '20002'
+        phone: 202-766-5019
+        boe_pickup_date: N/A
+        boe_filing_date: N/A
+        email: jdhenchman@gmail.com
+        first_name: Joseph
+        last_name: Henchman
+        fair_elections: null
+        neighborhood: Eckington
   Independent:
     Council At-Large:
       - committee_id: 4114
@@ -3727,10 +3765,10 @@ General Election:
         committee_name: Committee to Elect Mario Cristaldo
         id: 5062
         name: Mr. Mario Cristaldo
-        address: 2440 16th St NW Unit 103
+        address: 2440 16th St NW
         filing_date: 12/23/2019
-        phone: (202) 813-7170
-        email: mariocristaldo94@gmail.com
+        phone: 202-813-7170
+        email: MarioCristaldo94@gmail.com
         committee_address: '2440 16th Street, NW. Unit 103, Washington, DC 20009'
         committee_phone: (202) 813-7170
         treasurer_name: ''
@@ -3758,6 +3796,9 @@ General Election:
             office: Committeeman At-Large
             result: Won
             percent: 31
+        contact_name: ''
+        boe_pickup_date: 6/12/2020
+        boe_filing_date: ''
       - committee_id: 4099
         first_name: Anthony
         last_name: Dale
@@ -3804,10 +3845,10 @@ General Election:
         committee_name: Franklin for DC 2020
         id: 5064
         name: Mr. Franklin Garcia
-        address: ''
+        address: 2218 Newton St NE
         filing_date: 12/27/2019
-        phone: (202) 460-3046
-        email: fgarcia@maestropc.com
+        phone: 202-460-3046
+        email: ''
         committee_address: '2218 Newton Street, SE, Washington, DC 20018'
         committee_phone: (202) 460-3046
         treasurer_name: Mr. Edier Cossio
@@ -3866,6 +3907,9 @@ General Election:
             office: Shadow Representative
             result: Won
             percent: 97
+        contact_name: ''
+        boe_pickup_date: 6/12/2020
+        boe_filing_date: ''
       - committee_id: 4147
         first_name: Marcus
         last_name: Goodwin
@@ -3880,10 +3924,10 @@ General Election:
         committee_name: Marcus Goodwin For DC 2020
         id: 5075
         name: Mr. Marcus Goodwin
-        address: 1407 Webster St NW
+        address: PO Box 43167
         filing_date: 01/15/2020
-        phone: (202) 380-6299
-        email: marcus@goodwinfordc.com
+        phone: 347-899-5929
+        email: Malcom@GoodwinforDC.com
         committee_address: '1407 Webster Street, NW, Washington, DC 20011'
         committee_phone: (202) 599-5790
         treasurer_name: Mr. Robert Cunningham III
@@ -3892,7 +3936,7 @@ General Election:
         chairperson_name: Mr. Marcus Goodwin
         chair_phone: (202) 380-6299
         chair_email: marcus@goodwinfordc.com
-        zip: '20011'
+        zip: '20010'
         fair_elections: false
         neighborhood: 16th Street Heights
         website: goodwinfordc.com
@@ -3918,6 +3962,21 @@ General Election:
             office: Council At-Large
             result: Lost
             percent: 23
+        contact_name: Malcom H. Fox
+        boe_pickup_date: 6/16/2020
+        boe_filing_date: ''
+      - candidate_name: Calvin H. Gurley
+        contact_name: ''
+        address: 612 Underwood St NW
+        zip: '20010'
+        phone: 202-727-6126
+        boe_pickup_date: 6/22/2020
+        boe_filing_date: ''
+        email: chgurley@verizon.net
+        first_name: Calvin H.
+        last_name: Gurley
+        fair_elections: null
+        neighborhood: Brightwood
       - first_name: Christina
         last_name: Henderson
         election_year: 2020
@@ -3937,9 +3996,9 @@ General Election:
         termination_approved: false
         id: 5051
         name: Ms. Christina Diane Henderson
-        address: 816 Farragut St NW
+        address: PO Box 1389
         filing_date: 11/08/2019
-        phone: (864) 593-8710
+        phone: 864-593-8710
         committee_address: '816 Farragut Street, NW, Washington, DC 20011'
         committee_phone: (202) 630-7656
         treasurer_name: ''
@@ -3948,12 +4007,27 @@ General Election:
         chairperson_name: ''
         chair_phone: ''
         chair_email: ''
-        zip: '20011'
+        zip: '20013'
         neighborhood: Petworth
         links:
           - url: >-
               https://dcist.com/story/19/11/08/former-grosso-staffer-christina-henderson-announces-candidacy-for-open-at-large-council-seat/
             title: Former Grosso Staffer Christina Henderson Announces Candidacy For Open At-Large Council Seat
+        contact_name: ''
+        boe_pickup_date: 6/16/2020
+        boe_filing_date: ''
+      - candidate_name: A'Shia Howard
+        contact_name: Amy Nicole Allen
+        address: 4138 Meade St NE
+        zip: '20019'
+        phone: 202-751-1914
+        boe_pickup_date: 6/12/2020
+        boe_filing_date: ''
+        email: AmyCakes1978@gmail.com
+        first_name: A'Shia
+        last_name: Howard
+        fair_elections: null
+        neighborhood: Eastland Gardens
       - committee_id: 4119
         first_name: Chander
         last_name: Jayaraman
@@ -3968,10 +4042,10 @@ General Election:
         committee_name: Chander for Council
         id: 5044
         name: Mr. Chander Jayaraman
-        address: 1436 Independence Ave SE
+        address: 924 G St SE
         filing_date: 10/31/2019
-        phone: (202) 546-2609
-        email: campaign@chander2020.com
+        phone: 570-419-9758
+        email: nedertel@comcast.net
         committee_address: '1436 Independence Avenue, SE, Washington, DC 20003'
         committee_phone: (202) 546-2609
         treasurer_name: ''
@@ -4020,6 +4094,9 @@ General Election:
             result: Won
             percent: 95
         fair_elections: true
+        contact_name: Ned Ertel
+        boe_pickup_date: 6/25/2020
+        boe_filing_date: ''
       - candidate_name: Ed Lazere
         first_name: Ed
         last_name: Lazere
@@ -4035,6 +4112,13 @@ General Election:
         twitter: edlazere
         facebook: EdforDC
         neighborhood: null
+        contact_name: Jeremy Cullimore
+        address: 1350 Jackson St NE
+        zip: '20017'
+        phone: 202-455-5386
+        boe_pickup_date: 6/16/2020
+        boe_filing_date: ''
+        email: jeremy@EdforDC.com
       - committee_id: 4136
         first_name: Jeanné
         last_name: Lewis
@@ -4049,10 +4133,10 @@ General Election:
         committee_name: Committee to Elect Jeanne' Lewis for City Council
         id: 5061
         name: Ms. Jeanne' L. Lewis
-        address: 1727 41st Pl SE
+        address: 349 Kentucky Ave
         filing_date: 12/16/2019
-        phone: (202) 253-3728
-        email: jeanne.isler@gmail.com
+        phone: 202-540-0531
+        email: info@jeannelewisatlarge.com
         committee_address: '349 Kentucky Ave., SE, Washington, DC 20003'
         committee_phone: (802) 355-9778
         treasurer_name: ''
@@ -4061,13 +4145,16 @@ General Election:
         chairperson_name: ''
         chair_phone: ''
         chair_email: ''
-        zip: '20020'
+        zip: ''
         fair_elections: true
         neighborhood: Fort Davis
         twitter: msjeannelewis
         facebook: jeanneatlarge
         instagram: msjeannelewis
         website: jeannelewisatlarge.com
+        contact_name: Bonard Molina
+        boe_pickup_date: 6/18/2020
+        boe_filing_date: ''
       - first_name: Will
         last_name: Merrifield
         candidate_name: Will Merrifield
@@ -4086,6 +4173,13 @@ General Election:
               Running for Office.
           - url: 'https://dcist.com/story/20/02/14/tenant-rights-attorney-declares-candidacy-in-competitive-at-large-race/'
             title: Tenant Rights Attorney Enters Competitive At-Large Race To Replace David Grosso
+        contact_name: James Banks
+        address: 4939 Nash St NE
+        zip: '20019'
+        phone: 202-262-0119
+        boe_pickup_date: 6/22/2020
+        boe_filing_date: ''
+        email: jamesgarlandbanks@gmail.com
       - committee_id: 14171
         first_name: Rick
         last_name: Murphree
@@ -4099,10 +4193,10 @@ General Election:
         committee_name: Friends of Rick Murphree
         id: 15111
         name: Mr. Rick Murphree
-        address: '1100 New Jersey SE #2112'
+        address: 1100 New Jersey Ave SE
         filing_date: 04/20/2020
-        phone: (202) 503-5021
-        email: rickmurphree@ymail.com
+        phone: 202-503-5021
+        email: murphreedc@gmail.com
         committee_address: '1100 New Jersey SE #2112, Washington, DC 20003'
         committee_phone: (202) 503-5021
         treasurer_name: Ms. Andrea Ford
@@ -4117,6 +4211,9 @@ General Election:
         website: murphreedc.com
         twitter: RickMurphree
         facebook: Rick-Murphree-113667536938741
+        contact_name: ''
+        boe_pickup_date: 6/17/2020
+        boe_filing_date: ''
       - committee_id: 0
         first_name: Asar
         last_name: Mustafa
@@ -4136,6 +4233,30 @@ General Election:
         zip: '20002'
         fair_elections: null
         neighborhood: Near Northeast
+      - candidate_name: Vincent Orange
+        contact_name: ''
+        address: 1540 Taylor St NE
+        zip: '20017'
+        phone: 202-486-3201
+        boe_pickup_date: 6/14/2020
+        boe_filing_date: ''
+        email: vo40@aol.com
+        first_name: Vincent
+        last_name: Orange
+        fair_elections: null
+        neighborhood: Brookland
+      - candidate_name: Alexander M. Padro
+        contact_name: ''
+        address: 1519 8th St NW
+        zip: '20001'
+        phone: 202-518-3794
+        boe_pickup_date: 6/12/2020
+        boe_filing_date: ''
+        email: Padroanc@gmail.com
+        first_name: Alexander M.
+        last_name: Padro
+        fair_elections: null
+        neighborhood: Shaw
       - first_name: Mónica
         last_name: Palacio
         candidate_name: Mónica Palacio
@@ -4153,8 +4274,15 @@ General Election:
           - url: >-
               https://dcist.com/story/20/02/20/former-director-of-d-c-office-for-human-rights-office-announces-at-large-candidacy/
             title: Former Director of D.C. Office For Human Rights Announces At-Large Candidacy
+        contact_name: ''
+        address: 6625 Harlan Pl NW
+        zip: '20012'
+        phone: 202-422-2191
+        boe_pickup_date: 6/16/2020
+        boe_filing_date: ''
+        email: mplawdc@gmail.com
       - committee_id: 4127
-        first_name: Eric
+        first_name: Eric M.
         last_name: Rogers
         candidate_key: CANCCL207127
         committee_key: PCCCCL207127
@@ -4167,10 +4295,10 @@ General Election:
         committee_name: Committee to Elect Eric Rogers for Council
         id: 5052
         name: Mr. Eric Rogers
-        address: 3720 Southern Ave SE
+        address: 3720 Southers Ave SE
         filing_date: 11/14/2019
-        phone: (202) 531-1675
-        email: m.eric.rogers@gmail.com
+        phone: 202-531-1675
+        email: Eric@Rogersfordc.com
         committee_address: '3720 Southern Ave SE, washington, DC 20020'
         committee_phone: ''
         treasurer_name: Ms. Daphne Taylor
@@ -4189,6 +4317,9 @@ General Election:
         links:
           - url: 'https://www.washingtoninformer.com/d-c-election-roundup-rogers-seeks-to-improve-d-c-neighborhoods/'
             title: 'D.C. ELECTION ROUNDUP: Rogers Seeks to Improve D.C. Neighborhoods'
+        contact_name: ''
+        boe_pickup_date: 6/17/2020
+        boe_filing_date: ''
       - committee_id: 14180
         first_name: Michangelo
         last_name: Scruggs
@@ -4202,9 +4333,9 @@ General Election:
         committee_name: Committee to Elect Dr. MIch DC Councilmember at Large
         id: 15122
         name: Mr. Michangelo D Scruggs
-        address: 4316 18th St NW
+        address: PO Box 9460
         filing_date: 05/14/2020
-        phone: (202) 412-9664
+        phone: 202-412-9664
         email: DrMScruggs@aol.com
         committee_address: 'Washington, DC'
         committee_phone: ''
@@ -4214,9 +4345,12 @@ General Election:
         chairperson_name: ''
         chair_phone: ''
         chair_email: ''
-        zip: '20011'
+        zip: '20016'
         fair_elections: true
         neighborhood: Crestwood
+        contact_name: ''
+        boe_pickup_date: 6/16/2020
+        boe_filing_date: ''
     Council Ward 8:
       - committee_id: 4123
         first_name: Christopher
@@ -4232,10 +4366,10 @@ General Election:
         committee_name: Christopher Cole For Ward 8
         id: 5048
         name: Mr. Christopher M. Cole
-        address: '2611 Bowen Road SE #4'
+        address: 2611 Bowen Rd SE
         filing_date: 10/31/2019
-        phone: (202) 246-5764
-        email: mrchrismcole@gmail.com
+        phone: 202-460-4898
+        email: Shawnta.Hall@yahoo.com
         committee_address: '2611 Bowen Road, SE #4, Washington, DC 20020'
         committee_phone: (202) 246-5764
         treasurer_name: Ms. Ida Hughes
@@ -4247,6 +4381,33 @@ General Election:
         zip: '20020'
         neighborhood: Buena Vista
         fair_elections: false
+        contact_name: Shawnta Hall
+        boe_pickup_date: 6/12/2020
+        boe_filing_date: ''
+      - candidate_name: Fred Hill
+        contact_name: ''
+        address: 1730 S St SE
+        zip: '20020'
+        phone: 202-330-2211
+        boe_pickup_date: 6/16/2020
+        boe_filing_date: ''
+        email: FredHill@gotta-gonow.com
+        first_name: Fred
+        last_name: Hill
+        fair_elections: null
+        neighborhood: null
+      - candidate_name: Nelson Jackson Sr
+        contact_name: ''
+        address: 3412 21st St SE
+        zip: '20020'
+        phone: 240-750-4112
+        boe_pickup_date: 6/12/2020
+        boe_filing_date: ''
+        email: NelsonJackson@njaxurl.com
+        first_name: Nelson
+        last_name: Jackson
+        fair_elections: null
+        neighborhood: Shipley Terrace
       - committee_id: 4112
         first_name: Taurus
         last_name: Phillips
@@ -4278,6 +4439,80 @@ General Election:
         website: ''
         fair_elections: true
         neighborhood: null
+    Delegate to the US House:
+      - candidate_name: John Cheeks
+        contact_name: ''
+        address: 4433 P St NW
+        zip: '20007'
+        phone: 202-892-9583
+        boe_pickup_date: 6/12/2020
+        boe_filing_date: ''
+        email: DCBetterChoice@gmail.com
+        first_name: John
+        last_name: Cheeks
+        fair_elections: false
+        neighborhood: Foxhall Village
+      - candidate_name: Barbara Washington Franklin
+        contact_name: Johnnie Scott
+        address: 4417 46th St NW
+        zip: '20016'
+        phone: 202-583-7426
+        boe_pickup_date: 6/12/2020
+        boe_filing_date: ''
+        email: JohnnieRice@comcast.net
+        first_name: Barbara Washington
+        last_name: Franklin
+        fair_elections: false
+        neighborhood: American University Park
+      - candidate_name: David Krucoff
+        contact_name: ''
+        address: 2870 Upton St NW
+        zip: '20008'
+        phone: 202-437-7443
+        boe_pickup_date: 6/14/2020
+        boe_filing_date: ''
+        email: Dkrucoff@krucoffforcongress.com
+        first_name: David
+        last_name: Krucoff
+        fair_elections: false
+        neighborhood: Forest Hills
+      - candidate_name: Amir Lowery
+        contact_name: ''
+        address: 1300 Van Buren St NW
+        zip: '20012'
+        phone: 202-421-5861
+        boe_pickup_date: 6/12/2020
+        boe_filing_date: ''
+        email: VoteforAmir@gmail.com
+        first_name: Amir
+        last_name: Lowery
+        fair_elections: false
+        neighborhood: Brightwood
+      - candidate_name: Omari Musa
+        contact_name: ''
+        address: 900 G St NE
+        zip: '20002'
+        phone: 202-304-7982
+        boe_pickup_date: 6/15/2020
+        boe_filing_date: ''
+        email: omusa@fastmail.com
+        first_name: Omari
+        last_name: Musa
+        fair_elections: false
+        neighborhood: Near Northeast
+    Council Ward 2:
+      - candidate_name: Martin Miguel Fernandez
+        contact_name: ''
+        address: 1312 Massachusetts Ave NW
+        zip: '20005'
+        phone: 301-580-9230
+        boe_pickup_date: 6/18/2020
+        boe_filing_date: ''
+        email: martin@martinforward2.com
+        first_name: Martin Miguel
+        last_name: Fernandez
+        fair_elections: null
+        neighborhood: Downtown
   Other:
     Council Ward 2:
       - committee_id: 0
@@ -4318,8 +4553,8 @@ General Election:
         name: Mr. Charles Otto Boston
         address: 2512 32nd St SE
         filing_date: 10/31/2019
-        phone: (202) 681-8487
-        email: cottob@gmail.com
+        phone: 202-681-8487
+        email: Boston4SBOEward7@gmail.com
         committee_address: '2512 32nd Street, SE, Washington, DC 20020'
         committee_phone: (202) 681-8487
         treasurer_name: ''
@@ -4333,6 +4568,9 @@ General Election:
         website: ''
         neighborhood: Hillcrest
         fair_elections: true
+        contact_name: ''
+        boe_pickup_date: 6/16/2020
+        boe_filing_date: ''
       - committee_id: 4122
         first_name: Tyrell
         last_name: Holcomb
@@ -4382,6 +4620,30 @@ General Election:
             result: Won
             percent: 96
         fair_elections: true
+      - candidate_name: Dontrell Smith
+        contact_name: ''
+        address: 5408 E St SE
+        zip: '20019'
+        phone: 202-374-9663
+        boe_pickup_date: 6/23/2020
+        boe_filing_date: ''
+        email: Dontrellasmith@gmail.com
+        first_name: Dontrell
+        last_name: Smith
+        fair_elections: null
+        neighborhood: Marshall Heights
+      - candidate_name: Patricia Stamper
+        contact_name: ''
+        address: 4907 Just St NE
+        zip: '20019'
+        phone: 240-988-0197
+        boe_pickup_date: 6/26/2020
+        boe_filing_date: ''
+        email: patricia.anduha@gmail.com
+        first_name: Patricia
+        last_name: Stamper
+        fair_elections: null
+        neighborhood: Deanwood
     SBOE Ward 8:
       - committee_id: 4120
         first_name: Darrell
@@ -4460,22 +4722,22 @@ General Election:
             percent: 64
         fair_elections: true
       - committee_id: 14154
-        first_name: LaJoy
-        last_name: Johnson Law
+        first_name: LaJoy Johnson
+        last_name: Law
         candidate_key: CANSD8207153
         committee_key: PCCSD8207153
         election_year: 2020
         candidate_approved: true
         committee_approved: true
         termination_approved: false
-        candidate_name: LaJoy  Johnson Law
+        candidate_name: LaJoy Johnson Law
         committee_name: LaJoy Johnson Law SBOE 2020
         id: 15083
         name: Ms. LaJoy Johnson Law
-        address: 3702 2nd St SE Apt D
+        address: 3702 2nd St SE
         filing_date: 01/27/2020
-        phone: (202) 553-4460
-        email: ljohnsonlaw22@gmail.com
+        phone: 202-553-4460
+        email: ljohnsonlaw22@gmailcom
         committee_address: '3702 2nd Street, SE. Apt. D, Washington, DC 20032'
         committee_phone: (202) 553-4460
         treasurer_name: Ms. Vanessa C. Lemme
@@ -4487,35 +4749,9 @@ General Election:
         zip: '20032'
         fair_elections: false
         neighborhood: Congress Heights
-      - committee_id: 4124
-        first_name: Carlene
-        last_name: Reid
-        candidate_key: CANSD8207124
-        committee_key: ''
-        election_year: 2020
-        candidate_approved: true
-        committee_approved: true
-        termination_approved: true
-        election_description: General Election
-        candidate_name: Carlene Reid
-        committee_name: Carlene Reid for State Board of Education
-        id: 5049
-        name: Dr. Carlene Reid
-        address: 1922 15th St SE
-        filing_date: 11/05/2019
-        phone: (301) 642-9051
-        email: carlene_reid@yahoo.com
-        committee_address: '1922 15th Street, SE, Washington, DC 20020'
-        committee_phone: (301) 642-9051
-        treasurer_name: Dr. Carlene Reid
-        treasurer_phone: (301) 642-9051
-        treasurer_email: carlene_reid@yahoo.com
-        chairperson_name: Dr. Carlene Reid
-        chair_phone: (301) 642-9051
-        chair_email: carlene_reid@yahoo.com
-        zip: '20020'
-        neighborhood: Anacostia
-        fair_elections: true
+        contact_name: ''
+        boe_pickup_date: 6/17/2020
+        boe_filing_date: ''
       - committee_id: 4135
         first_name: Carlene
         last_name: Reid
@@ -4544,6 +4780,101 @@ General Election:
         zip: '20020'
         fair_elections: true
         neighborhood: Anacostia
+      - committee_id: 4124
+        first_name: Carlene D.
+        last_name: Reid
+        candidate_key: CANSD8207124
+        committee_key: ''
+        election_year: 2020
+        candidate_approved: true
+        committee_approved: true
+        termination_approved: true
+        election_description: General Election
+        candidate_name: Carlene Reid
+        committee_name: Carlene Reid for State Board of Education
+        id: 5049
+        name: Dr. Carlene Reid
+        address: PO Box 31503
+        filing_date: 11/05/2019
+        phone: 202-618-0525
+        email: info@letsreid.com
+        committee_address: '1922 15th Street, SE, Washington, DC 20020'
+        committee_phone: (301) 642-9051
+        treasurer_name: Dr. Carlene Reid
+        treasurer_phone: (301) 642-9051
+        treasurer_email: carlene_reid@yahoo.com
+        chairperson_name: Dr. Carlene Reid
+        chair_phone: (301) 642-9051
+        chair_email: carlene_reid@yahoo.com
+        zip: '20030'
+        neighborhood: Anacostia
+        fair_elections: true
+        contact_name: ''
+        boe_pickup_date: 6/17/2020
+        boe_filing_date: ''
+    SBOE At-Large:
+      - candidate_name: Dorothy Douglas
+        contact_name: ''
+        address: 4401 Minnesota Ave NE
+        zip: '20019'
+        phone: 202-640-9584
+        boe_pickup_date: 6/15/2020
+        boe_filing_date: ''
+        email: d.douglass01230@gmail.com
+        first_name: Dorothy
+        last_name: Douglas
+        fair_elections: null
+        neighborhood: Deanwood
+      - candidate_name: Troy Murphy
+        contact_name: ''
+        address: 1331 4th St SE
+        zip: '20003'
+        phone: 202-579-6046
+        boe_pickup_date: 6/22/2020
+        boe_filing_date: ''
+        email: VOTE4TROYDC@gmail.com
+        first_name: Troy
+        last_name: Murphy
+        fair_elections: null
+        neighborhood: Near South East
+      - candidate_name: Jacque Patterson
+        contact_name: ''
+        address: PO Box 30629
+        zip: '20030'
+        phone: 202-834-2553
+        boe_pickup_date: 6/17/2020
+        boe_filing_date: ''
+        email: jacquedpatterson@yahoo.com
+        first_name: Jacque
+        last_name: Patterson
+        fair_elections: null
+        neighborhood: null
+    SBOE Ward 2:
+      - candidate_name: Jamaal T. Burton
+        contact_name: ''
+        address: 400 Massachusetts Ave NW
+        zip: '20001'
+        phone: 202-480-5334
+        boe_pickup_date: 6/23/2020
+        boe_filing_date: ''
+        email: burton.jamaal@gmail.com
+        first_name: Jamaal T.
+        last_name: Burton
+        fair_elections: null
+        neighborhood: Downtown
+    SBOE Ward 4:
+      - candidate_name: Frazier L. O'Leary Jr
+        contact_name: ''
+        address: 1318 Farragut St NW
+        zip: '20011'
+        phone: 202-236-2184
+        boe_pickup_date: 6/17/2020
+        boe_filing_date: ''
+        email: OMAN9@aol.com
+        first_name: Frazier L.
+        last_name: O'Leary
+        fair_elections: null
+        neighborhood: 16th Street Heights
 Special Election:
   Democratic:
     Council Ward 2:

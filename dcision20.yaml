@@ -116,6 +116,12 @@ Primary Election:
             office: Council At-Large
             result: Won
             percent: 75
+          - year: 2020
+            election: Primary
+            party: Democratic
+            office: Council At-Large
+            result: Won
+            percent: 97
         fair_elections: false
         contact_name: Daniel Moskovitz
         boe_pickup_date: 1/10/2020
@@ -2934,6 +2940,12 @@ General Election:
             office: Council At-Large
             result: Won
             percent: 75
+          - year: 2020
+            election: Primary
+            party: Democratic
+            office: Council At-Large
+            result: Won
+            percent: 97
         fair_elections: false
         contact_name: ''
         boe_pickup_date: N/A
@@ -2995,6 +3007,19 @@ General Election:
           DC Women in Politics: 'https://www.dcwomeninpolitics.org/'
           Washington Post: >-
             https://www.washingtonpost.com/opinions/the-posts-2020-endorsements-for-the-dc-council/2020/04/30/d1136ecc-84fb-11ea-ae26-989cfce1c7c7_story.html
+        elections:
+          - year: 2020
+            election: Primary
+            party: Democratic
+            office: Council Ward 2
+            result: Won
+            percent: 28
+          - year: 2020
+            election: Special
+            party: Democratic
+            office: Council Ward 2
+            result: Won
+            percent: 43
     Council Ward 4:
       - committee_id: 4106
         first_name: Janeese Lewis
@@ -3048,6 +3073,12 @@ General Election:
             office: Committeewoman At-Large
             result: Lost
             percent: 21
+          - year: 2020
+            election: Primary
+            party: Democratic
+            office: Council Ward 2
+            result: Won
+            percent: 55
         fair_elections: true
         contact_name: ''
         boe_pickup_date: N/A
@@ -3174,6 +3205,12 @@ General Election:
             office: Council Ward 7
             result: Won
             percent: 86
+          - year: 2020
+            election: Primary
+            party: Democratic
+            office: Council Ward 7
+            result: Won
+            percent: 45
         contact_name: Chuck Thies
         boe_pickup_date: N/A
         boe_filing_date: N/A
@@ -3232,6 +3269,12 @@ General Election:
             office: Council Ward 8
             result: Won
             percent: 98
+          - year: 2016
+            election: Primary
+            party: Democratic
+            office: Council Ward 8
+            result: Won
+            percent: 58
         neighborhood: null
         endorsements:
           1199SEIU United Healthcare Workers East: 'https://www.facebook.com/1199SEIU.mddc/photos/a.242227409553194/922457351530193/'
@@ -3331,6 +3374,12 @@ General Election:
             office: US Senator
             result: Won
             percent: 76
+          - year: 2020
+            election: Primary
+            party: Democratic
+            office: US Senator
+            result: Won
+            percent: 97
         contact_name: ''
         boe_pickup_date: N/A
         boe_filing_date: N/A
@@ -3713,6 +3762,32 @@ General Election:
         last_name: Henchman
         fair_elections: null
         neighborhood: Eckington
+        twitter: jbhenchman
+        elections:
+          - year: 2018
+            election: Primary
+            party: Libertarian
+            office: Council Chair
+            result: Won
+            percent: 99
+          - year: 2018
+            election: General
+            party: Libertarian
+            office: Attorney General
+            result: Lost
+            percent: 7
+          - year: 2020
+            election: Primary
+            party: Libertarian
+            office: Council At-Large
+            result: Won
+            percent: 87
+          - year: 2020
+            election: Primary
+            party: Libertarian
+            office: Party Chair
+            result: Won
+            percent: 97
   Independent:
     Council At-Large:
       - committee_id: 4114
@@ -3887,13 +3962,11 @@ General Election:
         fair_elections: true
         neighborhood: Woodridge
         twitter: fgarciadc
-        website: franklingarciaatlarge.com
+        website: franklinfordc.com
         facebook: franklingarciadc
         instagram: fgarciadc
         youtube: DCiReporter
         links:
-          - url: 'http://franklinfordc.com/'
-            title: Shadow representative website
           - url: 'https://www.washingtoninformer.com/d-c-election-roundup-garcia-aims-to-be-1st-latino-on-council/'
             title: 'D.C. Election Roundup: Garcia Aims to be 1st Latino on Council'
         elections:
@@ -4003,6 +4076,43 @@ General Election:
         last_name: Gurley
         fair_elections: null
         neighborhood: Brightwood
+        elections:
+          - year: 2004
+            election: Primary
+            party: Democratic
+            office: Committeeman Ward 4
+            result: Lost
+            percent: 17
+          - year: 2012
+            election: Primary
+            party: Democratic
+            office: Council Ward 4
+            result: Lost
+            percent: 2
+          - year: 2012
+            election: Special
+            party: Democratic
+            office: Council Chair
+            result: Lost
+            percent: 28
+          - year: 2014
+            election: Primary
+            party: Democratic
+            office: Council Chair
+            result: Lost
+            percent: 18
+          - year: 2014
+            election: General
+            party: Independent
+            office: Council At-Large
+            result: Lost
+            percent: 2
+          - year: 2016
+            election: Primary
+            party: Democratic
+            office: Council Ward 4
+            result: Lost
+            percent: 3
       - first_name: Christina
         last_name: Henderson
         election_year: 2020
@@ -4054,6 +4164,90 @@ General Election:
         last_name: Henderson
         fair_elections: null
         neighborhood: Carver Langston
+        elections:
+          - year: 1998
+            election: General
+            party: Nonpartisan
+            office: ANC 5B10
+            result: Won
+            percent: 54
+          - year: 2000
+            election: General
+            party: Nonpartisan
+            office: Board of Education District III
+            result: Lost
+            percent: 9
+          - year: 2000
+            election: General
+            party: Nonpartisan
+            office: ANC 5B10
+            result: Won
+          - year: 2002
+            election: General
+            party: Nonpartisan
+            office: ANC 5B10
+            result: Won
+            percent: 96
+          - year: 2004
+            election: Primary
+            party: Democratic
+            office: Committeewoman At-Large
+            result: Lost
+            percent: 23
+          - year: 2004
+            election: General
+            party: Nonpartisan
+            office: ANC 5B10
+            result: Won
+            percent: 88
+          - year: 2006
+            election: Primary
+            party: Democratic
+            office: Council Ward 5
+            result: Lost
+            percent: 5
+          - year: 2010
+            election: Primary
+            party: Democratic
+            office: Council Ward 5
+            result: Lost
+            percent: 9
+          - year: 2012
+            election: Special
+            party: Democratic
+            office: Council Ward 5
+            result: Lost
+            percent: 2
+          - year: 2012
+            election: General
+            party: Nonpartisan
+            office: ANC 5D05
+            result: Won
+            percent: 55
+          - year: 2014
+            election: Primary
+            party: Democratic
+            office: Council Ward 5
+            result: Lost
+            percent: 15
+          - year: 2014
+            election: General
+            party: Nonpartisan
+            office: ANC 5D05
+            result: Won
+            percent: 57
+          - year: 2016
+            election: General
+            party: Nonpartisan
+            office: ANC 5D05
+            result: Won
+            percent: 88
+          - year: 2018
+            election: General
+            party: Independent
+            office: Council Ward 5
+            result: Lost
+            percent: 8
       - candidate_name: A'Shia Howard
         contact_name: Amy Nicole Allen
         address: 4138 Meade St NE
@@ -4157,6 +4351,13 @@ General Election:
         boe_pickup_date: 6/16/2020
         boe_filing_date: ''
         email: jeremy@EdforDC.com
+        elections:
+          - year: 2018
+            election: Primary
+            party: Democratic
+            office: Council Chair
+            result: Lost
+            percent: 36
       - committee_id: 4136
         first_name: Jeanné
         last_name: Lewis
@@ -4314,6 +4515,70 @@ General Election:
         chairperson_name: Mr. Alex Padro
         chair_phone: (202) 518-3794
         chair_email: alex@alexpadro.com
+        website: alexpadro.com
+        twitter: alexandermpadro
+        instagram: padroanc
+        facebook: alexpadrodc
+        elections:
+          - year: 2000
+            election: General
+            party: Nonpartisan
+            office: ANC 2C01
+            result: Won
+          - year: 2002
+            election: General
+            party: Nonpartisan
+            office: ANC 2C01
+            result: Won
+            percent: 71
+          - year: 2004
+            election: General
+            party: Nonpartisan
+            office: ANC 2C01
+            result: Won
+            percent: 68
+          - year: 2006
+            election: General
+            party: Nonpartisan
+            office: ANC 2C01
+            result: Won
+            percent: 70
+          - year: 2008
+            election: General
+            party: Nonpartisan
+            office: ANC 2C01
+            result: Won
+            percent: 62
+          - year: 2010
+            election: General
+            party: Nonpartisan
+            office: ANC 2C01
+            result: Won
+            percent: 95
+          - year: 2012
+            election: General
+            party: Nonpartisan
+            office: ANC 6E01
+            result: Won
+            percent: 65
+          - year: 2014
+            election: General
+            party: Nonpartisan
+            office: ANC 6E01
+            result: Won
+            percent: 62
+          - year: 2016
+            election: General
+            party: Nonpartisan
+            office: ANC 6E01
+            result: Won
+            percent: 59
+          - year: 2018
+            election: General
+            party: Nonpartisan
+            office: ANC 6E01
+            result: Won
+            percent: 60
       - first_name: Mónica
         last_name: Palacio
         candidate_name: Mónica Palacio
@@ -4420,6 +4685,37 @@ General Election:
         last_name: Silver
         fair_elections: null
         neighborhood: Northwest One
+        elections:
+          - year: 2002
+            election: General
+            party: Nonpartisan
+            office: ANC 5B05
+            result: Won
+            percent: 66
+          - year: 2004
+            election: General
+            party: Nonpartisan
+            office: ANC 6C01
+            result: Lost
+            percent: 34
+          - year: 2006
+            election: General
+            party: Nonpartisan
+            office: ANC 6C01
+            result: Won
+            percent: 98
+          - year: 2008
+            election: General
+            party: Nonpartisan
+            office: ANC 6C01
+            result: Won
+            percent: 98
+          - year: 2010
+            election: General
+            party: Nonpartisan
+            office: ANC 6C01
+            result: Won
+            percent: 50
     Council Ward 8:
       - committee_id: 4123
         first_name: Christopher

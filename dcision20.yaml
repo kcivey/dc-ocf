@@ -3728,28 +3728,6 @@ General Election:
         neighborhood: Dupont Circle
   Libertarian:
     Council At-Large:
-      - candidate_name: Joseph Bishop-Henchman
-        contact_name: ''
-        address: 415 W St NE
-        zip: '20002'
-        phone: 202-766-5019
-        boe_pickup_date: 2/21/2020
-        boe_filing_date: 3/4/2020
-        email: jdhenchman@gmail.com
-        first_name: Joe
-        last_name: Bishop-Henchman
-        fair_elections: null
-        neighborhood: Eckington
-        committee_id: 0
-        candidate_key: CANCCL207170
-        election_year: 2020
-        candidate_approved: true
-        committee_approved: false
-        termination_approved: false
-        committee_name: Joe Bishop-Henchman
-        id: 15103
-        name: Mr. Joe Bishop-Henchman
-        filing_date: 02/21/2020
       - candidate_name: Joseph Henchman
         contact_name: ''
         address: 415 W St NE

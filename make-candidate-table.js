@@ -192,6 +192,10 @@ function transformRecords(records) {
                 r.first_name = 'Jeanné';
                 r.candidate_name = r.candidate_name.replace("Jeanne'", 'Jeanné');
             }
+            else if (r.last_name === 'Bishop-Henchman') {
+                r.last_name = 'Henchman';
+                r.candidate_name = 'Joseph Henchman';
+            }
             else if (r.last_name === 'Robinson Paul') {
                 r.last_name = 'Robinson-Paul';
                 r.candidate_name = 'Joyce (Chestnut) Robinson-Paul';

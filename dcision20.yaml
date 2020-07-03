@@ -3664,6 +3664,19 @@ General Election:
         last_name: Hawkins
         fair_elections: null
         neighborhood: null
+    Council Ward 2:
+      - candidate_name: Peter Bolton
+        contact_name: ''
+        address: 2007 O St NW
+        zip: '20006'
+        phone: 202-602-7360
+        boe_pickup_date: N/A
+        boe_filing_date: ''
+        email: peterboltonjounralist@gmail.com
+        first_name: Peter
+        last_name: Bolton
+        fair_elections: null
+        neighborhood: Dupont Circle
   Libertarian:
     Council At-Large:
       - candidate_name: Joseph Bishop-Henchman
@@ -3716,9 +3729,9 @@ General Election:
         committee_name: Markus for DC
         id: 5039
         name: Mr. Markus E. Batchelor
-        address: 1241 Alabama Ave SE Apt !
+        address: 1241 Alabama Ave SE
         filing_date: 09/13/2019
-        phone: ''
+        phone: 202-455-1032
         email: info@markusfordc.com
         committee_address: '1241 Alabama Ave., SE Apt. A, Washington, DC 20032'
         committee_phone: (202) 455-1032
@@ -3728,7 +3741,7 @@ General Election:
         chairperson_name: ''
         chair_phone: ''
         chair_email: ''
-        zip: '20032'
+        zip: ''
         twitter: MarkusforDC
         website: markusfordc.com
         facebook: markusfordc
@@ -3761,6 +3774,9 @@ General Election:
             result: Lost
             percent: 36
         fair_elections: true
+        contact_name: ''
+        boe_pickup_date: 6/29/2020
+        boe_filing_date: ''
       - committee_id: 4137
         first_name: Mario
         last_name: Cristaldo
@@ -4026,6 +4042,18 @@ General Election:
         contact_name: ''
         boe_pickup_date: 6/16/2020
         boe_filing_date: ''
+      - candidate_name: Kathy Henderson
+        contact_name: ''
+        address: 1807 L St NE
+        zip: '20002'
+        phone: 202-556-5823
+        boe_pickup_date: 7/1/2020
+        boe_filing_date: ''
+        email: KHenderson029@aol.com
+        first_name: Kathy
+        last_name: Henderson
+        fair_elections: null
+        neighborhood: Carver Langston
       - candidate_name: A'Shia Howard
         contact_name: Amy Nicole Allen
         address: 4138 Meade St NE
@@ -4380,6 +4408,18 @@ General Election:
         contact_name: ''
         boe_pickup_date: 6/16/2020
         boe_filing_date: ''
+      - candidate_name: Keith Silver
+        contact_name: ''
+        address: 901 New Jersey Ave NW
+        zip: ''
+        phone: 202-704-7389
+        boe_pickup_date: 6/30/2020
+        boe_filing_date: ''
+        email: SilverK1@ymail.com
+        first_name: Keith
+        last_name: Silver
+        fair_elections: null
+        neighborhood: Northwest One
     Council Ward 8:
       - committee_id: 4123
         first_name: Christopher
@@ -4515,6 +4555,18 @@ General Election:
         website: ''
         fair_elections: true
         neighborhood: null
+      - candidate_name: Ryan Washington
+        contact_name: ''
+        address: 3404 23rd Str SE
+        zip: '20020'
+        phone: 202-779-8311
+        boe_pickup_date: 6/29/2020
+        boe_filing_date: ''
+        email: RYANAWASHINGTON@GMAIL.COM
+        first_name: Ryan
+        last_name: Washington
+        fair_elections: null
+        neighborhood: Shipley Terrace
     Delegate to the US House:
       - candidate_name: John Cheeks
         contact_name: ''
@@ -4720,6 +4772,18 @@ General Election:
         last_name: Stamper
         fair_elections: null
         neighborhood: Deanwood
+      - candidate_name: Karen Williams
+        contact_name: ''
+        address: 2914 W St SE
+        zip: '20020'
+        phone: 301-641-1926
+        boe_pickup_date: 6/30/2020
+        boe_filing_date: ''
+        email: karen.williams@verizon.net
+        first_name: Karen
+        last_name: Williams
+        fair_elections: null
+        neighborhood: Good Hope
     SBOE Ward 8:
       - committee_id: 4120
         first_name: Darrell
@@ -4829,7 +4893,7 @@ General Election:
         boe_pickup_date: 6/17/2020
         boe_filing_date: ''
       - committee_id: 4124
-        first_name: Carlene
+        first_name: Carlene D.
         last_name: Reid
         candidate_key: CANSD8207124
         committee_key: ''
@@ -4842,10 +4906,10 @@ General Election:
         committee_name: Carlene Reid for State Board of Education
         id: 5049
         name: Dr. Carlene Reid
-        address: 1922 15th St SE
+        address: PO Box 31503
         filing_date: 11/05/2019
-        phone: (301) 642-9051
-        email: carlene_reid@yahoo.com
+        phone: 202-618-0525
+        email: info@letsreid.com
         committee_address: '1922 15th Street, SE, Washington, DC 20020'
         committee_phone: (301) 642-9051
         treasurer_name: Dr. Carlene Reid
@@ -4854,7 +4918,7 @@ General Election:
         chairperson_name: Dr. Carlene Reid
         chair_phone: (301) 642-9051
         chair_email: carlene_reid@yahoo.com
-        zip: '20020'
+        zip: '20030'
         neighborhood: Anacostia
         fair_elections: true
         contact_name: ''

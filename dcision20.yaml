@@ -4903,7 +4903,7 @@ General Election:
         fair_elections: false
         neighborhood: Near Northeast
     Council Ward 2:
-      - candidate_name: Martin Miguel Fernandez
+      - candidate_name: Martín Miguel Fernandez
         contact_name: ''
         address: 1312 Massachusetts Ave NW
         zip: '20005'
@@ -4911,10 +4911,15 @@ General Election:
         boe_pickup_date: 6/18/2020
         boe_filing_date: ''
         email: martin@martinforward2.com
-        first_name: Martin Miguel
+        first_name: Martín Miguel
         last_name: Fernandez
-        fair_elections: null
+        fair_elections: true
         neighborhood: Downtown
+        twitter: martinmiguel__
+        website: martinforward2.com
+        links:
+          - url: 'https://dcist.com/story/20/06/19/martin-miguel-fernandez-running-ward-2-dc-council/'
+            title: A Nonprofit Worker Is Mounting An Independent Challenge To Brooke Pinto For The Ward 2 Seat
   Other:
     Council Ward 2:
       - committee_id: 0

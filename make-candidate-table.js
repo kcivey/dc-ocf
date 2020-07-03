@@ -196,6 +196,10 @@ function transformRecords(records) {
                 r.last_name = 'Henchman';
                 r.candidate_name = 'Joseph Henchman';
             }
+            else if (r.first_name === 'Martin Miguel') {
+                r.first_name = 'Martín Miguel';
+                r.candidate_name = 'Martín Miguel Fernandez';
+            }
             else if (r.last_name === 'Robinson Paul') {
                 r.last_name = 'Robinson-Paul';
                 r.candidate_name = 'Joyce (Chestnut) Robinson-Paul';
@@ -276,6 +280,7 @@ function combineRecords(records, newRecords) {
             Nate: 'Nathan',
             Joe: 'Joseph',
             "Le'Troy": 'Troy',
+            'Martín': 'Martin',
         }[first] || first;
         return first;
     }

@@ -4825,20 +4825,8 @@ General Election:
         contact_name: Shawnta Hall
         boe_pickup_date: 6/12/2020
         boe_filing_date: ''
-      - candidate_name: Fred Hill
-        contact_name: ''
-        address: 1730 S St SE
-        zip: '20020'
-        phone: 202-330-2211
-        boe_pickup_date: 6/16/2020
-        boe_filing_date: ''
-        email: FredHill@gotta-gonow.com
-        first_name: Fred
-        last_name: Hill
-        fair_elections: null
-        neighborhood: null
       - committee_id: 14185
-        first_name: Frederick
+        first_name: Fred
         last_name: Hill
         candidate_key: CANCC8207185
         committee_key: ''
@@ -4850,10 +4838,10 @@ General Election:
         committee_name: Fred 4 Ward 8
         id: 15127
         name: Mr. Frederick Hill III
-        address: 1425 Bangor St SE
+        address: 1730 S St SE
         filing_date: 06/24/2020
-        phone: (202) 330-2211
-        email: fredhill@gotta-gonow.com
+        phone: 202-330-2211
+        email: FredHill@gotta-gonow.com
         committee_address: '1730 S Street, SE, Washington, DC 20020'
         committee_phone: (202) 330-2211
         treasurer_name: ''
@@ -4862,9 +4850,12 @@ General Election:
         chairperson_name: ''
         chair_phone: ''
         chair_email: ''
-        zip: '20011'
+        zip: '20020'
         fair_elections: true
         neighborhood: Buena Vista
+        contact_name: ''
+        boe_pickup_date: 6/16/2020
+        boe_filing_date: ''
       - candidate_name: Nelson Jackson Sr
         contact_name: ''
         address: 3412 21st St SE

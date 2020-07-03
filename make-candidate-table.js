@@ -281,6 +281,7 @@ function combineRecords(records, newRecords) {
             Joe: 'Joseph',
             "Le'Troy": 'Troy',
             'Martín': 'Martin',
+            Fred: 'Frederick',
         }[first] || first;
         return first;
     }

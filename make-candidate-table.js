@@ -307,9 +307,9 @@ function writeYaml(records) {
 function writeHtml(records) {
     const template = _.template(fs.readFileSync(templateFile, 'utf8'));
     const outputFile = templateFile.replace(/\.tpl$/, '');
-    const recordsByElection = {};
     const generalName = 'General Election, November 3, 2020';
     const specialName = 'Special Election, June 16, 2020';
+    let recordsByElection = {};
     for (const [electionDescription, recordsByParty] of Object.entries(records)) {
         for (const [party, recordsByOffice] of Object.entries(recordsByParty)) {
             const election = electionDescription === 'General Election'
@@ -377,10 +377,8 @@ function writeHtml(records) {
             }
         }
     }
-    // Move general election to end
-    const general = recordsByElection[generalName];
-    delete recordsByElection[generalName];
-    recordsByElection[generalName] = general;
+    // Move general election to start now that others are over
+    recordsByElection = {[generalName]: recordsByElection[generalName], ...recordsByElection};
     let currentContent;
     try {
         currentContent = fs.readFileSync(outputFile, 'utf8').replace(/(\(updated )[^)]+\)/, '$1)');

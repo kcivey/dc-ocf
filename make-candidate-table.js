@@ -127,7 +127,8 @@ function transformRecords(records) {
             return a.office.localeCompare(b.office) ||
                 a.party_name.localeCompare(b.party_name) ||
                 a.last_name.localeCompare(b.last_name) ||
-                a.first_name.localeCompare(b.first_name);
+                a.first_name.localeCompare(b.first_name) ||
+                (b.committee_id - a.committee_id);
         })
         .map(function (r) {
             r.party = {

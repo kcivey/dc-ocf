@@ -4462,6 +4462,86 @@ General Election:
         last_name: Orange
         fair_elections: true
         neighborhood: Brookland
+        twitter: OrangeVo40
+        elections:
+          - year: 1994
+            election: Primary
+            party: Democratic
+            office: Council Ward 5
+            result: Lost
+            percent: 17
+          - year: 1998
+            election: Primary
+            party: Democratic
+            office: Council Ward 5
+            result: Won
+            percent: 38
+          - year: 1998
+            election: General
+            party: Democratic
+            office: Council Ward 5
+            result: Won
+            percent: 89
+          - year: 2002
+            election: Primary
+            party: Democratic
+            office: Council Ward 5
+            result: Won
+            percent: 59
+          - year: 2002
+            election: General
+            party: Democratic
+            office: Council Ward 5
+            result: Won
+            percent: 86
+          - year: 2006
+            election: Primary
+            party: Democratic
+            office: Mayor
+            result: Lost
+            percent: 3
+          - year: 2008
+            election: Primary
+            party: Democratic
+            office: National Committeeman
+            result: Won
+            percent: 56
+          - year: 2010
+            election: Primary
+            party: Democratic
+            office: Council Chair
+            result: Lost
+            percent: 39
+          - year: 2011
+            election: Special
+            party: Democratic
+            office: Council At-Large
+            result: Won
+            percent: 29
+          - year: 2012
+            election: Primary
+            party: Democratic
+            office: Council At-Large
+            result: Won
+            percent: 42
+          - year: 2012
+            election: General
+            party: Democratic
+            office: Council At-Large
+            result: Won
+            percent: 50
+          - year: 2014
+            election: Primary
+            party: Democratic
+            office: Mayor
+            result: Lost
+            percent: 2
+          - year: 2016
+            election: Primary
+            party: Democratic
+            office: Council At-Large
+            result: Lost
+            percent: 41
       - candidate_name: Alexander M. Padro
         contact_name: ''
         address: 1519 8th St NW

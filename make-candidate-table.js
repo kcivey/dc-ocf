@@ -128,7 +128,7 @@ function transformRecords(records) {
                 a.party_name.localeCompare(b.party_name) ||
                 a.last_name.localeCompare(b.last_name) ||
                 a.first_name.localeCompare(b.first_name) ||
-                (b.committee_id - a.committee_id);
+                (a.committee_id - b.committee_id);
         })
         .map(function (r) {
             r.party = {
@@ -200,6 +200,10 @@ function transformRecords(records) {
                 r.first_name = 'Martín Miguel';
                 r.candidate_name = 'Martín Miguel Fernandez';
             }
+            else if (r.first_name === 'Jacques' && r.last_name === 'Patterson') {
+                r.first_name = 'Jacque';
+                r.candidate_name = 'Jacque Patterson';
+            }
             else if (r.last_name === 'Robinson Paul') {
                 r.last_name = 'Robinson-Paul';
                 r.candidate_name = 'Joyce (Chestnut) Robinson-Paul';
@@ -247,9 +251,14 @@ function combineRecords(records, newRecords) {
                     const first = getFirstName(candidate.first_name);
                     const existingCandidate = records[electionDescription][party][office].find(function (r) {
                         const existingFirst = getFirstName(r.first_name);
-                        return r.last_name === candidate.last_name &&
-                            existingFirst === first &&
-                            (!r.committee_id || !candidate.committee_id || r.committee_id === candidate.committee_id);
+                        return (r.committee_name && candidate.committee_name &&
+                            r.committee_name === candidate.committee_name) ||
+                            (
+                                r.last_name === candidate.last_name &&
+                                existingFirst === first &&
+                                (!r.committee_id || !candidate.committee_id ||
+                                    r.committee_id === candidate.committee_id)
+                            );
                     });
                     if (existingCandidate) {
                         if (candidate.fair_elections == null) { // eslint-disable-line max-depth

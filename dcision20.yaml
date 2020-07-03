@@ -2836,7 +2836,7 @@ Primary Election:
         boe_filing_date: 3/4/2020
         email: jdhenchman@gmail.com
         first_name: Joe
-        last_name: Bishop-Henchman
+        last_name: Henchman
         fair_elections: null
         neighborhood: Eckington
         committee_id: 0
@@ -2866,7 +2866,7 @@ Primary Election:
     DC Libertarian Party Chairperson:
       - committee_id: 0
         first_name: Joe
-        last_name: Bishop-Henchman
+        last_name: Henchman
         candidate_key: CANLPC207171
         election_year: 2020
         candidate_approved: true
@@ -5059,25 +5059,19 @@ General Election:
         email: jacquedpatterson@yahoo.com
         first_name: Jacque
         last_name: Patterson
-        fair_elections: null
+        fair_elections: true
         neighborhood: null
-      - committee_id: 14184
-        first_name: Jacques
-        last_name: Patterson
+        committee_id: 14184
         candidate_key: CANSBL207184
         committee_key: ''
         election_year: 2020
         candidate_approved: true
         committee_approved: false
         termination_approved: false
-        candidate_name: Jacques Patterson
         committee_name: Jacque4DC
         id: 15126
         name: Mr. Jacques Patterson
-        address: 3521 21st St SE
         filing_date: 06/12/2020
-        phone: (202) 834-2553
-        email: jacquedpatterson@yahoo.com
         committee_address: '3521 21st Street, SE, Washington, DC 20020'
         committee_phone: (202) 834-2553
         treasurer_name: ''
@@ -5086,9 +5080,6 @@ General Election:
         chairperson_name: ''
         chair_phone: ''
         chair_email: ''
-        zip: '20020'
-        fair_elections: true
-        neighborhood: Shipley Terrace
     SBOE Ward 2:
       - candidate_name: Jamaal T. Burton
         contact_name: ''
@@ -5343,6 +5334,37 @@ General Election:
         contact_name: ''
         boe_pickup_date: 6/17/2020
         boe_filing_date: ''
+      - committee_id: 4135
+        first_name: Carlene
+        last_name: Reid
+        candidate_key: CANNON207130
+        committee_key: ''
+        election_year: 2020
+        candidate_approved: true
+        committee_approved: false
+        termination_approved: false
+        candidate_name: Carlene Reid
+        committee_name: Let's Reid 2020
+        id: 5060
+        name: Dr. Carlene Daisy Reid
+        address: 1922 15th St SE
+        filing_date: 12/20/2019
+        phone: (202) 618-0525
+        email: creidsboe@gmail.com
+        committee_address: '1922 15th Street, SE, Washington, DC 20020'
+        committee_phone: (202) 618-0525
+        treasurer_name: ''
+        treasurer_phone: ''
+        treasurer_email: ''
+        chairperson_name: ''
+        chair_phone: ''
+        chair_email: ''
+        zip: '20020'
+        fair_elections: true
+        neighborhood: Anacostia
+        contact_name: ''
+        boe_pickup_date: 6/17/2020
+        boe_filing_date: ''
       - committee_id: 4124
         first_name: Carlene D.
         last_name: Reid
@@ -5372,37 +5394,6 @@ General Election:
         zip: '20030'
         neighborhood: Anacostia
         fair_elections: true
-        contact_name: ''
-        boe_pickup_date: 6/17/2020
-        boe_filing_date: ''
-      - committee_id: 4135
-        first_name: Carlene D.
-        last_name: Reid
-        candidate_key: CANNON207130
-        committee_key: ''
-        election_year: 2020
-        candidate_approved: true
-        committee_approved: false
-        termination_approved: false
-        candidate_name: Carlene Reid
-        committee_name: Let's Reid 2020
-        id: 5060
-        name: Dr. Carlene Daisy Reid
-        address: PO Box 31503
-        filing_date: 12/20/2019
-        phone: 202-618-0525
-        email: info@letsreid.com
-        committee_address: '1922 15th Street, SE, Washington, DC 20020'
-        committee_phone: (202) 618-0525
-        treasurer_name: ''
-        treasurer_phone: ''
-        treasurer_email: ''
-        chairperson_name: ''
-        chair_phone: ''
-        chair_email: ''
-        zip: '20030'
-        fair_elections: true
-        neighborhood: Anacostia
         contact_name: ''
         boe_pickup_date: 6/17/2020
         boe_filing_date: ''

@@ -4460,7 +4460,7 @@ General Election:
         email: vo40@aol.com
         first_name: Vincent
         last_name: Orange
-        fair_elections: null
+        fair_elections: true
         neighborhood: Brookland
       - candidate_name: Alexander M. Padro
         contact_name: ''

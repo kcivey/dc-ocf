@@ -5080,6 +5080,18 @@ General Election:
         chairperson_name: ''
         chair_phone: ''
         chair_email: ''
+      - candidate_name: Mysiki Valentine
+        contact_name: ''
+        address: 3423 Eads St NE
+        zip: '20019'
+        phone: 202-685-0153
+        boe_pickup_date: 7/6/2020
+        boe_filing_date: ''
+        email: mysikiox@gmail.com
+        first_name: Mysiki
+        last_name: Valentine
+        fair_elections: null
+        neighborhood: River Terrace
     SBOE Ward 2:
       - candidate_name: Jamaal T. Burton
         contact_name: ''
@@ -5334,39 +5346,8 @@ General Election:
         contact_name: ''
         boe_pickup_date: 6/17/2020
         boe_filing_date: ''
-      - committee_id: 4135
-        first_name: Carlene
-        last_name: Reid
-        candidate_key: CANNON207130
-        committee_key: ''
-        election_year: 2020
-        candidate_approved: true
-        committee_approved: false
-        termination_approved: false
-        candidate_name: Carlene Reid
-        committee_name: Let's Reid 2020
-        id: 5060
-        name: Dr. Carlene Daisy Reid
-        address: 1922 15th St SE
-        filing_date: 12/20/2019
-        phone: (202) 618-0525
-        email: creidsboe@gmail.com
-        committee_address: '1922 15th Street, SE, Washington, DC 20020'
-        committee_phone: (202) 618-0525
-        treasurer_name: ''
-        treasurer_phone: ''
-        treasurer_email: ''
-        chairperson_name: ''
-        chair_phone: ''
-        chair_email: ''
-        zip: '20020'
-        fair_elections: true
-        neighborhood: Anacostia
-        contact_name: ''
-        boe_pickup_date: 6/17/2020
-        boe_filing_date: ''
       - committee_id: 4124
-        first_name: Carlene D.
+        first_name: Carlene
         last_name: Reid
         candidate_key: CANSD8207124
         committee_key: ''
@@ -5379,10 +5360,10 @@ General Election:
         committee_name: Carlene Reid for State Board of Education
         id: 5049
         name: Dr. Carlene Reid
-        address: PO Box 31503
+        address: 1922 15th St SE
         filing_date: 11/05/2019
-        phone: 202-618-0525
-        email: info@letsreid.com
+        phone: (301) 642-9051
+        email: carlene_reid@yahoo.com
         committee_address: '1922 15th Street, SE, Washington, DC 20020'
         committee_phone: (301) 642-9051
         treasurer_name: Dr. Carlene Reid
@@ -5391,9 +5372,40 @@ General Election:
         chairperson_name: Dr. Carlene Reid
         chair_phone: (301) 642-9051
         chair_email: carlene_reid@yahoo.com
-        zip: '20030'
+        zip: '20020'
         neighborhood: Anacostia
         fair_elections: true
+        contact_name: ''
+        boe_pickup_date: 6/17/2020
+        boe_filing_date: ''
+      - committee_id: 4135
+        first_name: Carlene D.
+        last_name: Reid
+        candidate_key: CANNON207130
+        committee_key: ''
+        election_year: 2020
+        candidate_approved: true
+        committee_approved: false
+        termination_approved: false
+        candidate_name: Carlene Reid
+        committee_name: Let's Reid 2020
+        id: 5060
+        name: Dr. Carlene Daisy Reid
+        address: PO Box 31503
+        filing_date: 12/20/2019
+        phone: 202-618-0525
+        email: info@letsreid.com
+        committee_address: '1922 15th Street, SE, Washington, DC 20020'
+        committee_phone: (202) 618-0525
+        treasurer_name: ''
+        treasurer_phone: ''
+        treasurer_email: ''
+        chairperson_name: ''
+        chair_phone: ''
+        chair_email: ''
+        zip: '20030'
+        fair_elections: true
+        neighborhood: Anacostia
         contact_name: ''
         boe_pickup_date: 6/17/2020
         boe_filing_date: ''

@@ -275,7 +275,8 @@ function combineRecords(records, newRecords) {
                 }
                 records[electionDescription][party][office].sort(function (a, b) {
                     return a.last_name.localeCompare(b.last_name) ||
-                        a.first_name.localeCompare(b.first_name);
+                        a.first_name.localeCompare(b.first_name) ||
+                        (a.committee_id - b.committee_id);
                 });
             }
         }
@@ -689,7 +690,7 @@ function standardizeOffice(office) {
 }
 
 function standardizeDate(d) {
-    return d.replace(/\/(?=\d\d$)/, '/20');
+    return d === 'N/A' ? '' : d.replace(/\/(?=\d\d$)/, '/20');
 }
 
 function omitCandidate(c, election) {

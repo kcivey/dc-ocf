@@ -4761,7 +4761,7 @@ General Election:
         email: SilverK1@ymail.com
         first_name: Keith
         last_name: Silver
-        fair_elections: null
+        fair_elections: true
         neighborhood: Northwest One
         elections:
           - year: 2002
@@ -5128,7 +5128,7 @@ General Election:
         email: jacquedpatterson@yahoo.com
         first_name: Jacque
         last_name: Patterson
-        fair_elections: true
+        fair_elections: false
         neighborhood: null
         committee_id: 14184
         candidate_key: CANSBL207184
@@ -5208,12 +5208,19 @@ General Election:
         email: OMAN9@aol.com
         first_name: Frazier L.
         last_name: O'Leary
-        fair_elections: null
+        fair_elections: true
         neighborhood: 16th Street Heights
         website: frazierforward4.com
         twitter: foroleary
         instagram: frazierforward4
         facebook: FrazierForWard4
+        elections:
+          - year: 2018
+            election: Special
+            party: Nonpartisan
+            office: SBOE Ward 4
+            result: Won
+            percent: 46
     SBOE Ward 7:
       - committee_id: 4121
         first_name: Charles
@@ -5332,7 +5339,7 @@ General Election:
         email: karen.williams@verizon.net
         first_name: Karen
         last_name: Williams
-        fair_elections: null
+        fair_elections: true
         neighborhood: Good Hope
         facebook: karenwilliamssboeward7
         links:

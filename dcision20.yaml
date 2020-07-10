@@ -5149,6 +5149,17 @@ General Election:
         chairperson_name: ''
         chair_phone: ''
         chair_email: ''
+        website: jacque4dc.com
+        facebook: Jacque4DC
+        twitter: jacque4dc
+        instagram: jacque4dc
+        elections:
+          - year: 2012
+            election: Primary
+            party: Democratic
+            office: Council Ward 8
+            result: Lost
+            percent: 8
       - candidate_name: Mysiki Valentine
         contact_name: ''
         address: 3423 Eads St NE
@@ -5161,17 +5172,6 @@ General Election:
         last_name: Valentine
         fair_elections: null
         neighborhood: River Terrace
-        website: jacque4dc.com
-        facebook: Jacque4DC
-        twitter: jacque4dc
-        instagram: jacque4dc
-        elections:
-          - year: 2012
-            election: Primary
-            party: Democratic
-            office: Council Ward 8
-            result: Lost
-            percent: 8
     SBOE Ward 2:
       - candidate_name: Jamaal T. Burton
         contact_name: ''
@@ -5336,7 +5336,7 @@ General Election:
         neighborhood: Good Hope
         facebook: karenwilliamssboeward7
         links:
-          - url: https://sboe.dc.gov/node/1102452
+          - url: 'https://sboe.dc.gov/node/1102452'
             title: SBOE member page
         elections:
           - year: 2012
@@ -5463,41 +5463,6 @@ General Election:
         instagram: lajoylaw
         facebook: LajoyLaw2020
         twitter: LaJoyLaw1
-      - committee_id: 4135
-        first_name: Carlene
-        last_name: Reid
-        candidate_key: CANNON207130
-        committee_key: ''
-        election_year: 2020
-        candidate_approved: true
-        committee_approved: false
-        termination_approved: false
-        candidate_name: Carlene Reid
-        committee_name: Let's Reid 2020
-        id: 5060
-        name: Dr. Carlene Daisy Reid
-        address: 1922 15th St SE
-        filing_date: 12/20/2019
-        phone: (202) 618-0525
-        email: creidsboe@gmail.com
-        committee_address: '1922 15th Street, SE, Washington, DC 20020'
-        committee_phone: (202) 618-0525
-        treasurer_name: ''
-        treasurer_phone: ''
-        treasurer_email: ''
-        chairperson_name: ''
-        chair_phone: ''
-        chair_email: ''
-        zip: '20020'
-        fair_elections: true
-        neighborhood: Anacostia
-        contact_name: ''
-        boe_pickup_date: 6/17/2020
-        boe_filing_date: ''
-        website: letsreid.com
-        instagram: carlenedreid
-        twitter: CarleneDReid
-        facebook: CarleneDReid
       - committee_id: 4124
         first_name: Carlene D.
         last_name: Reid
@@ -5530,6 +5495,41 @@ General Election:
         contact_name: ''
         boe_pickup_date: 6/17/2020
         boe_filing_date: ''
+      - committee_id: 4135
+        first_name: Carlene D.
+        last_name: Reid
+        candidate_key: CANNON207130
+        committee_key: ''
+        election_year: 2020
+        candidate_approved: true
+        committee_approved: false
+        termination_approved: false
+        candidate_name: Carlene Reid
+        committee_name: Let's Reid 2020
+        id: 5060
+        name: Dr. Carlene Daisy Reid
+        address: PO Box 31503
+        filing_date: 12/20/2019
+        phone: 202-618-0525
+        email: info@letsreid.com
+        committee_address: '1922 15th Street, SE, Washington, DC 20020'
+        committee_phone: (202) 618-0525
+        treasurer_name: ''
+        treasurer_phone: ''
+        treasurer_email: ''
+        chairperson_name: ''
+        chair_phone: ''
+        chair_email: ''
+        zip: '20030'
+        fair_elections: true
+        neighborhood: Anacostia
+        contact_name: ''
+        boe_pickup_date: 6/17/2020
+        boe_filing_date: ''
+        website: letsreid.com
+        instagram: carlenedreid
+        twitter: CarleneDReid
+        facebook: CarleneDReid
   OTH:
     President:
       - candidate_name: Gloria La Riva

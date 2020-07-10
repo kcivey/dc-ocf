@@ -3622,6 +3622,7 @@ General Election:
         last_name: Bolton
         fair_elections: null
         neighborhood: Dupont Circle
+        twitter: BoltonforWard2
     Council Ward 4:
       - candidate_name: Perry Redd
         contact_name: ''
@@ -5046,6 +5047,55 @@ General Election:
         last_name: Douglas
         fair_elections: null
         neighborhood: Deanwood
+        elections:
+          - year: 2008
+            election: General
+            party: Nonpartisan
+            office: SBOE Ward 7
+            result: Won
+            percent: 54
+          - year: 2010
+            election: Primary
+            party: Democratic
+            office: Council Chair
+            result: Lost
+            percent: 6
+          - year: 2011
+            election: Special
+            party: Democratic
+            office: Council At-Large
+            result: Lost
+            percent: 2
+          - year: 2012
+            election: Primary
+            party: Democratic
+            office: Council Ward 7
+            result: Lost
+            percent: 2
+          - year: 2012
+            election: General
+            party: Nonpartisan
+            office: SBOE Ward 7
+            result: Lost
+            percent: 28
+          - year: 2014
+            election: General
+            party: Nonpartisan
+            office: ANC 7D03
+            result: Won
+            percent: 58
+          - year: 2016
+            election: General
+            party: Nonpartisan
+            office: SBOE Ward 7
+            result: Lost
+            percent: 37
+          - year: 2018
+            election: Primary
+            party: Democratic
+            office: Committeewoman Ward 7
+            result: Won
+            percent: 57
       - candidate_name: Troy Murphy
         contact_name: ''
         address: 1331 4th St SE
@@ -5111,6 +5161,17 @@ General Election:
         last_name: Valentine
         fair_elections: null
         neighborhood: River Terrace
+        website: jacque4dc.com
+        facebook: Jacque4DC
+        twitter: jacque4dc
+        instagram: jacque4dc
+        elections:
+          - year: 2012
+            election: Primary
+            party: Democratic
+            office: Council Ward 8
+            result: Lost
+            percent: 8
     SBOE Ward 2:
       - candidate_name: Jamaal T. Burton
         contact_name: ''
@@ -5149,6 +5210,10 @@ General Election:
         last_name: O'Leary
         fair_elections: null
         neighborhood: 16th Street Heights
+        website: frazierforward4.com
+        twitter: foroleary
+        instagram: frazierforward4
+        facebook: FrazierForWard4
     SBOE Ward 7:
       - committee_id: 4121
         first_name: Charles
@@ -5269,6 +5334,23 @@ General Election:
         last_name: Williams
         fair_elections: null
         neighborhood: Good Hope
+        facebook: karenwilliamssboeward7
+        links:
+          - url: https://sboe.dc.gov/node/1102452
+            title: SBOE member page
+        elections:
+          - year: 2012
+            election: General
+            party: Nonpartisan
+            office: SBOE Ward 7
+            result: Won
+            percent: 41
+          - year: 2016
+            election: General
+            party: Nonpartisan
+            office: SBOE Ward 7
+            result: Won
+            percent: 48
     SBOE Ward 8:
       - committee_id: 4120
         first_name: Darrell
@@ -5377,6 +5459,10 @@ General Election:
         contact_name: ''
         boe_pickup_date: 6/17/2020
         boe_filing_date: ''
+        website: lajoylaw2020.com
+        instagram: lajoylaw
+        facebook: LajoyLaw2020
+        twitter: LaJoyLaw1
       - committee_id: 4135
         first_name: Carlene
         last_name: Reid
@@ -5408,6 +5494,10 @@ General Election:
         contact_name: ''
         boe_pickup_date: 6/17/2020
         boe_filing_date: ''
+        website: letsreid.com
+        instagram: carlenedreid
+        twitter: CarleneDReid
+        facebook: CarleneDReid
       - committee_id: 4124
         first_name: Carlene D.
         last_name: Reid

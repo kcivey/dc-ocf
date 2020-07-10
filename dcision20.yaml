@@ -4052,7 +4052,7 @@ General Election:
         email: chgurley@verizon.net
         first_name: Calvin H.
         last_name: Gurley
-        fair_elections: true
+        fair_elections: false
         neighborhood: Brightwood
         elections:
           - year: 2004
@@ -4093,10 +4093,10 @@ General Election:
             percent: 3
         committee_id: 14186
         candidate_key: CANCCL207188
-        committee_key: ''
+        committee_key: PCCCCL207188
         election_year: 2020
         candidate_approved: true
-        committee_approved: false
+        committee_approved: true
         termination_approved: false
         committee_name: 9 for Gurley
         id: 15130
@@ -5124,6 +5124,18 @@ General Election:
         last_name: Burton
         fair_elections: null
         neighborhood: Downtown
+      - candidate_name: Christopher Etesse
+        contact_name: ''
+        address: 2457 P St NW
+        zip: '20007'
+        phone: 202-549-7070
+        boe_pickup_date: 7/9/2020
+        boe_filing_date: ''
+        email: chriseduward2@gmail.com
+        first_name: Christopher
+        last_name: Etesse
+        fair_elections: null
+        neighborhood: East Village Georgetown
     SBOE Ward 4:
       - candidate_name: Frazier L. O'Leary Jr
         contact_name: ''
@@ -5428,6 +5440,20 @@ General Election:
         contact_name: ''
         boe_pickup_date: 6/17/2020
         boe_filing_date: ''
+  OTH:
+    President:
+      - candidate_name: Gloria La Riva
+        contact_name: ''
+        address: 3207 Mission St San Francisco CA
+        zip: '94110'
+        phone: 415-312-6042
+        boe_pickup_date: 7/8/2020
+        boe_filing_date: ''
+        email: info@larivapeltier2020.org
+        first_name: Gloria La
+        last_name: Riva
+        fair_elections: null
+        neighborhood: null
 Special Election:
   Democratic:
     Council Ward 2:

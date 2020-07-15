@@ -3493,7 +3493,10 @@ General Election:
         chairperson_name: Dr. Charles Vincent
         chair_phone: (202) 231-7244
         chair_email: cvincent01@gmail.com
-        facebook: maryafordc
+        facebook: MaryaDC2020
+        website: maryadc2020.com
+        twitter: MaryaDC2020
+        instagram: maryadc2020
     President:
       - candidate_name: Donald J. Trump
         contact_name: Nicholas Trainer
@@ -3781,6 +3784,7 @@ General Election:
         last_name: Barragan
         fair_elections: null
         neighborhood: Pleasant Hills
+        twitter: DCbarragan
       - committee_id: 4114
         first_name: Markus
         last_name: Batchelor

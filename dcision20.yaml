@@ -3304,7 +3304,7 @@ General Election:
         name: Mr. Paul Strauss
         address: 2828 Wisconsin Ave
         filing_date: 11/26/2019
-        phone: 202-223-8664
+        phone: 202-497-8948
         email: senator@paulstrauss.org
         committee_address: '1020 16th Street, NW. Suite 500, Washington, DC 20036'
         committee_phone: (202) 223-8664
@@ -3380,7 +3380,7 @@ General Election:
             office: US Senator
             result: Won
             percent: 97
-        contact_name: ''
+        contact_name: Taylor Berlin
         boe_pickup_date: ''
         boe_filing_date: ''
     US Representative:
@@ -3769,6 +3769,18 @@ General Election:
             percent: 97
   Independent:
     Council At-Large:
+      - candidate_name: Claudia Barragan
+        contact_name: ''
+        address: 230 Varnum St NE
+        zip: '20011'
+        phone: 240-381-0937
+        boe_pickup_date: 7/10/2020
+        boe_filing_date: ''
+        email: cmbarragan@gmail.com
+        first_name: Claudia
+        last_name: Barragan
+        fair_elections: null
+        neighborhood: Pleasant Hills
       - committee_id: 4114
         first_name: Markus
         last_name: Batchelor
@@ -3878,7 +3890,7 @@ General Election:
             percent: 31
         contact_name: ''
         boe_pickup_date: 6/12/2020
-        boe_filing_date: ''
+        boe_filing_date: 7/13/2020
       - committee_id: 4099
         first_name: Anthony
         last_name: Dale
@@ -4042,7 +4054,7 @@ General Election:
             percent: 23
         contact_name: Malcom H. Fox
         boe_pickup_date: 6/16/2020
-        boe_filing_date: ''
+        boe_filing_date: 7/14/2020
       - candidate_name: Calvin H. Gurley
         contact_name: ''
         address: 612 Underwood St NW
@@ -4105,12 +4117,12 @@ General Election:
         filing_date: 07/06/2020
         committee_address: '612 Underwood Street, NW, Washington, DC 20012'
         committee_phone: (202) 262-2368
-        treasurer_name: ''
-        treasurer_phone: ''
-        treasurer_email: ''
-        chairperson_name: ''
-        chair_phone: ''
-        chair_email: ''
+        treasurer_name: Ms. Charmaine R. Davis
+        treasurer_phone: (202) 262-2368
+        treasurer_email: chgurley@verizon.net
+        chairperson_name: Mr. Calvin H. Gurley
+        chair_phone: (202) 262-2368
+        chair_email: chgurley@verizon.net
       - first_name: Christina
         last_name: Henderson
         election_year: 2020
@@ -4907,6 +4919,18 @@ General Election:
         chairperson_name: Mr. Nelson Jackson
         chair_phone: (240) 750-4112
         chair_email: nelson.jackson@njaxunl.com
+      - candidate_name: Fria Moore
+        contact_name: Kelley A. Ray
+        address: 1757 W St SE
+        zip: '20020'
+        phone: 202-803-3849
+        boe_pickup_date: 7/13/2020
+        boe_filing_date: ''
+        email: kelleyaray@gmail.com
+        first_name: Fria
+        last_name: Moore
+        fair_elections: null
+        neighborhood: Anacostia
       - committee_id: 4112
         first_name: Taurus
         last_name: Phillips
@@ -4940,7 +4964,7 @@ General Election:
         neighborhood: null
       - candidate_name: Ryan Washington
         contact_name: ''
-        address: 3404 23rd Str SE
+        address: 3404 23rd St SE
         zip: '20020'
         phone: 202-779-8311
         boe_pickup_date: 6/29/2020
@@ -5041,7 +5065,7 @@ General Election:
         zip: '20019'
         phone: 202-640-9584
         boe_pickup_date: 6/15/2020
-        boe_filing_date: ''
+        boe_filing_date: 7/14/2020
         email: d.douglass01230@gmail.com
         first_name: Dorothy
         last_name: Douglas
@@ -5096,6 +5120,18 @@ General Election:
             office: Committeewoman Ward 7
             result: Won
             percent: 57
+      - candidate_name: Christopher W Martin
+        contact_name: ''
+        address: 3312 Lowell St NW
+        zip: '20008'
+        phone: 202-549-5555
+        boe_pickup_date: 7/13/2020
+        boe_filing_date: ''
+        email: cwmartin918@gmail.com
+        first_name: Christopher W
+        last_name: Martin
+        fair_elections: null
+        neighborhood: Cleveland Park
       - candidate_name: Troy Murphy
         contact_name: ''
         address: 1331 4th St SE
@@ -5128,7 +5164,7 @@ General Election:
         email: jacquedpatterson@yahoo.com
         first_name: Jacque
         last_name: Patterson
-        fair_elections: false
+        fair_elections: true
         neighborhood: null
         committee_id: 14184
         candidate_key: CANSBL207184
@@ -5197,6 +5233,18 @@ General Election:
         last_name: Etesse
         fair_elections: null
         neighborhood: East Village Georgetown
+      - candidate_name: Brandon Frye
+        contact_name: ''
+        address: 1404 11th St NW
+        zip: '20001'
+        phone: 202-905-8595
+        boe_pickup_date: 7/13/2020
+        boe_filing_date: ''
+        email: frye.brandon92@gmail.com
+        first_name: Brandon
+        last_name: Frye
+        fair_elections: null
+        neighborhood: Logan Circle
     SBOE Ward 4:
       - candidate_name: Frazier L. O'Leary Jr
         contact_name: ''
@@ -5311,8 +5359,8 @@ General Election:
         zip: '20019'
         phone: 202-374-9663
         boe_pickup_date: 6/23/2020
-        boe_filing_date: ''
-        email: Dontrellasmith@gmail.com
+        boe_filing_date: 7/13/2020
+        email: DontrellForward7@gmail.com
         first_name: Dontrell
         last_name: Smith
         fair_elections: null

@@ -5222,6 +5222,7 @@ General Election:
         last_name: Valentine
         fair_elections: null
         neighborhood: River Terrace
+        twitter: mysikix
     SBOE Ward 2:
       - candidate_name: Jamaal T. Burton
         contact_name: ''
@@ -5259,6 +5260,7 @@ General Election:
         last_name: Etesse
         fair_elections: null
         neighborhood: East Village Georgetown
+        twitter: ChrisEduWard2
       - candidate_name: Brandon Frye
         contact_name: ''
         address: 1404 11th St NW
@@ -5415,6 +5417,7 @@ General Election:
         last_name: Thompson
         fair_elections: null
         neighborhood: Benning Ridge
+        twitter: Eboni_RoseT
       - candidate_name: Karen Williams
         contact_name: ''
         address: 2914 W St SE

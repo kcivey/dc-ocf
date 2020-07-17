@@ -4274,6 +4274,16 @@ General Election:
         last_name: Howard
         fair_elections: null
         neighborhood: Eastland Gardens
+        committee_id: 0
+        candidate_key: CANCCL207189
+        election_year: 2020
+        candidate_approved: true
+        committee_approved: false
+        termination_approved: false
+        committee_name: A'Shia Howard
+        id: 15132
+        name: Ms. A'Shia Howard
+        filing_date: 07/10/2020
       - committee_id: 4119
         first_name: Chander
         last_name: Jayaraman
@@ -4931,7 +4941,7 @@ General Election:
         boe_pickup_date: 7/13/2020
         boe_filing_date: ''
         email: kelleyaray@gmail.com
-        first_name: Fria
+        first_name: Free
         last_name: Moore
         fair_elections: null
         neighborhood: Anacostia
@@ -5225,6 +5235,18 @@ General Election:
         last_name: Burton
         fair_elections: null
         neighborhood: Downtown
+      - candidate_name: Allister Chang
+        contact_name: ''
+        address: 2603 O St NW
+        zip: '20007'
+        phone: 301-768-3638
+        boe_pickup_date: 7/15/2020
+        boe_filing_date: ''
+        email: allister.chang@gmail.com
+        first_name: Allister
+        last_name: Chang
+        fair_elections: null
+        neighborhood: East Village Georgetown
       - candidate_name: Christopher Etesse
         contact_name: ''
         address: 2457 P St NW
@@ -5381,6 +5403,18 @@ General Election:
         last_name: Stamper
         fair_elections: null
         neighborhood: Deanwood
+      - candidate_name: Eboni-Rose Thompson
+        contact_name: ''
+        address: 4520 Texas Ave SE
+        zip: '20019'
+        phone: 202-460-3498
+        boe_pickup_date: 7/15/2020
+        boe_filing_date: ''
+        email: ebonirose@gmail.com
+        first_name: Eboni-Rose
+        last_name: Thompson
+        fair_elections: null
+        neighborhood: Benning Ridge
       - candidate_name: Karen Williams
         contact_name: ''
         address: 2914 W St SE
@@ -5522,6 +5556,41 @@ General Election:
         instagram: lajoylaw
         facebook: LajoyLaw2020
         twitter: LaJoyLaw1
+      - committee_id: 4135
+        first_name: Carlene
+        last_name: Reid
+        candidate_key: CANNON207130
+        committee_key: ''
+        election_year: 2020
+        candidate_approved: true
+        committee_approved: false
+        termination_approved: false
+        candidate_name: Carlene Reid
+        committee_name: Let's Reid 2020
+        id: 5060
+        name: Dr. Carlene Daisy Reid
+        address: 1922 15th St SE
+        filing_date: 12/20/2019
+        phone: (202) 618-0525
+        email: creidsboe@gmail.com
+        committee_address: '1922 15th Street, SE, Washington, DC 20020'
+        committee_phone: (202) 618-0525
+        treasurer_name: ''
+        treasurer_phone: ''
+        treasurer_email: ''
+        chairperson_name: ''
+        chair_phone: ''
+        chair_email: ''
+        zip: '20020'
+        fair_elections: true
+        neighborhood: Anacostia
+        contact_name: ''
+        boe_pickup_date: 6/17/2020
+        boe_filing_date: ''
+        website: letsreid.com
+        instagram: carlenedreid
+        twitter: CarleneDReid
+        facebook: CarleneDReid
       - committee_id: 4124
         first_name: Carlene D.
         last_name: Reid
@@ -5554,41 +5623,18 @@ General Election:
         contact_name: ''
         boe_pickup_date: 6/17/2020
         boe_filing_date: ''
-      - committee_id: 4135
-        first_name: Carlene D.
-        last_name: Reid
-        candidate_key: CANNON207130
-        committee_key: ''
-        election_year: 2020
-        candidate_approved: true
-        committee_approved: false
-        termination_approved: false
-        candidate_name: Carlene Reid
-        committee_name: Let's Reid 2020
-        id: 5060
-        name: Dr. Carlene Daisy Reid
-        address: PO Box 31503
-        filing_date: 12/20/2019
-        phone: 202-618-0525
-        email: info@letsreid.com
-        committee_address: '1922 15th Street, SE, Washington, DC 20020'
-        committee_phone: (202) 618-0525
-        treasurer_name: ''
-        treasurer_phone: ''
-        treasurer_email: ''
-        chairperson_name: ''
-        chair_phone: ''
-        chair_email: ''
-        zip: '20030'
-        fair_elections: true
-        neighborhood: Anacostia
+      - candidate_name: Ryan Washington
         contact_name: ''
-        boe_pickup_date: 6/17/2020
+        address: 3404 23rd St SE
+        zip: '20020'
+        phone: 202-779-8311
+        boe_pickup_date: 6/29/2020
         boe_filing_date: ''
-        website: letsreid.com
-        instagram: carlenedreid
-        twitter: CarleneDReid
-        facebook: CarleneDReid
+        email: RYANAWASHINGTON@GMAIL.COM
+        first_name: Ryan
+        last_name: Washington
+        fair_elections: null
+        neighborhood: Shipley Terrace
   OTH:
     President:
       - candidate_name: Gloria La Riva

@@ -292,6 +292,7 @@ function combineRecords(records, newRecords) {
             "Le'Troy": 'Troy',
             'Martín': 'Martin',
             Fred: 'Frederick',
+            Fria: 'Free',
         }[first] || first;
         return first;
     }
@@ -643,7 +644,8 @@ async function getBoePickups() {
         }
     }
     for (const r of pickups) {
-        const m = r.candidate_name.match(/^\(?(.*?) (\S*\w)(?:,? ([JS]r|I+|I?V))?\.?\)?$/i);
+        r.candidate_name = r.candidate_name.replace(/\s*-\s*/g, '-');
+        const m = r.candidate_name.match(/^\(?(.*?) (\S*\w)(?:,? ([JS]r|I+|I?V|Ward \d))?\.?\)?$/i);
         assert(m, `Unexpected name format "${r.candidate_name}"`);
         r.candidate_name = `${m[1]} ${m[2]}`;
         if (m[3]) {

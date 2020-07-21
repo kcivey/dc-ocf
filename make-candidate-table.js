@@ -284,7 +284,8 @@ function combineRecords(records, newRecords) {
     return records;
 
     function getFirstName(name) {
-        let first = name.replace(/^(\S+) .*/, '$1');
+        // normalize is to handle Unicode combining diacritics
+        let first = name.normalize('NFC').replace(/^(\S+) ?.*/, '$1');
         first = {
             Mike: 'Michael',
             Nate: 'Nathan',
@@ -322,7 +323,7 @@ function printEmails(records) {
 }
 
 function writeYaml(records) {
-    fs.writeFileSync(yamlFile, yaml.safeDump(records, {lineWidth: 120}));
+    fs.writeFileSync(yamlFile, yaml.safeDump(records, {lineWidth: 120}).normalize('NFC'));
 }
 
 function writeHtml(records) {

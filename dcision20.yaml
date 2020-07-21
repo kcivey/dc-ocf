@@ -3776,8 +3776,8 @@ General Election:
         contact_name: ''
         address: 230 Varnum St NE
         zip: '20011'
-        phone: 240-381-0937
-        boe_pickup_date: 7/10/2020
+        phone: ''
+        boe_pickup_date: ''
         boe_filing_date: ''
         email: cmbarragan@gmail.com
         first_name: Claudia
@@ -4824,9 +4824,9 @@ General Election:
     Council Ward 2:
       - candidate_name: Martín Miguel Fernandez
         contact_name: ''
-        address: 1312 Massachusetts Ave NW
-        zip: '20005'
-        phone: 301-580-9230
+        address: PO Box 34234
+        zip: '20043'
+        phone: 202-350-1207
         boe_pickup_date: 6/18/2020
         boe_filing_date: ''
         email: martin@martinforward2.com
@@ -5179,14 +5179,14 @@ General Election:
         email: jacquedpatterson@yahoo.com
         first_name: Jacque
         last_name: Patterson
-        fair_elections: true
+        fair_elections: false
         neighborhood: null
         committee_id: 14184
         candidate_key: CANSBL207184
-        committee_key: ''
+        committee_key: PCCSBL207184
         election_year: 2020
         candidate_approved: true
-        committee_approved: false
+        committee_approved: true
         termination_approved: false
         committee_name: Jacque4DC
         id: 15126
@@ -5194,12 +5194,12 @@ General Election:
         filing_date: 06/12/2020
         committee_address: '3521 21st Street, SE, Washington, DC 20020'
         committee_phone: (202) 834-2553
-        treasurer_name: ''
-        treasurer_phone: ''
-        treasurer_email: ''
-        chairperson_name: ''
-        chair_phone: ''
-        chair_email: ''
+        treasurer_name: Mr. Derrell Simpson
+        treasurer_phone: (202) 250-4712
+        treasurer_email: derrellsimpson88@gmail.com
+        chairperson_name: Mr. Philip Pannell
+        chair_phone: (202) 562-2726
+        chair_email: philippannell@comcast.net
         website: jacque4dc.com
         facebook: Jacque4DC
         twitter: jacque4dc
@@ -5218,7 +5218,7 @@ General Election:
         phone: 202-685-0153
         boe_pickup_date: 7/6/2020
         boe_filing_date: ''
-        email: mysikiox@gmail.com
+        email: mysiki.valentine@gmail.com
         first_name: Mysiki
         last_name: Valentine
         fair_elections: true
@@ -5525,6 +5525,18 @@ General Election:
             result: Won
             percent: 64
         fair_elections: true
+      - candidate_name: Joseph B. Johnson
+        contact_name: ''
+        address: PO Box 31563
+        zip: '20030'
+        phone: 202-957-2414
+        boe_pickup_date: 7/17/2020
+        boe_filing_date: ''
+        email: josephbjohnson1@outlook.com
+        first_name: Joseph B.
+        last_name: Johnson
+        fair_elections: null
+        neighborhood: null
       - committee_id: 14154
         first_name: LaJoy Johnson
         last_name: Law
@@ -5626,7 +5638,7 @@ General Election:
         fair_elections: true
         contact_name: ''
         boe_pickup_date: 6/17/2020
-        boe_filing_date: ''
+        boe_filing_date: 7/17/2020
       - candidate_name: Ryan Washington
         contact_name: ''
         address: 3404 23rd St SE

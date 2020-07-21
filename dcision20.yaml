@@ -5221,7 +5221,7 @@ General Election:
         email: mysikiox@gmail.com
         first_name: Mysiki
         last_name: Valentine
-        fair_elections: null
+        fair_elections: true
         neighborhood: River Terrace
         twitter: mysikix
     SBOE Ward 2:
@@ -5392,7 +5392,7 @@ General Election:
         email: DontrellForward7@gmail.com
         first_name: Dontrell
         last_name: Smith
-        fair_elections: null
+        fair_elections: true
         neighborhood: Marshall Heights
       - candidate_name: Patricia Stamper
         contact_name: ''
@@ -5404,7 +5404,7 @@ General Election:
         email: patricia.anduha@gmail.com
         first_name: Patricia
         last_name: Stamper
-        fair_elections: null
+        fair_elections: true
         neighborhood: Deanwood
       - candidate_name: Eboni-Rose Thompson
         contact_name: ''
@@ -5637,7 +5637,7 @@ General Election:
         email: RYANAWASHINGTON@GMAIL.COM
         first_name: Ryan
         last_name: Washington
-        fair_elections: null
+        fair_elections: true
         neighborhood: Shipley Terrace
   OTH:
     President:

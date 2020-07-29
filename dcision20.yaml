@@ -3302,7 +3302,7 @@ General Election:
         committee_name: Paul Strauss Committee
         id: 5054
         name: Mr. Paul Strauss
-        address: 2828 Wisconsin Ave
+        address: 1020 16th St NW
         filing_date: 11/26/2019
         phone: 202-497-8948
         email: senator@paulstrauss.org
@@ -3314,7 +3314,7 @@ General Election:
         chairperson_name: Mr. Paul Strauss
         chair_phone: (202) 223-8664
         chair_email: senator@paulstrauss.org
-        zip: '20007'
+        zip: '20036'
         fair_elections: false
         neighborhood: Cathedral Heights
         twitter: SenPaulStrauss
@@ -3432,8 +3432,8 @@ General Election:
     President:
       - candidate_name: Joseph R. Biden
         contact_name: Carla Frank
-        address: PO Box 58174 Philadelphia PA
-        zip: '19102'
+        address: '19102'
+        zip: ''
         phone: 206.849-1804
         boe_pickup_date: ''
         boe_filing_date: ''
@@ -3776,8 +3776,8 @@ General Election:
         contact_name: ''
         address: 230 Varnum St NE
         zip: '20011'
-        phone: ''
-        boe_pickup_date: ''
+        phone: 240-381-0937
+        boe_pickup_date: 7/10/2020
         boe_filing_date: ''
         email: cmbarragan@gmail.com
         first_name: Claudia
@@ -4176,7 +4176,7 @@ General Election:
         email: KHenderson029@aol.com
         first_name: Kathy
         last_name: Henderson
-        fair_elections: null
+        fair_elections: false
         neighborhood: Carver Langston
         elections:
           - year: 1998
@@ -4262,6 +4262,25 @@ General Election:
             office: Council Ward 5
             result: Lost
             percent: 8
+        committee_id: 14188
+        candidate_key: CANCCL207191
+        committee_key: PCCCCL207191
+        election_year: 2020
+        candidate_approved: true
+        committee_approved: true
+        termination_approved: false
+        committee_name: Committee to Elect Kathy Henderson At-Large
+        id: 15134
+        name: Ms. Kathy Henderson
+        filing_date: 07/21/2020
+        committee_address: '1807 L Street, NE, Washington, DC 20002'
+        committee_phone: (202) 556-5823
+        treasurer_name: Ms. Kathy Henderson
+        treasurer_phone: (202) 556-5823
+        treasurer_email: khenderson029@aol.com
+        chairperson_name: Ms. Kathy Henderson
+        chair_phone: (202) 556-5823
+        chair_email: khenderson029@aol.com
       - candidate_name: A'Shia Howard
         contact_name: Amy Nicole Allen
         address: 4138 Meade St NE
@@ -4706,7 +4725,7 @@ General Election:
         phone: 202-422-2191
         boe_pickup_date: 6/16/2020
         boe_filing_date: ''
-        email: mplawdc@gmail.com
+        email: monica@monicafordc.com
       - committee_id: 4127
         first_name: Eric M.
         last_name: Rogers
@@ -4746,6 +4765,18 @@ General Election:
         contact_name: ''
         boe_pickup_date: 6/17/2020
         boe_filing_date: ''
+      - candidate_name: Addison Sarter
+        contact_name: ''
+        address: 8224 West Beach Terr NW
+        zip: '20012'
+        phone: 202-641-1367
+        boe_pickup_date: 7/24/2020
+        boe_filing_date: ''
+        email: addisonsarter93@gmail.com
+        first_name: Addison
+        last_name: Sarter
+        fair_elections: null
+        neighborhood: Rock Creek Gardens
       - committee_id: 14180
         first_name: Michangelo
         last_name: Scruggs
@@ -4784,7 +4815,7 @@ General Election:
         phone: 202-704-7389
         boe_pickup_date: 6/30/2020
         boe_filing_date: ''
-        email: SilverK1@ymail.com
+        email: keithsilverfordc@yahoo.com
         first_name: Keith
         last_name: Silver
         fair_elections: true
@@ -4822,6 +4853,18 @@ General Election:
             percent: 50
         website: keithsilverfordc.com
     Council Ward 2:
+      - candidate_name: Randy Downs
+        contact_name: ''
+        address: 1425 17th St NW
+        zip: '20036'
+        phone: 636-358-2739
+        boe_pickup_date: 7/22/2020
+        boe_filing_date: ''
+        email: randy@randyforward2.com
+        first_name: Randy
+        last_name: Downs
+        fair_elections: null
+        neighborhood: Dupont Circle
       - candidate_name: Martín Miguel Fernandez
         contact_name: ''
         address: PO Box 34234
@@ -4946,6 +4989,16 @@ General Election:
         last_name: Moore
         fair_elections: null
         neighborhood: Anacostia
+        committee_id: 0
+        candidate_key: CANCC8207190
+        election_year: 2020
+        candidate_approved: true
+        committee_approved: false
+        termination_approved: false
+        committee_name: Fria Moore
+        id: 15133
+        name: Ms. Fria Moore
+        filing_date: 07/22/2020
       - committee_id: 4112
         first_name: Taurus
         last_name: Phillips
@@ -4996,7 +5049,7 @@ General Election:
         zip: '20007'
         phone: 202-892-9583
         boe_pickup_date: 6/12/2020
-        boe_filing_date: ''
+        boe_filing_date: 7/23/2020
         email: DCBetterChoice@gmail.com
         first_name: John
         last_name: Cheeks
@@ -5008,7 +5061,7 @@ General Election:
         zip: '20016'
         phone: 202-583-7426
         boe_pickup_date: 6/12/2020
-        boe_filing_date: ''
+        boe_filing_date: 7/22/2020
         email: JohnnieRice@comcast.net
         first_name: Barbara Washington
         last_name: Franklin
@@ -5032,7 +5085,7 @@ General Election:
         zip: '20012'
         phone: 202-421-5861
         boe_pickup_date: 6/12/2020
-        boe_filing_date: ''
+        boe_filing_date: 7/28/2020
         email: VoteforAmir@gmail.com
         first_name: Amir
         last_name: Lowery
@@ -5050,6 +5103,32 @@ General Election:
         last_name: Musa
         fair_elections: false
         neighborhood: Near Northeast
+    President:
+      - candidate_name: Gloria La Riva
+        contact_name: Richard Becker
+        address: '94110'
+        zip: ''
+        phone: 415-377-6321
+        boe_pickup_date: 7/22/2020
+        boe_filing_date: ''
+        email: info@larivapeltier2020.org
+        first_name: Gloria La
+        last_name: Riva
+        fair_elections: null
+        neighborhood: null
+    US Representative:
+      - candidate_name: Sohaer Rizvi Syed
+        contact_name: ''
+        address: 4800 Brandywine St NW
+        zip: '20011'
+        phone: 251-404-3760
+        boe_pickup_date: 7/23/2020
+        boe_filing_date: ''
+        email: vote4sohaer@gmail.com
+        first_name: Sohaer Rizvi
+        last_name: Syed
+        fair_elections: false
+        neighborhood: American University Park
   Other:
     Council Ward 2:
       - committee_id: 0
@@ -5145,8 +5224,27 @@ General Election:
         email: cwmartin918@gmail.com
         first_name: Christopher W
         last_name: Martin
-        fair_elections: null
+        fair_elections: false
         neighborhood: Cleveland Park
+        committee_id: 14189
+        candidate_key: CANSBL207192
+        committee_key: PCCSBL207192
+        election_year: 2020
+        candidate_approved: true
+        committee_approved: true
+        termination_approved: false
+        committee_name: Chris Martin for SBOE
+        id: 15135
+        name: Mr. Chris Martin
+        filing_date: 07/24/2020
+        committee_address: '3312 Lowell Street, NW, Washington, DC 20008'
+        committee_phone: (202) 549-5555
+        treasurer_name: Mr. Randall Brown
+        treasurer_phone: (202) 699-2884
+        treasurer_email: rabbirandybrown@gmail.com
+        chairperson_name: Mr. Chris Martin
+        chair_phone: (202) 548-5555
+        chair_email: cwmartin918@gmail.com
       - candidate_name: Troy Murphy
         contact_name: ''
         address: 1331 4th St SE
@@ -5211,6 +5309,18 @@ General Election:
             office: Council Ward 8
             result: Lost
             percent: 8
+      - candidate_name: Ravi K. Perry
+        contact_name: ''
+        address: 3602 Grant Pl NE
+        zip: '20019'
+        phone: 202-735-0466
+        boe_pickup_date: 6/27/2020
+        boe_filing_date: ''
+        email: RAVI.PERRY@GMAIL.COM
+        first_name: Ravi K.
+        last_name: Perry
+        fair_elections: null
+        neighborhood: Parkside
       - candidate_name: Mysiki Valentine
         contact_name: ''
         address: 3423 Eads St NE
@@ -5274,6 +5384,18 @@ General Election:
         last_name: Frye
         fair_elections: null
         neighborhood: Logan Circle
+      - candidate_name: James Harnett
+        contact_name: ''
+        address: PO Box 27452
+        zip: '20038'
+        phone: 202-350-0555
+        boe_pickup_date: 7/21/2020
+        boe_filing_date: ''
+        email: us@jamesforward2.com
+        first_name: James
+        last_name: Harnett
+        fair_elections: null
+        neighborhood: null
     SBOE Ward 4:
       - candidate_name: Frazier L. O'Leary Jr
         contact_name: ''
@@ -5406,6 +5528,7 @@ General Election:
         last_name: Stamper
         fair_elections: true
         neighborhood: Deanwood
+        withdrew: 7/27/2020
       - candidate_name: Eboni-Rose Thompson
         contact_name: ''
         address: 4520 Texas Ave SE
@@ -5641,12 +5764,12 @@ General Election:
         boe_filing_date: 7/17/2020
       - candidate_name: Ryan Washington
         contact_name: ''
-        address: 3404 23rd St SE
+        address: 2609 Douglass Rd SE
         zip: '20020'
         phone: 202-779-8311
         boe_pickup_date: 6/29/2020
         boe_filing_date: ''
-        email: RYANAWASHINGTON@GMAIL.COM
+        email: washingtonfordc@gmail.com
         first_name: Ryan
         last_name: Washington
         fair_elections: true

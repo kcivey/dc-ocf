@@ -3895,6 +3895,9 @@ General Election:
         contact_name: ''
         boe_pickup_date: 6/12/2020
         boe_filing_date: 7/13/2020
+        links:
+          - url: http://washingtonhispanic.com/portal/metro/mario-cristaldo-busca-un-puesto-como-concejal-de-washington-d-c/
+            title: Mario Cristaldo busca un puesto como concejal de Washington D.C.
       - committee_id: 4099
         first_name: Anthony
         last_name: Dale
@@ -4038,8 +4041,6 @@ General Election:
         twitter: GoodWinForDC
         instagram: goodwinfordc
         links:
-          - url: 'http://www.marcuscgoodwin.com/'
-            title: Resume
           - url: >-
               https://dcist.com/story/20/01/16/real-estate-developer-marcus-goodwin-announces-bid-for-grossos-vacant-at-large-seat/
             title: Real Estate Developer Marcus Goodwin Announces Bid For Grosso's Vacant At-Large Seat
@@ -4281,6 +4282,9 @@ General Election:
         chairperson_name: Ms. Kathy Henderson
         chair_phone: (202) 556-5823
         chair_email: khenderson029@aol.com
+        links:
+          - url: https://www.washingtoncitypaper.com/news/loose-lips/article/21140270/perennial-candidate-kathy-henderson-is-accused-of-misleading-an-elderly-homeowner-while-working-with-a-developer
+            title: A Council Candidate, a Home Renovation, and Allegations of Impropriety
       - candidate_name: A'Shia Howard
         contact_name: Amy Nicole Allen
         address: 4138 Meade St NE
@@ -4702,6 +4706,9 @@ General Election:
             office: ANC 6E01
             result: Won
             percent: 60
+        links:
+          - url: https://www.washingtonblade.com/2020/06/18/gay-candidate-enters-at-large-d-c-council-race/
+            title: Gay candidate enters At-Large D.C. Council race
       - first_name: Mónica
         last_name: Palacio
         candidate_name: Mónica Palacio
@@ -4865,6 +4872,28 @@ General Election:
         last_name: Downs
         fair_elections: null
         neighborhood: Dupont Circle
+        links:
+          - url: https://www.washingtonblade.com/2020/07/22/gay-anc-member-enters-ward-2-d-c-council-race/
+            title: Gay ANC member enters Ward 2 D.C. Council race
+          - url: https://dcist.com/story/20/07/23/ward-2-anc-commissioner-2020-race-dc-council/
+            title: Ward 2 ANC Commissioner Launches Bid For D.C. Council Seat Held By Brooke Pinto
+        website: randyforward2.com
+        instagram: randyforward2
+        twitter: RandyDaleDowns
+        facebook: RandyforWard2
+        elections:
+          - year: 2016
+            election: General
+            party: Nonpartisan
+            office: ANC 2B05
+            result: Won
+            percent: 56
+          - year: 2018
+            election: General
+            party: Nonpartisan
+            office: ANC 2B05
+            result: Won
+            percent: 95
       - candidate_name: Martín Miguel Fernandez
         contact_name: ''
         address: PO Box 34234
@@ -4877,8 +4906,10 @@ General Election:
         last_name: Fernandez
         fair_elections: true
         neighborhood: Downtown
-        twitter: martinmiguel__
+        twitter: martinforward2
         website: martinforward2.com
+        instagram: martinforward2
+        facebook: martinforward2
         links:
           - url: 'https://dcist.com/story/20/06/19/martin-miguel-fernandez-running-ward-2-dc-council/'
             title: A Nonprofit Worker Is Mounting An Independent Challenge To Brooke Pinto For The Ward 2 Seat
@@ -5321,6 +5352,7 @@ General Election:
         last_name: Perry
         fair_elections: null
         neighborhood: Parkside
+        twitter: raviperry
       - candidate_name: Mysiki Valentine
         contact_name: ''
         address: 3423 Eads St NE
@@ -5394,8 +5426,17 @@ General Election:
         email: us@jamesforward2.com
         first_name: James
         last_name: Harnett
-        fair_elections: null
+        fair_elections: true
         neighborhood: null
+        twitter: jarharnett
+        facebook: harnettjames
+        elections:
+          - year: 2018
+            election: General
+            party: Nonpartisan
+            office: ANC 2A08
+            result: Won
+            percent: Write-in
     SBOE Ward 4:
       - candidate_name: Frazier L. O'Leary Jr
         contact_name: ''
@@ -5542,6 +5583,21 @@ General Election:
         fair_elections: null
         neighborhood: Benning Ridge
         twitter: Eboni_RoseT
+        website: ebonirosedc.com
+        instagram: eboni_roset
+        elections:
+          - year: 2012
+            election: General
+            party: Nonpartisan
+            office: ANC 7F02
+            result: Won
+            percent: 97
+          - year: 2014
+            election: General
+            party: Nonpartisan
+            office: ANC 7F02
+            result: Won
+            percent: 93
       - candidate_name: Karen Williams
         contact_name: ''
         address: 2914 W St SE

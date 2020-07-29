@@ -3896,7 +3896,8 @@ General Election:
         boe_pickup_date: 6/12/2020
         boe_filing_date: 7/13/2020
         links:
-          - url: http://washingtonhispanic.com/portal/metro/mario-cristaldo-busca-un-puesto-como-concejal-de-washington-d-c/
+          - url: >-
+              http://washingtonhispanic.com/portal/metro/mario-cristaldo-busca-un-puesto-como-concejal-de-washington-d-c/
             title: Mario Cristaldo busca un puesto como concejal de Washington D.C.
       - committee_id: 4099
         first_name: Anthony
@@ -4283,8 +4284,9 @@ General Election:
         chair_phone: (202) 556-5823
         chair_email: khenderson029@aol.com
         links:
-          - url: https://www.washingtoncitypaper.com/news/loose-lips/article/21140270/perennial-candidate-kathy-henderson-is-accused-of-misleading-an-elderly-homeowner-while-working-with-a-developer
-            title: A Council Candidate, a Home Renovation, and Allegations of Impropriety
+          - url: >-
+              https://www.washingtoncitypaper.com/news/loose-lips/article/21140270/perennial-candidate-kathy-henderson-is-accused-of-misleading-an-elderly-homeowner-while-working-with-a-developer
+            title: 'A Council Candidate, a Home Renovation, and Allegations of Impropriety'
       - candidate_name: A'Shia Howard
         contact_name: Amy Nicole Allen
         address: 4138 Meade St NE
@@ -4707,7 +4709,7 @@ General Election:
             result: Won
             percent: 60
         links:
-          - url: https://www.washingtonblade.com/2020/06/18/gay-candidate-enters-at-large-d-c-council-race/
+          - url: 'https://www.washingtonblade.com/2020/06/18/gay-candidate-enters-at-large-d-c-council-race/'
             title: Gay candidate enters At-Large D.C. Council race
       - first_name: Mónica
         last_name: Palacio
@@ -4873,9 +4875,9 @@ General Election:
         fair_elections: null
         neighborhood: Dupont Circle
         links:
-          - url: https://www.washingtonblade.com/2020/07/22/gay-anc-member-enters-ward-2-d-c-council-race/
+          - url: 'https://www.washingtonblade.com/2020/07/22/gay-anc-member-enters-ward-2-d-c-council-race/'
             title: Gay ANC member enters Ward 2 D.C. Council race
-          - url: https://dcist.com/story/20/07/23/ward-2-anc-commissioner-2020-race-dc-council/
+          - url: 'https://dcist.com/story/20/07/23/ward-2-anc-commissioner-2020-race-dc-council/'
             title: Ward 2 ANC Commissioner Launches Bid For D.C. Council Seat Held By Brooke Pinto
         website: randyforward2.com
         instagram: randyforward2
@@ -5751,41 +5753,6 @@ General Election:
         instagram: lajoylaw
         facebook: LajoyLaw2020
         twitter: LaJoyLaw1
-      - committee_id: 4135
-        first_name: Carlene
-        last_name: Reid
-        candidate_key: CANNON207130
-        committee_key: ''
-        election_year: 2020
-        candidate_approved: true
-        committee_approved: false
-        termination_approved: false
-        candidate_name: Carlene Reid
-        committee_name: Let's Reid 2020
-        id: 5060
-        name: Dr. Carlene Daisy Reid
-        address: 1922 15th St SE
-        filing_date: 12/20/2019
-        phone: (202) 618-0525
-        email: creidsboe@gmail.com
-        committee_address: '1922 15th Street, SE, Washington, DC 20020'
-        committee_phone: (202) 618-0525
-        treasurer_name: ''
-        treasurer_phone: ''
-        treasurer_email: ''
-        chairperson_name: ''
-        chair_phone: ''
-        chair_email: ''
-        zip: '20020'
-        fair_elections: true
-        neighborhood: Anacostia
-        contact_name: ''
-        boe_pickup_date: 6/17/2020
-        boe_filing_date: ''
-        website: letsreid.com
-        instagram: carlenedreid
-        twitter: CarleneDReid
-        facebook: CarleneDReid
       - committee_id: 4124
         first_name: Carlene D.
         last_name: Reid
@@ -5818,6 +5785,41 @@ General Election:
         contact_name: ''
         boe_pickup_date: 6/17/2020
         boe_filing_date: 7/17/2020
+      - committee_id: 4135
+        first_name: Carlene D.
+        last_name: Reid
+        candidate_key: CANNON207130
+        committee_key: ''
+        election_year: 2020
+        candidate_approved: true
+        committee_approved: false
+        termination_approved: false
+        candidate_name: Carlene Reid
+        committee_name: Let's Reid 2020
+        id: 5060
+        name: Dr. Carlene Daisy Reid
+        address: PO Box 31503
+        filing_date: 12/20/2019
+        phone: 202-618-0525
+        email: info@letsreid.com
+        committee_address: '1922 15th Street, SE, Washington, DC 20020'
+        committee_phone: (202) 618-0525
+        treasurer_name: ''
+        treasurer_phone: ''
+        treasurer_email: ''
+        chairperson_name: ''
+        chair_phone: ''
+        chair_email: ''
+        zip: '20030'
+        fair_elections: true
+        neighborhood: Anacostia
+        contact_name: ''
+        boe_pickup_date: 6/17/2020
+        boe_filing_date: 7/17/2020
+        website: letsreid.com
+        instagram: carlenedreid
+        twitter: CarleneDReid
+        facebook: CarleneDReid
       - candidate_name: Ryan Washington
         contact_name: ''
         address: 2609 Douglass Rd SE

@@ -53,7 +53,9 @@ async function main() {
         return;
     }
     if (argv.update) {
-        const newRecords = await getNewRecords();
+        let newRecords = await getNewFairElectionsRecords();
+        records = combineRecords(records, newRecords);
+        newRecords = await getNewOcfRecords();
         records = combineRecords(records, newRecords);
     }
     // records = removeBoeDates(records); // to remove candidates no longer listed
@@ -63,7 +65,7 @@ async function main() {
         for (const party of Object.keys(records[election])) {
             for (const office of Object.keys(records[election][party])) {
                 for (const r of records[election][party][office]) {
-                    if (r.hasOwnProperty('neighborhood')) {
+                    if (!r.address || r.hasOwnProperty('neighborhood')) {
                         continue;
                     }
                     try {
@@ -93,7 +95,7 @@ function readYaml() {
     }
 }
 
-async function getNewRecords() {
+async function getNewOcfRecords() {
     const ocf = new OcfDisclosures({
         verbose: argv.verbose,
         limit: 100,
@@ -108,7 +110,39 @@ async function getNewRecords() {
             r.PartyName = r.LastName === 'Venice' ? 'Republican' : 'Democratic';
         }
     }
-    return objectify(await transformRecords(records), ['election_description', 'party', 'office']);
+    return objectify(transformRecords(records), ['election_description', 'party', 'office']);
+}
+
+async function getNewFairElectionsRecords() {
+    const body = await request({
+        url: 'https://fairelections.ocf.dc.gov/app/api/Public/SearchRegistrationDisclosure',
+        gzip: true,
+        json: true,
+        method: 'post',
+        body: {
+            electionYear: 2020,
+            pageNum: 1,
+            recordsPerPage: 100,
+        },
+    });
+    const records = body.searchData
+        .map(function (r) {
+            r.candidateName = r.candidateName.replace('Eboni Rose', 'Eboni-Rose');
+            const nameParts = parseName(r.candidateName);
+            if (/Special/.test(r.electionName) && /Non-?Partisan/i.test(r.partyAffiliation)) {
+                r.partyAffiliation = /Venice/.test(r.candidateName) ? 'Republican' : 'Democratic';
+            }
+            return {
+                ...r,
+                fair_elections: true,
+                first_name: nameParts.first,
+                last_name: nameParts.last,
+                party_name: r.partyAffiliation,
+                election_description: r.electionName.replace(/.*?(\w+ Election).*/, '$1'),
+            };
+        })
+        .filter(r => r.candidateName !== 'Test Committee');
+    return objectify(transformRecords(records), ['election_description', 'party', 'office']);
 }
 
 function transformRecords(records) {
@@ -123,13 +157,6 @@ function transformRecords(records) {
             }
         )
         .filter(r => !/committee/i.test(r.office))
-        .sort(function (a, b) {
-            return a.office.localeCompare(b.office) ||
-                a.party_name.localeCompare(b.party_name) ||
-                a.last_name.localeCompare(b.last_name) ||
-                a.first_name.localeCompare(b.first_name) ||
-                (a.committee_id - b.committee_id);
-        })
         .map(function (r) {
             r.party = {
                 Democrat: 'Democratic',
@@ -137,26 +164,36 @@ function transformRecords(records) {
                 'DC Statehood Green': 'Statehood Green',
                 'D.C. Statehood Green Party': 'Statehood Green',
             }[r.party_name] || r.party_name;
+            if (r.office_name) {
+                r.office = r.office_name;
+            }
             r.office = r.office.replace('D.C. State Board of Education', 'SBOE');
+            if (/SBOE/.test(r.office)) {
+                r.party = 'Nonpartisan'; // fix "Independent" in Fair Elections data
+            }
             for (const key of [
+                'registration_id',
+                'office_id',
+                'office_name',
                 'office_sought',
                 'party_name',
                 'party_affiliation',
                 'name_of_committee',
                 'filer_type_id',
+                'election_name',
+                'election_id',
                 'election_year_description',
                 'ocf_identification_no',
                 'committee_alphanumeric_id',
             ]) {
                 delete r[key];
             }
-            if (!r.address) {
-                r.address = '';
-            }
-            const m = r.address.match(/^(.+), Washington,? DC (\d+)$/i);
-            if (m) {
-                r.address = standardizeAddress(m[1]);
-                r.zip = m[2];
+            if (r.address) {
+                const m = r.address.match(/^(.+), Washington,? DC (\d+)$/i);
+                if (m) {
+                    r.address = standardizeAddress(m[1]);
+                    r.zip = m[2];
+                }
             }
             r.candidate_name = r.candidate_name.replace(/^(?:[DM]r|Mr?s)\.? /i, '');
             if (r.committee_name === 'N/A') {
@@ -185,7 +222,7 @@ function transformRecords(records) {
                 r.last_name = 'Law';
                 r.first_name = 'LaJoy Johnson';
             }
-            else if (r.last_name === 'Hernandez') { // kluge to fix OCF typo
+            else if (r.last_name === 'Hernandez' && r.email) { // kluge to fix OCF typo
                 r.email = r.email.replace('hernandezd1', 'hernandezdl');
             }
             else if (r.first_name === "Jeanne'") {
@@ -231,6 +268,13 @@ function transformRecords(records) {
                 r.election_description = 'General Election';
             }
             return r;
+        })
+        .sort(function (a, b) {
+            return a.office.localeCompare(b.office) ||
+                a.party.localeCompare(b.party) ||
+                a.last_name.localeCompare(b.last_name) ||
+                a.first_name.localeCompare(b.first_name) ||
+                (a.committee_id - b.committee_id);
         });
 }
 
@@ -292,9 +336,11 @@ function combineRecords(records, newRecords) {
             Joe: 'Joseph',
             "Le'Troy": 'Troy',
             'Martín': 'Martin',
+            'Mónica': 'Monica',
             Fred: 'Frederick',
             Fria: 'Free',
             Chris: 'Christopher',
+            Will: 'William',
         }[first] || first;
         return first;
     }
@@ -647,16 +693,24 @@ async function getBoePickups() {
     }
     for (const r of pickups) {
         r.candidate_name = r.candidate_name.replace(/\s*-\s*/g, '-');
-        const m = r.candidate_name.match(/^\(?(.*?) (\S*\w)(?:,? ([JS]r|I+|I?V|Ward \d))?\.?\)?$/i);
-        assert(m, `Unexpected name format "${r.candidate_name}"`);
-        r.candidate_name = `${m[1]} ${m[2]}`;
-        if (m[3]) {
-            r.candidate_name += ' ' + m[3];
-        }
-        r.first_name = m[1];
-        r.last_name = m[2];
+        const nameParts = parseName(r.candidate_name);
+        r.candidate_name = nameParts.full;
+        r.first_name = nameParts.first;
+        r.last_name = nameParts.last;
     }
-    return objectify(await transformRecords(pickups), ['election_description', 'party', 'office']);
+    return objectify(transformRecords(pickups), ['election_description', 'party', 'office']);
+}
+
+function parseName(name) {
+    const m = name.match(/^\(?(.*?) (\S*\w)(?:,? ([JS]r|I+|I?V|Ward \d))?\.?\)?$/i);
+    assert(m, `Unexpected name format "${name}"`);
+    let full = `${m[1]} ${m[2]}`;
+    if (m[3]) {
+        full += ' ' + m[3];
+    }
+    const first = m[1];
+    const last = m[2];
+    return {full, first, last};
 }
 
 async function getPdfText(pdfUrl) {

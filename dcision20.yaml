@@ -11,8 +11,32 @@ Primary Election:
         email: votemrward6.natebrown@gmail.com
         first_name: Nathan
         last_name: Brown
-        fair_elections: null
+        fair_elections: true
         neighborhood: Northwest One
+        committee_name: Nate Brown 2020
+        committee_code: FEPCCL200039
+        registration_date: '2020-02-04T00:00:00Z'
+        registration_status: Active
+        certification_status: Threshold not met
+        base_payment: 0
+        base_amount_cap: 40000
+        matching_payment: 0
+        match_cap: 308639
+        fair_election_payouts_total: 0
+        total_remission: 0
+        base_pending_amount: 40000
+        match_pending_amount: 308639
+        election_year: 2020
+        certification_status_code: TP
+        registration_status_code: A
+        total_approved_contributions: 0
+        total_approved_contributors: 0
+        match_amount: 0
+        allowed_pending_match_amount: 308639
+        total_reports_filed: 1
+        certification_date: null
+        achieved_ballot_access: false
+        certification_deadline: '2020-03-18T00:00:00Z'
       - committee_id: 0
         first_name: Tyrone
         last_name: Carmichael
@@ -303,6 +327,28 @@ Primary Election:
             title: Ward 2 Candidate Jack Evans Has A New Ethics Statement and a New Campaign Website
           - url: 'https://thehoya.com/evans-drops-out-of-special-election-will-remain-in-primary/'
             title: 'Evans Drops Out of DC Council Special Election, Will Remain in Primary'
+        committee_code: FEPCC2200035
+        registration_date: '2020-01-30T00:00:00Z'
+        registration_status: Active
+        certification_status: Certified
+        base_payment: 40000
+        base_amount_cap: 40000
+        matching_payment: 49900
+        match_cap: 241055
+        fair_election_payouts_total: 89900
+        total_remission: 0
+        base_pending_amount: 0
+        match_pending_amount: 191155
+        certification_status_code: CR
+        registration_status_code: A
+        total_approved_contributions: 11165
+        total_approved_contributors: 231
+        match_amount: 55825
+        allowed_pending_match_amount: 191155
+        total_reports_filed: 10
+        certification_date: null
+        achieved_ballot_access: true
+        certification_deadline: '2020-03-18T00:00:00Z'
       - committee_id: 4096
         first_name: John
         last_name: Fanning
@@ -409,6 +455,28 @@ Primary Election:
         endorsements:
           DC Latino Caucus: >-
             http://www.dclc.org/dc-latino-caucus-announces-candidate-endorsements-in-the-dc-june-2-2020-democratic-primary/
+        committee_code: FEPCC2200004
+        registration_date: '2019-06-03T00:00:00Z'
+        registration_status: Active
+        certification_status: Certified
+        base_payment: 40000
+        base_amount_cap: 40000
+        matching_payment: 47600
+        match_cap: 241055
+        fair_election_payouts_total: 87600
+        total_remission: 0
+        base_pending_amount: 0
+        match_pending_amount: 193455
+        certification_status_code: CR
+        registration_status_code: A
+        total_approved_contributions: 10685
+        total_approved_contributors: 273
+        match_amount: 53425
+        allowed_pending_match_amount: 193455
+        total_reports_filed: 18
+        certification_date: null
+        achieved_ballot_access: true
+        certification_deadline: '2020-03-18T00:00:00Z'
       - committee_id: 4090
         first_name: Jordan
         last_name: Grossman
@@ -485,6 +553,28 @@ Primary Election:
           United Food and Commercial Workers Local 400: 'https://twitter.com/UFCW400/status/1261301715229433856'
           US Senator Amy Klobuchar: 'https://jordanforward2.com/u-s-senator-amy-klobuchar-endorses-jordan-grossman-for-ward-2-dc-councilmember/'
           Washington Teachers' Union: 'https://www.wtulocal6.net/2020_endorsements'
+        committee_code: FEPCC2200003
+        registration_date: '2019-05-15T00:00:00Z'
+        registration_status: Active
+        certification_status: Certified
+        base_payment: 40000
+        base_amount_cap: 40000
+        matching_payment: 159173.05
+        match_cap: 241055
+        fair_election_payouts_total: 199173.05
+        total_remission: 0
+        base_pending_amount: 0
+        match_pending_amount: 81881.95
+        certification_status_code: CR
+        registration_status_code: A
+        total_approved_contributions: 34553.31
+        total_approved_contributors: 856
+        match_amount: 172766.55
+        allowed_pending_match_amount: 81881.95
+        total_reports_filed: 13
+        certification_date: null
+        achieved_ballot_access: true
+        certification_deadline: '2020-03-18T00:00:00Z'
       - committee_id: 4095
         first_name: Daniel
         last_name: Hernandez
@@ -526,6 +616,28 @@ Primary Election:
         contact_name: Laurel Saito
         boe_pickup_date: 1/10/2020
         boe_filing_date: 3/4/2020
+        committee_code: FEPCC2200005
+        registration_date: '2019-06-04T00:00:00Z'
+        registration_status: Active
+        certification_status: Threshold not met
+        base_payment: 0
+        base_amount_cap: 40000
+        matching_payment: 0
+        match_cap: 241055
+        fair_election_payouts_total: 0
+        total_remission: 0
+        base_pending_amount: 40000
+        match_pending_amount: 241055
+        certification_status_code: TP
+        registration_status_code: A
+        total_approved_contributions: 1360
+        total_approved_contributors: 33
+        match_amount: 6800
+        allowed_pending_match_amount: 241055
+        total_reports_filed: 11
+        certification_date: null
+        achieved_ballot_access: true
+        certification_deadline: '2020-03-18T00:00:00Z'
       - committee_id: 4084
         first_name: Patrick
         last_name: Kennedy
@@ -629,6 +741,28 @@ Primary Election:
           Mid-Atlantic Pipe Trades Association: 'https://www.facebook.com/MidAtlanticpipetrades/photos/a.3645882475482427/3645882695482405/'
           Sierra Club DC Chapter: >-
             https://www.sierraclub.org/dc/sierra-club-endorses-robert-white-patrick-kennedy-janeese-lewis-george-vince-gray-and-trayon
+        committee_code: FEPCC2200002
+        registration_date: '2019-04-08T00:00:00Z'
+        registration_status: Active
+        certification_status: Certified
+        base_payment: 40000
+        base_amount_cap: 40000
+        matching_payment: 107370
+        match_cap: 241055
+        fair_election_payouts_total: 147370
+        total_remission: 0
+        base_pending_amount: 0
+        match_pending_amount: 133685
+        certification_status_code: CR
+        registration_status_code: A
+        total_approved_contributions: 23854
+        total_approved_contributors: 599
+        match_amount: 119270
+        allowed_pending_match_amount: 133685
+        total_reports_filed: 17
+        certification_date: null
+        achieved_ballot_access: true
+        certification_deadline: '2020-03-18T00:00:00Z'
       - candidate_name: Brooke Pinto
         contact_name: Brooke Pinto
         address: 1219 Q St NW
@@ -748,6 +882,28 @@ Primary Election:
         contact_name: Kishan Putta
         boe_pickup_date: 1/10/2020
         boe_filing_date: 3/3/2020
+        committee_code: FEPCC2200006
+        registration_date: '2019-06-26T00:00:00Z'
+        registration_status: Active
+        certification_status: Certified
+        base_payment: 40000
+        base_amount_cap: 40000
+        matching_payment: 101565
+        match_cap: 241055
+        fair_election_payouts_total: 141565
+        total_remission: 0
+        base_pending_amount: 0
+        match_pending_amount: 139490
+        certification_status_code: CR
+        registration_status_code: A
+        total_approved_contributions: 23348
+        total_approved_contributors: 690
+        match_amount: 116740
+        allowed_pending_match_amount: 139490
+        total_reports_filed: 10
+        certification_date: null
+        achieved_ballot_access: true
+        certification_deadline: '2020-03-18T00:00:00Z'
       - committee_id: 4113
         first_name: Yilin
         last_name: Zhang
@@ -787,6 +943,28 @@ Primary Election:
           - url: >-
               https://dcist.com/story/20/01/09/this-political-newcomer-is-the-only-woman-running-for-jack-evans-empty-ward-2-seat/
             title: This Political Newcomer Is The Only Woman Running For Jack Evans' Empty Ward 2 Seat
+        committee_code: FEPCC2200012
+        registration_date: '2019-09-12T00:00:00Z'
+        registration_status: Active
+        certification_status: Certified
+        base_payment: 40000
+        base_amount_cap: 40000
+        matching_payment: 29165
+        match_cap: 241055
+        fair_election_payouts_total: 69165
+        total_remission: 0
+        base_pending_amount: 0
+        match_pending_amount: 211890
+        certification_status_code: CR
+        registration_status_code: A
+        total_approved_contributions: 5998
+        total_approved_contributors: 180
+        match_amount: 29990
+        allowed_pending_match_amount: 211890
+        total_reports_filed: 13
+        certification_date: null
+        achieved_ballot_access: true
+        certification_deadline: '2020-03-18T00:00:00Z'
     Council Ward 4:
       - first_name: Renee
         last_name: Bowser
@@ -899,6 +1077,28 @@ Primary Election:
         boe_pickup_date: 1/10/2020
         boe_filing_date: 3/2/2020
         withdrew: 3/5/2020
+        committee_code: FEPCC4200020
+        registration_date: '2019-11-06T00:00:00Z'
+        registration_status: Active
+        certification_status: Certified
+        base_payment: 20000
+        base_amount_cap: 40000
+        matching_payment: 38450
+        match_cap: 241055
+        fair_election_payouts_total: 58450
+        total_remission: 0
+        base_pending_amount: 20000
+        match_pending_amount: 202605
+        certification_status_code: CR
+        registration_status_code: A
+        total_approved_contributions: 7690
+        total_approved_contributors: 175
+        match_amount: 38450
+        allowed_pending_match_amount: 202605
+        total_reports_filed: 9
+        certification_date: null
+        achieved_ballot_access: true
+        certification_deadline: '2020-03-18T00:00:00Z'
       - committee_id: 14152
         first_name: Marlena
         last_name: Edwards
@@ -1029,6 +1229,28 @@ Primary Election:
           United Food and Commercial Workers Local 400: 'https://twitter.com/UFCW400/status/1261301714029871104'
           Ward 4 State Board of Education Member Frazier O'Leary: 'https://www.facebook.com/photo.php?fbid=716815222414212&set=a.136308617131545&type=3&theater'
           Washington Teachers' Union: 'https://www.wtulocal6.net/2020_endorsements'
+        committee_code: FEPCC4200008
+        registration_date: '2019-08-05T00:00:00Z'
+        registration_status: Active
+        certification_status: Certified
+        base_payment: 40000
+        base_amount_cap: 40000
+        matching_payment: 226361.4
+        match_cap: 241055
+        fair_election_payouts_total: 266361.4
+        total_remission: 0
+        base_pending_amount: 0
+        match_pending_amount: 14693.6
+        certification_status_code: CR
+        registration_status_code: A
+        total_approved_contributions: 48220.08
+        total_approved_contributors: 1236
+        match_amount: 241100.4
+        allowed_pending_match_amount: 14693.6
+        total_reports_filed: 11
+        certification_date: null
+        achieved_ballot_access: true
+        certification_deadline: '2020-03-18T00:00:00Z'
       - committee_id: 4088
         first_name: Brandon
         last_name: Todd
@@ -1142,6 +1364,28 @@ Primary Election:
         contact_name: Kelvin Brown
         boe_pickup_date: 1/10/2020
         boe_filing_date: 2/3/2020
+        committee_code: FEPCC7200009
+        registration_date: '2019-08-13T00:00:00Z'
+        registration_status: Active
+        certification_status: Certified
+        base_payment: 40000
+        base_amount_cap: 40000
+        matching_payment: 25820
+        match_cap: 241055
+        fair_election_payouts_total: 65820
+        total_remission: 0
+        base_pending_amount: 0
+        match_pending_amount: 215235
+        certification_status_code: CR
+        registration_status_code: A
+        total_approved_contributions: 6449
+        total_approved_contributors: 205
+        match_amount: 32245
+        allowed_pending_match_amount: 215235
+        total_reports_filed: 20
+        certification_date: null
+        achieved_ballot_access: true
+        certification_deadline: '2020-03-18T00:00:00Z'
       - committee_id: 4128
         first_name: Vincent
         last_name: Gray
@@ -1323,6 +1567,28 @@ Primary Election:
           Our Revolution DC: 'https://twitter.com/OurRevolutionDC/status/1255201911864786944'
           United Food and Commercial Workers Local 400: 'https://twitter.com/UFCW400/status/1261301712758939649'
           Washington Teachers' Union: 'https://www.wtulocal6.net/2020_endorsements'
+        committee_code: FEPCC7200001
+        registration_date: '2019-07-16T00:00:00Z'
+        registration_status: Active
+        certification_status: Certified
+        base_payment: 40000
+        base_amount_cap: 40000
+        matching_payment: 40200
+        match_cap: 241055
+        fair_election_payouts_total: 80200
+        total_remission: 0
+        base_pending_amount: 0
+        match_pending_amount: 200855
+        certification_status_code: CR
+        registration_status_code: A
+        total_approved_contributions: 8065
+        total_approved_contributors: 266
+        match_amount: 40325
+        allowed_pending_match_amount: 200855
+        total_reports_filed: 17
+        certification_date: null
+        achieved_ballot_access: true
+        certification_deadline: '2020-03-18T00:00:00Z'
       - committee_id: 0
         first_name: Tam
         last_name: Haye
@@ -1493,6 +1759,28 @@ Primary Election:
         website: ''
         neighborhood: Deanwood
         fair_elections: false
+        committee_code: FEPCC7200010
+        registration_date: '2019-08-14T00:00:00Z'
+        registration_status: Active
+        certification_status: Threshold not met
+        base_payment: 0
+        base_amount_cap: 40000
+        matching_payment: 0
+        match_cap: 241055
+        fair_election_payouts_total: 0
+        total_remission: 0
+        base_pending_amount: 40000
+        match_pending_amount: 241055
+        certification_status_code: TP
+        registration_status_code: A
+        total_approved_contributions: 0
+        total_approved_contributors: 0
+        match_amount: 0
+        allowed_pending_match_amount: 241055
+        total_reports_filed: 2
+        certification_date: null
+        achieved_ballot_access: false
+        certification_deadline: '2020-03-18T00:00:00Z'
     Council Ward 8:
       - committee_id: 4118
         first_name: Stuart
@@ -1542,6 +1830,28 @@ Primary Election:
         contact_name: Stuart Anderson
         boe_pickup_date: 1/17/2020
         boe_filing_date: 3/4/2020
+        committee_code: FEPCC8200016
+        registration_date: '2019-10-10T00:00:00Z'
+        registration_status: Active
+        certification_status: Threshold met and Certification Pending
+        base_payment: 0
+        base_amount_cap: 40000
+        matching_payment: 0
+        match_cap: 241055
+        fair_election_payouts_total: 0
+        total_remission: 0
+        base_pending_amount: 40000
+        match_pending_amount: 241055
+        certification_status_code: TM
+        registration_status_code: A
+        total_approved_contributions: 3966
+        total_approved_contributors: 119
+        match_amount: 19830
+        allowed_pending_match_amount: 241055
+        total_reports_filed: 13
+        certification_date: null
+        achieved_ballot_access: true
+        certification_deadline: '2020-03-18T00:00:00Z'
       - committee_id: 14150
         first_name: Michael
         last_name: Austin
@@ -1591,6 +1901,28 @@ Primary Election:
           Greater Greater Washington: 'https://ggwash.org/view/77510/dc-endorsements'
           Washington Post: >-
             https://www.washingtonpost.com/opinions/the-posts-2020-endorsements-for-the-dc-council/2020/04/30/d1136ecc-84fb-11ea-ae26-989cfce1c7c7_story.html
+        committee_code: FEPCC8200030
+        registration_date: '2020-01-17T00:00:00Z'
+        registration_status: Active
+        certification_status: Certified
+        base_payment: 0
+        base_amount_cap: 40000
+        matching_payment: 0
+        match_cap: 241055
+        fair_election_payouts_total: 0
+        total_remission: 0
+        base_pending_amount: 40000
+        match_pending_amount: 241055
+        certification_status_code: CR
+        registration_status_code: A
+        total_approved_contributions: 8185
+        total_approved_contributors: 224
+        match_amount: 40925
+        allowed_pending_match_amount: 241055
+        total_reports_filed: 11
+        certification_date: '2020-07-14T18:00:10.61Z'
+        achieved_ballot_access: true
+        certification_deadline: '2020-03-18T00:00:00Z'
       - committee_id: 4117
         first_name: Richard
         last_name: Campbell
@@ -1843,6 +2175,28 @@ Primary Election:
         boe_pickup_date: 1/10/2020
         boe_filing_date: ''
         facebook: votefriamoore2020
+        committee_code: FEPCC8200027
+        registration_date: '2020-01-13T00:00:00Z'
+        registration_status: Active
+        certification_status: Threshold not met
+        base_payment: 0
+        base_amount_cap: 40000
+        matching_payment: 0
+        match_cap: 241055
+        fair_election_payouts_total: 0
+        total_remission: 0
+        base_pending_amount: 40000
+        match_pending_amount: 241055
+        certification_status_code: TP
+        registration_status_code: A
+        total_approved_contributions: 140
+        total_approved_contributors: 9
+        match_amount: 700
+        allowed_pending_match_amount: 241055
+        total_reports_filed: 6
+        certification_date: null
+        achieved_ballot_access: false
+        certification_deadline: '2020-03-18T00:00:00Z'
       - candidate_name: Danielle Platt
         contact_name: Danielle Platt
         address: 2801 Buena Vista Terr
@@ -1853,9 +2207,33 @@ Primary Election:
         email: justice4W8@gmail.com
         first_name: Danielle
         last_name: Platt
-        fair_elections: null
+        fair_elections: true
         neighborhood: null
         facebook: DaniellePlatt4W8
+        committee_name: Danielle Platt For Ward 8
+        committee_code: FEPCC8200037
+        registration_date: '2020-01-30T00:00:00Z'
+        registration_status: Active
+        certification_status: Threshold not met
+        base_payment: 0
+        base_amount_cap: 40000
+        matching_payment: 0
+        match_cap: 241055
+        fair_election_payouts_total: 0
+        total_remission: 0
+        base_pending_amount: 40000
+        match_pending_amount: 241055
+        election_year: 2020
+        certification_status_code: TP
+        registration_status_code: A
+        total_approved_contributions: 0
+        total_approved_contributors: 0
+        match_amount: 0
+        allowed_pending_match_amount: 241055
+        total_reports_filed: 6
+        certification_date: null
+        achieved_ballot_access: false
+        certification_deadline: '2020-03-18T00:00:00Z'
       - candidate_name: Trayon "Ward Eight" White
         contact_name: Absalom Jordan
         address: 2763 Martin Luther King Ave
@@ -1913,6 +2291,30 @@ Primary Election:
           Sierra Club DC Chapter: >-
             https://www.sierraclub.org/dc/sierra-club-endorses-robert-white-patrick-kennedy-janeese-lewis-george-vince-gray-and-trayon
           Washington Teachers' Union: 'https://www.wtulocal6.net/2020_endorsements'
+        committee_name: Re-Elect Trayon White 2020
+        committee_code: FEPCC8200038
+        registration_date: '2020-01-31T00:00:00Z'
+        registration_status: Active
+        certification_status: Certified
+        base_payment: 40000
+        base_amount_cap: 40000
+        matching_payment: 35500
+        match_cap: 241055
+        fair_election_payouts_total: 75500
+        total_remission: 0
+        base_pending_amount: 0
+        match_pending_amount: 205555
+        election_year: 2020
+        certification_status_code: CR
+        registration_status_code: A
+        total_approved_contributions: 9236.16
+        total_approved_contributors: 222
+        match_amount: 46180.8
+        allowed_pending_match_amount: 205555
+        total_reports_filed: 7
+        certification_date: null
+        achieved_ballot_access: true
+        certification_deadline: '2020-03-18T00:00:00Z'
       - candidate_name: Thomas Williams Jr.
         contact_name: Thomas Williams Jr.
         address: 2336 Irving St SE
@@ -2614,6 +3016,30 @@ Primary Election:
             title: A Republican Candidate Joins The Crowded Ward 2 Race
           - url: 'https://www.gwhatchet.com/2020/01/15/lone-republican-enters-race-to-succeed-jack-evans-as-councilmember/'
             title: Lone Republican enters race to succeed Jack Evans as councilmember
+        committee_name: Katherine For Ward 2
+        committee_code: FEPCC2200032
+        registration_date: '2020-01-24T00:00:00Z'
+        registration_status: Active
+        certification_status: Threshold not met
+        base_payment: 0
+        base_amount_cap: 40000
+        matching_payment: 0
+        match_cap: 241055
+        fair_election_payouts_total: 0
+        total_remission: 0
+        base_pending_amount: 40000
+        match_pending_amount: 241055
+        election_year: 2020
+        certification_status_code: TP
+        registration_status_code: A
+        total_approved_contributions: 0
+        total_approved_contributors: 0
+        match_amount: 0
+        allowed_pending_match_amount: 241055
+        total_reports_filed: 6
+        certification_date: null
+        achieved_ballot_access: true
+        certification_deadline: '2020-03-18T00:00:00Z'
     Council Ward 8:
       - candidate_name: Nate "Ward 8" Derenge
         contact_name: ''
@@ -3847,6 +4273,28 @@ General Election:
         contact_name: ''
         boe_pickup_date: 6/29/2020
         boe_filing_date: ''
+        committee_code: FEPCCL200013
+        registration_date: '2019-09-13T00:00:00Z'
+        registration_status: Active
+        certification_status: Certified
+        base_payment: 20000
+        base_amount_cap: 40000
+        matching_payment: 76170
+        match_cap: 308639
+        fair_election_payouts_total: 96170
+        total_remission: 0
+        base_pending_amount: 20000
+        match_pending_amount: 232469
+        certification_status_code: CR
+        registration_status_code: A
+        total_approved_contributions: 16154
+        total_approved_contributors: 357
+        match_amount: 80770
+        allowed_pending_match_amount: 232469
+        total_reports_filed: 6
+        certification_date: '2020-03-12T13:50:33.2Z'
+        achieved_ballot_access: false
+        certification_deadline: '2020-08-20T00:00:00Z'
       - committee_id: 4137
         first_name: Mario
         last_name: Cristaldo
@@ -3899,6 +4347,28 @@ General Election:
           - url: >-
               http://washingtonhispanic.com/portal/metro/mario-cristaldo-busca-un-puesto-como-concejal-de-washington-d-c/
             title: Mario Cristaldo busca un puesto como concejal de Washington D.C.
+        committee_code: FEPCCL200024
+        registration_date: '2019-12-23T00:00:00Z'
+        registration_status: Active
+        certification_status: Threshold not met
+        base_payment: 0
+        base_amount_cap: 40000
+        matching_payment: 0
+        match_cap: 308639
+        fair_election_payouts_total: 0
+        total_remission: 0
+        base_pending_amount: 40000
+        match_pending_amount: 308639
+        certification_status_code: TP
+        registration_status_code: A
+        total_approved_contributions: 1010
+        total_approved_contributors: 16
+        match_amount: 5050
+        allowed_pending_match_amount: 308639
+        total_reports_filed: 9
+        certification_date: null
+        achieved_ballot_access: false
+        certification_deadline: '2020-08-20T00:00:00Z'
       - committee_id: 4099
         first_name: Anthony
         last_name: Dale
@@ -3931,6 +4401,28 @@ General Election:
         neighborhood: Southwest Waterfront
         fair_elections: true
         withdrew: 7/18/2019
+        committee_code: FEPCCL200007
+        registration_date: '2019-06-28T00:00:00Z'
+        registration_status: Active
+        certification_status: Threshold not met
+        base_payment: 0
+        base_amount_cap: 40000
+        matching_payment: 0
+        match_cap: 308639
+        fair_election_payouts_total: 0
+        total_remission: 0
+        base_pending_amount: 40000
+        match_pending_amount: 308639
+        certification_status_code: TP
+        registration_status_code: A
+        total_approved_contributions: 0
+        total_approved_contributors: 0
+        match_amount: 0
+        allowed_pending_match_amount: 308639
+        total_reports_filed: 3
+        certification_date: null
+        achieved_ballot_access: false
+        certification_deadline: '2020-08-20T00:00:00Z'
       - committee_id: 4139
         first_name: Franklin
         last_name: Garcia
@@ -4008,6 +4500,28 @@ General Election:
         contact_name: ''
         boe_pickup_date: 6/12/2020
         boe_filing_date: ''
+        committee_code: FEPCCL200025
+        registration_date: '2020-01-03T00:00:00Z'
+        registration_status: Active
+        certification_status: Certified
+        base_payment: 0
+        base_amount_cap: 40000
+        matching_payment: 0
+        match_cap: 308639
+        fair_election_payouts_total: 0
+        total_remission: 0
+        base_pending_amount: 40000
+        match_pending_amount: 308639
+        certification_status_code: CR
+        registration_status_code: A
+        total_approved_contributions: 13557
+        total_approved_contributors: 329
+        match_amount: 67785
+        allowed_pending_match_amount: 308639
+        total_reports_filed: 6
+        certification_date: '2020-07-14T17:59:29.277Z'
+        achieved_ballot_access: false
+        certification_deadline: '2020-08-20T00:00:00Z'
       - committee_id: 4147
         first_name: Marcus
         last_name: Goodwin
@@ -4168,6 +4682,28 @@ General Election:
         contact_name: ''
         boe_pickup_date: 6/16/2020
         boe_filing_date: ''
+        committee_code: FEPCCL200021
+        registration_date: '2019-11-08T00:00:00Z'
+        registration_status: Active
+        certification_status: Certified
+        base_payment: 20000
+        base_amount_cap: 40000
+        matching_payment: 97494.65
+        match_cap: 308639
+        fair_election_payouts_total: 117494.65
+        total_remission: 0
+        base_pending_amount: 20000
+        match_pending_amount: 211144.35
+        certification_status_code: CR
+        registration_status_code: A
+        total_approved_contributions: 22278.93
+        total_approved_contributors: 372
+        match_amount: 111394.65
+        allowed_pending_match_amount: 211144.35
+        total_reports_filed: 9
+        certification_date: '2020-04-08T14:29:03.587Z'
+        achieved_ballot_access: false
+        certification_deadline: '2020-08-20T00:00:00Z'
       - candidate_name: Kathy Henderson
         contact_name: ''
         address: 1807 L St NE
@@ -4378,6 +4914,28 @@ General Election:
         contact_name: Ned Ertel
         boe_pickup_date: 6/25/2020
         boe_filing_date: 7/29/2020
+        committee_code: FEPCCL200017
+        registration_date: '2019-10-18T00:00:00Z'
+        registration_status: Active
+        certification_status: Certified
+        base_payment: 20000
+        base_amount_cap: 40000
+        matching_payment: 104190
+        match_cap: 308639
+        fair_election_payouts_total: 124190
+        total_remission: 0
+        base_pending_amount: 20000
+        match_pending_amount: 204449
+        certification_status_code: CR
+        registration_status_code: A
+        total_approved_contributions: 23438
+        total_approved_contributors: 368
+        match_amount: 117190
+        allowed_pending_match_amount: 204449
+        total_reports_filed: 11
+        certification_date: '2020-03-12T13:48:01.283Z'
+        achieved_ballot_access: true
+        certification_deadline: '2020-08-20T00:00:00Z'
       - candidate_name: Ed Lazere
         first_name: Ed
         last_name: Lazere
@@ -4407,6 +4965,29 @@ General Election:
             office: Council Chair
             result: Lost
             percent: 36
+        committee_name: Ed Lazere for DC Council At-Large
+        committee_code: FEPCCL200043
+        registration_date: '2020-03-17T00:00:00Z'
+        registration_status: Active
+        certification_status: Certified
+        base_payment: 0
+        base_amount_cap: 40000
+        matching_payment: 0
+        match_cap: 308639
+        fair_election_payouts_total: 0
+        total_remission: 0
+        base_pending_amount: 40000
+        match_pending_amount: 308639
+        certification_status_code: CR
+        registration_status_code: A
+        total_approved_contributions: 61727.8
+        total_approved_contributors: 1012
+        match_amount: 308639
+        allowed_pending_match_amount: 308639
+        total_reports_filed: 5
+        certification_date: null
+        achieved_ballot_access: false
+        certification_deadline: '2020-08-20T00:00:00Z'
       - committee_id: 4136
         first_name: Jeanné
         last_name: Lewis
@@ -4443,6 +5024,28 @@ General Election:
         contact_name: Bonard Molina
         boe_pickup_date: 6/18/2020
         boe_filing_date: ''
+        committee_code: FEPCCL200023
+        registration_date: '2019-12-15T00:00:00Z'
+        registration_status: Active
+        certification_status: Certified
+        base_payment: 0
+        base_amount_cap: 40000
+        matching_payment: 0
+        match_cap: 308639
+        fair_election_payouts_total: 0
+        total_remission: 0
+        base_pending_amount: 40000
+        match_pending_amount: 308639
+        certification_status_code: CR
+        registration_status_code: A
+        total_approved_contributions: 13066
+        total_approved_contributors: 276
+        match_amount: 65330
+        allowed_pending_match_amount: 308639
+        total_reports_filed: 14
+        certification_date: '2020-07-14T17:57:38.153Z'
+        achieved_ballot_access: false
+        certification_deadline: '2020-08-20T00:00:00Z'
       - first_name: Will
         last_name: Merrifield
         candidate_name: Will Merrifield
@@ -4468,6 +5071,29 @@ General Election:
         boe_pickup_date: 6/22/2020
         boe_filing_date: ''
         email: jamesgarlandbanks@gmail.com
+        committee_name: Will Merrifield for DC
+        committee_code: FEPCCL200041
+        registration_date: '2020-02-12T00:00:00Z'
+        registration_status: Active
+        certification_status: Certified
+        base_payment: 20000
+        base_amount_cap: 40000
+        matching_payment: 63050
+        match_cap: 308639
+        fair_election_payouts_total: 83050
+        total_remission: 0
+        base_pending_amount: 20000
+        match_pending_amount: 245589
+        certification_status_code: CR
+        registration_status_code: A
+        total_approved_contributions: 14475
+        total_approved_contributors: 355
+        match_amount: 72375
+        allowed_pending_match_amount: 245589
+        total_reports_filed: 4
+        certification_date: '2020-04-11T12:37:39.577Z'
+        achieved_ballot_access: false
+        certification_deadline: '2020-08-20T00:00:00Z'
       - committee_id: 14171
         first_name: Rick
         last_name: Murphree
@@ -4613,6 +5239,30 @@ General Election:
             office: Council At-Large
             result: Lost
             percent: 41
+        committee_name: Vincent Orange 2020
+        committee_code: FEPCCL200046
+        registration_date: '2020-06-22T00:00:00Z'
+        registration_status: Active
+        certification_status: Threshold not met
+        base_payment: 0
+        base_amount_cap: 40000
+        matching_payment: 0
+        match_cap: 308639
+        fair_election_payouts_total: 0
+        total_remission: 0
+        base_pending_amount: 40000
+        match_pending_amount: 308639
+        election_year: 2020
+        certification_status_code: TP
+        registration_status_code: A
+        total_approved_contributions: 0
+        total_approved_contributors: 0
+        match_amount: 0
+        allowed_pending_match_amount: 308639
+        total_reports_filed: 0
+        certification_date: null
+        achieved_ballot_access: false
+        certification_deadline: '2020-08-20T00:00:00Z'
       - candidate_name: Alexander M. Padro
         contact_name: ''
         address: 1519 8th St NW
@@ -4735,6 +5385,29 @@ General Election:
         boe_pickup_date: 6/16/2020
         boe_filing_date: ''
         email: monica@monicafordc.com
+        committee_name: Monica Palacio for City Council
+        committee_code: FEPCCL200042
+        registration_date: '2020-02-18T00:00:00Z'
+        registration_status: Active
+        certification_status: Threshold not met
+        base_payment: 0
+        base_amount_cap: 40000
+        matching_payment: 0
+        match_cap: 308639
+        fair_election_payouts_total: 0
+        total_remission: 0
+        base_pending_amount: 40000
+        match_pending_amount: 308639
+        certification_status_code: TP
+        registration_status_code: A
+        total_approved_contributions: 12916
+        total_approved_contributors: 246
+        match_amount: 64580
+        allowed_pending_match_amount: 308639
+        total_reports_filed: 6
+        certification_date: null
+        achieved_ballot_access: false
+        certification_deadline: '2020-08-20T00:00:00Z'
       - committee_id: 4127
         first_name: Eric M.
         last_name: Rogers
@@ -4861,6 +5534,30 @@ General Election:
             result: Won
             percent: 50
         website: keithsilverfordc.com
+        committee_name: Keith Silver for DC
+        committee_code: FEPCCL200048
+        registration_date: '2020-07-07T00:00:00Z'
+        registration_status: Active
+        certification_status: Threshold not met
+        base_payment: 0
+        base_amount_cap: 40000
+        matching_payment: 0
+        match_cap: 308639
+        fair_election_payouts_total: 0
+        total_remission: 0
+        base_pending_amount: 40000
+        match_pending_amount: 308639
+        election_year: 2020
+        certification_status_code: TP
+        registration_status_code: A
+        total_approved_contributions: 0
+        total_approved_contributors: 0
+        match_amount: 0
+        allowed_pending_match_amount: 308639
+        total_reports_filed: 0
+        certification_date: null
+        achieved_ballot_access: false
+        certification_deadline: '2020-08-20T00:00:00Z'
     Council Ward 2:
       - candidate_name: Randy Downs
         contact_name: ''
@@ -4872,7 +5569,7 @@ General Election:
         email: randy@randyforward2.com
         first_name: Randy
         last_name: Downs
-        fair_elections: null
+        fair_elections: true
         neighborhood: Dupont Circle
         links:
           - url: 'https://www.washingtonblade.com/2020/07/22/gay-anc-member-enters-ward-2-d-c-council-race/'
@@ -4896,6 +5593,30 @@ General Election:
             office: ANC 2B05
             result: Won
             percent: 95
+        committee_name: Randy Downs for Ward 2
+        committee_code: FEPCC2200054
+        registration_date: '2020-07-21T00:00:00Z'
+        registration_status: Active
+        certification_status: Threshold not met
+        base_payment: 0
+        base_amount_cap: 40000
+        matching_payment: 0
+        match_cap: 241055
+        fair_election_payouts_total: 0
+        total_remission: 0
+        base_pending_amount: 40000
+        match_pending_amount: 241055
+        election_year: 2020
+        certification_status_code: TP
+        registration_status_code: A
+        total_approved_contributions: 0
+        total_approved_contributors: 0
+        match_amount: 0
+        allowed_pending_match_amount: 241055
+        total_reports_filed: 0
+        certification_date: null
+        achieved_ballot_access: false
+        certification_deadline: '2020-08-20T00:00:00Z'
       - candidate_name: Martín Miguel Fernandez
         contact_name: ''
         address: PO Box 34234
@@ -4915,6 +5636,30 @@ General Election:
         links:
           - url: 'https://dcist.com/story/20/06/19/martin-miguel-fernandez-running-ward-2-dc-council/'
             title: A Nonprofit Worker Is Mounting An Independent Challenge To Brooke Pinto For The Ward 2 Seat
+        committee_name: Martin for Ward 2
+        committee_code: FEPCC2200045
+        registration_date: '2020-06-17T00:00:00Z'
+        registration_status: Active
+        certification_status: Threshold not met
+        base_payment: 0
+        base_amount_cap: 40000
+        matching_payment: 0
+        match_cap: 241055
+        fair_election_payouts_total: 0
+        total_remission: 0
+        base_pending_amount: 40000
+        match_pending_amount: 241055
+        election_year: 2020
+        certification_status_code: TP
+        registration_status_code: A
+        total_approved_contributions: 0
+        total_approved_contributors: 0
+        match_amount: 0
+        allowed_pending_match_amount: 241055
+        total_reports_filed: 0
+        certification_date: null
+        achieved_ballot_access: false
+        certification_deadline: '2020-08-20T00:00:00Z'
     Council Ward 8:
       - committee_id: 4123
         first_name: Christopher
@@ -4948,6 +5693,28 @@ General Election:
         contact_name: Shawnta Hall
         boe_pickup_date: 6/12/2020
         boe_filing_date: ''
+        committee_code: FEPCC8200019
+        registration_date: '2019-10-30T00:00:00Z'
+        registration_status: Active
+        certification_status: Threshold not met
+        base_payment: 0
+        base_amount_cap: 40000
+        matching_payment: 0
+        match_cap: 241055
+        fair_election_payouts_total: 0
+        total_remission: 0
+        base_pending_amount: 40000
+        match_pending_amount: 241055
+        certification_status_code: TP
+        registration_status_code: A
+        total_approved_contributions: 205
+        total_approved_contributors: 5
+        match_amount: 1025
+        allowed_pending_match_amount: 241055
+        total_reports_filed: 6
+        certification_date: null
+        achieved_ballot_access: false
+        certification_deadline: '2020-08-20T00:00:00Z'
       - committee_id: 14185
         first_name: Fred
         last_name: Hill
@@ -5033,7 +5800,7 @@ General Election:
         name: Ms. Fria Moore
         filing_date: 07/22/2020
       - committee_id: 4112
-        first_name: Taurus
+        first_name: Taurus Douglas
         last_name: Phillips
         candidate_key: CANCC8207114
         committee_key: ''
@@ -5063,6 +5830,28 @@ General Election:
         website: ''
         fair_elections: true
         neighborhood: null
+        committee_code: FEPCC8200011
+        registration_date: '2019-09-11T00:00:00Z'
+        registration_status: Active
+        certification_status: Threshold not met
+        base_payment: 0
+        base_amount_cap: 40000
+        matching_payment: 0
+        match_cap: 241055
+        fair_election_payouts_total: 0
+        total_remission: 0
+        base_pending_amount: 40000
+        match_pending_amount: 241055
+        certification_status_code: TP
+        registration_status_code: A
+        total_approved_contributions: 0
+        total_approved_contributors: 0
+        match_amount: 0
+        allowed_pending_match_amount: 241055
+        total_reports_filed: 3
+        certification_date: null
+        achieved_ballot_access: false
+        certification_deadline: '2020-08-20T00:00:00Z'
       - candidate_name: Ryan Washington
         contact_name: ''
         address: 3404 23rd St SE
@@ -5186,6 +5975,34 @@ General Election:
         fair_elections: null
   Nonpartisan:
     SBOE At-Large:
+      - committee_name: Boston for State Board of Education At-Large
+        committee_code: FEPSBL200026
+        candidate_name: Charles Otto Boston
+        registration_date: '2020-01-03T00:00:00Z'
+        registration_status: Active
+        certification_status: Threshold not met
+        base_payment: 0
+        base_amount_cap: 10000
+        matching_payment: 0
+        match_cap: 21877
+        fair_election_payouts_total: 0
+        total_remission: 0
+        base_pending_amount: 10000
+        match_pending_amount: 21877
+        election_year: 2020
+        certification_status_code: TP
+        registration_status_code: A
+        total_approved_contributions: 0
+        total_approved_contributors: 0
+        match_amount: 0
+        allowed_pending_match_amount: 21877
+        total_reports_filed: 3
+        certification_date: null
+        achieved_ballot_access: false
+        certification_deadline: '2020-08-20T00:00:00Z'
+        fair_elections: true
+        first_name: Charles Otto
+        last_name: Boston
       - candidate_name: Dorothy Douglas
         contact_name: ''
         address: 4401 Minnesota Ave NE
@@ -5368,6 +6185,30 @@ General Election:
         fair_elections: true
         neighborhood: River Terrace
         twitter: mysikix
+        committee_name: The Committee to Elect Mysiki Valentine
+        committee_code: FEPSBL200052
+        registration_date: '2020-07-13T00:00:00Z'
+        registration_status: Active
+        certification_status: Threshold not met
+        base_payment: 0
+        base_amount_cap: 10000
+        matching_payment: 0
+        match_cap: 21877
+        fair_election_payouts_total: 0
+        total_remission: 0
+        base_pending_amount: 10000
+        match_pending_amount: 21877
+        election_year: 2020
+        certification_status_code: TP
+        registration_status_code: A
+        total_approved_contributions: 0
+        total_approved_contributors: 0
+        match_amount: 0
+        allowed_pending_match_amount: 21877
+        total_reports_filed: 0
+        certification_date: null
+        achieved_ballot_access: false
+        certification_deadline: '2020-08-20T00:00:00Z'
     SBOE Ward 2:
       - candidate_name: Jamaal T. Burton
         contact_name: ''
@@ -5463,6 +6304,30 @@ General Election:
             office: SBOE Ward 4
             result: Won
             percent: 46
+        committee_name: Frazier for Ward 4
+        committee_code: FEPSD4200044
+        registration_date: '2020-06-17T00:00:00Z'
+        registration_status: Active
+        certification_status: Threshold not met
+        base_payment: 0
+        base_amount_cap: 10000
+        matching_payment: 0
+        match_cap: 14006
+        fair_election_payouts_total: 0
+        total_remission: 0
+        base_pending_amount: 10000
+        match_pending_amount: 14006
+        election_year: 2020
+        certification_status_code: TP
+        registration_status_code: A
+        total_approved_contributions: 0
+        total_approved_contributors: 0
+        match_amount: 0
+        allowed_pending_match_amount: 14006
+        total_reports_filed: 1
+        certification_date: null
+        achieved_ballot_access: false
+        certification_deadline: '2020-08-20T00:00:00Z'
     SBOE Ward 7:
       - committee_id: 4121
         first_name: Charles
@@ -5498,6 +6363,28 @@ General Election:
         contact_name: ''
         boe_pickup_date: 6/16/2020
         boe_filing_date: ''
+        committee_code: FEPSD7200014
+        registration_date: '2019-09-19T00:00:00Z'
+        registration_status: Active
+        certification_status: Threshold not met
+        base_payment: 0
+        base_amount_cap: 10000
+        matching_payment: 0
+        match_cap: 14006
+        fair_election_payouts_total: 0
+        total_remission: 0
+        base_pending_amount: 10000
+        match_pending_amount: 14006
+        certification_status_code: TP
+        registration_status_code: A
+        total_approved_contributions: 0
+        total_approved_contributors: 0
+        match_amount: 0
+        allowed_pending_match_amount: 14006
+        total_reports_filed: 4
+        certification_date: null
+        achieved_ballot_access: false
+        certification_deadline: '2020-08-20T00:00:00Z'
       - committee_id: 4122
         first_name: Tyrell
         last_name: Holcomb
@@ -5547,6 +6434,28 @@ General Election:
             result: Won
             percent: 96
         fair_elections: true
+        committee_code: FEPSD7200018
+        registration_date: '2019-10-22T00:00:00Z'
+        registration_status: Active
+        certification_status: Threshold not met
+        base_payment: 0
+        base_amount_cap: 10000
+        matching_payment: 0
+        match_cap: 14006
+        fair_election_payouts_total: 0
+        total_remission: 0
+        base_pending_amount: 10000
+        match_pending_amount: 14006
+        certification_status_code: TP
+        registration_status_code: A
+        total_approved_contributions: 0
+        total_approved_contributors: 0
+        match_amount: 0
+        allowed_pending_match_amount: 14006
+        total_reports_filed: 0
+        certification_date: null
+        achieved_ballot_access: false
+        certification_deadline: '2020-08-20T00:00:00Z'
       - candidate_name: Dontrell Smith
         contact_name: ''
         address: 5408 E St SE
@@ -5559,6 +6468,30 @@ General Election:
         last_name: Smith
         fair_elections: true
         neighborhood: Marshall Heights
+        committee_name: Committee to Elect Dontrell Smith
+        committee_code: FEPSD7200049
+        registration_date: '2020-07-09T00:00:00Z'
+        registration_status: Active
+        certification_status: Threshold not met
+        base_payment: 0
+        base_amount_cap: 10000
+        matching_payment: 0
+        match_cap: 14006
+        fair_election_payouts_total: 0
+        total_remission: 0
+        base_pending_amount: 10000
+        match_pending_amount: 14006
+        election_year: 2020
+        certification_status_code: TP
+        registration_status_code: A
+        total_approved_contributions: 0
+        total_approved_contributors: 0
+        match_amount: 0
+        allowed_pending_match_amount: 14006
+        total_reports_filed: 0
+        certification_date: null
+        achieved_ballot_access: false
+        certification_deadline: '2020-08-20T00:00:00Z'
       - candidate_name: Patricia Stamper
         contact_name: ''
         address: 4907 Just St NE
@@ -5572,6 +6505,30 @@ General Election:
         fair_elections: true
         neighborhood: Deanwood
         withdrew: 7/27/2020
+        committee_name: Friends of Patricia Stamper
+        committee_code: FEPSD7200050
+        registration_date: '2020-07-08T00:00:00Z'
+        registration_status: Active
+        certification_status: Threshold not met
+        base_payment: 0
+        base_amount_cap: 10000
+        matching_payment: 0
+        match_cap: 14006
+        fair_election_payouts_total: 0
+        total_remission: 0
+        base_pending_amount: 10000
+        match_pending_amount: 14006
+        election_year: 2020
+        certification_status_code: TP
+        registration_status_code: A
+        total_approved_contributions: 0
+        total_approved_contributors: 0
+        match_amount: 0
+        allowed_pending_match_amount: 14006
+        total_reports_filed: 0
+        certification_date: null
+        achieved_ballot_access: false
+        certification_deadline: '2020-08-20T00:00:00Z'
       - candidate_name: Eboni-Rose Thompson
         contact_name: ''
         address: 4520 Texas Ave SE
@@ -5582,7 +6539,7 @@ General Election:
         email: ebonirose@gmail.com
         first_name: Eboni-Rose
         last_name: Thompson
-        fair_elections: null
+        fair_elections: true
         neighborhood: Benning Ridge
         twitter: Eboni_RoseT
         website: ebonirosedc.com
@@ -5600,6 +6557,30 @@ General Election:
             office: ANC 7F02
             result: Won
             percent: 93
+        committee_name: Committee to Elect Eboni Rose Thompson for DC SBOE Ward 7
+        committee_code: FEPSD7200053
+        registration_date: '2020-07-17T00:00:00Z'
+        registration_status: Active
+        certification_status: Threshold not met
+        base_payment: 0
+        base_amount_cap: 10000
+        matching_payment: 0
+        match_cap: 14006
+        fair_election_payouts_total: 0
+        total_remission: 0
+        base_pending_amount: 10000
+        match_pending_amount: 14006
+        election_year: 2020
+        certification_status_code: TP
+        registration_status_code: A
+        total_approved_contributions: 0
+        total_approved_contributors: 0
+        match_amount: 0
+        allowed_pending_match_amount: 14006
+        total_reports_filed: 0
+        certification_date: null
+        achieved_ballot_access: false
+        certification_deadline: '2020-08-20T00:00:00Z'
       - candidate_name: Karen Williams
         contact_name: ''
         address: 2914 W St SE
@@ -5629,6 +6610,30 @@ General Election:
             office: SBOE Ward 7
             result: Won
             percent: 48
+        committee_name: Karen for 7 SBOE 2020
+        committee_code: FEPSD7200047
+        registration_date: '2020-06-30T00:00:00Z'
+        registration_status: Active
+        certification_status: Threshold not met
+        base_payment: 0
+        base_amount_cap: 10000
+        matching_payment: 0
+        match_cap: 14006
+        fair_election_payouts_total: 0
+        total_remission: 0
+        base_pending_amount: 10000
+        match_pending_amount: 14006
+        election_year: 2020
+        certification_status_code: TP
+        registration_status_code: A
+        total_approved_contributions: 0
+        total_approved_contributors: 0
+        match_amount: 0
+        allowed_pending_match_amount: 14006
+        total_reports_filed: 1
+        certification_date: null
+        achieved_ballot_access: false
+        certification_deadline: '2020-08-20T00:00:00Z'
     SBOE Ward 8:
       - committee_id: 4120
         first_name: Darrell
@@ -5706,6 +6711,28 @@ General Election:
             result: Won
             percent: 64
         fair_elections: true
+        committee_code: FEPSD8200015
+        registration_date: '2019-10-09T00:00:00Z'
+        registration_status: Active
+        certification_status: Threshold not met
+        base_payment: 0
+        base_amount_cap: 10000
+        matching_payment: 0
+        match_cap: 14006
+        fair_election_payouts_total: 0
+        total_remission: 0
+        base_pending_amount: 10000
+        match_pending_amount: 14006
+        certification_status_code: TP
+        registration_status_code: A
+        total_approved_contributions: 0
+        total_approved_contributors: 0
+        match_amount: 0
+        allowed_pending_match_amount: 14006
+        total_reports_filed: 4
+        certification_date: null
+        achieved_ballot_access: false
+        certification_deadline: '2020-08-20T00:00:00Z'
       - candidate_name: Joseph B. Johnson
         contact_name: ''
         address: PO Box 31563
@@ -5788,6 +6815,28 @@ General Election:
         instagram: carlenedreid
         twitter: CarleneDReid
         facebook: CarleneDReid
+        committee_code: FEPSD8200022
+        registration_date: '2019-11-14T00:00:00Z'
+        registration_status: Active
+        certification_status: Certified
+        base_payment: 5000
+        base_amount_cap: 10000
+        matching_payment: 7425
+        match_cap: 14006
+        fair_election_payouts_total: 12425
+        total_remission: 0
+        base_pending_amount: 5000
+        match_pending_amount: 6581
+        certification_status_code: CR
+        registration_status_code: A
+        total_approved_contributions: 1665
+        total_approved_contributors: 88
+        match_amount: 8325
+        allowed_pending_match_amount: 6581
+        total_reports_filed: 12
+        certification_date: '2020-03-12T13:50:14.8Z'
+        achieved_ballot_access: false
+        certification_deadline: '2020-08-20T00:00:00Z'
       - committee_id: 4124
         first_name: Carlene D.
         last_name: Reid
@@ -5832,6 +6881,30 @@ General Election:
         last_name: Washington
         fair_elections: true
         neighborhood: Shipley Terrace
+        committee_name: Washington for Ward 8 DC
+        committee_code: FEPSD8200051
+        registration_date: '2020-07-09T00:00:00Z'
+        registration_status: Active
+        certification_status: Threshold not met
+        base_payment: 0
+        base_amount_cap: 10000
+        matching_payment: 0
+        match_cap: 14006
+        fair_election_payouts_total: 0
+        total_remission: 0
+        base_pending_amount: 10000
+        match_pending_amount: 14006
+        election_year: 2020
+        certification_status_code: TP
+        registration_status_code: A
+        total_approved_contributions: 0
+        total_approved_contributors: 0
+        match_amount: 0
+        allowed_pending_match_amount: 14006
+        total_reports_filed: 0
+        certification_date: null
+        achieved_ballot_access: false
+        certification_deadline: '2020-08-20T00:00:00Z'
   OTH:
     President:
       - candidate_name: Gloria La Riva
@@ -6002,6 +7075,28 @@ Special Election:
             title: Ward 2 Candidate Jack Evans Has A New Ethics Statement and a New Campaign Website
           - url: 'https://thehoya.com/evans-drops-out-of-special-election-will-remain-in-primary/'
             title: 'Evans Drops Out of DC Council Special Election, Will Remain in Primary'
+        committee_code: FEPCC2200036
+        registration_date: '2020-01-30T00:00:00Z'
+        registration_status: Active
+        certification_status: Threshold not met
+        base_payment: 0
+        base_amount_cap: 40000
+        matching_payment: 0
+        match_cap: 241055
+        fair_election_payouts_total: 0
+        total_remission: 0
+        base_pending_amount: 40000
+        match_pending_amount: 241055
+        certification_status_code: TP
+        registration_status_code: A
+        total_approved_contributions: 100
+        total_approved_contributors: 2
+        match_amount: 500
+        allowed_pending_match_amount: 241055
+        total_reports_filed: 4
+        certification_date: null
+        achieved_ballot_access: false
+        certification_deadline: '2020-03-18T00:00:00Z'
       - candidate_name: John Fanning
         contact_name: Bill Brown 1418
         address: 14th St NW
@@ -6010,7 +7105,7 @@ Special Election:
         boe_pickup_date: 1/15/2020
         boe_filing_date: 2/10/2020
         email: fanningforward2@gmail.com
-        first_name: John
+        first_name: John J.
         last_name: Fanning
         fair_elections: true
         neighborhood: null
@@ -6088,6 +7183,30 @@ Special Election:
         endorsements:
           DC Latino Caucus: >-
             http://www.dclc.org/dc-latino-caucus-announces-candidate-endorsements-in-the-dc-june-2-2020-democratic-primary/
+        committee_name: Fanning for Ward 2 Special Election
+        committee_code: FEPCC2200031
+        registration_date: '2020-01-15T00:00:00Z'
+        registration_status: Active
+        certification_status: Certified
+        base_payment: 0
+        base_amount_cap: 40000
+        matching_payment: 0
+        match_cap: 241055
+        fair_election_payouts_total: 0
+        total_remission: 0
+        base_pending_amount: 40000
+        match_pending_amount: 241055
+        election_year: 2020
+        certification_status_code: CR
+        registration_status_code: A
+        total_approved_contributions: 6924.2
+        total_approved_contributors: 186
+        match_amount: 34621
+        allowed_pending_match_amount: 241055
+        total_reports_filed: 8
+        certification_date: '2020-07-14T17:59:14.917Z'
+        achieved_ballot_access: true
+        certification_deadline: '2020-03-18T00:00:00Z'
       - committee_id: 4144
         first_name: Jordan
         last_name: Grossman
@@ -6165,6 +7284,28 @@ Special Election:
           United Food and Commercial Workers Local 400: 'https://twitter.com/UFCW400/status/1261301715229433856'
           US Senator Amy Klobuchar: 'https://jordanforward2.com/u-s-senator-amy-klobuchar-endorses-jordan-grossman-for-ward-2-dc-councilmember/'
           Washington Teachers' Union: 'https://www.wtulocal6.net/2020_endorsements'
+        committee_code: FEPCC2200028
+        registration_date: '2020-01-13T00:00:00Z'
+        registration_status: Active
+        certification_status: Certified
+        base_payment: 40000
+        base_amount_cap: 40000
+        matching_payment: 49941.35
+        match_cap: 241055
+        fair_election_payouts_total: 89941.35
+        total_remission: 0
+        base_pending_amount: 0
+        match_pending_amount: 191113.65
+        certification_status_code: CR
+        registration_status_code: A
+        total_approved_contributions: 10501.46
+        total_approved_contributors: 260
+        match_amount: 52507.3
+        allowed_pending_match_amount: 191113.65
+        total_reports_filed: 7
+        certification_date: null
+        achieved_ballot_access: true
+        certification_deadline: '2020-03-18T00:00:00Z'
       - committee_id: 14148
         first_name: Patrick
         last_name: Kennedy
@@ -6267,6 +7408,28 @@ Special Election:
           Mid-Atlantic Pipe Trades Association: 'https://www.facebook.com/MidAtlanticpipetrades/photos/a.3645882475482427/3645882695482405/'
           Sierra Club DC Chapter: >-
             https://www.sierraclub.org/dc/sierra-club-endorses-robert-white-patrick-kennedy-janeese-lewis-george-vince-gray-and-trayon
+        committee_code: FEPCC2200029
+        registration_date: '2020-01-17T00:00:00Z'
+        registration_status: Active
+        certification_status: Certified
+        base_payment: 40000
+        base_amount_cap: 40000
+        matching_payment: 38430
+        match_cap: 241055
+        fair_election_payouts_total: 78430
+        total_remission: 0
+        base_pending_amount: 0
+        match_pending_amount: 202625
+        certification_status_code: CR
+        registration_status_code: A
+        total_approved_contributions: 9018.5
+        total_approved_contributors: 203
+        match_amount: 45092.5
+        allowed_pending_match_amount: 202625
+        total_reports_filed: 6
+        certification_date: null
+        achieved_ballot_access: true
+        certification_deadline: '2020-03-18T00:00:00Z'
       - candidate_name: Brooke Pinto
         contact_name: ''
         address: 1219 Q St NW
@@ -6366,6 +7529,30 @@ Special Election:
             office: ANC 2E01
             result: Won
             percent: 68
+        committee_name: Kishan Putta for Ward 2 Special Election 2020
+        committee_code: FEPCC2200034
+        registration_date: '2020-01-21T00:00:00Z'
+        registration_status: Active
+        certification_status: Certified
+        base_payment: 40000
+        base_amount_cap: 40000
+        matching_payment: 34709.7
+        match_cap: 241055
+        fair_election_payouts_total: 74709.7
+        total_remission: 0
+        base_pending_amount: 0
+        match_pending_amount: 206345.3
+        election_year: 2020
+        certification_status_code: CR
+        registration_status_code: A
+        total_approved_contributions: 10996.94
+        total_approved_contributors: 308
+        match_amount: 54984.7
+        allowed_pending_match_amount: 206345.3
+        total_reports_filed: 7
+        certification_date: null
+        achieved_ballot_access: true
+        certification_deadline: '2020-03-18T00:00:00Z'
       - candidate_name: Yilin (Ellen) Zhang
         contact_name: P.O. Box
         address: '2100 Connecticut Ave NW #103'
@@ -6425,3 +7612,27 @@ Special Election:
             title: A Republican Candidate Joins The Crowded Ward 2 Race
           - url: 'https://www.gwhatchet.com/2020/01/15/lone-republican-enters-race-to-succeed-jack-evans-as-councilmember/'
             title: Lone Republican enters race to succeed Jack Evans as councilmember
+        committee_name: Katherine For Ward 2 Special
+        committee_code: FEPCC2200033
+        registration_date: '2020-01-24T00:00:00Z'
+        registration_status: Active
+        certification_status: Threshold not met
+        base_payment: 0
+        base_amount_cap: 40000
+        matching_payment: 0
+        match_cap: 241055
+        fair_election_payouts_total: 0
+        total_remission: 0
+        base_pending_amount: 40000
+        match_pending_amount: 241055
+        election_year: 2020
+        certification_status_code: TP
+        registration_status_code: A
+        total_approved_contributions: 0
+        total_approved_contributors: 0
+        match_amount: 0
+        allowed_pending_match_amount: 241055
+        total_reports_filed: 3
+        certification_date: null
+        achieved_ballot_access: true
+        certification_deadline: '2020-03-18T00:00:00Z'

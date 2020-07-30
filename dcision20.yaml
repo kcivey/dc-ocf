@@ -4377,7 +4377,7 @@ General Election:
         fair_elections: true
         contact_name: Ned Ertel
         boe_pickup_date: 6/25/2020
-        boe_filing_date: ''
+        boe_filing_date: 7/29/2020
       - candidate_name: Ed Lazere
         first_name: Ed
         last_name: Lazere
@@ -5130,7 +5130,7 @@ General Election:
         zip: '20002'
         phone: 202-304-7982
         boe_pickup_date: 6/15/2020
-        boe_filing_date: ''
+        boe_filing_date: 7/29/2020
         email: omusa@fastmail.com
         first_name: Omari
         last_name: Musa
@@ -5748,11 +5748,46 @@ General Election:
         neighborhood: Congress Heights
         contact_name: ''
         boe_pickup_date: 6/17/2020
-        boe_filing_date: ''
+        boe_filing_date: 7/29/2020
         website: lajoylaw2020.com
         instagram: lajoylaw
         facebook: LajoyLaw2020
         twitter: LaJoyLaw1
+      - committee_id: 4135
+        first_name: Carlene
+        last_name: Reid
+        candidate_key: CANNON207130
+        committee_key: ''
+        election_year: 2020
+        candidate_approved: true
+        committee_approved: false
+        termination_approved: false
+        candidate_name: Carlene Reid
+        committee_name: Let's Reid 2020
+        id: 5060
+        name: Dr. Carlene Daisy Reid
+        address: 1922 15th St SE
+        filing_date: 12/20/2019
+        phone: (202) 618-0525
+        email: creidsboe@gmail.com
+        committee_address: '1922 15th Street, SE, Washington, DC 20020'
+        committee_phone: (202) 618-0525
+        treasurer_name: ''
+        treasurer_phone: ''
+        treasurer_email: ''
+        chairperson_name: ''
+        chair_phone: ''
+        chair_email: ''
+        zip: '20020'
+        fair_elections: true
+        neighborhood: Anacostia
+        contact_name: ''
+        boe_pickup_date: 6/17/2020
+        boe_filing_date: 7/17/2020
+        website: letsreid.com
+        instagram: carlenedreid
+        twitter: CarleneDReid
+        facebook: CarleneDReid
       - committee_id: 4124
         first_name: Carlene D.
         last_name: Reid
@@ -5785,41 +5820,6 @@ General Election:
         contact_name: ''
         boe_pickup_date: 6/17/2020
         boe_filing_date: 7/17/2020
-      - committee_id: 4135
-        first_name: Carlene D.
-        last_name: Reid
-        candidate_key: CANNON207130
-        committee_key: ''
-        election_year: 2020
-        candidate_approved: true
-        committee_approved: false
-        termination_approved: false
-        candidate_name: Carlene Reid
-        committee_name: Let's Reid 2020
-        id: 5060
-        name: Dr. Carlene Daisy Reid
-        address: PO Box 31503
-        filing_date: 12/20/2019
-        phone: 202-618-0525
-        email: info@letsreid.com
-        committee_address: '1922 15th Street, SE, Washington, DC 20020'
-        committee_phone: (202) 618-0525
-        treasurer_name: ''
-        treasurer_phone: ''
-        treasurer_email: ''
-        chairperson_name: ''
-        chair_phone: ''
-        chair_email: ''
-        zip: '20030'
-        fair_elections: true
-        neighborhood: Anacostia
-        contact_name: ''
-        boe_pickup_date: 6/17/2020
-        boe_filing_date: 7/17/2020
-        website: letsreid.com
-        instagram: carlenedreid
-        twitter: CarleneDReid
-        facebook: CarleneDReid
       - candidate_name: Ryan Washington
         contact_name: ''
         address: 2609 Douglass Rd SE

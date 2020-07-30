@@ -35,6 +35,7 @@ const partyAbbr = {
     STG: 'StG',
     STHG: 'StG',
     IND: 'Ind',
+    OTH: 'Oth',
     'N/A': '',
 };
 const abbrParty = {};

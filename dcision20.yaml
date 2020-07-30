@@ -5973,6 +5973,19 @@ General Election:
         zip: '20004'
         neighborhood: Downtown
         fair_elections: null
+    President:
+      - candidate_name: Gloria La Riva
+        contact_name: ''
+        address: 3207 Mission St San Francisco CA
+        zip: '94110'
+        phone: 415-312-6042
+        boe_pickup_date: 7/8/2020
+        boe_filing_date: ''
+        email: info@larivapeltier2020.org
+        first_name: Gloria La
+        last_name: Riva
+        fair_elections: null
+        neighborhood: null
   Nonpartisan:
     SBOE At-Large:
       - committee_name: Boston for State Board of Education At-Large
@@ -6905,20 +6918,6 @@ General Election:
         certification_date: null
         achieved_ballot_access: false
         certification_deadline: '2020-08-20T00:00:00Z'
-  OTH:
-    President:
-      - candidate_name: Gloria La Riva
-        contact_name: ''
-        address: 3207 Mission St San Francisco CA
-        zip: '94110'
-        phone: 415-312-6042
-        boe_pickup_date: 7/8/2020
-        boe_filing_date: ''
-        email: info@larivapeltier2020.org
-        first_name: Gloria La
-        last_name: Riva
-        fair_elections: null
-        neighborhood: null
 Special Election:
   Democratic:
     Council Ward 2:

@@ -418,7 +418,8 @@ function writeHtml(records) {
                     )
                     .sort(function (a, b) {
                         return a.last_name.localeCompare(b.last_name) ||
-                            a.first_name.localeCompare(b.first_name);
+                            a.first_name.localeCompare(b.first_name) ||
+                            (a.committee_id - b.committee_id);
                     });
                 if (election !== generalName) {
                     if (!recordsByElection[generalName]) {

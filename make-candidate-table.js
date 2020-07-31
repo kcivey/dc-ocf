@@ -294,17 +294,19 @@ function combineRecords(records, newRecords) {
                 }
                 for (const candidate of candidates) {
                     const first = getFirstName(candidate.first_name);
-                    const existingCandidate = records[electionDescription][party][office].find(function (r) {
-                        const existingFirst = getFirstName(r.first_name);
-                        return (r.committee_name && candidate.committee_name &&
-                            r.committee_name === candidate.committee_name) ||
-                            (
-                                r.last_name === candidate.last_name &&
-                                existingFirst === first &&
-                                (!r.committee_id || !candidate.committee_id ||
-                                    r.committee_id === candidate.committee_id)
-                            );
-                    });
+                    const existingCandidate = records[electionDescription][party][office]
+                        .filter(function (r) {
+                            const existingFirst = getFirstName(r.first_name);
+                            return (r.committee_name && candidate.committee_name &&
+                                r.committee_name === candidate.committee_name) ||
+                                (
+                                    r.last_name === candidate.last_name &&
+                                    existingFirst === first &&
+                                    (!r.committee_id || !candidate.committee_id ||
+                                        r.committee_id === candidate.committee_id)
+                                );
+                        })
+                        .sort((a, b) => a.termination_approved - b.termination_approved)[0]; // prefer committees that aren't shut down
                     if (existingCandidate) {
                         if (candidate.fair_elections == null) { // eslint-disable-line max-depth
                             delete candidate.fair_elections;

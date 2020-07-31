@@ -4361,9 +4361,9 @@ General Election:
         match_pending_amount: 308639
         certification_status_code: TP
         registration_status_code: A
-        total_approved_contributions: 1010
-        total_approved_contributors: 16
-        match_amount: 5050
+        total_approved_contributions: 1110
+        total_approved_contributors: 17
+        match_amount: 5550
         allowed_pending_match_amount: 308639
         total_reports_filed: 9
         certification_date: null
@@ -4696,9 +4696,9 @@ General Election:
         match_pending_amount: 211144.35
         certification_status_code: CR
         registration_status_code: A
-        total_approved_contributions: 22278.93
-        total_approved_contributors: 372
-        match_amount: 111394.65
+        total_approved_contributions: 25641
+        total_approved_contributors: 423
+        match_amount: 128205
         allowed_pending_match_amount: 211144.35
         total_reports_filed: 9
         certification_date: '2020-04-08T14:29:03.587Z'
@@ -4928,9 +4928,9 @@ General Election:
         match_pending_amount: 204449
         certification_status_code: CR
         registration_status_code: A
-        total_approved_contributions: 23438
-        total_approved_contributors: 368
-        match_amount: 117190
+        total_approved_contributions: 24188
+        total_approved_contributors: 377
+        match_amount: 120940
         allowed_pending_match_amount: 204449
         total_reports_filed: 11
         certification_date: '2020-03-12T13:48:01.283Z'
@@ -5038,9 +5038,9 @@ General Election:
         match_pending_amount: 308639
         certification_status_code: CR
         registration_status_code: A
-        total_approved_contributions: 13066
-        total_approved_contributors: 276
-        match_amount: 65330
+        total_approved_contributions: 13771
+        total_approved_contributors: 293
+        match_amount: 68855
         allowed_pending_match_amount: 308639
         total_reports_filed: 14
         certification_date: '2020-07-14T17:57:38.153Z'
@@ -5389,7 +5389,7 @@ General Election:
         committee_code: FEPCCL200042
         registration_date: '2020-02-18T00:00:00Z'
         registration_status: Active
-        certification_status: Threshold not met
+        certification_status: Certified
         base_payment: 0
         base_amount_cap: 40000
         matching_payment: 0
@@ -5398,14 +5398,14 @@ General Election:
         total_remission: 0
         base_pending_amount: 40000
         match_pending_amount: 308639
-        certification_status_code: TP
+        certification_status_code: CR
         registration_status_code: A
-        total_approved_contributions: 12916
-        total_approved_contributors: 246
-        match_amount: 64580
+        total_approved_contributions: 13766
+        total_approved_contributors: 263
+        match_amount: 68830
         allowed_pending_match_amount: 308639
         total_reports_filed: 6
-        certification_date: null
+        certification_date: '2020-07-31T10:14:07.663Z'
         achieved_ballot_access: false
         certification_deadline: '2020-08-20T00:00:00Z'
       - committee_id: 4127
@@ -5895,7 +5895,7 @@ General Election:
         zip: '20008'
         phone: 202-437-7443
         boe_pickup_date: 6/14/2020
-        boe_filing_date: ''
+        boe_filing_date: 7/30/2020
         email: Dkrucoff@krucoffforcongress.com
         first_name: David
         last_name: Krucoff
@@ -6114,7 +6114,7 @@ General Election:
         zip: '20003'
         phone: 202-579-6046
         boe_pickup_date: 6/22/2020
-        boe_filing_date: ''
+        boe_filing_date: 7/30/2020
         email: VOTE4TROYDC@gmail.com
         first_name: Troy
         last_name: Murphy
@@ -6321,7 +6321,7 @@ General Election:
         committee_code: FEPSD4200044
         registration_date: '2020-06-17T00:00:00Z'
         registration_status: Active
-        certification_status: Threshold not met
+        certification_status: Certified
         base_payment: 0
         base_amount_cap: 10000
         matching_payment: 0
@@ -6331,14 +6331,14 @@ General Election:
         base_pending_amount: 10000
         match_pending_amount: 14006
         election_year: 2020
-        certification_status_code: TP
+        certification_status_code: CR
         registration_status_code: A
-        total_approved_contributions: 0
-        total_approved_contributors: 0
-        match_amount: 0
+        total_approved_contributions: 1340
+        total_approved_contributors: 67
+        match_amount: 6700
         allowed_pending_match_amount: 14006
         total_reports_filed: 1
-        certification_date: null
+        certification_date: '2020-07-31T10:14:41.133Z'
         achieved_ballot_access: false
         certification_deadline: '2020-08-20T00:00:00Z'
     SBOE Ward 7:
@@ -6627,7 +6627,7 @@ General Election:
         committee_code: FEPSD7200047
         registration_date: '2020-06-30T00:00:00Z'
         registration_status: Active
-        certification_status: Threshold not met
+        certification_status: Certified
         base_payment: 0
         base_amount_cap: 10000
         matching_payment: 0
@@ -6637,14 +6637,14 @@ General Election:
         base_pending_amount: 10000
         match_pending_amount: 14006
         election_year: 2020
-        certification_status_code: TP
+        certification_status_code: CR
         registration_status_code: A
-        total_approved_contributions: 0
-        total_approved_contributors: 0
-        match_amount: 0
+        total_approved_contributions: 1160
+        total_approved_contributors: 58
+        match_amount: 5800
         allowed_pending_match_amount: 14006
         total_reports_filed: 1
-        certification_date: null
+        certification_date: '2020-07-31T10:15:07.977Z'
         achieved_ballot_access: false
         certification_deadline: '2020-08-20T00:00:00Z'
     SBOE Ward 8:
@@ -6842,9 +6842,9 @@ General Election:
         match_pending_amount: 6581
         certification_status_code: CR
         registration_status_code: A
-        total_approved_contributions: 1665
-        total_approved_contributors: 88
-        match_amount: 8325
+        total_approved_contributions: 2005
+        total_approved_contributors: 105
+        match_amount: 10025
         allowed_pending_match_amount: 6581
         total_reports_filed: 12
         certification_date: '2020-03-12T13:50:14.8Z'

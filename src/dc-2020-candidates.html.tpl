@@ -161,7 +161,8 @@
                   </td>
                   <td>
                     <% if (c.website) { %>
-                      <a href="https://<%- c.website %>"><%- c.website %></a>
+                      <% var url = (/^https?:/.test(c.website) ? '' : 'https://') + c.website; %>
+                      <a href="<%- url %>"><%- c.website %></a>
                     <% } %>
                   </td>
                   <td>

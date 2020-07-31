@@ -2430,7 +2430,7 @@ Primary Election:
         fair_elections: false
         neighborhood: Cathedral Heights
         twitter: SenPaulStrauss
-        website: paulstrauss.org
+        website: 'http://paulstrauss.org'
         elections:
           - year: 1996
             election: Primary
@@ -2595,7 +2595,7 @@ Primary Election:
         fair_elections: false
         neighborhood: Douglas
         twitter: AdeoyeOwolewa
-        website: deoye.net
+        website: .oye4dc.com
         instagram: oye4dc
         elections:
           - year: 2018
@@ -4453,7 +4453,7 @@ General Election:
         fair_elections: true
         neighborhood: Woodridge
         twitter: fgarciadc
-        website: franklinfordc.com
+        website: 'http://franklinfordc.com'
         facebook: franklingarciadc
         instagram: fgarciadc
         youtube: DCiReporter
@@ -5020,7 +5020,7 @@ General Election:
         twitter: msjeannelewis
         facebook: jeanneatlarge
         instagram: msjeannelewis
-        website: jeannelewisatlarge.com
+        website: 'https://www.jeannelewisatlarge.com'
         contact_name: Bonard Molina
         boe_pickup_date: 6/18/2020
         boe_filing_date: ''
@@ -5294,7 +5294,7 @@ General Election:
         chairperson_name: Mr. Alex Padro
         chair_phone: (202) 518-3794
         chair_email: alex@alexpadro.com
-        website: alexpadro.com
+        website: 'http://alexpadro.com'
         twitter: alexandermpadro
         instagram: padroanc
         facebook: alexpadrodc
@@ -5365,7 +5365,7 @@ General Election:
         last_name: Palacio
         candidate_name: Mónica Palacio
         election_year: 2020
-        website: monicaforalldc.org
+        website: monicafordc.com
         instagram: mpforalldc
         twitter: Monicaforalldc
         facebook: MonicaForAllDC
@@ -6789,67 +6789,10 @@ General Election:
         contact_name: ''
         boe_pickup_date: 6/17/2020
         boe_filing_date: 7/29/2020
-        website: lajoylaw2020.com
+        website: 'http://lajoylaw2020.com'
         instagram: lajoylaw
         facebook: LajoyLaw2020
         twitter: LaJoyLaw1
-      - committee_id: 4135
-        first_name: Carlene
-        last_name: Reid
-        candidate_key: CANNON207130
-        committee_key: ''
-        election_year: 2020
-        candidate_approved: true
-        committee_approved: false
-        termination_approved: false
-        candidate_name: Carlene Reid
-        committee_name: Let's Reid 2020
-        id: 5060
-        name: Dr. Carlene Daisy Reid
-        address: 1922 15th St SE
-        filing_date: 12/20/2019
-        phone: (202) 618-0525
-        email: creidsboe@gmail.com
-        committee_address: '1922 15th Street, SE, Washington, DC 20020'
-        committee_phone: (202) 618-0525
-        treasurer_name: ''
-        treasurer_phone: ''
-        treasurer_email: ''
-        chairperson_name: ''
-        chair_phone: ''
-        chair_email: ''
-        zip: '20020'
-        fair_elections: true
-        neighborhood: Anacostia
-        contact_name: ''
-        boe_pickup_date: 6/17/2020
-        boe_filing_date: 7/17/2020
-        website: letsreid.com
-        instagram: carlenedreid
-        twitter: CarleneDReid
-        facebook: CarleneDReid
-        committee_code: FEPSD8200022
-        registration_date: '2019-11-14T00:00:00Z'
-        registration_status: Active
-        certification_status: Certified
-        base_payment: 5000
-        base_amount_cap: 10000
-        matching_payment: 7425
-        match_cap: 14006
-        fair_election_payouts_total: 12425
-        total_remission: 0
-        base_pending_amount: 5000
-        match_pending_amount: 6581
-        certification_status_code: CR
-        registration_status_code: A
-        total_approved_contributions: 2005
-        total_approved_contributors: 105
-        match_amount: 10025
-        allowed_pending_match_amount: 6581
-        total_reports_filed: 12
-        certification_date: '2020-03-12T13:50:14.8Z'
-        achieved_ballot_access: false
-        certification_deadline: '2020-08-20T00:00:00Z'
       - committee_id: 4124
         first_name: Carlene D.
         last_name: Reid
@@ -6882,6 +6825,63 @@ General Election:
         contact_name: ''
         boe_pickup_date: 6/17/2020
         boe_filing_date: 7/17/2020
+      - committee_id: 4135
+        first_name: Carlene D.
+        last_name: Reid
+        candidate_key: CANNON207130
+        committee_key: ''
+        election_year: 2020
+        candidate_approved: true
+        committee_approved: false
+        termination_approved: false
+        candidate_name: Carlene Reid
+        committee_name: Let's Reid 2020
+        id: 5060
+        name: Dr. Carlene Daisy Reid
+        address: PO Box 31503
+        filing_date: 12/20/2019
+        phone: 202-618-0525
+        email: info@letsreid.com
+        committee_address: '1922 15th Street, SE, Washington, DC 20020'
+        committee_phone: (202) 618-0525
+        treasurer_name: ''
+        treasurer_phone: ''
+        treasurer_email: ''
+        chairperson_name: ''
+        chair_phone: ''
+        chair_email: ''
+        zip: '20030'
+        fair_elections: true
+        neighborhood: Anacostia
+        contact_name: ''
+        boe_pickup_date: 6/17/2020
+        boe_filing_date: 7/17/2020
+        website: letsreid.com
+        instagram: carlenedreid
+        twitter: CarleneDReid
+        facebook: CarleneDReid
+        committee_code: FEPSD8200022
+        registration_date: '2019-11-14T00:00:00Z'
+        registration_status: Active
+        certification_status: Certified
+        base_payment: 5000
+        base_amount_cap: 10000
+        matching_payment: 7425
+        match_cap: 14006
+        fair_election_payouts_total: 12425
+        total_remission: 0
+        base_pending_amount: 5000
+        match_pending_amount: 6581
+        certification_status_code: CR
+        registration_status_code: A
+        total_approved_contributions: 2005
+        total_approved_contributors: 105
+        match_amount: 10025
+        allowed_pending_match_amount: 6581
+        total_reports_filed: 12
+        certification_date: '2020-03-12T13:50:14.8Z'
+        achieved_ballot_access: false
+        certification_deadline: '2020-08-20T00:00:00Z'
       - candidate_name: Ryan Washington
         contact_name: ''
         address: 2609 Douglass Rd SE

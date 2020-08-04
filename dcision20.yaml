@@ -4202,8 +4202,8 @@ General Election:
         contact_name: ''
         address: 230 Varnum St NE
         zip: '20011'
-        phone: 240-381-0937
-        boe_pickup_date: 7/10/2020
+        phone: ''
+        boe_pickup_date: ''
         boe_filing_date: ''
         email: cmbarragan@gmail.com
         first_name: Claudia
@@ -4499,7 +4499,7 @@ General Election:
             percent: 97
         contact_name: ''
         boe_pickup_date: 6/12/2020
-        boe_filing_date: ''
+        boe_filing_date: 8/3/2020
         committee_code: FEPCCL200025
         registration_date: '2020-01-03T00:00:00Z'
         registration_status: Active
@@ -4956,7 +4956,7 @@ General Election:
         zip: '20017'
         phone: 202-455-5386
         boe_pickup_date: 6/16/2020
-        boe_filing_date: ''
+        boe_filing_date: 8/3/2020
         email: jeremy@EdforDC.com
         elections:
           - year: 2018
@@ -5446,7 +5446,7 @@ General Election:
             title: 'D.C. ELECTION ROUNDUP: Rogers Seeks to Improve D.C. Neighborhoods'
         contact_name: ''
         boe_pickup_date: 6/17/2020
-        boe_filing_date: ''
+        boe_filing_date: 8/3/2020
       - candidate_name: Addison Sarter
         contact_name: ''
         address: 8224 West Beach Terr NW
@@ -5496,7 +5496,7 @@ General Election:
         zip: ''
         phone: 202-704-7389
         boe_pickup_date: 6/30/2020
-        boe_filing_date: ''
+        boe_filing_date: 8/3/
         email: keithsilverfordc@yahoo.com
         first_name: Keith
         last_name: Silver
@@ -6277,7 +6277,7 @@ General Election:
         zip: '20007'
         phone: 202-549-7070
         boe_pickup_date: 7/9/2020
-        boe_filing_date: ''
+        boe_filing_date: 8/3/2020
         email: chriseduward2@gmail.com
         first_name: Christopher
         last_name: Etesse
@@ -6572,7 +6572,7 @@ General Election:
         zip: '20019'
         phone: 202-460-3498
         boe_pickup_date: 7/15/2020
-        boe_filing_date: ''
+        boe_filing_date: 8/3/2020
         email: ebonirose@gmail.com
         first_name: Eboni-Rose
         last_name: Thompson
@@ -6663,11 +6663,11 @@ General Election:
         election_year: 2020
         certification_status_code: CR
         registration_status_code: A
-        total_approved_contributions: 1160
-        total_approved_contributors: 58
-        match_amount: 5800
+        total_approved_contributions: 0
+        total_approved_contributors: 0
+        match_amount: 0
         allowed_pending_match_amount: 14006
-        total_reports_filed: 1
+        total_reports_filed: 2
         certification_date: '2020-07-31T10:15:07.977Z'
         achieved_ballot_access: false
         certification_deadline: '2020-08-20T00:00:00Z'

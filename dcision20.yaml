@@ -2230,7 +2230,7 @@ Primary Election:
         total_approved_contributors: 0
         match_amount: 0
         allowed_pending_match_amount: 241055
-        total_reports_filed: 6
+        total_reports_filed: 7
         certification_date: null
         achieved_ballot_access: false
         certification_deadline: '2020-03-18T00:00:00Z'
@@ -6185,6 +6185,16 @@ General Election:
         fair_elections: null
         neighborhood: Parkside
         twitter: raviperry
+        committee_id: 0
+        candidate_key: CANSBL207193
+        election_year: 2020
+        candidate_approved: true
+        committee_approved: false
+        termination_approved: false
+        committee_name: Ravi Perry
+        id: 15137
+        name: Mr. Ravi K. Perry
+        filing_date: 08/03/2020
       - candidate_name: Mysiki Valentine
         contact_name: ''
         address: 3423 Eads St NE

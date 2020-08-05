@@ -5496,7 +5496,7 @@ General Election:
         zip: ''
         phone: 202-704-7389
         boe_pickup_date: 6/30/2020
-        boe_filing_date: 8/3/
+        boe_filing_date: 8/3/2020
         email: keithsilverfordc@yahoo.com
         first_name: Keith
         last_name: Silver
@@ -5692,7 +5692,7 @@ General Election:
         fair_elections: false
         contact_name: Shawnta Hall
         boe_pickup_date: 6/12/2020
-        boe_filing_date: ''
+        boe_filing_date: 8/4/2020
         committee_code: FEPCC8200019
         registration_date: '2019-10-30T00:00:00Z'
         registration_status: Active
@@ -5719,10 +5719,10 @@ General Election:
         first_name: Fred
         last_name: Hill
         candidate_key: CANCC8207185
-        committee_key: ''
+        committee_key: PCCCC8207185
         election_year: 2020
         candidate_approved: true
-        committee_approved: false
+        committee_approved: true
         termination_approved: false
         candidate_name: Frederick Hill
         committee_name: Fred 4 Ward 8
@@ -5734,14 +5734,14 @@ General Election:
         email: FredHill@gotta-gonow.com
         committee_address: '1730 S Street, SE, Washington, DC 20020'
         committee_phone: (202) 330-2211
-        treasurer_name: ''
-        treasurer_phone: ''
-        treasurer_email: ''
-        chairperson_name: ''
-        chair_phone: ''
-        chair_email: ''
+        treasurer_name: Mr. Fred Hill
+        treasurer_phone: (202) 330-2211
+        treasurer_email: fredhill@gotta-go-now.com
+        chairperson_name: Mr. Fred Hill
+        chair_phone: (202) 330-2211
+        chair_email: fredhill@gotta-go-now.com
         zip: '20020'
-        fair_elections: true
+        fair_elections: false
         neighborhood: Buena Vista
         contact_name: ''
         boe_pickup_date: 6/16/2020
@@ -5926,13 +5926,25 @@ General Election:
         fair_elections: false
         neighborhood: Near Northeast
     President:
+      - candidate_name: Brock Pierce
+        contact_name: ''
+        address: 00901
+        zip: ''
+        phone: 787-705-4360
+        boe_pickup_date: 8/4/2020
+        boe_filing_date: ''
+        email: info@brock.vote
+        first_name: Brock
+        last_name: Pierce
+        fair_elections: null
+        neighborhood: null
       - candidate_name: Gloria La Riva
         contact_name: Richard Becker
         address: '94110'
         zip: ''
         phone: 415-377-6321
         boe_pickup_date: 7/22/2020
-        boe_filing_date: ''
+        boe_filing_date: 8/3/2020
         email: info@larivapeltier2020.org
         first_name: Gloria La
         last_name: Riva
@@ -5951,6 +5963,16 @@ General Election:
         last_name: Syed
         fair_elections: false
         neighborhood: American University Park
+        committee_id: 0
+        candidate_key: CANREP207194
+        election_year: 2020
+        candidate_approved: true
+        committee_approved: false
+        termination_approved: false
+        committee_name: Sohaer Syed
+        id: 15138
+        name: Sohaer Rizvi Syed
+        filing_date: 08/05/2020
   Other:
     Council Ward 2:
       - committee_id: 0
@@ -6327,6 +6349,42 @@ General Election:
             office: ANC 2A08
             result: Won
             percent: Write-in
+        committee_name: James for Ward 2 State Board of Education
+        committee_code: FEPSD2200056
+        registration_date: '2020-07-24T00:00:00Z'
+        registration_status: Active
+        certification_status: Threshold not met
+        base_payment: 0
+        base_amount_cap: 10000
+        matching_payment: 0
+        match_cap: 14006
+        fair_election_payouts_total: 0
+        total_remission: 0
+        base_pending_amount: 10000
+        match_pending_amount: 14006
+        election_year: 2020
+        certification_status_code: TP
+        registration_status_code: A
+        total_approved_contributions: 0
+        total_approved_contributors: 0
+        match_amount: 0
+        allowed_pending_match_amount: 14006
+        total_reports_filed: 0
+        certification_date: null
+        achieved_ballot_access: false
+        certification_deadline: '2020-08-20T00:00:00Z'
+      - candidate_name: Sarah Mehrotra
+        contact_name: ''
+        address: 1801 18th St NW
+        zip: '20009'
+        phone: 203-313-7642
+        boe_pickup_date: 8/4/2020
+        boe_filing_date: ''
+        email: sarah.s.mehrotra@gmail.com
+        first_name: Sarah
+        last_name: Mehrotra
+        fair_elections: null
+        neighborhood: Dupont Circle
     SBOE Ward 4:
       - candidate_name: Frazier L. O'Leary Jr
         contact_name: ''
@@ -6409,7 +6467,7 @@ General Election:
         fair_elections: true
         contact_name: ''
         boe_pickup_date: 6/16/2020
-        boe_filing_date: ''
+        boe_filing_date: 8/4/2020
         committee_code: FEPSD7200014
         registration_date: '2019-09-19T00:00:00Z'
         registration_status: Active
@@ -6922,7 +6980,7 @@ General Election:
         zip: '20020'
         phone: 202-779-8311
         boe_pickup_date: 6/29/2020
-        boe_filing_date: ''
+        boe_filing_date: 8/4/2020
         email: washingtonfordc@gmail.com
         first_name: Ryan
         last_name: Washington

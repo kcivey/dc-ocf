@@ -1833,7 +1833,7 @@ Primary Election:
         committee_code: FEPCC8200016
         registration_date: '2019-10-10T00:00:00Z'
         registration_status: Active
-        certification_status: Threshold met and Certification Pending
+        certification_status: Threshold not met
         base_payment: 0
         base_amount_cap: 40000
         matching_payment: 0
@@ -1842,7 +1842,7 @@ Primary Election:
         total_remission: 0
         base_pending_amount: 40000
         match_pending_amount: 241055
-        certification_status_code: TM
+        certification_status_code: TP
         registration_status_code: A
         total_approved_contributions: 3966
         total_approved_contributors: 119
@@ -6448,7 +6448,7 @@ General Election:
         total_approved_contributors: 67
         match_amount: 6700
         allowed_pending_match_amount: 14006
-        total_reports_filed: 1
+        total_reports_filed: 2
         certification_date: '2020-07-31T10:14:41.133Z'
         achieved_ballot_access: false
         certification_deadline: '2020-08-20T00:00:00Z'
@@ -7025,7 +7025,7 @@ General Election:
         total_approved_contributors: 0
         match_amount: 0
         allowed_pending_match_amount: 14006
-        total_reports_filed: 0
+        total_reports_filed: 1
         certification_date: null
         achieved_ballot_access: false
         certification_deadline: '2020-08-20T00:00:00Z'

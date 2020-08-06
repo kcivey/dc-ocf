@@ -361,7 +361,7 @@ function printEmails(records) {
             for (const [office, candidates] of Object.entries(recordsByOffice)) {
                 console.log(office.toUpperCase());
                 for (const candidate of candidates) {
-                    if (omitCandidate(candidate, electionDescription)) {
+                    if (omitCandidate(candidate, electionDescription, party)) {
                         continue;
                     }
                     console.log(`${candidate.candidate_name} <${candidate.email}>`);
@@ -402,7 +402,7 @@ function writeHtml(records) {
                 recordsByElection[election][office] = recordsByElection[election][office]
                     .concat(
                         candidates
-                            .filter(c => !omitCandidate(c, electionDescription))
+                            .filter(c => !omitCandidate(c, electionDescription, party))
                             .map(function (c) {
                                 const newC = {...c, party, party_abbr: partyAbbr[party]};
                                 if (c.elections) {
@@ -757,12 +757,12 @@ function standardizeDate(d) {
     return d === 'N/A' ? '' : d.replace(/\/(?=\d\d$)/, '/20');
 }
 
-function omitCandidate(c, election) {
+function omitCandidate(c, election, party) {
     return c.withdrew ||
         c.termination_approved ||
         (argv['primary-filing'] && /Primary/.test(election) && !c.boe_filing_date) ||
         (argv['special-filing'] && /Special/.test(election) && !c.boe_filing_date) ||
-        (argv['general-filing'] && !majorParties.includes(c.party) && !c.boe_filing_date);
+        (argv['general-filing'] && /General/.test(election) && !majorParties.includes(party) && !c.boe_filing_date);
 }
 
 function writeEndorsements(records) { // eslint-disable-line no-unused-vars
@@ -777,7 +777,7 @@ function writeEndorsements(records) { // eslint-disable-line no-unused-vars
                     continue;
                 }
                 for (const r of records[election][party][office]) {
-                    if (omitCandidate(r, election) || !r.endorsements) {
+                    if (omitCandidate(r, election, party) || !r.endorsements) {
                         continue;
                     }
                     candidateSet.add(r.candidate_name);

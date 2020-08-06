@@ -762,7 +762,7 @@ function omitCandidate(c, election) {
         c.termination_approved ||
         (argv['primary-filing'] && /Primary/.test(election) && !c.boe_filing_date) ||
         (argv['special-filing'] && /Special/.test(election) && !c.boe_filing_date) ||
-        (argv['general-filing'] && !majorParties.includes(r.party) && !c.boe_filing_date);
+        (argv['general-filing'] && !majorParties.includes(c.party) && !c.boe_filing_date);
 }
 
 function writeEndorsements(records) { // eslint-disable-line no-unused-vars

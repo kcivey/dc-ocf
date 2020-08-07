@@ -593,7 +593,7 @@ async function getBoePickups() {
         }
         const pdfText = (await getPdfText(pdfUrl))
             // kluge for handling extra vertical space in some lines
-            .replace(/(\s\d\d?\/\d\d?\/\d{4})?\n( *\d{3}-\d{3}-\d{4}[^\n]*\n)/, '$2   $1\n');
+            .replace(/(\s\d\d?\/\d\d?\/\d{4})? *\n( *\d{3}-\d{3}-\d{4}[^\n]*\n)/, '$2   $1');
         if (election === 'special') {
             const lineRe =
                 /^(\S+(?: \S+)+) +(\w{3}) +(\S+(?: \S+)+|) +((?:P\.?O\.? Box )?\d.*?) (\d{5}) +(\d[-\d]+) +([\d/]+) +([\d/]*) +(\S+)\s*$/; // eslint-disable-line max-len

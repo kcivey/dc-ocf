@@ -3329,7 +3329,7 @@ General Election:
         address: 1601 Holly St NW
         filing_date: 08/01/2019
         phone: 202-236-4074
-        email: daniel@robertwhitefordc.
+        email: daniel@robertwhitefordc
         committee_address: '1601 Holly Street, NW, Washington, DC 20012'
         committee_phone: ''
         treasurer_name: Mrs. Iris Bond Gill
@@ -4204,13 +4204,32 @@ General Election:
         zip: '20011'
         phone: 240-381-0937
         boe_pickup_date: 7/10/2020
-        boe_filing_date: 8/4/2020
+        boe_filing_date: ''
         email: cmbarragan@gmail.com
         first_name: Claudia
         last_name: Barragan
-        fair_elections: null
+        fair_elections: false
         neighborhood: Pleasant Hills
         twitter: DCbarragan
+        committee_id: 14199
+        candidate_key: CANCCL207196
+        committee_key: PCCCCL207196
+        election_year: 2020
+        candidate_approved: true
+        committee_approved: true
+        termination_approved: false
+        committee_name: Committee to Elect Claudia Barragan for City Council
+        id: 15147
+        name: Ms. Claudia Barragan
+        filing_date: 08/07/2020
+        committee_address: '230 Varnum Street, NE. #1A, Washington, DC 20011'
+        committee_phone: (202) 677-5993
+        treasurer_name: Mr. Jose Valcarcel
+        treasurer_phone: (240) 393-8137
+        treasurer_email: treasurer@claudiafordc.com
+        chairperson_name: Ms. Claudia Barragan
+        chair_phone: (202) 677-5993
+        chair_email: info@claudiafordc.com
       - committee_id: 4114
         first_name: Markus
         last_name: Batchelor
@@ -4225,9 +4244,9 @@ General Election:
         committee_name: Markus for DC
         id: 5039
         name: Mr. Markus E. Batchelor
-        address: 1241 Alabama Ave SE
+        address: 1241 Alabama Ave SE Apt !
         filing_date: 09/13/2019
-        phone: 202-455-1032
+        phone: ''
         email: info@markusfordc.com
         committee_address: '1241 Alabama Ave., SE Apt. A, Washington, DC 20032'
         committee_phone: (202) 455-1032
@@ -4237,7 +4256,7 @@ General Election:
         chairperson_name: ''
         chair_phone: ''
         chair_email: ''
-        zip: ''
+        zip: '20032'
         twitter: MarkusforDC
         website: markusfordc.com
         facebook: markusfordc

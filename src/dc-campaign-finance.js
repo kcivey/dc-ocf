@@ -10,7 +10,7 @@
 jQuery(function ($) {
     const stateDefaults = {
         electionYear: '2020',
-        contest: 'council-ward-2',
+        contest: 'council-at-large',
         candidate: 'all-candidates',
         mapType: 'points',
     };
@@ -472,6 +472,7 @@ jQuery(function ($) {
         if (suffix === Object.values(stateDefaults).join('/')) {
             suffix = '';
         }
+        suffix = suffix.replace(/\/all-candidates\/points$/, '');
         const currentUrl = window.location.href;
         const currentHash = window.location.hash;
         const baseUrl = currentUrl.replace(/^(https?:\/\/[^/]+\/[^/#]+).*/, '$1');

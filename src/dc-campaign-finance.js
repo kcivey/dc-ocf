@@ -25,6 +25,7 @@ jQuery(function ($) {
         .then(loadContest);
 
     function loadContest(evt) {
+        $('.loader').show();
         if (evt && evt.target) { // called as an event handler
             $('#layers-control').find('input')
                 .prop('checked', false);
@@ -39,7 +40,7 @@ jQuery(function ($) {
                 handleSharedData(data.shared);
                 handleDateData(data.dateData);
                 handlePlaceData(data.placeData);
-                $('#contest-select');
+                $('.loader').hide();
             });
     }
 

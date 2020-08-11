@@ -81,8 +81,8 @@ UPDATE contributions SET contributor_last_name = 'Teutsch' WHERE contributor_las
 UPDATE contributions SET state = 'DC' WHERE state LIKE 'Dist%Col%';
 UPDATE contributions SET state = 'DC' WHERE state = 'MD' AND (city LIKE 'Washington' OR city LIKE 'Washington DC') AND SUBSTR(number_and_street, -3) IN (' NE', ' NW', 'SE', ' SW');
 UPDATE contributions SET city = 'Columbus', state = 'OH' WHERE city = 'WashingtonColumbus' AND state = 'DC';
-UPDATE contributions SET city = 'Washington' WHERE state = 'DC' AND (city LIKE 'Was%' OR city LIKE 'Wsh%' OR city LIKE 'Wah%' OR city LIKE 'Wadh%' OR city LIKE 'Waas%' OR city = 'DC')
-    AND city <> 'Washington';
+UPDATE contributions SET city = 'Washington' WHERE state = 'DC' AND (city LIKE 'Was%' OR city LIKE '%Wsa%' OR city LIKE 'Wsh%' OR city LIKE 'Wah%' OR
+    city LIKE 'Wadh%' OR city LIKE 'Waas%' OR city = 'DC')AND city <> 'Washington';
 UPDATE contributions SET state = 'DC' WHERE state = '' AND city LIKE 'Was%';
 
 UPDATE committee_extras SET is_special = 1 WHERE committee_name = 'Evans Ward 2';

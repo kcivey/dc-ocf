@@ -3329,7 +3329,7 @@ General Election:
         address: 1601 Holly St NW
         filing_date: 08/01/2019
         phone: 202-236-4074
-        email: daniel@robertwhitefordc
+        email: daniel@robertwhitefordc.com
         committee_address: '1601 Holly Street, NW, Washington, DC 20012'
         committee_phone: ''
         treasurer_name: Mrs. Iris Bond Gill
@@ -3926,8 +3926,8 @@ General Election:
     President:
       - candidate_name: Donald J. Trump
         contact_name: Nicholas Trainer
-        address: PO Box 13570 Arlington VA
-        zip: '22219'
+        address: ''
+        zip: ''
         phone: ''
         boe_pickup_date: ''
         boe_filing_date: ''
@@ -4204,7 +4204,7 @@ General Election:
         zip: '20011'
         phone: 240-381-0937
         boe_pickup_date: 7/10/2020
-        boe_filing_date: ''
+        boe_filing_date: 8/4/2020
         email: cmbarragan@gmail.com
         first_name: Claudia
         last_name: Barragan
@@ -4244,9 +4244,9 @@ General Election:
         committee_name: Markus for DC
         id: 5039
         name: Mr. Markus E. Batchelor
-        address: 1241 Alabama Ave SE Apt !
+        address: 1241 Alabama Ave SE
         filing_date: 09/13/2019
-        phone: ''
+        phone: 202-455-1032
         email: info@markusfordc.com
         committee_address: '1241 Alabama Ave., SE Apt. A, Washington, DC 20032'
         committee_phone: (202) 455-1032
@@ -4256,7 +4256,7 @@ General Election:
         chairperson_name: ''
         chair_phone: ''
         chair_email: ''
-        zip: '20032'
+        zip: ''
         twitter: MarkusforDC
         website: markusfordc.com
         facebook: markusfordc
@@ -5109,7 +5109,7 @@ General Election:
         total_approved_contributors: 355
         match_amount: 72375
         allowed_pending_match_amount: 245589
-        total_reports_filed: 4
+        total_reports_filed: 5
         certification_date: '2020-04-11T12:37:39.577Z'
         achieved_ballot_access: false
         certification_deadline: '2020-08-20T00:00:00Z'
@@ -5769,10 +5769,10 @@ General Election:
         contact_name: ''
         address: 3412 21st St SE
         zip: '20020'
-        phone: 240-750-4112
+        phone: (240) 750-0411
         boe_pickup_date: 6/12/2020
         boe_filing_date: ''
-        email: NelsonJackson@njaxurl.com
+        email: Nelson.Jackson@njaxunl.com
         first_name: Nelson
         last_name: Jackson
         fair_elections: false
@@ -5939,7 +5939,7 @@ General Election:
         phone: 202-304-7982
         boe_pickup_date: 6/15/2020
         boe_filing_date: 7/29/2020
-        email: omusa@fastmail.com
+        email: omusa@fastmail.fm
         first_name: Omari
         last_name: Musa
         fair_elections: false
@@ -6173,8 +6173,8 @@ General Election:
         filing_date: 06/25/2020
       - candidate_name: Jacque Patterson
         contact_name: ''
-        address: PO Box 30629
-        zip: '20030'
+        address: 3521 21st St SE
+        zip: '20020'
         phone: 202-834-2553
         boe_pickup_date: 6/17/2020
         boe_filing_date: 7/31/2020

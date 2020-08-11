@@ -241,7 +241,7 @@ function parseRowText(text, fields) {
                     row[newKey] += '\n' + value;
                 }
             }
-            else if (key.match(/^(?:occupation|reason|mode_of_payment)$/)) {
+            else if (key.match(/^(?:occupation|reason|mode_of_payment|equipment_short_description)$/)) {
                 if (!row[key]) {
                     row[key] = value;
                 }

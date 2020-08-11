@@ -1,0 +1,19 @@
+=overall
+
+I analyzed the DC Office of Campaign Finance (OCF) reports for the at-large candidates
+for State Board of Education who have filed so far.
+In order by number of contributors, they are
+<ul>
+<li>Mysiki Valentine</li>
+<li>Chris Martin</li>
+</ul>
+
+This race is nonpartisan.
+Both candodates have reported contributions through August 10.
+
+Martin can accept contributions up to $500, from individuals and from organizations (corporations, LLCs,
+PACs, unions, and so on), and use as much of they own money as they wish.
+Valentine is participating in the Fair Elections public campaign finance program
+and so can accept up to $50 and only from individuals (except for the candidate and their family,
+who can give up to $2,500), but can receive considerable additional funds from public money if they
+meet some requirements.

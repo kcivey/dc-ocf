@@ -92,5 +92,7 @@ UPDATE committee_extras SET is_special = 0 WHERE is_special IS NULL;
 UPDATE contributions SET contributor_type = 'Candidate' WHERE contributor_last_name = 'Grossman' AND contributor_first_name = 'Seth' AND amount < 2000;
 
 UPDATE committees SET office = 'Council Ward 2 (Special)' WHERE office = 'Council Ward 2' AND election_year = 2020 AND committee_name like '%Special%';
+UPDATE committees SET candidate_short_name = 'C Henderson' where candidate_name = 'Christina Henderson';
+UPDATE committees SET candidate_short_name = 'K Henderson' where candidate_name = 'Kathy Henderson';
 
 DELETE FROM contributions WHERE committee_name = 'Patrick Kennedy for Ward 2' AND receipt_date = '2020-03-24' AND amount > 54000;

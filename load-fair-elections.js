@@ -90,7 +90,7 @@ async function processFile(inputFile) {
     }
     console.log('Updating committee info');
     const updates = {is_fair_elections: true};
-    if (deadline > committee.last_deadline) {
+    if (!committee.last_deadline || deadline > committee.last_deadline) {
         updates.last_deadline = deadline;
     }
     await db.updateCommitteeExtra(committeeName, updates);

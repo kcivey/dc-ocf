@@ -6204,7 +6204,7 @@ General Election:
         chair_email: philippannell@comcast.net
         website: jacque4dc.com
         facebook: Jacque4DC
-        twitter: jacque4dc
+        twitter: DC_Edvocate
         instagram: jacque4dc
         elections:
           - year: 2012
@@ -6248,7 +6248,9 @@ General Election:
         last_name: Valentine
         fair_elections: true
         neighborhood: River Terrace
-        twitter: mysikix
+        twitter: ValentineforDC
+        facebook: ValentineForDC
+        website: valentinefordc.com
         committee_name: The Committee to Elect Mysiki Valentine
         committee_code: FEPSBL200052
         registration_date: '2020-07-13T00:00:00Z'
@@ -6322,6 +6324,7 @@ General Election:
         certification_date: null
         achieved_ballot_access: false
         certification_deadline: '2020-08-20T00:00:00Z'
+        twitter: AllisterChang
       - candidate_name: Christopher Etesse
         contact_name: ''
         address: 2457 P St NW
@@ -6366,6 +6369,9 @@ General Election:
         last_name: Frye
         fair_elections: null
         neighborhood: Logan Circle
+        twitter: Mr_Frye1
+        website: 'https://secure.actblue.com/donate/fryeforward2'
+        facebook: Brandon-Frye-for-Ward-2-State-Board-of-Education-526596278112645
       - candidate_name: James Harnett
         contact_name: ''
         address: PO Box 27452
@@ -6383,7 +6389,7 @@ General Election:
         elections:
           - year: 2018
             election: General
-            party: Nonpartisan
+            party: NonpartisanMr_Frye1
             office: ANC 2A08
             result: Won
             percent: Write-in
@@ -6411,6 +6417,11 @@ General Election:
         certification_date: null
         achieved_ballot_access: false
         certification_deadline: '2020-08-20T00:00:00Z'
+        links:
+          - url: >-
+              https://www.gwhatchet.com/2020/07/28/senior-announces-campaign-to-represent-ward-2-on-state-board-of-education/
+            title: Senior announces campaign to represent Ward 2 on State Board of Education
+        website: 'https://secure.actblue.com/donate/jhsboe'
       - candidate_name: Sarah Mehrotra
         contact_name: ''
         address: 1801 18th St NW
@@ -6423,6 +6434,7 @@ General Election:
         last_name: Mehrotra
         fair_elections: null
         neighborhood: Dupont Circle
+        twitter: Sarah_Mehrotra
     SBOE Ward 4:
       - candidate_name: Frazier L. O'Leary Jr
         contact_name: ''

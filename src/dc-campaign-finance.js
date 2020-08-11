@@ -183,6 +183,12 @@ jQuery(function ($) {
             'lightblue',
             'lightgreen',
             'gray',
+            '#1f77b4', // from here on, taken from date graph
+            '#ff7f0e',
+            '#2ca02c',
+            '#d62728',
+            '#9467bd',
+            'black',
         ];
         candidateColors = {};
         let i = 0;

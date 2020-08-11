@@ -36,6 +36,7 @@ async function main() {
     await db.addDummyContributions();
     console.warn('Running fixes');
     await db.runFixes();
+    console.warn('Loading OCF limits');
     await db.setOcfLimits();
 }
 

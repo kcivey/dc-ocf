@@ -8,16 +8,19 @@ In order by number of contributors, they are
 <li>Kishan Putta</li>
 <li>Patrick Kennedy</li>
 <li>Brooke Pinto</li>
+<li>Randy Downs (independent)</li>
 <li>John Fanning</li>
+<li>Martín Miguel Fernandez (independent)</li>
 <li>Jack Evans</li>
 <li>Yilin Zhang</li>
 <li>Daniel Hernandez</li>
-<li>Katherine Venice</li>
+<li>Katherine Venice (Republican)</li>
 </ul>
 
-All the candidates are Democrats except for Venice, who is a Republican.
+All the candidates are Democrats except for Venice, who is a Republican, and Downs and Fernandez, who are independents.
 All are seeking to qualify or have qualified for Fair Elections public campaign funds except for Brooke Pinto.
-The last report for all the candidates covers contributions through June 10.
+The last report for all the candidates covers contributions through August 10,
+except for Putta, Kennedy, Fanning, and Venice, who have filed through June 10.
 
 Pinto can accept contributions up to $500, from individuals and from organizations (corporations, LLCs,
 PACs, unions, and so on), and use as much of her own money as she wishes.

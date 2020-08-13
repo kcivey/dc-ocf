@@ -333,18 +333,18 @@ Primary Election:
         certification_status: Certified
         base_payment: 40000
         base_amount_cap: 40000
-        matching_payment: 49900
+        matching_payment: 52825
         match_cap: 241055
-        fair_election_payouts_total: 89900
+        fair_election_payouts_total: 92825
         total_remission: 0
         base_pending_amount: 0
-        match_pending_amount: 191155
+        match_pending_amount: 188230
         certification_status_code: CR
         registration_status_code: A
         total_approved_contributions: 11165
         total_approved_contributors: 231
         match_amount: 55825
-        allowed_pending_match_amount: 191155
+        allowed_pending_match_amount: 188230
         total_reports_filed: 11
         certification_date: '2020-04-11T12:38:50.373Z'
         achieved_ballot_access: true
@@ -473,7 +473,7 @@ Primary Election:
         total_approved_contributors: 273
         match_amount: 53425
         allowed_pending_match_amount: 191455
-        total_reports_filed: 18
+        total_reports_filed: 19
         certification_date: '2019-09-18T14:23:26.873Z'
         achieved_ballot_access: true
         certification_deadline: '2020-03-18T00:00:00Z'
@@ -630,9 +630,9 @@ Primary Election:
         match_pending_amount: 241055
         certification_status_code: TP
         registration_status_code: A
-        total_approved_contributions: 1110
-        total_approved_contributors: 28
-        match_amount: 5550
+        total_approved_contributions: 1360
+        total_approved_contributors: 33
+        match_amount: 6800
         allowed_pending_match_amount: 241055
         total_reports_filed: 13
         certification_date: null
@@ -759,7 +759,7 @@ Primary Election:
         total_approved_contributors: 599
         match_amount: 119270
         allowed_pending_match_amount: 133685
-        total_reports_filed: 17
+        total_reports_filed: 18
         certification_date: '2019-08-15T12:03:50.9Z'
         achieved_ballot_access: true
         certification_deadline: '2020-03-18T00:00:00Z'
@@ -888,18 +888,18 @@ Primary Election:
         certification_status: Certified
         base_payment: 40000
         base_amount_cap: 40000
-        matching_payment: 101565
+        matching_payment: 110740
         match_cap: 241055
-        fair_election_payouts_total: 141565
+        fair_election_payouts_total: 150740
         total_remission: 0
         base_pending_amount: 0
-        match_pending_amount: 139490
+        match_pending_amount: 130315
         certification_status_code: CR
         registration_status_code: A
         total_approved_contributions: 23348
         total_approved_contributors: 690
         match_amount: 116740
-        allowed_pending_match_amount: 139490
+        allowed_pending_match_amount: 130315
         total_reports_filed: 10
         certification_date: '2019-08-15T12:00:05.76Z'
         achieved_ballot_access: true
@@ -1235,18 +1235,18 @@ Primary Election:
         certification_status: Certified
         base_payment: 40000
         base_amount_cap: 40000
-        matching_payment: 226361.4
+        matching_payment: 241055
         match_cap: 241055
-        fair_election_payouts_total: 266361.4
+        fair_election_payouts_total: 281055
         total_remission: 0
         base_pending_amount: 0
-        match_pending_amount: 14693.6
+        match_pending_amount: 0
         certification_status_code: CR
         registration_status_code: A
         total_approved_contributions: 48220.08
         total_approved_contributors: 1236
         match_amount: 241100.4
-        allowed_pending_match_amount: 14693.6
+        allowed_pending_match_amount: 0
         total_reports_filed: 13
         certification_date: '2019-09-18T14:22:59.19Z'
         achieved_ballot_access: true
@@ -2307,9 +2307,9 @@ Primary Election:
         election_year: 2020
         certification_status_code: CR
         registration_status_code: A
-        total_approved_contributions: 9236.16
-        total_approved_contributors: 222
-        match_amount: 46180.8
+        total_approved_contributions: 9264.16
+        total_approved_contributors: 224
+        match_amount: 46320.8
         allowed_pending_match_amount: 205555
         total_reports_filed: 8
         certification_date: '2020-04-11T12:37:58.45Z'
@@ -4310,7 +4310,7 @@ General Election:
         total_approved_contributors: 357
         match_amount: 80770
         allowed_pending_match_amount: 232469
-        total_reports_filed: 6
+        total_reports_filed: 7
         certification_date: '2020-03-12T13:50:33.2Z'
         achieved_ballot_access: false
         certification_deadline: '2020-08-20T00:00:00Z'
@@ -4939,18 +4939,18 @@ General Election:
         certification_status: Certified
         base_payment: 20000
         base_amount_cap: 40000
-        matching_payment: 104190
+        matching_payment: 119940
         match_cap: 308639
-        fair_election_payouts_total: 124190
+        fair_election_payouts_total: 139940
         total_remission: 0
         base_pending_amount: 20000
-        match_pending_amount: 204449
+        match_pending_amount: 188699
         certification_status_code: CR
         registration_status_code: A
         total_approved_contributions: 24188
         total_approved_contributors: 377
         match_amount: 120940
-        allowed_pending_match_amount: 204449
+        allowed_pending_match_amount: 188699
         total_reports_filed: 12
         certification_date: '2020-03-12T13:48:01.283Z'
         achieved_ballot_access: true
@@ -4989,20 +4989,20 @@ General Election:
         registration_date: '2020-03-17T00:00:00Z'
         registration_status: Active
         certification_status: Certified
-        base_payment: 0
+        base_payment: 20000
         base_amount_cap: 40000
-        matching_payment: 0
+        matching_payment: 236370
         match_cap: 308639
-        fair_election_payouts_total: 0
+        fair_election_payouts_total: 256370
         total_remission: 0
-        base_pending_amount: 40000
-        match_pending_amount: 308639
+        base_pending_amount: 20000
+        match_pending_amount: 72269
         certification_status_code: CR
         registration_status_code: A
         total_approved_contributions: 61727.8
         total_approved_contributors: 1012
         match_amount: 308639
-        allowed_pending_match_amount: 308639
+        allowed_pending_match_amount: 72269
         total_reports_filed: 6
         certification_date: '2020-07-14T17:58:15.503Z'
         achieved_ballot_access: false
@@ -5047,20 +5047,20 @@ General Election:
         registration_date: '2019-12-15T00:00:00Z'
         registration_status: Active
         certification_status: Certified
-        base_payment: 0
+        base_payment: 20000
         base_amount_cap: 40000
-        matching_payment: 0
+        matching_payment: 65330
         match_cap: 308639
-        fair_election_payouts_total: 0
+        fair_election_payouts_total: 85330
         total_remission: 0
-        base_pending_amount: 40000
-        match_pending_amount: 308639
+        base_pending_amount: 20000
+        match_pending_amount: 243309
         certification_status_code: CR
         registration_status_code: A
-        total_approved_contributions: 13771
-        total_approved_contributors: 293
-        match_amount: 68855
-        allowed_pending_match_amount: 308639
+        total_approved_contributions: 14166
+        total_approved_contributors: 302
+        match_amount: 70830
+        allowed_pending_match_amount: 243309
         total_reports_filed: 15
         certification_date: '2020-07-14T17:57:38.153Z'
         achieved_ballot_access: false
@@ -5419,11 +5419,11 @@ General Election:
         match_pending_amount: 308639
         certification_status_code: CR
         registration_status_code: A
-        total_approved_contributions: 13766
-        total_approved_contributors: 263
-        match_amount: 68830
+        total_approved_contributions: 12576
+        total_approved_contributors: 247
+        match_amount: 62880
         allowed_pending_match_amount: 308639
-        total_reports_filed: 7
+        total_reports_filed: 9
         certification_date: '2020-07-31T10:14:07.663Z'
         achieved_ballot_access: false
         certification_deadline: '2020-08-20T00:00:00Z'
@@ -5616,7 +5616,7 @@ General Election:
         committee_code: FEPCC2200054
         registration_date: '2020-07-21T00:00:00Z'
         registration_status: Active
-        certification_status: Threshold not met
+        certification_status: Threshold met and Certification Pending
         base_payment: 0
         base_amount_cap: 40000
         matching_payment: 0
@@ -5626,11 +5626,11 @@ General Election:
         base_pending_amount: 40000
         match_pending_amount: 241055
         election_year: 2020
-        certification_status_code: TP
+        certification_status_code: TM
         registration_status_code: A
-        total_approved_contributions: 0
-        total_approved_contributors: 0
-        match_amount: 0
+        total_approved_contributions: 11615
+        total_approved_contributors: 278
+        match_amount: 58075
         allowed_pending_match_amount: 241055
         total_reports_filed: 1
         certification_date: null
@@ -6475,9 +6475,9 @@ General Election:
         election_year: 2020
         certification_status_code: CR
         registration_status_code: A
-        total_approved_contributions: 1340
-        total_approved_contributors: 67
-        match_amount: 6700
+        total_approved_contributions: 2170
+        total_approved_contributors: 109
+        match_amount: 10850
         allowed_pending_match_amount: 14006
         total_reports_filed: 2
         certification_date: '2020-07-31T10:14:41.133Z'
@@ -6732,7 +6732,7 @@ General Election:
         total_approved_contributors: 0
         match_amount: 0
         allowed_pending_match_amount: 14006
-        total_reports_filed: 0
+        total_reports_filed: 1
         certification_date: null
         achieved_ballot_access: false
         certification_deadline: '2020-08-20T00:00:00Z'
@@ -6781,9 +6781,9 @@ General Election:
         election_year: 2020
         certification_status_code: CR
         registration_status_code: A
-        total_approved_contributions: 1180
-        total_approved_contributors: 59
-        match_amount: 5900
+        total_approved_contributions: 1520
+        total_approved_contributors: 76
+        match_amount: 7600
         allowed_pending_match_amount: 14006
         total_reports_filed: 3
         certification_date: '2020-07-31T10:15:07.977Z'
@@ -6966,7 +6966,7 @@ General Election:
         fair_elections: true
         contact_name: ''
         boe_pickup_date: 6/17/2020
-        boe_filing_date: 7/17/2020
+        boe_filing_date: ''
       - committee_id: 4135
         first_name: Carlene D.
         last_name: Reid
@@ -7344,7 +7344,7 @@ Special Election:
         total_approved_contributors: 186
         match_amount: 34621
         allowed_pending_match_amount: 241055
-        total_reports_filed: 8
+        total_reports_filed: 9
         certification_date: '2020-07-14T17:59:14.917Z'
         achieved_ballot_access: true
         certification_deadline: '2020-03-18T00:00:00Z'

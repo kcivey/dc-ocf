@@ -59,7 +59,7 @@ async function main() {
         newRecords = await getNewOcfRecords();
         records = combineRecords(records, newRecords);
     }
-    // records = removeBoeDates(records); // to remove candidates no longer listed
+    records = removeBoeDates(records); // to remove candidates no longer listed
     const moreRecords = await getBoePickups();
     records = combineRecords(records, moreRecords);
     for (const election of Object.keys(records)) {
@@ -555,9 +555,11 @@ function keySort(a, b) {
     return a2.localeCompare(b2) || a1.localeCompare(b1);
 }
 
-/*
 function removeBoeDates(records) {
-    for (const recordsByParty of Object.values(records)) {
+    for (const [election, recordsByParty] of Object.entries(records)) {
+        if (!/general/i.test(election)) {
+            continue;
+        }
         for (const recordsByOffice of Object.values(recordsByParty)) {
             for (const candidates of Object.values(recordsByOffice)) {
                 for (const candidate of candidates) {
@@ -570,7 +572,6 @@ function removeBoeDates(records) {
     }
     return records;
 }
-*/
 
 async function getBoePickups() {
     const newsUrl = 'https://dcboe.org/Candidates/2020-Candidates';

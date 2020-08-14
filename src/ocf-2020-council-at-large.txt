@@ -9,9 +9,9 @@ In order by number of contributors, they are
   <li>Marcus Goodwin</li>
   <li>Christina Henderson*</li>
   <li>Will Merrifield*</li>
+  <li>Markus Batchelor*</li>
   <li>Chander Jayaraman*</li>
   <li>Jeanné Lewis*</li>
-  <li>Markus Batchelor*</li>
   <li>Vincent Orange*</li>
   <li>Franklin Garcia*</li>
   <li>Mónica Palacio*</li>
@@ -27,7 +27,7 @@ In order by number of contributors, they are
 
 Candidates marked with asterisks are seeking to qualify or have qualified for Fair Elections public campaign funds.
 All candidates have reported contributions through August 10,
-and Batchelor, Murphree and Rogers, who have reported through June 10.
+except Batchelor and Rogers, who have reported through June 10.
 White is a Democrat; Pickering is a Republican; the others are independents.
 
 Two candidates will win this contest in the general election.

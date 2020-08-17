@@ -1907,18 +1907,18 @@ Primary Election:
         certification_status: Certified
         base_payment: 40000
         base_amount_cap: 40000
-        matching_payment: 7150
+        matching_payment: 37425
         match_cap: 241055
-        fair_election_payouts_total: 47150
+        fair_election_payouts_total: 77425
         total_remission: 0
         base_pending_amount: 0
-        match_pending_amount: 233905
+        match_pending_amount: 203630
         certification_status_code: CR
         registration_status_code: A
         total_approved_contributions: 8185
         total_approved_contributors: 224
         match_amount: 40925
-        allowed_pending_match_amount: 233905
+        allowed_pending_match_amount: 203630
         total_reports_filed: 12
         certification_date: '2020-07-14T18:00:10.61Z'
         achieved_ballot_access: true
@@ -3858,8 +3858,8 @@ General Election:
     President:
       - candidate_name: Joseph R. Biden
         contact_name: Carla Frank
-        address: '19102'
-        zip: ''
+        address: PO Box 58174 Philadelphia PA
+        zip: '19102'
         phone: 206.849-1804
         boe_pickup_date: ''
         boe_filing_date: ''
@@ -4256,7 +4256,7 @@ General Election:
         chairperson_name: ''
         chair_phone: ''
         chair_email: ''
-        zip: ''
+        zip: '20032'
         twitter: MarkusforDC
         website: markusfordc.com
         facebook: markusfordc
@@ -4310,7 +4310,7 @@ General Election:
         total_approved_contributors: 357
         match_amount: 80770
         allowed_pending_match_amount: 232469
-        total_reports_filed: 7
+        total_reports_filed: 8
         certification_date: '2020-03-12T13:50:33.2Z'
         achieved_ballot_access: false
         certification_deadline: '2020-08-20T00:00:00Z'
@@ -5021,7 +5021,7 @@ General Election:
         committee_name: Committee to Elect Jeanne' Lewis for City Council
         id: 5061
         name: Ms. Jeanne' L. Lewis
-        address: 349 Kentucky Ave
+        address: 349 Kentucky Ave SE
         filing_date: 12/16/2019
         phone: 202-540-0531
         email: info@jeannelewisatlarge.com
@@ -5033,7 +5033,7 @@ General Election:
         chairperson_name: ''
         chair_phone: ''
         chair_email: ''
-        zip: ''
+        zip: '20003'
         fair_elections: true
         neighborhood: Fort Davis
         twitter: msjeannelewis
@@ -5083,13 +5083,13 @@ General Election:
               Running for Office.
           - url: 'https://dcist.com/story/20/02/14/tenant-rights-attorney-declares-candidacy-in-competitive-at-large-race/'
             title: Tenant Rights Attorney Enters Competitive At-Large Race To Replace David Grosso
-        contact_name: James Banks
+        contact_name: Jacqueline Hixson
         address: 4939 Nash St NE
         zip: '20019'
-        phone: 202-262-0119
+        phone: 202-350-0495
         boe_pickup_date: 6/22/2020
         boe_filing_date: 8/5/2020
-        email: jamesgarlandbanks@gmail.com
+        email: info@willfordc.com
         committee_name: Will Merrifield for DC
         committee_code: FEPCCL200041
         registration_date: '2020-02-12T00:00:00Z'
@@ -5409,20 +5409,20 @@ General Election:
         registration_date: '2020-02-18T00:00:00Z'
         registration_status: Active
         certification_status: Certified
-        base_payment: 0
+        base_payment: 20000
         base_amount_cap: 40000
-        matching_payment: 0
+        matching_payment: 50005
         match_cap: 308639
-        fair_election_payouts_total: 0
+        fair_election_payouts_total: 70005
         total_remission: 0
-        base_pending_amount: 40000
-        match_pending_amount: 308639
+        base_pending_amount: 20000
+        match_pending_amount: 258634
         certification_status_code: CR
         registration_status_code: A
         total_approved_contributions: 12576
         total_approved_contributors: 247
         match_amount: 62880
-        allowed_pending_match_amount: 308639
+        allowed_pending_match_amount: 258634
         total_reports_filed: 9
         certification_date: '2020-07-31T10:14:07.663Z'
         achieved_ballot_access: false
@@ -5468,8 +5468,8 @@ General Election:
         boe_filing_date: 8/3/2020
       - candidate_name: Addison Sarter
         contact_name: ''
-        address: 8224 West Beach Terr NW
-        zip: '20012'
+        address: ''
+        zip: ''
         phone: 202-641-1367
         boe_pickup_date: 7/24/2020
         boe_filing_date: 8/5/2020
@@ -5512,7 +5512,7 @@ General Election:
       - candidate_name: Keith Silver
         contact_name: ''
         address: 901 New Jersey Ave NW
-        zip: ''
+        zip: '20001'
         phone: 202-704-7389
         boe_pickup_date: 6/30/2020
         boe_filing_date: 8/3/2020
@@ -5747,7 +5747,7 @@ General Election:
         committee_name: Fred 4 Ward 8
         id: 15127
         name: Mr. Frederick Hill III
-        address: 1730 S St SE
+        address: 1730 18th St SE
         filing_date: 06/24/2020
         phone: 202-330-2211
         email: FredHill@gotta-gonow.com
@@ -5947,8 +5947,8 @@ General Election:
     President:
       - candidate_name: Brock Pierce
         contact_name: ''
-        address: 00901
-        zip: ''
+        address: 250 Calle Del Cristo San Juan PR
+        zip: 00901
         phone: 787-705-4360
         boe_pickup_date: 8/4/2020
         boe_filing_date: 8/5/2020
@@ -5959,8 +5959,8 @@ General Election:
         neighborhood: null
       - candidate_name: Gloria La Riva
         contact_name: Richard Becker
-        address: '94110'
-        zip: ''
+        address: 2969 Mission St San Francisco CA
+        zip: '94110'
         phone: 415-377-6321
         boe_pickup_date: 7/22/2020
         boe_filing_date: 8/3/2020

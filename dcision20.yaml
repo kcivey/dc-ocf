@@ -4459,7 +4459,7 @@ General Election:
         address: 2218 Newton St NE
         filing_date: 12/27/2019
         phone: 202-460-3046
-        email: ''
+        email: information@franklinfordc.com
         committee_address: '2218 Newton Street, SE, Washington, DC 20018'
         committee_phone: (202) 460-3046
         treasurer_name: Mr. Edier Cossio
@@ -4715,9 +4715,9 @@ General Election:
         match_pending_amount: 180434
         certification_status_code: CR
         registration_status_code: A
-        total_approved_contributions: 25641
-        total_approved_contributors: 423
-        match_amount: 128205
+        total_approved_contributions: 31826
+        total_approved_contributors: 518
+        match_amount: 159130
         allowed_pending_match_amount: 180434
         total_reports_filed: 10
         certification_date: '2020-04-08T14:29:03.587Z'
@@ -4947,9 +4947,9 @@ General Election:
         match_pending_amount: 188699
         certification_status_code: CR
         registration_status_code: A
-        total_approved_contributions: 24188
-        total_approved_contributors: 377
-        match_amount: 120940
+        total_approved_contributions: 25453
+        total_approved_contributors: 396
+        match_amount: 127265
         allowed_pending_match_amount: 188699
         total_reports_filed: 12
         certification_date: '2020-03-12T13:48:01.283Z'
@@ -6223,19 +6223,28 @@ General Election:
         email: RAVI.PERRY@GMAIL.COM
         first_name: Ravi K.
         last_name: Perry
-        fair_elections: null
+        fair_elections: false
         neighborhood: Parkside
         twitter: raviperry
-        committee_id: 0
+        committee_id: 14468
         candidate_key: CANSBL207193
         election_year: 2020
         candidate_approved: true
-        committee_approved: false
+        committee_approved: true
         termination_approved: false
-        committee_name: Ravi Perry
+        committee_name: The Committee to Elect Ravi K. Perry to DC State Board of Education AT-LARGE
         id: 15137
         name: Mr. Ravi K. Perry
         filing_date: 08/03/2020
+        committee_key: PCCSBL207193
+        committee_address: '3602 Grant Place NE, Washington, DC 20019'
+        committee_phone: (202) 735-0466
+        treasurer_name: Kali D. Lindsey
+        treasurer_phone: (917) 304-3038
+        treasurer_email: kalidlindsey@gmail.com
+        chairperson_name: Mr. Ravi K. Perry
+        chair_phone: (202) 735-0466
+        chair_email: ravi.perry@gmail.com
       - candidate_name: Mysiki Valentine
         contact_name: ''
         address: 3423 Eads St NE
@@ -6432,9 +6441,28 @@ General Election:
         email: sarah.s.mehrotra@gmail.com
         first_name: Sarah
         last_name: Mehrotra
-        fair_elections: null
+        fair_elections: false
         neighborhood: Dupont Circle
         twitter: Sarah_Mehrotra
+        committee_id: 14444
+        candidate_key: CANSD2207197
+        committee_key: PCCSD2207197
+        election_year: 2020
+        candidate_approved: true
+        committee_approved: true
+        termination_approved: false
+        committee_name: Committee to Elect Sarah Shanti Mehrotra
+        id: 15392
+        name: Ms. Sarah Mehrotra
+        filing_date: 08/17/2020
+        committee_address: '1601 18th Street, NW. Apt. 507, Washington, DC 20009'
+        committee_phone: (203) 313-7642
+        treasurer_name: Ms. Sarah S. Mehrotra
+        treasurer_phone: (202) 313-9642
+        treasurer_email: sarah.s.mehrotra@gmail.com
+        chairperson_name: Ms. Amy Nasr
+        chair_phone: (585) 424-0246
+        chair_email: amygnasr@gmail.com
     SBOE Ward 4:
       - candidate_name: Frazier L. O'Leary Jr
         contact_name: ''
@@ -7019,9 +7047,9 @@ General Election:
         match_pending_amount: 5481
         certification_status_code: CR
         registration_status_code: A
-        total_approved_contributions: 2005
-        total_approved_contributors: 105
-        match_amount: 10025
+        total_approved_contributions: 2050
+        total_approved_contributors: 108
+        match_amount: 10250
         allowed_pending_match_amount: 5481
         total_reports_filed: 13
         certification_date: '2020-03-12T13:50:14.8Z'
@@ -7693,7 +7721,7 @@ Special Election:
         total_approved_contributors: 308
         match_amount: 54984.7
         allowed_pending_match_amount: 206345.3
-        total_reports_filed: 7
+        total_reports_filed: 8
         certification_date: '2020-03-12T13:49:48.027Z'
         achieved_ballot_access: true
         certification_deadline: '2020-03-18T00:00:00Z'

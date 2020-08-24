@@ -306,7 +306,8 @@ function combineRecords(records, newRecords) {
                                         r.committee_id === candidate.committee_id)
                                 );
                         })
-                        .sort((a, b) => a.termination_approved - b.termination_approved)[0]; // prefer committees that aren't shut down
+                        // prefer committees that aren't shut down
+                        .sort((a, b) => a.termination_approved - b.termination_approved)[0];
                     if (existingCandidate) {
                         if (candidate.fair_elections == null) { // eslint-disable-line max-depth
                             delete candidate.fair_elections;

@@ -234,9 +234,10 @@ function transformRecords(records) {
                 r.last_name = 'Henchman';
                 r.candidate_name = 'Joseph Henchman';
             }
-            else if (r.first_name === 'Martin Miguel') {
+            else if (/^Mart/.test(r.first_name) && /^Fern/.test(r.last_name)) {
                 r.first_name = 'Martín Miguel';
-                r.candidate_name = 'Martín Miguel Fernandez';
+                r.last_name = 'Fernández';
+                r.candidate_name = 'Martín Miguel Fernández';
             }
             else if (r.first_name === 'Jacques' && r.last_name === 'Patterson') {
                 r.first_name = 'Jacque';

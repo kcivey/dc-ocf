@@ -559,18 +559,18 @@ Primary Election:
         certification_status: Certified
         base_payment: 40000
         base_amount_cap: 40000
-        matching_payment: 159173.05
+        matching_payment: 172691.55
         match_cap: 241055
-        fair_election_payouts_total: 199173.05
+        fair_election_payouts_total: 212691.55
         total_remission: 0
         base_pending_amount: 0
-        match_pending_amount: 81881.95
+        match_pending_amount: 68363.45
         certification_status_code: CR
         registration_status_code: A
         total_approved_contributions: 34553.31
         total_approved_contributors: 856
         match_amount: 172766.55
-        allowed_pending_match_amount: 81881.95
+        allowed_pending_match_amount: 68363.45
         total_reports_filed: 14
         certification_date: '2019-08-15T12:01:57.99Z'
         achieved_ballot_access: true
@@ -1382,7 +1382,7 @@ Primary Election:
         total_approved_contributors: 205
         match_amount: 32245
         allowed_pending_match_amount: 208810
-        total_reports_filed: 20
+        total_reports_filed: 21
         certification_date: '2020-04-11T12:39:10.087Z'
         achieved_ballot_access: true
         certification_deadline: '2020-03-18T00:00:00Z'
@@ -3036,7 +3036,7 @@ Primary Election:
         total_approved_contributors: 0
         match_amount: 0
         allowed_pending_match_amount: 241055
-        total_reports_filed: 6
+        total_reports_filed: 8
         certification_date: null
         achieved_ballot_access: true
         certification_deadline: '2020-03-18T00:00:00Z'
@@ -4046,7 +4046,7 @@ General Election:
         phone: 202-602-7360
         boe_pickup_date: ''
         boe_filing_date: ''
-        email: peterboltonjounralist@gmail.com
+        email: peterboltonforward2@gmail.com
         first_name: Peter
         last_name: Bolton
         fair_elections: null
@@ -5636,7 +5636,7 @@ General Election:
         certification_date: null
         achieved_ballot_access: false
         certification_deadline: '2020-08-20T00:00:00Z'
-      - candidate_name: Martín Miguel Fernandez
+      - candidate_name: Martín Miguel Fernández
         contact_name: ''
         address: PO Box 34234
         zip: '20043'
@@ -5645,7 +5645,7 @@ General Election:
         boe_filing_date: 8/5/2020
         email: martin@martinforward2.com
         first_name: Martín Miguel
-        last_name: Fernandez
+        last_name: Fernández
         fair_elections: true
         neighborhood: Downtown
         twitter: martinforward2
@@ -5897,7 +5897,7 @@ General Election:
         fair_elections: false
         neighborhood: Foxhall Village
       - candidate_name: Barbara Washington Franklin
-        contact_name: Johnnie Scott
+        contact_name: Johnnie Scott-Rice
         address: 4417 46th St NW
         zip: '20016'
         phone: 202-583-7426
@@ -6711,7 +6711,7 @@ General Election:
         total_approved_contributors: 0
         match_amount: 0
         allowed_pending_match_amount: 14006
-        total_reports_filed: 0
+        total_reports_filed: 1
         certification_date: null
         achieved_ballot_access: false
         certification_deadline: '2020-08-20T00:00:00Z'
@@ -6774,7 +6774,7 @@ General Election:
         phone: 301-641-1926
         boe_pickup_date: 6/30/2020
         boe_filing_date: 8/5/2020
-        email: karen.williams@verizon.net
+        email: karen.williams4@verizon.net
         first_name: Karen
         last_name: Williams
         fair_elections: true
@@ -6812,11 +6812,11 @@ General Election:
         election_year: 2020
         certification_status_code: CR
         registration_status_code: A
-        total_approved_contributions: 1520
-        total_approved_contributors: 76
-        match_amount: 7600
+        total_approved_contributions: 1180
+        total_approved_contributors: 59
+        match_amount: 5900
         allowed_pending_match_amount: 14006
-        total_reports_filed: 3
+        total_reports_filed: 4
         certification_date: '2020-07-31T10:15:07.977Z'
         achieved_ballot_access: false
         certification_deadline: '2020-08-20T00:00:00Z'
@@ -7462,18 +7462,18 @@ Special Election:
         certification_status: Certified
         base_payment: 40000
         base_amount_cap: 40000
-        matching_payment: 49941.35
+        matching_payment: 52382.3
         match_cap: 241055
-        fair_election_payouts_total: 89941.35
+        fair_election_payouts_total: 92382.3
         total_remission: 0
         base_pending_amount: 0
-        match_pending_amount: 191113.65
+        match_pending_amount: 188672.7
         certification_status_code: CR
         registration_status_code: A
         total_approved_contributions: 10501.46
         total_approved_contributors: 260
         match_amount: 52507.3
-        allowed_pending_match_amount: 191113.65
+        allowed_pending_match_amount: 188672.7
         total_reports_filed: 8
         certification_date: '2020-03-12T13:49:11.49Z'
         achieved_ballot_access: true

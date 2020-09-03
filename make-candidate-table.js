@@ -58,10 +58,10 @@ async function main() {
         records = combineRecords(records, newRecords);
         newRecords = await getNewOcfRecords();
         records = combineRecords(records, newRecords);
+        records = removeBoeDates(records); // to remove candidates no longer listed
+        const moreRecords = await getBoePickups();
+        records = combineRecords(records, moreRecords);
     }
-    records = removeBoeDates(records); // to remove candidates no longer listed
-    const moreRecords = await getBoePickups();
-    records = combineRecords(records, moreRecords);
     for (const election of Object.keys(records)) {
         for (const party of Object.keys(records[election])) {
             for (const office of Object.keys(records[election][party])) {

@@ -3171,18 +3171,27 @@ Primary Election:
         email: redd4council@gmail.com
         first_name: Perry
         last_name: Redd
-        fair_elections: null
+        fair_elections: false
         neighborhood: Manor Park
-        committee_id: 0
+        committee_id: 14506
         candidate_key: CANCC4207180
         election_year: 2020
         candidate_approved: true
-        committee_approved: false
+        committee_approved: true
         termination_approved: false
-        committee_name: Perry Redd
+        committee_name: The Committee to Elect Perry Redd
         id: 15121
         name: Mr. Perry D Redd
         filing_date: 05/04/2020
+        committee_key: PCCCC4207180
+        committee_address: '422 Marietta Place, NW, Washington, DC 20011'
+        committee_phone: (202) 241-3294
+        treasurer_name: ''
+        treasurer_phone: ''
+        treasurer_email: ''
+        chairperson_name: ''
+        chair_phone: ''
+        chair_email: ''
     US Senator:
       - candidate_name: Eleanor Ory
         contact_name: ''
@@ -4166,7 +4175,7 @@ General Election:
         boe_pickup_date: ''
         boe_filing_date: ''
         email: jdhenchman@gmail.com
-        first_name: Joseph
+        first_name: Joe
         last_name: Henchman
         fair_elections: null
         neighborhood: Eckington
@@ -4310,7 +4319,7 @@ General Election:
         total_approved_contributors: 357
         match_amount: 80770
         allowed_pending_match_amount: 232469
-        total_reports_filed: 8
+        total_reports_filed: 9
         certification_date: '2020-03-12T13:50:33.2Z'
         achieved_ballot_access: false
         certification_deadline: '2020-08-20T00:00:00Z'
@@ -4715,11 +4724,11 @@ General Election:
         match_pending_amount: 180434
         certification_status_code: CR
         registration_status_code: A
-        total_approved_contributions: 31826
-        total_approved_contributors: 518
-        match_amount: 159130
+        total_approved_contributions: 31681
+        total_approved_contributors: 515
+        match_amount: 158405
         allowed_pending_match_amount: 180434
-        total_reports_filed: 10
+        total_reports_filed: 12
         certification_date: '2020-04-08T14:29:03.587Z'
         achieved_ballot_access: false
         certification_deadline: '2020-08-20T00:00:00Z'
@@ -5021,7 +5030,7 @@ General Election:
         committee_name: Committee to Elect Jeanne' Lewis for City Council
         id: 5061
         name: Ms. Jeanne' L. Lewis
-        address: 349 Kentucky Ave SE
+        address: 1727 41st Pl SE
         filing_date: 12/16/2019
         phone: 202-540-0531
         email: info@jeannelewisatlarge.com
@@ -5033,7 +5042,7 @@ General Election:
         chairperson_name: ''
         chair_phone: ''
         chair_email: ''
-        zip: '20003'
+        zip: '20020'
         fair_elections: true
         neighborhood: Fort Davis
         twitter: msjeannelewis
@@ -5109,7 +5118,7 @@ General Election:
         total_approved_contributors: 355
         match_amount: 72375
         allowed_pending_match_amount: 245589
-        total_reports_filed: 5
+        total_reports_filed: 6
         certification_date: '2020-04-11T12:37:39.577Z'
         achieved_ballot_access: false
         certification_deadline: '2020-08-20T00:00:00Z'
@@ -5472,7 +5481,7 @@ General Election:
         zip: ''
         phone: 202-641-1367
         boe_pickup_date: 7/24/2020
-        boe_filing_date: 8/5/2020
+        boe_filing_date: ''
         email: addisonsarter93@gmail.com
         first_name: Addison
         last_name: Sarter
@@ -5632,7 +5641,7 @@ General Election:
         total_approved_contributors: 278
         match_amount: 58075
         allowed_pending_match_amount: 241055
-        total_reports_filed: 1
+        total_reports_filed: 2
         certification_date: null
         achieved_ballot_access: false
         certification_deadline: '2020-08-20T00:00:00Z'
@@ -5961,10 +5970,10 @@ General Election:
         contact_name: Richard Becker
         address: 2969 Mission St San Francisco CA
         zip: '94110'
-        phone: 415-377-6321
+        phone: 415-915-9071
         boe_pickup_date: 7/22/2020
         boe_filing_date: 8/3/2020
-        email: info@larivapeltier2020.org
+        email: info@LaRiva2020.org
         first_name: Gloria La
         last_name: Riva
         fair_elections: null
@@ -6067,7 +6076,7 @@ General Election:
         email: d.douglass01230@gmail.com
         first_name: Dorothy
         last_name: Douglas
-        fair_elections: null
+        fair_elections: false
         neighborhood: Deanwood
         elections:
           - year: 2008
@@ -6118,6 +6127,25 @@ General Election:
             office: Committeewoman Ward 7
             result: Won
             percent: 57
+        committee_id: 14505
+        candidate_key: CANSBL207198
+        committee_key: PCCSBL207198
+        election_year: 2020
+        candidate_approved: true
+        committee_approved: true
+        termination_approved: false
+        committee_name: 2020 Elect Dorothy Douglas for At-Large State Board of Education
+        id: 15452
+        name: Ms. Dorothy Douglas
+        filing_date: 08/31/2020
+        committee_address: '4401 Minnesota Ave., NE, Washington, DC 20019'
+        committee_phone: (202) 640-9584
+        treasurer_name: Ms. Tanika Washington
+        treasurer_phone: (202) 384-9685
+        treasurer_email: tanika.washington@ayannafinancial.com
+        chairperson_name: Ms. Dorothy Douglas
+        chair_phone: (202) 640-9584
+        chair_email: d.douglas123@gmail.com
       - candidate_name: Christopher W Martin
         contact_name: ''
         address: 3312 Lowell St NW
@@ -6291,7 +6319,7 @@ General Election:
         zip: '20001'
         phone: 202-480-5334
         boe_pickup_date: 6/23/2020
-        boe_filing_date: 8/5/2020
+        boe_filing_date: ''
         email: burton.jamaal@gmail.com
         first_name: Jamaal T.
         last_name: Burton
@@ -6372,7 +6400,7 @@ General Election:
         zip: '20001'
         phone: 202-905-8595
         boe_pickup_date: 7/13/2020
-        boe_filing_date: 8/5/2020
+        boe_filing_date: ''
         email: frye.brandon92@gmail.com
         first_name: Brandon
         last_name: Frye
@@ -6422,7 +6450,7 @@ General Election:
         total_approved_contributors: 0
         match_amount: 0
         allowed_pending_match_amount: 14006
-        total_reports_filed: 1
+        total_reports_filed: 2
         certification_date: null
         achieved_ballot_access: false
         certification_deadline: '2020-08-20T00:00:00Z'
@@ -6816,7 +6844,7 @@ General Election:
         total_approved_contributors: 59
         match_amount: 5900
         allowed_pending_match_amount: 14006
-        total_reports_filed: 4
+        total_reports_filed: 5
         certification_date: '2020-07-31T10:15:07.977Z'
         achieved_ballot_access: false
         certification_deadline: '2020-08-20T00:00:00Z'
@@ -7047,11 +7075,11 @@ General Election:
         match_pending_amount: 5481
         certification_status_code: CR
         registration_status_code: A
-        total_approved_contributions: 2050
-        total_approved_contributors: 108
-        match_amount: 10250
+        total_approved_contributions: 2005
+        total_approved_contributors: 105
+        match_amount: 10025
         allowed_pending_match_amount: 5481
-        total_reports_filed: 13
+        total_reports_filed: 15
         certification_date: '2020-03-12T13:50:14.8Z'
         achieved_ballot_access: false
         certification_deadline: '2020-08-20T00:00:00Z'
@@ -7091,6 +7119,20 @@ General Election:
         certification_date: null
         achieved_ballot_access: false
         certification_deadline: '2020-08-20T00:00:00Z'
+  LIB:
+    President:
+      - candidate_name: Jo Jorgensen
+        contact_name: Henchman
+        address: 415 W St NE
+        zip: '20002'
+        phone: 800-353-2887
+        boe_pickup_date: ''
+        boe_filing_date: ''
+        email: ''
+        first_name: Jo
+        last_name: Jorgensen
+        fair_elections: null
+        neighborhood: Eckington
 Special Election:
   Democratic:
     Council Ward 2:

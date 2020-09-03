@@ -626,7 +626,7 @@ async function getBoePickups() {
             const primary = election === 'primary';
             const lineRe = primary
                 ? /^(\S+(?: \S+)*)  +?(\S+(?: \S+)+|) +((?:P\.?O\.? Box )?\d.*?)? (\d{5})? +(\d[-\d]+)? +([\d/]+)(?: +([\d/]*) +(\S+)\s*)?$/ // eslint-disable-line max-len
-                : /^(\S+(?: \S+)+) +([A-Z/]{3,4}) +([\w.-]+(?: [\w.-]+)+|)  +((?:P\.?O\.? Box )?\d.*?|) (\d{5}|) +(\S+@\S+|) *(\d[-\d.]+|) *([\d/NA]*) *([\d/NA]*)\s*$/; // eslint-disable-line max-len
+                : /^(\S+(?: \S+)+) +([A-Z/]{3,4}) +([\w.-]+(?: [\w.-]+)*|)  +((?:P\.?O\.? Box )?\d.*?|) (\d{5}|) +(\S+@\S+|) *(\d[-\d.]+|) *([\d/NA]*) *([\d/NA]*)\s*$/; // eslint-disable-line max-len
             const withdrewRe = /^(.+?)\s*\(withdrew (\d\d?\/\d\d?\/(?:\d\d|\d{4}))\)/i;
             let office;
             for (const page of pdfText.split('\f')) {
@@ -657,7 +657,7 @@ async function getBoePickups() {
                     let m = line.match(lineRe);
                     assert(m, `Unexpected format in PDF:\n${JSON.stringify(line)}`);
                     const values = [...m].slice(1);
-                    let candidate = values.shift();
+                    let candidate = values.shift().replace(/\/\D.*$/, ''); // remove VP names (but not withdrawal dates)
                     if (!primary) {
                         party = values.shift();
                         party = abbrParty[partyAbbr[party]] || party;

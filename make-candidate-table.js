@@ -31,6 +31,7 @@ const partyAbbr = {
     Nonpartisan: '',
     DEM: 'Dem',
     REP: 'Rep',
+    LIB: 'Lib',
     LBT: 'Lib',
     STG: 'StG',
     STHG: 'StG',

@@ -4205,6 +4205,19 @@ General Election:
             office: Party Chair
             result: Won
             percent: 97
+    President:
+      - candidate_name: Jo Jorgensen
+        contact_name: Henchman
+        address: 415 W St NE
+        zip: '20002'
+        phone: 800-353-2887
+        boe_pickup_date: ''
+        boe_filing_date: ''
+        email: ''
+        first_name: Jo
+        last_name: Jorgensen
+        fair_elections: null
+        neighborhood: Eckington
   Independent:
     Council At-Large:
       - candidate_name: Claudia Barragan
@@ -7120,20 +7133,6 @@ General Election:
         certification_date: null
         achieved_ballot_access: false
         certification_deadline: '2020-08-20T00:00:00Z'
-  LIB:
-    President:
-      - candidate_name: Jo Jorgensen
-        contact_name: Henchman
-        address: 415 W St NE
-        zip: '20002'
-        phone: 800-353-2887
-        boe_pickup_date: ''
-        boe_filing_date: ''
-        email: ''
-        first_name: Jo
-        last_name: Jorgensen
-        fair_elections: null
-        neighborhood: Eckington
 Special Election:
   Democratic:
     Council Ward 2:

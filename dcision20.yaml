@@ -4568,11 +4568,11 @@ General Election:
         match_pending_amount: 308639
         certification_status_code: CR
         registration_status_code: A
-        total_approved_contributions: 13557
-        total_approved_contributors: 329
-        match_amount: 67785
+        total_approved_contributions: 9242
+        total_approved_contributors: 232
+        match_amount: 46210
         allowed_pending_match_amount: 308639
-        total_reports_filed: 7
+        total_reports_filed: 9
         certification_date: '2020-07-14T17:59:29.277Z'
         achieved_ballot_access: false
         certification_deadline: '2020-08-20T00:00:00Z'
@@ -4750,9 +4750,9 @@ General Election:
         match_pending_amount: 180434
         certification_status_code: CR
         registration_status_code: A
-        total_approved_contributions: 19498.93
-        total_approved_contributors: 321
-        match_amount: 97494.65
+        total_approved_contributions: 35846
+        total_approved_contributors: 585
+        match_amount: 179230
         allowed_pending_match_amount: 180434
         total_reports_filed: 16
         certification_date: '2020-04-08T14:29:03.587Z'
@@ -5297,7 +5297,7 @@ General Election:
         committee_code: FEPCCL200046
         registration_date: '2020-06-22T00:00:00Z'
         registration_status: Active
-        certification_status: Threshold met and Certification Pending
+        certification_status: Certified
         base_payment: 0
         base_amount_cap: 40000
         matching_payment: 0
@@ -5307,14 +5307,14 @@ General Election:
         base_pending_amount: 40000
         match_pending_amount: 308639
         election_year: 2020
-        certification_status_code: TM
+        certification_status_code: CR
         registration_status_code: A
         total_approved_contributions: 18880
         total_approved_contributors: 348
         match_amount: 94400
         allowed_pending_match_amount: 308639
         total_reports_filed: 1
-        certification_date: null
+        certification_date: '2020-09-11T09:25:21.647Z'
         achieved_ballot_access: false
         certification_deadline: '2020-08-20T00:00:00Z'
       - candidate_name: Alexander M. Padro
@@ -5454,9 +5454,9 @@ General Election:
         match_pending_amount: 258634
         certification_status_code: CR
         registration_status_code: A
-        total_approved_contributions: 12576
-        total_approved_contributors: 247
-        match_amount: 62880
+        total_approved_contributions: 17666
+        total_approved_contributors: 319
+        match_amount: 88330
         allowed_pending_match_amount: 258634
         total_reports_filed: 9
         certification_date: '2020-07-31T10:14:07.663Z'
@@ -5651,7 +5651,7 @@ General Election:
         committee_code: FEPCC2200054
         registration_date: '2020-07-21T00:00:00Z'
         registration_status: Active
-        certification_status: Threshold met and Certification Pending
+        certification_status: Certified
         base_payment: 0
         base_amount_cap: 40000
         matching_payment: 0
@@ -5661,14 +5661,14 @@ General Election:
         base_pending_amount: 40000
         match_pending_amount: 241055
         election_year: 2020
-        certification_status_code: TM
+        certification_status_code: CR
         registration_status_code: A
-        total_approved_contributions: 11615
-        total_approved_contributors: 278
-        match_amount: 58075
+        total_approved_contributions: 14945
+        total_approved_contributors: 365
+        match_amount: 74725
         allowed_pending_match_amount: 241055
         total_reports_filed: 2
-        certification_date: null
+        certification_date: '2020-09-11T09:25:08.787Z'
         achieved_ballot_access: false
         certification_deadline: '2020-08-20T00:00:00Z'
       - candidate_name: Martín Miguel Fernández
@@ -5694,7 +5694,7 @@ General Election:
         committee_code: FEPCC2200045
         registration_date: '2020-06-17T00:00:00Z'
         registration_status: Active
-        certification_status: Threshold met and Certification Pending
+        certification_status: Certified
         base_payment: 0
         base_amount_cap: 40000
         matching_payment: 0
@@ -5704,14 +5704,14 @@ General Election:
         base_pending_amount: 40000
         match_pending_amount: 241055
         election_year: 2020
-        certification_status_code: TM
+        certification_status_code: CR
         registration_status_code: A
         total_approved_contributions: 5924
         total_approved_contributors: 182
         match_amount: 29620
         allowed_pending_match_amount: 241055
         total_reports_filed: 1
-        certification_date: null
+        certification_date: '2020-09-11T09:24:57.037Z'
         achieved_ballot_access: false
         certification_deadline: '2020-08-20T00:00:00Z'
     Council Ward 8:
@@ -6367,7 +6367,7 @@ General Election:
         committee_code: FEPSD2200055
         registration_date: '2020-07-31T00:00:00Z'
         registration_status: Active
-        certification_status: Threshold not met
+        certification_status: Certified
         base_payment: 0
         base_amount_cap: 10000
         matching_payment: 0
@@ -6377,14 +6377,14 @@ General Election:
         base_pending_amount: 10000
         match_pending_amount: 14006
         election_year: 2020
-        certification_status_code: TP
+        certification_status_code: CR
         registration_status_code: A
-        total_approved_contributions: 0
-        total_approved_contributors: 0
-        match_amount: 0
+        total_approved_contributions: 1180
+        total_approved_contributors: 59
+        match_amount: 5900
         allowed_pending_match_amount: 14006
         total_reports_filed: 1
-        certification_date: null
+        certification_date: '2020-09-11T09:24:26.697Z'
         achieved_ballot_access: false
         certification_deadline: '2020-08-20T00:00:00Z'
         twitter: AllisterChang
@@ -6460,7 +6460,7 @@ General Election:
         committee_code: FEPSD2200056
         registration_date: '2020-07-24T00:00:00Z'
         registration_status: Active
-        certification_status: Threshold met and Certification Pending
+        certification_status: Certified
         base_payment: 0
         base_amount_cap: 10000
         matching_payment: 0
@@ -6470,14 +6470,14 @@ General Election:
         base_pending_amount: 10000
         match_pending_amount: 14006
         election_year: 2020
-        certification_status_code: TM
+        certification_status_code: CR
         registration_status_code: A
-        total_approved_contributions: 1035
-        total_approved_contributors: 64
-        match_amount: 5175
+        total_approved_contributions: 1155
+        total_approved_contributors: 70
+        match_amount: 5775
         allowed_pending_match_amount: 14006
         total_reports_filed: 2
-        certification_date: null
+        certification_date: '2020-09-11T09:24:41.5Z'
         achieved_ballot_access: false
         certification_deadline: '2020-08-20T00:00:00Z'
         links:
@@ -6710,7 +6710,7 @@ General Election:
         committee_code: FEPSD7200049
         registration_date: '2020-07-09T00:00:00Z'
         registration_status: Active
-        certification_status: Threshold met and Certification Pending
+        certification_status: Certified
         base_payment: 0
         base_amount_cap: 10000
         matching_payment: 0
@@ -6720,14 +6720,14 @@ General Election:
         base_pending_amount: 10000
         match_pending_amount: 14006
         election_year: 2020
-        certification_status_code: TM
+        certification_status_code: CR
         registration_status_code: A
         total_approved_contributions: 2630
         total_approved_contributors: 132
         match_amount: 13150
         allowed_pending_match_amount: 14006
         total_reports_filed: 1
-        certification_date: null
+        certification_date: '2020-09-11T09:23:39.497Z'
         achieved_ballot_access: false
         certification_deadline: '2020-08-20T00:00:00Z'
         website: dontrellforward7.com
@@ -6802,7 +6802,7 @@ General Election:
         committee_code: FEPSD7200053
         registration_date: '2020-07-17T00:00:00Z'
         registration_status: Active
-        certification_status: Threshold met and Certification Pending
+        certification_status: Certified
         base_payment: 0
         base_amount_cap: 10000
         matching_payment: 0
@@ -6812,14 +6812,14 @@ General Election:
         base_pending_amount: 10000
         match_pending_amount: 14006
         election_year: 2020
-        certification_status_code: TM
+        certification_status_code: CR
         registration_status_code: A
         total_approved_contributions: 2810
         total_approved_contributors: 143
         match_amount: 14050
         allowed_pending_match_amount: 14006
         total_reports_filed: 1
-        certification_date: null
+        certification_date: '2020-09-11T09:24:08.66Z'
         achieved_ballot_access: false
         certification_deadline: '2020-08-20T00:00:00Z'
       - candidate_name: Karen Williams
@@ -6867,9 +6867,9 @@ General Election:
         election_year: 2020
         certification_status_code: CR
         registration_status_code: A
-        total_approved_contributions: 1180
-        total_approved_contributors: 59
-        match_amount: 5900
+        total_approved_contributions: 1540
+        total_approved_contributors: 77
+        match_amount: 7700
         allowed_pending_match_amount: 8106
         total_reports_filed: 5
         certification_date: '2020-07-31T10:15:07.977Z'
@@ -7102,9 +7102,9 @@ General Election:
         match_pending_amount: 5481
         certification_status_code: CR
         registration_status_code: A
-        total_approved_contributions: 2005
-        total_approved_contributors: 105
-        match_amount: 10025
+        total_approved_contributions: 2130
+        total_approved_contributors: 112
+        match_amount: 10650
         allowed_pending_match_amount: 5481
         total_reports_filed: 15
         certification_date: '2020-03-12T13:50:14.8Z'
@@ -7126,7 +7126,7 @@ General Election:
         committee_code: FEPSD8200051
         registration_date: '2020-07-09T00:00:00Z'
         registration_status: Active
-        certification_status: Threshold met and Certification Pending
+        certification_status: Certified
         base_payment: 0
         base_amount_cap: 10000
         matching_payment: 0
@@ -7136,14 +7136,14 @@ General Election:
         base_pending_amount: 10000
         match_pending_amount: 14006
         election_year: 2020
-        certification_status_code: TM
+        certification_status_code: CR
         registration_status_code: A
         total_approved_contributions: 1060
         total_approved_contributors: 55
         match_amount: 5300
         allowed_pending_match_amount: 14006
         total_reports_filed: 1
-        certification_date: null
+        certification_date: '2020-09-11T09:25:40.657Z'
         achieved_ballot_access: false
         certification_deadline: '2020-08-20T00:00:00Z'
 Special Election:

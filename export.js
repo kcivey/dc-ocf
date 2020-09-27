@@ -5,11 +5,39 @@ const moment = require('moment');
 const db = require('./lib/db');
 
 db
-    .select()
-    .from('contributions')
-    .orderBy('committee_name')
-    .orderBy('contributor_name')
-    .orderBy('receipt_date')
+    .select(
+        'con.committee_name',
+        'con.contributor_first_name',
+        'con.contributor_middle_name',
+        'con.contributor_last_name',
+        'con.contributor_organization_name',
+        'con.number_and_street',
+        'con.city',
+        'con.state',
+        'con.zip',
+        'con.contributor_type',
+        'con.contribution_type',
+        'con.employer_name',
+        'con.employer_address',
+        'con.occupation',
+        'con.receipt_date',
+        'con.amount',
+        'con.normalized',
+        'com.candidate_name',
+        'com.candidate_short_name',
+        'com.election_year',
+        'com.office',
+)
+    .from('contributions AS con')
+    .join('committees AS com', 'con.committee_name', 'com.committee_name')
+    .join('committee_extras AS ce', 'ce.committee_name', 'com.committee_name')
+    .orderBy('con.committee_name')
+    .orderBy('con.contributor_last_name')
+    .orderBy('con.contributor_first_name')
+    .orderBy('con.contributor_middle_name')
+    .orderBy('con.number_and_street')
+    .orderBy('con.receipt_date')
+    .where('ce.is_fair_elections', 1)
 
     /*
     .whereIn('committee_name', [

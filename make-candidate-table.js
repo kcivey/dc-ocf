@@ -60,6 +60,7 @@ async function main() {
         newRecords = await getNewOcfRecords();
         records = combineRecords(records, newRecords);
         records = removeBoeDates(records); // to remove candidates no longer listed
+        records = removeBoeListed(records);
         const moreRecords = await getBoePickups();
         records = combineRecords(records, moreRecords);
     }
@@ -576,6 +577,22 @@ function removeBoeDates(records) {
     return records;
 }
 
+function removeBoeListed(records) {
+    for (const [election, recordsByParty] of Object.entries(records)) {
+        if (!/general/i.test(election)) {
+            continue;
+        }
+        for (const recordsByOffice of Object.values(recordsByParty)) {
+            for (const candidates of Object.values(recordsByOffice)) {
+                for (const candidate of candidates) {
+                    delete candidate.boe_listed;
+                }
+            }
+        }
+    }
+    return records;
+}
+
 async function getBoePickups() {
     const newsUrl = 'https://dcboe.org/Candidates/2020-Candidates';
     if (argv.verbose) {
@@ -696,6 +713,9 @@ async function getBoePickups() {
                     if (withdrew) {
                         record.withdrew = withdrew;
                     }
+                    else if (!primary) {
+                        record.boe_listed = true;
+                    }
                     pickups.push(record);
                 }
             }
@@ -763,10 +783,17 @@ function standardizeDate(d) {
 
 function omitCandidate(c, election, party) {
     return c.withdrew ||
-        c.termination_approved ||
+        // (c.termination_approved ||
         (argv['primary-filing'] && /Primary/.test(election) && !c.boe_filing_date) ||
         (argv['special-filing'] && /Special/.test(election) && !c.boe_filing_date) ||
-        (argv['general-filing'] && /General/.test(election) && !majorParties.includes(party) && !c.boe_filing_date);
+        (
+            argv['general-filing'] &&
+            /General/.test(election) &&
+            (
+                (!majorParties.includes(party) && !c.boe_filing_date) ||
+                !c.boe_listed
+            )
+        );
 }
 
 function writeEndorsements(records) { // eslint-disable-line no-unused-vars

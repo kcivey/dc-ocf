@@ -634,7 +634,7 @@ Primary Election:
         total_approved_contributors: 33
         match_amount: 6800
         allowed_pending_match_amount: 241055
-        total_reports_filed: 13
+        total_reports_filed: 14
         certification_date: null
         achieved_ballot_access: true
         certification_deadline: '2020-03-18T00:00:00Z'
@@ -1621,7 +1621,7 @@ Primary Election:
         election_year: 2020
         candidate_approved: true
         committee_approved: true
-        termination_approved: false
+        termination_approved: true
         election_description: Primary Election
         candidate_name: James Jennings
         committee_name: Vote Jennings Ward 7 DC Council 2020
@@ -1931,7 +1931,7 @@ Primary Election:
         election_year: 2020
         candidate_approved: true
         committee_approved: true
-        termination_approved: false
+        termination_approved: true
         election_description: Primary Election
         candidate_name: Richard Campbell
         committee_name: Richard Campbell -Ward 8 City Council
@@ -2068,7 +2068,7 @@ Primary Election:
         election_year: 2020
         candidate_approved: true
         committee_approved: true
-        termination_approved: false
+        termination_approved: true
         candidate_name: Jeronda Hilton
         committee_name: Jeronda Hilton 2020
         id: 15074
@@ -2618,7 +2618,7 @@ Primary Election:
         election_year: 2020
         candidate_approved: true
         committee_approved: true
-        termination_approved: false
+        termination_approved: true
         candidate_name: Dalton  Patterson
         committee_name: Dalton Patterson 2020 Campaign
         id: 15079
@@ -3395,6 +3395,7 @@ General Election:
             https://www.sierraclub.org/dc/sierra-club-endorses-robert-white-patrick-kennedy-janeese-lewis-george-vince-gray-and-trayon
           United Food and Commercial Workers Local 400: 'https://twitter.com/UFCW400/status/1261301716433145856'
           Washington Teachers' Union: 'https://www.wtulocal6.net/2020_endorsements'
+        boe_listed: true
     Council Ward 2:
       - candidate_name: Brooke Pinto
         contact_name: ''
@@ -3455,6 +3456,7 @@ General Election:
             office: Council Ward 2
             result: Won
             percent: 43
+        boe_listed: true
     Council Ward 4:
       - committee_id: 4106
         first_name: Janeese Lewis
@@ -3547,6 +3549,7 @@ General Election:
           United Food and Commercial Workers Local 400: 'https://twitter.com/UFCW400/status/1261301714029871104'
           Ward 4 State Board of Education Member Frazier O'Leary: 'https://www.facebook.com/photo.php?fbid=716815222414212&set=a.136308617131545&type=3&theater'
           Washington Teachers' Union: 'https://www.wtulocal6.net/2020_endorsements'
+        boe_listed: true
     Council Ward 7:
       - committee_id: 4128
         first_name: Vincent C.
@@ -3658,6 +3661,7 @@ General Election:
             https://www.sierraclub.org/dc/sierra-club-endorses-robert-white-patrick-kennedy-janeese-lewis-george-vince-gray-and-trayon
           Washington Post: >-
             https://www.washingtonpost.com/opinions/the-posts-2020-endorsements-for-the-dc-council/2020/04/30/d1136ecc-84fb-11ea-ae26-989cfce1c7c7_story.html
+        boe_listed: true
     Council Ward 8:
       - candidate_name: Trayon "Ward Eight" White
         contact_name: ''
@@ -3722,6 +3726,7 @@ General Election:
           Sierra Club DC Chapter: >-
             https://www.sierraclub.org/dc/sierra-club-endorses-robert-white-patrick-kennedy-janeese-lewis-george-vince-gray-and-trayon
           Washington Teachers' Union: 'https://www.wtulocal6.net/2020_endorsements'
+        boe_listed: true
     US Senator:
       - committee_id: 4129
         first_name: Paul
@@ -3818,6 +3823,7 @@ General Election:
         contact_name: Taylor Berlin
         boe_pickup_date: ''
         boe_filing_date: ''
+        boe_listed: true
     US Representative:
       - committee_id: 4141
         first_name: Oye
@@ -3864,6 +3870,7 @@ General Election:
         links:
           - url: 'https://www.washingtoninformer.com/d-c-election-roundup-owolewa-seeks-shadow-rep-position/'
             title: 'D.C. ELECTION ROUNDUP: Owolewa Seeks Shadow Rep Position'
+        boe_listed: true
     President:
       - candidate_name: Joseph R. Biden
         contact_name: Carla Frank
@@ -3877,6 +3884,7 @@ General Election:
         last_name: Biden
         fair_elections: false
         neighborhood: Downtown
+        boe_listed: true
     Delegate to the US House:
       - candidate_name: Eleanor Holmes Norton
         contact_name: ''
@@ -3895,6 +3903,7 @@ General Election:
             title: House website
         endorsements:
           DC for Democracy: 'https://twitter.com/dc4d/status/1244735683006259209'
+        boe_listed: true
   Republican:
     Council At-Large:
       - candidate_name: Marya Pickering
@@ -3932,6 +3941,7 @@ General Election:
         website: maryadc2020.com
         twitter: MaryaDC2020
         instagram: maryadc2020
+        boe_listed: true
     President:
       - candidate_name: Donald J. Trump
         contact_name: Nicholas Trainer
@@ -3945,6 +3955,7 @@ General Election:
         last_name: Trump
         fair_elections: false
         neighborhood: null
+        boe_listed: true
     Council Ward 2:
       - candidate_name: Katherine Venice
         contact_name: ''
@@ -4000,6 +4011,7 @@ General Election:
         chair_email: nathan.derenge@gmail.com
         instagram: nateward_8
         facebook: NateWard8
+        boe_listed: true
     US Senator:
       - candidate_name: Cornelia Weiss
         contact_name: ''
@@ -4023,6 +4035,7 @@ General Election:
         id: 15128
         name: Ms. Cornelia Weiss
         filing_date: 06/25/2020
+        boe_listed: true
   Statehood Green:
     Council At-Large:
       - candidate_name: Ann C. Wilcox
@@ -4047,6 +4060,7 @@ General Election:
         id: 15112
         name: Ms. Ann C. Wilcox
         filing_date: 04/20/2020
+        boe_listed: true
     Council Ward 2:
       - candidate_name: Peter Bolton
         contact_name: ''
@@ -4061,6 +4075,7 @@ General Election:
         fair_elections: null
         neighborhood: Dupont Circle
         twitter: BoltonforWard2
+        boe_listed: true
     Council Ward 4:
       - candidate_name: Perry Redd
         contact_name: ''
@@ -4084,6 +4099,7 @@ General Election:
         id: 15121
         name: Mr. Perry D Redd
         filing_date: 05/04/2020
+        boe_listed: true
     US Senator:
       - candidate_name: Eleanor Ory
         contact_name: ''
@@ -4116,6 +4132,7 @@ General Election:
         chairperson_name: Ms. Elenor Ory
         chair_phone: (954) 940-8281
         chair_email: echo4senate@gmail.com
+        boe_listed: true
     US Representative:
       - candidate_name: Joyce (Chestnut) Robinson-Paul
         contact_name: ''
@@ -4139,6 +4156,7 @@ General Election:
         id: 15105
         name: Ms. Joyce Robinson Paul
         filing_date: 03/03/2020
+        boe_listed: true
     Delegate to the US House:
       - candidate_name: Natale Lino Stracuzzi
         contact_name: ''
@@ -4152,6 +4170,7 @@ General Election:
         last_name: Stracuzzi
         fair_elections: false
         neighborhood: Douglas
+        boe_listed: true
     President:
       - candidate_name: Howie Hawkins
         contact_name: ''
@@ -4165,6 +4184,7 @@ General Election:
         last_name: Hawkins
         fair_elections: null
         neighborhood: null
+        boe_listed: true
   Libertarian:
     Council At-Large:
       - candidate_name: Joseph Henchman
@@ -4205,6 +4225,7 @@ General Election:
             office: Party Chair
             result: Won
             percent: 97
+        boe_listed: true
     President:
       - candidate_name: Jo Jorgensen
         contact_name: Henchman
@@ -4218,6 +4239,7 @@ General Election:
         last_name: Jorgensen
         fair_elections: null
         neighborhood: Eckington
+        boe_listed: true
     Delegate to the US House:
       - candidate_name: Patrick Hynes
         contact_name: ''
@@ -4231,6 +4253,7 @@ General Election:
         last_name: Hynes
         fair_elections: false
         neighborhood: null
+        boe_listed: true
   Independent:
     Council At-Large:
       - candidate_name: Claudia Barragan
@@ -4265,6 +4288,7 @@ General Election:
         chairperson_name: Ms. Claudia Barragan
         chair_phone: (202) 677-5993
         chair_email: info@claudiafordc.com
+        boe_listed: true
       - committee_id: 4114
         first_name: Markus
         last_name: Batchelor
@@ -4347,8 +4371,9 @@ General Election:
         allowed_pending_match_amount: 232469
         total_reports_filed: 9
         certification_date: '2020-03-12T13:50:33.2Z'
-        achieved_ballot_access: false
+        achieved_ballot_access: true
         certification_deadline: '2020-08-20T00:00:00Z'
+        boe_listed: true
       - committee_id: 4137
         first_name: Mario
         last_name: Cristaldo
@@ -4421,8 +4446,9 @@ General Election:
         allowed_pending_match_amount: 308639
         total_reports_filed: 10
         certification_date: null
-        achieved_ballot_access: false
+        achieved_ballot_access: true
         certification_deadline: '2020-08-20T00:00:00Z'
+        boe_listed: true
       - committee_id: 4099
         first_name: Anthony
         last_name: Dale
@@ -4574,8 +4600,9 @@ General Election:
         allowed_pending_match_amount: 308639
         total_reports_filed: 9
         certification_date: '2020-07-14T17:59:29.277Z'
-        achieved_ballot_access: false
+        achieved_ballot_access: true
         certification_deadline: '2020-08-20T00:00:00Z'
+        boe_listed: true
       - committee_id: 4147
         first_name: Marcus
         last_name: Goodwin
@@ -4629,6 +4656,7 @@ General Election:
         contact_name: Malcom H. Fox
         boe_pickup_date: 6/16/2020
         boe_filing_date: 7/14/2020
+        boe_listed: true
       - candidate_name: Calvin H. Gurley
         contact_name: ''
         address: 612 Underwood St NW
@@ -4697,6 +4725,7 @@ General Election:
         chairperson_name: Mr. Calvin H. Gurley
         chair_phone: (202) 262-2368
         chair_email: chgurley@verizon.net
+        boe_listed: true
       - first_name: Christina
         last_name: Henderson
         election_year: 2020
@@ -4750,14 +4779,15 @@ General Election:
         match_pending_amount: 180434
         certification_status_code: CR
         registration_status_code: A
-        total_approved_contributions: 35846
-        total_approved_contributors: 585
-        match_amount: 179230
+        total_approved_contributions: 31826
+        total_approved_contributors: 518
+        match_amount: 159130
         allowed_pending_match_amount: 180434
-        total_reports_filed: 16
+        total_reports_filed: 17
         certification_date: '2020-04-08T14:29:03.587Z'
-        achieved_ballot_access: false
+        achieved_ballot_access: true
         certification_deadline: '2020-08-20T00:00:00Z'
+        boe_listed: true
       - candidate_name: Kathy Henderson
         contact_name: ''
         address: 1807 L St NE
@@ -4861,7 +4891,7 @@ General Election:
         candidate_approved: true
         committee_approved: true
         termination_approved: false
-        committee_name: Committee to Elect Kathy Henderson At-Large
+        committee_name: Committee to Elect Kathy Henderson
         id: 15134
         name: Ms. Kathy Henderson
         filing_date: 07/21/2020
@@ -4877,6 +4907,7 @@ General Election:
           - url: >-
               https://www.washingtoncitypaper.com/news/loose-lips/article/21140270/perennial-candidate-kathy-henderson-is-accused-of-misleading-an-elderly-homeowner-while-working-with-a-developer
             title: 'A Council Candidate, a Home Renovation, and Allegations of Impropriety'
+        boe_listed: true
       - candidate_name: A'Shia Howard
         contact_name: Amy Nicole Allen
         address: 4138 Meade St NE
@@ -4899,6 +4930,7 @@ General Election:
         id: 15132
         name: Ms. A'Shia Howard
         filing_date: 07/10/2020
+        boe_listed: true
       - committee_id: 4119
         first_name: Chander
         last_name: Jayaraman
@@ -4990,6 +5022,7 @@ General Election:
         certification_date: '2020-03-12T13:48:01.283Z'
         achieved_ballot_access: true
         certification_deadline: '2020-08-20T00:00:00Z'
+        boe_listed: true
       - candidate_name: Ed Lazere
         first_name: Ed
         last_name: Lazere
@@ -5034,14 +5067,15 @@ General Election:
         match_pending_amount: 72269
         certification_status_code: CR
         registration_status_code: A
-        total_approved_contributions: 61727.8
-        total_approved_contributors: 1012
-        match_amount: 308639
+        total_approved_contributions: 38159.2
+        total_approved_contributors: 606
+        match_amount: 190796
         allowed_pending_match_amount: 72269
-        total_reports_filed: 6
+        total_reports_filed: 10
         certification_date: '2020-07-14T17:58:15.503Z'
-        achieved_ballot_access: false
+        achieved_ballot_access: true
         certification_deadline: '2020-08-20T00:00:00Z'
+        boe_listed: true
       - committee_id: 4136
         first_name: Jeanné
         last_name: Lewis
@@ -5098,8 +5132,9 @@ General Election:
         allowed_pending_match_amount: 243309
         total_reports_filed: 15
         certification_date: '2020-07-14T17:57:38.153Z'
-        achieved_ballot_access: false
+        achieved_ballot_access: true
         certification_deadline: '2020-08-20T00:00:00Z'
+        boe_listed: true
       - first_name: Will
         last_name: Merrifield
         candidate_name: Will Merrifield
@@ -5144,10 +5179,11 @@ General Election:
         total_approved_contributors: 355
         match_amount: 72375
         allowed_pending_match_amount: 245589
-        total_reports_filed: 6
+        total_reports_filed: 8
         certification_date: '2020-04-11T12:37:39.577Z'
-        achieved_ballot_access: false
+        achieved_ballot_access: true
         certification_deadline: '2020-08-20T00:00:00Z'
+        boe_listed: true
       - committee_id: 14171
         first_name: Rick
         last_name: Murphree
@@ -5182,6 +5218,7 @@ General Election:
         contact_name: ''
         boe_pickup_date: 6/17/2020
         boe_filing_date: 8/5/2020
+        boe_listed: true
       - committee_id: 0
         first_name: Asar
         last_name: Mustafa
@@ -5315,8 +5352,9 @@ General Election:
         allowed_pending_match_amount: 308639
         total_reports_filed: 1
         certification_date: '2020-09-11T09:25:21.647Z'
-        achieved_ballot_access: false
+        achieved_ballot_access: true
         certification_deadline: '2020-08-20T00:00:00Z'
+        boe_listed: true
       - candidate_name: Alexander M. Padro
         contact_name: ''
         address: 1519 8th St NW
@@ -5415,6 +5453,7 @@ General Election:
         links:
           - url: 'https://www.washingtonblade.com/2020/06/18/gay-candidate-enters-at-large-d-c-council-race/'
             title: Gay candidate enters At-Large D.C. Council race
+        boe_listed: true
       - first_name: Mónica
         last_name: Palacio
         candidate_name: Mónica Palacio
@@ -5460,8 +5499,9 @@ General Election:
         allowed_pending_match_amount: 258634
         total_reports_filed: 9
         certification_date: '2020-07-31T10:14:07.663Z'
-        achieved_ballot_access: false
+        achieved_ballot_access: true
         certification_deadline: '2020-08-20T00:00:00Z'
+        boe_listed: true
       - committee_id: 4127
         first_name: Eric M.
         last_name: Rogers
@@ -5501,6 +5541,7 @@ General Election:
         contact_name: ''
         boe_pickup_date: 6/17/2020
         boe_filing_date: 8/3/2020
+        boe_listed: true
       - candidate_name: Addison Sarter
         contact_name: ''
         address: ''
@@ -5544,6 +5585,7 @@ General Election:
         contact_name: ''
         boe_pickup_date: 6/16/2020
         boe_filing_date: 8/5/2020
+        boe_listed: true
       - candidate_name: Keith Silver
         contact_name: ''
         address: 901 New Jersey Ave NW
@@ -5612,6 +5654,7 @@ General Election:
         certification_date: null
         achieved_ballot_access: false
         certification_deadline: '2020-08-20T00:00:00Z'
+        boe_listed: true
     Council Ward 2:
       - candidate_name: Randy Downs
         contact_name: ''
@@ -5669,8 +5712,9 @@ General Election:
         allowed_pending_match_amount: 241055
         total_reports_filed: 2
         certification_date: '2020-09-11T09:25:08.787Z'
-        achieved_ballot_access: false
+        achieved_ballot_access: true
         certification_deadline: '2020-08-20T00:00:00Z'
+        boe_listed: true
       - candidate_name: Martín Miguel Fernández
         contact_name: ''
         address: PO Box 34234
@@ -5712,8 +5756,9 @@ General Election:
         allowed_pending_match_amount: 241055
         total_reports_filed: 1
         certification_date: '2020-09-11T09:24:57.037Z'
-        achieved_ballot_access: false
+        achieved_ballot_access: true
         certification_deadline: '2020-08-20T00:00:00Z'
+        boe_listed: true
     Council Ward 8:
       - committee_id: 4123
         first_name: Christopher
@@ -5767,8 +5812,9 @@ General Election:
         allowed_pending_match_amount: 241055
         total_reports_filed: 8
         certification_date: null
-        achieved_ballot_access: false
+        achieved_ballot_access: true
         certification_deadline: '2020-08-20T00:00:00Z'
+        boe_listed: true
       - committee_id: 14185
         first_name: Fred
         last_name: Hill
@@ -5800,6 +5846,7 @@ General Election:
         contact_name: ''
         boe_pickup_date: 6/16/2020
         boe_filing_date: 8/5/2020
+        boe_listed: true
       - candidate_name: Nelson Jackson Sr
         contact_name: ''
         address: 3412 21st St SE
@@ -5818,7 +5865,7 @@ General Election:
         election_year: 2020
         candidate_approved: true
         committee_approved: true
-        termination_approved: false
+        termination_approved: true
         committee_name: Independent Campaign for Nelson Jackson
         id: 15125
         name: Mr. Nelson Jackson SR.
@@ -5931,6 +5978,7 @@ General Election:
         last_name: Cheeks
         fair_elections: false
         neighborhood: Foxhall Village
+        boe_listed: true
       - candidate_name: Barbara Washington Franklin
         contact_name: Johnnie Scott-Rice
         address: 4417 46th St NW
@@ -5943,6 +5991,7 @@ General Election:
         last_name: Franklin
         fair_elections: false
         neighborhood: American University Park
+        boe_listed: true
       - candidate_name: David Krucoff
         contact_name: ''
         address: 2870 Upton St NW
@@ -5955,6 +6004,7 @@ General Election:
         last_name: Krucoff
         fair_elections: false
         neighborhood: Forest Hills
+        boe_listed: true
       - candidate_name: Amir Lowery
         contact_name: ''
         address: 1300 Van Buren St NW
@@ -5967,6 +6017,7 @@ General Election:
         last_name: Lowery
         fair_elections: false
         neighborhood: Brightwood
+        boe_listed: true
       - candidate_name: Omari Musa
         contact_name: ''
         address: 900 G St NE
@@ -5979,6 +6030,7 @@ General Election:
         last_name: Musa
         fair_elections: false
         neighborhood: Near Northeast
+        boe_listed: true
     President:
       - candidate_name: Brock Pierce
         contact_name: ''
@@ -5992,6 +6044,7 @@ General Election:
         last_name: Pierce
         fair_elections: null
         neighborhood: null
+        boe_listed: true
       - candidate_name: Gloria La Riva
         contact_name: Richard Becker
         address: 2969 Mission St San Francisco CA
@@ -6004,6 +6057,7 @@ General Election:
         last_name: Riva
         fair_elections: null
         neighborhood: null
+        boe_listed: true
     US Representative:
       - candidate_name: Sohaer Rizvi Syed
         contact_name: ''
@@ -6027,6 +6081,7 @@ General Election:
         id: 15138
         name: Sohaer Rizvi Syed
         filing_date: 08/05/2020
+        boe_listed: true
   Other:
     Council Ward 2:
       - committee_id: 0
@@ -6172,6 +6227,7 @@ General Election:
         chairperson_name: Ms. Dorothy Douglas
         chair_phone: (202) 640-9584
         chair_email: d.douglas123@gmail.com
+        boe_listed: true
       - candidate_name: Christopher W Martin
         contact_name: ''
         address: 3312 Lowell St NW
@@ -6203,6 +6259,7 @@ General Election:
         chairperson_name: Mr. Chris Martin
         chair_phone: (202) 548-5555
         chair_email: cwmartin918@gmail.com
+        boe_listed: true
       - candidate_name: Troy Murphy
         contact_name: ''
         address: 1331 4th St SE
@@ -6225,6 +6282,7 @@ General Election:
         id: 15129
         name: Mr. Le'Troy Murphy
         filing_date: 06/25/2020
+        boe_listed: true
       - candidate_name: Jacque Patterson
         contact_name: ''
         address: 3521 21st St SE
@@ -6267,6 +6325,7 @@ General Election:
             office: Council Ward 8
             result: Lost
             percent: 8
+        boe_listed: true
       - candidate_name: Ravi K. Perry
         contact_name: ''
         address: 3602 Grant Pl NE
@@ -6299,6 +6358,7 @@ General Election:
         chairperson_name: Mr. Ravi K. Perry
         chair_phone: (202) 735-0466
         chair_email: ravi.perry@gmail.com
+        boe_listed: true
       - candidate_name: Mysiki Valentine
         contact_name: ''
         address: 3423 Eads St NE
@@ -6318,7 +6378,7 @@ General Election:
         committee_code: FEPSBL200052
         registration_date: '2020-07-13T00:00:00Z'
         registration_status: Active
-        certification_status: Threshold not met
+        certification_status: Certified
         base_payment: 0
         base_amount_cap: 10000
         matching_payment: 0
@@ -6328,16 +6388,17 @@ General Election:
         base_pending_amount: 10000
         match_pending_amount: 21877
         election_year: 2020
-        certification_status_code: TP
+        certification_status_code: CR
         registration_status_code: A
-        total_approved_contributions: 4380
-        total_approved_contributors: 158
-        match_amount: 21900
+        total_approved_contributions: 5010
+        total_approved_contributors: 178
+        match_amount: 25050
         allowed_pending_match_amount: 21877
         total_reports_filed: 1
-        certification_date: null
-        achieved_ballot_access: false
+        certification_date: '2020-09-14T19:09:14.567Z'
+        achieved_ballot_access: true
         certification_deadline: '2020-08-20T00:00:00Z'
+        boe_listed: true
     SBOE Ward 2:
       - candidate_name: Jamaal T. Burton
         contact_name: ''
@@ -6385,9 +6446,10 @@ General Election:
         allowed_pending_match_amount: 14006
         total_reports_filed: 1
         certification_date: '2020-09-11T09:24:26.697Z'
-        achieved_ballot_access: false
+        achieved_ballot_access: true
         certification_deadline: '2020-08-20T00:00:00Z'
         twitter: AllisterChang
+        boe_listed: true
       - candidate_name: Christopher Etesse
         contact_name: ''
         address: 2457 P St NW
@@ -6420,6 +6482,7 @@ General Election:
         chairperson_name: Mr. Michael W. Weber
         chair_phone: (703) 915-6865
         chair_email: michael.w.weber@outlook.com
+        boe_listed: true
       - candidate_name: Brandon Frye
         contact_name: ''
         address: 1404 11th St NW
@@ -6478,13 +6541,14 @@ General Election:
         allowed_pending_match_amount: 14006
         total_reports_filed: 2
         certification_date: '2020-09-11T09:24:41.5Z'
-        achieved_ballot_access: false
+        achieved_ballot_access: true
         certification_deadline: '2020-08-20T00:00:00Z'
         links:
           - url: >-
               https://www.gwhatchet.com/2020/07/28/senior-announces-campaign-to-represent-ward-2-on-state-board-of-education/
             title: Senior announces campaign to represent Ward 2 on State Board of Education
         website: 'https://secure.actblue.com/donate/jhsboe'
+        boe_listed: true
       - candidate_name: Sarah Mehrotra
         contact_name: ''
         address: 1801 18th St NW
@@ -6518,6 +6582,7 @@ General Election:
         chair_phone: (585) 424-0246
         chair_email: amygnasr@gmail.com
         website: sarahforward2schools.com
+        boe_listed: true
     SBOE Ward 4:
       - candidate_name: Frazier L. O'Leary Jr
         contact_name: ''
@@ -6564,8 +6629,9 @@ General Election:
         allowed_pending_match_amount: 14006
         total_reports_filed: 2
         certification_date: '2020-07-31T10:14:41.133Z'
-        achieved_ballot_access: false
+        achieved_ballot_access: true
         certification_deadline: '2020-08-20T00:00:00Z'
+        boe_listed: true
     SBOE Ward 7:
       - committee_id: 4121
         first_name: Charles
@@ -6623,6 +6689,7 @@ General Election:
         certification_date: null
         achieved_ballot_access: false
         certification_deadline: '2020-08-20T00:00:00Z'
+        boe_listed: true
       - committee_id: 4122
         first_name: Tyrell
         last_name: Holcomb
@@ -6722,17 +6789,18 @@ General Election:
         election_year: 2020
         certification_status_code: CR
         registration_status_code: A
-        total_approved_contributions: 2630
-        total_approved_contributors: 132
-        match_amount: 13150
+        total_approved_contributions: 0
+        total_approved_contributors: 0
+        match_amount: 0
         allowed_pending_match_amount: 14006
-        total_reports_filed: 1
+        total_reports_filed: 2
         certification_date: '2020-09-11T09:23:39.497Z'
-        achieved_ballot_access: false
+        achieved_ballot_access: true
         certification_deadline: '2020-08-20T00:00:00Z'
         website: dontrellforward7.com
         twitter: Dontrell4SBOEW7
         instagram: dontrellforward7sboe
+        boe_listed: true
       - candidate_name: Patricia Stamper
         contact_name: ''
         address: 4907 Just St NE
@@ -6820,8 +6888,9 @@ General Election:
         allowed_pending_match_amount: 14006
         total_reports_filed: 1
         certification_date: '2020-09-11T09:24:08.66Z'
-        achieved_ballot_access: false
+        achieved_ballot_access: true
         certification_deadline: '2020-08-20T00:00:00Z'
+        boe_listed: true
       - candidate_name: Karen Williams
         contact_name: ''
         address: 2914 W St SE
@@ -6873,8 +6942,9 @@ General Election:
         allowed_pending_match_amount: 8106
         total_reports_filed: 5
         certification_date: '2020-07-31T10:15:07.977Z'
-        achieved_ballot_access: false
+        achieved_ballot_access: true
         certification_deadline: '2020-08-20T00:00:00Z'
+        boe_listed: true
     SBOE Ward 8:
       - committee_id: 4120
         first_name: Darrell
@@ -7021,6 +7091,7 @@ General Election:
         instagram: lajoylaw
         facebook: LajoyLaw2020
         twitter: LaJoyLaw1
+        boe_listed: true
       - committee_id: 4124
         first_name: Carlene
         last_name: Reid
@@ -7108,8 +7179,9 @@ General Election:
         allowed_pending_match_amount: 5481
         total_reports_filed: 15
         certification_date: '2020-03-12T13:50:14.8Z'
-        achieved_ballot_access: false
+        achieved_ballot_access: true
         certification_deadline: '2020-08-20T00:00:00Z'
+        boe_listed: true
       - candidate_name: Ryan Washington
         contact_name: ''
         address: 2609 Douglass Rd SE
@@ -7144,8 +7216,9 @@ General Election:
         allowed_pending_match_amount: 14006
         total_reports_filed: 1
         certification_date: '2020-09-11T09:25:40.657Z'
-        achieved_ballot_access: false
+        achieved_ballot_access: true
         certification_deadline: '2020-08-20T00:00:00Z'
+        boe_listed: true
 Special Election:
   Democratic:
     Council Ward 2:

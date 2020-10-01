@@ -3350,6 +3350,8 @@ General Election:
         zip: '20011'
         twitter: RobertWhite_DC
         website: robertwhitefordc.com
+        instagram: robertwhite_dc
+        facebook: robert.c.whiteii
         links:
           - url: 'https://robertwhiteatlarge.com/'
             title: Councilmember website
@@ -3683,6 +3685,7 @@ General Election:
             title: D.C. Council member White announces re-election bid
         twitter: trayonwhite
         instagram: trayonwhite
+        website: 'https://www.trayonforward8.com/'
         elections:
           - year: 2012
             election: General
@@ -3758,7 +3761,7 @@ General Election:
         fair_elections: false
         neighborhood: Cathedral Heights
         twitter: SenPaulStrauss
-        website: paulstrauss.org
+        website: http://paulstrauss.org
         elections:
           - year: 1996
             election: Primary
@@ -3855,7 +3858,7 @@ General Election:
         fair_elections: false
         neighborhood: Douglas
         twitter: AdeoyeOwolewa
-        website: deoye.net
+        website: oye4dc.com
         instagram: oye4dc
         elections:
           - year: 2018
@@ -3904,6 +3907,7 @@ General Election:
         endorsements:
           DC for Democracy: 'https://twitter.com/dc4d/status/1244735683006259209'
         boe_listed: true
+        twitter: EleanorNorton
   Republican:
     Council At-Large:
       - candidate_name: Marya Pickering
@@ -4061,6 +4065,7 @@ General Election:
         name: Ms. Ann C. Wilcox
         filing_date: 04/20/2020
         boe_listed: true
+        twitter: AnnWinDC
     Council Ward 2:
       - candidate_name: Peter Bolton
         contact_name: ''
@@ -4076,6 +4081,8 @@ General Election:
         neighborhood: Dupont Circle
         twitter: BoltonforWard2
         boe_listed: true
+        facebook: PeterBoltonforWard2
+        website: 'http://boltonforward2.org/'
     Council Ward 4:
       - candidate_name: Perry Redd
         contact_name: ''
@@ -4100,6 +4107,8 @@ General Election:
         name: Mr. Perry D Redd
         filing_date: 05/04/2020
         boe_listed: true
+        website: http://statehoodgreensofdc.org/STGcandidate2020-PerryRedd.html
+        twitter: SocialSpeaks
     US Senator:
       - candidate_name: Eleanor Ory
         contact_name: ''
@@ -4133,6 +4142,7 @@ General Election:
         chair_phone: (954) 940-8281
         chair_email: echo4senate@gmail.com
         boe_listed: true
+        twitter: echo4dc
     US Representative:
       - candidate_name: Joyce (Chestnut) Robinson-Paul
         contact_name: ''
@@ -4171,6 +4181,7 @@ General Election:
         fair_elections: false
         neighborhood: Douglas
         boe_listed: true
+        twitter: StracuzziLino
     President:
       - candidate_name: Howie Hawkins
         contact_name: ''
@@ -4226,6 +4237,9 @@ General Election:
             result: Won
             percent: 97
         boe_listed: true
+        website: joeindc.com
+        facebook: jbhenchman
+        instagram: jbhenchman
     President:
       - candidate_name: Jo Jorgensen
         contact_name: Henchman
@@ -4289,6 +4303,9 @@ General Election:
         chair_phone: (202) 677-5993
         chair_email: info@claudiafordc.com
         boe_listed: true
+        website: claudiafordc.com
+        instagram: dcforclaudia
+        facebook: ClaudiaForDC
       - committee_id: 4114
         first_name: Markus
         last_name: Batchelor
@@ -4931,6 +4948,10 @@ General Election:
         name: Ms. A'Shia Howard
         filing_date: 07/10/2020
         boe_listed: true
+        facebook: electashiahoward2020
+        website: howardfordc.com
+        twitter: luckylady115
+        instagram: electashiahoward2020
       - committee_id: 4119
         first_name: Chander
         last_name: Jayaraman
@@ -5076,6 +5097,7 @@ General Election:
         achieved_ballot_access: true
         certification_deadline: '2020-08-20T00:00:00Z'
         boe_listed: true
+        instagram: edfordc
       - committee_id: 4136
         first_name: Jeanné
         last_name: Lewis
@@ -5251,6 +5273,7 @@ General Election:
         fair_elections: true
         neighborhood: Brookland
         twitter: OrangeVo40
+        website: vincentorange2020.com
         elections:
           - year: 1994
             election: Primary
@@ -5586,6 +5609,10 @@ General Election:
         boe_pickup_date: 6/16/2020
         boe_filing_date: 8/5/2020
         boe_listed: true
+        website: drmicdccouncil.com
+        twitter: drmicdccouncil
+        instagram: drmicdccouncil
+        facebook: drmicdccouncil
       - candidate_name: Keith Silver
         contact_name: ''
         address: 901 New Jersey Ave NW
@@ -5788,6 +5815,9 @@ General Election:
         chair_email: langm@faunteroycenter.org
         zip: '20020'
         neighborhood: Buena Vista
+        website: christophercoleforwardeight.com
+        facebook: christophercole.forwardeight
+        instagram: christopher_cole_for_ward_8
         fair_elections: false
         contact_name: Shawnta Hall
         boe_pickup_date: 6/12/2020
@@ -5847,6 +5877,8 @@ General Election:
         boe_pickup_date: 6/16/2020
         boe_filing_date: 8/5/2020
         boe_listed: true
+        website: https://www.fredhillward8.com
+        twitter: FredHill4Ward8
       - candidate_name: Nelson Jackson Sr
         contact_name: ''
         address: 3412 21st St SE
@@ -5992,6 +6024,9 @@ General Election:
         fair_elections: false
         neighborhood: American University Park
         boe_listed: true
+        facebook: Barbara4DC
+        website: barbarafordcdelegate.com
+        twitter: Barbara4DC
       - candidate_name: David Krucoff
         contact_name: ''
         address: 2870 Upton St NW
@@ -6005,6 +6040,8 @@ General Election:
         fair_elections: false
         neighborhood: Forest Hills
         boe_listed: true
+        website: 'http://www.krucoffforcongress.com/'
+        twitter: dkrucoff
       - candidate_name: Amir Lowery
         contact_name: ''
         address: 1300 Van Buren St NW
@@ -6018,6 +6055,9 @@ General Election:
         fair_elections: false
         neighborhood: Brightwood
         boe_listed: true
+        twitter: princelowery
+        website: amirlowery.com
+        instagram: princelowery
       - candidate_name: Omari Musa
         contact_name: ''
         address: 900 G St NE
@@ -6082,6 +6122,9 @@ General Election:
         name: Sohaer Rizvi Syed
         filing_date: 08/05/2020
         boe_listed: true
+        website: sohaer.com
+        facebook: vote4sohaer
+        twitter: vote4sohaer
   Other:
     Council Ward 2:
       - committee_id: 0
@@ -6260,6 +6303,9 @@ General Election:
         chair_phone: (202) 548-5555
         chair_email: cwmartin918@gmail.com
         boe_listed: true
+        website: chris4education.com
+        twitter: chris4ed
+        facebook: Chris-Martin-106328281197170
       - candidate_name: Troy Murphy
         contact_name: ''
         address: 1331 4th St SE
@@ -6338,7 +6384,7 @@ General Election:
         last_name: Perry
         fair_elections: false
         neighborhood: Parkside
-        twitter: raviperry
+        twitter: RaviPerry4DC
         committee_id: 14468
         candidate_key: CANSBL207193
         election_year: 2020
@@ -6359,6 +6405,9 @@ General Election:
         chair_phone: (202) 735-0466
         chair_email: ravi.perry@gmail.com
         boe_listed: true
+        website: 'http://raviperry4dc.com/'
+        instagram: raviperry4dc
+        facebook: ravi4dc
       - candidate_name: Mysiki Valentine
         contact_name: ''
         address: 3423 Eads St NE
@@ -6374,6 +6423,7 @@ General Election:
         twitter: ValentineforDC
         facebook: ValentineForDC
         website: valentinefordc.com
+        instagram: valentine4dc
         committee_name: The Committee to Elect Mysiki Valentine
         committee_code: FEPSBL200052
         registration_date: '2020-07-13T00:00:00Z'
@@ -6449,6 +6499,7 @@ General Election:
         achieved_ballot_access: true
         certification_deadline: '2020-08-20T00:00:00Z'
         twitter: AllisterChang
+        website: allister4ward2.com
         boe_listed: true
       - candidate_name: Christopher Etesse
         contact_name: ''
@@ -6463,6 +6514,8 @@ General Election:
         fair_elections: false
         neighborhood: East Village Georgetown
         twitter: ChrisEduWard2
+        facebook: chriseduward2
+        website: chriseduward2.com
         committee_id: 14191
         candidate_key: CANSD2207195
         committee_key: PCCSD2207195
@@ -6512,6 +6565,7 @@ General Election:
         neighborhood: null
         twitter: jarharnett
         facebook: harnettjames
+        website: jamesforward2.com
         elections:
           - year: 2018
             election: General
@@ -6547,7 +6601,6 @@ General Election:
           - url: >-
               https://www.gwhatchet.com/2020/07/28/senior-announces-campaign-to-represent-ward-2-on-state-board-of-education/
             title: Senior announces campaign to represent Ward 2 on State Board of Education
-        website: 'https://secure.actblue.com/donate/jhsboe'
         boe_listed: true
       - candidate_name: Sarah Mehrotra
         contact_name: ''
@@ -7087,7 +7140,7 @@ General Election:
         contact_name: ''
         boe_pickup_date: 6/17/2020
         boe_filing_date: 7/29/2020
-        website: 'http://lajoylaw2020.com'
+        website: lajoylaw2020.com
         instagram: lajoylaw
         facebook: LajoyLaw2020
         twitter: LaJoyLaw1
@@ -7753,6 +7806,8 @@ Special Election:
             title: 'Meet Brooke Pinto, She''s Running for D.C. Council'
         twitter: brookecpinto
         website: brookepintoforward2.com
+        instagram: brookepintoforward2
+        facebook: BrookeForWard2
         committee_id: 14163
         candidate_key: CANCC2207166
         committee_key: PCCCC2207166
@@ -7936,3 +7991,4 @@ Special Election:
         certification_date: null
         achieved_ballot_access: true
         certification_deadline: '2020-03-18T00:00:00Z'
+        withdrew: true

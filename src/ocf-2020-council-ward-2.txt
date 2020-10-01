@@ -7,8 +7,8 @@ In order by number of contributors, they are
 <li>Jordan Grossman</li>
 <li>Kishan Putta</li>
 <li>Patrick Kennedy</li>
-<li>Brooke Pinto</li>
 <li>Randy Downs (independent)</li>
+<li>Brooke Pinto</li>
 <li>John Fanning</li>
 <li>Martín Miguel Fernandez (independent)</li>
 <li>Jack Evans</li>
@@ -21,7 +21,8 @@ All the candidates are Democrats except for Venice, who is a Republican, and Dow
 All are seeking to qualify or have qualified for Fair Elections public campaign funds except for Brooke Pinto.
 The last report for all the candidates covers contributions through August 10,
 except for Putta, who has filed through June 10,
-and Downs and Venice, who have filed through August 31.
+Venice, who has filed through August 31,
+and Downs, who has filed through September 30.
 
 Pinto can accept contributions up to $500, from individuals and from organizations (corporations, LLCs,
 PACs, unions, and so on), and use as much of her own money as she wishes.

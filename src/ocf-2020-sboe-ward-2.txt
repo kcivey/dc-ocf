@@ -4,13 +4,12 @@ I analyzed the DC Office of Campaign Finance (OCF) reports for the Ward 2 candid
 for State Board of Education who have filed so far.
 In order by number of contributors, they are
 <ul>
-<li>James Harnett</li>
 <li>Allister Chang</li>
+<li>James Harnett</li>
 </ul>
 
 This race is nonpartisan.
-Chang has reported contributions through August 10,
-and Harnett through August 31.
+Both candidates have reported contributions through September 30.
 Both are seeking to qualify or have qualified for Fair Elections public campaign funds.
 
 Harnett and Chang are participating in the Fair Elections public campaign finance program

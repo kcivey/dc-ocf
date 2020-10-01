@@ -77,6 +77,10 @@
       widows: 2;
       orphans: 2;
     }
+    .extra {
+      background-color: #eee;
+      padding: 1rem;
+    }
   </style>
 </head>
 <body>
@@ -108,6 +112,12 @@
               council at-large), the percentages are based on the total number of ballots, since the
               Board of Elections does not release numbers for how many ballots contained votes for
               the particular race.
+            </p>
+            <p class="extra">
+              I also have <a href="/dc-campaign-finance">analysis of campaign finance data for these races</a>.
+              For the at-large council race, Zach Teutsch is maintaining
+              <a href="https://docs.google.com/spreadsheets/d/1lrN9AeLsDvVdZsdljjoIrbGbOmynHlEI1cNUQ5wHcI4/edit#gid=1913992149">a list of endorsements</a>,
+              and DC Working Families has <a href="https://www.dcvoterguide.com/">a voter guide</a>.
             </p>
           </div>
         </div>

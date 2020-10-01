@@ -3761,7 +3761,7 @@ General Election:
         fair_elections: false
         neighborhood: Cathedral Heights
         twitter: SenPaulStrauss
-        website: http://paulstrauss.org
+        website: 'http://paulstrauss.org'
         elections:
           - year: 1996
             election: Primary
@@ -4107,7 +4107,7 @@ General Election:
         name: Mr. Perry D Redd
         filing_date: 05/04/2020
         boe_listed: true
-        website: http://statehoodgreensofdc.org/STGcandidate2020-PerryRedd.html
+        website: 'http://statehoodgreensofdc.org/STGcandidate2020-PerryRedd.html'
         twitter: SocialSpeaks
     US Senator:
       - candidate_name: Eleanor Ory
@@ -5877,7 +5877,7 @@ General Election:
         boe_pickup_date: 6/16/2020
         boe_filing_date: 8/5/2020
         boe_listed: true
-        website: https://www.fredhillward8.com
+        website: 'https://www.fredhillward8.com'
         twitter: FredHill4Ward8
       - candidate_name: Nelson Jackson Sr
         contact_name: ''

@@ -98,3 +98,4 @@ UPDATE committees SET candidate_short_name = 'K Henderson' where candidate_name 
 DELETE FROM contributions WHERE committee_name = 'Patrick Kennedy for Ward 2' AND receipt_date = '2020-03-24' AND amount > 54000;
 
 DELETE FROM contributions WHERE committee_name = 'Committee to Elect Kathy Henderson' AND receipt_date < '2011-01-01';
+DELETE FROM contributions WHERE committee_name = 'The Committee to Elect Perry Redd' AND receipt_date < '2015-01-01';

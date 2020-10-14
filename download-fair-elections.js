@@ -37,14 +37,17 @@ async function main() {
         for (const row of rows) {
             const cells = Array.from(row.querySelectorAll('td'));
             const link = cells[0].querySelector('a');
-            const [committeeName, reportName, /* filingYear */, submittedDate] = cells.map(n => n.textContent);
+            const [committeeName, reportName, filingYear, submittedDate] = cells.map(n => n.textContent);
             console.warn(`Getting ${submittedDate} ${reportName} for ${committeeName}`);
             const pdfFile =
                 outputDir + '/' +
                 hyphenize(
-                    committeeName.toLowerCase() + ' ' +
-                    reportName.replace(' Report', '') + ' ' +
-                    submittedDate.replace(/^(\d\d)\/(\d\d)\/(\d{4})$/, '$3$1$2')
+                    [
+                        committeeName,
+                        filingYear,
+                        reportName.replace(' Report', ''),
+                        submittedDate.replace(/^(\d\d)\/(\d\d)\/(\d{4})$/, '$3$1$2'),
+                    ].join(' ')
                 ) +
                 '.pdf';
             if (!argv.refresh) {

@@ -5,30 +5,29 @@ who have filed so far.
 In order by number of contributors, they are
 <ul>
   <li>Ed Lazere*</li>
-  <li>Christina Henderson*</li>
-  <li>Robert White (incumbent, Democrat)</li>
   <li>Marcus Goodwin</li>
+  <li>Robert White (incumbent, Democrat)</li>
+  <li>Christina Henderson*</li>
   <li>Will Merrifield*</li>
   <li>Markus Batchelor*</li>
-  <li>Chander Jayaraman*</li>
-  <li>Mónica Palacio*</li>
-  <li>Jeanné Lewis*</li>
   <li>Vincent Orange*</li>
+  <li>Jeanné Lewis*</li>
+  <li>Mónica Palacio*</li>
+  <li>Chander Jayaraman*</li>
   <li>Franklin Garcia*</li>
   <li>Alex Padro</li>
   <li>Marya Pickering (Republican)</li>
-  <li>Rick Murphree</li>
   <li>Mario Cristaldo*</li>
-  <li>Michangelo Scruggs</li>
+  <li>Rick Murphree</li>
   <li>Kathy Henderson</li>
-  <li>Eric Rogers</li>
+  <li>Michangelo Scruggs</li>
   <li>Calvin Gurley</li>
+  <li>Eric Rogers</li>
 </ul>
 
 Candidates marked with asterisks are seeking to qualify or have qualified for Fair Elections public campaign funds.
-All candidates have reported contributions through August 10,
-except for Batchelor, who has reported through August 31,
-and Lazere, Henderson, Merrifield, Jayaraman, Palacio, and Lewis, who have reported through September 30.
+All candidates have reported contributions through October 10,
+except for Batchelor, who has reported through August 31.
 White is a Democrat; Pickering is a Republican; the others are independents.
 
 Two candidates will win this contest in the general election.

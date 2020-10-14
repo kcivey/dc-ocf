@@ -4,14 +4,13 @@ I analyzed the DC Office of Campaign Finance (OCF) reports for the Ward 7 candid
 for State Board of Education who have filed so far.
 In order by number of contributors, they are
 <ul>
-<li>Dontrell Smith</li>
 <li>Eboni-Rose Thompson</li>
+<li>Dontrell Smith</li>
 <li>Karen Williams</li>
 </ul>
 
 This race is nonpartisan.
-Smith and Thompson have reported contributions through August 10,
-and Williams through September 30.
+All candidates have reported contributions through October 10,
 All are seeking to qualify or have qualified for Fair Elections public campaign funds.
 
 Those participating in the Fair Elections public campaign finance program

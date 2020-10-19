@@ -26,8 +26,8 @@ db
         'com.candidate_name',
         'com.candidate_short_name',
         'com.election_year',
-        'com.office',
-)
+        'com.office'
+    )
     .from('contributions AS con')
     .join('committees AS com', 'con.committee_name', 'com.committee_name')
     .join('committee_extras AS ce', 'ce.committee_name', 'com.committee_name')

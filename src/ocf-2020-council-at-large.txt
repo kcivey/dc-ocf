@@ -21,6 +21,7 @@ In order by number of contributors, they are
   <li>Rick Murphree</li>
   <li>Kathy Henderson</li>
   <li>Michangelo Scruggs</li>
+  <li>Claudia Barragan</li>
   <li>Calvin Gurley</li>
   <li>Eric Rogers</li>
 </ul>

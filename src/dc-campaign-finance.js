@@ -190,6 +190,7 @@ jQuery(function ($) {
             '#d62728',
             '#9467bd',
             'black',
+            'lightgray',
         ];
         candidateColors = {};
         let i = 0;

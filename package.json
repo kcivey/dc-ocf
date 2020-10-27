@@ -30,7 +30,7 @@
     "dotenv": "^8.2.0",
     "emailjs": "^2.2.0",
     "js-yaml": "^3.14.0",
-    "knex": "^0.21.6",
+    "knex": "^0.21.8",
     "lodash": "^4.17.20",
     "moment": "^2.29.1",
     "mysql": "^2.18.1",
@@ -42,13 +42,13 @@
     "sqlite3": "^5.0.0",
     "stats-lite": "^2.2.0",
     "tempy": "^1.0.0",
-    "terser": "^5.3.7",
+    "terser": "^5.3.8",
     "topojson": "^3.0.2",
     "underscore.string": "^3.3.5",
     "yargs": "^16.1.0",
     "zombie": "^6.1.4"
   },
   "devDependencies": {
-    "eslint": "^7.11.0"
+    "eslint": "^7.12.1"
   }
 }

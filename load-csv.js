@@ -68,7 +68,7 @@ function loadRecords(tableName, columns, filerType) {
                     });
                 }
                 batch.push(record);
-                if (batch.length >= 10000) {
+                if (batch.length >= 100000) {
                     await insert();
                 }
                 currentCount++;

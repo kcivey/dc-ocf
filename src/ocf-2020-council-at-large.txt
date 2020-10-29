@@ -19,8 +19,8 @@ In order by number of contributors, they are
   <li>Marya Pickering (Republican)</li>
   <li>Mario Cristaldo*</li>
   <li>Rick Murphree</li>
-  <li>Michangelo Scruggs</li>
   <li>Kathy Henderson</li>
+  <li>Michangelo Scruggs</li>
   <li>Eric Rogers</li>
   <li>Claudia Barragan</li>
   <li>Calvin Gurley</li>

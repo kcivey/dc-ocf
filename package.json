@@ -17,21 +17,21 @@
     "url": "https://github.com/kcivey/dc-ocf/issues"
   },
   "dependencies": {
-    "@babel/cli": "^7.12.10",
-    "@babel/core": "^7.12.10",
-    "@babel/preset-env": "^7.12.11",
+    "@babel/cli": "^7.14.8",
+    "@babel/core": "^7.14.8",
+    "@babel/preset-env": "^7.14.8",
     "browserify": "^17.0.0",
-    "cache-manager": "^3.4.0",
+    "cache-manager": "^3.4.4",
     "cache-manager-fs": "^1.0.8",
-    "cheerio": "^1.0.0-rc.3",
+    "cheerio": "^1.0.0-rc.10",
     "core-js": "^2.6.12",
-    "csv": "^5.3.2",
+    "csv": "^5.5.0",
     "dc-mar": "^0.5.4",
-    "dotenv": "^8.2.0",
+    "dotenv": "^8.6.0",
     "emailjs": "^2.2.0",
     "js-yaml": "^3.14.1",
-    "knex": "^0.21.13",
-    "lodash": "^4.17.20",
+    "knex": "^0.21.19",
+    "lodash": "^4.17.21",
     "moment": "^2.29.1",
     "mysql": "^2.18.1",
     "pdf-to-text": "0.0.7",
@@ -39,16 +39,16 @@
     "request-plus": "^2.0.0",
     "request-promise-native": "^1.0.9",
     "sprintf-js": "^1.1.2",
-    "sqlite3": "^5.0.0",
+    "sqlite3": "^5.0.2",
     "stats-lite": "^2.2.0",
-    "tempy": "^1.0.0",
-    "terser": "^5.5.1",
+    "tempy": "^1.0.1",
+    "terser": "^5.7.1",
     "topojson": "^3.0.2",
     "underscore.string": "^3.3.5",
     "yargs": "^16.2.0",
     "zombie": "^6.1.4"
   },
   "devDependencies": {
-    "eslint": "^7.15.0"
+    "eslint": "^7.31.0"
   }
 }

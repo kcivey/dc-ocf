@@ -14,7 +14,7 @@ const {getNeighborhoodName} = require('./lib/dc-neighborhoods');
 const OcfDisclosures = require('./lib/ocf-disclosures');
 const argv = getArgv();
 const yamlFile = `${__dirname}/dcision${argv.year.toString().substr(-2)}.yaml`;
-const templateFile = `${__dirname}/src/dc-2020-candidates.html.tpl`;
+const templateFile = `${__dirname}/src/dc-${argv.year}-candidates.html.tpl`;
 const majorParties = [
     'Democratic',
     'Libertarian',
@@ -123,7 +123,7 @@ async function getNewFairElectionsRecords() {
         json: true,
         method: 'post',
         body: {
-            electionYear: 2020,
+            electionYear: argv.year,
             pageNum: 1,
             recordsPerPage: 100,
         },
@@ -383,8 +383,8 @@ function writeYaml(records) {
 function writeHtml(records) {
     const template = _.template(fs.readFileSync(templateFile, 'utf8'));
     const outputFile = templateFile.replace(/\.tpl$/, '');
-    const generalName = 'General Election, November 3, 2020';
-    const specialName = 'Special Election, June 16, 2020';
+    const generalName = 'General Election, November 3, ' + argv.year;
+    const specialName = 'Special Election, June 16, ' + argv.year;
     let recordsByElection = {};
     for (const [electionDescription, recordsByParty] of Object.entries(records)) {
         for (const [party, recordsByOffice] of Object.entries(recordsByParty)) {
@@ -392,7 +392,7 @@ function writeHtml(records) {
                 ? generalName
                 : electionDescription === 'Special Election'
                     ? specialName
-                    : `${party} Primary Election, June 2, 2020`;
+                    : `${party} Primary Election, June 2, ${argv.year}`;
             if (!recordsByElection[election]) {
                 recordsByElection[election] = {};
             }

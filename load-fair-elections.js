@@ -53,7 +53,7 @@ async function processFile(inputFile) {
     let committeeName;
     let lineNumber = 0;
     let pageNumber = 2;
-    for (const pageText of docText.split('\f').slice(2)) { // skip pages 1 and 2
+    for (const pageText of docText.split(/[\n\f] *(?=FEP\w+\s+-\s)/).slice(2)) { // skip pages 1 and 2
         pageNumber++;
         const pageData = parseTable(pageText);
         if (!pageData) {
@@ -153,12 +153,15 @@ function getPdfText(inputFile) {
 }
 
 function parseTable(text) {
-    let unparsed = text;
+    let unparsed = text.replace(/\f/g, '');
     if (!text.match(/\S/)) { // skip blank pages
         return null;
     }
     let m = unparsed.match(/^(\S+) - (\S[^\n]+\S)\s+Page (\d+) of \d+\s+SCHEDULE (\S+)\s+[^\n]+\n+/s);
     if (!m) {
+        if (text.match(/Page \d+ of \d+\s+Any information copied from/)) { // skip empty runover page
+            return null;
+        }
         console.error(unparsed);
         throw new Error('Unexpected header in page');
     }

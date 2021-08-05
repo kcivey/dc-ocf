@@ -1,4 +1,5 @@
 UPDATE committees SET candidate_name = 'Jordan Grossman', candidate_short_name = 'Grossman' WHERE candidate_name = 'Jordan Grosman';
+UPDATE committees SET office = 'Council Ward 6' WHERE committee_name = 'Darrel Thompson Ward 6 Exploratory Committee';
 UPDATE contributions SET receipt_date = '2019-05-16' WHERE receipt_date = '1986-05-16' AND committee_name = 'Jordan Grossman for Ward 2';
 UPDATE contributions SET receipt_date = '2019-09-22' WHERE receipt_date = '2018-09-22' AND committee_name = 'Jordan Grossman for Ward 2';
 UPDATE contributions SET receipt_date = '2019-09-12' WHERE receipt_date = '2011-09-12' AND committee_name = 'Jordan Grossman for Ward 2';

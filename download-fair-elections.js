@@ -77,12 +77,12 @@ async function main() {
             const pdfContent = await request({url: pdfUrl, gzip: true, encoding: null, jar});
             fs.writeFileSync(pdfFile, pdfContent);
             console.warn(`Wrote ${pdfContent.length} bytes to ${pdfFile}`);
+            await browser.evaluate('window.history.back();');
         }
         console.warn(`Finished page ${page}`);
         if (page < lastPage) {
-            const nextButton = await browser.querySelector('ul.pagination > li.page-item > button[aria-label=Next]');
             console.warn('Clicking next');
-            await browser.click(nextButton);
+            await browser.click('ul.pagination > li.page-item > button[aria-label=Next]');
         }
     }
     console.warn('Last page');

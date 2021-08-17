@@ -3,6 +3,7 @@
 
 const fs = require('fs');
 const moment = require('moment');
+const numberList = require('number-list');
 const argv = require('yargs')
     .options({
         office: {
@@ -22,11 +23,11 @@ const argv = require('yargs')
             requiredArg: true,
         },
         year: {
-            type: 'number',
-            describe: 'election year',
-            default: 0,
-            defaultDescription: 'all available',
+            type: 'string',
+            describe: 'election years (as a list)',
+            default: (Math.ceil(new Date().getFullYear() / 2) * 2).toString(),
             requiredArg: true,
+            coerce: v => numberList.parse(v),
         },
     })
     .strict(true)

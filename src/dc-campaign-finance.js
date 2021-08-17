@@ -1,5 +1,5 @@
 /**
- * Copyright 2019-2020 Keith C. Ivey
+ * Copyright 2019-2021 Keith C. Ivey
  * keith@iveys.org
  * https://dcgeekery.com
  * ISC License
@@ -9,7 +9,7 @@
 /* eslint-disable no-restricted-properties */
 jQuery(function ($) {
     const stateDefaults = {
-        electionYear: '2020',
+        electionYear: (Math.ceil(new Date().getFullYear() / 2) * 2).toString(),
         contest: 'council-at-large',
         candidate: 'all-candidates',
         mapType: 'points',

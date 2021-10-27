@@ -45,15 +45,17 @@ main()
 
 async function main() {
     let offices;
-    if (argv.office) {
-        offices = [await db.getMatchingOffice(argv.office, argv.year)];
-    }
-    else {
-        offices = (await db.getOfficesForReport(argv.threshold, argv.year))
-            .filter(office => !/Committee/.test(office)); // skip party positions
-    }
-    for (const office of offices) {
-        await processOffice(office);
+    for (const year of argv.year) {
+        if (argv.office) {
+            offices = [await db.getMatchingOffice(argv.office, year)];
+        }
+        else {
+            offices = (await db.getOfficesForReport(argv.threshold, year))
+                .filter(office => !/Committee/.test(office)); // skip party positions
+        }
+        for (const office of offices) {
+            await processOffice(office, year);
+        }
     }
     const outputFile = outputDir + '/available.json';
     const availableContests = await db.getAvailableContests(argv.threshold, argv.year);
@@ -61,7 +63,8 @@ async function main() {
     fs.writeFileSync(outputFile, JSON.stringify(availableContests, null, argv.pretty ? 2 : 0));
 }
 
-async function processOffice(office) {
+async function processOffice(office, year) {
+    console.warn(year, office);
     const rowDefs = {
         candidate_short_name: {
             head: '',
@@ -181,7 +184,8 @@ async function processOffice(office) {
             }
         }
     }
-    const allFairElections = await db.areAllCandidatesFairElections(office, argv.year);
+    const allFairElections = await db.areAllCandidatesFairElections(office, year);
+    console.log(allFairElections);
     if (allFairElections) {
         // Rows for individuals are redundant if all candidates can take money only from individuals
         for (const key of Object.keys(rowDefs)) {
@@ -190,9 +194,9 @@ async function processOffice(office) {
             }
         }
     }
-    const committees = await db.getCommitteesForOffice(office, argv.year, argv.threshold);
+    const committees = await db.getCommitteesForOffice(office, year, argv.threshold);
     const candidates = committees.map(c => c.candidate_short_name);
-    const filters = {office, committees, year: argv.year};
+    const filters = {office, committees, year};
     const stats = (await db.getContributionStats({filters}))
         .sort(function (a, b) {
             return candidates.indexOf(a.candidate_short_name) - candidates.indexOf(b.candidate_short_name);
@@ -217,14 +221,14 @@ async function processOffice(office) {
         office,
         ward,
         allFairElections,
-        extras: getExtras(officeCode),
+        extras: getExtras(officeCode, year),
         points: await db.getDcContributionsWithPositions(filters),
         stats: {columnHeads, tableData},
         shared: await getSharedData(filters),
         dateData: await getDateData(filters, ward),
         placeData: await getPlaceData(filters, ward),
     };
-    const outputFile = `${outputDir}/ocf-2020-${officeCode}.json`;
+    const outputFile = `${outputDir}/ocf-${year}-${officeCode}.json`;
     let oldData = null;
     try {
         oldData = JSON.parse(fs.readFileSync(outputFile, 'utf8'));
@@ -474,8 +478,8 @@ function makeColors(allPlaces, contributorPlaces, primaryPlace) {
     return colors;
 }
 
-function getExtras(officeCode) {
-    const inputFile = `${outputDir}/ocf-2020-${officeCode}.txt`;
+function getExtras(officeCode, year) {
+    const inputFile = `${outputDir}/ocf-${year}-${officeCode}.txt`;
     let text;
     try {
         text = fs.readFileSync(inputFile, 'utf8').trim();

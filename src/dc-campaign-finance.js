@@ -8,9 +8,10 @@
 /* globals jQuery, L, Mustache, c3 */
 /* eslint-disable no-restricted-properties */
 jQuery(function ($) {
+    const currentElectionYear = Math.ceil(new Date().getFullYear() / 2) * 2;
     const stateDefaults = {
-        electionYear: (Math.ceil(new Date().getFullYear() / 2) * 2).toString(),
-        contest: 'council-at-large',
+        electionYear: currentElectionYear.toString(),
+        contest: currentElectionYear % 4 ? 'mayor' : 'council-at-large',
         candidate: 'all-candidates',
         mapType: 'points',
     };

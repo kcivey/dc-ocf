@@ -70,12 +70,15 @@ jQuery(function ($) {
 
     function setUpBaseMap(wardLayer) {
         map = L.map('map', {zoomSnap: 0.5, scrollWheelZoom: false});
-        L.tileLayer('https://{s}.tiles.mapbox.com/v3/kcivey.i8d7ca3k/{z}/{x}/{y}.png', {
-            attribution: '© <a href="https://www.mapbox.com/about/maps/">Mapbox</a> ' +
-                '© <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> ' +
-                '<strong><a href="https://www.mapbox.com/map-feedback/" target="_blank">' +
-                'Improve this map</a></strong>',
-            opacity: 0.5,
+        L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> ' +
+                'contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+            minZoom: 10,
+            id: 'mapbox/streets-v11',
+            tileSize: 512,
+            zoomOffset: -1,
+            accessToken: 'pk.eyJ1Ijoia2NpdmV5IiwiYSI6ImNrdmg5OHN5aGM4Y2Eydm56dnYxNGR1aXcifQ.K5iTcFtcnYwP0yVv4Ha6rQ',
+            opacity: 0.6,
         }).addTo(map);
         const layersControl = L.control.layers(null, [], {collapsed: false});
         map.__layersControl = layersControl.addTo(map);

@@ -24,7 +24,7 @@
     "cache-manager": "^3.4.4",
     "cache-manager-fs": "^1.0.8",
     "cheerio": "^1.0.0-rc.10",
-    "core-js": "^2.6.12",
+    "core-js": "^3.19.0",
     "csv": "^5.5.0",
     "dc-mar": "^0.5.4",
     "dotenv": "^8.6.0",

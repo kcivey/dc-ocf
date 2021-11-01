@@ -88,7 +88,7 @@ async function main() {
 
 function readYaml() {
     try {
-        return yaml.safeLoad(fs.readFileSync(yamlFile, 'utf8'));
+        return yaml.load(fs.readFileSync(yamlFile, 'utf8'));
     }
     catch (err) {
         if (err.code !== 'ENOENT') {
@@ -377,7 +377,7 @@ function printEmails(records) {
 }
 
 function writeYaml(records) {
-    fs.writeFileSync(yamlFile, yaml.safeDump(records, {lineWidth: 120}).normalize('NFC'));
+    fs.writeFileSync(yamlFile, yaml.dump(records, {lineWidth: 120}).normalize('NFC'));
 }
 
 function writeHtml(records) {

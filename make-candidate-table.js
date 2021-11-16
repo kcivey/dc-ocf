@@ -59,10 +59,13 @@ async function main() {
         records = combineRecords(records, newRecords);
         newRecords = await getNewOcfRecords();
         records = combineRecords(records, newRecords);
+
+        /*
         records = removeBoeDates(records); // to remove candidates no longer listed
         records = removeBoeListed(records);
         const moreRecords = await getBoePickups();
         records = combineRecords(records, moreRecords);
+         */
     }
     for (const election of Object.keys(records)) {
         for (const party of Object.keys(records[election])) {
@@ -130,7 +133,9 @@ async function getNewFairElectionsRecords() {
     });
     const records = body.searchData
         .map(function (r) {
-            r.candidateName = r.candidateName.replace('Eboni Rose', 'Eboni-Rose');
+            r.candidateName = r.candidateName.replace('Eboni Rose', 'Eboni-Rose')
+                .replace(/(?<=\w') (?=\w)/, '')
+                .trim();
             const nameParts = parseName(r.candidateName);
             if (/Special/.test(r.electionName) && /Non-?Partisan/i.test(r.partyAffiliation)) {
                 r.partyAffiliation = /Venice/.test(r.candidateName) ? 'Republican' : 'Democratic';
@@ -170,7 +175,8 @@ function transformRecords(records) {
             if (r.office_name) {
                 r.office = r.office_name;
             }
-            r.office = r.office.replace('D.C. State Board of Education', 'SBOE');
+            r.office = r.office.replace('D.C. State Board of Education', 'SBOE')
+                .replace('Chairperson', 'Chairman');
             if (/SBOE/.test(r.office)) {
                 r.party = 'Nonpartisan'; // fix "Independent" in Fair Elections data
             }
@@ -276,9 +282,7 @@ function transformRecords(records) {
         .sort(function (a, b) {
             return a.office.localeCompare(b.office) ||
                 a.party.localeCompare(b.party) ||
-                a.last_name.localeCompare(b.last_name) ||
-                a.first_name.localeCompare(b.first_name) ||
-                (a.committee_id - b.committee_id);
+                committeeSort(a, b);
         });
 }
 
@@ -305,8 +309,8 @@ function combineRecords(records, newRecords) {
                                 (
                                     r.last_name === candidate.last_name &&
                                     existingFirst === first &&
-                                    (!r.committee_id || !candidate.committee_id ||
-                                        r.committee_id === candidate.committee_id)
+                                    (!r.committee_code || !candidate.committee_code ||
+                                        r.committee_code === candidate.committee_code)
                                 );
                         })
                         // prefer committees that aren't shut down
@@ -324,11 +328,7 @@ function combineRecords(records, newRecords) {
                         records[electionDescription][party][office].push(candidate);
                     }
                 }
-                records[electionDescription][party][office].sort(function (a, b) {
-                    return a.last_name.localeCompare(b.last_name) ||
-                        a.first_name.localeCompare(b.first_name) ||
-                        (a.committee_id - b.committee_id);
-                });
+                records[electionDescription][party][office].sort(committeeSort);
             }
         }
     }
@@ -383,7 +383,7 @@ function writeYaml(records) {
 function writeHtml(records) {
     const template = _.template(fs.readFileSync(templateFile, 'utf8'));
     const outputFile = templateFile.replace(/\.tpl$/, '');
-    const generalName = 'General Election, November 3, ' + argv.year;
+    const generalName = 'General Election, November 8, ' + argv.year;
     const specialName = 'Special Election, June 16, ' + argv.year;
     let recordsByElection = {};
     for (const [electionDescription, recordsByParty] of Object.entries(records)) {
@@ -392,7 +392,7 @@ function writeHtml(records) {
                 ? generalName
                 : electionDescription === 'Special Election'
                     ? specialName
-                    : `${party} Primary Election, June 2, ${argv.year}`;
+                    : `${party} Primary Election, June 21, ${argv.year}`;
             if (!recordsByElection[election]) {
                 recordsByElection[election] = {};
             }
@@ -402,6 +402,9 @@ function writeHtml(records) {
                 }
                 if (!recordsByElection[election][office]) {
                     recordsByElection[election][office] = [];
+                }
+                if (argv.verbose) {
+                    console.warn(electionDescription, party, office);
                 }
                 recordsByElection[election][office] = recordsByElection[election][office]
                     .concat(
@@ -422,11 +425,7 @@ function writeHtml(records) {
                                 return newC;
                             })
                     )
-                    .sort(function (a, b) {
-                        return a.last_name.localeCompare(b.last_name) ||
-                            a.first_name.localeCompare(b.first_name) ||
-                            (a.committee_id - b.committee_id);
-                    });
+                    .sort(committeeSort);
                 if (election !== generalName) {
                     if (!recordsByElection[generalName]) {
                         recordsByElection[generalName] = {};
@@ -441,7 +440,6 @@ function writeHtml(records) {
                         recordsByElection[generalName][office] = [];
                     }
 
-                    /*
                     if (!recordsByElection[generalName][office].some(r => r.party === party)) {
                         recordsByElection[generalName][office].push({
                             candidate_name: `(${party} nominee)`,
@@ -449,13 +447,12 @@ function writeHtml(records) {
                             party,
                         });
                     }
-                    */
                 }
             }
         }
     }
     // Move general election to start now that others are over
-    recordsByElection = {[generalName]: recordsByElection[generalName], ...recordsByElection};
+    // recordsByElection = {[generalName]: recordsByElection[generalName], ...recordsByElection};
     let currentContent;
     try {
         currentContent = fs.readFileSync(outputFile, 'utf8').replace(/(\(updated )[^)]+\)/, '$1)');
@@ -480,6 +477,16 @@ function writeHtml(records) {
             return spelledOut ? `<abbr title="${spelledOut}">${m1}</abbr>` : m1;
         });
     }
+}
+
+function committeeSort(a, b) {
+    return a.last_name && b.last_name ?
+        (
+            a.last_name.localeCompare(b.last_name) ||
+            a.first_name.localeCompare(b.first_name) ||
+            (a.committee_code || '').localeCompare(b.committee_code || '')
+        ) :
+        a.candidate_name.localeCompare(b.candidate_name);
 }
 
 function getArgv() {
@@ -774,7 +781,8 @@ function standardizeOffice(office) {
             : office.replace(/(.*) Member of the Council of the District of Columbia$/, 'Council $1')
                 .replace(/(.*?)(?: District)? Member of the State Board of Education$/, 'SBOE $1')
                 .replace('At-large', 'At-Large')
-                .replace('United States', 'US');
+                .replace('United States', 'US')
+                .replace('Chairperson', 'Chairman');
 }
 
 function standardizeDate(d) {

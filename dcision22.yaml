@@ -1,1 +1,916 @@
-{}
+Primary Election:
+  Democratic:
+    Council At-Large:
+      - committee_id: 14716
+        first_name: Anita
+        last_name: Bonds
+        candidate_key: CANCCL227206
+        committee_key: PCCCCL227206
+        election_year: 2022
+        candidate_approved: true
+        committee_approved: true
+        termination_approved: false
+        is_amendment: true
+        candidate_amendment: false
+        candidate_name: Anita Bonds
+        committee_name: Re-elect Anita Bonds 2022
+        id: 15662
+        name: Ms. Anita Bonds
+        address: 202 Bates St NW
+        filing_date: 09/01/2021
+        phone: ''
+        email: anitadb@yahoo.com
+        committee_address: 202 Bates Street, NW, Washington, DC 20001
+        committee_phone: (202) 919-1284
+        treasurer_name: Mr. Donald Dinan
+        treasurer_phone: (202) 255-1683
+        treasurer_email: dondinan@gmail.com
+        chairperson_name: Ms. Janice Davis
+        chair_phone: (202) 882-4929
+        chair_email: msjhd@aol.com
+        zip: '20001'
+        fair_elections: false
+        neighborhood: Truxton Circle
+      - committee_name: DC For Sharece Crawford
+        committee_code: FEPCCL220061
+        candidate_name: Sharece Crawford
+        registration_date: '2021-09-03T00:00:00Z'
+        registration_status: Active
+        certification_status: Threshold not met
+        base_payment: 0
+        base_amount_cap: 40000
+        matching_payment: 0
+        match_cap: 333394
+        fair_election_payouts_total: 0
+        total_remission: 0
+        base_pending_amount: 40000
+        match_pending_amount: 333394
+        election_year: 2022
+        election_type_code: null
+        certification_status_code: TP
+        registration_status_code: A
+        total_approved_contributions: 0
+        total_approved_contributors: 0
+        match_amount: 0
+        allowed_pending_match_amount: 333394
+        total_reports_filed: 1
+        certification_date: null
+        achieved_ballot_access: false
+        certification_deadline: '2022-03-16T00:00:00Z'
+        is_form_achuploaded: false
+        is_form_w9_uploaded: false
+        is_form_affidavit_uploaded: false
+        fair_elections: true
+        first_name: Sharece
+        last_name: Crawford
+      - committee_name: Committee to Elect Nate Fleming
+        committee_code: FEPCCL220068
+        candidate_name: Nathan Leon Fleming
+        registration_date: '2021-10-20T00:00:00Z'
+        registration_status: Active
+        certification_status: Threshold not met
+        base_payment: 0
+        base_amount_cap: 40000
+        matching_payment: 0
+        match_cap: 333394
+        fair_election_payouts_total: 0
+        total_remission: 0
+        base_pending_amount: 40000
+        match_pending_amount: 333394
+        election_year: 2022
+        election_type_code: null
+        certification_status_code: TP
+        registration_status_code: A
+        total_approved_contributions: 0
+        total_approved_contributors: 0
+        match_amount: 0
+        allowed_pending_match_amount: 333394
+        total_reports_filed: 0
+        certification_date: null
+        achieved_ballot_access: false
+        certification_deadline: '2022-03-16T00:00:00Z'
+        is_form_achuploaded: false
+        is_form_w9_uploaded: false
+        is_form_affidavit_uploaded: false
+        fair_elections: true
+        first_name: Nathan Leon
+        last_name: Fleming
+      - committee_name: Friends of Lisa Gore
+        committee_code: FEPCCL220072
+        candidate_name: Lisa Gore
+        registration_date: '2021-11-04T00:00:00Z'
+        registration_status: Active
+        certification_status: Threshold not met
+        base_payment: 0
+        base_amount_cap: 40000
+        matching_payment: 0
+        match_cap: 333394
+        fair_election_payouts_total: 0
+        total_remission: 0
+        base_pending_amount: 40000
+        match_pending_amount: 333394
+        election_year: 2022
+        election_type_code: null
+        certification_status_code: TP
+        registration_status_code: A
+        total_approved_contributions: 0
+        total_approved_contributors: 0
+        match_amount: 0
+        allowed_pending_match_amount: 333394
+        total_reports_filed: 0
+        certification_date: null
+        achieved_ballot_access: false
+        certification_deadline: '2022-03-16T00:00:00Z'
+        is_form_achuploaded: false
+        is_form_w9_uploaded: false
+        is_form_affidavit_uploaded: false
+        fair_elections: true
+        first_name: Lisa
+        last_name: Gore
+      - committee_name: Leniqua Dominique for At-Large
+        committee_code: FEPCCL220065
+        candidate_name: Leniqua'dominique Jenkins
+        registration_date: '2021-10-01T00:00:00Z'
+        registration_status: Active
+        certification_status: Threshold not met
+        base_payment: 0
+        base_amount_cap: 40000
+        matching_payment: 0
+        match_cap: 333394
+        fair_election_payouts_total: 0
+        total_remission: 0
+        base_pending_amount: 40000
+        match_pending_amount: 333394
+        election_year: 2022
+        election_type_code: null
+        certification_status_code: TP
+        registration_status_code: A
+        total_approved_contributions: 0
+        total_approved_contributors: 0
+        match_amount: 0
+        allowed_pending_match_amount: 333394
+        total_reports_filed: 1
+        certification_date: null
+        achieved_ballot_access: false
+        certification_deadline: '2022-03-16T00:00:00Z'
+        is_form_achuploaded: false
+        is_form_w9_uploaded: false
+        is_form_affidavit_uploaded: false
+        fair_elections: true
+        first_name: Leniqua'dominique
+        last_name: Jenkins
+      - committee_name: Friends of Dexter
+        committee_code: FEPCCL220074
+        candidate_name: Dexter Oliver Williams
+        registration_date: '2021-11-10T00:00:00Z'
+        registration_status: Active
+        certification_status: Threshold not met
+        base_payment: 0
+        base_amount_cap: 40000
+        matching_payment: 0
+        match_cap: 333394
+        fair_election_payouts_total: 0
+        total_remission: 0
+        base_pending_amount: 40000
+        match_pending_amount: 333394
+        election_year: 2022
+        election_type_code: null
+        certification_status_code: TP
+        registration_status_code: A
+        total_approved_contributions: 0
+        total_approved_contributors: 0
+        match_amount: 0
+        allowed_pending_match_amount: 333394
+        total_reports_filed: 0
+        certification_date: null
+        achieved_ballot_access: false
+        certification_deadline: '2022-03-16T00:00:00Z'
+        is_form_achuploaded: false
+        is_form_w9_uploaded: false
+        is_form_affidavit_uploaded: false
+        fair_elections: true
+        first_name: Dexter Oliver
+        last_name: Williams
+    Council Chairman:
+      - committee_id: 14701
+        first_name: Phil
+        last_name: Mendelson
+        candidate_key: CANCCC227200
+        committee_key: PCCCCC227200
+        election_year: 2022
+        candidate_approved: true
+        committee_approved: true
+        termination_approved: false
+        is_amendment: true
+        candidate_amendment: false
+        candidate_name: Phil Mendelson
+        committee_name: Mendelson for Chairman 2022
+        id: 15647
+        name: Mr. Phil Mendelson
+        address: 1239 E St SE
+        filing_date: 05/05/2021
+        phone: ''
+        email: phmendel@aol.com
+        committee_address: 1239 E Street, SE, Washington, DC 20003
+        committee_phone: (202) 486-3871
+        treasurer_name: Mr. Ben Young
+        treasurer_phone: (202) 905-8626
+        treasurer_email: ben.young@georgetownpa.com
+        chairperson_name: Ms. Ana R. Harvey
+        chair_phone: (202) 580-5119
+        chair_email: ana.r.harvey@gmail.com
+        zip: '20003'
+        fair_elections: false
+        neighborhood: Capitol Hill
+      - committee_name: Erin for DC
+        committee_code: FEPCCC220063
+        candidate_name: Erin Louise Palmer
+        registration_date: '2021-09-24T00:00:00Z'
+        registration_status: Active
+        certification_status: Certified
+        base_payment: 0
+        base_amount_cap: 40000
+        matching_payment: 133075
+        match_cap: 616222
+        fair_election_payouts_total: 133075
+        total_remission: 0
+        base_pending_amount: 40000
+        match_pending_amount: 483147
+        election_year: 2022
+        election_type_code: null
+        certification_status_code: CR
+        registration_status_code: A
+        total_approved_contributions: 26995
+        total_approved_contributors: 333
+        match_amount: 134975
+        allowed_pending_match_amount: 483147
+        total_reports_filed: 2
+        certification_date: null
+        achieved_ballot_access: false
+        certification_deadline: '2022-03-16T00:00:00Z'
+        is_form_achuploaded: false
+        is_form_w9_uploaded: false
+        is_form_affidavit_uploaded: false
+        fair_elections: true
+        first_name: Erin Louise
+        last_name: Palmer
+    Attorney General:
+      - committee_name: Ryan Jones for AG
+        committee_code: FEPATG220057
+        candidate_name: Ryan Laurence Jones
+        registration_date: '2021-04-25T00:00:00Z'
+        registration_status: Active
+        certification_status: Threshold not met
+        base_payment: 0
+        base_amount_cap: 40000
+        matching_payment: 0
+        match_cap: 825633
+        fair_election_payouts_total: 0
+        total_remission: 0
+        base_pending_amount: 40000
+        match_pending_amount: 825633
+        election_year: 2022
+        election_type_code: null
+        certification_status_code: TP
+        registration_status_code: A
+        total_approved_contributions: 17210
+        total_approved_contributors: 243
+        match_amount: 86050
+        allowed_pending_match_amount: 825633
+        total_reports_filed: 2
+        certification_date: null
+        achieved_ballot_access: false
+        certification_deadline: '2022-03-16T00:00:00Z'
+        is_form_achuploaded: false
+        is_form_w9_uploaded: false
+        is_form_affidavit_uploaded: false
+        fair_elections: true
+        first_name: Ryan Laurence
+        last_name: Jones
+      - committee_name: McDuffie 2022
+        committee_code: FEPATG220069
+        candidate_name: Kenyan McDuffie
+        registration_date: '2021-10-26T00:00:00Z'
+        registration_status: Active
+        certification_status: Certified
+        base_payment: 0
+        base_amount_cap: 40000
+        matching_payment: 0
+        match_cap: 825633
+        fair_election_payouts_total: 0
+        total_remission: 0
+        base_pending_amount: 40000
+        match_pending_amount: 825633
+        election_year: 2022
+        election_type_code: null
+        certification_status_code: CR
+        registration_status_code: A
+        total_approved_contributions: 61707
+        total_approved_contributors: 676
+        match_amount: 308535
+        allowed_pending_match_amount: 825633
+        total_reports_filed: 1
+        certification_date: '2021-11-08T19:33:09.25Z'
+        achieved_ballot_access: false
+        certification_deadline: '2022-03-16T00:00:00Z'
+        is_form_achuploaded: false
+        is_form_w9_uploaded: false
+        is_form_affidavit_uploaded: false
+        fair_elections: true
+        first_name: Kenyan
+        last_name: McDuffie
+      - committee_id: 14169
+        first_name: Karl
+        last_name: Racine
+        candidate_key: CANATG227174
+        committee_key: PCCATG227174
+        election_year: 2022
+        candidate_approved: true
+        committee_approved: true
+        termination_approved: false
+        is_amendment: true
+        candidate_amendment: false
+        candidate_name: Karl Racine
+        committee_name: Karl Racine 2022
+        id: 15107
+        name: Mr. Karl A. Racine
+        address: 3121 Arizona Ave NW
+        filing_date: 03/12/2020
+        phone: (202) 352-7511
+        email: karlracinepersonal@gmail.com
+        committee_address: 1815 East Beach Drive, NW, Washington, DC 20012
+        committee_phone: (202) 359-4607
+        treasurer_name: Mr. Claude Bailey
+        treasurer_phone: (202) 359-4607
+        treasurer_email: cebailey@venable.com
+        chairperson_name: Ms. Natalie O. Ludaway
+        chair_phone: (202) 841-3111
+        chair_email: natalie.ludaway@gmail.com
+        zip: '20016'
+        fair_elections: false
+        neighborhood: Kent
+    Mayor:
+      - committee_name: Re Elect Muriel Bowser Our Mayor 2022
+        committee_code: FEPMYR220071
+        candidate_name: Muriel Elizabeth Bowser
+        registration_date: '2021-11-04T00:00:00Z'
+        registration_status: Active
+        certification_status: Threshold not met
+        base_payment: 0
+        base_amount_cap: 160000
+        matching_payment: 0
+        match_cap: 3544475
+        fair_election_payouts_total: 0
+        total_remission: 0
+        base_pending_amount: 160000
+        match_pending_amount: 3544475
+        election_year: 2022
+        election_type_code: null
+        certification_status_code: TP
+        registration_status_code: A
+        total_approved_contributions: 0
+        total_approved_contributors: 0
+        match_amount: 0
+        allowed_pending_match_amount: 3544475
+        total_reports_filed: 0
+        certification_date: null
+        achieved_ballot_access: false
+        certification_deadline: '2022-03-16T00:00:00Z'
+        is_form_achuploaded: false
+        is_form_w9_uploaded: false
+        is_form_affidavit_uploaded: false
+        fair_elections: true
+        first_name: Muriel Elizabeth
+        last_name: Bowser
+      - committee_id: 14704
+        first_name: James
+        last_name: Butler
+        candidate_key: CANMYR227202
+        committee_key: PCCMYR227202
+        election_year: 2022
+        candidate_approved: true
+        committee_approved: true
+        termination_approved: false
+        is_amendment: false
+        candidate_amendment: false
+        candidate_name: James Butler
+        committee_name: Butler for Mayor 2022
+        id: 15650
+        name: Mr. James Butler
+        address: '1600 Maryland Ave NE #507'
+        filing_date: 06/24/2021
+        phone: ''
+        email: jqbutler1@hotmail.com
+        committee_address: '1600 Maryland Ave., NE #507, Washington, DC 20002'
+        committee_phone: (202) 677-3131
+        treasurer_name: Mr. Terrence L. Jordan
+        treasurer_phone: (202) 710-7364
+        treasurer_email: merrymailmant@gmail.com
+        chairperson_name: Mr. James Butler
+        chair_phone: (202) 677-3131
+        chair_email: jqbutler1@hotmail.com
+        zip: '20002'
+        fair_elections: false
+        neighborhood: Carver Langston
+      - committee_id: 14717
+        first_name: Michael
+        last_name: Campbell
+        candidate_key: CANMYR227207
+        committee_key: PCCMYR227207
+        election_year: 2022
+        candidate_approved: true
+        committee_approved: true
+        termination_approved: false
+        is_amendment: false
+        candidate_amendment: false
+        candidate_name: Michael Campbell
+        committee_name: Campbell For Mayor
+        id: 15663
+        name: Mr. Michael Campbell
+        address: '1424 W St NW #103'
+        filing_date: 10/01/2021
+        phone: ''
+        email: togetherDCcan@gmail.com
+        committee_address: 147 48th Pl NE, Washington, DC 20019
+        committee_phone: (202) 204-6225
+        treasurer_name: Mr. Aaron Bell Mitchell
+        treasurer_phone: (202) 945-1999
+        treasurer_email: phoenixaccounting202@gmail.com
+        chairperson_name: Shafawn Etheridge
+        chair_phone: (202) 677-2976
+        chair_email: Lifesjourney4444@gmail.com
+        zip: '20009'
+        fair_elections: false
+        neighborhood: U Street
+      - committee_name: Robert for DC
+        committee_code: FEPMYR220067
+        candidate_name: Robert White
+        registration_date: '2021-10-13T00:00:00Z'
+        registration_status: Active
+        certification_status: Certified
+        base_payment: 0
+        base_amount_cap: 160000
+        matching_payment: 0
+        match_cap: 3544475
+        fair_election_payouts_total: 0
+        total_remission: 0
+        base_pending_amount: 160000
+        match_pending_amount: 3544475
+        election_year: 2022
+        election_type_code: null
+        certification_status_code: CR
+        registration_status_code: A
+        total_approved_contributions: 76237
+        total_approved_contributors: 1241
+        match_amount: 381185
+        allowed_pending_match_amount: 3544475
+        total_reports_filed: 1
+        certification_date: '2021-11-08T19:44:48.253Z'
+        achieved_ballot_access: false
+        certification_deadline: '2022-03-16T00:00:00Z'
+        is_form_achuploaded: false
+        is_form_w9_uploaded: false
+        is_form_affidavit_uploaded: false
+        fair_elections: true
+        first_name: Robert
+        last_name: White
+      - committee_name: Trayon White for Mayor 2022
+        committee_code: FEPMYR220075
+        candidate_name: Trayon A. White
+        registration_date: '2021-11-12T00:00:00Z'
+        registration_status: Active
+        certification_status: Threshold not met
+        base_payment: 0
+        base_amount_cap: 160000
+        matching_payment: 0
+        match_cap: 3544475
+        fair_election_payouts_total: 0
+        total_remission: 0
+        base_pending_amount: 160000
+        match_pending_amount: 3544475
+        election_year: 2022
+        election_type_code: null
+        certification_status_code: TP
+        registration_status_code: A
+        total_approved_contributions: 0
+        total_approved_contributors: 0
+        match_amount: 0
+        allowed_pending_match_amount: 3544475
+        total_reports_filed: 0
+        certification_date: null
+        achieved_ballot_access: false
+        certification_deadline: '2022-03-16T00:00:00Z'
+        is_form_achuploaded: false
+        is_form_w9_uploaded: false
+        is_form_affidavit_uploaded: false
+        fair_elections: true
+        first_name: Trayon A.
+        last_name: White
+    Council Ward 1:
+      - committee_name: Brianne for DC 2022
+        committee_code: FEPCC1220062
+        candidate_name: Brianne Kruger Nadeau
+        registration_date: '2021-09-14T00:00:00Z'
+        registration_status: Active
+        certification_status: Certified
+        base_payment: 0
+        base_amount_cap: 40000
+        matching_payment: 40660
+        match_cap: 233384
+        fair_election_payouts_total: 40660
+        total_remission: 0
+        base_pending_amount: 40000
+        match_pending_amount: 192724
+        election_year: 2022
+        election_type_code: null
+        certification_status_code: CR
+        registration_status_code: A
+        total_approved_contributions: 8382
+        total_approved_contributors: 178
+        match_amount: 41910
+        allowed_pending_match_amount: 192724
+        total_reports_filed: 2
+        certification_date: '2021-11-08T19:22:13.827Z'
+        achieved_ballot_access: false
+        certification_deadline: '2022-03-16T00:00:00Z'
+        is_form_achuploaded: false
+        is_form_w9_uploaded: false
+        is_form_affidavit_uploaded: false
+        fair_elections: true
+        first_name: Brianne Kruger
+        last_name: Nadeau
+    Council Ward 3:
+      - committee_name: Cheh 2022
+        committee_code: FEPCC3220058
+        candidate_name: Mary Cheh
+        registration_date: '2021-06-17T00:00:00Z'
+        registration_status: Active
+        certification_status: Certified
+        base_payment: 0
+        base_amount_cap: 40000
+        matching_payment: 48125
+        match_cap: 233384
+        fair_election_payouts_total: 48125
+        total_remission: 0
+        base_pending_amount: 40000
+        match_pending_amount: 185259
+        election_year: 2022
+        election_type_code: null
+        certification_status_code: CR
+        registration_status_code: A
+        total_approved_contributions: 10645
+        total_approved_contributors: 230
+        match_amount: 53225
+        allowed_pending_match_amount: 185259
+        total_reports_filed: 7
+        certification_date: '2021-09-07T12:07:52.957Z'
+        achieved_ballot_access: false
+        certification_deadline: '2022-03-16T00:00:00Z'
+        is_form_achuploaded: false
+        is_form_w9_uploaded: false
+        is_form_affidavit_uploaded: false
+        fair_elections: true
+        first_name: Mary
+        last_name: Cheh
+    Council Ward 5:
+      - committee_name: Gordon Fletcher for Ward 5
+        committee_code: FEPCC5220059
+        candidate_name: Gordon-Andrew Lee Fletcher
+        registration_date: '2021-07-13T00:00:00Z'
+        registration_status: Active
+        certification_status: Certified
+        base_payment: 20000
+        base_amount_cap: 40000
+        matching_payment: 29430
+        match_cap: 233384
+        fair_election_payouts_total: 49430
+        total_remission: 0
+        base_pending_amount: 20000
+        match_pending_amount: 203954
+        election_year: 2022
+        election_type_code: null
+        certification_status_code: CR
+        registration_status_code: A
+        total_approved_contributions: 7291
+        total_approved_contributors: 215
+        match_amount: 36455
+        allowed_pending_match_amount: 203954
+        total_reports_filed: 4
+        certification_date: '2021-09-07T12:08:17.163Z'
+        achieved_ballot_access: false
+        certification_deadline: '2022-03-16T00:00:00Z'
+        is_form_achuploaded: false
+        is_form_w9_uploaded: false
+        is_form_affidavit_uploaded: false
+        fair_elections: true
+        first_name: Gordon-Andrew Lee
+        last_name: Fletcher
+      - committee_name: Friends of Faith for Ward 5 2022
+        committee_code: FEPCC5220064
+        candidate_name: Faith Gibson Hubbard
+        registration_date: '2021-09-28T00:00:00Z'
+        registration_status: Active
+        certification_status: Certified
+        base_payment: 20000
+        base_amount_cap: 40000
+        matching_payment: 45775
+        match_cap: 233384
+        fair_election_payouts_total: 65775
+        total_remission: 0
+        base_pending_amount: 20000
+        match_pending_amount: 187609
+        election_year: 2022
+        election_type_code: null
+        certification_status_code: CR
+        registration_status_code: A
+        total_approved_contributions: 9155
+        total_approved_contributors: 188
+        match_amount: 45775
+        allowed_pending_match_amount: 187609
+        total_reports_filed: 1
+        certification_date: '2021-11-08T19:44:27.323Z'
+        achieved_ballot_access: false
+        certification_deadline: '2022-03-16T00:00:00Z'
+        is_form_achuploaded: false
+        is_form_w9_uploaded: false
+        is_form_affidavit_uploaded: false
+        fair_elections: true
+        first_name: Faith Gibson
+        last_name: Hubbard
+      - committee_name: Orange Ward 5
+        committee_code: FEPCC5220070
+        candidate_name: Vincent Bernard Orange
+        registration_date: '2021-10-29T00:00:00Z'
+        registration_status: Active
+        certification_status: Threshold not met
+        base_payment: 0
+        base_amount_cap: 40000
+        matching_payment: 0
+        match_cap: 233384
+        fair_election_payouts_total: 0
+        total_remission: 0
+        base_pending_amount: 40000
+        match_pending_amount: 233384
+        election_year: 2022
+        election_type_code: null
+        certification_status_code: TP
+        registration_status_code: A
+        total_approved_contributions: 0
+        total_approved_contributors: 0
+        match_amount: 0
+        allowed_pending_match_amount: 233384
+        total_reports_filed: 0
+        certification_date: null
+        achieved_ballot_access: false
+        certification_deadline: '2022-03-16T00:00:00Z'
+        is_form_achuploaded: false
+        is_form_w9_uploaded: false
+        is_form_affidavit_uploaded: false
+        fair_elections: true
+        first_name: Vincent Bernard
+        last_name: Orange
+      - committee_name: Friends of Zachary Parker 2022
+        committee_code: FEPCC5220060
+        candidate_name: Zachary E. Parker
+        registration_date: '2021-08-30T00:00:00Z'
+        registration_status: Active
+        certification_status: Threshold not met
+        base_payment: 0
+        base_amount_cap: 40000
+        matching_payment: 0
+        match_cap: 233384
+        fair_election_payouts_total: 0
+        total_remission: 0
+        base_pending_amount: 40000
+        match_pending_amount: 233384
+        election_year: 2022
+        election_type_code: null
+        certification_status_code: TP
+        registration_status_code: A
+        total_approved_contributions: 0
+        total_approved_contributors: 0
+        match_amount: 0
+        allowed_pending_match_amount: 233384
+        total_reports_filed: 2
+        certification_date: null
+        achieved_ballot_access: false
+        certification_deadline: '2022-03-16T00:00:00Z'
+        is_form_achuploaded: false
+        is_form_w9_uploaded: false
+        is_form_affidavit_uploaded: false
+        fair_elections: true
+        first_name: Zachary E.
+        last_name: Parker
+      - committee_name: Harry Thomas Works
+        committee_code: FEPCC5220073
+        candidate_name: Harry Lester Thomas
+        registration_date: '2021-11-09T00:00:00Z'
+        registration_status: Active
+        certification_status: Threshold not met
+        base_payment: 0
+        base_amount_cap: 40000
+        matching_payment: 0
+        match_cap: 233384
+        fair_election_payouts_total: 0
+        total_remission: 0
+        base_pending_amount: 40000
+        match_pending_amount: 233384
+        election_year: 2022
+        election_type_code: null
+        certification_status_code: TP
+        registration_status_code: A
+        total_approved_contributions: 0
+        total_approved_contributors: 0
+        match_amount: 0
+        allowed_pending_match_amount: 233384
+        total_reports_filed: 0
+        certification_date: null
+        achieved_ballot_access: false
+        certification_deadline: '2022-03-16T00:00:00Z'
+        is_form_achuploaded: false
+        is_form_w9_uploaded: false
+        is_form_affidavit_uploaded: false
+        fair_elections: true
+        first_name: Harry Lester
+        last_name: Thomas
+    Council Ward 6:
+      - committee_name: Re-Elect Charles Allen for Ward 6 2022
+        committee_code: FEPCC6220066
+        candidate_name: Charles Woodruff Allen
+        registration_date: '2021-10-12T00:00:00Z'
+        registration_status: Active
+        certification_status: Certified
+        base_payment: 0
+        base_amount_cap: 40000
+        matching_payment: 0
+        match_cap: 233384
+        fair_election_payouts_total: 0
+        total_remission: 0
+        base_pending_amount: 40000
+        match_pending_amount: 233384
+        election_year: 2022
+        election_type_code: null
+        certification_status_code: CR
+        registration_status_code: A
+        total_approved_contributions: 15237.51
+        total_approved_contributors: 356
+        match_amount: 76187.55
+        allowed_pending_match_amount: 233384
+        total_reports_filed: 2
+        certification_date: '2021-11-08T19:33:28.127Z'
+        achieved_ballot_access: false
+        certification_deadline: '2022-03-16T00:00:00Z'
+        is_form_achuploaded: false
+        is_form_w9_uploaded: false
+        is_form_affidavit_uploaded: false
+        fair_elections: true
+        first_name: Charles Woodruff
+        last_name: Allen
+    US Representative:
+      - committee_id: 14702
+        first_name: Adeoye
+        last_name: Owolewa
+        candidate_key: CANREP227201
+        committee_key: PCCREP227201
+        election_year: 2022
+        candidate_approved: true
+        committee_approved: true
+        termination_approved: false
+        is_amendment: true
+        candidate_amendment: true
+        candidate_name: Adeoye Owolewa
+        committee_name: Oye 4 U.S. Representative 2022
+        id: 15648
+        name: Mr. Adeoye Owolewa
+        address: 1430 Tobias Drive SE
+        filing_date: 05/11/2021
+        phone: ''
+        email: adeoye.owolewa@gmail.com
+        committee_address: 1430 Tobia Dr., SE, Washington, DC 20020
+        committee_phone: (202) 390-9480
+        treasurer_name: Mr. Adeoye Owolewa
+        treasurer_phone: (301) 254-3590
+        treasurer_email: adeoye.owolewa@gmail.com
+        chairperson_name: Mr. Adeoye Owolewa
+        chair_phone: (202) 390-9480
+        chair_email: adeoye.owolewa@gmail.com
+        zip: '20020'
+        fair_elections: false
+        neighborhood: Douglas
+  Statehood Green:
+    Mayor:
+      - committee_id: 14714
+        first_name: Corren
+        last_name: Brown
+        candidate_key: CANMYR227204
+        committee_key: PCCMYR227204
+        election_year: 2022
+        candidate_approved: true
+        committee_approved: true
+        termination_approved: false
+        is_amendment: true
+        candidate_amendment: true
+        candidate_name: Corren Brown
+        committee_name: Corren Brown For Mayor
+        id: 15660
+        name: Corren Selena Brown
+        address: 5885 Colorado Ave NW 108
+        filing_date: 08/23/2021
+        phone: (301) 928-3219
+        email: Corren_Brown@yahoo.com
+        committee_address: '5885 Colorado Ave., NW #108, Washington, DC 20011'
+        committee_phone: (301) 928-3219
+        treasurer_name: Mr. Tommy Brown Sr.
+        treasurer_phone: (301) 928-2744
+        treasurer_email: tommyb10153@gmail.com
+        chairperson_name: Ms. Kenyatta Ramsey
+        chair_phone: (240) 478-2191
+        chair_email: ''
+        zip: '20011'
+        fair_elections: false
+        neighborhood: 16th Street Heights
+General Election:
+  Independent:
+    Council At-Large:
+      - committee_id: 14715
+        first_name: Frederick
+        last_name: Hill
+        candidate_key: CANCCL227205
+        committee_key: PCCCCL227205
+        election_year: 2022
+        candidate_approved: true
+        committee_approved: true
+        termination_approved: false
+        is_amendment: true
+        candidate_amendment: true
+        candidate_name: Frederick Hill
+        committee_name: Fred Hill 4 Council At Large
+        id: 15661
+        name: Mr. Frederick Hill III
+        address: 1730 18th St SE
+        filing_date: 08/31/2021
+        phone: (202) 330-2211
+        email: Fredhill@gotta-gonow.com
+        committee_address: 1730 18th St SE, Washington, DC 20020
+        committee_phone: (202) 330-2211
+        treasurer_name: Ms. Janice Vieira
+        treasurer_phone: (202) 726-8650
+        treasurer_email: vieiraj@jdosinternational.com
+        chairperson_name: Mr. Jermaine Kelly
+        chair_phone: (202) 539-2480
+        chair_email: info@runveggie.com
+        zip: '20020'
+        fair_elections: false
+        neighborhood: Fairlawn
+    Mayor:
+      - committee_id: 14705
+        first_name: Rodney
+        last_name: Grant
+        candidate_key: CANMYR227203
+        committee_key: PCCMYR227203
+        election_year: 2022
+        candidate_approved: true
+        committee_approved: true
+        termination_approved: false
+        is_amendment: false
+        candidate_amendment: false
+        candidate_name: Rodney Grant
+        committee_name: Rodney Red Grant for Mayor
+        id: 15651
+        name: Rodney Red Grant
+        address: 1676 Maryland ave NE
+        filing_date: 07/06/2021
+        phone: (323) 627-8396
+        email: rodneyredgrant@gmail.com
+        committee_address: 1676 Maryland ave NE 660E, Washington, DC 20002
+        committee_phone: (323) 627-8396
+        treasurer_name: Cine D. Ivery
+        treasurer_phone: (323) 240-0380
+        treasurer_email: cine@politicalreportingplus.com
+        chairperson_name: Robert Wood
+        chair_phone: (301) 222-2222
+        chair_email: robertwood1985@gmail.com
+        zip: '20002'
+        fair_elections: false
+        neighborhood: Carver Langston
+      - committee_id: 0
+        first_name: Barbara
+        last_name: Summers
+        candidate_key: CANMYR227104
+        election_year: 2022
+        candidate_approved: true
+        committee_approved: false
+        termination_approved: false
+        is_amendment: false
+        candidate_amendment: true
+        candidate_name: Barbara Summers
+        committee_name: Barbara Summers
+        id: 5020
+        name: Ms. Barbara C. Summers
+        address: '4339 4th St SE #4'
+        filing_date: 06/25/2019
+        phone: (202) 907-6612
+        email: barbarasumers1@hotmail.com
+        zip: '20032'
+        fair_elections: null
+        neighborhood: Washington Highlands

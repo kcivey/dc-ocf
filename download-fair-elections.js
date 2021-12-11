@@ -110,7 +110,7 @@ async function getCommittees() {
                 c.candidateName.replace(/^(\S+) \S+ (\S+)/, '$1 $2'), // remove middle name (but won't always want to)
                 c.electionYear,
                 c.registrationStatus,
-                c.officeName,
+                c.officeName.replace('Council Chairman', 'Council Chairperson'),
             ];
         });
     const fileName = `${__dirname}/csv/committees-${year}.extra.csv`;

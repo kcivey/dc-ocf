@@ -3,6 +3,7 @@
 const fs = require('fs');
 const request = require('request-promise-native');
 const yargs = require('yargs');
+const csvStringify = require('csv-stringify/lib/sync');
 const {createBrowser} = require('./lib/browser');
 const {hyphenize} = require('./lib/util');
 const argv = getArgv();
@@ -18,6 +19,7 @@ main()
     });
 
 async function main() {
+    await getCommittees();
     console.warn(`Getting ${startUrl}`);
     browser.silent = true;
     await browser.visit(startUrl);
@@ -86,6 +88,33 @@ async function main() {
         }
     }
     console.warn('Last page');
+}
+
+async function getCommittees() {
+    console.warn('Getting committees');
+    const year = 2022;
+    const response = await request({
+        url: 'https://fairelections.ocf.dc.gov/app/api/Public/SearchRegistrationDisclosure',
+        method: 'POST',
+        json: true,
+        body: {
+            electionYear: year,
+            recordsPerPage: 1000,
+        },
+    });
+    const committeeData = response.searchData
+        .sort((a, b) => a.registrationDate.localeCompare(b.registrationDate))
+        .map(function (c) {
+            return [
+                c.committeeName,
+                c.candidateName.replace(/^(\S+) \S+ (\S+)/, '$1 $2'), // remove middle name (but won't always want to)
+                c.electionYear,
+                c.registrationStatus,
+                c.officeName,
+            ];
+        });
+    const fileName = `${__dirname}/csv/committees-${year}.extra.csv`;
+    fs.writeFileSync(fileName, csvStringify(committeeData, {quoted: true}));
 }
 
 function getArgv() {

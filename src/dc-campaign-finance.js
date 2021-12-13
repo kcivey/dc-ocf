@@ -51,13 +51,15 @@ jQuery(function ($) {
         return $.getJSON('/available.json' + '?' + getNumberForCacheBusting())
             .then(function (contestsByYear) {
                 $.each(contestsByYear, function (year, contests) {
+                    const optGroup = $('<optgroup/>').attr('label', year);
                     $.each(contests, function (i, contest) {
                         const text = year + ' ' + contest;
                         const code = hyphenize(text);
                         $('<option/>').attr('value', code)
                             .text(text)
-                            .appendTo(select);
+                            .appendTo(optGroup);
                     });
+                    optGroup.prependTo(select); // put most recent year first
                 });
                 select.val(state.electionYear + '-' + state.contest);
             });

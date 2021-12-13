@@ -96,6 +96,8 @@ UPDATE committees SET office = 'Council Ward 2 (Special)' WHERE office = 'Counci
 UPDATE committees SET candidate_short_name = 'C Henderson' WHERE candidate_name = 'Christina Henderson';
 UPDATE committees SET candidate_short_name = 'K Henderson' WHERE candidate_name = 'Kathy Henderson';
 UPDATE committees SET candidate_name = 'James Butler', candidate_short_name = 'Butler' WHERE committee_name = 'Butler Mayoral Exploratory Committee';
+UPDATE committees SET candidate_short_name = 'T White' WHERE candidate_name = 'Trayon White' and election_year = 2022;
+UPDATE committees SET candidate_short_name = 'R White' WHERE candidate_name = 'Robert White' and election_year = 2022;
 
 DELETE FROM contributions WHERE committee_name = 'Patrick Kennedy for Ward 2' AND receipt_date = '2020-03-24' AND amount > 54000;
 

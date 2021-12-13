@@ -4,35 +4,39 @@ Mayor:
   fe_contributor_threshold: 1000
   fe_amount_threshold: 40000
   fe_base_grant: 160000
-  fe_max: null
+  fe_max: 3544475
 Attorney General:
   traditional_limit: 1500
   fe_limit: 200
   fe_contributor_threshold: 500
   fe_amount_threshold: 20000
   fe_base_grant: 40000
-  fe_max: null
+  fe_max: 825633
 Council Chair:
   traditional_limit: 1500
   fe_limit: 200
   fe_contributor_threshold: 300
   fe_amount_threshold: 15000
   fe_base_grant: 40000
-  fe_max: null
+  fe_max: 616222
 Council At-Large:
   traditional_limit: 1000
   fe_limit: 100
   fe_contributor_threshold: 250
   fe_amount_threshold: 12000
   fe_base_grant: 40000
-  fe_max: 308639
+  fe_max:
+    2020: 308639
+    2022: 333394
 Council Ward:
   traditional_limit: 500
   fe_limit: 50
   fe_contributor_threshold: 150
   fe_amount_threshold: 5000
   fe_base_grant: 40000
-  fe_max: 241055
+  fe_max:
+    2020: 241055
+    2022: 233384
 SBOE At-Large:
   traditional_limit: 500
   fe_limit: 50
@@ -46,7 +50,9 @@ SBOE Ward:
   fe_contributor_threshold: 50
   fe_amount_threshold: 1000
   fe_base_grant: 10000
-  fe_max: 14006
+  fe_max:
+    2020: 14006
+    2022: 33294
 US Representative:
   traditional_limit: 2000
 US Senator:

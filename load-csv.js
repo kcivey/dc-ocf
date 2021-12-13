@@ -26,88 +26,77 @@ async function main() {
     await db.setOcfLimits();
 }
 
-function loadRecords(tableName, columns, filerType) {
+async function loadRecords(tableName, columns, filerType) {
     console.warn(`Loading ${filerType} ${tableName} records`);
-    return new Promise(function (resolve, reject) {
-        let extraBatch = [];
-        const parser = parse({columns: true});
-        const input = fs.createReadStream(getCsvFilename(tableName, filerType));
-        let totalCount = 0;
-        let currentCount = 0;
-        let batch = [];
-        const unknownCommittees = new Set();
-        parser.on('readable', async function () {
-            let record;
-            while ((record = parser.read())) {
-                totalCount++;
-                record = transformRecord(record);
-                const committeeName = record.committee_name;
-                if (checkForProblem(record)) {
-                    if (!unknownCommittees.has(committeeName)) {
-                        console.warn(`Skipping ${tableName} record associated with "${committeeName}"`);
-                    }
-                    unknownCommittees.add(committeeName);
-                    continue;
-                }
-                if (tableName === db.committeeTableName) {
-                    if (currentCommittees.has(committeeName)) {
-                        // remove earlier record with the same committee name. @todo handle better
-                        console.warn(`Removing duplicate committee "${committeeName}"`);
-                        batch = batch.filter(function (r) { // eslint-disable-line no-loop-func
-                            return r.committee_name !== record.committee_name;
-                        });
-                        extraBatch = extraBatch.filter(function (r) { // eslint-disable-line no-loop-func
-                            return r.committee_name !== record.committee_name;
-                        });
-                    }
-                    currentCommittees.add(committeeName);
-                    extraBatch.push({
-                        committee_name: committeeName,
-                        filer_type: filerType,
-                        is_fair_elections: false,
-                    });
-                }
-                batch.push(record);
-                if (batch.length >= 500000) {
-                    await insert();
-                }
-                currentCount++;
+    const parser = fs.createReadStream(getCsvFilename(tableName, filerType))
+        .pipe(parse({columns: true}));
+    let extraBatch = [];
+    let totalCount = 0;
+    let currentCount = 0;
+    let batch = [];
+    const unknownCommittees = new Set();
+    for await (let record of parser) {
+        totalCount++;
+        record = transformRecord(record);
+        const committeeName = record.committee_name;
+        if (checkForProblem(record)) {
+            if (!unknownCommittees.has(committeeName)) {
+                console.warn(`Skipping ${tableName} record associated with "${committeeName}"`);
             }
-            return undefined;
-        });
-        parser.on('error', reject);
-        parser.on('end', async function () {
-            if (batch.length) {
-                await insert();
-            }
-            if (extraBatch.length) {
-                await db.createCommitteeExtraRecords(extraBatch);
-            }
-            console.warn(`Finished reading ${totalCount} records for ${tableName}`);
-            console.warn(`Inserted ${currentCount} records into ${tableName}`);
-            return resolve();
-        });
-        input.pipe(parser);
-
-        // Throw error if record structure is bad, return true if record should be skipped
-        function checkForProblem(record) {
-            if (totalCount === 1) {
-                if (!arraysHaveSameElements(columns, Object.keys(record))) {
-                    console.error(columns, Object.keys(record));
-                    throw new Error(`Columns have changed in ${tableName}`);
-                }
-            }
-            // skip if record is associated with a committee we don't have (avoid foreign key error)
-            return tableName !== db.committeeTableName &&
-                record.committee_name &&
-                !currentCommittees.has(record.committee_name);
+            unknownCommittees.add(committeeName);
+            continue;
         }
-
-        async function insert() {
-            await db.batchInsert(tableName, batch);
-            batch = []; // eslint-disable-line require-atomic-updates
+        if (tableName === db.committeeTableName) {
+            if (currentCommittees.has(committeeName)) {
+                // remove earlier record with the same committee name. @todo handle better
+                console.warn(`Removing duplicate committee "${committeeName}"`);
+                batch = batch.filter(function (r) { // eslint-disable-line no-loop-func
+                    return r.committee_name !== record.committee_name;
+                });
+                extraBatch = extraBatch.filter(function (r) { // eslint-disable-line no-loop-func
+                    return r.committee_name !== record.committee_name;
+                });
+            }
+            currentCommittees.add(committeeName);
+            extraBatch.push({
+                committee_name: committeeName,
+                filer_type: filerType,
+                is_fair_elections: false,
+            });
         }
-    });
+        batch.push(record);
+        if (batch.length >= 100000) {
+            await insert();
+        }
+        currentCount++;
+    }
+    if (batch.length) {
+        await insert();
+    }
+    if (extraBatch.length) {
+        await db.createCommitteeExtraRecords(extraBatch);
+    }
+    console.warn(`Finished reading ${totalCount} records for ${tableName}`);
+    console.warn(`Inserted ${currentCount} records into ${tableName}`);
+
+    // Throw error if record structure is bad, return true if record should be skipped
+    function checkForProblem(record) {
+        if (totalCount === 1) {
+            if (!arraysHaveSameElements(columns, Object.keys(record))) {
+                console.error(columns, Object.keys(record));
+                throw new Error(`Columns have changed in ${tableName}`);
+            }
+        }
+        // skip if record is associated with a committee we don't have (avoid foreign key error)
+        return tableName !== db.committeeTableName &&
+            record.committee_name &&
+            !currentCommittees.has(record.committee_name);
+    }
+
+    async function insert() {
+        await db.batchInsert(tableName, batch);
+        batch = []; // eslint-disable-line require-atomic-updates
+    }
 }
 
 function transformRecord(record) {

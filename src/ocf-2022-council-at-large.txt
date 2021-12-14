@@ -1,0 +1,28 @@
+=overall
+
+I analyzed the DC Office of Campaign Finance (OCF) reports for the at-large council candidates
+who have filed so far.
+In order by number of contributors, they are
+<ul>
+  <li>Bradley Thomas (D)</li>
+  <li>Sharece Crawford (D)</li>
+  <li>Anita Bonds (D, incumbent)</li>
+  <li>Fred Hill (independent)</li>
+</ul>
+
+All candidates except Hill are seeking to qualify or have qualified for Fair Elections public campaign funds.
+All have reported contributions through December 10,
+except for Crawford, who has reported through October 10.
+
+Two candidates will win this contest in the general election.
+In all previous elections the Democrat has been in first place by a large margin, so the race is often
+thought of as two separate races: the Democratic race, whose winner is determined in the primary, and
+the non-Democratic race, which finishes in November.
+
+Candidates participating in the Fair Elections public campaign finance program can
+accept contributions up to $100 and only from individuals (except for the candidate and their family,
+who can give up to $2,500 in total), but can receive considerable additional funds from public money if they
+meet some requirements.
+Candidates using the traditional system can accept contributions up to $1,000 from
+individuals and from organizations (corporations, LLCs, PACs, unions, and so on) and can put in
+unlimited amounts of their own money.

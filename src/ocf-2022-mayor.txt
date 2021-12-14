@@ -1,0 +1,24 @@
+=overall
+
+I analyzed the DC Office of Campaign Finance (OCF) reports for the candidates for mayor
+who have filed so far.
+In order by number of contributors, they are
+<ul>
+<li>Muriel Bowser (D, incumbent)</li>
+<li>Robert White (D)</li>
+<li>James Butler (D)</li>
+<li>Rodney Grant (independent)</li>
+<li>Corren Brown (Statehood Green)</li>
+<li>Michael Campbell (D)</li>
+<li>Andre Davis (D)</li>
+</ul>
+
+Bowser, White, and Davis are participating in the Fair Elections public campaign finance program.
+All candidates have reported contributions through December 10,
+except for Butler and Grant, who have reported through July 31.
+
+Candidates not using Fair Elections can accept contributions up to $2000, from individuals and from organizations
+(corporations, LLCs, PACs, unions, and so on), and use as much of their own money as they wish.
+Fair Elections candidates can accept up to $200 and only from individuals (except for the candidate and their family,
+who can give up to $5,000 in total), but can receive considerable additional funds from public money if they
+meet some requirements.

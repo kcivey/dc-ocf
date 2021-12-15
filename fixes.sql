@@ -99,7 +99,7 @@ UPDATE committees SET candidate_name = 'James Butler', candidate_short_name = 'B
 UPDATE committees SET candidate_short_name = 'T White' WHERE candidate_name = 'Trayon White' AND election_year = 2022;
 UPDATE committees SET candidate_short_name = 'R White' WHERE candidate_name = 'Robert White' AND election_year = 2022;
 
-UPDATE committees SET status = 'Terminated' WHERE candidate_name = 'Karl Racine' AND election_year = 2022;
+DELETE FROM committees WHERE candidate_name = 'Karl Racine' AND election_year = 2022;
 
 DELETE FROM contributions WHERE committee_name = 'Patrick Kennedy for Ward 2' AND receipt_date = '2020-03-24' AND amount > 54000;
 

@@ -6,6 +6,7 @@ In order by number of contributors, they are
 <ul>
   <li>Bradley Thomas (D)</li>
   <li>Sharece Crawford (D)</li>
+  <li>Dexter Williams (D)</li>
   <li>Anita Bonds (D, incumbent)</li>
   <li>Fred Hill (independent)</li>
 </ul>

@@ -6,6 +6,7 @@ In order by number of contributors, they are
 <ul>
 <li>Muriel Bowser (D, incumbent)</li>
 <li>Robert White (D)</li>
+<li>Trayon White (D)</li>
 <li>James Butler (D)</li>
 <li>Rodney Grant (independent)</li>
 <li>Corren Brown (Statehood Green)</li>
@@ -13,9 +14,9 @@ In order by number of contributors, they are
 <li>Andre Davis (D)</li>
 </ul>
 
-Bowser, White, and Davis are participating in the Fair Elections public campaign finance program.
+Bowser, both Whites, and Davis are participating in the Fair Elections public campaign finance program.
 All candidates have reported contributions through December 10,
-except for Butler and Grant, who have reported through July 31.
+except for Grant, who has reported through July 31.
 
 Candidates not using Fair Elections can accept contributions up to $2000, from individuals and from organizations
 (corporations, LLCs, PACs, unions, and so on), and use as much of their own money as they wish.

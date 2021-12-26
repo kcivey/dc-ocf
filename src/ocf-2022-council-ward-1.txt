@@ -3,6 +3,7 @@
 I analyzed the DC Office of Campaign Finance (OCF) reports for the Ward 1 council candidates
 who have filed so far.
 In order by number of contributors, they are
+<ul>
 <li>Brianne Nadeau (D, incumbent)</li>
 <li>Sabel Harris (D)</li>
 </ul>

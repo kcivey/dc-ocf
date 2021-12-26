@@ -2,14 +2,14 @@
 
 I analyzed the DC Office of Campaign Finance (OCF) reports for the Ward 1 council candidates
 who have filed so far.
-So far there is only one:
-<ul>
+In order by number of contributors, they are
 <li>Brianne Nadeau (D, incumbent)</li>
+<li>Sabel Harris (D)</li>
 </ul>
 
-Nadeau is participating in the Fair Elections public campaign finance program.
-Her most recent report covers contributions through December 10.
+Both are participating in the Fair Elections public campaign finance program.
+Their most recent reports cover contributions through December 10.
 
-Nadeau can accept up to $50 and only from individuals (except for the candidate and her family,
-who can give up to $2,500 in total), but can receive considerable additional funds from public money if she
-meets some requirements.
+They can accept up to $50 and only from individuals (except for a candidate and their family,
+who can give up to $2,500 in total), but can receive considerable additional funds from public money if they
+meet some requirements.

@@ -17,9 +17,9 @@
     "url": "https://github.com/kcivey/dc-ocf/issues"
   },
   "dependencies": {
-    "@babel/cli": "^7.16.0",
-    "@babel/core": "^7.16.5",
-    "@babel/preset-env": "^7.16.5",
+    "@babel/cli": "^7.16.7",
+    "@babel/core": "^7.16.7",
+    "@babel/preset-env": "^7.16.7",
     "browserify": "^17.0.0",
     "cache-manager": "^3.6.0",
     "cache-manager-fs": "^1.0.8",

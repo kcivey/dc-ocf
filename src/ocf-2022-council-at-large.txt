@@ -10,6 +10,7 @@ In order by number of contributors, they are
   <li>Nate Fleming (D)</li>
   <li>Leniqua'dominique Jenkins (D)</li>
   <li>Lisa Gore (D)</li>
+  <li>Giuseppe Niosi (R)</li>
   <li>Anita Bonds (D, incumbent)</li>
   <li>Fred Hill (independent)</li>
 </ul>

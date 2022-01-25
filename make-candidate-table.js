@@ -135,6 +135,7 @@ async function getNewFairElectionsRecords() {
         .map(function (r) {
             r.candidateName = r.candidateName.replace('Eboni Rose', 'Eboni-Rose')
                 .replace(/(?<=\w') (?=\w)/, '')
+                .replace(/\s*-\s*/g, '-')
                 .trim();
             const nameParts = parseName(r.candidateName);
             if (/Special/.test(r.electionName) && /Non-?Partisan/i.test(r.partyAffiliation)) {

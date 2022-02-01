@@ -4,20 +4,21 @@ I analyzed the DC Office of Campaign Finance (OCF) reports for the at-large coun
 who have filed so far.
 In order by number of contributors, they are
 <ul>
-  <li>Sharece Crawford (D)</li>
   <li>Bradley Thomas (D)</li>
   <li>Anita Bonds (D, incumbent)</li>
+  <li>Sharece Crawford (D)</li>
   <li>Dexter Williams (D)</li>
   <li>Nate Fleming (D)</li>
   <li>Leniqua'dominique Jenkins (D)</li>
   <li>Lisa Gore (D)</li>
   <li>Giuseppe Niosi (R)</li>
+  <li>Ambrose Lane Jr (D)</li>
   <li>Fred Hill (independent)</li>
 </ul>
 
 All candidates except Hill are seeking to qualify or have qualified for Fair Elections public campaign funds.
-All have reported contributions through December 10,
-except Crawford and Bonds, who have reported through January 10.
+All have reported contributions through January 31,
+except Crawford, Fleming, Jenkins, and Gore, who have reported through January 10.
 
 Two candidates will win this contest in the general election, but they can't be from the same party.
 In all previous elections the Democrat has been in first place by a large margin, so the race is often

@@ -8,6 +8,7 @@ In order by number of contributors, they are
 <li>Faith Gibson Hubbard (D)</li>
 <li>Gordon Fletcher (D)</li>
 <li>Vincent Orange (D)</li>
+<li>Gary Johnson (D)</li>
 <li>Lauren Rogers (D)</li>
 </ul>
 

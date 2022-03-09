@@ -63,9 +63,9 @@ async function main() {
         /*
         records = removeBoeDates(records); // to remove candidates no longer listed
         records = removeBoeListed(records);
+        */
         const moreRecords = await getBoePickups();
         records = combineRecords(records, moreRecords);
-         */
     }
     for (const election of Object.keys(records)) {
         for (const party of Object.keys(records[election])) {
@@ -602,7 +602,7 @@ function removeBoeListed(records) {
 }
 
 async function getBoePickups() {
-    const newsUrl = 'https://dcboe.org/Candidates/2020-Candidates';
+    const newsUrl = 'https://dcboe.org/Elections/2022-Elections';
     if (argv.verbose) {
         console.warn(newsUrl);
     }
@@ -612,7 +612,7 @@ async function getBoePickups() {
     for (const link of $('.article ul li a').get()) {
         const text = $(link).text()
             .trim();
-        if (!text.match(/^Candidate List.+General/)) { // now that special is over, get only general
+        if (!text.match(/^Candidates for /)) {
             continue;
         }
         const election = text.match(/Special/i) ? 'special' : text.match(/General/i) ? 'general' : 'primary';
@@ -621,111 +621,87 @@ async function getBoePickups() {
             console.warn(pdfUrl);
         }
         const pdfText = (await getPdfText(pdfUrl))
+            .replace(/\s\s+th\s\s+/g, '  ') // stray "th" from ill-advised superscript
+            .replace(/(?<=People's)\s+(?=Champion)/, ' ')
             // kluge for handling extra vertical space in some lines
             .replace(/(\s\d\d?\/\d\d?\/\d{4})? *\n( *\d{3}-\d{3}-\d{4}[^\n]*\n)/, '$2   $1');
-        if (election === 'special') {
-            const lineRe =
-                /^(\S+(?: \S+)+) +(\w{3}) +(\S+(?: \S+)+|) +((?:P\.?O\.? Box )?\d.*?) (\d{5}) +(\d[-\d]+) +([\d/]+) +([\d/]*) +(\S+)\s*$/; // eslint-disable-line max-len
-            const office = 'Council Ward 2';
-            for (const line of pdfText.split('\n')) {
-                if (!/^\S/.test(line)) {
-                    continue;
-                }
-                const m = line.match(lineRe);
-                assert(m, `Unexpected format in PDF:\n${line}`);
-                pickups.push({
-                    election_description: 'Special Election',
-                    office,
-                    candidate_name: m[1],
-                    party_name: abbrParty[m[2]] || m[2],
-                    contact_name: m[3],
-                    address: standardizeAddress(m[4]),
-                    zip: m[5],
-                    phone: m[6],
-                    boe_pickup_date: standardizeDate(m[7]),
-                    boe_filing_date: standardizeDate(m[8]),
-                    email: m[9],
-                });
+        const primary = election === 'primary';
+        const lineRe = primary
+            ? /^(\S+(?: \S+)*)  +?(\S+(?: \S+)+|) +((?:P\.?O\.? Box )?\d.*?)? (\d{5})? +(\d[-\d]+)? +([\d/]+)(?: +([\d/]*) +(\S+)\s*)?$/ // eslint-disable-line max-len
+            : /^(\S+(?: \S+)+) +([A-Z/]{3,4}) +([\w.-]+(?: [\w.-]+)*|)  +((?:P\.?O\.? Box )?\d.*?|) (\d{5}|) +(\S+@\S+|) *(\d[-\d.]+|) *([\d/NA]*) *([\d/NA]*)\s*$/; // eslint-disable-line max-len
+        const withdrewRe = /^(.+?)\s*\(withdrew (\d\d?\/\d\d?\/(?:\d\d|\d{4}))\)/i;
+        let office;
+        for (const page of pdfText.split('\f')) {
+            if (!/\S/.test(page)) {
+                continue;
             }
-        }
-        else {
-            const primary = election === 'primary';
-            const lineRe = primary
-                ? /^(\S+(?: \S+)*)  +?(\S+(?: \S+)+|) +((?:P\.?O\.? Box )?\d.*?)? (\d{5})? +(\d[-\d]+)? +([\d/]+)(?: +([\d/]*) +(\S+)\s*)?$/ // eslint-disable-line max-len
-                : /^(\S+(?: \S+)+) +([A-Z/]{3,4}) +([\w.-]+(?: [\w.-]+)*|)  +((?:P\.?O\.? Box )?\d.*?|) (\d{5}|) +(\S+@\S+|) *(\d[-\d.]+|) *([\d/NA]*) *([\d/NA]*)\s*$/; // eslint-disable-line max-len
-            const withdrewRe = /^(.+?)\s*\(withdrew (\d\d?\/\d\d?\/(?:\d\d|\d{4}))\)/i;
-            let office;
-            for (const page of pdfText.split('\f')) {
-                if (!/\S/.test(page)) {
+            console.log(page)
+            let party = '';
+            if (primary) {
+                const m = page.match(
+                    /District of Columbia Board of Elections\n +(.+?)(?: List of| Candidates| in Ballot Order| *\n)/
+                );
+                assert(m, `Missing party:\n${page}`);
+                party = m[1];
+            }
+            let prevOffice;
+            for (let line of page.split('\n')) {
+                let withdrew = '';
+                if (!/^\S/.test(line) || /^Candidate's/.test(line)) {
                     continue;
                 }
-                let party = '';
-                if (primary) {
-                    const m = page.match(
-                        /District of Columbia Board of Elections\n +(.+?)(?: List of| Candidates| in Ballot Order| *\n)/
-                    );
-                    assert(m, `Missing party:\n${page}`);
-                    party = m[1];
+                line = line.replace(/\s+in the June .*/, ''); // formatting problem
+                if (/^\S+(?: \S+)*$/.test(line)) {
+                    prevOffice = office;
+                    office = line;
+                    continue;
                 }
-                let prevOffice;
-                for (let line of page.split('\n')) {
-                    let withdrew = '';
-                    if (!/^\S/.test(line) || /^Candidate's/.test(line)) {
-                        continue;
-                    }
-                    line = line.replace(/\s+in the June .*/, ''); // formatting problem
-                    if (/^\S+(?: \S+)*$/.test(line)) {
-                        prevOffice = office;
-                        office = line;
-                        continue;
-                    }
-                    line = line.replace('DC BetterChoice', 'DCBetterChoice'); // kluge to handle error
-                    let m = line.match(lineRe);
-                    assert(m, `Unexpected format in PDF:\n${JSON.stringify(line)}`);
-                    const values = [...m].slice(1);
-                    let candidate = values.shift().replace(/\/\D.*$/, ''); // remove VP names (but not withdrawal dates)
-                    if (!primary) {
-                        party = values.shift();
-                        party = abbrParty[partyAbbr[party]] || party;
-                    }
-                    const email = primary ? values.pop() : values.splice(3, 1)[0];
-                    const [contact, address, zip, phone, pickupDate, filingDate] = values;
-                    assert(office, `Missing office for "${line}"`);
-                    if (/Committee|Party/.test(office)) {
-                        continue; // skip party positions
-                    }
-                    m = candidate.match(withdrewRe);
-                    if (!m) {
-                        m = (office + ' ' + candidate).match(withdrewRe);
-                        if (m) { // eslint-disable-line max-depth
-                            office = prevOffice;
-                        }
-                    }
-                    if (m) {
-                        candidate = m[1];
-                        withdrew = standardizeDate(m[2]);
-                    }
-                    const record = {
-                        election_description: election.substr(0, 1).toUpperCase() + election.substr(1) + ' Election',
-                        office: standardizeOffice(office),
-                        candidate_name: candidate,
-                        party_name: party,
-                        contact_name: contact,
-                        address: standardizeAddress(address),
-                        zip: zip || '',
-                        phone: phone || '',
-                        boe_pickup_date: standardizeDate(pickupDate),
-                        boe_filing_date: standardizeDate(filingDate || ''),
-                        email: email || '',
-                    };
-                    if (withdrew) {
-                        record.withdrew = withdrew;
-                    }
-                    else if (!primary) {
-                        record.boe_listed = true;
-                    }
-                    pickups.push(record);
+                line = line.replace('ToyaBatchelor', 'Toya Batchelor'); // kluge to handle error
+                let m = line.match(lineRe);
+                assert(m, `Unexpected format in PDF:\n${JSON.stringify(line)}`);
+                const values = [...m].slice(1);
+                let candidate = values.shift().replace(/\/\D.*$/, ''); // remove VP names (but not withdrawal dates)
+                if (!primary) {
+                    party = values.shift();
+                    party = abbrParty[partyAbbr[party]] || party;
                 }
+                const email = primary ? values.pop() : values.splice(3, 1)[0];
+                const [contact, address, zip, phone, pickupDate, filingDate] = values;
+                assert(office, `Missing office for "${line}"`);
+                if (/Committee|Party/.test(office)) {
+                    continue; // skip party positions
+                }
+                m = candidate.match(withdrewRe);
+                if (!m) {
+                    m = (office + ' ' + candidate).match(withdrewRe);
+                    if (m) { // eslint-disable-line max-depth
+                        office = prevOffice;
+                    }
+                }
+                if (m) {
+                    candidate = m[1];
+                    withdrew = standardizeDate(m[2]);
+                }
+                const record = {
+                    election_description: election.substr(0, 1).toUpperCase() + election.substr(1) + ' Election',
+                    office: standardizeOffice(office),
+                    candidate_name: candidate,
+                    party_name: party,
+                    contact_name: contact,
+                    address: standardizeAddress(address),
+                    zip: zip || '',
+                    phone: phone || '',
+                    boe_pickup_date: standardizeDate(pickupDate),
+                    boe_filing_date: standardizeDate(filingDate || ''),
+                    email: email || '',
+                };
+                if (withdrew) {
+                    record.withdrew = withdrew;
+                }
+                else if (!primary) {
+                    record.boe_listed = true;
+                }
+                pickups.push(record);
             }
         }
     }

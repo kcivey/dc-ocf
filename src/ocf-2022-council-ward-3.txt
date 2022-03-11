@@ -4,13 +4,23 @@ I analyzed the DC Office of Campaign Finance (OCF) reports for the Ward 3 counci
 who have filed so far.
 In order by number of contributors, they are
 <ul>
-<li>Mary Cheh (D, incumbent)</li>
+<li>Matt Frumin (D)</li>
+<li>Mary Cheh (D, incumbent, not longer running)</li>
+<li>Ben Bergmann (D)</li>
+<li>Phil Thomas (D)</li>
+<li>Tricia Duncan (D)</li>
 <li>David Krucoff (R)</li>
+<li>Monika Nemeth (D)</li>
+<li>Deirdre Brown (D)</li>
+<li>Eric Goulet (D)</li>
 </ul>
 
-Both are participating in the Fair Elections public campaign finance program.
-Both have reported contributions through January 31.
+All candidates except Brown are participating in the Fair Elections public campaign finance program,
+All have reported contributions through March 10,
+except for Krucoff, who has reported through January 31.
 
-They can accept up to $50 and only from individuals (except for the candidate and their family,
+Candidates not using Fair Elections can accept contributions up to $500, from individuals and from organizations
+(corporations, LLCs, PACs, unions, and so on), and use as much of their own money as they wish.
+Fair Elections candidates can accept up to $50 and only from individuals (except for the candidate and their family,
 who can give up to $2,500 in total), but can receive considerable additional funds from public money if they
 meet some requirements.

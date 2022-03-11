@@ -5,9 +5,9 @@ who have filed so far.
 In order by number of contributors, they are
 <ul>
   <li>Nate Fleming (D)</li>
+  <li>Sharece Crawford (D)</li>
   <li>Bradley Thomas (D)</li>
   <li>Anita Bonds (D, incumbent)</li>
-  <li>Sharece Crawford (D)</li>
   <li>Lisa Gore (D)</li>
   <li>Dexter Williams (D)</li>
   <li>Leniqua'dominique Jenkins (D)</li>
@@ -17,8 +17,9 @@ In order by number of contributors, they are
 </ul>
 
 All candidates except Hill are seeking to qualify or have qualified for Fair Elections public campaign funds.
-All have reported contributions through January 31,
-except Fleming, Crawford, and Williams who have reported through February 10.
+Crawford, Thomas, Williams, Jenkins, Niosi, and Hill have reported contributions through March 10;
+Fleming through February 10;
+and Bonds, Gore, and Lane through January 31.
 
 Two candidates will win this contest in the general election, but they can't be from the same party.
 In all previous elections the Democrat has been in first place by a large margin, so the race is often

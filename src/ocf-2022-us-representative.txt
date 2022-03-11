@@ -1,0 +1,15 @@
+=overall
+
+I analyzed the DC Office of Campaign Finance (OCF) reports for the candidates
+for shadow representative who have reported so far.
+There is only one:
+
+<ul>
+<li>Oye Owolewa (D, incumbent)</li>
+</ul>
+
+Owolewa has reported contributions through March 10,
+
+Candidates can accept contributions of up to $2,000 from individuals and from organizations (corporations,
+LLCs, PACs, unions, and so on) and can put in unlimited amounts of their own money.
+Candidates for this office are not eligible for the Fair Elections public campaign finance program.

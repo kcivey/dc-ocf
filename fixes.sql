@@ -105,3 +105,9 @@ DELETE FROM contributions WHERE committee_name = 'Patrick Kennedy for Ward 2' AN
 
 DELETE FROM contributions WHERE committee_name = 'Committee to Elect Kathy Henderson' AND receipt_date < '2011-01-01';
 DELETE FROM contributions WHERE committee_name = 'The Committee to Elect Perry Redd' AND receipt_date < '2015-01-01';
+
+DELETE FROM contributions WHERE id IN
+    (SELECT id FROM
+        (SELECT normalized, receipt_date, amount, COUNT(*), MAX(id) AS id FROM contributions
+        WHERE committee_name = 'Committee to Elect Sabel Harris' GROUP BY 1, 2, 3 HAVING COUNT(*) > 1)
+    );

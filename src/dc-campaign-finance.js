@@ -353,16 +353,17 @@ jQuery(function ($) {
     }
 
     function handleSharedData(sharedData) {
-        $('.shared').toggle(!!sharedData);
+        const sharedRow = $('#shared-row');
+        sharedRow.toggle(!!sharedData);
         if (!sharedData) {
             return;
         }
         const templateHtml = $('#shared-table-template').html();
-        const container = $('#shared-table-container').empty();
+        $('.chart-container', sharedRow).remove();
         Mustache.parse(templateHtml);
         $.each(sharedData, function (candidate, rows) {
             $(Mustache.render(templateHtml, {candidate, rows}))
-                .appendTo(container);
+                .appendTo(sharedRow);
         });
     }
 
@@ -435,11 +436,12 @@ jQuery(function ($) {
     }
 
     function handlePlaceData(placeData) {
-        const container = $('#place-chart-container').empty();
+        const placeRow = $('#place-row');
+        $('.chart-container', placeRow).remove();
         const html = $('#place-chart-div-template').html();
         Mustache.parse(html);
         $.each(placeData, function (i, c) {
-            $(Mustache.render(html, c)).appendTo(container);
+            $(Mustache.render(html, c)).appendTo(placeRow);
             $.each(['state', 'ward'], function (i, type) {
                 const selector = `#place-chart-${type}-${c.code}`;
                 let chart = null;

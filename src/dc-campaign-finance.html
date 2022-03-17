@@ -173,6 +173,10 @@
       <div class="explanation">
         <div id="extra-overall" class="extra columns"></div>
       </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
       <h2 id="contributors-map"><a href="#contributors-map">Map of DC Contributors</a></h2>
     </div>
     <div class="explanation columns col-xl-4 col-12">
@@ -197,6 +201,8 @@
         <div id="layers-control" class="col-auto"></div>
       </div>
     </div>
+  </div>
+  <div class="row">
     <div class="col-12">
       <h2 id="stats"><a href="#stats">Contribution Statistics</a></h2>
     </div>
@@ -237,7 +243,7 @@
       </div>
     </div>
   </div>
-  <div class="row shared">
+  <div id="shared-row" class="row">
     <div class="col-12">
       <h2 id="shared"><a href="#shared">Top Campaigns That Share Contributors</a></h2>
       <div class="explanation">
@@ -256,7 +262,6 @@
       </div>
     </div>
   </div>
-  <div class="row shared" id="shared-table-container"></div>
   <div class="row">
     <div class="col-12">
       <h2 id="date"><a href="#date">Contributors by Date</a></h2>
@@ -287,7 +292,7 @@
       </div>
     </div>
   </div>
-  <div class="row">
+  <div id="place-row" class="row">
     <div class="col-12">
       <h2 id="place"><a href="#place">Contributors by Place</a></h2>
       <div class="explanation">
@@ -302,7 +307,6 @@
       </div>
     </div>
   </div>
-  <div class="row" id="place-chart-container"></div>
 </div>
 <script type="text/template" id="table-content-template">
   <thead>
@@ -328,7 +332,7 @@
   </tbody>
 </script>
 <script type="text/template" id="shared-table-template">
-  <div class="col-lg-6 col-12">
+  <div class="chart-container col-lg-6 col-12">
     <h3>{{ candidate }}</h3>
     <table class="table table-striped">
       <thead>
@@ -357,7 +361,7 @@
   </div>
 </script>
 <script type="text/template" id="place-chart-div-template">
-  <div class="col-xl-4 col-lg-6 col-12">
+  <div class="chart-container col-xl-4 col-lg-6 col-12">
     <div class="chart">
       <h3>{{ candidate }}</h3>
       <div class="aspect-ratio">

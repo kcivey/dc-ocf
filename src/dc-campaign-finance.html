@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.1/css/all.min.css" integrity="sha256-7rF6RaSKyh16288E3hVdzQtHyzatA2MQRGu0cf6pqqM=" crossorigin="anonymous" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.7.8/c3.min.css" integrity="sha256-loJlaQZlNV5TexzLFHJ6fGO6PCjUQk4isWOG/7YffC4=" crossorigin="anonymous" />  <link rel="stylesheet" href="/index.css" />
   <style type="text/css">
-    #leaflet-map {
+    #map {
       height: 70vh;
       resize: both;
     }
@@ -25,7 +25,7 @@
       margin-bottom: 1rem;
     }
     @media (orientation: portrait) {
-      #leaflet-map { height: 50vh; }
+      #map { height: 50vh; }
     }
     .leaflet-control-layers {
       font-weight: bold;
@@ -39,6 +39,14 @@
     }
     .c3 text {
       font-size: 12px;
+    }
+    h1+h2 {
+      padding-top: 1rem;
+    }
+    h2 {
+      margin-top: 3rem;
+      padding-top: 1rem;
+      border-top: 1px solid #ffa5a5;
     }
     h3 {
       padding-top: 1rem;
@@ -162,179 +170,140 @@
       <div class="byline">
         Keith C. Ivey (updated <span id="updated"></span>)
       </div>
-      <ul class="nav nav-tabs" role="tablist">
-        <li class="nav-item" role="presentation">
-          <a class="nav-link active" id="intro-tab" data-toggle="tab" href="#intro" role="tab" aria-controls="intro" aria-selected="true">Intro</a>
-        </li>
-        <li class="nav-item" role="presentation">
-          <a class="nav-link" id="map-tab" data-toggle="tab" href="#map" role="tab" aria-controls="map" aria-selected="false">Map</a>
-        </li>
-        <li class="nav-item" role="presentation">
-          <a class="nav-link" id="stats-tab" data-toggle="tab" href="#stats" role="tab" aria-controls="stats" aria-selected="false">Stats</a>
-        </li>
-        <li class="nav-item" role="presentation">
-          <a class="nav-link" id="shared-tab" data-toggle="tab" href="#shared" role="tab" aria-controls="shared" aria-selected="false">Shared</a>
-        </li>
-        <li class="nav-item" role="presentation">
-          <a class="nav-link" id="date-tab" data-toggle="tab" href="#date" role="tab" aria-controls="date" aria-selected="false">Date</a>
-        </li>
-        <li class="nav-item" role="presentation">
-          <a class="nav-link" id="place-tab" data-toggle="tab" href="#place" role="tab" aria-controls="place" aria-selected="false">Place</a>
-        </li>
-      </ul>
+      <div class="explanation">
+        <div id="extra-overall" class="extra columns"></div>
+      </div>
     </div>
   </div>
-  <div class="tab-content">
-    <div id="intro" class="tab-pane active">
+  <div class="row">
+    <div class="col-12">
+      <h2 id="contributors-map"><a href="#contributors-map">Map of DC Contributors</a></h2>
+    </div>
+    <div class="explanation columns col-xl-4 col-12">
+      <p>
+        This map shows the locations of all DC contributors. You can display them as individual points color-coded by
+        candidate, as clusters, or as a heat map. The colors in the clusters have nothing to do with candidates; they
+        just represent the size of the cluster. Similarly, the colors in the heat map just represent the
+        concentration of contributors in an area.
+      </p>
+      <p>
+        A few contributors are excluded because they had bad addresses (PO boxes, typos, missing or wrong
+        quadrant, and other problems). I fixed a fair number of them manually, since I got a little obsessive,
+        but almost 3% remain unmappable.
+      </p>
+      <div id="extra-contributors-map" class="extra"></div>
+    </div>
+    <div class="col-xl-8 col-12">
       <div class="row">
-        <div class="col-12">
-          <h2>Introduction</h2>
+        <div id="map-container" class="col">
+          <div id="map"></div>
         </div>
-        <div class="col-12 explanation">
-          <div id="extra-overall" class="extra columns"></div>
-        </div>
+        <div id="layers-control" class="col-auto"></div>
       </div>
     </div>
-    <div id="map" class="row tab-pane">
-      <div class="row">
-        <div class="col-12">
-          <h2>Map of DC Contributors</h2>
-        </div>
-        <div class="explanation columns col-xl-4 col-12">
-          <p>
-            This map shows the locations of all DC contributors. You can display them as individual points color-coded by
-            candidate, as clusters, or as a heat map. The colors in the clusters have nothing to do with candidates; they
-            just represent the size of the cluster. Similarly, the colors in the heat map just represent the
-            concentration of contributors in an area.
-          </p>
-          <p>
-            A few contributors are excluded because they had bad addresses (PO boxes, typos, missing or wrong
-            quadrant, and other problems). I fixed a fair number of them manually, since I got a little obsessive,
-            but almost 3% remain unmappable.
-          </p>
-          <div id="extra-contributors-map" class="extra"></div>
-        </div>
-        <div class="col-xl-8 col-12">
-          <div class="row">
-            <div id="map-container" class="col">
-              <div id="leaflet-map"></div>
-            </div>
-            <div id="layers-control" class="col-auto"></div>
-          </div>
-        </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <h2 id="stats"><a href="#stats">Contribution Statistics</a></h2>
+    </div>
+    <div class="explanation columns col-12">
+      <p>
+        This table is the only part of the analysis that includes amounts of money raised.
+        Hover or tap the row name for a description of what the numbers mean.
+      </p>
+      <p>
+        A small number of contributors may be double-counted because they gave twice under different
+        variations of their name or address, though I did try to standardize addresses to avoid that.
+      </p>
+      <p class="not-all-fair-elections">
+        "Individual" means a human being, as opposed to a corporation, LLC, PAC, union, or other group.
+      </p>
+      <p>
+        These calculations of Fair Elections money assume that anyone who has met the requirements for
+        the funds will be approved for them and make it onto the ballot.
+        In reality, some candidates may not get all that money.
+        For candidates who are not using the Fair Elections program and those who have not yet met the
+        requirements for number of contributors and amount raised, the Fair Elections money is 0.
+      </p>
+      <p>
+        For Fair Elections candidates, candidate and family contributions for this analysis are only those
+        that are not matched and have a higher limit.
+        Some candidates and family members gave the normal limit or less, and those contributions are
+        matched like any other.
+      </p>
+      <p>
+        In each row, the lowest number is highlighted in yellow and the highest in blue.
+        Which one of those is good or bad depends on the row.
+      </p>
+      <div id="extra-stats" class="extra"></div>
+    </div>
+    <div class="col-12">
+      <div class="table-scroller">
+        <table id="stats-table" class="table"></table>
       </div>
     </div>
-    <div id="stats" class="row tab-pane">
-      <div class="row">
-        <div class="col-12">
-          <h2>Contribution Statistics</h2>
-        </div>
-        <div class="explanation columns col-12">
-          <p>
-            This table is the only part of the analysis that includes amounts of money raised.
-            Hover or tap the row name for a description of what the numbers mean.
-          </p>
-          <p>
-            A small number of contributors may be double-counted because they gave twice under different
-            variations of their name or address, though I did try to standardize addresses to avoid that.
-          </p>
-          <p class="not-all-fair-elections">
-            "Individual" means a human being, as opposed to a corporation, LLC, PAC, union, or other group.
-          </p>
-          <p>
-            These calculations of Fair Elections money assume that anyone who has met the requirements for
-            the funds will be approved for them and make it onto the ballot.
-            In reality, some candidates may not get all that money.
-            For candidates who are not using the Fair Elections program and those who have not yet met the
-            requirements for number of contributors and amount raised, the Fair Elections money is 0.
-          </p>
-          <p>
-            For Fair Elections candidates, candidate and family contributions for this analysis are only those
-            that are not matched and have a higher limit.
-            Some candidates and family members gave the normal limit or less, and those contributions are
-            matched like any other.
-          </p>
-          <p>
-            In each row, the lowest number is highlighted in yellow and the highest in blue.
-            Which one of those is good or bad depends on the row.
-          </p>
-          <div id="extra-stats" class="extra"></div>
-        </div>
-        <div class="col-12">
-          <div class="table-scroller">
-            <table id="stats-table" class="table"></table>
-          </div>
-        </div>
+  </div>
+  <div id="shared-row" class="row">
+    <div class="col-12">
+      <h2 id="shared"><a href="#shared">Top Campaigns That Share Contributors</a></h2>
+      <div class="explanation">
+        <p>
+          I thought it would be interesting to see what contributors have given to these candidates and have also
+          given to other campaigns in the past (or even this year).
+          I matched up contributors across campaign committees back to 2012.
+          These tables list the top 5 campaigns that these candidates share contributors with, with the number
+          of shared contributors and the percentage that is of the current candidate's contributors.
+          I included only campaigns that share at least 5 contributors (so candidates without enough contributor
+          data to be meaningful will not have a table shown).
+          These numbers are not perfect because of variations in names and addresses (though I did a lot of
+          fixing up to make them match better), and because people change their addresses and their names.
+        </p>
+        <div id="extra-shared" class="extra"></div>
       </div>
     </div>
-    <div id="shared" class="row tab-pane">
-      <div class="row">
-        <div class="col-12">
-        <h2>Top Campaigns That Share Contributors</h2>
-        <div class="explanation">
-          <p>
-            I thought it would be interesting to see what contributors have given to these candidates and have also
-            given to other campaigns in the past (or even this year).
-            I matched up contributors across campaign committees back to 2012.
-            These tables list the top 5 campaigns that these candidates share contributors with, with the number
-            of shared contributors and the percentage that is of the current candidate's contributors.
-            I included only campaigns that share at least 5 contributors (so candidates without enough contributor
-            data to be meaningful will not have a table shown).
-            These numbers are not perfect because of variations in names and addresses (though I did a lot of
-            fixing up to make them match better), and because people change their addresses and their names.
-          </p>
-          <div id="extra-shared" class="extra"></div>
-        </div>
-      </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <h2 id="date"><a href="#date">Contributors by Date</a></h2>
+      <div class="explanation">
+        <p>
+          These charts show how the number of contributors increased over time for each candidate, with all
+          contributors, then DC residents<span class="ward-specific">, and finally ward  residents</span>.
+        </p>
+        <div id="extra-date" class="extra"></div>
       </div>
     </div>
-    <div id="date" class="row tab-pane">
-      <div class="row">
-        <div class="col-12">
-          <h2>Contributors by Date</h2>
-          <div class="explanation">
-            <p>
-              These charts show how the number of contributors increased over time for each candidate, with all
-              contributors, then DC residents<span class="ward-specific">, and finally ward  residents</span>.
-            </p>
-            <div id="extra-date" class="extra"></div>
-          </div>
-        </div>
-        <div class="col-xl-4 col-lg-6 col-12">
-          <div class="chart">
-            <h3>All</h3>
-            <div id="date-chart-all"></div>
-          </div>
-        </div>
-        <div class="col-xl-4 col-lg-6 col-12">
-          <div class="chart">
-            <h3>DC</h3>
-            <div id="date-chart-dc"></div>
-          </div>
-        </div>
-        <div class="col-xl-4 col-lg-6 col-12 ward-specific">
-          <div class="chart">
-            <h3>Ward</h3>
-            <div id="date-chart-ward"></div>
-          </div>
-        </div>
+    <div class="col-xl-4 col-lg-6 col-12">
+      <div class="chart">
+        <h3>All</h3>
+        <div id="date-chart-all"></div>
       </div>
     </div>
-    <div id="place" class="row tab-pane">
-      <div class="row">
-        <div class="col-12">
-        <h2>Contributors by Place</h2>
-        <div class="explanation">
-          <p>
-            These pie charts show how the contributors were distributed over states (upper left) and DC wards
-            (lower right).
-            The light gray "Other" slices combine all places that were below 2% each, and "Unknown" in the Ward
-            represents bad addresses whose ward could not be determined.
-            You can hover your cursor over a slice or tap it to see what place it represents.
-          </p>
-          <div id="extra-place" class="extra"></div>
-        </div>
+    <div class="col-xl-4 col-lg-6 col-12">
+      <div class="chart">
+        <h3>DC</h3>
+        <div id="date-chart-dc"></div>
       </div>
+    </div>
+    <div class="col-xl-4 col-lg-6 col-12 ward-specific">
+      <div class="chart">
+        <h3>Ward</h3>
+        <div id="date-chart-ward"></div>
+      </div>
+    </div>
+  </div>
+  <div id="place-row" class="row">
+    <div class="col-12">
+      <h2 id="place"><a href="#place">Contributors by Place</a></h2>
+      <div class="explanation">
+        <p>
+          These pie charts show how the contributors were distributed over states (upper left) and DC wards
+          (lower right).
+          The light gray "Other" slices combine all places that were below 2% each, and "Unknown" in the Ward
+          represents bad addresses whose ward could not be determined.
+          You can hover your cursor over a slice or tap it to see what place it represents.
+        </p>
+        <div id="extra-place" class="extra"></div>
       </div>
     </div>
   </div>

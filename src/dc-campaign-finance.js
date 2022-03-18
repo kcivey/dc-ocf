@@ -1,5 +1,5 @@
 /**
- * Copyright 2019-2022 Keith C. Ivey
+ * Copyright 2019-2021 Keith C. Ivey
  * keith@iveys.org
  * https://dcgeekery.com
  * ISC License
@@ -36,28 +36,11 @@ jQuery(function ($) {
             .then(function (data) {
                 adjustPageText(data);
                 setCandidateColors(data.points);
-                $('a[data-toggle=tab]').on('shown.bs.tab', function (evt) {
-                    const section = evt.target.getAttribute('href').substr(1);
-                    switch (section) {
-                        case 'map':
-                            handlePoints(data.points);
-                            break;
-                        case 'stats':
-                            handleStats(data.stats);
-                            break;
-                        case 'shared':
-                            handleSharedData(data.shared);
-                            break;
-                        case 'date':
-                            handleDateData(data.dateData);
-                            break;
-                        case 'place':
-                            handlePlaceData(data.placeData);
-                            break;
-                        default:
-                            console.error('Unknown section', section);
-                    }
-                });
+                handlePoints(data.points);
+                handleStats(data.stats);
+                handleSharedData(data.shared);
+                handleDateData(data.dateData);
+                handlePlaceData(data.placeData);
                 $('.loader').hide();
             });
     }
@@ -88,7 +71,7 @@ jQuery(function ($) {
     }
 
     function setUpBaseMap(wardLayer) {
-        map = L.map('leaflet-map', {zoomSnap: 0.5, scrollWheelZoom: false});
+        map = L.map('map', {zoomSnap: 0.5, scrollWheelZoom: false});
         L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
             attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> ' +
                 'contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -105,15 +88,10 @@ jQuery(function ($) {
             .on('click', 'input:radio[name=mapType]', mapTypeHandler)
             .on('click', 'input:radio[name=candidate]', setUrlFromForm);
         map.addLayer(wardLayer);
-        sizeDc();
-        map.on('resize', sizeDc);
+        map.fitBounds(wardLayer.getBounds());
         $(window).on('popstate hashchange', setFormFromUrl);
         setUpViewportHandler();
         return map;
-
-        function sizeDc() {
-            map.fitBounds(wardLayer.getBounds());
-        }
     }
 
     function mapTypeHandler(evt) {
@@ -229,7 +207,6 @@ jQuery(function ($) {
     }
 
     function handlePoints(points) {
-        map.invalidateSize();
         const baseRadius = 2.5;
         const heatMapOptions = {
             gradient: {
@@ -376,8 +353,8 @@ jQuery(function ($) {
     }
 
     function handleSharedData(sharedData) {
-        const sharedRow = $('#shared .row');
-        // sharedRow.toggle(!!sharedData);
+        const sharedRow = $('#shared-row');
+        sharedRow.toggle(!!sharedData);
         if (!sharedData) {
             return;
         }
@@ -459,7 +436,7 @@ jQuery(function ($) {
     }
 
     function handlePlaceData(placeData) {
-        const placeRow = $('#place .row');
+        const placeRow = $('#place-row');
         $('.chart-container', placeRow).remove();
         const html = $('#place-chart-div-template').html();
         Mustache.parse(html);

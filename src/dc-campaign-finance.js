@@ -1,5 +1,5 @@
 /**
- * Copyright 2019-2021 Keith C. Ivey
+ * Copyright 2019-2022 Keith C. Ivey
  * keith@iveys.org
  * https://dcgeekery.com
  * ISC License

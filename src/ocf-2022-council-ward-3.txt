@@ -5,12 +5,12 @@ who have filed so far.
 In order by number of contributors, they are
 <ul>
 <li>Matt Frumin (D)</li>
-<li>Mary Cheh (D, incumbent, not longer running)</li>
+<li>Mary Cheh (D, incumbent, no longer running)</li>
 <li>Ben Bergmann (D)</li>
 <li>Phil Thomas (D)</li>
 <li>Tricia Duncan (D)</li>
 <li>David Krucoff (R)</li>
-<li>Monika Nemeth (D)</li>
+<li>Monika Nemeth (D, no longer running)</li>
 <li>Deirdre Brown (D)</li>
 <li>Eric Goulet (D)</li>
 </ul>

@@ -9,15 +9,17 @@ In order by number of contributors, they are
 <li>Trayon White (D)</li>
 <li>Rodney Grant (independent)</li>
 <li>Corren Brown (Statehood Green)</li>
-<li>Andre Davis (D)</li>
+<li><s>Andre Davis (D)</s></li>
+<li>Stacia Hall (R)</li>
 <li>James Butler (D)</li>
-<li>Michael Campbell (D)</li>
+<li><s>Michael Campbell (D)</s></li>
 <li>Lori Furstenberg (R)</li>
 </ul>
 
 Bowser, both Whites, and Davis are participating in the Fair Elections public campaign finance program.
 All candidates have reported contributions through March 10,
 except for Trayon White, who has reported through January 31.
+Davis and Campbell have withdrawn from the race.
 
 Candidates not using Fair Elections can accept contributions up to $2000, from individuals and from organizations
 (corporations, LLCs, PACs, unions, and so on), and use as much of their own money as they wish.

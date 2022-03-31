@@ -6,38 +6,42 @@ const db = require('./lib/db');
 
 db
     .select(
-        'con.committee_name',
+//        'con.committee_name',
+        'con.contributor_last_name',
         'con.contributor_first_name',
         'con.contributor_middle_name',
-        'con.contributor_last_name',
         'con.contributor_organization_name',
         'con.number_and_street',
         'con.city',
         'con.state',
         'con.zip',
+        'com.candidate_name',
+        'con.amount',
+        'con.receipt_date',
         'con.contributor_type',
         'con.contribution_type',
         'con.employer_name',
         'con.employer_address',
         'con.occupation',
-        'con.receipt_date',
-        'con.amount',
-        'con.normalized',
-        'com.candidate_name',
-        'com.candidate_short_name',
+//        'con.normalized',
+//        'com.candidate_short_name',
         'com.election_year',
         'com.office'
     )
     .from('contributions AS con')
     .join('committees AS com', 'con.committee_name', 'com.committee_name')
     .join('committee_extras AS ce', 'ce.committee_name', 'com.committee_name')
-    .orderBy('con.committee_name')
+//    .orderBy('con.committee_name')
     .orderBy('con.contributor_last_name')
     .orderBy('con.contributor_first_name')
     .orderBy('con.contributor_middle_name')
     .orderBy('con.number_and_street')
+    .orderBy('com.candidate_name')
     .orderBy('con.receipt_date')
     .where('ce.is_fair_elections', 1)
+    // .whereIn('con.contributor_type', ['Individual', 'Candidate'])
+    // .where('con.state', 'DC')
+    // .where('com.election_year', 2022)
 
     /*
     .whereIn('committee_name', [

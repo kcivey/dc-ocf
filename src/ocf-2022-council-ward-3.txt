@@ -5,7 +5,7 @@ who have filed so far.
 In order by number of contributors, they are
 <ul>
 <li>Matt Frumin (D)</li>
-<li>Beau Finley</li>
+<li>Beau Finley (D)</li>
 <li>Ben Bergmann (D)</li>
 <li>Monte Monash (D)</li>
 <li><s>Mary Cheh (D, incumbent)</s></li>

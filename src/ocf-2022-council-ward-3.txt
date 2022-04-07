@@ -10,17 +10,17 @@ In order by number of contributors, they are
 <li>Monte Monash (D)</li>
 <li><s>Mary Cheh (D, incumbent)</s></li>
 <li>Phil Thomas (D)</li>
+<li>David Krucoff (R)</li>
 <li>Tricia Duncan (D)</li>
 <li>Eric Goulet (D)</li>
-<li>David Krucoff (R)</li>
 <li><s>Monika Nemeth (D)</s></li>
 <li>Deirdre Brown (D)</li>
 </ul>
 
 All candidates except Brown are participating in the Fair Elections public campaign finance program,
-All have reported contributions through March 10,
-except Cheh, who filed her termination report March 21,
-and Finley, Bergmann, Monash, and Goulet, who have reported through March 30.
+Finley, Bergmann, Monash, Krucoff, and Goulet have reported contributions through March 30,
+Cheh filed her termination report March 21,
+and Frumin, Thomas, Duncan, Nemeth, and Brown have reported through March 10.
 Cheh and Nemeth have withdrawn from the race.
 
 Candidates not using Fair Elections can accept contributions up to $500, from individuals and from organizations

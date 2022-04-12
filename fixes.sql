@@ -93,8 +93,8 @@ UPDATE committee_extras SET is_special = 0 WHERE is_special IS NULL;
 UPDATE contributions SET contributor_type = 'Candidate' WHERE contributor_last_name = 'Grossman' AND contributor_first_name = 'Seth' AND amount < 2000;
 
 UPDATE committees SET office = 'Council Ward 2 (Special)' WHERE office = 'Council Ward 2' AND election_year = 2020 AND committee_name like '%Special%';
-UPDATE committees SET candidate_short_name = 'C Henderson' WHERE candidate_name = 'Christina Henderson';
-UPDATE committees SET candidate_short_name = 'K Henderson' WHERE candidate_name = 'Kathy Henderson';
+UPDATE committees SET candidate_short_name = 'C Henderson' WHERE candidate_name = 'Christina Henderson' AND election_year = 2020;
+UPDATE committees SET candidate_short_name = 'K Henderson' WHERE candidate_name = 'Kathy Henderson' AND election_year = 2020;
 UPDATE committees SET candidate_name = 'James Butler', candidate_short_name = 'Butler' WHERE committee_name = 'Butler Mayoral Exploratory Committee';
 UPDATE committees SET candidate_short_name = 'T White' WHERE candidate_name = 'Trayon White' AND election_year = 2022;
 UPDATE committees SET candidate_short_name = 'R White' WHERE candidate_name = 'Robert White' AND election_year = 2022;

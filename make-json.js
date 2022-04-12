@@ -264,8 +264,7 @@ async function processOffice(office, year) {
 }
 
 async function getSharedData({committees, year}) {
-    const threshold = 5;
-    const places = 5;
+    const places = 10;
     const data = {};
     for (const committee of committees) {
         const candidate = committee.candidate_short_name;
@@ -278,10 +277,11 @@ async function getSharedData({committees, year}) {
             year,
         };
         const rows = await db.getCommitteesWithTopSharedContributors(args);
+        const total = await db.getContributorCount(args);
+        const threshold = Math.max(5, total * 0.05);
         if (!rows[0] || rows[0].count < threshold) {
             continue;
         }
-        const total = await db.getContributorCount(args);
         let prevCount = 1;
         let i = 0;
         for (const row of rows) {

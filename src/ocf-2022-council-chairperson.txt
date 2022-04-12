@@ -4,13 +4,14 @@ I analyzed the DC Office of Campaign Finance (OCF) reports for the council chair
 who have filed so far.
 In order by number of contributors, they are
 <ul>
-<li>Phil Mendelson (D)</li>
 <li>Erin Palmer (D)</li>
+<li>Phil Mendelson (D)</li>
 <li><s>Calvin Gurley (D)</s></li>
 </ul>
 
 Palmer is participating in the Fair Elections public campaign finance program.
-All candidates have reported contributions through March 10.
+Mendelson and Gurley have reported contributions through March 10,
+Palmer through April 10.
 Gurley has withdrawn from the race.
 
 Candidates not using Fair Elections can accept contributions up to $1500, from individuals and from organizations

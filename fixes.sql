@@ -98,6 +98,8 @@ UPDATE committees SET candidate_short_name = 'K Henderson' WHERE candidate_name 
 UPDATE committees SET candidate_name = 'James Butler', candidate_short_name = 'Butler' WHERE committee_name = 'Butler Mayoral Exploratory Committee';
 UPDATE committees SET candidate_short_name = 'T White' WHERE candidate_name = 'Trayon White' AND election_year = 2022;
 UPDATE committees SET candidate_short_name = 'R White' WHERE candidate_name = 'Robert White' AND election_year = 2022;
+UPDATE committees SET candidate_name = 'Phil Thomas' WHERE candidate_name = 'William Thomas' AND election_year = 2022;
+UPDATE committees SET candidate_name = 'Isa Sanchez', candidate_short_name = 'Sanchez' WHERE candidate_name = 'Isabella Pimienta' AND election_year = 2022;
 
 DELETE FROM committees WHERE candidate_name = 'Karl Racine' AND election_year = 2022;
 

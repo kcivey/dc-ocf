@@ -40,7 +40,7 @@
     "request-plus": "^2.0.0",
     "request-promise-native": "^1.0.9",
     "sprintf-js": "^1.1.2",
-    "sqlite3": "^5.0.2",
+    "sqlite3": "^5.0.3",
     "stats-lite": "^2.2.0",
     "tempy": "^1.0.1",
     "terser": "^5.12.1",

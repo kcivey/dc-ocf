@@ -6,13 +6,13 @@ In order by number of contributors, they are
 <ul>
   <li>Nate Fleming (D)</li>
   <li>Anita Bonds (D, incumbent)</li>
-  <li>Bradley Thomas (D)</li>
+  <li><s>Bradley Thomas (D)</s></li>
   <li>Graham McLaughlin (independent)</li>
   <li><s>Sharece Crawford (D)</s></li>
   <li>Lisa Gore (D)</li>
   <li>Dexter Williams (D)</li>
   <li>Giuseppe Niosi (R)</li>
-  <li>Leniqua'dominique Jenkins (D)</li>
+  <li><s>Leniqua'dominique Jenkins (D)</s></li>
   <li>Elissa Silverman (independent, incumbent)</li>
   <li><s>Ambrose Lane Jr (D)</s></li>
   <li>Karim Marshall (independent)</li>
@@ -22,8 +22,8 @@ In order by number of contributors, they are
 
 All candidates except Hill and Trantham are seeking to qualify or have qualified for Fair Elections public campaign funds.
 All have reported contributions through April 10,
-except Crawford, Trantham, and Hill, through March 10.
-Crawford, Lane, and Trantham have withdrawn from the race.
+except Trantham and Hill, who have reported through March 10.
+Thomas, Crawford, Jenkins, Lane, and Trantham are no longer running.
 
 Two candidates will win this contest in the general election, but they can't be from the same party.
 In all previous elections the Democrat has been in first place by a large margin, so the race is often

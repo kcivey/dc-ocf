@@ -4,7 +4,7 @@ I analyzed the DC Office of Campaign Finance (OCF) reports for the attorney gene
 who have filed so far.
 In order by number of contributors, they are
 <ul>
-<li>Kenyan McDuffie (D)</li>
+<li><s>Kenyan McDuffie (D)</s></li>
 <li>Brian Schwalb (D)</li>
 <li>Ryan Jones (D)</li>
 <li>Bruce Spiva (D)</li>
@@ -13,6 +13,7 @@ In order by number of contributors, they are
 All candidates but Spiva are participating in the Fair Elections public campaign finance program.
 All have reported contributions through April 10,
 except Spiva, who has reported through March 10.
+McDuffie is no longer running.
 
 Candidates not using Fair Elections can accept contributions up to $1500, from individuals and from organizations
 (corporations, LLCs, PACs, unions, and so on), and use as much of their own money as they wish.

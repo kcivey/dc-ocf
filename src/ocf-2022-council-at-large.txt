@@ -4,16 +4,16 @@ I analyzed the DC Office of Campaign Finance (OCF) reports for the at-large coun
 who have filed so far.
 In order by number of contributors, they are
 <ul>
+  <li>Graham McLaughlin (independent)</li>
   <li>Nate Fleming (D)</li>
   <li>Anita Bonds (D, incumbent)</li>
   <li><s>Bradley Thomas (D)</s></li>
-  <li>Graham McLaughlin (independent)</li>
   <li><s>Sharece Crawford (D)</s></li>
+  <li>Elissa Silverman (independent, incumbent)</li>
   <li>Lisa Gore (D)</li>
   <li>Dexter Williams (D)</li>
   <li>Giuseppe Niosi (R)</li>
   <li><s>Leniqua'dominique Jenkins (D)</s></li>
-  <li>Elissa Silverman (independent, incumbent)</li>
   <li><s>Ambrose Lane Jr (D)</s></li>
   <li>Karim Marshall (independent)</li>
   <li><s>Paul Trantham (D)</s></li>
@@ -21,7 +21,8 @@ In order by number of contributors, they are
 </ul>
 
 All candidates except Hill and Trantham are seeking to qualify or have qualified for Fair Elections public campaign funds.
-All have reported contributions through April 10,
+McLaughlin, Silverman, Williams, Niosi, and Lane have reported contributions through May 10;
+all others have reported through April 10,
 except Trantham and Hill, who have reported through March 10.
 Thomas, Crawford, Jenkins, Lane, and Trantham are no longer running.
 
@@ -34,6 +35,6 @@ Candidates participating in the Fair Elections public campaign finance program c
 accept contributions up to $100 and only from individuals (except for the candidate and their family,
 who can give up to $2,500 in total), but can receive considerable additional funds from public money if they
 meet some requirements.
-Candidates using the traditional system can accept contributions up to $1,000 from
+Candidates using the traditional system can accept contributions up to $1,000 fromall
 individuals and from organizations (corporations, LLCs, PACs, unions, and so on) and can put in
 unlimited amounts of their own money.

@@ -9,8 +9,8 @@ In order by number of contributors, they are
   <li>Anita Bonds (D, incumbent)</li>
   <li><s>Bradley Thomas (D)</s></li>
   <li><s>Sharece Crawford (D)</s></li>
-  <li>Elissa Silverman (independent, incumbent)</li>
   <li>Lisa Gore (D)</li>
+  <li>Elissa Silverman (independent, incumbent)</li>
   <li>Dexter Williams (D)</li>
   <li>Giuseppe Niosi (R)</li>
   <li><s>Leniqua'dominique Jenkins (D)</s></li>
@@ -21,7 +21,7 @@ In order by number of contributors, they are
 </ul>
 
 All candidates except Hill and Trantham are seeking to qualify or have qualified for Fair Elections public campaign funds.
-McLaughlin, Silverman, Williams, Niosi, and Lane have reported contributions through May 10;
+McLaughlin, Gore, Silverman, Williams, Niosi, and Lane have reported contributions through May 10;
 all others have reported through April 10,
 except Trantham and Hill, who have reported through March 10.
 Thomas, Crawford, Jenkins, Lane, and Trantham are no longer running.

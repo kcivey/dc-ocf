@@ -4,9 +4,9 @@ I analyzed the DC Office of Campaign Finance (OCF) reports for the at-large coun
 who have filed so far.
 In order by number of contributors, they are
 <ul>
+  <li>Anita Bonds (D, incumbent)</li>
   <li>Graham McLaughlin (independent)</li>
   <li>Nate Fleming (D)</li>
-  <li>Anita Bonds (D, incumbent)</li>
   <li><s>Bradley Thomas (D)</s></li>
   <li><s>Sharece Crawford (D)</s></li>
   <li>Lisa Gore (D)</li>
@@ -14,16 +14,16 @@ In order by number of contributors, they are
   <li>Dexter Williams (D)</li>
   <li>Giuseppe Niosi (R)</li>
   <li><s>Leniqua'dominique Jenkins (D)</s></li>
-  <li><s>Ambrose Lane Jr (D)</s></li>
   <li>Karim Marshall (independent)</li>
+  <li><s>Ambrose Lane Jr (D)</s></li>
   <li><s>Paul Trantham (D)</s></li>
   <li>Fred Hill (independent)</li>
 </ul>
 
 All candidates except Hill and Trantham are seeking to qualify or have qualified for Fair Elections public campaign funds.
-McLaughlin, Gore, Silverman, Williams, Niosi, and Lane have reported contributions through May 10;
-all others have reported through April 10,
-except Trantham and Hill, who have reported through March 10.
+All have reported contributions through May 10,
+except for Fleming, Crawford, Thomas, and Jenkins, who have reported through April 10,
+and Trantham and Hill, who have reported through March 10.
 Thomas, Crawford, Jenkins, Lane, and Trantham are no longer running.
 
 Two candidates will win this contest in the general election, but they can't be from the same party.

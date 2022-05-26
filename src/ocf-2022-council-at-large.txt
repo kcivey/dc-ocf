@@ -5,8 +5,8 @@ who have filed so far.
 In order by number of contributors, they are
 <ul>
   <li>Anita Bonds (D, incumbent)</li>
-  <li>Graham McLaughlin (independent)</li>
   <li>Nate Fleming (D)</li>
+  <li>Graham McLaughlin (independent)</li>
   <li><s>Bradley Thomas (D)</s></li>
   <li><s>Sharece Crawford (D)</s></li>
   <li>Lisa Gore (D)</li>
@@ -22,7 +22,7 @@ In order by number of contributors, they are
 
 All candidates except Hill and Trantham are seeking to qualify or have qualified for Fair Elections public campaign funds.
 All have reported contributions through May 10,
-except for Fleming, Crawford, Thomas, and Jenkins, who have reported through April 10,
+except for Jenkins, who has reported through April 10,
 and Trantham and Hill, who have reported through March 10.
 Thomas, Crawford, Jenkins, Lane, and Trantham are no longer running.
 

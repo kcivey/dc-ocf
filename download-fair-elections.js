@@ -51,6 +51,7 @@ async function main() {
                         committeeName,
                         filingYear,
                         reportName.replace(' Report', '')
+                            .replace(' (General Election Candidates Only)', '')
                             .replace(/(?: 20\d\d)? \(20\d\d\)/, ''),
                         submittedDate.replace(/^(\d\d)\/(\d\d)\/(\d{4})$/, '$3$1$2'),
                     ].join(' ')

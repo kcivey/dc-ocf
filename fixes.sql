@@ -100,6 +100,7 @@ UPDATE committees SET candidate_short_name = 'T White' WHERE candidate_name = 'T
 UPDATE committees SET candidate_short_name = 'R White' WHERE candidate_name = 'Robert White' AND election_year = 2022;
 UPDATE committees SET candidate_name = 'Phil Thomas' WHERE candidate_name = 'William Thomas' AND election_year = 2022;
 UPDATE committees SET candidate_name = 'Isa Sanchez', candidate_short_name = 'Sanchez' WHERE candidate_name = 'Isabella Pimienta' AND election_year = 2022;
+UPDATE committees SET candidate_name = 'Nina O''Neill', candidate_short_name = 'O''Neill' WHERE candidate_name = 'Nina ONeill';
 
 DELETE FROM committees WHERE candidate_name = 'Karl Racine' AND election_year = 2022;
 

@@ -62,6 +62,7 @@ async function loadRecords(tableName, columns, filerType) {
                 committee_name: committeeName,
                 filer_type: filerType,
                 is_fair_elections: false,
+                is_running: true,
             });
         }
         batch.push(record);

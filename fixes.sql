@@ -89,6 +89,7 @@ UPDATE contributions SET state = 'DC' WHERE state = '' AND city LIKE 'Was%';
 UPDATE committee_extras SET is_special = 1 WHERE committee_name = 'Evans Ward 2';
 UPDATE committee_extras SET is_special = 1 WHERE committee_name LIKE '%Special%';
 UPDATE committee_extras SET is_special = 0 WHERE is_special IS NULL;
+UPDATE committee_extras SET is_running = 1 WHERE is_running IS NULL;
 
 UPDATE contributions SET contributor_type = 'Candidate' WHERE contributor_last_name = 'Grossman' AND contributor_first_name = 'Seth' AND amount < 2000;
 

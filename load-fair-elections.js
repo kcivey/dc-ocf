@@ -62,6 +62,7 @@ async function processFile(inputFile) {
                 return {
                     committee_name: row.committee_name,
                     is_fair_elections: true,
+                    is_running: true,
                 };
             });
             await db.createCommitteeExtraRecords(extraRecords);

@@ -6,6 +6,7 @@ const yargs = require('yargs');
 const csvStringify = require('csv-stringify/lib/sync');
 const {createBrowser} = require('./lib/browser');
 const {hyphenize} = require('./lib/util');
+const db = require('./lib/db');
 const argv = getArgv();
 const browser = createBrowser();
 const startUrl = 'https://fairelections.ocf.dc.gov/public/FinancialReport';
@@ -114,6 +115,9 @@ async function getCommittees() {
                 c.officeName.replace('Council Chairman', 'Council Chairperson'),
             ];
         });
+    for (const c of response.searchData) {
+        await db.updateCommitteeExtra(c.committeeName, {party: c.partyAffiliation.replace('-P', 'p')});
+    }
     const fileName = `${__dirname}/csv/committees-${year}.extra.csv`;
     fs.writeFileSync(fileName, csvStringify(committeeData, {quoted: true}));
 }

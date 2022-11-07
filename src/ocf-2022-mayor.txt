@@ -5,22 +5,23 @@ who have filed so far.
 In order by number of contributors, they are
 <ul>
 <li>Muriel Bowser (D, incumbent)</li>
-<li>Robert White (D)</li>
-<li>Trayon White (D)</li>
+<li><s>Robert White (D)</s></li>
+<li><s>Trayon White (D)</s></li>
 <li>Rodney Grant (independent)</li>
-<li>Corren Brown (Statehood Green)</li>
-<li><s>Andre Davis (D)</s></li>
+<li><s>James Butler (D)</s></li>
 <li>Stacia Hall (R)</li>
-<li>James Butler (D)</li>
+<li><s>Corren Brown (Statehood Green)</s></li>
+<li><s>Andre Davis (D)</s></li>
+<li>Rhonda Hamilton (independent)</li>
 <li><s>Michael Campbell (D)</s></li>
 <li><s>Lori Furstenberg (R)</s></li>
 </ul>
 
 Bowser, both Whites, and Davis are participating in the Fair Elections public campaign finance program.
-All candidates have reported contributions through June 10,
-except Trayon White, who has reported through May 10,
-and Davis, Butler, and Campbell, who have reported through March 10.
-Davis and Campbell are no longer running.
+Bowser and Hall have reported contributions through October 31;
+Robert White, Grant, and Furstenberg through October 10;
+and others less recently.
+Those struck through in the list are no longer running.
 
 Candidates not using Fair Elections can accept contributions up to $2000, from individuals and from organizations
 (corporations, LLCs, PACs, unions, and so on), and use as much of their own money as they wish.

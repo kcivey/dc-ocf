@@ -1,18 +1,18 @@
 =overall
 
-I analyzed the DC Office of Campaign Finance (OCF) reports for the Ward 6 candidates
+I analyzed the DC Office of Campaign Finance (OCF) reports for the Ward 5 candidates
 for State Board of Education.
 In order by number of contributors, they are
 <ul>
-<li>Brandon Best</li>
-<li>Joshua Wiley</li>
+<li>Robert Henderson</li>
+<li>Carisa Stanley Beatty</li>
+<li>Nina O'Neill</li>
 </ul>
 
 This race is nonpartisan.
-Wiley has reported contributions through October 31
-and Best through October 10.
+All camdidates have reported contributions through October 31.
 
-Both candidates are participating in the Fair Elections public campaign finance program
+All candidates are participating in the Fair Elections public campaign finance program
 and so can accept up to $20 and only from individuals (except for the candidate and their family,
 who can give up to $2,500), but can receive considerable additional funds from public money if they
 meet some requirements.

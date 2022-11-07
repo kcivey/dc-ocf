@@ -5,13 +5,15 @@ who have filed so far.
 In order by number of contributors, they are
 <ul>
 <li>Phil Mendelson (D)</li>
-<li>Erin Palmer (D)</li>
+<li><s>Erin Palmer (D)</s></li>
 <li><s>Calvin Gurley (D)</s></li>
 </ul>
 
 Palmer is participating in the Fair Elections public campaign finance program.
-All candidates have reported contributions through June 10,
-Gurley is no longer running.
+Mendelson has reported contributions through October 31
+and Palmer through October 10.
+Gurley filed his termination report June 27 and again October 3.
+Those struck through in the list are no longer running.
 
 Candidates not using Fair Elections can accept contributions up to $1500, from individuals and from organizations
 (corporations, LLCs, PACs, unions, and so on), and use as much of their own money as they wish.

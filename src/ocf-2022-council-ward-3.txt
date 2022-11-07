@@ -5,22 +5,25 @@ who have filed so far.
 In order by number of contributors, they are
 <ul>
 <li>Matt Frumin (D)</li>
-<li>Eric Goulet (D)</li>
-<li>Monte Monash (D)</li>
+<li><s>Eric Goulet (D)</s></li>
+<li><s>Monte Monash (D)</s></li>
 <li><s>Tricia Duncan (D)</s></li>
 <li><s>Ben Bergmann (D)</s></li>
-<li>Beau Finley (D)</li>
-<li>Phil Thomas (D)</li>
-<li><s>Mary Cheh (D, incumbent)</s></li>
+<li><s>Beau Finley (D)</s></li>
+<li><s>Phil Thomas (D)</s></li>
 <li>David Krucoff (R)</li>
+<li><s>Mary Cheh (D, incumbent)</s></li>
+<li><s>Deirdre Brown (D)</s></li>
 <li><s>Monika Nemeth (D)</s></li>
-<li>Deirdre Brown (D)</li>
 </ul>
 
 All candidates except Brown are participating in the Fair Elections public campaign finance program,
-All candidates have reported contributions through June 10.
-Cheh filed her termination report March 21.
-Duncan, Bergmann, Cheh, and Nemeth have withdrawn from the race.
+Frumin and Krucoff have reported contributions through October 31;
+Goulet, Finley, and Nemeth through October 10.
+Monash filed a termination report on October 26, Bergmann on October 24,
+Thomas on July 27, Duncan on June 17,
+and Cheh on March 21.
+Those struck through in the list are no longer running.
 
 Candidates not using Fair Elections can accept contributions up to $500, from individuals and from organizations
 (corporations, LLCs, PACs, unions, and so on), and use as much of their own money as they wish.

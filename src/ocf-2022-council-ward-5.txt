@@ -11,12 +11,16 @@ In order by number of contributors, they are
 <li>Gary Johnson (D)</li>
 <li>Kathy Henderson (D)</li>
 <li><s>Lauren Rogers (D)</s></li>
+<li><s>Art Lloyd</s></li>
 </ul>
 
 All candidates but Rogers are participating in the Fair Elections public campaign finance program.
-All candidates have reported contributions through June 10,
-except Rogers, who has reported through March 10.
-Rogers has withdrawn from the race.
+Parker has reported contributions through October 31;
+Fletcher, Orange, and Henderson through October 10.
+Johnson filed a termination report on October 27,
+Hubbard on October 10.
+Others have reported less recently.
+Those struck through in the list are no longer running.
 
 Candidates not using Fair Elections can accept contributions up to $500, from individuals and from organizations
 (corporations, LLCs, PACs, unions, and so on), and use as much of their own money as they wish.

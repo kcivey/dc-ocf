@@ -6,13 +6,15 @@ In order by number of contributors, they are
 <ul>
 <li>Brian Schwalb (D)</li>
 <li><s>Kenyan McDuffie (D)</s></li>
-<li>Ryan Jones (D)</li>
-<li>Bruce Spiva (D)</li>
+<li><s>Ryan Jones (D)</s></li>
+<li><s>Bruce Spiva (D)</s></li>
 </ul>
 
 All candidates but Spiva are participating in the Fair Elections public campaign finance program.
-All have reported contributions through June 10.
-McDuffie is no longer running.
+Schwalb has reported contributions through October 31,
+Jones and Spiva through October 10,
+and McDuffie file his termination report July 25.
+Those struck through in the list are no longer running.
 
 Candidates not using Fair Elections can accept contributions up to $1500, from individuals and from organizations
 (corporations, LLCs, PACs, unions, and so on), and use as much of their own money as they wish.

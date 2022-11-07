@@ -1,0 +1,17 @@
+=overall
+
+I analyzed the DC Office of Campaign Finance (OCF) reports for the Ward 3 candidates
+for State Board of Education.
+In order by number of contributors, they are
+<ul>
+<li>Michael Sriqui</li>
+<li>Eric Goulet</li>
+</ul>
+
+This race is nonpartisan.
+Both candidates have reported contributions through October 31.
+
+Sriqui is participating in the Fair Elections public campaign finance program
+and so can accept up to $20 and only from individuals (except for the candidate and their family,
+who can give up to $2,500), but can receive considerable additional funds from public money if he
+meets some requirements.

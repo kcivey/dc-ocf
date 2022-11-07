@@ -4,13 +4,11 @@ I analyzed the DC Office of Campaign Finance (OCF) reports for the candidates
 for shadow representative who have reported so far. In order by number of contributors, they are
 
 <ul>
-<li>Linda Gray (D)</li>
 <li>Oye Owolewa (D, incumbent)</li>
-<li><s>Harry Thomas Jr (D)</s></li>
+<li><s>Linda Gray (D)</s></li>
 </ul>
 
 All candidates have reported contributions through June 10.
-Thomas is no longer running.
 
 Candidates can accept contributions of up to $2,000 from individuals and from organizations (corporations,
 LLCs, PACs, unions, and so on) and can put in unlimited amounts of their own money.

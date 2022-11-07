@@ -2,12 +2,20 @@
 
 I analyzed the DC Office of Campaign Finance (OCF) reports for the Ward 1 candidates
 for State Board of Education.
-The only one who has filed so far is Isa Sanchez.
+In order by number of contributors, they are
+<ul>
+<li>Ben Williams</li>
+<li><s>Alfonso Way</s></li>
+<li><s>Isa Sanchez</s></li>
+</ul>
 
 This race is nonpartisan.
-Sanchez has reported contributions through June 10.
+Williams has reported contributions through October 31
+and Way through October 10.
+Sanchez filed a termination report September 11.
+Those struck through in the list are no longer running.
 
-Sanchez is participating in the Fair Elections public campaign finance program
+All candidates are participating in the Fair Elections public campaign finance program
 and so can accept up to $20 and only from individuals (except for the candidate and their family,
-who can give up to $2,500), but can receive considerable additional funds from public money if she
-meets some requirements.
+who can give up to $2,500), but can receive considerable additional funds from public money if they
+meet some requirements.

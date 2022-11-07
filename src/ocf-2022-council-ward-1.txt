@@ -5,12 +5,15 @@ who have filed so far.
 In order by number of contributors, they are
 <ul>
 <li>Brianne Nadeau (D, incumbent)</li>
-<li>Salah Czapary (D)</li>
-<li>Sabel Harris (D)</li>
+<li><s>Salah Czapary (D)</s></li>
+<li><s>Sabel Harris (D)</s></li>
 </ul>
 
 All candidates are participating in the Fair Elections public campaign finance program.
-All have reported contributions through June 30.
+Nadeau has reported contributions through October 31
+and Harris through June 10.
+Czapary filed his termination report September 2.
+Those struck through in the list are no longer running.
 
 Candidates not using Fair Elections can accept contributions up to $500, from individuals and from organizations
 (corporations, LLCs, PACs, unions, and so on), and use as much of their own money as they wish.

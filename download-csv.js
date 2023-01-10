@@ -86,7 +86,16 @@ async function writeCommitteeCsv(filerType = 'principal', year) {
     const browser = await createBrowser();
     await browser.visit('https://efiling.ocf.dc.gov/Disclosure');
     await browser.select('#FilerTypeId', filerTypeName);
-    await browser.select('#ElectionYear', year.toString());
+    try {
+        await browser.select('#ElectionYear', year.toString());
+    }
+    catch (err) {
+        if (err.message.match(/No OPTION/)) {
+            console.warn(`Year ${year} not found on form`);
+            return;
+        }
+        throw err;
+    }
     await browser.click('#btnSubmitSearch');
     let csv = await getCsv(browser);
     const extraFile = file.replace('.csv', `-${year}.extra.csv`);

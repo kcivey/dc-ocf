@@ -94,7 +94,7 @@ async function main() {
 
 async function getCommittees() {
     console.warn('Getting committees');
-    const year = 2022;
+    const year = Math.ceil(new Date().getFullYear() / 2) * 2; // coming election
     const response = await request({
         url: 'https://fairelections.ocf.dc.gov/app/api/Public/SearchRegistrationDisclosure',
         method: 'POST',

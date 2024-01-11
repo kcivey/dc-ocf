@@ -142,7 +142,8 @@ async function writeTransactionCsv(transactionType, filerType = 'principal') {
     }
     catch (err) {
         // Ignore JS error that happens here, even in a normal browser
-        if (err.message !== "Cannot read property 'settings' of undefined") {
+        if (err.message !== "Cannot read property 'settings' of undefined" &&
+            err.message !== "Cannot read properties of undefined (reading 'settings')") {
             throw err;
         }
     }

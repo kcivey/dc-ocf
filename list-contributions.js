@@ -33,7 +33,7 @@ async function main() {
             '$' + Math.round(r.amount),
             r.candidate_name,
             r.office,
-            r.election_year,
+            r.election_year
         ));
         if (!counts[r.normalized]) {
             counts[r.normalized] = 0;

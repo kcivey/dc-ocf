@@ -53,7 +53,7 @@ jQuery(function ($) {
                 $.each(contestsByYear, function (year, contests) {
                     const optGroup = $('<optgroup/>').attr('label', year);
                     $.each(contests, function (i, contest) {
-                        if (i === 0 && +stateDefaults.electionYear == year) {
+                        if (i === 0 && +stateDefaults.electionYear === +year) {
                             stateDefaults.contest = hyphenize(contest);
                         }
                         const text = year + ' ' + contest;

@@ -386,7 +386,7 @@ function writeHtml(records) {
     const outputFile = templateFile.replace(/\.tpl$/, '');
     const generalName = 'General Election, November 8, ' + argv.year;
     const specialName = 'Special Election, June 16, ' + argv.year;
-    let recordsByElection = {};
+    const recordsByElection = {};
     for (const [electionDescription, recordsByParty] of Object.entries(records)) {
         for (const [party, recordsByOffice] of Object.entries(recordsByParty)) {
             const election = electionDescription === 'General Election'
@@ -481,13 +481,13 @@ function writeHtml(records) {
 }
 
 function committeeSort(a, b) {
-    return a.last_name && b.last_name ?
-        (
+    return a.last_name && b.last_name
+        ? (
             a.last_name.localeCompare(b.last_name) ||
             a.first_name.localeCompare(b.first_name) ||
             (a.committee_code || '').localeCompare(b.committee_code || '')
-        ) :
-        a.candidate_name.localeCompare(b.candidate_name);
+        )
+        : a.candidate_name.localeCompare(b.candidate_name);
 }
 
 function getArgv() {
@@ -567,6 +567,7 @@ function keySort(a, b) {
     return a2.localeCompare(b2) || a1.localeCompare(b1);
 }
 
+/*
 function removeBoeDates(records) {
     for (const [election, recordsByParty] of Object.entries(records)) {
         if (!/general/i.test(election)) {
@@ -600,6 +601,7 @@ function removeBoeListed(records) {
     }
     return records;
 }
+*/
 
 async function getBoePickups() {
     const newsUrl = 'https://dcboe.org/Elections/2022-Elections';
@@ -635,7 +637,6 @@ async function getBoePickups() {
             if (!/\S/.test(page)) {
                 continue;
             }
-            console.log(page)
             let party = '';
             if (primary) {
                 const m = page.match(

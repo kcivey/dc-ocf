@@ -6,7 +6,7 @@ const db = require('./lib/db');
 
 db
     .select(
-//        'con.committee_name',
+        // 'con.committee_name',
         'con.contributor_last_name',
         'con.contributor_first_name',
         'con.contributor_middle_name',
@@ -23,8 +23,8 @@ db
         'con.employer_name',
         'con.employer_address',
         'con.occupation',
-//        'con.normalized',
-//        'com.candidate_short_name',
+        // 'con.normalized',
+        // 'com.candidate_short_name',
         'com.election_year',
         'com.office'
     )

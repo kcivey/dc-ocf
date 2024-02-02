@@ -28,6 +28,7 @@ Council At-Large:
   fe_max:
     2020: 308639
     2022: 333394
+    2024: 356954
 Council Ward:
   traditional_limit: 500
   fe_limit: 50
@@ -37,13 +38,16 @@ Council Ward:
   fe_max:
     2020: 241055
     2022: 233384
+    2024: 266666
 SBOE At-Large:
   traditional_limit: 500
   fe_limit: 50
   fe_contributor_threshold: 150
   fe_amount_threshold: 5000
   fe_base_grant: 10000
-  fe_max: 21877
+  fe_max:
+    2020: 21877
+    2024: 30605
 SBOE Ward:
   traditional_limit: 200
   fe_limit: 20
@@ -53,6 +57,7 @@ SBOE Ward:
   fe_max:
     2020: 14006
     2022: 33294
+    2024: 24434
 US Representative:
   traditional_limit: 2000
 US Senator:

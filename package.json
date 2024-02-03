@@ -21,7 +21,6 @@
     "@babel/core": "^7.23.9",
     "@babel/preset-env": "^7.23.9",
     "better-sqlite3": "^7.6.2",
-    "browserify": "^17.0.0",
     "cache-manager": "^3.6.3",
     "cache-manager-fs": "^1.0.12",
     "cheerio": "^1.0.0-rc.12",

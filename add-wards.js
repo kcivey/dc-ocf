@@ -13,8 +13,7 @@ const argv = require('yargs')
     .strict(true)
     .argv;
 const db = require('./lib/db');
-const request = require('./lib/request');
-const marClient = require('dc-mar').createClient({request});
+const marClient = require('dc-mar').createClient();
 const batchSize = 40;
 
 main()

@@ -413,7 +413,9 @@ jQuery(function ($) {
                         },
                         type: 'timeseries',
                         tick: {
+                            format: "%e %b '%y",
                             outer: false,
+                            rotate: 45,
                             values: dateTicks,
                         },
                     },

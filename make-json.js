@@ -308,6 +308,10 @@ async function getSharedData({committees, year}) {
 
 async function getDateData(baseFilters, ward) {
     const lastDeadlines = await db.getLastDeadlines(baseFilters.office, baseFilters.year);
+    const lastContributionDates = await db.getLastContributionDates(baseFilters.office, baseFilters.year);
+    const candidateShortNames = baseFilters.committees
+        ? new Set(baseFilters.committees.map(c => c.candidate_short_name))
+        : Object.keys(lastDeadlines);
     const sets = {
         all: {},
         dc: {state: 'DC'},
@@ -331,10 +335,7 @@ async function getDateData(baseFilters, ward) {
         }
         const runningTotals = {};
         let i = 0;
-        const candidates = filters.committees
-            ? new Set(filters.committees.map(c => c.candidate_short_name))
-            : Object.keys(lastDeadlines);
-        for (const candidate of candidates) {
+        for (const candidate of candidateShortNames) {
             columns[i] = [candidate];
             runningTotals[candidate] = 0;
             i++;
@@ -348,9 +349,8 @@ async function getDateData(baseFilters, ward) {
         while (cursorDate <= endDate) { // eslint-disable-line no-unmodified-loop-condition
             const isoDate = cursorDate.format('YYYY-MM-DD');
             let i = 0;
-            for (const candidate of candidates) {
-                const lastDeadline = lastDeadlines[candidate];
-                if (isoDate <= lastDeadline) {
+            for (const candidate of candidateShortNames) {
+                if (isoDate <= lastDeadlines[candidate] || isoDate <= lastContributionDates[candidate]) {
                     runningTotals[candidate] += +(data[isoDate] && data[isoDate][candidate]) || 0;
                     columns[i].push(runningTotals[candidate]);
                 }

@@ -34,18 +34,20 @@ async function main() {
         deleteOldFile('expenditures', 'principal');
         await retry(() => writeTransactionCsv('expenditures'));
     }
-    if (argv.exploratory) {
-        deleteOldFile('committees', 'exploratory');
-        for (let year = electionYear; year <= endYear; year++) {
-            await retry(() => writeCommitteeCsv('exploratory', year));
-        }
-        if (argv.contributions) {
-            deleteOldFile('contributions', 'exploratory');
-            await retry(() => writeTransactionCsv('contributions', 'exploratory'));
-        }
-        if (argv.expenditures) {
-            deleteOldFile('expenditures', 'exploratory');
-            await retry(() => writeTransactionCsv('expenditures', 'exploratory'));
+    for (const filerType of ['exploratory', 'recall']) {
+        if (argv[filerType]) {
+            deleteOldFile('committees', filerType);
+            for (let year = electionYear; year <= endYear; year++) {
+                await retry(() => writeCommitteeCsv(filerType, year));
+            }
+            if (argv.contributions) {
+                deleteOldFile('contributions', filerType);
+                await retry(() => writeTransactionCsv('contributions', filerType));
+            }
+            if (argv.expenditures) {
+                deleteOldFile('expenditures', filerType);
+                await retry(() => writeTransactionCsv('expenditures', filerType));
+            }
         }
     }
     process.exit();
@@ -195,6 +197,7 @@ function getFilerTypeName(filerType) {
     return {
         principal: 'Principal Campaign Committee',
         exploratory: 'Exploratory Committee',
+        recall: 'Recall',
     }[filerType];
 }
 
@@ -222,6 +225,10 @@ function getArgv() {
                 type: 'boolean',
                 description: 'download exploratory committees',
             },
+            recall: {
+                type: 'boolean',
+                description: 'download recall committees',
+            },
             all: {
                 type: 'boolean',
                 describe: 'download committees, contributions, and expenditures',
@@ -238,7 +245,7 @@ function getArgv() {
         })
         .strict(true)
         .check(function (argv) {
-            if (!(['committees', 'contributions', 'expenditures', 'exploratory', 'all'].some(n => argv[n]))) {
+            if (!(['committees', 'contributions', 'expenditures', 'exploratory', 'recall', 'all'].some(n => argv[n]))) {
                 throw new Error('Must specify at least one data set to download');
             }
             return true;
@@ -249,6 +256,7 @@ function getArgv() {
         argv.contributions = true;
         argv.expenditures = true;
         argv.exploratory = true;
+        argv.recall = true;
     }
     return argv;
 }

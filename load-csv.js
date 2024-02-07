@@ -16,7 +16,7 @@ main()
 
 async function main() {
     await db.createTables();
-    for (const filerType of ['principal', 'exploratory']) {
+    for (const filerType of ['principal', 'exploratory', 'recall']) {
         await loadRecords(db.committeeTableName, db.committeeColumns, filerType);
         await loadRecords(db.contributionTableName, db.contributionColumns, filerType);
         await loadRecords(db.expenditureTableName, db.expenditureColumns, filerType);
@@ -117,17 +117,20 @@ function transformRecord(record) {
         newRecord[newKey] = newValue;
     }
     if (newRecord.payment_date && !newRecord.payee_organization_name) {
-        newRecord.payee_organization_name = ''; // missing for exploratory committees
+        newRecord.payee_organization_name = ''; // missing for exploratory and recall committees
     }
     if (newRecord.city) {
         newRecord.normalized = normalizeNameAndAddress(newRecord);
     }
+    if (newRecord.office) {
+        newRecord.office = newRecord.office.replace('D.C. State Board of Education', 'SBOE');
+        if (!newRecord.candidate_name) {
+            newRecord.candidate_name = 'Unknown Recall';
+        }
+    }
     if (newRecord.candidate_name) {
         const nameParts = parseName(newRecord.candidate_name);
         newRecord.candidate_short_name = nameParts.last; // have to manually edit if more than one with same last name
-    }
-    if (newRecord.office) {
-        newRecord.office = newRecord.office.replace('D.C. State Board of Education', 'SBOE');
     }
     return newRecord;
 }

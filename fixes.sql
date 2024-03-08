@@ -103,6 +103,11 @@ UPDATE committees SET candidate_name = 'Phil Thomas' WHERE candidate_name = 'Wil
 UPDATE committees SET candidate_name = 'Isa Sanchez', candidate_short_name = 'Sanchez' WHERE candidate_name = 'Isabella Pimienta' AND election_year = 2022;
 UPDATE committees SET candidate_name = 'Nina O''Neill', candidate_short_name = 'O''Neill' WHERE candidate_name = 'Nina ONeill';
 
+UPDATE committees SET election_year = 2024 WHERE committee_name IN ('Ward 1 Residents for Brianne', 'The Committee to Recall Brianne Nadeau')
+    AND election_year = 2021;
+UPDATE committees SET candidate_short_name = 'Yes' WHERE committee_name IN ('The Committee to Recall Brianne Nadeau', 'Committee to Recall Charles Allen');
+UPDATE committees SET candidate_short_name = 'No' WHERE committee_name IN ('Neighbors United for Ward 6', 'No Recall in WARD 6', 'Ward 1 Residents for Brianne');
+
 DELETE FROM committees WHERE candidate_name = 'Karl Racine' AND election_year = 2022;
 
 DELETE FROM contributions WHERE committee_name = 'Patrick Kennedy for Ward 2' AND receipt_date = '2020-03-24' AND amount > 54000;

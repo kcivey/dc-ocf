@@ -37,7 +37,7 @@ async function loadRecords(tableName, columns, filerType) {
     const unknownCommittees = new Set();
     for await (let record of parser) {
         totalCount++;
-        record = transformRecord(record);
+        record = transformRecord(record, filerType);
         const committeeName = record.committee_name;
         if (checkForProblem(record)) {
             if (!unknownCommittees.has(committeeName)) {
@@ -100,7 +100,7 @@ async function loadRecords(tableName, columns, filerType) {
     }
 }
 
-function transformRecord(record) {
+function transformRecord(record, filerType) {
     const newRecord = {};
     for (const [key, value] of Object.entries(record)) {
         let newKey = underscored(key);
@@ -124,8 +124,9 @@ function transformRecord(record) {
     }
     if (newRecord.office) {
         newRecord.office = newRecord.office.replace('D.C. State Board of Education', 'SBOE');
-        if (!newRecord.candidate_name) {
-            newRecord.candidate_name = 'Unknown Recall';
+        if (filerType === 'recall') {
+            newRecord.candidate_name = newRecord.committee_name;
+            newRecord.office += ' (Recall)';
         }
     }
     if (newRecord.candidate_name) {

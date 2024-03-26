@@ -2,9 +2,10 @@
 
 set -e
 ORIGINAL_FILE=original.json
-TARGET_FILE=src/dc-wards.json
+TARGET_FILE=src/dc-wards-2022.json
 if [ ! -e $ORIGINAL_FILE ]
-    then curl https://opendata.arcgis.com/datasets/0ef47379cbae44e88267c01eaec2ff6e_31.geojson -o $ORIGINAL_FILE
+    # then curl https://opendata.arcgis.com/datasets/0ef47379cbae44e88267c01eaec2ff6e_31.geojson -o $ORIGINAL_FILE
+    then curl https://opendata.dc.gov/datasets/c5cd8b40fb784548a6680aead5f919ed_53.geojson -o $ORIGINAL_FILE
 fi
 npx geo2topo wards=$ORIGINAL_FILE \
     | npx toposimplify -P 0.02 \

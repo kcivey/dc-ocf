@@ -136,7 +136,7 @@ jQuery(function ($) {
     }
 
     function getWardLayer() {
-        return $.getJSON('/dc-wards.json')
+        return $.getJSON('/dc-wards-2022.json')
             .then(function (wardGeoJson) {
                 return L.geoJson(wardGeoJson, {
                     onEachFeature(feature, layer) {

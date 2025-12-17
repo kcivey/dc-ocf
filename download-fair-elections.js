@@ -20,7 +20,13 @@ main()
     });
 
 async function main() {
-    await getCommittees();
+    const years = await request({
+        url: 'https://fairelections.ocf.dc.gov/app/api/Public/GetElectionYears',
+        json: true,
+    });
+    for (const year of years) {
+        await getCommittees(year);
+    }
     console.warn(`Getting ${startUrl}`);
     browser.silent = true;
     await browser.visit(startUrl);
@@ -53,6 +59,9 @@ async function main() {
                         filingYear,
                         reportName.replace(' Report', '')
                             .replace(' (General Election Candidates Only)', '')
+                            .replace(' (Special Election Candidates)', '')
+                            .replace(' (Continuing Committees)', '')
+                            .replace(/ \(20\d\d Candidates\)/, '')
                             .replace(/(?: 20\d\d)? \(20\d\d\)/, ''),
                         submittedDate.replace(/^(\d\d)\/(\d\d)\/(\d{4})$/, '$3$1$2'),
                     ].join(' ')
@@ -92,9 +101,8 @@ async function main() {
     console.warn('Last page');
 }
 
-async function getCommittees() {
-    console.warn('Getting committees');
-    const year = Math.ceil(new Date().getFullYear() / 2) * 2; // coming election
+async function getCommittees(year) {
+    console.warn(`Getting committees for ${year}`);
     const response = await request({
         url: 'https://fairelections.ocf.dc.gov/app/api/Public/SearchRegistrationDisclosure',
         method: 'POST',

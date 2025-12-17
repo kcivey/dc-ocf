@@ -86,7 +86,7 @@ function getInputFilesByCommittee() {
     const inputFilesByCommittee = {};
     for (const inputFile of inputFiles) {
         const m = inputFile.match(
-            /^.+\/(.+)-(20\d\d-(?:\w+-\d+\w+|termination|8-day-pre-(?:primary|general-election)))(?:-amendment-\d+)?-\d{8}\.pdf$/ // eslint-disable-line max-len
+            /^.+\/(.+)-(20\d\d-(?:\w+-\d+\w+|termination|8-day-pre-(?:primary|general|special)(?:-election)?))(?:-amendment-\d+)?-\d{8}\.pdf$/ // eslint-disable-line max-len
         );
         assert(m, `Unexpected filename format "${inputFile}`);
         const committee = m[1];

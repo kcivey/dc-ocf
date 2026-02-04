@@ -6,3 +6,5 @@ set -e
 ./add-wards.js --year 2020
 ./add-wards.js --year 2022
 ./add-wards.js --year 2024
+./add-wards.js --year 2025
+./add-wards.js --year 2026

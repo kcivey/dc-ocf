@@ -27,6 +27,10 @@ async function main() {
         await db.deleteContributions(committeeName);
         await db.deleteExpenditures(committeeName);
         for (const inputFile of inputFiles) {
+            if (/\bvincent-orange-2020-2020-termination-20240317\.pdf$/.test(inputFile)) { // kluge
+                console.warn(`Skipping bad file ${inputFile}`);
+                continue;
+            }
             await processFile(inputFile);
         }
     }

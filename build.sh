@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 set -e
-./make-json.js --year 2020-2024
+./make-json.js --year 2020-2026
 #./make-candidate-table.js --year 2022
 echo 'Copying files from src to dist'
 mkdir -p dist

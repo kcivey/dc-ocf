@@ -102,6 +102,15 @@ UPDATE committees SET candidate_short_name = 'R White' WHERE candidate_name = 'R
 UPDATE committees SET candidate_name = 'Phil Thomas' WHERE candidate_name = 'William Thomas' AND election_year = 2022;
 UPDATE committees SET candidate_name = 'Isa Sanchez', candidate_short_name = 'Sanchez' WHERE candidate_name = 'Isabella Pimienta' AND election_year = 2022;
 UPDATE committees SET candidate_name = 'Nina O''Neill', candidate_short_name = 'O''Neill' WHERE candidate_name = 'Nina ONeill';
+UPDATE committees SET candidate_name = 'Oye Owolewa', candidate_short_name = 'Owolewa' WHERE candidate_name = 'Adeoye Yakubu-Owolewa';
+UPDATE committees SET candidate_name = 'Janeese Lewis George' WHERE candidate_name = 'Janeese George';
+UPDATE committees SET candidate_name = 'Vincent Orange' WHERE candidate_name = 'Vincent Bernard Orange';
+UPDATE committees SET candidate_name = 'Jackie Reyes Yanes', candidate_short_name = 'Reyes' WHERE candidate_name = 'Jakeline Maryori Reyes Yanes';
+UPDATE committees SET candidate_short_name = 'G Jackson' WHERE candidate_name LIKE 'Greg%Jackson' AND election_year = 2026;
+UPDATE committees SET candidate_short_name = 'J Jackson' WHERE candidate_name LIKE 'Joseph%Jackson' AND election_year = 2026;
+UPDATE committees SET office = 'Council At-Large (Special)' WHERE office = 'Council At-Large' AND election_year = 2026
+    AND candidate_short_name IN ('Anderson', 'Crawford', 'Daniels', 'Emmanuel', 'Lee', 'McCullum', 'Moch', 'Patterson', 'Phillips', 'Prince',
+                                 'Reddick', 'Sarter', 'Silverman', 'Sloan', 'Smith', 'Taylor');
 
 UPDATE committees SET election_year = 2024 WHERE committee_name IN ('Ward 1 Residents for Brianne', 'The Committee to Recall Brianne Nadeau')
     AND election_year = 2021;
@@ -109,6 +118,8 @@ UPDATE committees SET candidate_short_name = 'Yes' WHERE committee_name IN ('The
 UPDATE committees SET candidate_short_name = 'No' WHERE committee_name IN ('Neighbors United for Ward 6', 'No Recall in WARD 6', 'Ward 1 Residents for Brianne');
 
 DELETE FROM committees WHERE candidate_name = 'Karl Racine' AND election_year = 2022;
+
+UPDATE contributions SET committee_name = 'Elissa for DC [2026]' where committee_name = 'Elissa for DC' and receipt_date >= '2026-01-01';
 
 DELETE FROM contributions WHERE committee_name = 'Patrick Kennedy for Ward 2' AND receipt_date = '2020-03-24' AND amount > 54000;
 

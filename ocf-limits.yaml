@@ -4,21 +4,27 @@ Mayor:
   fe_contributor_threshold: 1000
   fe_amount_threshold: 40000
   fe_base_grant: 160000
-  fe_max: 3544475
+  fe_max:
+    2022: 3544475
+    2026: 3443855
 Attorney General:
   traditional_limit: 1500
   fe_limit: 200
   fe_contributor_threshold: 500
   fe_amount_threshold: 20000
   fe_base_grant: 40000
-  fe_max: 825633
+  fe_max:
+    2022: 825633
+    2026: 995242
 Council Chair:
   traditional_limit: 1500
   fe_limit: 200
   fe_contributor_threshold: 300
   fe_amount_threshold: 15000
   fe_base_grant: 40000
-  fe_max: 616222
+  fe_max:
+    2022: 616222
+    2026: 593166
 Council At-Large:
   traditional_limit: 1000
   fe_limit: 100
@@ -29,6 +35,7 @@ Council At-Large:
     2020: 308639
     2022: 333394
     2024: 356954
+    2026: 468314
 Council Ward:
   traditional_limit: 500
   fe_limit: 50
@@ -39,6 +46,8 @@ Council Ward:
     2020: 241055
     2022: 233384
     2024: 266666
+    2025: 266660
+    2026: 263680
 SBOE At-Large:
   traditional_limit: 500
   fe_limit: 50

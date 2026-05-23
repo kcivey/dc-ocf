@@ -30,7 +30,7 @@ async function loadRecords(tableName, columns, filerType) {
     console.warn(`Loading ${filerType} ${tableName} records`);
     const parser = fs.createReadStream(getCsvFilename(tableName, filerType))
         .pipe(parse({columns: true}));
-    let extraBatch = [];
+    const extraBatch = [];
     let totalCount = 0;
     let currentCount = 0;
     let batch = [];
@@ -38,7 +38,7 @@ async function loadRecords(tableName, columns, filerType) {
     for await (let record of parser) {
         totalCount++;
         record = transformRecord(record, filerType);
-        const committeeName = record.committee_name;
+        let committeeName = record.committee_name;
         if (checkForProblem(record)) {
             if (!unknownCommittees.has(committeeName)) {
                 console.warn(`Skipping ${tableName} record associated with "${committeeName}"`);
@@ -48,14 +48,10 @@ async function loadRecords(tableName, columns, filerType) {
         }
         if (tableName === db.committeeTableName) {
             if (currentCommittees.has(committeeName)) {
-                // remove earlier record with the same committee name. @todo handle better
-                console.warn(`Removing duplicate committee "${committeeName}"`);
-                batch = batch.filter(function (r) { // eslint-disable-line no-loop-func
-                    return r.committee_name !== record.committee_name;
-                });
-                extraBatch = extraBatch.filter(function (r) { // eslint-disable-line no-loop-func
-                    return r.committee_name !== record.committee_name;
-                });
+                // rename earlier record with the same committee name. @todo handle better
+                console.warn(`Renaming duplicate committee "${committeeName}"`);
+                committeeName += ` [${record.election_year}]`;
+                record.committee_name = committeeName;
             }
             currentCommittees.add(committeeName);
             extraBatch.push({

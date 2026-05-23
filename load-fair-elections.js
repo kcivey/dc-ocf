@@ -44,7 +44,10 @@ async function main() {
 
 async function processFile(inputFile) {
     console.warn('processing', inputFile);
-    const {committeeName, deadline, rowsBySchedule} = await parseFairElectionsPdf(inputFile);
+    let {committeeName, deadline, rowsBySchedule} = await parseFairElectionsPdf(inputFile);
+    if (committeeName === 'Elissa for DC' && deadline >= '2025-01-01') {
+        committeeName += ' [2026]'; // kluge to handle duplicate committee name
+    }
     const committee = await db.getCommittee(committeeName);
     if (!committee) {
         throw new Error(`No committee record for "${committeeName}"`);
